@@ -1,0 +1,133 @@
+% RESEARCH_DRAFT_SHA256: 613984a2632bbbebee03ac419c013b64723fa11fca9a1966b5ef508621df8209
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30003553, "title": "Random CNF Lower Bounds beyond Cutting Planes", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003553", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and written-proof review of this attempt; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Random CNF Lower Bounds beyond Cutting Planes; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Simulation direction and the failure of width padding; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch021 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30003553; source catalogue code OWR-15580-005
+\section{Random CNF Lower Bounds beyond Cutting Planes}\label{30003553}
+{\small UnsolvedMath ID 30003553 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A $k$-CNF formula is a conjunction of clauses, each a disjunction of at most $k$ literals; a literal is a variable or its negation. Satisfiability asks whether a Boolean assignment makes every clause true. MAX-SAT instead maximizes the number or weight of satisfied clauses.
+
+A refutation is a derivation of contradiction from an unsatisfiable constraint system using specified inference rules. Proof size counts the encoded derivation, and degree in algebraic proof systems is the largest polynomial degree appearing.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The comparison systems, clause count, sampling model, and exact analogous bound are not listed in the supplied question.
+
+Source-record limitation: The comparison proof systems and quantitative analogous lower bound are not identified.
+\paragraph{Statement recorded in the supplied source.}
+Can one establish lower bounds in proof systems other than Cutting Planes that are analogous to the exponential Cutting Planes lower bound for random $O(\log n)$-CNF formulas? \href{https://doi.org/10.4171/owr/2017/37}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Extend the cited random-formula lower bound to other specified proof systems.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30003553 (OWR-15580-005). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Proof Complexity and Beyond (2018), Oberwolfach Reports, DOI 10.4171/owr/2017/37, pp. 2299--2361
+\url{https://doi.org/10.4171/owr/2017/37}.
+\item[S3] Random CNFs are Hard for Cutting Planes
+\url{https://doi.org/10.1145/3486680}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30003553 and code OWR-15580-005 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30003553}
+
+\section{Literature and context check}
+Fleming's OWR 37/2017 talk, pp.~2318--2319, was read. It states the logarithmic-width Cutting Planes result, recalls earlier bounds for resolution and other named systems, and discusses limitations of its monotone-circuit route. The catalogue's requested comparison systems and quantitative analogue are unspecified. The following self-contained simulation and padding tests audit two plausible transfer routes without claiming a new lower bound.
+\section{Research attempt: Simulation direction and the failure of width padding}
+
+\paragraph{The direction needed to transfer a lower bound.}
+Write $L_P(F)$ for shortest refutation length in a system $P$. If every $P$ refutation of length $s$ can be transformed into a Cutting Planes refutation of length at most $a(s+|F|)^d$, then
+\[
+ L_{\mathrm{CP}}(F)\le a(L_P(F)+|F|)^d.
+\]
+A sufficiently large lower bound on the left therefore gives a lower bound on $L_P(F)$. Conversely, a simulation of Cutting Planes by $P$ only proves an upper bound on $L_P$ from $L_{\mathrm{CP}}$ and has no such lower-bound consequence. This is a direction-of-inequality issue, not an appeal to relative power by name.
+
+\paragraph{A concrete simulation calculation.}
+Resolution clauses can be written as $L_C\ge1$, where $L_C$ is the sum of their $0/1$ literals. Suppose a resolution step has parents $A\lor x$ and $B\lor\neg x$, with $A,B$ not containing the pivot. Addition of the parent inequalities gives
+\[
+ L_A+L_B\ge1.
+\]
+Assume the resolvent $C=A\lor B$ is not tautological. Every literal of $C$ occurs once or twice in this sum. Add the valid nonnegativity inequality for each literal occurring once, obtaining $2L_C\ge1$, and round after dividing by two to obtain $L_C\ge1$. Literal nonnegativity is exactly $x\ge0$ or $1-x\ge0$. A tautological resolvent follows directly from these bounds and $x+(1-x)=1$. Thus a resolution step has a Cutting Planes simulation with $O(n)$ additional lines and small coefficients. This verifies one legitimate transfer direction for a weaker system. It does not extend a Cutting Planes lower bound to systems that merely simulate Cutting Planes.
+
+\paragraph{Naive width padding changes satisfiability.}
+Given a clause $C$, append a fresh positive variable $z_C$. The padded formula $\bigwedge_C(C\lor z_C)$ is always satisfiable by setting all the new variables to one, even if the original formula was inconsistent. Appending fresh literals once therefore cannot convert a fixed-width refutation problem into a wider one.
+
+A satisfiability-preserving replacement does exist. With $d$ fresh variables, replace $C$ by all $2^d$ clauses
+\[
+ C\lor\ell_1\lor\cdots\lor\ell_d,
+ \qquad \ell_i\in\{z_i,\neg z_i\}.
+\]
+If $C$ is true every extension holds. If $C$ is false, any assignment to the new variables falsifies the extension whose literals are all false; thus the conjunction is equivalent to $C$. Opposite-literal resolution, or the Cutting Planes addition-and-rounding calculation, recovers $C$ in $2^d-1$ resolution steps or twice as many Cutting Planes steps. But the clauses in the block have a common old clause and common fresh variable set and contain every sign pattern. They are strongly dependent, unlike independently sampled random clauses. The replacement also multiplies the number of clauses by $2^d$. Hence it provides neither the original random distribution nor a cost-free transfer of a random logarithmic-width lower bound to constant width.
+
+The converse temptation also fails: a lower bound on random wide formulas says nothing about this highly structured padded family without a separate distributional reduction. These are exact obstructions to the attempted route, rather than assertions that no other proof-system lower bound can be obtained.
+\section{Verification and adversarial audit}
+The resolution simulation handles duplicate literals, tautological resolvents and integer rounding explicitly. The padding equivalence was checked in both truth cases of $C$, including a contradictory input containing an empty clause. The proof-length implication retains the input-size term and never reverses the simulation inequality.
+\paragraph{Audit corrections.} Corrected the direction of proof-system simulation and rejected padding with a single fresh literal. The satisfiability-preserving alternative is proved but its exponential block size and distributional correlations are retained as gaps.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The comparison systems, desired exponent, and clause-density regime of the source still need specification. No new lower bound or reduction preserving the required random distribution is established. The first unresolved step is a simulation or lower-bound invariant in the correct direction for a named additional system; simple padding does not supply it.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46700} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and written-proof review of this attempt; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

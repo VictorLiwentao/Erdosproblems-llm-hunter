@@ -1,0 +1,124 @@
+% RESEARCH_DRAFT_SHA256: 30dc54895d2255087cdf79e9820b4d2892eddefd4044af2f8a05508c11c56201
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30003377, "title": "Assumptions and Function Classes for Function Secret Sharing", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003377", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and written-proof review of this attempt; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Assumptions and Function Classes for Function Secret Sharing; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Perfect-privacy point sharing requires long additive keys; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch021 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30003377; source catalogue code OWR-15210-003
+\section{Assumptions and Function Classes for Function Secret Sharing}\label{30003377}
+{\small UnsolvedMath ID 30003377 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Function secret sharing distributes keys whose local evaluations combine to the output of a function while hiding that function from the prescribed coalitions. A point function is nonzero at one designated input and zero elsewhere.
+
+A cryptographic security requirement compares an efficient adversary\textquotesingle s advantage with a negligible function of the security parameter. A negligible function is smaller than every inverse polynomial eventually; computational and information-theoretic security are different requirements.
+\paragraph{Statement recorded in the supplied source.}
+Characterize the function classes for which efficient function secret-sharing schemes follow from one-way functions, and determine the necessary and sufficient cryptographic assumptions for useful FSS instances; in particular, improve one-way-function-based FSS for point functions with at least three parties. \href{https://doi.org/10.4171/owr/2017/5}{[S2]}
+\paragraph{Scope qualification.}
+The coalition threshold, leakage, output group, and efficiency parameters are source-specific.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Characterize which functions admit efficient secret sharing from one-way functions and improve the stated multiparty point-function case.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30003377 (OWR-15210-003). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Cryptography (2018), Oberwolfach Reports, DOI 10.4171/owr/2017/5, pp. 213--266
+\url{https://doi.org/10.4171/owr/2017/5}.
+\item[S3] Boyle, Gilboa, and Ishai, Function Secret Sharing
+\url{https://www.iacr.org/archive/eurocrypt2015/90560300/90560300.pdf}.
+\item[S4] Function Secret Sharing, Improvements and Extensions
+\url{https://eprint.iacr.org/2018/707.pdf}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30003377 and source code OWR-15210-003 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30003377}
+
+\section{Literature and context check}
+Ishai's FSS talk in OWR 5/2017, p.~236, was read. It defines additive function shares, privacy against every strict subset of parties, and asks specifically about efficient one-way-function-based point-function FSS for at least three parties. The source already compares with truth-table sharing. The following information-theoretic lower bound investigates why replacing computational privacy by perfect privacy is not a free simplification; it does not characterize one-way-function constructions.
+\section{Research attempt: Perfect-privacy point sharing requires long additive keys}
+
+\paragraph{A baseline with exact privacy.}
+Let the domain have $N$ points, and represent a Boolean function by its truth table $F\in\mathbb F_2^N$. For $m\ge2$, choose independent uniform vectors $K_1,\ldots,K_{m-1}\in\mathbb F_2^N$ and set $K_m=F+\sum_{j<m}K_j$. Party $j$ outputs the requested coordinate of $K_j$. Their sum is $F$ at every point. Every strict coalition sees a uniform tuple independent of $F$: if it omits party $m$, this is immediate; otherwise at least one independent uniform mask is missing, and it makes $K_m$ uniform conditional on all the observed masks. Each key has $N$ bits.
+
+\paragraph{A near-matching lower bound even for point functions.}
+Now restrict the hidden function to $F=e_i$, the point function at $i\in[N]$, where $N\ge2$. Consider any $m$-party scheme with the following additional hypotheses: local evaluations are deterministic functions of a key and the public input; outputs add in $\mathbb F_2$; correctness holds with probability one simultaneously at all $N$ points; and every strict coalition's key distribution is exactly independent of $i$. Let $V_j\in\mathbb F_2^N$ be the full evaluation vector determined by party $j$'s key.
+
+Fix a party $j$. Let $B=V_j$ and $A=\sum_{\ell\ne j}V_\ell$. The laws of $A$ and of $B$ are each independent of the selected point by the two relevant coalition privacy conditions, and correctness gives $B=e_i+A$. Denote the common law of $A$ by $\mu$. Since the law of $B$ is the same for every $i$, the measure $\mu$ is invariant under translation by every vector $e_i+e_{i'}$. These vectors span the even-parity subspace
+\[
+ E=\{v\in\mathbb F_2^N:\sum_i v_i=0\},\qquad |E|=2^{N-1}.
+\]
+Indeed $e_1+e_i$ for $i>1$ are linearly independent and span that subspace: the last $N-1$ coordinates determine every even-parity vector.
+
+Translation invariance forces $\mu$ to be uniform within each of the two cosets of $E$. Conditional on its parity, $A$ therefore has entropy $N-1$ bits; hence $H(A)\ge N-1$. The same holds for $B=e_i+A$. Since $B$ is a deterministic function of party $j$'s key, that key must have entropy at least $N-1$: grouping key outcomes by their evaluation vector cannot increase entropy, as follows directly by decomposing entropy into the entropy of the group label plus the nonnegative conditional entropy. In particular, if each key is encoded in at most $\ell$ bits in a fixed-length encoding, $\ell\ge N-1$. The argument holds for every party and every $m\ge2$, including three or more parties.
+
+\paragraph{Why this does not refute succinct computational FSS.}
+The proof uses equality of distributions to propagate invariance along all translations in a subspace of exponential size. Computational indistinguishability is weaker and does not imply equality or uniformity on those cosets. An unbounded observer could enumerate the truth table and distinguish distributions that efficient observers cannot distinguish. Thus the lower bound applies to the explicitly stronger perfect-privacy model, while the source asks for computational constructions from one-way functions. Nor does it establish that one-way functions are necessary for every useful FSS instance: that would need a separate reduction with the source's exact functionality, security and efficiency parameters.
+\section{Verification and adversarial audit}
+The baseline coalition proof handles coalitions containing the final balancing share. The lower bound uses privacy of the single selected party and of its complement; it does not mistakenly assume independent shares. The even-parity span, both cosets, arbitrary party count, $N=2$, and the entropy-to-fixed-key-length implication were checked. For $N=1$ the stated lower bound is zero and the nontrivial span argument is unnecessary.
+\paragraph{Audit corrections.} Replaced a weak counting argument based only on the $N$ possible point functions by a proved translation-invariance argument. Kept perfect privacy, deterministic evaluation, exact correctness and fixed-length key encoding explicit; none is silently imposed on the original computational target.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+No improved one-way-function-based scheme, full function-class characterization, or necessary-and-sufficient cryptographic assumption theorem is supplied. The actual result is an elementary perfect-privacy obstruction explaining why a tempting information-theoretic replacement cannot give short point-function keys. Computational privacy remains the essential missing ingredient.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46669} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and written-proof review of this attempt; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}
