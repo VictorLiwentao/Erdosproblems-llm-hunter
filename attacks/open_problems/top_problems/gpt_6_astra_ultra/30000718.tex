@@ -1,0 +1,139 @@
+% RESEARCH_DRAFT_SHA256: 3e45f7098d341cf3d42b405c55d11315651e3de9b4226efcbafab555545f0b05
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000718, "title": "Semialgebraic Homeomorphism Types at Fixed Complexity", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000718", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Does the Benedetti–Risler finiteness conjecture hold for every axiomatic complexity measure on semialgebraic sets: for each fixed value of such a complexity measure, are there only finitely many homeomorphism types?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The complete one-dimensional bounded-degree argument and singularity counterexample do not prove or disprove the universal axiomatic conjecture, whose full axioms are not supplied in the report excerpt.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Semialgebraic finiteness: an elementary one-variable bound and a singularity trap}
+\noindent UnsolvedMath ID 30000718; OWR-1465-013. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A semialgebraic set is described by finitely many polynomial equalities and inequalities and finite Boolean combinations of these conditions. A homeomorphism is a continuous bijection with continuous inverse.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The axioms defining a complexity measure are not listed in the supplied question; no particular degree or formula-length measure is substituted.
+
+Source-record limitation: The supplied question does not supply the axioms of its axiomatic complexity measures; the exact quantified mathematical target is not recoverable.
+\paragraph{Statement recorded in the supplied source.}
+Does the Benedetti–Risler finiteness conjecture hold for every axiomatic complexity measure on semialgebraic sets: for each fixed value of such a complexity measure, are there only finitely many homeomorphism types? \href{https://doi.org/10.4171/owr/2007/14}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Decide whether bounded axiomatic semialgebraic complexity forces finitely many topological types.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000718 (OWR-1465-013). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Reelle Algebraische Geometrie (2007), Oberwolfach Reports, DOI 10.4171/owr/2007/14, pp. 753--820
+\url{https://doi.org/10.4171/owr/2007/14}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Does the Benedetti–Risler finiteness conjecture hold for every axiomatic complexity measure on semialgebraic sets: for each fixed value of such a complexity measure, are there only finitely many homeomorphism types?
+
+\section{Source scope and attempted route}
+The report states that axiomatic polynomial complexity includes a Bezout-like
+bound on isolated nondegenerate solutions, but does not list all the axioms.
+It also reports established special cases for fewnomial and additive complexity;
+we do not reproduce their proofs or treat the universal axiomatic conjecture
+as resolved by those reports. We test the route from bounded roots to finitely
+many types in one variable, then examine a proposed extension using only
+regular-point counts.
+
+\paragraph{A complete elementary bounded-degree case on the line.}
+Fix nonnegative integers $s,D$. Let a set $X\subseteq\mathbb R$ be described
+by any Boolean combination of signs of at most $s$ real polynomials of degree
+at most $D$. Discard zero polynomials from the root list; their sign conditions
+are constant truth values. A nonzero degree-$d$ polynomial has at most $d$
+real roots: division by $(x-a)$ at a root reduces the degree by one, inductively.
+Thus the combined root list has $h\le sD$ distinct points
+$r_1<\cdots<r_h$.
+Every polynomial has a constant sign on each complementary open interval.
+Indeed a sign change between two points of an interval would give a root by
+the intermediate value theorem. Every Boolean formula in those signs is
+therefore constant there. Hence $X$ is a union of some of the $2h+1$ cells
+consisting of the roots and intervening open intervals, including two rays.
+
+For a fixed $h$, two choices of root locations with the same selected-cell
+pattern give homeomorphic sets: take the increasing piecewise linear map of
+$\mathbb R$ sending the first root list to the second, linear on bounded
+intervening intervals and with slope one on the outside rays. It is continuous,
+strictly increasing, onto, and has a continuous piecewise linear inverse.
+Restricting it gives the required homeomorphism. For $h=0$, the only sets are
+empty and the entire line. Thus the number of homeomorphism types for this
+family is at most
+\[
+\sum_{h=0}^{sD}2^{2h+1},
+\]
+a deliberately nonsharp finite bound valid for arbitrary Boolean formulas.
+This fixes the number of polynomials, their degrees, and the one-dimensional
+ambient space; it does not instantiate every axiomatic complexity measure.
+
+\paragraph{Why counting only regular points of the defining equation fails.}
+For $m\ge1$, define
+\[
+Q_m(x,y)=\prod_{j=1}^m\bigl((x-3j)^2+y^2-1\bigr),\qquad P_m=Q_m^2.
+\]
+The zero set is the union of $m$ unit circles with centers $(3j,0)$.
+Distinct circles are disjoint because their center distance is at least three,
+greater than the sum of radii two. Each circle is connected, as follows from
+its continuous parametrization by an interval of angles, and is separated
+from the other finitely many circles by a positive distance. Thus these are
+exactly $m$ connected components, so differing $m$ give nonhomeomorphic sets:
+a homeomorphism and its inverse preserve connected components.
+Yet $\nabla P_m=2Q_m\nabla Q_m$ vanishes at every zero of $P_m$.
+A method examining only nonsingular zeros of this displayed equation would
+see none for any $m$, while the number of components grows arbitrarily.
+This example does not refute the Benedetti--Risler axioms: the degrees and
+likely other allowed complexities grow, and the full axioms may control
+perturbations or auxiliary systems. It pinpoints the failure of replacing
+those axioms by a regular-point count for just one defining equation.
+
+\section{Adversarial audit and gap}
+The actual source passage was inspected, including its distinction between
+homeomorphism and the weaker effective homotopy-type bounds. The audit treated
+zero polynomials, unbounded intervals, and singular equations, and did not
+assert that the toy regular-point statistic is an admissible complexity measure.
+The full axioms and their quantitative closure requirements are not recovered
+here. No theorem for all such measures follows from the line case, and no
+numerical experiment was performed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The complete one-dimensional bounded-degree argument and singularity counterexample do not prove or disprove the universal axiomatic conjecture, whose full axioms are not supplied in the report excerpt.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 14/2007, Vorobjov, Upper bounds on the number of homotopy types of sets defined by fewnomials, printed pp.813--815; relevant passage read from cached primary PDF text and publisher landing page checked. \url{https://ems.press/content/serial-article-files/46100}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The complete one-dimensional bounded-degree argument and singularity counterexample do not prove or disprove the universal axiomatic conjecture, whose full axioms are not supplied in the report excerpt.
+\end{document}

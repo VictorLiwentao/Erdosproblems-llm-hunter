@@ -1,0 +1,124 @@
+% RESEARCH_DRAFT_SHA256: 5e9d386e2d8c21db3197cf02ad7e7421a65823cbfa80cb02f83fe862db6ff489
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000111, "title": "Polynomial-Time Computation of Ehrhart Periods", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000111", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and written mathematical review at the declared scope; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Polynomial-Time Computation of Ehrhart Periods; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Exact interval periods and the failure of residue enumeration; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch015 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30000111; source catalogue code OWR-741-005
+\section{Polynomial-Time Computation of Ehrhart Periods}\label{30000111}
+{\small UnsolvedMath ID 30000111 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+The Ehrhart function is $i_P(t)=\#(tP\cap\mathbb Z^d)$ for nonnegative integers $t$. For rational $P$ it is a quasipolynomial: polynomial coefficients can depend periodically on $t$. Its minimum period is the smallest positive period of all these coefficient functions.
+
+Polynomial time means a number of elementary steps bounded by a polynomial in the encoded input length. A decision problem is in $\mathrm{NP}$ if yes-instances have polynomial-length certificates verifiable in polynomial time; NP-hardness is under polynomial-time reductions.
+
+A polyhedron is an intersection of finitely many closed affine half-spaces; a polytope is a bounded polyhedron. Its faces are its intersections with supporting hyperplanes.
+\paragraph{Statement recorded in the supplied source.}
+Can the period of the Ehrhart quasipolynomial $i_P(t)$ of a rational polytope $P$ be determined in polynomial time? \href{https://doi.org/10.4171/owr/2004/39}{[S2]}
+\paragraph{Scope qualification.}
+The supplied question does not specify whether dimension is fixed or part of the input, or whether the polytope is encoded by inequalities or vertices.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Compute the true period of lattice-point counts in dilates of a rational polytope efficiently.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000111 (OWR-741-005). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Ehrhart Quasipolynomials: Algebra, Combinatorics, and Geometry (2005), Oberwolfach Reports, DOI 10.4171/owr/2004/39, pp. 2071--2102
+\url{https://doi.org/10.4171/owr/2004/39}.
+\item[S3] Woods
+\url{https://www.combinatorics.org/ojs/index.php/eljc/article/view/v12i1r34}.
+\item[S4] Beck--Robins
+\url{https://matthbeck.github.io/papers/ccdnew.pdf}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30000111 and source code OWR-741-005 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30000111}
+
+\section{Literature and context check}
+Kevin Woods's primary contribution in report 39/2004, p.~2081, was read. It states a fixed-dimension polynomial-time test for a proposed period and explains a minimum-period algorithm that uses factorization of the denominator. Thus fixed dimension is relevant in the primary context even though the retained short question does not fix the input model. The following interval case is elementary and does not import that general algorithm or solve its factorization issue.
+\section{Research attempt: Exact interval periods and the failure of residue enumeration}
+Let $P=[a,b]\subset\mathbb R$ with rational $a\leq b$, and let $D$ be the least positive integer such that $Da,Db\in\mathbb Z$. For integers $t\geq0$,
+\[
+ i_P(t)=\lfloor tb\rfloor-\lceil ta\rceil+1
+       =(b-a)t+c(t),\qquad
+ c(t)=1-\{tb\}-\{-ta\},                         \tag{1}
+\]
+where $\{x\}=x-\lfloor x\rfloor$. The expression also holds when $a=b$: it equals one exactly when $ta$ is an integer and zero otherwise. The function $c$ is $D$-periodic and bounded.
+
+We prove that the minimum quasipolynomial period is exactly $D$. If $p$ is any period, on each residue class modulo $p$ the quasipolynomial agrees with a polynomial in $t$. Equation (1) shows this polynomial differs from $(b-a)t$ by a bounded quantity along infinitely many integers, so the difference polynomial is constant. Thus $c$ is $p$-periodic. In particular $c(p)=c(0)=1$. Both fractional parts in (1) are nonnegative, so this equality forces $pa,pb\in\mathbb Z$, whence $D$ divides $p$. Since $D$ itself is a period, it is minimal.
+
+If $a=A/U$ and $b=B/V$ are in lowest terms with positive denominators, $D=\operatorname{lcm}(U,V)=UV/\gcd(U,V)$. Euclidean division computes the gcd in polynomial bit time: in every two remainder steps the positive remainder is at most half the previous larger remainder, so there are $O(\log\max(U,V))$ steps; ordinary arithmetic on their input-size-bounded integers has polynomial cost. Multiplication and exact division preserve polynomial bit complexity. This proves a full answer for rational intervals supplied by their endpoints.
+
+The same example falsifies a common complexity inference. For $P=[0,2^{-B}]$, the minimum period is $2^B$, while its binary representation has only $B+1$ bits and the interval has $O(B)$ input bits. Listing all residue-class polynomials would require at least $2^B$ entries, but printing the period does not. An exponential residue enumeration is therefore neither a polynomial-time algorithm nor a lower bound for the requested output.
+
+In higher dimension, a denominator is only an upper bound on the period, as the primary report emphasizes. The above proof depends on the interval's special nonnegative-fractional-part formula and does not justify replacing minimum period by vertex denominator for general polytopes.
+\section{Verification and adversarial audit}
+Negative endpoints, integral endpoints, $t=0$, and point intervals are covered by (1). The minimality proof checks arbitrary quasipolynomial periods rather than only periods guessed from the displayed representation. Output bit length is separated from the numerical value of the period.
+\paragraph{Audit corrections.} The primary report's fixed-dimension context is recorded without rewriting the retained statement. Numerical size of a period was not confused with the size of its binary output.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+General rational polytopes, dimension as part of the input, alternative encodings, and minimum-period computation without the source's factorization step remain untreated. The interval characterization is a known elementary case, not the full original polynomial-time result.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/45962} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and written mathematical review at the declared scope; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

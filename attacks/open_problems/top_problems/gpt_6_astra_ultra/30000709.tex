@@ -1,0 +1,95 @@
+% TOP_PROBLEM: {"id": 30000709, "title": "Density of Current–Current Correlation Measures", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The trace-per-unit-volume and spectral-product convention of the report is essential to the measure definition. The source proves analytic densities off a disorder-dependent neighborhood of the energy diagonal for a particular analytic single-site distribution; the question includes the diagonal and broader source setting."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000709", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Determine whether the current--current energy correlation measure of the random Schrödinger model is absolutely continuous.", "scope": "Constructs a regular-marginal singular joint measure and checks why the current commutator structure prevents using it as a source counterexample.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked marginal densities, diagonal null set, finite-dimensional commutator factor and the unbounded-position/infinite-volume caveats. Model self-audit only; no independent human proof checking. Coordinator checked the diagonal joint-measure example and finite-dimensional commutator matrix elements, including the distinction between an arbitrary observable and a physical current. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked marginal densities, diagonal null set, finite-dimensional commutator factor and the unbounded-position/infinite-volume caveats. Retained unresolved status and zero original-target progress; Uniform joint spectral regularity near the diagonal for the genuine current operator is missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30000709; source catalogue code OWR-1463-001
+\setcounter{section}{30000708}
+\section{Density of Current–Current Correlation Measures}\label{30000709}
+{\small UnsolvedMath ID 30000709 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} $H_\omega$ is the report's covariant random Schrödinger operator, $E_{H_\omega}(B)$ its spectral projection on a Borel set $B\subset\mathbb R$, and $\mathbb E$ expectation over the disorder. The lattice vector $|0\rangle$ is localized at the origin. The current operator $\nabla_iH_\omega$ is the derivation in position direction $i$ (with the convention fixed by the source). The summed diagonal current--current correlation defines a positive measure on the energy plane. Having a density means absolute continuity: $dm(E,E')=m(E,E')\,dE\,dE'$.
+
+\paragraph{Source scope and qualifications.} The trace-per-unit-volume and spectral-product convention of the report is essential to the measure definition. The source proves analytic densities off a disorder-dependent neighborhood of the energy diagonal for a particular analytic single-site distribution; the question includes the diagonal and broader source setting.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+For the random Schrödinger operator $H_\omega$, let the current–current correlation measures be $$dm_{ij}(E,E')=\mathbb E\!\left[\langle0|\nabla_iH_\omega\,E_{H_\omega}(dE)\,\nabla_jH_\omega\,E_{H_\omega}(dE')|0\rangle\right],$$ and put $dm=\sum_i dm_{ii}$. Does the positive measure $dm$ have a density $m(E,E')$ with respect to Lebesgue measure?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The general density question is not settled, but Combes, Germinet, and Hislop prove density at coincident energies in a localization regime, with vanishing-rate bounds. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Determine whether the current--current energy correlation measure of the random Schrödinger model is absolutely continuous.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Constructs a regular-marginal singular joint measure and checks why the current commutator structure prevents using it as a source counterexample.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Why regular marginals are insufficient.} Let $\mu$ on $[0,1]^2$ be the pushforward of Lebesgue measure under $t\mapsto(t,t)$. Both marginals have density one, but $\mu$ gives mass one to the diagonal, whose two-dimensional Lebesgue measure is zero. Thus even sharp one-energy spectral regularity cannot alone imply a two-energy density.
+
+\paragraph{The operator version of the same trap.} On $L^2([0,1])$ let $H$ multiply by $t$, let $J=I$, and use the vector state $\tau(B)=\langle1,B1\rangle$ on the commutative multiplication algebra. For Borel sets $B,C$,
+\[
+ \tau(J1_B(H)J1_C(H))=|B\cap C|.
+\]
+This reproduces $\mu(B\times C)$. However $J$ is not the current $i[H,X]$ of a random Schrödinger operator, so it is not a counterexample to the source question.
+
+\paragraph{A current-specific check.} In finite dimension, if $Hv_a=E_av_a$ and $J=i[H,X]$, then $\langle v_a,Jv_b\rangle=i(E_a-E_b)\langle v_a,Xv_b\rangle$. Current matrix elements vanish within exactly degenerate energy spaces, eliminating the preceding simple diagonal mechanism. This does not prove absolute continuity: finite systems still yield point masses off the diagonal, and infinite-volume position operators are unbounded. The first missing estimate is joint two-energy regularity, uniform in volume and strong enough near $E=E'$ to survive the trace-per-volume limit. The source's off-diagonal results cannot be extended by marginal regularity alone.
+
+\paragraph{Verification and adversarial audit.}
+Checked marginal densities, diagonal null set, finite-dimensional commutator factor and the unbounded-position/infinite-volume caveats. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked marginal densities, diagonal null set, finite-dimensional commutator factor and the unbounded-position/infinite-volume caveats. Retained unresolved status and zero original-target progress; Uniform joint spectral regularity near the diagonal for the genuine current operator is missing.
+
+Coordinator checked the diagonal joint-measure example and finite-dimensional commutator matrix elements, including the distinction between an arbitrary observable and a physical current. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Uniform joint spectral regularity near the diagonal for the genuine current operator is missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Uniform joint spectral regularity near the diagonal for the genuine current operator is missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30000709:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30000709 (OWR-1463-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30000709:2}{S2}] Transport in Multi-Dimensional Random Schrödinger Operators (2007), Oberwolfach Reports, DOI 10.4171/owr/2007/12, pp. 667--708; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2007/12}.
+\item[\hypertarget{source:30000709:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 18--19, printed pages 684--685.
+\url{https://ems.press/content/serial-article-files/46096}.
+\item[\hypertarget{source:30000709:4}{S4}] localization-regime density theorem; reference in the saved dated catalogue literature review.
+\url{https://arxiv.org/abs/1008.5344}.
+\end{itemize}
+\label{end:30000709}
+\end{document}

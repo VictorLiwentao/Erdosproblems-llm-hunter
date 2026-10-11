@@ -1,0 +1,88 @@
+% TOP_PROBLEM: {"id": 30004804, "title": "Weak Cosmic Censorship for Vacuum Spacetimes", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The source gives a weak-cosmic-censorship programme. A choice of topology for genericity and a precise conformal-completion and singularity criterion is needed for a theorem; no such extra choice is imposed here."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004804", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "For generic regular isolated-system data, decide whether gravitational singularities are always hidden from distant observers.", "scope": "Analyzed negative-mass Schwarzschild visibility and proved its initial slice is incomplete, rejecting it as a counterexample to the source regular-data conjecture.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked lapse positivity, finite null-coordinate travel and finite radial proper distance; retained the complete-regular-data and genericity exclusions. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the negative-mass lapse integrals and incomplete initial spatial slice, which invalidate the proposed shortcut. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked lapse positivity, finite null-coordinate travel and finite radial proper distance; retained the complete-regular-data and genericity exclusions. The remaining gap is: Prove or exclude visible singularity formation from complete regular asymptotically flat vacuum data in a specified generic topology. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30004804; source catalogue code OWR-8415343-007
+\setcounter{section}{30004803}
+\section{Weak Cosmic Censorship for Vacuum Spacetimes}\label{30004804}
+{\small UnsolvedMath ID 30004804 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+A vacuum spacetime is a Lorentzian manifold $(M,g)$ satisfying $\operatorname{Ric}(g)=0$. Its Cauchy data are a Riemannian metric and second fundamental form satisfying the vacuum constraint equations. The maximal globally hyperbolic development is the largest Cauchy evolution. Relative to future null infinity $\mathcal I^+$, the black-hole region is $M\setminus J^-(\mathcal I^+)$; a naked singularity is visible from the exterior.
+
+\paragraph{Catalogue wording retained for traceability.}
+Weak Cosmic Censorship for the Einstein vacuum equations: for generic complete, regular, asymptotically flat Cauchy data, are all singularities in the corresponding maximal development hidden inside a black hole (so that naked singularities do not occur)?
+
+\paragraph{Scope and source qualification.}The source gives a weak-cosmic-censorship programme. A choice of topology for genericity and a precise conformal-completion and singularity criterion is needed for a theorem; no such extra choice is imposed here.
+\subsection{Short English statement}
+For generic regular isolated-system data, decide whether gravitational singularities are always hidden from distant observers.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Analyzed negative-mass Schwarzschild visibility and proved its initial slice is incomplete, rejecting it as a counterexample to the source regular-data conjecture.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30004804. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{Rejecting a tempting naked-singularity counterexample.} Put \(M=-a\), \(a>0\), in the Schwarzschild form, so \(f(r)=1+2a/r>0\) for every \(r>0\). Radial null curves satisfy \(dt/dr=\pm f^{-1}\). Since
+\[
+ \int_0^{r_0}\frac{dr}{1+2a/r}<\infty,
+\]
+there are outgoing radial rays from arbitrarily close to the singular boundary reaching a regular exterior in finite coordinate time, and no positive root of \(f\) supplies a horizon. The radial curvature component contains \(f''(r)/2=2a/r^3\), which diverges at zero.
+\paragraph{The excluded initial-data hypothesis.} On a static spatial slice, the radial proper distance to zero is
+\[
+ \int_0^{r_0}\frac{dr}{\sqrt{1+2a/r}}<\infty,
+\]
+by comparison near zero with a constant times \(r^{1/2}\). Removing the singular center therefore leaves an incomplete initial manifold; adjoining it does not give regular data. This candidate violates the source's complete regular Cauchy-data requirement before genericity is even considered.
+\paragraph{Full-scope gap.} The calculation does not disprove vacuum weak cosmic censorship. It explains exactly why an explicit visible vacuum singularity is insufficient for the target, which concerns singularities formed from generic regular isolated-system data. The first missing step is either a stable collapse construction producing visibility from such data or a global exterior estimate excluding it in a stated generic topology. No naked example satisfying those hypotheses is supplied.
+
+\paragraph{Verification and adversarial audit.}
+Checked lapse positivity, finite null-coordinate travel and finite radial proper distance; retained the complete-regular-data and genericity exclusions. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked lapse positivity, finite null-coordinate travel and finite radial proper distance; retained the complete-regular-data and genericity exclusions. The remaining gap is: Prove or exclude visible singularity formation from complete regular asymptotically flat vacuum data in a specified generic topology. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the negative-mass lapse integrals and incomplete initial spatial slice, which invalidate the proposed shortcut. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Prove or exclude visible singularity formation from complete regular asymptotically flat vacuum data in a specified generic topology.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30004804:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30004804 (OWR-8415343-007). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30004804:2}{S2}] Mathematical Aspects of General Relativity (2021), Oberwolfach Reports, DOI 10.4171/owr/2021/40, pp. 2157--2267. Original report and mathematical context.
+\url{https://doi.org/10.4171/owr/2021/40}.
+\end{itemize}
+\label{end:30004804}
+\end{document}

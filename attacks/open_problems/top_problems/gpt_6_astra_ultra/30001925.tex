@@ -1,0 +1,99 @@
+% TOP_PROBLEM: {"id": 30001925, "title": "Quantum Variance Conjectures for Matrix Elements", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The catalogue formula suppresses the averaging bar and can be misread as exact equality for each matrix entry. The primary source calls this a distributional variance conjecture in the semiclassical near-diagonal regime, with j distinct from k and frequency (E_j-E_k)/hbar tending to zero. The Gaussian assertion is an asymptotic distribution claim under the source's chaotic-dynamics setting, not an identity for every observable and Hamiltonian."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001925", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Prove the predicted averaged off-diagonal variance and the Gaussian diagonal fluctuations, including the time-reversal factor.", "scope": "Derives the averaged spectral correlation identity and separates variance scaling from the stronger Gaussian fluctuation claim.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked Fourier sign and matrix trace, algebraic hbar exponent, two equal-variance different-fourth-moment laws and source averaging conventions. Model self-audit only; no independent human proof checking. Coordinator checked the spectral trace expansion, Fourier sign and distinct fourth moments of equal-variance distributions. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked Fourier sign and matrix trace, algebraic hbar exponent, two equal-variance different-fourth-moment laws and source averaging conventions. Retained unresolved status and zero original-target progress; Long-enough semiclassical correlation control and higher-moment/distribution estimates are missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001925; source catalogue code OWR-11447-002
+\setcounter{section}{30001924}
+\section{Quantum Variance Conjectures for Matrix Elements}\label{30001925}
+{\small UnsolvedMath ID 30001925 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} Let $Hu_j=E_ju_j$ and $A_{jk}=\langle u_j,Au_k\rangle$ for a selfadjoint observable with classical symbol $a$. $\{A\}$ is the classical mean on the energy surface, and $C(t)=\{a\circ\Phi_t\,a\}$ is its autocorrelation. The regularized power spectrum is $S(\omega)=\int_{\mathbb R}(C(t)-\{A\}^2)e^{-i\omega t}\,dt$ when the chosen regularization makes this meaningful. For $d$ configuration dimensions the source uses the Weyl density $\rho(E)=(2\pi\hbar)^{-d}\int\delta(E-H_{\rm cl}(p,q))\,dp\,dq$. A quantum variance averages squared matrix elements over the appropriate near-energy ensemble; it is not the value of one chosen entry.
+
+\paragraph{Source scope and qualifications.} The catalogue formula suppresses the averaging bar and can be misread as exact equality for each matrix entry. The primary source calls this a distributional variance conjecture in the semiclassical near-diagonal regime, with j distinct from k and frequency (E\_j-E\_k)/hbar tending to zero. The Gaussian assertion is an asymptotic distribution claim under the source's chaotic-dynamics setting, not an identity for every observable and Hamiltonian.
+
+\paragraph{Primary-source variance meaning.} With the report's averaging conventions, the proposed off-diagonal variance is $\overline{|A_{jk}|^2}\sim S(0)/(2\pi\hbar\rho(E))$ and the diagonal variance is $\overline{|A_{jj}-\{A\}|^2}\sim gS(0)/(2\pi\hbar\rho(E))$ as $\hbar\downarrow0$. The source's Gaussian and symmetry-factor statements remain part of the target.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+For an observable $A$, do the off-diagonal matrix elements satisfy $|A_{jk}|^2=S(0)/(2\pi\hbar\rho(E))$, hence scale as $\hbar^{d-1}$? Are the diagonal matrix elements Gaussian with mean $\{A\}$ and variance $gS(0)/(2\pi\hbar\rho(E))$, where $g=2$ in the presence of time-reversal symmetry and $g=1$ otherwise?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The Feingold--Peres-type variance predictions remain beyond general proofs; rigorous work gives upper bounds and special arithmetic cases, so the stated conjectures are only partially supported. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\paragraph{Scope and source qualification.}The catalogue formula suppresses the averaging bar and can be misread as exact equality for each matrix entry. The primary source calls this a distributional variance conjecture in the semiclassical near-diagonal regime, with j distinct from k and frequency (E_j-E_k)/hbar tending to zero. The Gaussian assertion is an asymptotic distribution claim under the source's chaotic-dynamics setting, not an identity for every observable and Hamiltonian.
+\subsection{Short English statement}
+Prove the predicted averaged off-diagonal variance and the Gaussian diagonal fluctuations, including the time-reversal factor.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derives the averaged spectral correlation identity and separates variance scaling from the stronger Gaussian fluctuation claim.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{An exact spectral correlation identity.} In a finite spectral window with $N$ eigenvectors, let $A$ be a self-adjoint matrix and $A(t)=e^{itH/\hbar}Ae^{-itH/\hbar}$. A direct basis expansion gives
+\[
+ C_N(t)=N^{-1}\operatorname{Tr}(A(t)A)
+ =N^{-1}\sum_{j,k}|A_{jk}|^2e^{it(E_j-E_k)/\hbar}.
+\]
+For a Schwartz test function $g$ with $\widehat g(\omega)=\int g(t)e^{-i\omega t}dt$, integration yields $\int g(t)C_N(t)dt=N^{-1}\sum_{j,k}|A_{jk}|^2\widehat g((E_k-E_j)/\hbar)$. This is the precise averaged connection between correlations and squared matrix entries; it does not identify a single entry with the classical spectrum.
+
+\paragraph{Why the Gaussian conclusion needs more.} A variance does not determine a distribution. A random variable taking $\pm\sigma$ with equal probability and a centered Gaussian of variance $\sigma^2$ have the same first two moments, but fourth moments $\sigma^4$ and $3\sigma^4$. Thus even proving the proposed second-moment scaling would not establish the diagonal Gaussian law or its symmetry factor. If $\rho(E)$ is of order $\hbar^{-d}$ and $S(0)$ stays finite, the source denominator indeed yields order $\hbar^{d-1}$ by algebra alone.
+
+\paragraph{First missing step.} One needs a controlled quantum-to-classical correlation comparison on time/frequency scales fine enough for the shrinking near-diagonal average, followed by higher-moment or distribution estimates. The source's averaging bars, $j\ne k$ condition and $g=1,2$ assertion are all retained. No exact entrywise equality or general Gaussian theorem is claimed.
+
+\paragraph{Verification and adversarial audit.}
+Checked Fourier sign and matrix trace, algebraic hbar exponent, two equal-variance different-fourth-moment laws and source averaging conventions. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked Fourier sign and matrix trace, algebraic hbar exponent, two equal-variance different-fourth-moment laws and source averaging conventions. Retained unresolved status and zero original-target progress; Long-enough semiclassical correlation control and higher-moment/distribution estimates are missing.
+
+Coordinator checked the spectral trace expansion, Fourier sign and distinct fourth moments of equal-variance distributions. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Long-enough semiclassical correlation control and higher-moment/distribution estimates are missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Long-enough semiclassical correlation control and higher-moment/distribution estimates are missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001925:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001925 (OWR-11447-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001925:2}{S2}] Arbeitsgemeinschaft: Quantum Ergodicity (2011), Oberwolfach Reports, DOI 10.4171/owr/2011/49, pp. 2781--2835; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2011/49}.
+\item[\hypertarget{source:30001925:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 34--35, printed pages 2814--2815, equations (4)--(9).
+\url{https://ems.press/content/serial-article-files/46365}.
+\item[\hypertarget{source:30001925:4}{S4}] Kurlberg--Rosen--Rudnick; reference in the saved dated catalogue literature review.
+\url{https://www.math.tau.ac.il/~rudnick/papers/shortwindows.pdf}.
+\end{itemize}
+\label{end:30001925}
+\end{document}

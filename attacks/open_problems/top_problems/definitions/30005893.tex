@@ -1,0 +1,60 @@
+% SUBMISSION: {"kind": "statement_only", "category": "top_problems", "problem_id": "30005893", "proposal_type": "established", "source": "Applied Harmonic Analysis and Data Science (2024), Oberwolfach Reports, DOI 10.4171/owr/2024/21, pp. 1163--1226: https://doi.org/10.4171/owr/2024/21", "status_evidence": "The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.", "status_checked_on": "2026-10-11", "duplicate_check": "Canonical ID 30005893 and source code OWR-14298366-005 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed.", "attribution": "Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted."}
+% TOP_PROBLEM: {"id": 30005893, "title": "Global Convergence of Low-Rank Multi-Penalty Optimization", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: null
+% ENTRY_KIND: statement_only
+% Imported from: computer_science_statements.tex; UnsolvedMath ID 30005893
+% Compile twice: lualatex 30005893.tex
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+% UnsolvedMath ID 30005893; source catalogue code OWR-14298366-005
+\setcounter{section}{30005892}
+\section{Global Convergence of Low-Rank Multi-Penalty Optimization}\label{30005893}
+{\small\sffamily UnsolvedMath ID 30005893 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+The report specifies the modified iteratively reweighted least-squares method of Kummerle and Maly (2023). It recovers $X_*$ from noiseless linear measurements $y=\mathcal A(X_*)$. Row sparsity means that only a small number of rows of $X_*$ are nonzero; low rank bounds its column-space dimension. The iteration uses joint low-rank and row-sparsity weights and updates smoothing parameters from singular values and row norms. Global convergence here means convergence to the ground-truth matrix $X_*$ from the source\textquotesingle s allowed initializations.
+
+A matrix $\Phi$ has restricted-isometry constant at most $\delta_s$ if $(1-\delta_s)\lVert x\rVert_2^2\leq\lVert\Phi x\rVert_2^2\leq(1+\delta_s)\lVert x\rVert_2^2$ for every vector with at most $s$ nonzero coordinates. Compressed sensing recovers structured vectors from measurements $\Phi x$.
+
+The rank of a matrix is the dimension of its column space. Matrix completion reconstructs a low-rank matrix from a subset of its entries; matrix sensing reconstructs it from specified linear measurements. Tensor decomposition represents a multiway array as a sum of simple outer products.
+\paragraph{Statement recorded in the supplied source.}
+Under which restricted-isometry or related assumptions on the measurement operator does the iteratively reweighted least-squares algorithm for simultaneously sparse and low-rank matrix recovery converge globally? \sref{30005893}{2}
+\paragraph{Scope qualification.}
+The algorithm is identified in the original report as Kummerle-Maly (2023), arXiv:2306.04961. The separately supplied arXiv:1801.06240 concerns an alternating Tikhonov/Lasso method and is not used to define this IRLS target. Exact restricted-isometry assumptions and initialization guarantees remain those sought by the question.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Prove global ground-truth recovery for the cited row-sparse low-rank iteratively reweighted method.
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30005893:1}{S1}] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30005893 (OWR-14298366-005). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30005893:2}{S2}] Applied Harmonic Analysis and Data Science (2024), Oberwolfach Reports, DOI 10.4171/owr/2024/21, pp. 1163--1226
+\url{https://doi.org/10.4171/owr/2024/21}.
+\item[\hypertarget{source:30005893:3}{S3}] OWR report
+\url{https://ems.press/content/serial-article-files/49476}.
+\item[\hypertarget{source:30005893:4}{S4}] C. Kummerle and J. Maly, Simultaneously Sparse and Low-Rank Matrix Recovery by Iteratively Reweighted Least Squares, NeurIPS 2023; arXiv:2306.04961
+\url{https://arxiv.org/abs/2306.04961}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30005893 and source code OWR-14298366-005 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30005893}
+\end{document}

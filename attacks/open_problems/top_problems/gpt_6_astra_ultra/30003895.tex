@@ -1,0 +1,97 @@
+% TOP_PROBLEM: {"id": 30003895, "title": "All-Order Expansion of the Noncommutative $\\Phi^4$ Model", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The defining transform and boundary-value relations were recovered from PDF page 29. The report checked the conjectured coefficients through order ten and resummed the proposed series with Lagrange--B\\\"urmann inversion; that resummation alone does not establish that the actual nonlinear boundary-value solution has all those coefficients. The target remains coefficientwise formal validity, rather than an added convergence claim."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003895", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Does the proposed derivative formula reproduce every perturbative coefficient of the noncommutative phi-four solution?", "scope": "Calculated three candidate coefficients and their endpoint cancellations; did not identify them with the actual nonlinear boundary-value solution.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the extra lambda shift, both cubic derivatives and a-down-to-zero coefficient limits; retained the source’s already known ten-order check as context. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the displayed first three formal coefficients and their endpoint limits. The defining boundary equation and all-order identification are explicitly left unproved. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked the extra lambda shift, both cubic derivatives and a-down-to-zero coefficient limits; retained the source’s already known ten-order check as context. The remaining gap is: Derive and justify an all-order coefficient recursion from the defining cutoff Hilbert-transform equations and prove candidate uniqueness. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30003895; source catalogue code OWR-16407-007
+\setcounter{section}{30003894}
+\section{All-Order Expansion of the Noncommutative $\Phi^4$ Model}\label{30003895}
+{\small UnsolvedMath ID 30003895 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+The coupling $\lambda$ is a formal expansion parameter and $a$ is the argument of the source\textquotesingle s boundary-value solution $I_\lambda$. Derivatives in the displayed series are ordinary derivatives with respect to $a$, and $(-\log(1+a))^n$ means the $n$th power before differentiation. Holding to every order means equality of each coefficient in the formal power series in $\lambda$, after the second sum\textquotesingle s extra factor $\lambda$ is taken into account; this does not by itself imply convergence for nonzero coupling. The primary definition uses the one-sided Hilbert transform $H_a[f]=\pi^{-1}\operatorname{p.v.}\int_0^{\Lambda^2}f(p)/(p-a)\,dp$ with a common cutoff, followed by its prescribed cutoff removal. Its angle functions satisfy $\lambda\pi\cot\tau_b(a)=1+a+b-\lambda\log a+I_\lambda(a)$ and $I_\lambda(a)=\pi^{-1}\int_0^\infty(e^{-H_p[\tau_a]}\sin\tau_a(p)-\lambda\pi/(1+p))\,dp$, in the source boundary-value convention for $a>0$.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+For the function $I_\lambda(a)$ arising from the boundary-value solution of the noncommutative $\Phi^4$ model, does the formal expansion
+$$
+I_\lambda(a)=\sum_{n\geq1}\frac{\lambda^n}{n!}\frac{d^{n-1}}{da^{n-1}}\bigl(-\log(1+a)\bigr)^n
+-\lambda\sum_{n\geq1}\frac{\lambda^n}{n!}\frac{d^{n-1}}{da^{n-1}}\left[\frac{\bigl(-\log(1+a)\bigr)^n}{a}\right]
+$$
+hold to every order in $\lambda$?
+
+\paragraph{Source scope and qualification.}
+The defining transform and boundary-value relations were recovered from PDF page 29. The report checked the conjectured coefficients through order ten and resummed the proposed series with Lagrange--B\"urmann inversion; that resummation alone does not establish that the actual nonlinear boundary-value solution has all those coefficients. The target remains coefficientwise formal validity, rather than an added convergence claim.
+\subsection{Short English statement}
+Does the proposed derivative formula reproduce every perturbative coefficient of the noncommutative phi-four solution?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Calculated three candidate coefficients and their endpoint cancellations; did not identify them with the actual nonlinear boundary-value solution.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30003895. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{Coefficient bookkeeping before the boundary equation.} Put \(L=\log(1+a)\), \(a>0\), and denote the proposed right-hand series by \(J_\lambda(a)\). Direct differentiation gives
+\[
+ J_\lambda=-\lambda L+\lambda^2\left(\frac{L}{1+a}+\frac{L}{a}\right)
+ +\lambda^3\left(\frac{L^2/2-L}{(1+a)^2}-\frac{L}{a(1+a)}+\frac{L^2}{2a^2}\right)+O(\lambda^4).
+\]
+For clarity the cubic first-sum term is \(\frac16(-L^3)''=(L^2/2-L)/(1+a)^2\), while the second-sum term is \(-\frac12(L^2/a)'\). Its extra coupling factor is essential; omitting it would already corrupt the linear coefficient.
+\paragraph{Endpoint countercheck.} Although \(a=0\) is outside the stated boundary-value range, the coefficient limits provide an algebraic consistency test. Using \(L/a\to1\), the first three coefficients approach \(0,1,-1/2\), respectively. In particular the apparent inverse powers of \(a\) cancel at these orders. No interchange of the formal coupling expansion with cutoff removal or with \(a\downarrow0\) is inferred from this check.
+\paragraph{First substantive obstruction.} The source already checked ten orders and resummed the candidate. Repeating three coefficients is not progress toward all orders. The missing step is to derive a recursion for the actual \(I_\lambda\) from the coupled angle/Hilbert-transform equations, with justified principal-value and cutoff manipulations, and show that the candidate obeys it uniquely. A formal inversion identity for the proposed series cannot establish that identification. This attempt records a precise failed shortcut, retains coefficientwise rather than convergence scope, and claims no new validation of the nonlinear boundary solution.
+
+\paragraph{Verification and adversarial audit.}
+Checked the extra lambda shift, both cubic derivatives and a-down-to-zero coefficient limits; retained the source’s already known ten-order check as context. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked the extra lambda shift, both cubic derivatives and a-down-to-zero coefficient limits; retained the source’s already known ten-order check as context. The remaining gap is: Derive and justify an all-order coefficient recursion from the defining cutoff Hilbert-transform equations and prove candidate uniqueness. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the displayed first three formal coefficients and their endpoint limits. The defining boundary equation and all-order identification are explicitly left unproved. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Derive and justify an all-order coefficient recursion from the defining cutoff Hilbert-transform equations and prove candidate uniqueness.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30003895:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30003895 (OWR-16407-007). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30003895:2}{S2}] Non-commutative Geometry, Index Theory and Mathematical Physics (2018), Oberwolfach Reports, DOI 10.4171/owr/2018/32, pp. 1911--1981. Primary report accessed 2026-10-11; relevant PDF pages 28, 29, 30.
+\url{https://doi.org/10.4171/owr/2018/32}.
+\item[\hypertarget{source:30003895:3}{S3}] Panzer--Wulkenhaar (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/1807.02945}.
+\item[\hypertarget{source:30003895:4}{S4}] OWR report (catalogue-listed context; not independently consulted in this preparation).
+\url{https://ivv5hpp.uni-muenster.de/u/raimar/publications/abstracts/owr18-raimar.pdf}.
+\end{itemize}
+\label{end:30003895}
+\end{document}

@@ -1,0 +1,79 @@
+% TOP_PROBLEM: {"id": 20002519, "title": "An invariant certificate for caustic-forming Kerr rays", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The notion of stability and the admissible perturbation class require a definition in any claimed theorem. The original includes numerical plotting and physical interpretation alongside mathematical existence and classification questions. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002519", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Identify the rays forming Kerr caustics, compute their sheets and study their geometry and stability.", "scope": "Proved a frame-invariant screen-Jacobi determinant criterion and checked constant-curvature and Riccati limits. No Kerr caustic rays, sheets or stability classification is computed.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked Jacobi initial data, determinant criterion, frame invariance, zero/positive/negative constant curvature and Riccati trace sign. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the screen Jacobi determinant criterion, constant-curvature solutions and Riccati/log-determinant identities. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked Jacobi initial data, determinant criterion, frame invariance, zero/positive/negative constant curvature and Riccati trace sign. Scope remains limited: Obtain controlled Kerr null-geodesic and Jacobi solutions, then analyze endpoint-map singularities in a defined stability class."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002519; source catalogue code AIM-PHYSICS-0027
+\setcounter{section}{20002518}
+\section{An invariant certificate for caustic-forming Kerr rays}\label{20002519}
+{\small UnsolvedMath ID 20002519 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}A null geodesic models a light ray. A conjugate point occurs when a nontrivial Jacobi field vanishes at both endpoints, producing failure of local invertibility of the geodesic endpoint map. A light cone is the image of null directions from an event. Optical expansion, shear and twist describe the trace, symmetric traceless and antisymmetric parts of the transverse derivative of a null-ray congruence.
+
+\paragraph{Catalogue wording retained for traceability.}
+Retain source questions (14)--(23): identify which photons generate caustics via conjugate points; determine the light-cone geometry; plot higher-order caustic sheets; plot the primary sheet for an observer near the black hole; describe sheets for off-equatorial observers; explain formation of astroid caustics; determine stability of that birth process for Kerr; relate general-relativistic twist, shear and convergence to lensing definitions; determine stability under metric perturbations; and decide whether all stable caustic sheets are lightlike.
+\paragraph{Scope and source qualification.}The notion of stability and the admissible perturbation class require a definition in any claimed theorem. The original includes numerical plotting and physical interpretation alongside mathematical existence and classification questions. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Identify the rays forming Kerr caustics, compute their sheets and study their geometry and stability.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved a frame-invariant screen-Jacobi determinant criterion and checked constant-curvature and Riccati limits. No Kerr caustic rays, sheets or stability classification is computed.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{An invariant transverse-Jacobi criterion.}Along a chosen null geodesic with affine parameter \(s\), suppose the screen Jacobi equation is \(A''(s)+\mathcal R(s)A(s)=0\), where \(A\) is a real \(2\times2\) matrix, \(A(0)=0\), \(A'(0)=I\), and \(\mathcal R\) is a continuous symmetric optical tidal matrix in a parallel orthonormal screen frame. A nonzero initial screen vector \(v\) produces Jacobi field \(A(s)v\); consequently a conjugate point at \(s>0\) is exactly \(\det A(s)=0\). Orthogonal changes of endpoint screen frames multiply \(A\) on the left and right by invertible matrices, preserving the zero set of the determinant.
+\paragraph{Exact curvature tests.}For \(\mathcal R=0\), \(A=sI\), with no positive conjugate point. For \(\mathcal R=\kappa I\), \(\kappa>0\), \(A=\sin(\sqrt\kappa s)I/\sqrt\kappa\), and the first is \(\pi/\sqrt\kappa\). For negative \(\kappa\), the hyperbolic-sine solution has none. Wherever \(A\) is invertible, \(B=A'A^{-1}\) satisfies \(B'+B^2+\mathcal R=0\), by direct differentiation. Its trace is the logarithmic derivative \((\det A)'/\det A\), linking area expansion to the caustic criterion.
+\paragraph{Gap.}This ODE certificate identifies what to compute, but no Kerr ray, optical tidal matrix or conjugate location is evaluated. The constant-curvature tests are not Kerr substitutes. Higher-order/near-observer/off-equatorial sheets, astroid formation, stability under a specified metric perturbation class, optical terminology and the lightlike character of stable sheets remain unresolved. The first missing step is a controlled Kerr Jacobi integration and endpoint-map analysis; no plotting or numerical verification is claimed.
+
+\paragraph{Verification and adversarial audit.}
+Checked Jacobi initial data, determinant criterion, frame invariance, zero/positive/negative constant curvature and Riccati trace sign. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked Jacobi initial data, determinant criterion, frame invariance, zero/positive/negative constant curvature and Riccati trace sign. Scope remains limited: Obtain controlled Kerr null-geodesic and Jacobi solutions, then analyze endpoint-map singularities in a defined stability class.
+
+Coordinator checked the screen Jacobi determinant criterion, constant-curvature solutions and Riccati/log-determinant identities. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Obtain controlled Kerr null-geodesic and Jacobi solutions, then analyze endpoint-map singularities in a defined stability class.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002519:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002519 (AIM-PHYSICS-0027). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002519:2}{S2}] American Institute of Mathematics, Gravitational lensing in the Kerr spacetime geometry, Questions 14–23.
+\url{https://aimath.org/WWN/lensing/lensing.pdf}.
+\end{itemize}
+\label{end:20002519}
+\end{document}

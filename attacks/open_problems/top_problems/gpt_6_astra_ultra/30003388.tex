@@ -1,0 +1,124 @@
+% TOP_PROBLEM: {"id": 30003388, "title": "Sharp Convergence Domains for Cluster Expansions", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The graph and partition-function notation were recovered from PDF pages 15--17. The report already proves a sufficient Dobrushin condition: some $r:V\\to[0,1)$ satisfies $R(v)\\leq r(v)\\prod_{v'\\in N(v)}(1-r(v'))$. The inherited question about exact and sharp domains is broader than this established sufficient bound; it is not an assertion that the report leaves all convergence unexplained."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003388", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Find the exact convergence region and sharp usable convergence criteria for polymer cluster expansions.", "scope": "Determines exact absolute convergence regions for complete and empty finite incompatibility graphs and compares a symmetric sufficient-radius choice; leaves general graphs, contour models and uniform limits unresolved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked multinomial coefficient absolute sums, harmonic divergence on the boundary, the distinction between closed polydisc guarantees and open domains, the symmetric-radius optimization, and conditional versus absolute convergence. Model self-audit only; no independent human proof checking. Coordinator checked the absolute Taylor convergence domains for complete and empty graphs and the symmetric-radius optimization, with boundary divergence stated. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked multinomial coefficient absolute sums, harmonic divergence on the boundary, the distinction between closed polydisc guarantees and open domains, the symmetric-radius optimization, and conditional versus absolute convergence. Retained unresolved status and zero original-target progress; Analyze the multivariate cluster coefficients or zero geometry for general source graphs strongly enough to give exact domains and sharp uniform radius conditions. Additional GPT-6 Astra reviewer (ultra reasoning): Enumerated independent sets for the complete graph to obtain Z=1+sum w_j. The multinomial theorem gives absolute homogeneous coefficient sum (sum |w_j|)^k/k, proving the stated l1 region and harmonic divergence on its boundary. Checked the closed-polydisc guarantee sum R_j<1, including the boundary zero at w_j=-R_j when sum R_j=1. For the empty graph, factoring Z gives separate one-variable logarithms and absolute convergence exactly when every |w_j|<1. Differentiated r(1-r)^(n-1) for n>=2: its maximum is attained at r=1/n and equals (n-1)^(n-1)/n^n. Checked the edge comparison 1/4 versus the exact open equal-radius threshold 1/2. Compared with the supplied already-established Dobrushin sufficient criterion: the draft only optimizes the symmetric choice, distinguishes absolute convergence from cancellation in conditional sums, and leaves general graph domains and sharp uniform criteria unresolved."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30003388; source catalogue code OWR-15213-001
+\setcounter{section}{30003387}
+\section{Sharp Convergence Domains for Cluster Expansions}\label{30003388}
+{\small UnsolvedMath ID 30003388 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+A polymer model has objects called polymers, a compatibility relation and complex weights $w$. Its partition function sums products of weights over compatible configurations. A cluster expansion expresses $\log Z_L$ as a formal sum over connected incompatibility clusters; $X$ indexes a multiset and $w^X$ its weight monomial. A convergence domain is a region of the weight space in which this series converges in the specified sense. Contour weights and graph radii determine the estimates for a particular model. More explicitly, the report has an incompatibility graph $G$ on polymers $V$, finite $L\subset V$, and $Z_L(w)=\sum_{I\subset L\text{ independent}}\prod_{v\in I}w(v)$. Its graph-dependent polydisc is $\{w:|w(v)|\leq R(v),\ v\in L\}$.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+For a polymer-model cluster expansion
+$$
+\log Z_L(w)=\sum_X a(X)w^X,
+$$
+determine its exact domain of convergence and sharp conditions on the contour weights and graph-dependent radii that guarantee convergence.
+
+\paragraph{Source scope and qualification.}
+The graph and partition-function notation were recovered from PDF pages 15--17. The report already proves a sufficient Dobrushin condition: some $r:V\to[0,1)$ satisfies $R(v)\leq r(v)\prod_{v'\in N(v)}(1-r(v'))$. The inherited question about exact and sharp domains is broader than this established sufficient bound; it is not an assertion that the report leaves all convergence unexplained.
+\subsection{Short English statement}
+Find the exact convergence region and sharp usable convergence criteria for polymer cluster expansions.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Determines exact absolute convergence regions for complete and empty finite incompatibility graphs and compares a symmetric sufficient-radius choice; leaves general graphs, contour models and uniform limits unresolved.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Exact absolute convergence for two graph classes.}
+Specify absolute convergence of the multivariate Taylor series for $\log Z$ at zero. For the complete incompatibility graph on $n$ polymers, the only independent configurations are the empty set and singletons, so
+\[
+ Z(w)=1+\sum_{j=1}^n w_j,\qquad
+ \log Z(w)=\sum_{k\geq1}\frac{(-1)^{k+1}}k
+                   \left(\sum_{j=1}^n w_j\right)^k.
+\]
+Expanding each homogeneous polynomial and taking absolute values of its monomial coefficients gives, by the multinomial theorem,
+\[
+ \sum_{|X|=k}|a(X)w^X|=\frac1k\left(\sum_{j=1}^n|w_j|\right)^k.
+\]
+Therefore the exact absolute convergence region is $\sum_j|w_j|<1$. At equality the absolute series is harmonic and diverges; above it the degree sums do not tend to zero. The Taylor series converges absolutely throughout the closed polydisc $|w_j|\leq R_j$ exactly when $\sum_jR_j<1$. The boundary point $w_j=-R_j$ also displays the partition-function zero when the sum equals one.
+
+For the empty incompatibility graph, all subsets are independent and
+\[
+ Z(w)=\prod_{j=1}^n(1+w_j),\qquad
+ \log Z(w)=\sum_{j=1}^n\sum_{k\geq1}
+                 \frac{(-1)^{k+1}}k w_j^k.
+\]
+Absolute convergence is exactly $|w_j|<1$ for every $j$. The graph has thus changed the domain from a unit polydisc to an $\ell^1$ ball in these two extremes, despite the same number of polymer variables.
+
+\paragraph{Testing the sufficient-radius criterion.}
+For the complete graph and a symmetric choice $r(v)=r$, the source's Dobrushin sufficient criterion becomes
+$R\leq r(1-r)^{n-1}$.
+For $n\geq2$, differentiating gives its maximum at $r=1/n$ and the radius
+\[
+ R_{\rm sym}=\frac{(n-1)^{n-1}}{n^n}.
+\]
+The exact equal-radius threshold for absolute convergence is instead $R<1/n$. Already for an edge ($n=2$), the symmetric sufficient choice reaches $R=1/4$ whereas the exact open threshold is $1/2$. This comparison is only with the displayed symmetric use of the criterion; no unsupported claim about optimizing all asymmetric graph radii is needed.
+
+\paragraph{What the examples leave open.}
+Grouping by total degree can conceal cancellation at particular complex weights; the calculation above concerns absolute multivariate convergence, not every possible conditional summation convention. General incompatibility graphs have more complicated partition-function zeros and cluster coefficients. Determining their exact region, and extracting sharp usable conditions for the source's contour models or uniform infinite-volume limits, is not accomplished by the two extreme graphs. The source's already proved sufficient condition is retained as such, rather than presented as an unresolved existence of any convergence criterion.
+
+\paragraph{Verification and adversarial audit.}
+Checked multinomial coefficient absolute sums, harmonic divergence on the boundary, the distinction between closed polydisc guarantees and open domains, the symmetric-radius optimization, and conditional versus absolute convergence. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked multinomial coefficient absolute sums, harmonic divergence on the boundary, the distinction between closed polydisc guarantees and open domains, the symmetric-radius optimization, and conditional versus absolute convergence. Retained unresolved status and zero original-target progress; Analyze the multivariate cluster coefficients or zero geometry for general source graphs strongly enough to give exact domains and sharp uniform radius conditions. Additional GPT-6 Astra reviewer (ultra reasoning): Enumerated independent sets for the complete graph to obtain Z=1+sum w\_j. The multinomial theorem gives absolute homogeneous coefficient sum (sum |w\_j|)\textasciicircum{}k/k, proving the stated l1 region and harmonic divergence on its boundary. Checked the closed-polydisc guarantee sum R\_j<1, including the boundary zero at w\_j=-R\_j when sum R\_j=1. For the empty graph, factoring Z gives separate one-variable logarithms and absolute convergence exactly when every |w\_j|<1. Differentiated r(1-r)\textasciicircum{}(n-1) for n>=2: its maximum is attained at r=1/n and equals (n-1)\textasciicircum{}(n-1)/n\textasciicircum{}n. Checked the edge comparison 1/4 versus the exact open equal-radius threshold 1/2. Compared with the supplied already-established Dobrushin sufficient criterion: the draft only optimizes the symmetric choice, distinguishes absolute convergence from cancellation in conditional sums, and leaves general graph domains and sharp uniform criteria unresolved.
+
+Coordinator checked the absolute Taylor convergence domains for complete and empty graphs and the symmetric-radius optimization, with boundary divergence stated. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Analyze the multivariate cluster coefficients or zero geometry for general source graphs strongly enough to give exact domains and sharp uniform radius conditions.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Analyze the multivariate cluster coefficients or zero geometry for general source graphs strongly enough to give exact domains and sharp uniform radius conditions.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30003388:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30003388 (OWR-15213-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30003388:2}{S2}] Mini-Workshop: Cluster Expansions: From Combinatorics to Analysis through Probability (2017), Oberwolfach Reports, DOI 10.4171/owr/2017/8, pp. 417--452. Primary report accessed 2026-10-11; relevant PDF pages 15, 16, 17.
+\url{https://doi.org/10.4171/owr/2017/8}.
+\item[\hypertarget{source:30003388:3}{S3}] Oberwolfach report (catalogue-listed context; not independently consulted in this preparation).
+\url{https://ems.press/content/serial-article-files/46675}.
+\item[\hypertarget{source:30003388:4}{S4}] Bissacot--Fernández--Procacci (catalogue-listed context; not independently consulted in this preparation).
+\url{https://doi.org/10.1007/s10955-010-9956-1}.
+\item[\hypertarget{source:30003388:5}{S5}] Fernández--Nguyen (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/2112.13134}.
+\end{itemize}
+\label{end:30003388}
+\end{document}

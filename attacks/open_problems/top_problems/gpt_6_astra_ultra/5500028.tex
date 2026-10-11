@@ -1,0 +1,165 @@
+% RESEARCH_DRAFT_SHA256: 5617ac8b4532aab4b7c3fde7f08e95f7d3b78a670dd30aac74424f39c4940ade
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 5500028, "title": "Flip Graph Connectivity in 3D", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "problem_number": "AMR-054-0028", "set_id": 13}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "5500028", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Flip Graph Connectivity in 3D; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A nonflippable locally non-Delaunay face; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch003 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{lmroman10-regular.otf}[BoldFont=lmroman10-bold.otf,
+ ItalicFont=lmroman10-italic.otf,BoldItalicFont=lmroman10-bolditalic.otf]
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{latinmodern-math.otf}
+\AtBeginDocument{\let\setminus\smallsetminus}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+\section*{Flip Graph Connectivity in 3D}\label{5500028}
+{\small UnsolvedMath ID 5500028 · AMR-054-0028 · Computer Science · AMR Open Problem Lists}
+\subsection{Definitions and mathematical statement}
+Let $S\subset\mathbb R^3$ be a finite set with no four coplanar points.
+A tetrahedralization of $S$ is a face-to-face subdivision of
+$\operatorname{conv}(S)$ into nondegenerate tetrahedra whose vertex set
+is exactly $S$. In particular, every input point is used and no
+Steiner vertices are added.
+
+A $2\leftrightarrow3$ bistellar flip replaces two tetrahedra sharing
+a triangular face by three sharing an edge, or reverses this operation.
+The five involved vertices must form a convex triangular bipyramid,
+and both local subdivisions must have the same support and boundary.
+Only replacements that remain geometric tetrahedralizations are legal.
+
+Form a graph $\mathcal F(S)$ with one node per tetrahedralization and
+an edge for each legal flip. The question is whether $\mathcal F(S)$
+is connected for every such $S$. Equivalently, can any two
+tetrahedralizations of the same point set be related by a finite
+sequence of these moves?
+
+The point coordinates stay fixed throughout. Vertex-inserting
+$1\to4$ and vertex-deleting $4\to1$ moves are excluded. Connectivity
+of abstract triangulations, or connectivity restricted to a special
+class such as regular triangulations, does not settle the general
+geometric statement.
+\subsection{Short English statement}
+Can any two tetrahedralizations of the same points in three-dimensional
+space be connected by legal two-to-three and three-to-two flips, without
+moving, inserting, or deleting vertices?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] ULAM.AI and the UnsolvedMath Contributors, supplied problems.json, record 5500028 (AMR-054-0028), AMR Open Problem Lists. Catalogue identity and source transcription; CC BY 4.0.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Open Problems Project - Computational Geometry, Problem 28. Original source indexed by AMR-054-0028.
+\url{https://topp.openproblem.net/p28}.
+\end{itemize}
+
+\section{Literature and context check}
+TOPP Problem 28 was consulted. It distinguishes geometric general-position
+tetrahedralizations from topological examples and from higher-dimensional
+disconnected flip graphs. The supplied prior prose suggesting a known general
+geometric three-dimensional disconnection is not supported by this consulted page.
+No such assertion is used in the attempt.
+\section{Research attempt: A nonflippable locally non-Delaunay face}
+A natural route to connectivity is to fix a preferred triangulation and repair
+every locally bad face. The following five-point calculation shows why the
+elementary two-to-three face repair is not always available. Set
+\[
+ A=(0,0,0),\ B=(1,0,0),\ C=(0,1,0),\
+ D=(1/2,1/2,1),\ E=(7/10,7/10,-1/10).
+\]
+The tetrahedra $ABCD$ and $ABCE$ meet in $ABC$ with tips on opposite sides.
+The segment $DE$ meets $z=0$ at $(15/22,15/22,0)$, outside $ABC$ since
+its first two coordinates sum to $15/11>1$. Hence their union is not convex,
+and replacing this pair by the three tetrahedra around $DE$ is not a legal
+two-to-three move. To justify nonconvexity directly, this point lies on the
+segment between two points of the union; the union meets $z=0$ exactly in $ABC$.
+
+Nevertheless $ABC$ fails the local empty-sphere test. The sphere through
+$A,B,C,D$ has center $(1/2,1/2,1/4)$ and squared radius $9/16$.
+The squared distance of $E$ to its center is
+$2(1/5)^2+(-7/20)^2=81/400<9/16$. Thus a local non-Delaunay face need not
+be repairable by flipping that face.
+
+This example occurs inside a full tetrahedralization, not just an isolated
+nonconvex pair. The unique affine dependence can be written
+\[
+ \tfrac12 B+\tfrac12 C=\tfrac4{15}A+\tfrac1{15}D+\tfrac23E.
+\]
+All coefficients are positive. In particular the five points are in convex
+position, and every four are affinely independent: direct determinants for
+$ABCD,ABCE,ABDE,ACDE,BCDE$ are nonzero (the first four are immediate, and
+the dependence with all five coefficients nonzero then implies the fifth).
+The three tetrahedra
+\[
+ ABCD,\quad ABCE,\quad BCDE
+\]
+triangulate their convex hull around edge $BC$. For a detailed coverage check,
+start from any convex combination of the five points and add a multiple of the
+displayed affine dependence until one of the coefficients of $A,D,E$ first
+becomes zero. The resulting nonnegative combination lies in one of these three
+tetrahedra. Two different stopping choices can coincide only when at least two
+of those coefficients vanish, which is a shared face or lower-dimensional face;
+uniqueness of the one-dimensional affine dependence proves disjoint interiors.
+
+There is a legal three-to-two flip around $BC$, yielding $ABDE$ and $ACDE$.
+Therefore this is not a disconnected flip graph or an isolated node. It refutes
+only the proposed face-by-face greedy argument and exhibits exactly the extra
+edge move that the argument must consider. A global descent proof would still
+need to guarantee an available improving move at every undesired triangulation.
+\section{Verification and adversarial audit}
+The segment intersection, sphere center, squared distances and positive
+affine dependence were checked by exact rational arithmetic in the displayed
+formulas. All five four-point subsets are noncoplanar. The existence of the
+reverse edge flip was included to actively falsify any attempted isolation claim.
+\paragraph{Audit corrections.} The nonflippable face was embedded in a valid full tetrahedralization and its available 3-to-2 flip was exhibited; local obstruction is not global disconnection.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+No global potential argument guaranteeing escape from every tetrahedralization
+has been proved, and no counterexample to connectivity has been constructed.
+The first gap is an improving legal move or a different connecting mechanism
+when an offending face itself is nonflippable.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://topp.openproblem.net/p28} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved. This is a research attempt with an explicit failed route or restricted
+calculation, not a full solution, not a current-status certification, and not a claim
+that the elementary material is new. The catalogue's original source-status label
+is preserved independently of this attempt status.
+\end{document}

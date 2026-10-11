@@ -1,0 +1,115 @@
+% RESEARCH_DRAFT_SHA256: 776fdfe15d766b6dd7f30a32199c109729b3833967c7641058a3bc91d1d4260e
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30005053, "title": "Reduction of Guessing Problems to Source Compression", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005053", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Reduction of Guessing Problems to Source Compression; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Optimal expected code length alone does not determine optimal guessing cost; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch012 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30005053; source catalogue code OWR-9790365-002
+\section{Reduction of Guessing Problems to Source Compression}\label{30005053}
+{\small UnsolvedMath ID 30005053 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+For a discrete random variable $X$, entropy is $H(X)=-\sum_xp(x)\log p(x)$, and mutual information is $I(X;Y)=H(X)+H(Y)-H(X,Y)$. Coding rates, capacities, and exponents depend on the stated channel or source model and error criterion.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+Source-record limitation: The source proposes a general analogy between guessing and compression without defining the class of guessing problems or an admissible reduction and its performance guarantee.
+\paragraph{Statement recorded in the supplied source.}
+Can every optimal guessing problem be reduced to its corresponding optimal source-compression problem? \href{https://doi.org/10.4171/owr/2022/14}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+The source asks about reduction of Guessing Problems to Source Compression.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30005053 (OWR-9790365-002). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] New Mathematical Techniques in Information Theory (2023), Oberwolfach Reports, DOI 10.4171/owr/2022/14, pp. 683--707
+\url{https://doi.org/10.4171/owr/2022/14}.
+\item[S3] Graczyk--Lapidoth--Yan, guessing a tuple
+\url{https://arxiv.org/abs/2106.13341}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30005053 and code OWR-9790365-002 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30005053}
+
+\section{Literature and context check}
+The report, p. 691, asks about general reductions and mentions guessing variants for which direct compression arguments do not suffice. It does not define a single universal reduction model. The selected attempt tests the narrower route of using only optimal expected prefix-code length to recover ordinary expected guessing cost.
+\section{Research attempt: Optimal expected code length alone does not determine optimal guessing cost}
+For a finite distribution, asking singleton guesses in decreasing probability order minimizes expected guess count. If probabilities $p_a>p_b$ are placed at positions $j>i$, swapping them changes the expected count by $-(j-i)(p_a-p_b)<0$. Repeatedly removing inversions proves the claim, with ties harmless.
+
+For a binary prefix code on three positive-probability symbols, the optimal expected length is $2-p_{\max}$. At most one codeword can have length one when there are three codewords: the two one-bit words would otherwise exhaust both branches and allow no third prefix-free word. If there is one length-one word, the other lengths are at least two, giving expected length at least $2-p_a\ge2-p_{\max}$. If there is none, every length is at least two. Assigning 0 to a most probable symbol and 10,11 to the others attains $2-p_{\max}$.
+
+Now take $p=(1/2,3/10,1/5)$ and $q=(1/2,2/5,1/10)$. Both have optimal expected prefix length $3/2$. Their optimal expected guess counts are respectively
+\[
+\tfrac12+2\cdot\tfrac3{10}+3\cdot\tfrac15=\tfrac{17}{10},\qquad
+\tfrac12+2\cdot\tfrac25+3\cdot\tfrac1{10}=\tfrac85.
+\]
+Consequently the scalar optimal expected compression length is insufficient to determine the scalar optimal guessing cost. This does not preclude a reduction that uses the original distribution, a different compression objective, or an entire optimized code.
+
+A precise related inequality shows why a different coding objective can matter. Order a binary prefix code's symbols by increasing codeword length. A symbol of length $\ell$ has guessing rank at most $2^\ell$: extend all codewords of length at most $\ell$ to binary strings of length $\ell$; prefix-freeness makes their sets of extensions disjoint, and each uses at least one of the $2^\ell$ strings. Thus for $\rho>0$, this guessing rule satisfies $E G^\rho\le E2^{\rho\ell(X)}$. This is an exponential length moment, not the expected length alone. It is a proved one-direction relation, not an optimality equivalence for all guessing variants.
+\section{Verification and adversarial audit}
+Both distributions are strictly positive, their probability orders are explicit, and the three-symbol prefix-code optimum is proved without invoking a coding algorithm. The two identical compression values have distinct guessing values. The prefix-extension count checks the separate moment inequality.
+\paragraph{Audit corrections.} Failure of one scalar statistic is not equated with impossibility of every algorithmic reduction. The exact compression and guessing objectives are specified.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The source's universal reduction question remains unresolved. Only the scalar-value-only shortcut is disproved, while a standard one-direction moment comparison is derived. Side information, tuple guessing, and the appropriate corresponding compression formulations remain outside the selected model.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46950} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

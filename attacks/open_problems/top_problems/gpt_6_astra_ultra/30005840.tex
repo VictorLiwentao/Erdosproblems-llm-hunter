@@ -1,0 +1,85 @@
+% TOP_PROBLEM: {"id": 30005840, "title": "Finite-Shear Hashin–Shtrikman Bounds and Rod–Hinge Deformations", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The two questions are separate. Attaining a shear bound without the bulk bound and remaining optimal under finite shear are both required in the first construction alternative."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005840", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Find sharper or attainable finite-shear modulus bounds, and determine whether growing periodic cells approximate nonaffine rod--hinge deformations.", "scope": "Exhibited failure of linear-modulus data to determine finite-shear response and proved local growing-cell approximation only for an unbraced unit-bar chain.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked identical second derivatives but different stresses; verified every repeated-chain rod length and affine-periodic displacement, with no claim for additional cross-braces. Model self-audit only; no independent human mathematical verification. Coordinator checked the equal linear-modulus example and exact local growing-cell approximation of the unbraced chain. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked identical second derivatives but different stresses; verified every repeated-chain rod length and affine-periodic displacement, with no claim for additional cross-braces. First remaining gap: Control cell-boundary compatibility for general periodic frameworks and, separately, construct or bound actual composites at finite shear with the required bulk/shear distinction. The inherited source status is preserved; original-target completion remains zero."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30005840; source catalogue code OWR-14298167-007
+\setcounter{section}{30005839}
+\section{Finite-Shear Hashin–Shtrikman Bounds and Rod–Hinge Deformations}\label{30005840}
+{\small UnsolvedMath ID 30005840 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+Hashin--Shtrikman bounds constrain effective moduli of composites with fixed phase data. Bulk and shear moduli measure volume and shape response, respectively. A rod--hinge framework is a periodic bar structure with movable joints. Macroscopically affine means an imposed deformation is affine at the large scale; a growing-cell approximation allows larger periodicity cells.
+
+\paragraph{Catalogue wording retained for traceability.}
+Can the Hashin–Shtrikman bounds be improved, or can one construct microstructures that attain the Hashin–Shtrikman shear-modulus bound without attaining the bulk-modulus bound and remain optimal under finite shear? Separately, can non-macroscopically-affine deformations of periodic rod–hinge structures be obtained as limits of periodic deformations whose unit cells grow relative to the underlying structure?
+
+\paragraph{Scope and source qualification.}The two questions are separate. Attaining a shear bound without the bulk bound and remaining optimal under finite shear are both required in the first construction alternative.
+\subsection{Short English statement}
+Find sharper or attainable finite-shear modulus bounds, and determine whether growing periodic cells approximate nonaffine rod--hinge deformations.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Exhibited failure of linear-modulus data to determine finite-shear response and proved local growing-cell approximation only for an unbraced unit-bar chain.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30005840. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{Infinitesimal optimality does not fix finite shear.} A scalar shear coordinate \(s\) illustrates missing nonlinear data: the energies \(W_1(s)=Gs^2/2\) and \(W_2(s)=Gs^2/2+cs^4\), with \(G,c>0\), have the same linear shear modulus \(W_i''(0)=G\), but stresses \(Gs\) and \(Gs+4cs^3\). Hence equality of infinitesimal modulus bounds alone cannot certify optimality at finite shear. This is not an assertion that either scalar law realizes a particular Hashin--Shtrikman microstructure.
+\paragraph{Growing-cell approximation for an unbraced chain.} Consider an infinite planar unit-bar chain with vertices \(y_j\), \(j\in\mathbb Z\), and increments \(v_j=y_{j+1}-y_j\) satisfying \(|v_j|=1\). Fix \(n\), repeat periodically the block \(v_{-n},\ldots,v_n\) with period \(L=2n+1\), and reconstruct positions with the same \(y_0\). The resulting chain \(y^{(n)}\) preserves all rod lengths, agrees with the original on every fixed finite interval once \(n\) is large, and satisfies
+\[
+ y^{(n)}_{j+L}=y^{(n)}_j+D_n,\qquad
+ D_n=\sum_{j=-n}^n v_j.
+\]
+Subtracting \(jD_n/L\) leaves a periodic displacement. Thus this very restricted unbraced framework admits local approximation by growing affine-periodic cells, without requiring the target chain itself to be macroscopically affine.
+\paragraph{Remaining two questions.} Additional bars connecting nonadjacent vertices impose constraints across the repeated block boundary; the construction then need not preserve their lengths. Local convergence also controls no macroscopic energy or effective strain. The source's general rod--hinge question needs a specified topology and compatibility argument beyond chains. Separately, improving the composite bound or attaining shear without bulk optimality while remaining finite-shear optimal requires an actual composite construction or bound; the scalar example supplies neither.
+
+\paragraph{Verification and adversarial audit.}
+Checked identical second derivatives but different stresses; verified every repeated-chain rod length and affine-periodic displacement, with no claim for additional cross-braces. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked identical second derivatives but different stresses; verified every repeated-chain rod length and affine-periodic displacement, with no claim for additional cross-braces. First remaining gap: Control cell-boundary compatibility for general periodic frameworks and, separately, construct or bound actual composites at finite shear with the required bulk/shear distinction. The inherited source status is preserved; original-target completion remains zero.
+
+Coordinator checked the equal linear-modulus example and exact local growing-cell approximation of the unbraced chain. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Control cell-boundary compatibility for general periodic frameworks and, separately, construct or bound actual composites at finite shear with the required bulk/shear distinction.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30005840:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30005840 (OWR-14298167-007). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30005840:2}{S2}] Mechanics of Materials: Multiscale Design of Advanced Materials and Structures (2024), Oberwolfach Reports, DOI 10.4171/owr/2024/11, pp. 657--730. Original report and mathematical context. Incorporated report material remains under the source CC BY-SA 4.0 terms unless otherwise noted.
+\url{https://doi.org/10.4171/owr/2024/11}.
+\end{itemize}
+\label{end:30005840}
+\end{document}

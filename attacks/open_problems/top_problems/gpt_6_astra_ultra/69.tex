@@ -1,0 +1,83 @@
+% TOP_PROBLEM: {"id": 69, "title": "Biological Quantum Field Theory", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "This is an interdisciplinary research programme. The source does not specify a single pathogen model, theorem, error metric or completion criterion. The historical DARPA mirror was unavailable during this check; the supplied catalogue wording is retained."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "69", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Develop field-theoretic models that explain pathogen evolution and support its control.", "scope": "Derived an exact generating-function equation and extinction threshold for a specified linear birth-death toy model. Pathogen evolution, genetics, field theory and empirical control validation remain outside the calculation.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the generator, first-event quadratic equation, critical equality, multiple founders and absence of finite-time eradication guarantees; retained the source-access qualification. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the birth/death generating-function signs, branching extinction ODE, critical case and k-founder power rule. No pathogen efficacy or field-theoretic conclusion follows. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked the generator, first-event quadratic equation, critical equality, multiple founders and absence of finite-time eradication guarantees; retained the source-access qualification. Scope remains limited: Specify and validate an evolutionary stochastic model whose field observables and intervention parameters correspond to pathogen data."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 69; source catalogue code DARPA-005
+\setcounter{section}{68}
+\section{Biological Quantum Field Theory}\label{69}
+{\small UnsolvedMath ID 69 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}A field model assigns variables to spatial or space-time points; correlation functions describe relationships between their values. In a stochastic pathogen model, the state may encode populations and genetic types, with evolution governed by random events. A control intervention changes this evolution. The particular stochastic law, observables and control objective are part of the mathematical modelling problem, rather than hypotheses specified by the challenge.
+
+\paragraph{Catalogue wording retained for traceability.}
+Apply quantum and statistical field theory methods to model and potentially control pathogen evolution.
+\paragraph{Scope and source qualification.}This is an interdisciplinary research programme. The source does not specify a single pathogen model, theorem, error metric or completion criterion. The historical DARPA mirror was unavailable during this check; the supplied catalogue wording is retained.
+\subsection{Short English statement}
+Develop field-theoretic models that explain pathogen evolution and support its control.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derived an exact generating-function equation and extinction threshold for a specified linear birth-death toy model. Pathogen evolution, genetics, field theory and empirical control validation remain outside the calculation.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{A branching-process generating functional.}The supplied programme fixes no pathogen model. As a deliberately limited test, let a population count \(N_t\) have transitions \(n\to n+1\) at rate \(\lambda n\) and \(n\to n-1\) at rate \(\mu n\), for constants \(\lambda,\mu>0\). Start with one individual. Its probability generating function \(G(z,t)=\mathbb E z^{N_t}\), \(0\le z\le1\), satisfies
+\[\partial_tG=(z-1)(\lambda z-\mu)\partial_zG.\]
+Indeed the generator on \(z^n\) is \(\lambda n(z^{n+1}-z^n)+\mu n(z^{n-1}-z^n)\), which sums to the displayed expression. This is a concrete operator representation of the stochastic dynamics, though calling the auxiliary variable a field introduces no new biological law.
+\paragraph{A control threshold and its derivation.}By conditioning on the first event and using independent descendant lineages, the extinction-by-time probability \(q(t)=\mathbb P(N_t=0\mid N_0=1)\) solves
+\[q'=\lambda q^2-(\lambda+\mu)q+\mu=(1-q)(\mu-\lambda q),\quad q(0)=0.\]
+It increases and stays in \([0,1]\). Its limit must be a zero of the right-hand side: otherwise the derivative remains bounded below by a positive constant near the limit. The trajectory cannot cross a fixed point by uniqueness. Therefore \(q(\infty)=1\) if \(\mu\ge\lambda\), and \(q(\infty)=\mu/\lambda\) if \(\mu<\lambda\). From \(k\) independent founders the extinction probability is its \(k\)th power. A constant intervention increasing removal to \(\mu+c\), \(c\ge0\), consequently yields certain eventual extinction exactly when \(\mu+c\ge\lambda\).
+\paragraph{What is missing.}This is an elementary branching model with neither genotype mutation nor spatial contacts, resource feedback or observed biological calibration. The critical case gives eventual extinction but not a finite uniform eradication time. The historical source mirror was unavailable in the supplied audit, and this derivation does not repair that source-access limitation. Connecting field-theoretic observables and controllable parameters to validated pathogen evolution is the first substantive modelling gap. No efficacy claim about actual interventions follows.
+
+\paragraph{Verification and adversarial audit.}
+Checked the generator, first-event quadratic equation, critical equality, multiple founders and absence of finite-time eradication guarantees; retained the source-access qualification. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked the generator, first-event quadratic equation, critical equality, multiple founders and absence of finite-time eradication guarantees; retained the source-access qualification. Scope remains limited: Specify and validate an evolutionary stochastic model whose field observables and intervention parameters correspond to pathogen data.
+
+Coordinator checked the birth/death generating-function signs, branching extinction ODE, critical case and k-founder power rule. No pathogen efficacy or field-theoretic conclusion follows. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Specify and validate an evolutionary stochastic model whose field observables and intervention parameters correspond to pathogen data.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:69:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 69 (DARPA-005). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:69:2}{S2}] DARPA DSO, Mathematical Challenges, BAA 07-68 (catalogue attribution: 2007), Challenge 005. Historical source mirror; unavailable in this check.
+\url{https://web.math.utk.edu/~vasili/refs/darpa07.MathChallenges.html}.
+\end{itemize}
+\label{end:69}
+\end{document}

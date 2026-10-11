@@ -1,0 +1,82 @@
+% TOP_PROBLEM: {"id": 8000010, "title": "A Tracy-Widom Central Limit Theorem", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The original asks What is X rather than fixing last-passage percolation as the only operation. The Gaudin target as well as Tracy–Widom is retained. It is a characterization programme, not a statement that every i.i.d. law has such an edge limit without hypotheses."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "8000010", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Find a probabilistic analogue of the central limit theorem whose limit is a random-matrix spacing or edge law.", "scope": "Examined last-passage maximization as a natural operation, proved its coupling sensitivity and affine covariance, and excluded degenerate iid laws. Neither Tracy-Widom nor Gaudin universality is proved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked path length, two-sided maximum inequality, required perturbation scale, deterministic inputs and the distinct Gaudin target. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked path-length sensitivity, deterministic-input obstruction and affine transformation of passage times. No fixed-law universality result follows from the bound. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked path length, two-sided maximum inequality, required perturbation scale, deterministic inputs and the distinct Gaudin target. Scope remains limited: Control fluctuations and prove a limiting law for a nontrivial fixed class of iid distributions beyond vanishing sup-norm perturbations."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 8000010; source catalogue code AMR-079-0010
+\setcounter{section}{8000009}
+\section{A Tracy-Widom Central Limit Theorem}\label{8000010}
+{\small UnsolvedMath ID 8000010 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}Let $(a_i)_{i\ge1}$ be independent identically distributed random variables. The ordinary central limit theorem studies centered, rescaled sums. Deift instead asks for probabilistically natural operations yielding random-matrix limits. The Gaudin law describes a random-matrix spacing distribution; Tracy--Widom laws describe edge fluctuations in the corresponding symmetry classes. Finding a useful intrinsic operation includes specifying its inputs, scaling and admissible laws.
+
+\paragraph{Catalogue wording retained for traceability.}
+Characterize random-matrix statistics in purely probabilistic terms: identify a natural operation $X$ on i.i.d. input $(a_1,a_2,\ldots)$ producing normalized variables $(X_n)$ whose distributions tend to the Gaudin or Tracy--Widom law. Determine conditions and normalization giving a meaningful universality principle, rather than just forcing the desired law by an arbitrary transformation.
+\paragraph{Scope and source qualification.}The original asks What is X rather than fixing last-passage percolation as the only operation. The Gaudin target as well as Tracy–Widom is retained. It is a characterization programme, not a statement that every i.i.d. law has such an edge limit without hypotheses.
+\subsection{Short English statement}
+Find a probabilistic analogue of the central limit theorem whose limit is a random-matrix spacing or edge law.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Examined last-passage maximization as a natural operation, proved its coupling sensitivity and affine covariance, and excluded degenerate iid laws. Neither Tracy-Widom nor Gaudin universality is proved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{Testing a natural max-plus operation.}Arrange iid inputs into an \(n\times n\) array \(w_{ij}\), and define \(L_n\) as the maximum sum along up-right paths from \((1,1)\) to \((n,n)\). Every such path contains exactly \(2n-1\) vertices. This is a probabilistically intrinsic candidate operation, unlike applying an inverse target distribution function. For two arrays with \(\max_{ij}|w_{ij}-\widetilde w_{ij}|\le\delta\), every path sum changes by at most \((2n-1)\delta\). Taking maxima in both directions proves
+\[|L_n(w)-L_n(\widetilde w)|\le(2n-1)\delta.
+\]
+Thus a uniform coupling perturbation is negligible at a candidate edge scale \(n^{1/3}\) only under \(\delta_n=o(n^{-2/3})\) by this bound. It proves no robustness for a fixed changed distribution.
+\paragraph{A necessary restriction on input laws.}If \(w_{ij}=c\) almost surely, then \(L_n=(2n-1)c\) deterministically; no deterministic centering and positive scaling can produce a nondegenerate limiting law. Thus an unrestricted assertion for every iid input is impossible. An affine transformation \(w\mapsto aw+b\), \(a>0\), gives \(L_n\mapsto aL_n+b(2n-1)\) exactly, so any meaningful universality statement must absorb the resulting model-dependent center and scale.
+\paragraph{Gap.}The calculation supplies neither the correct centering and scale for a general nondegenerate law nor a proof of a Tracy--Widom limit. The Gaudin spacing target is also distinct and has not been generated by this one scalar maximum. One must prove fluctuation estimates and convergence for a declared class of inputs, then explain the operation's probabilistic characterization. This elementary sensitivity calculation is a failed route to fixed-law universality, not a new central limit theorem for random-matrix statistics.
+
+\paragraph{Verification and adversarial audit.}
+Checked path length, two-sided maximum inequality, required perturbation scale, deterministic inputs and the distinct Gaudin target. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked path length, two-sided maximum inequality, required perturbation scale, deterministic inputs and the distinct Gaudin target. Scope remains limited: Control fluctuations and prove a limiting law for a nontrivial fixed class of iid distributions beyond vanishing sup-norm perturbations.
+
+Coordinator checked path-length sensitivity, deterministic-input obstruction and affine transformation of passage times. No fixed-law universality result follows from the bound. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Control fluctuations and prove a limiting law for a nontrivial fixed class of iid distributions beyond vanishing sup-norm perturbations.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:8000010:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 8000010 (AMR-079-0010). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:8000010:2}{S2}] Percy Deift, Some open problems in random matrix theory and the theory of integrable systems (2007), arXiv:0712.0849, Problem 10.
+\url{https://arxiv.org/abs/0712.0849}.
+\end{itemize}
+\label{end:8000010}
+\end{document}

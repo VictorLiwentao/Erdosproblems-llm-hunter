@@ -1,0 +1,100 @@
+% TOP_PROBLEM: {"id": 30000614, "title": "Global Well-Posedness and Uniqueness of Gravity-Capillary Waves", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "These are the report's two missing hypotheses for the standard orbital-stability argument. Its energy space, constrained minimum, and water-wave parameter regime must be inherited from that contribution; the brief extract does not justify an assertion for all depths, surface tensions, or wave sizes."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000614", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Establish global dynamics in the variational energy space and determine whether the corresponding solitary-wave minimizer is unique apart from translation.", "scope": "Constructs smooth small-energy graphs with unbounded slope, invalidating a direct energy-to-Lipschitz continuation argument.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked scaling and capillary inequality, zero-potential choice, and failure to preserve nonzero impulse; no dynamical blowup is asserted. Model self-audit only; no independent human proof checking. Coordinator checked the height, slope, gravity-energy and capillary-energy scaling of the localized graph family. It is not claimed to solve the water-wave evolution or a fixed-impulse constraint. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked scaling and capillary inequality, zero-potential choice, and failure to preserve nonzero impulse; no dynamical blowup is asserted. Retained unresolved status and zero original-target progress; Additional geometric continuation control and a separate constrained-minimizer uniqueness proof are missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30000614; source catalogue code OWR-1388-002
+\setcounter{section}{30000613}
+\section{Global Well-Posedness and Uniqueness of Gravity-Capillary Waves}\label{30000614}
+{\small UnsolvedMath ID 30000614 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} The gravity--capillary water-wave problem describes irrotational incompressible fluid motion with a free surface subject to gravity and surface tension. The source uses surface elevation $\eta$ and surface velocity potential $\xi$, an energy functional, and a conserved momentum or impulse constraint to obtain solitary-wave minimizers. Global well-posedness means existence for all time, uniqueness, and continuous dependence in its variational energy space. Uniqueness up to translations means that any two minimizers in the specified family differ only by a spatial shift.
+
+\paragraph{Source scope and qualifications.} These are the report's two missing hypotheses for the standard orbital-stability argument. Its energy space, constrained minimum, and water-wave parameter regime must be inherited from that contribution; the brief extract does not justify an assertion for all depths, surface tensions, or wave sizes.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+For the gravity-capillary water-wave problem, is the evolution globally well posed in the energy space used for the variational minimization, and is the resulting minimizer unique up to spatial translations?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The report presents this extracted claim as an open problem, conjecture, or unresolved research direction; targeted literature checking found no authoritative complete resolution as of 2026-08-21. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Establish global dynamics in the variational energy space and determine whether the corresponding solitary-wave minimizer is unique apart from translation.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Constructs smooth small-energy graphs with unbounded slope, invalidating a direct energy-to-Lipschitz continuation argument.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Testing energy control of graph slope.} Consider the gravitational and capillary surface terms for a one-dimensional graph,
+\[
+ E_s(\eta)=\frac g2\int\eta^2dx+\tau\int(\sqrt{1+|\eta'|^2}-1)dx,
+ \quad g,\tau>0.
+\]
+Choose a nonconstant smooth compactly supported $f$, set $\eta_\epsilon(x)=\epsilon^{1/2}f(x/\epsilon)$, and take zero surface potential. Then $\|\eta_\epsilon'\|_\infty=\epsilon^{-1/2}\|f'\|_\infty\to\infty$, whereas
+\[
+ \int\eta_\epsilon^2=\epsilon^2\int f^2,\qquad
+ \int(\sqrt{1+|\eta_\epsilon'|^2}-1)
+ \leq\int|\eta_\epsilon'|=\epsilon^{1/2}\int|f'|\to0.
+\]
+The inequality uses $\sqrt{1+s^2}-1\leq|s|$. Hence these conserved-energy terms cannot by themselves control a Lipschitz continuation criterion.
+
+\paragraph{Why this is only an obstruction to a proof.} The sequence consists of smooth graphs and does not construct a singular water-wave solution. It also does not preserve the report's fixed nonzero impulse constraint, so it cannot refute existence or uniqueness of its minimizers. Its point is narrower: an argument ``energy is conserved, therefore all higher geometric norms remain bounded'' is invalid without an additional estimate. Replacing the exact capillary energy by its quadratic small-slope approximation would hide this issue precisely where slopes become large.
+
+\paragraph{Both missing hypotheses remain.} Global evolution in the actual variational energy space requires a continuation mechanism beyond this surface-energy bound. Uniqueness up to translation of the constrained solitary-wave minimizer is a separate variational question; energy boundedness yields no strict convexity after the nonlinear constraint. Neither source hypothesis, and thus no unconditional orbital-stability conclusion, is proved here.
+
+\paragraph{Verification and adversarial audit.}
+Checked scaling and capillary inequality, zero-potential choice, and failure to preserve nonzero impulse; no dynamical blowup is asserted. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked scaling and capillary inequality, zero-potential choice, and failure to preserve nonzero impulse; no dynamical blowup is asserted. Retained unresolved status and zero original-target progress; Additional geometric continuation control and a separate constrained-minimizer uniqueness proof are missing.
+
+Coordinator checked the height, slope, gravity-energy and capillary-energy scaling of the localized graph family. It is not claimed to solve the water-wave evolution or a fixed-impulse constraint. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Additional geometric continuation control and a separate constrained-minimizer uniqueness proof are missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Additional geometric continuation control and a separate constrained-minimizer uniqueness proof are missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30000614:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30000614 (OWR-1388-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30000614:2}{S2}] Mathematical Theory of Water Waves (2006), Oberwolfach Reports, DOI 10.4171/owr/2006/50, pp. 3007--30056; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2006/50}.
+\item[\hypertarget{source:30000614:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF page 32.
+\url{https://ems.press/content/serial-article-files/46080}.
+\end{itemize}
+\label{end:30000614}
+\end{document}

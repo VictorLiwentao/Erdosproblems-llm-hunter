@@ -1,0 +1,149 @@
+% RESEARCH_DRAFT_SHA256: fd9e5db82c2c9cd42ea1498cf37f767fa8d21ccab0dcd3b68db9dfa6501c4456
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000784, "title": "Optimal Algebraic Immunity of Boolean Functions", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000784", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "For every $1\\leq m\\leq n$, there should exist a Boolean function $f:\\{0,1\\}^n\\to\\{0,1\\}^m$ whose algebraic immunity equals $d^*(n,m)$, the least $d$ such that $\\sum_{i=0}^d\\binom{n+m}{i}>2^n$.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The complete known scalar construction and a counterexample to naive block composition leave the general multi-output existence conjecture unresolved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Graph algebraic immunity: a full scalar construction and a failed block extension}
+\noindent UnsolvedMath ID 30000784; OWR-1587-003. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+The graph of $f$ is $\{(x,f(x)):x\in\mathbb F_2^n\}$. Its algebraic immunity is the least degree of a nonzero Boolean polynomial in the input and output variables that vanishes on this graph; Boolean polynomials are taken modulo $z_i^2-z_i$.
+
+A Boolean function maps $\{0,1\}^n$ to $\{0,1\}$. A Boolean circuit is an acyclic network of logical gates; a formula is a circuit with no sharing of intermediate gate outputs. Size and depth measure its number of gates and longest gate path.
+\paragraph{Statement recorded in the supplied source.}
+For every $1\leq m\leq n$, there should exist a Boolean function $f:\{0,1\}^n\to\{0,1\}^m$ whose algebraic immunity equals $d^*(n,m)$, the least $d$ such that $\sum_{i=0}^d\binom{n+m}{i}>2^n$. \href{https://doi.org/10.4171/owr/2007/31}{[S2]}
+\paragraph{Scope qualification.}
+The vector-valued graph convention should be compared with the source; scalar immunity conventions involving both $f$ and $f+1$ are not substituted.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Construct vector-valued Boolean functions attaining the stated optimal algebraic-immunity threshold.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000784 (OWR-1587-003). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Complexity Theory (2008), Oberwolfach Reports, DOI 10.4171/owr/2007/31, pp. 1793--1864
+\url{https://doi.org/10.4171/owr/2007/31}.
+\item[S3] Miloserdov, vectorial Boolean functions
+\url{https://www.mathnet.ru/eng/pdma400}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+For every $1\leq m\leq n$, there should exist a Boolean function $f:\{0,1\}^n\to\{0,1\}^m$ whose algebraic immunity equals $d^*(n,m)$, the least $d$ such that $\sum_{i=0}^d\binom{n+m}{i}>2^n$.
+
+\section{Attempt and results}
+All polynomials here are over $\mathbb F_2$ modulo $z_i^2-z_i$, so they
+have unique squarefree representatives. The immunity is that of the graph,
+not the scalar annihilator convention often used elsewhere. We prove the
+scalar majority case and test a natural attempt to combine it into several
+outputs. The report already gives scalar constructions; no novelty or advance
+on the full multi-output conjecture is claimed.
+
+\paragraph{Dimension gives the stated upper bound.}
+The squarefree monomials of degree at most $d$ in $n+m$ variables form a
+basis of dimension $D_d=\sum_{i=0}^d\binom{n+m}{i}$.
+To see independence as functions on the Boolean cube, if
+$\sum_A c_A\prod_{i\in A}z_i$ vanishes everywhere, evaluate at indicator
+vectors of subsets in increasing cardinality. The empty evaluation first gives
+$c_\varnothing=0$, and evaluation at a subset $S$ then gives $c_S=0$ after
+all proper-subset coefficients have vanished. Thus all coefficients vanish.
+Evaluation on the $2^n$ graph points is a linear map to a $2^n$-dimensional
+space. If $D_d>2^n$, it has a nontrivial kernel, giving a nonzero graph
+annihilator. Hence immunity is at most $d^*(n,m)$ exactly as defined.
+
+\paragraph{A useful low-weight interpolation lemma.}
+If a squarefree polynomial $A(x)$ of degree at most $k$ vanishes on every
+Boolean point of Hamming weight at most $k$, then $A=0$. The same induction
+on subsets used above determines every coefficient of degree at most $k$;
+there are no other coefficients. Substitution $x_i\mapsto1-z_i$ cannot
+increase degree, so vanishing on all points with at most $k$ zero coordinates
+has the same consequence for a degree-at-most-$k$ polynomial.
+
+\paragraph{The scalar construction in every input dimension.}
+Put $k=\lfloor n/2\rfloor$ and define $f(x)=1$ exactly when
+$\operatorname{wt}(x)>k$. Suppose a graph annihilator $P(x,y)$ has degree
+at most $k$. Because $y^2=y$, it is uniquely $A(x)+yB(x)$ with
+$\deg A\le k$ and $\deg B\le k-1$ (take $B=0$ when $k=0$).
+On points of weight at most $k$, $f=0$, so $A=0$ by the lemma.
+On points of weight at least $k+1$, it follows that $B=0$.
+If $n=2k$, those points become all points of weight at most $k-1$ after
+complementing the coordinates; if $n=2k+1$, they become all points of weight
+at most $k$, which includes the needed weight-at-most-$k-1$ set.
+The lemma applied to $B(1-z)$ yields $B=0$. Thus there is no nonzero graph
+annihilator of degree at most $k$, and immunity is at least $k+1$.
+For $n=2k$, symmetry of binomial coefficients in odd dimension $2k+1$ gives
+$\sum_{i=0}^k\binom{2k+1}{i}=2^{2k}$, so $d^*=k+1$.
+For $n=2k+1$, the sum through $k$ in dimension $2k+2$ is strictly below
+half the total, and adding the positive central coefficient makes it strictly
+above half. Hence again $d^*=k+1$. The upper bound therefore proves equality
+for the scalar construction, including $n=1$.
+
+\paragraph{A direct-sum route to multiple outputs fails.}
+Take $n=8,m=2$, and define $f_1$ as strict majority on $x_1,\ldots,x_4$,
+and $f_2$ as strict majority on $x_5,\ldots,x_8$.
+Each separate four-input scalar function has optimal graph immunity three,
+as proved above. But the two-output graph has the nonzero annihilator
+\[
+P(x,y_1,y_2)=y_1(1+x_1)(1+x_2),
+\]
+of degree three. If $y_1=0$ it vanishes; if $y_1=1$, at least three of the
+first four inputs equal one, so $x_1,x_2$ cannot both be zero and the product
+again vanishes. On the other hand
+$\sum_{i=0}^3\binom{10}{i}=176\le256$ and
+$\sum_{i=0}^4\binom{10}{i}=386>256$, so $d^*(8,2)=4$.
+Thus combining optimal independent scalar blocks is not a proof of optimal
+multi-output immunity. Copying the same scalar output would be even worse,
+since $y_1+y_2$ is then a nonzero degree-one annihilator.
+
+\section{Source context, finite checks, adversarial audit, and gap}
+The report's graph convention and exact threshold were inspected on printed
+page 1838. The source discusses already known scalar cases; the argument here
+is a direct proof under the preserved graph convention, without relying on
+an asserted external construction. Exact binary elimination in the accompanying
+script verified full column rank below $d^*$ for majority graphs at
+$n=1,\ldots,8$, and evaluated the displayed block annihilator at all 256
+input points. All checks passed; they do not establish a general existence
+result. The audit checked squarefree uniqueness, even/odd cutoffs, $n=1$,
+and the block counterexample's exact target value. No construction for every
+$1<m\le n$ or full proof of the source conjecture is supplied.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The complete known scalar construction and a counterexample to naive block composition leave the general multi-output existence conjecture unresolved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 31/2007, relevant contributions by Koiran (pp.1835--1836) and Krause (pp.1838--1839); primary cached report passages inspected. Historical status and external literature are not independently updated here. \url{https://ems.press/content/serial-article-files/46116}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The complete known scalar construction and a counterexample to naive block composition leave the general multi-output existence conjecture unresolved.
+\end{document}

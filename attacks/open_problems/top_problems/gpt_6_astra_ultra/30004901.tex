@@ -1,0 +1,156 @@
+% RESEARCH_DRAFT_SHA256: 4db86759781a31627fb2e45def35521b693948abc380faaea2214c8e3eefdb90
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004901, "title": "Arborescences Induced by Linear-Programming Pivot Rules", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004901", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "For a fixed linear-programming objective, how do the induced arborescences vary with the memoryless pivot rule, and for a fixed memoryless pivot rule, how do they vary with the objective?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The normalized-weight subclass has an explicit proved polyhedral/comparison description; no unrestricted classification or efficient enumeration for all memoryless rules is supplied.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Pivot arborescences: local choices and a complete normalized-weight polytope construction}
+\noindent UnsolvedMath ID 30004901; OWR-8415356-007. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a nondegenerate linear program on a polytope and a generic linear objective, orient each edge toward decreasing objective value. A memoryless pivot rule chooses an improving outgoing edge using the current basis and fixed problem data, without a history of previous pivots. Choosing one such edge at every nonoptimal vertex yields a directed spanning tree toward the unique optimum, called an arborescence.
+\paragraph{Statement recorded in the supplied source.}
+For a fixed linear-programming objective, how do the induced arborescences vary with the memoryless pivot rule, and for a fixed memoryless pivot rule, how do they vary with the objective? \href{https://doi.org/10.4171/owr/2021/53}{[S2]}
+\paragraph{Scope qualification.}
+Degenerate bases, objective ties, and rules that permit cycling require conventions beyond this generic description. The supplied question does not identify those conventions, so this context explains the usual arborescence setting rather than extending the claim to every LP presentation.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Understand the directed trees produced by pivot rules as the rule or the objective changes.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004901 (OWR-8415356-007). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/53, pp. 2893--2954
+\url{https://doi.org/10.4171/owr/2021/53}.
+\item[S3] Combinatorial Optimization, Oberwolfach Reports 53/2021, primary report PDF
+\url{https://ems.press/content/serial-article-files/46931}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+For a fixed linear-programming objective, how do the induced arborescences vary with the memoryless pivot rule, and for a fixed memoryless pivot rule, how do they vary with the objective?
+
+\section{A precise subclass of the broad question}
+The source studies normalized-weight rules as a controlled subclass
+of memoryless rules. We rederive its elementary polyhedral mechanism
+for a fixed objective and state exactly what changes when the
+objective varies. This is a proof within that subclass, not a
+classification of every unrestricted memoryless rule.
+
+\paragraph{Independent choices on an acyclic oriented graph.}
+Let a finite directed graph be acyclic and have a unique sink $z$.
+At every other vertex $v$ choose one outgoing arc. Following
+chosen arcs cannot cycle, so it terminates at a sink, necessarily
+$z$. The chosen graph is connected after forgetting directions,
+and it has exactly one arc for each of the $N-1$ nonsink
+vertices. A connected undirected graph on $N$ vertices with
+$N-1$ edges is a tree: if it had a cycle, deleting one cycle
+edge would preserve connectivity, while a connected graph has at
+least $N-1$ edges by growing a spanning tree. Therefore each
+choice gives a rooted arborescence. Conversely such an arborescence
+chooses exactly one outgoing arc at each nonsink. If $d^+(v)$
+denotes outdegree, their number is
+$\prod_{v\ne z}d^+(v)$. This concerns local choices with no
+shared rule-parameter restriction. It does not imply that one
+normalized-weight vector realizes every such combination.
+
+\paragraph{A complete fixed-objective Minkowski-sum construction.}
+Fix an edge orientation on a polytope with strictly improving
+directions and the unique-sink property just described. At each
+nonsink $v$, let $D_v$ contain the vectors
+$(u-v)/\eta(u-v)$ for improving neighbors $u$, where the
+normalization values are fixed and positive. Distinct neighboring
+edges have distinct positive rays, so these normalized vectors
+are distinct: otherwise one neighbor would lie in the segment
+from $v$ to another, contrary to being an edge endpoint/vertex.
+Put $Q_v=\operatorname{conv}D_v$ and
+\[
+\Pi=\sum_{v\ne z}Q_v,
+\]
+where the sum consists of all sums of one point from each polytope.
+For a weight vector $w$ giving a unique maximum in each finite
+$D_v$, the rule selects its maximizing neighbor at each vertex.
+The unique point maximizing $w\cdot x$ on $\Pi$ is the
+sum of those selected directions: each summand is bounded by its
+own maximum, and equality in the sum forces equality in every
+summand. This proves both existence and uniqueness of that maximizer.
+
+Moreover two such generic weights give the same maximizing point
+of $\Pi$ if and only if they give the same selected neighbor
+at every vertex. The reverse implication is immediate. For the
+forward direction write the common point as the sum of the choices
+for the second weight and evaluate the first weight on it. The
+sum attains the first weight's sum of individual maxima. Each
+individual summand is no larger than its maximum, so every summand
+attains it; uniqueness forces every selected direction to agree.
+Distinctness of directions forces the same neighbor. Thus the
+maximizing-vertex regions of this explicit polytope encode exactly
+the coherent arborescences in this fixed-normalization subclass.
+
+\paragraph{Varying the objective and a finite comparison arrangement.}
+For a rule with $w=c$ and normalization independent of $c$,
+the orientation of each edge changes only when $c\cdot(u-v)=0$.
+For fixed $v$, two candidate scores exchange order only when
+\[
+c\cdot\left(\frac{u-v}{\eta(u-v)}-
+             \frac{u'-v}{\eta(u'-v)}\right)=0.
+\]
+On each connected open region avoiding all these finitely many
+hyperplanes, every edge sign and every score comparison remains
+constant. Therefore the whole chosen arborescence remains constant.
+This proves an exact finite structural description for this rule
+class, including the inequalities to test a proposed region. It
+does not bound the number of regions polynomially in a general
+input description, and it requires the vertices, adjacency data and
+normalization values. Enumerating that data can itself be expensive.
+
+\section{Audit and scope}
+The source's Definitions 1--2 and normalized-weight construction on
+printed pages 2936--2938 were inspected. These are known-style
+rederivations of the displayed source mechanism; no novelty is claimed.
+The audit kept generic tie-free parameters explicit and did not
+equate arbitrary independent local choices with a common coherent
+weight vector. Rules with history, objective-dependent normalization,
+degeneracy or unrestricted tie conventions need separate treatment.
+No enumeration or geometric experiment was run. The broad variation
+question remains unresolved beyond the precisely proved subclass.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The normalized-weight subclass has an explicit proved polyhedral/comparison description; no unrestricted classification or efficient enumeration for all memoryless rules is supplied.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 53/2021, Combinatorial Optimization, original question and surrounding discussion read from the primary PDF text on 11 October 2026. Historical statements are not a current-status survey. \url{https://ems.press/content/serial-article-files/46931}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The normalized-weight subclass has an explicit proved polyhedral/comparison description; no unrestricted classification or efficient enumeration for all memoryless rules is supplied.
+\end{document}

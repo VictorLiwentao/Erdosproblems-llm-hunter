@@ -1,0 +1,160 @@
+% RESEARCH_DRAFT_SHA256: ff2325d3cff2d7a2d339c7b22fdd8980a58a5bc84487cbea30319abc7a2c47c1
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000171, "title": "Sharper Complexity Bounds for Full-Newton Interior-Point Methods", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000171", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Sharper Complexity Bounds for Full-Newton Interior-Point Methods; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Newton positivity and a feasible central-step estimate; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch015 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30000171; source catalogue code OWR-783-003
+\section{Sharper Complexity Bounds for Full-Newton Interior-Point Methods}\label{30000171}
+{\small UnsolvedMath ID 30000171 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+An interior-point iteration follows points in the interior of a linear-programming feasible region; a full Newton step uses the unscaled Newton correction for the stated primal-dual equations. Iteration complexity counts steps to the specified accuracy.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The baseline bound, neighborhood, initialization, and stopping accuracy are not given in the supplied question.
+
+Source-record limitation: The iteration algorithm and baseline bound to be improved are not supplied; a factor improvement alone does not define the complexity target.
+\paragraph{Statement recorded in the supplied source.}
+Can the known iteration-complexity bound for the full-Newton infeasible interior-point method for linear optimization be improved by a factor of $\sqrt n$? \href{https://doi.org/10.4171/owr/2005/02}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Improve the iteration bound of the cited infeasible interior-point method by the conjectured square-root factor.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000171 (OWR-783-003). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Optimization and Applications (2005), Oberwolfach Reports, DOI 10.4171/owr/2005/02, pp. 69--133
+\url{https://doi.org/10.4171/owr/2005/02}.
+\item[S3] primary OWR paper text
+\url{https://ems.press/content/serial-article-files/45976}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30000171 and code OWR-783-003 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30000171}
+
+\section{Literature and context check}
+Roos's primary report, printed pages 116--117, states an $O(n\log(M/\varepsilon))$ infeasible-method bound, where $M$ incorporates initial gap and residual sizes, together with initialization and bounded-optimum assumptions. It conjectures an improvement by $\sqrt n$. The source deliberately modifies the residual targets so that full steps approach feasibility gradually. The following analyzes a tempting direct Newton route and a strictly feasible central special case; neither is silently substituted for the source's modified infeasible algorithm.
+\section{Research attempt: Newton positivity and a feasible central-step estimate}
+
+\paragraph{Full raw Newton steps need not remain positive}
+Consider standard primal-dual feasibility for $A=(1,1)$, $b=1$, $c=(0,1)$, at
+\[
+ x=(1/2,1/2),\qquad y=-1,\qquad s=(1,2).
+\]
+This point is strictly positive and exactly primal and dual feasible. The raw Newton equations targeting componentwise complementarity $\mu'=1/12$ are
+\[
+ A\Delta x=0,\quad A^T\Delta y+\Delta s=0,\quad
+ s\circ\Delta x+x\circ\Delta s=\mu'{\bf1}-x\circ s.
+\]
+They have
+\[
+ \Delta x=(1/6,-1/6),\qquad \Delta s=(-7/6,-7/6),\qquad \Delta y=7/6.
+\]
+For the two complementarity equations the left sides are $1/6-7/12=-5/12$ and $-1/3-7/12=-11/12$, equal to the required right sides. After a full step, $x^+=(2/3,1/3)$ but $s^+=(-1/6,5/6)$, so positivity is lost. This rejects the premise that full Newton steps are automatically safe at positive feasible points; it does not refute the carefully chosen steps and neighborhoods of the source method.
+
+For any Newton step satisfying the displayed complementarity equation, expansion gives the exact remainder identity
+\[
+ (x+\Delta x)\circ(s+\Delta s)-\mu'{\bf1}
+   =\Delta x\circ\Delta s.
+ \tag{1}
+\]
+Thus feasibility of the linear equations alone does not control centrality or positivity after the step.
+
+\paragraph{A square-root scale in a restricted central calculation}
+Now assume exact primal-dual feasibility and exact centrality $x_is_i=\mu>0$. Set $\mu'=(1-\theta)\mu$ with $0<\theta<1$ and use the feasible Newton equations. Define $u_i=\Delta x_i/x_i$ and $v_i=\Delta s_i/s_i$. Then
+\[
+ u+v=-\theta{\bf1},\qquad
+ u\cdot v=\frac{\Delta x\cdot\Delta s}{\mu}=0,
+\]
+because $A\Delta x=0$ and $\Delta s=-A^T\Delta y$. Hence
+\[
+ \lVert u\rVert_2^2+\lVert v\rVert_2^2=n\theta^2,
+ \qquad \max(\lVert u\rVert_\infty,\lVert v\rVert_\infty)\leq\sqrt n\theta.
+\]
+Therefore $\theta<1/\sqrt n$ ensures both updated vectors are positive. Also
+\[
+ \lVert u\circ v\rVert_2^2=\sum_i u_i^2v_i^2
+ \leq\left(\sum_i u_i^2\right)\left(\sum_i v_i^2\right),
+\]
+so (1) yields
+\[
+ \frac{\lVert x^+\circ s^+-\mu'{\bf1}\rVert_2}{\mu'}
+ \leq\frac{n\theta^2}{2(1-\theta)}.
+\]
+For example, $\theta=1/(4\sqrt n)$ gives positivity and relative centrality residual at most $1/24$, since $1-\theta\geq3/4$. Thus a full step with fractional parameter decrease of order $n^{-1/2}$ is rigorously safe in this exactly central feasible setting.
+
+\paragraph{The first missing inference for the original algorithm}
+The new point is only approximately central. Repeating the same calculation without re-establishing a suitable invariant is invalid, because its hypotheses were exact centrality. For an infeasible iteration there is an additional obstruction: if $A\Delta x=r_p$ and $A^T\Delta y+\Delta s=r_d$, then
+\[
+ \Delta x\cdot\Delta s=\Delta x\cdot r_d-r_p\cdot\Delta y,
+\]
+which need not vanish or have a favorable sign. The orthogonality estimate producing the square-root scale can therefore not be transferred to the source's residual-reducing method without additional control. A proof of the required neighborhood invariance, residual coupling, initialization bounds and progress at every iteration is absent here. One favorable central step does not imply an $O(\sqrt n\log(M/\varepsilon))$ algorithm.
+
+\section{Verification and adversarial audit}
+The explicit counterexample satisfies both feasibility equations before and after the raw Newton step, and directly checks both linearized complementarity equations; only the needed positivity fails. The small-step bound checks the numerical constant $1/24$ and uses exact centrality explicitly. The dot-product formula for infeasible residuals identifies the precise lost orthogonality. No iteration bound is deduced from a single-step estimate.
+\paragraph{Audit corrections.} Kept the modified infeasible method distinct from raw Newton iteration; included the quadratic remainder, positivity condition, and missing multi-iteration invariant.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The requested factor improvement for Roos's specified infeasible full-Newton method remains unresolved. The raw-step counterexample and the feasible exactly central estimate delimit one possible analysis route; neither settles the original method's complexity or the source's current literature status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/45976} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

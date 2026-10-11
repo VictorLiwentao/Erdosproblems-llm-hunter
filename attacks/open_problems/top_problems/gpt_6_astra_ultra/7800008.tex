@@ -1,0 +1,83 @@
+% TOP_PROBLEM: {"id": 7800008, "title": "Entropy Production in Nonequilibrium Statistical Mechanics", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The source also asks for general relations among stationary dynamical averages, analogous in role to equilibrium thermodynamic relations. It leaves the precise admissible model class and axioms for entropy production to the proposed theory."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "7800008", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Define an experimentally meaningful entropy production rate for general stationary nonequilibrium classical systems.", "scope": "Derived positivity and stationary-flow formulas for finite-state entropy production, with a three-state ring example. General deterministic thermostats, temperature-free interpretation and universal stationary relations are not settled.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked bidirectional support, stationary cancellation, equality condition, ring normalization and the extra hypothesis needed for heat interpretation. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked pairwise entropy-production positivity, cancellation of stationary log-probability terms and the three-state-ring formula. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked bidirectional support, stationary cancellation, equality condition, ring normalization and the extra hypothesis needed for heat interpretation. Scope remains limited: Justify a physically invariant observable for the stated classical systems and its relationship to experimentally accessible quantities beyond Markov models."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 7800008; source catalogue code AMR-077-0008
+\setcounter{section}{7800007}
+\section{Entropy Production in Nonequilibrium Statistical Mechanics}\label{7800008}
+{\small UnsolvedMath ID 7800008 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}A classical system has a phase-space evolution and a stationary probability measure, invariant under that evolution. A nonconservative external force performs work not represented by a scalar potential; thermostat forces remove energy so that stationary averages can exist. An entropy creation rate would be an observable or measurable functional of the nonequilibrium stationary state. The requested notion must apply away from equilibrium, including situations where temperature itself lacks an established definition.
+
+\paragraph{Catalogue wording retained for traceability.}
+Give a fundamental and experimentally accessible definition of the entropy creation rate for general classical systems in stationary nonequilibrium states under external nonconservative forces balanced on average by thermostat forces, without restricting to systems close to equilibrium.
+\paragraph{Scope and source qualification.}The source also asks for general relations among stationary dynamical averages, analogous in role to equilibrium thermodynamic relations. It leaves the precise admissible model class and axioms for entropy production to the proposed theory.
+\subsection{Short English statement}
+Define an experimentally meaningful entropy production rate for general stationary nonequilibrium classical systems.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derived positivity and stationary-flow formulas for finite-state entropy production, with a three-state ring example. General deterministic thermostats, temperature-free interpretation and universal stationary relations are not settled.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{A stationary jump-process test of an entropy definition.}As a limited analogue of the classical thermostatted problem, consider a finite irreducible continuous-time Markov chain with stationary probabilities \(\pi_i>0\) and transition rates \(k_{ij}\), with \(k_{ij}>0\) exactly when \(k_{ji}>0\). Define \(a_{ij}=\pi_i k_{ij}\). The candidate stationary production rate is
+\[\sigma=\frac12\sum_{i\ne j}(a_{ij}-a_{ji})\log\frac{a_{ij}}{a_{ji}}\ge0.\]
+Each unordered-pair contribution is nonnegative because logarithm is increasing; equality holds precisely when every pair has equal stationary flow. Zero-rate pairs are omitted. This supplies a fully measurable formula if transition counts and stationary frequencies can be estimated, under the explicit Markov assumptions.
+\paragraph{The role of stationary averaging.}Expanding the logarithm, the contribution containing \(\log\pi_i-\log\pi_j\) vanishes. Indeed stationarity says \(\sum_j(a_{ij}-a_{ji})=0\) for every \(i\), and summation by parts gives
+\[\sigma=\sum_{i\ne j}a_{ij}\log(k_{ij}/k_{ji}).\]
+For a three-state ring with clockwise rate \(a>0\) and counterclockwise rate \(b>0\), the stationary distribution is uniform, and \(\sigma=(a-b)\log(a/b)\). Thus nonzero circulation is detected without a near-equilibrium expansion. When \(a=b\), detailed balance holds and the rate vanishes.
+\paragraph{Why this is not a general thermostat definition.}The identification of \(\log(k_{ij}/k_{ji})\) with measured heat divided by temperature requires an additional physical relation between rates and reservoirs. The chain calculation does not establish that relation, and the source explicitly includes regimes with no established temperature. A deterministic system also need not possess an exact finite-state Markov description; coarse observation can hide circulation. Deriving an invariant and experimentally meaningful entropy rate for the full classical model class, together with relations among stationary dynamical averages, remains the first and larger gap. This reconstructs a standard finite-state benchmark only.
+
+\paragraph{Verification and adversarial audit.}
+Checked bidirectional support, stationary cancellation, equality condition, ring normalization and the extra hypothesis needed for heat interpretation. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked bidirectional support, stationary cancellation, equality condition, ring normalization and the extra hypothesis needed for heat interpretation. Scope remains limited: Justify a physically invariant observable for the stated classical systems and its relationship to experimentally accessible quantities beyond Markov models.
+
+Coordinator checked pairwise entropy-production positivity, cancellation of stationary log-probability terms and the three-state-ring formula. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Justify a physically invariant observable for the stated classical systems and its relationship to experimentally accessible quantities beyond Markov models.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:7800008:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 7800008 (AMR-077-0008). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:7800008:2}{S2}] Giovanni Gallavotti, original contribution to Open Problems in Mathematical Physics (1998), edited by Michael Aizenman.
+\url{https://web.math.princeton.edu/~aizenman/OpenProblems_MathPhys/9806.EntropyProd.html}.
+\end{itemize}
+\label{end:7800008}
+\end{document}

@@ -1,0 +1,89 @@
+% TOP_PROBLEM: {"id": 30004562, "title": "Bilinear Forms behind Resistor and Ising Integrable Equations", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The relevant subvarieties, diagram maps and integrable equations are source-defined, not arbitrary bilinear forms on arbitrary vector spaces. The question asks for the mechanism behind the reported examples, not simply verification of their names."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004562", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Explain conceptually why symmetric and antisymmetric projective bilinear forms produce the indicated resistor/Ising and BKP/CKP pairings.", "scope": "Computed alternating-form isotropy and the four-by-four Pfaffian determinant relation as diagnostic algebra; source resistor/Ising and BKP/CKP identification remains.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked characteristic-zero diagonal cancellation, Pfaffian signs and a block-diagonal normalization case; withheld any unsupported network identification. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the alternating-form isotropy and four-dimensional determinant/Pfaffian identity, without guessing the network parametrization. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked characteristic-zero diagonal cancellation, Pfaffian signs and a block-diagonal normalization case; withheld any unsupported network identification. The remaining gap is: Derive the actual projective network map in source coordinates and show its elimination gives the stated hierarchy reduction. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30004562; source catalogue code OWR-2654831-005
+\setcounter{section}{30004561}
+\section{Bilinear Forms behind Resistor and Ising Integrable Equations}\label{30004562}
+{\small UnsolvedMath ID 30004562 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+A bilinear form $B$ is symmetric when $B(u,v)=B(v,u)$ and antisymmetric when $B(u,v)=-B(v,u)$. The report\textquotesingle s resistor and Ising subvarieties are constrained spaces of variables for triple-crossing-diagram maps in projective geometry. BKP and CKP are the named reductions or equations in the integrable-system hierarchy. The question concerns why the symmetry type of the geometric form selects one of those network and integrability structures.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Why do symmetric bilinear forms lead to the resistor subvariety and the BKP equation, whereas antisymmetric bilinear forms lead to the Ising subvariety and the CKP equation?
+
+\paragraph{Source scope and qualification.}
+The relevant subvarieties, diagram maps and integrable equations are source-defined, not arbitrary bilinear forms on arbitrary vector spaces. The question asks for the mechanism behind the reported examples, not simply verification of their names.
+\subsection{Short English statement}
+Explain conceptually why symmetric and antisymmetric projective bilinear forms produce the indicated resistor/Ising and BKP/CKP pairings.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Computed alternating-form isotropy and the four-by-four Pfaffian determinant relation as diagnostic algebra; source resistor/Ising and BKP/CKP identification remains.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30004562. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{Testing the linear-algebra mechanism.} Let \(B(u,v)=u^TAv\) over \(\mathbb C\). If \(A^T=-A\), then \(B(v,v)=-B(v,v)\), hence \(B(v,v)=0\). Thus a diagonal isotropy constraint is automatic for an alternating form, while for symmetric \(A\) it imposes the quadratic equation \(v^TAv=0\). These are genuinely different projective conditions and cannot be exchanged simply by changing a sign convention.
+For a four-by-four alternating matrix with upper entries \(a_{ij}\), direct determinant expansion gives
+\[
+ \det A=(a_{12}a_{34}-a_{13}a_{24}+a_{14}a_{23})^2.
+\]
+Consequently degeneracy is controlled by a quadratic Pfaffian relation, including its alternating signs. For example, when \(a_{13}=a_{14}=a_{23}=a_{24}=0\), the matrix splits into two two-by-two blocks and the formula reduces to \(a_{12}^2a_{34}^2\), checking the normalization.
+\paragraph{First missing identification.} Such identities are plausible ingredients in a projective diagram evolution, but they do not determine which coordinates represent resistor or Ising data, nor whether the resulting elimination equation is the source BKP or CKP equation. The source explicitly concerns those particular subvarieties and maps. The first gap is to insert their actual parametrizations and derive the network transformation before identifying its bilinear hierarchy reduction. The calculation establishes only a symmetry-dependent algebraic mechanism and does not reverse, guess or certify the reported pairings from their names.
+
+\paragraph{Verification and adversarial audit.}
+Checked characteristic-zero diagonal cancellation, Pfaffian signs and a block-diagonal normalization case; withheld any unsupported network identification. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked characteristic-zero diagonal cancellation, Pfaffian signs and a block-diagonal normalization case; withheld any unsupported network identification. The remaining gap is: Derive the actual projective network map in source coordinates and show its elimination gives the stated hierarchy reduction. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the alternating-form isotropy and four-dimensional determinant/Pfaffian identity, without guessing the network parametrization. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Derive the actual projective network map in source coordinates and show its elimination gives the stated hierarchy reduction.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30004562:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30004562 (OWR-2654831-005). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30004562:2}{S2}] Mini-Workshop: Dimers, Ising and Spanning Trees beyond the Critical Isoradial Case (2020), Oberwolfach Reports, DOI 10.4171/owr/2020/35, pp. 1759--1789. Primary report accessed 2026-10-11; relevant PDF pages 22.
+\url{https://doi.org/10.4171/owr/2020/35}.
+\item[\hypertarget{source:30004562:3}{S3}] Affolter, discrete differential geometry and cluster algebras (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/2305.02212}.
+\end{itemize}
+\label{end:30004562}
+\end{document}

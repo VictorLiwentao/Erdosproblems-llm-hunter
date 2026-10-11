@@ -1,0 +1,96 @@
+% RESEARCH_DRAFT_SHA256: 1d0d02d9104b4465a3b8daa0c4c73d4722453672b7dd430147729dd4d83208b7
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001205, "title": "A cyclic-slice chart for balanced minimal border rank", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001205", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Explicit flattening-only obstruction using rederived Strassen equations.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch005/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 20001205; source catalogue code AIM-COMPUTATION-0043
+\section{A cyclic-slice chart for balanced minimal border rank}\label{20001205}
+{\small UnsolvedMath ID 20001205 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Embed $\mathbb P^{k-1}\times\mathbb P^{k-1}\times\mathbb P^{k-1}$ by the Segre map, identifying its points with projective rank-one tensors. Its $k$th secant variety is the Zariski closure of projective linear spans of at most $k$ such points. The ideal is the set of homogeneous polynomials vanishing on this variety.
+\paragraph{Statement recorded in the supplied source.}
+Problem 29. Compute the ideal of the secant varieties Sec k(Pk−1 × Pk−1 × Pk−1) for k ≥ 4. \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+What polynomial equations define the k-component secant variety of the three-factor Segre variety for each k at least four?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001205 (AIM-COMPUTATION-0043). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0043
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001205 and source code AIM-COMPUTATION-0043 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001205}
+
+
+\section{Research attempt}
+\subsection{Literature and scope}
+The target is the full defining ideal of $\operatorname{Sec}_k(\mathbb P^{k-1}\times\mathbb P^{k-1}\times\mathbb P^{k-1})$, $k\ge4$. I tested whether ordinary matrix flattening minors could suffice. Strassen commutation equations, discussed by Landsberg and Manivel, give a direct obstruction. I rederive the needed necessary equation; this is not a claim of new equations or generators.
+\begin{proposition}
+Over $\mathbb C$, let a $k\times k\times k$ tensor have slices $S_0,\ldots,S_{k-1}$. Border rank at most $k$ implies
+\[
+S_i\operatorname{adj}(S_0)S_j-S_j\operatorname{adj}(S_0)S_i=0
+\]
+for every $i,j$. The tensor with $S_0=I_k$, $S_1=E_{12}$, $S_2=E_{21}$ and all other slices zero violates these equations while satisfying all ordinary flattening rank-at-most-$k$ conditions.
+\end{proposition}
+\begin{proof}
+On the parameter space of sums of $k$ decomposable tensors, write $S_i=B D_i C^{\mathsf T}$, where $D_i$ is diagonal. On the nonempty open subset where $S_0$ is invertible, $B,C,D_0$ are invertible. Hence
+\[
+S_iS_0^{-1}=B D_iD_0^{-1}B^{-1},
+\]
+so these matrices commute. Multiplying the resulting commutator on the right by $S_0$ and clearing the remaining inverse gives the displayed polynomial equation. The parameter space is an affine space and is irreducible; a polynomial vanishing on a nonempty Zariski open subset vanishes identically. Thus the equation holds for every sum of $k$ decomposable tensors, including degenerate parameter choices, and then on its Zariski closure, the border-rank-at-most-$k$ locus.
+
+For the displayed tensor, the left side with $(i,j)=(1,2)$ is $E_{11}-E_{22}\ne0$. Each ordinary flattening has only $k$ rows (or its transpose only $k$ columns), so rank at most $k$ is automatic. Consequently flattening minors impose no nontrivial obstruction in this balanced format, whereas this tensor lies outside the target secant variety.
+\end{proof}
+\subsection{Verification and remaining gaps}
+Exact integer matrix multiplication at $k=4$ gave $\operatorname{diag}(1,-1,0,0)$ for the commutator. The proof works for all $k\ge4$. It refutes the flattening-only route but does not prove that commutation equations generate the full ideal, treat scheme structure, or control the locus where every chosen slice is singular. None of those missing conclusions is inferred from an invertible-slice calculation.
+
+\section{References and source attribution}
+The original question is credited to the AIM workshop list prepared by Seth Sullivant (2004), \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}. The source question and catalogue attribution are reproduced above. This list was accessed on 11 October 2026; it is historical evidence of the question, not a certification of present open status.
+
+\url{https://arxiv.org/abs/math/0601097}. Primary paper by J. M. Landsberg and L. Manivel, Generalizations of Strassen's equations for secant varieties of Segre varieties; abstract inspected for commutation-equation context.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch005/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

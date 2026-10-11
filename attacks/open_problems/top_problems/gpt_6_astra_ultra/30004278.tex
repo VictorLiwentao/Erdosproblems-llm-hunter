@@ -1,0 +1,91 @@
+% TOP_PROBLEM: {"id": 30004278, "title": "Conformal Field Theory Realizations of Subfactors", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "This is related to ID 30002833 and contains the Asaeda--Haagerup instance, ID 30002840. The finite-index and constructive wording prevents asserting exact equivalence of these extracted records without matching the original realization notions."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004278", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Realize every finite-index subfactor in conformal theory and seek a direct construction from its data.", "scope": "Rejected the constant-local-algebra realization by an exact locality/factor argument; no obstruction to all CFT realizations or general construction.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked disjoint-interval locality, the abelian-factor conclusion and the distinction between finite index and any unrequested rationality/finite-depth assumption. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked failure of locality for a constant nonabelian factor assignment, without claiming a general conformal-realization obstruction. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked disjoint-interval locality, the abelian-factor conclusion and the distinction between finite index and any unrequested rationality/finite-depth assumption. The remaining gap is: Construct compatible interval localization and positive-energy conformal covariance retaining the original subfactor invariant. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30004278; source catalogue code OWR-17292-001
+\setcounter{section}{30004277}
+\section{Conformal Field Theory Realizations of Subfactors}\label{30004278}
+{\small UnsolvedMath ID 30004278 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+A subfactor is an inclusion $N\subset M$ of von Neumann algebras with trivial centers. Its index and standard invariant encode the size and higher relative-commutant structure of the inclusion. In an operator-algebraic conformal field theory, interval or local observable algebras and sectors can produce subfactor inclusions. To say a subfactor arises in conformal field theory requires identifying the inclusion or invariant that the construction realizes. Finite index restricts the inclusion to the finite Jones-index case. A conformal net is an interval-indexed family of local observable algebras with conformal covariance, while a vertex operator algebra is an algebraic chiral-field structure. A direct construction is to recover such a theory from the given subfactor data, not merely exhibit a categorical analogy.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Does every finite-index subfactor admit a counterpart in conformal field theory, and can such a conformal net or vertex operator algebra be constructed directly from the subfactor data?
+
+\paragraph{Source scope and qualification.}
+This is related to ID 30002833 and contains the Asaeda--Haagerup instance, ID 30002840. The finite-index and constructive wording prevents asserting exact equivalence of these extracted records without matching the original realization notions.
+\subsection{Short English statement}
+Realize every finite-index subfactor in conformal theory and seek a direct construction from its data.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Rejected the constant-local-algebra realization by an exact locality/factor argument; no obstruction to all CFT realizations or general construction.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30004278. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{Testing a direct constant-algebra construction.} Suppose one tries to turn a given nontrivial factor \(M\) from a subfactor inclusion into a conformal net by declaring \(\mathcal A(I)=M\) for every interval \(I\), acting on one fixed Hilbert space. Isotony holds automatically, but locality fails. Choose disjoint intervals \(I,J\). Locality requires
+\[
+ [\mathcal A(I),\mathcal A(J)]=0,
+\]
+which in this construction says \([M,M]=0\). An abelian factor equals \(\mathbb C I\), since its center is all of itself and a factor has scalar center. Thus this construction can realize only the trivial algebra, regardless of the index or standard invariant of \(N\subset M\).
+\paragraph{Why tensor copies are not yet a repair.} On a finite ordered collection of sites, separate tensor copies do give commuting disjoint algebras. However a continuum interval net needs inclusions compatible under every subdivision together with a strongly continuous positive-energy covariance representation. A finite tensor layout provides neither this refinement system nor its analytic covariance; freely choosing copies can erase the original inclusion's standard invariant.
+\paragraph{Scope audit.} This is a concrete obstruction to the most direct assignment, not an obstruction to any conformal realization. The source does not restrict to rational theories, so no finite-depth condition is silently imposed on its finite-index subfactors. The first genuine construction gap is recovering local interval factorization and conformal dynamics while retaining the prescribed subfactor data. Both existence for every finite-index inclusion and the requested direct net/VOA construction remain unproved.
+
+\paragraph{Verification and adversarial audit.}
+Checked disjoint-interval locality, the abelian-factor conclusion and the distinction between finite index and any unrequested rationality/finite-depth assumption. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked disjoint-interval locality, the abelian-factor conclusion and the distinction between finite index and any unrequested rationality/finite-depth assumption. The remaining gap is: Construct compatible interval localization and positive-energy conformal covariance retaining the original subfactor invariant. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked failure of locality for a constant nonabelian factor assignment, without claiming a general conformal-realization obstruction. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Construct compatible interval localization and positive-energy conformal covariance retaining the original subfactor invariant.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30004278:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30004278 (OWR-17292-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30004278:2}{S2}] Subfactors and Applications (2019), Oberwolfach Reports, DOI 10.4171/owr/2019/49, pp. 3053--3140. Primary report accessed 2026-10-11; relevant PDF pages 9.
+\url{https://doi.org/10.4171/owr/2019/49}.
+\item[\hypertarget{source:30004278:3}{S3}] Jones, Does every subfactor arise in conformal field theory (catalogue-listed context; not independently consulted in this preparation).
+\url{https://ems.press/content/serial-article-files/46563?nt=1}.
+\item[\hypertarget{source:30004278:4}{S4}] Bischoff, CFT realization of quantum doubles for index below four (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/1506.02606}.
+\end{itemize}
+\label{end:30004278}
+\end{document}

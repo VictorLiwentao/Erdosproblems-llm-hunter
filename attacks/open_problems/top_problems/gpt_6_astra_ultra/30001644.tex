@@ -1,0 +1,95 @@
+% TOP_PROBLEM: {"id": 30001644, "title": "Boltzmann–Grad Limits for the Lorentz Gas", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The context is quasicrystal scatterers, which the short catalogue question omits; random and periodic arrays are comparison cases. The report uses a particular radius/spacing normalization and presents simulations rather than proof for its aperiodic model. The limit must not silently be assumed to satisfy the ordinary linear Boltzmann equation."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001644", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Derive the limiting particle dynamics of the quasicrystal Lorentz gas and determine its kinetic equation.", "scope": "Derives an age-resolved transport balance and an explicit nonexponential free-flight obstruction to a memoryless marginal equation.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked hazard formula, age integration, equal-mass unequal-loss example and distinction from actual cut-and-project dynamics. Model self-audit only; no independent human proof checking. Coordinator checked the age-resolved marginal equation and differing loss rates at equal mass for the nonconstant hazard. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked hazard formula, age integration, equal-mass unequal-loss example and distinction from actual cut-and-project dynamics. Retained unresolved status and zero original-target progress; Actual quasicrystal collision-path statistics and their Boltzmann–Grad convergence have not been proved."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001644; source catalogue code OWR-4536-006
+\setcounter{section}{30001643}
+\section{Boltzmann–Grad Limits for the Lorentz Gas}\label{30001644}
+{\small UnsolvedMath ID 30001644 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} A Lorentz gas consists of point particles moving freely at fixed speed between elastic scatterers and reflecting specularly at collisions. The particle density is $f^\varepsilon(x,v,t)$ with $x\in\mathbb R^n$ and $v\in S^{n-1}$. The Boltzmann--Grad scaling shrinks scatterers and rescales their number or spacing to retain the collision scale. Besides random and periodic arrays, the report examines aperiodic cut-and-project quasicrystal centers. Convergence requires a topology on the particle distributions and an initial density excluding obstacle interiors.
+
+\paragraph{Source scope and qualifications.} The context is quasicrystal scatterers, which the short catalogue question omits; random and periodic arrays are comparison cases. The report uses a particular radius/spacing normalization and presents simulations rather than proof for its aperiodic model. The limit must not silently be assumed to satisfy the ordinary linear Boltzmann equation.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+Given a Lorentz gas in the Boltzmann–Grad limit with initial distribution $f_0(x,v)$, does $f^\varepsilon(x,v,t)$ converge as $\varepsilon\to0$ to a limit $f(x,v,t)$, and, if so, what equation does $f$ satisfy?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: Random and periodic Lorentz gases have rigorous limiting theories, but the requested convergence and equation for quasicrystal scatterers remains unresolved; the report only gives simulations. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Derive the limiting particle dynamics of the quasicrystal Lorentz gas and determine its kinetic equation.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derives an age-resolved transport balance and an explicit nonexponential free-flight obstruction to a memoryless marginal equation.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A memory test for the candidate limiting equation.} In an independent-flight toy process let $\Psi(a)$ be survival probability for a free path longer than age $a$, with density $-\Psi'(a)$ and hazard $h(a)=-\Psi'(a)/\Psi(a)$. If $F(x,v,a,t)$ resolves time since the last collision, free transport with that collision law gives
+\[
+ \partial_tF+v\cdot\nabla_xF+\partial_aF=-h(a)F.
+\]
+Integrating over $a\geq0$ yields for $f(x,v,t)=\int F\,da$ the loss $\int h(a)F\,da$ and a gain boundary term $F(x,v,0,t)$. The marginal closes with a constant collision rate only when the hazard is constant, or when additional special structure controls the age law.
+
+\paragraph{A concrete nonexponential example.} For $\Psi(a)=(1+a)^{-2}$, the hazard is $2/(1+a)$. Two age distributions of the same total mass, one concentrated near $a=0$ and one near a large $A$, have different losses approaching $2f$ and $2f/(1+A)$. Thus a collision operator depending only on the current $f$ cannot reproduce both. Smooth narrow age densities give the same distinction without delta functions.
+
+\paragraph{Quasicrystal gap.} This does not assert that the source's cut-and-project scatterers have this survival law or independent flights. It explains why importing the ordinary linear Boltzmann equation before proving flight statistics is unjustified. The first required step is convergence of collision-path data for the actual quasicrystal configuration, including correlations and a suitable extended state space. Neither convergence of $f^\epsilon$ nor its final equation follows from the toy renewal calculation.
+
+\paragraph{Verification and adversarial audit.}
+Checked hazard formula, age integration, equal-mass unequal-loss example and distinction from actual cut-and-project dynamics. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked hazard formula, age integration, equal-mass unequal-loss example and distinction from actual cut-and-project dynamics. Retained unresolved status and zero original-target progress; Actual quasicrystal collision-path statistics and their Boltzmann–Grad convergence have not been proved.
+
+Coordinator checked the age-resolved marginal equation and differing loss rates at equal mass for the nonconstant hazard. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Actual quasicrystal collision-path statistics and their Boltzmann–Grad convergence have not been proved.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Actual quasicrystal collision-path statistics and their Boltzmann–Grad convergence have not been proved.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001644:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001644 (OWR-4536-006). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001644:2}{S2}] Classical and Quantum Mechanical Models of Many-Particle Systems (2010), Oberwolfach Reports, DOI 10.4171/owr/2010/54, pp. 3159--3236; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2010/54}.
+\item[\hypertarget{source:30001644:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 71--74, printed pages 3229--3232.
+\url{https://ems.press/content/serial-article-files/46313}.
+\item[\hypertarget{source:30001644:4}{S4}] kinetic theory of the low-density Lorentz gas; reference in the saved dated catalogue literature review.
+\url{https://people.maths.bris.ac.uk/~majm/bib/kinetic-lorentz-MAMS.pdf}.
+\end{itemize}
+\label{end:30001644}
+\end{document}

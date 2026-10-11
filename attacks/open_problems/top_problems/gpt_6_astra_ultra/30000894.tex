@@ -1,0 +1,173 @@
+% RESEARCH_DRAFT_SHA256: 4448fc0ec0c312288ddaf59bf72e182727aef22180c70ba39ec2f19f45fd7856
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000894, "title": "Individual Manipulation Power in Neutral Social Choice", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000894", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Let $f$ be a neutral social choice function for $n$ voters and $m$ alternatives, and let $M_i(f)$ be voter $i$'s manipulation power. For $m=3$, if $f$ is $\\varepsilon$-far from dictatorship then $\\sum_iM_i(f)\\geq C\\varepsilon^2$. Can the current $\\Omega(1/n)$ lower bound on $\\max_iM_i(f)$ be improved; can neutrality be replaced by $f$ being far from having range of size at most 2; and does an analogous theorem hold for $m>3$, perhaps with a bound polynomially weaker in $m$?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The known plurality upper scale is rederived, but no improved universal individual lower bound or complete weaker-hypothesis/general-m theorem with the original random-misreport normalization is proved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Individual manipulation: the plurality upper scale and normalization gaps}
+\noindent UnsolvedMath ID 30000894; OWR-1782-004. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Neutrality means that relabeling alternatives relabels the chosen outcome in the same way. A dictatorship always follows a designated voter\textquotesingle s top choice. Distance from dictatorship is the probability of disagreement under the prescribed profile distribution; $M_i(f)$ measures profitable manipulation by voter $i$.
+\paragraph{Statement recorded in the supplied source.}
+Let $f$ be a neutral social choice function for $n$ voters and $m$ alternatives, and let $M_i(f)$ be voter $i$'s manipulation power. For $m=3$, if $f$ is $\varepsilon$-far from dictatorship then $\sum_iM_i(f)\geq C\varepsilon^2$. Can the current $\Omega(1/n)$ lower bound on $\max_iM_i(f)$ be improved; can neutrality be replaced by $f$ being far from having range of size at most 2; and does an analogous theorem hold for $m>3$, perhaps with a bound polynomially weaker in $m$? \href{https://doi.org/10.4171/owr/2008/01}{[S2]}
+\paragraph{Scope qualification.}
+The exact normalization of manipulation power and profile measure require the source. All three extension questions are retained.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Improve individual-voter manipulation bounds, weaken neutrality, and extend the theorem beyond three alternatives.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000894 (OWR-1782-004). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorics (2008), Oberwolfach Reports, DOI 10.4171/owr/2008/01, pp. 5--78
+\url{https://doi.org/10.4171/owr/2008/01}.
+\item[S3] Mossel--Racz, quantitative theorem
+\url{https://arxiv.org/abs/1110.5888}.
+\item[S4] three-alternative quantitative theorem
+\url{https://doi.org/10.1137/090756740}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Let $f$ be a neutral social choice function for $n$ voters and $m$ alternatives, and let $M_i(f)$ be voter $i$'s manipulation power. For $m=3$, if $f$ is $\varepsilon$-far from dictatorship then $\sum_iM_i(f)\geq C\varepsilon^2$. Can the current $\Omega(1/n)$ lower bound on $\max_iM_i(f)$ be improved; can neutrality be replaced by $f$ being far from having range of size at most 2; and does an analogous theorem hold for $m>3$, perhaps with a bound polynomially weaker in $m$?
+
+\section{Primary-source normalization}
+In the original report $M_i(f)$ is the probability of a profitable randomly
+chosen new report, averaging over a uniform random profile and an independent
+uniform complete order for voter $i$. The supplied upstream original-statement
+paraphrase describes the probability that a profitable report exists. Keep
+these separate: denote the latter by $E_i(f)$ and let $m!$ be the number
+of possible orders. Conditioning on a profile, if there is a profitable report
+there are between one and $m!$ of them. Therefore
+\[
+E_i(f)/m!\le M_i(f)\le E_i(f).
+\]
+This is an exact elementary comparison, but its loss is factorial in $m$.
+It cannot by itself extend a polynomial-in-$m$ existence-probability theorem
+to the report's random-misreport quantity. All three source questions remain
+in scope, rather than being replaced by one of these different normalizations.
+
+\section{Attempt at the individual-voter scale}
+We rederive an upper example for three alternatives. Let $f$ choose a
+plurality winner, breaking any tie according to voter 1's complete ranking.
+This deterministic tie rule is neutral: relabeling carries vote counts and
+the tie-breaking ranking together. It need not be anonymous.
+Let $C_a$ count votes having alternative $a$ first. If every pair of counts
+differs by more than two, the winner has a margin at least three and no
+single changed vote can change it, since a pairwise count difference changes
+by at most two. Thus, for every voter, both $M_i$ and $E_i$ are at most
+\[
+\Pr[\exists a\ne b:|C_a-C_b|\le2].
+\]
+Here is a complete $O(n^{-1/2})$ bound on this probability, with deliberately
+loose constants.
+
+Fix a pair $a,b$. For each uniform independent ranking its top is $a,b$
+or the third alternative with equal probability. Let $T$ be the number
+of tops in $\{a,b\}$; then $\mathbb ET=2n/3$ and
+$\operatorname{Var}T=2n/9$. Chebyshev's inequality, proved by
+$\mathbb E(T-\mathbb ET)^2\ge u^2\Pr(|T-\mathbb ET|\ge u)$,
+gives $\Pr(T<n/3)\le2/n$.
+Conditionally on $T=t$, the difference $C_a-C_b$ is a sum of $t$
+independent fair signs. Its largest atom is at most $\sqrt{2/(t+1)}$.
+To verify this bound, put $b_j=\binom{2j}{j}/4^j$. The recursion
+$b_{j+1}/b_j=(2j+1)/(2j+2)$ and
+$(2j+1)^2(j+2)\le4(j+1)^3$ imply inductively
+$b_j\le1/\sqrt{j+1}$. The largest even-$t$ atom is $b_{t/2}$;
+for $t=2j+1$ the largest atom is $b_j(2j+1)/(2j+2)$.
+Both obey the asserted bound. There are at most five integer values between
+$-2$ and 2, so
+\[
+\Pr(|C_a-C_b|\le2)\le 2/n+5\sqrt{6/n}.
+\]
+A union bound over the three unordered pairs gives
+\[
+M_i(f)\le E_i(f)\le B_n:=6/n+15\sqrt{6/n}.
+\]
+Of course probabilities may also be bounded by one; the displayed estimate
+is useful asymptotically.
+
+\paragraph{The example stays far from every dictatorship.}
+For a fixed voter $j$, define $g_j$ to be plurality among the other $n-1$
+voters, with ties resolved using one fixed other voter's ranking. For $n\ge2$
+this is independent of voter $j$'s ranking, hence
+$\Pr[g_j=\text{top}_j]=1/3$. If all pairwise counts among the other voters
+differ by more than two, adding voter $j$ cannot change the winner, regardless
+of the two tie rules. Therefore
+$\Pr[f\ne g_j]\le B_{n-1}$ and
+\[
+\Pr[f\ne\text{top}_j]\ge 2/3-B_{n-1}.
+\]
+This holds for every $j$, so these neutral rules are, for example,
+$1/3$-far from every dictatorship for all sufficiently large $n$, while
+every individual's power is $O(n^{-1/2})$. This rederives the upper-scale
+obstruction described in the report. It neither improves the universal
+$\Omega(1/n)$ lower bound nor proves that either endpoint is sharp.
+
+\section{Attempt to weaken neutrality and extend the alternative count}
+For any neutral rule on $m$ alternatives under the uniform profile measure,
+the output is uniform: relabeling profiles preserves their probabilities
+and permutes any specified output to any other. For a fixed two-element
+set $A$, a rule with image in $A$ can agree with $f$ only where $f\in A$,
+a probability $2/m$. This is achievable by following $f$ there and choosing
+a fixed element of $A$ elsewhere. Thus the distance from the class of rules
+with range of size at most two is exactly $1-2/m$ when $m\ge2$.
+This proves a necessary quantitative consequence of neutrality, not its
+converse and not a replacement for its uses in a manipulation proof.
+The attempted extension by conditioning on an existing profitable report
+also stops at the factorial loss $m!$ above; a polynomial dependence on
+$m$ needs additional structure controlling which reports work.
+
+\section{Adversarial audit and remaining gaps}
+The audit checked the tie rule's neutrality, the fixed-voter independence
+in the distance estimate, the two-unit count-change bound, and the factorial
+normalization loss. No computation was needed for these proofs.
+The later Mossel--Racz primary abstract states a nonneutral quantitative theorem
+for profile manipulability and general numbers of alternatives. This is relevant
+historical context, not a full comparison proof for all three questions and
+this precise $M_i$. No assertion that all the 2008 questions remain presently
+open is made. The new universal individual lower bound, its sharp order,
+and a complete theorem with the requested weaker hypotheses and polynomial
+alternative dependence are not established here.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The known plurality upper scale is rederived, but no improved universal individual lower bound or complete weaker-hypothesis/general-m theorem with the original random-misreport normalization is proved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Nisan contribution on quantitative social-choice manipulability, Oberwolfach Report 1/2008, printed pp.27--29, including footnote 1 and the random-misreport definition; relevant primary text read on 11 October 2026. \url{https://ems.press/content/serial-article-files/46145}.
+\item Mossel--Racz, A quantitative Gibbard--Satterthwaite theorem without neutrality, primary abstract read on 11 October 2026. Full proof and exact normalization comparison not audited. \url{https://arxiv.org/abs/1110.5888}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The known plurality upper scale is rederived, but no improved universal individual lower bound or complete weaker-hypothesis/general-m theorem with the original random-misreport normalization is proved.
+\end{document}

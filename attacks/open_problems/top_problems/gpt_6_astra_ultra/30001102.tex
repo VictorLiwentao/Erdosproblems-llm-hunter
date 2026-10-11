@@ -1,0 +1,147 @@
+% RESEARCH_DRAFT_SHA256: 333dc19c6ed2bca67f7115ad5aaef257c159d7dcb35e954d7b24ecd524d54257
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30001102, "title": "Linear Optimization over Mixed-Integer Bipartite Systems", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001102", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "For a bipartite graph $G=(U\\cup V,E)$, an integral-coordinate set $I$, and $S(G,I)=\\{x\\in\\mathbb{R}^{U\\cup V}:x_i+x_j\\geq b_{ij}\\text{ for }ij\\in E,\\ x_i\\in\\mathbb{Z}\\text{ for }i\\in I\\}$, determine the complexity of optimizing a linear function over $S(G,I)$, equivalently deciding whether a given $\\bar{x}$ belongs to $\\operatorname{conv}(S(G,I))$.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The general rational mixed case has nontrivial mixing inequalities and denominator-sensitive formulations; no polynomial-time algorithm, hardness classification, or full optimization/membership reduction is supplied.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Mixed-integer bipartite optimization: exact easy hulls and a mixing obstruction}
+\noindent UnsolvedMath ID 30001102; OWR-2489-008. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A linear program optimizes $c^Tx$ over a polyhedron $\{x:Ax\leq b\}$. In the simplex method a pivot moves between adjacent basic feasible solutions; a pivot rule chooses the next such move.
+
+An integer program imposes integral coordinates on a system of constraints. A mixed-integer program allows both integral and real coordinates; $\operatorname{conv}(S)$ denotes the set of finite convex combinations of feasible points of $S$.
+\paragraph{Statement recorded in the supplied source.}
+For a bipartite graph $G=(U\cup V,E)$, an integral-coordinate set $I$, and $S(G,I)=\{x\in\mathbb{R}^{U\cup V}:x_i+x_j\geq b_{ij}\text{ for }ij\in E,\ x_i\in\mathbb{Z}\text{ for }i\in I\}$, determine the complexity of optimizing a linear function over $S(G,I)$, equivalently deciding whether a given $\bar{x}$ belongs to $\operatorname{conv}(S(G,I))$. \href{https://doi.org/10.4171/owr/2008/51}{[S2]}
+\paragraph{Scope qualification.}
+The report\textquotesingle s encoding and assumptions on $b_{ij}$ and boundedness are retained; the asserted optimization/membership equivalence is not independently established here.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Classify linear optimization and convex-hull membership for mixed-integer covering constraints on bipartite graphs.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30001102 (OWR-2489-008). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2009), Oberwolfach Reports, DOI 10.4171/owr/2008/51, pp. 2875--2942
+\url{https://doi.org/10.4171/owr/2008/51}.
+\item[S3] network formulations
+\url{https://doi.org/10.1287/moor.1080.0354}.
+\item[S4] mixed-integer bipartite covers
+\url{https://doi.org/10.1287/moor.1100.0454}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+For a bipartite graph $G=(U\cup V,E)$, an integral-coordinate set $I$, and $S(G,I)=\{x\in\mathbb{R}^{U\cup V}:x_i+x_j\geq b_{ij}\text{ for }ij\in E,\ x_i\in\mathbb{Z}\text{ for }i\in I\}$, determine the complexity of optimizing a linear function over $S(G,I)$, equivalently deciding whether a given $\bar{x}$ belongs to $\operatorname{conv}(S(G,I))$.
+
+\section{Attempted reduction to ordinary linear programming}
+The source's $b_{ij}$ are rational, $k$ is their least common denominator,
+and variables have no nonnegativity constraints unless separately stated.
+We try to recover an exact ordinary linear relaxation by bipartite rounding.
+It succeeds in two boundary regimes and fails on a small mixed example.
+
+\paragraph{Integral right-hand sides and fully integral variable sets.}
+For integer $b_{uv}$, any relaxed feasible $x$ can be decomposed as a
+finite convex combination of fully integral feasible points. To prove it,
+put $y_u=x_u$ on $U$ and $y_v=-x_v$ on $V$, so
+$y_u-y_v\ge b_{uv}$. Round all $y_i$ to
+$z_i(\theta)=\lfloor y_i+\theta\rfloor$ using one uniform
+$\theta\in[0,1)$. Integer translation of floors implies
+$z_u-z_v\ge b_{uv}$ on every edge. Undoing the sign change gives an
+integer feasible point for every $\theta$. For $y_i=m+r$ with
+$m\in\mathbb Z$ and $0\le r<1$, the rounded value is $m$ for a
+set of parameters of length $1-r$ and $m+1$ for length $r$, hence
+has mean $y_i$. Partitioning $[0,1)$ at the finitely many coordinate
+thresholds makes this a finite convex combination with mean $x$.
+Thus for every $I$ and integer right-hand sides,
+\[
+\operatorname{conv}(S(G,I))=\{x:x_u+x_v\ge b_{uv}\ \forall uv\in E\}.
+\]
+If instead $I=U\cup V$ and the right-hand sides are rational, replace
+every $b_{uv}$ by $\lceil b_{uv}\rceil$: an integer sum satisfies the
+original inequality exactly when it satisfies the rounded one. The preceding
+proof then gives the hull for that regime as well. If $I$ is empty, the
+original set is already convex. Membership in these displayed hulls is
+checked by their edge inequalities. Optimization reduces to ordinary rational
+linear programming, with its standard polynomial-time algorithms as an
+external computational dependency; no new LP algorithm is claimed.
+
+\paragraph{A three-vertex mixed example blocks the same relaxation.}
+Use a path with integral endpoints $x_1,x_2\in\mathbb Z$ and continuous
+center $z\in\mathbb R$, with
+\[
+x_1+z\ge1/3,\qquad x_2+z\ge2/3.
+\]
+The denominator parameter is three. Every mixed feasible point satisfies
+\[
+x_1+x_2+2z\ge4/3.
+\]
+Indeed put $m=x_2-x_1\in\mathbb Z$ and $w=x_1+z$. The constraints
+say $w\ge\max(1/3,2/3-m)$, so the objective is $m+2w$.
+If $m\le0$, this is at least $4/3-m\ge4/3$.
+If $m\ge1$, it is at least $m+2/3\ge5/3$.
+Equality $4/3$ is attained by $x_1=x_2=0,z=2/3$.
+In contrast $(x_1,x_2,z)=(1/3,2/3,0)$ is feasible for the ordinary
+continuous relaxation and has objective one. Since the stronger inequality
+is preserved by convex combinations, this point is outside the mixed hull.
+The objective is bounded below despite unrestricted variable signs, as the
+calculation shows; no unmentioned nonnegativity assumption creates the gap.
+
+\paragraph{Denominator enumeration is not a bit-polynomial conclusion.}
+The report studies extended formulations whose size grows with $k$.
+Even one right-hand side $b=1/2^L$ has a binary encoding of length $O(L)$
+while its least denominator is $k=2^L$. Therefore an algorithm that
+explicitly creates $k$ states or variables may take exponential time in
+the original binary input length. Calling it polynomial in $k$ does not
+classify the source's general encoded-input problem. This numerical example
+is exact and requires no asymptotic number-theoretic assumption.
+
+\section{Adversarial audit and unresolved complexity}
+The audit checked unrestricted-sign variables, use of the common random
+threshold, finite rather than merely limiting mixtures, and the denominator
+encoding. The supplied optimization/membership equivalence requires a precise
+oracle/encoding formulation; it is not proved by the edge-wise argument.
+The small path demonstrates why a plain-LP proposal fails, but does not show
+NP-hardness or prevent another polynomial method. The general rational mixed
+case and its complexity remain unresolved by this attempt. No numerical
+experiment was performed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The general rational mixed case has nontrivial mixing inequalities and denominator-sensitive formulations; no polynomial-time algorithm, hardness classification, or full optimization/membership reduction is supplied.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 51/2008: Conforti, Combinatorial Mixed-Integer Programming, printed pp.2904--2905; Alcuin-number contribution, pp.2891--2893. Each relevant original passage read from cached primary PDF text on 11 October 2026. \url{https://ems.press/content/serial-article-files/46195}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The general rational mixed case has nontrivial mixing inequalities and denominator-sensitive formulations; no polynomial-time algorithm, hardness classification, or full optimization/membership reduction is supplied.
+\end{document}

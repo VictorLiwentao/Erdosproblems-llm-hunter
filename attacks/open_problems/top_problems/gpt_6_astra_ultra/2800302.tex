@@ -1,0 +1,132 @@
+% RESEARCH_DRAFT_SHA256: a5e4c0521d9d1e0b062e27e239d0eb43526c8aabf6ecd4519bd93f4e0a6f65af
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 2800302, "title": "10 Lectures and 42 Open Problems — Certifying that matrices are PSD", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "2800302", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Given a symmetric matrix ${M}$ with small condition number, is there a quasi-linear time (on ${n}$ and the number of non-zero entries of ${M}$ ) procedure that certifies that ${M\\succeq 0}$ . More specifically, the procedure can be randomized in the sense that it may, with some probably not certify that ${M\\succeq 0}$ even if that is the case, what is important is that it never produces erroneous certificates (and that it has a bounded-away-from-zero probably of succeeding, provided that ${M\\succeq 0}$ ).", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. A zero-error quasi-linear algorithm succeeding with fixed positive probability on every well-conditioned PSD input is not obtained; arithmetic and conditioning promises also require specification.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Zero-error PSD certification: two elementary routes and their obstructions}
+\noindent UnsolvedMath ID 2800302; AMR-027-0302. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Let $M\in\mathbb{R}^{n\times n}$ satisfy $M=M^{\mathsf T}$. Positive semidefiniteness means
+\[
+ M\succeq0\quad\Longleftrightarrow\quad x^{\mathsf T}Mx\ge0\quad\text{for every }x\in\mathbb{R}^n.
+\]
+Write $\operatorname{nnz}(M)$ for its number of nonzero entries. For a nonsingular matrix the spectral condition number is $\kappa_2(M)=\|M\|_2\|M^{-1}\|_2$; the usual condition number is infinite for a singular matrix. Quasi-linear time allows a fixed power of logarithms times the input sparsity and dimension, for example $O((n+\operatorname{nnz}(M))(\log n)^C)$ when other promised parameters are fixed. A certificate is a checkable witness implying $M\succeq0$; a factorization $M=LL^{\mathsf T}$ is an example. The requested procedure may return no certificate, but every certificate it does return must be correct. On promised positive semidefinite inputs its probability of producing a valid certificate must be bounded below by a positive constant independent of $n$.
+\paragraph{Statement recorded in the supplied source.}
+Given a symmetric matrix ${M}$ with small condition number, is there a quasi-linear time (on ${n}$ and the number of non-zero entries of ${M}$ ) procedure that certifies that ${M\succeq 0}$ . More specifically, the procedure can be randomized in the sense that it may, with some probably not certify that ${M\succeq 0}$ even if that is the case, what is important is that it never produces erroneous certificates (and that it has a bounded-away-from-zero probably of succeeding, provided that ${M\succeq 0}$ ). \href{https://afonsobandeira.wordpress.com/2015/10/05/10l42pcheeger/}{[S2]}
+\paragraph{Scope qualification.}
+This is Bandeira's Open Problem 3.2. ``Small condition number'' is a promise in the source rather than a supplied numerical threshold; exact arithmetic, bit complexity, treatment of singular matrices and the precise conditioning dependence are not fixed there. These conventions must be stated when proposing an algorithm. Allowing a small probability of an incorrect certificate would change the question. The author's displayed 2015 question and 2016 lecture context were inspected on 2026-10-11; no complete modern status audit is claimed.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can positive semidefiniteness of a sparse, well-conditioned symmetric matrix be certified in time close to the time needed to read it, with no possibility of a false certificate?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 2800302 (AMR-027-0302). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AMR Open Problem Lists, original problem source linked by catalogue record AMR-027-0302
+\url{https://afonsobandeira.wordpress.com/2015/10/05/10l42pcheeger/}.
+\item[S3] Afonso S. Bandeira, Problem 3.2: Certifying Positive-semidefiniteness, MIT OpenCourseWare (2015).
+\url{https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-of-data-science-fall-2015/50f5debad69d631aba2eebba2c0d2a0d_MIT18_S096F15_Open3.2.pdf}.
+\item[S4] Afonso S. Bandeira, Ten Lectures and Forty-Two Open Problems in the Mathematics of Data Science (2016), Section 3.5, Open Problem 3.2.
+\url{https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf#page=54}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Given a symmetric matrix ${M}$ with small condition number, is there a quasi-linear time (on ${n}$ and the number of non-zero entries of ${M}$ ) procedure that certifies that ${M\succeq 0}$ . More specifically, the procedure can be randomized in the sense that it may, with some probably not certify that ${M\succeq 0}$ even if that is the case, what is important is that it never produces erroneous certificates (and that it has a bounded-away-from-zero probably of succeeding, provided that ${M\succeq 0}$ ).
+
+\section{Attempt and results}
+We use exact real arithmetic for the following tests. Their arithmetic counts are
+not bit-complexity claims. The input is the entire symmetric matrix, not merely
+a matrix-vector oracle. The source does not specify a condition-number threshold;
+the failed example below has spectral condition number exactly three.
+
+\paragraph{A sound sparse certificate.}
+If $M_{ii}\ge\sum_{j\ne i}|M_{ij}|$ for every $i$, then $M\succeq0$.
+Indeed, for every real $x$,
+\[
+x^TMx\ge\sum_i M_{ii}x_i^2-\sum_{i<j}|M_{ij}|(x_i^2+x_j^2)
+=\sum_i\left(M_{ii}-\sum_{j\ne i}|M_{ij}|\right)x_i^2\ge0.
+\]
+The inequalities follow from $2|x_ix_j|\le x_i^2+x_j^2$.
+Computing the row sums requires $O(n+\operatorname{nnz}(M))$ arithmetic
+operations. On inputs passing these explicit inequalities the success probability
+is one, and there are no false certificates. This is the standard diagonal
+dominance test, rederived here, not a new general certifier.
+
+\paragraph{Well-conditioned positive matrices missed by that test.}
+Let $n=2^r\ge16$ and recursively define $H_1=(1)$ and
+$H_{2m}=\left(\begin{smallmatrix}H_m&H_m\\H_m&-H_m\end{smallmatrix}\right)$.
+Induction gives $H_n^T=H_n$ and $H_n^2=nI$. Thus
+$M=I+H_n/(2\sqrt n)$ has eigenvalues in $\{1/2,3/2\}$.
+Both signs occur for $n\ge2$: the recursion gives trace zero, so a symmetric
+matrix with square $nI$ cannot have all eigenvalues of one sign. Consequently
+$M\succ0$ and $\kappa_2(M)=3$.
+Every off-diagonal absolute row sum is $(n-1)/(2\sqrt n)$, whereas
+$M_{ii}\le1+1/(2\sqrt n)$. Since $n-2>2\sqrt n$ for $n\ge16$,
+every row fails the certificate. Small condition number therefore does not supply
+the missing success guarantee for this particular test.
+
+\paragraph{Why finitely many quadratic-form probes do not certify a matrix.}
+Consider a deterministic adaptive algorithm that only queries $v^TMv$ and makes
+$q<n$ queries. Run it on $I$, and let $V$ be the span of the queried vectors.
+Choose a unit $u\perp V$ and set $B=I-2uu^T$. Every query answer on $B$ is
+the same as on $I$. Induction on the query index gives the same adaptive
+transcript and output. But $Bu=-u$ and $Bw=w$ for $w\perp u$, so $B$ is
+indefinite for $n\ge2$ and has singular-value condition number one.
+Any algorithm accepting this transcript is unsound. The conclusion concerns
+this restricted deterministic oracle model; the input-dependent choice of $u$
+does not prove a lower bound for randomized algorithms on a fixed matrix, and
+does not prevent an algorithm from reading all entries.
+
+\section{Context, audit, and remaining scope}
+Bandeira's primary lecture notes, Open Problem 3.2, were consulted on
+11 October 2026. The one-sided correctness requirement is retained exactly.
+The computations above give a complete special-case certificate and explicit
+obstructions to two attempted extensions. They are elementary known mechanisms;
+no novelty or general complexity lower bound is asserted.
+The adversarial audit checked equality in the row-sum condition, the singular
+boundary, the Hadamard trace, and adaptivity of the oracle argument. The source
+allows a certificate to fail on a given run, but demands a dimension-independent
+success probability on every promised PSD input. No such guarantee is proved.
+No numerical experiments or theorem prover were used for this record.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. A zero-error quasi-linear algorithm succeeding with fixed positive probability on every well-conditioned PSD input is not obtained; arithmetic and conditioning promises also require specification.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Afonso S. Bandeira, Ten Lectures and Forty-Two Open Problems in the Mathematics of Data Science (2016), Open Problem 3.2; primary formulation inspected. \url{https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} A zero-error quasi-linear algorithm succeeding with fixed positive probability on every well-conditioned PSD input is not obtained; arithmetic and conditioning promises also require specification.
+\end{document}

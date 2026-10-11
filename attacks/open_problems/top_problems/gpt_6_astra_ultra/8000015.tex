@@ -1,0 +1,80 @@
+% TOP_PROBLEM: {"id": 8000015, "title": "Multi-matrix models and models with an external field", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "8000015", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Extend Riemann--Hilbert steepest descent from special low-dimensional cases to general multi-matrix and external-source models.", "scope": "Proved a finite-size matrix RHP small-jump inversion on the circle. Generic multi-matrix parametrices and asymptotics remain unresolved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked Fourier projection norms, jump sign, right matrix multiplication and matrix-size dependence of the Hilbert-Schmidt norm. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the Fourier boundary-projection convention, Neumann inversion bound and reconstructed jump relation. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked Fourier projection norms, jump sign, right matrix multiplication and matrix-size dependence of the Hilbert-Schmidt norm. Scope remains limited: Construct global/local model problems and transformations that yield uniformly small error jumps for generic spectral data."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 8000015; source catalogue code AMR-079-0015
+\setcounter{section}{8000014}
+\section{Multi-matrix models and models with an external field}\label{8000015}
+{\small UnsolvedMath ID 8000015 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}A multi-matrix model is a probability law on several interacting random matrices; an external-source model couples a random matrix to a fixed matrix. Matrix-valued Riemann--Hilbert problems encode the relevant multiple orthogonal polynomials. The matrix size of the Riemann--Hilbert problem need not equal the size of the sampled random matrices.
+
+\paragraph{Catalogue wording retained for traceability.}
+There has been considerable progress (Kuijlaars,...) in understanding basic statistics such as the correlation functions for the 2-matrix random matrix model, and also matrix models with a source. The key element in these developments has been the successful extension by Kuijlaars et al of the Riemann-Hilbert/steepest descent method to $3\times3$ Riemann-Hilbert problems. So far only the simplest situations have been considered. In order to consider the generic situation, one must, in particular, extend the Riemann-Hilbert/steepest descent method to $n\times n$ Riemann-Hilbert problems. This is a challenging problem which would have important implications, not only for random matrix models, but also for problems in other areas, such as Pad\'e-Hermite approximations and irrationality questions for distinguished real numbers, and multi-orthogonal polynomials.
+\subsection{Short English statement}
+Extend Riemann--Hilbert steepest descent from special low-dimensional cases to general multi-matrix and external-source models.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved a finite-size matrix RHP small-jump inversion on the circle. Generic multi-matrix parametrices and asymptotics remain unresolved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{A matrix-size-independent small-jump step.}Work on the counterclockwise unit circle and let \(J=I+W\), where \(W\) is an \(r\times r\) matrix with \(\|W\|_{L^\infty(\mathrm{op})}=\delta<1\). Use the Hilbert--Schmidt matrix norm in \(L^2\). The interior/exterior Cauchy boundary projections are Fourier projections and have norm one; in the convention \(C_+-C_-=I\), the operator \(C_-\) has norm one as well. Thus \(T_Wf=C_-(fW)\) has norm at most \(\delta\). The Neumann series gives
+\[\mu=(I-T_W)^{-1}I,\qquad \|\mu-I\|_2\le\frac{\|W\|_2}{1-\delta}.
+\]
+Define \(M(z)=I+C(\mu W)(z)\). Its negative boundary value is \(\mu\), and its jump is \(\mu W\); consequently \(M_+=M_-J\), with \(M(\infty)=I\). These equalities follow directly from the boundary projection identity. No smallness factor growing with \(r\) appears in the operator norm, although \(\|W\|_2\) itself may depend on \(r\).
+\paragraph{Why this does not solve the generic problem.}The final error problem in steepest descent can therefore be treated in arbitrary fixed matrix size once a uniformly small jump is actually produced. The difficult step is constructing the global and local parametrices and selecting spectral sheets for generic multi-matrix data. An original jump containing large exponentials is not covered by the hypothesis \(\delta<1\), and a growing matrix size requires separate bounds on \(\|W\|_2\). The explicit calculation locates the missing work before the small-norm inversion, rather than attributing the entire obstruction to matrix size. It yields no generic correlation-function asymptotic or theorem about the other applications named in the source.
+
+\paragraph{Verification and adversarial audit.}
+Checked Fourier projection norms, jump sign, right matrix multiplication and matrix-size dependence of the Hilbert-Schmidt norm. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked Fourier projection norms, jump sign, right matrix multiplication and matrix-size dependence of the Hilbert-Schmidt norm. Scope remains limited: Construct global/local model problems and transformations that yield uniformly small error jumps for generic spectral data.
+
+Coordinator checked the Fourier boundary-projection convention, Neumann inversion bound and reconstructed jump relation. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Construct global/local model problems and transformations that yield uniformly small error jumps for generic spectral data.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:8000015:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 8000015 (AMR-079-0015). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:8000015:2}{S2}] Percy Deift, Some open problems in random matrix theory and the theory of integrable systems (2007), arXiv:0712.0849, Problem 15.
+\url{https://arxiv.org/abs/0712.0849}.
+\end{itemize}
+\label{end:8000015}
+\end{document}

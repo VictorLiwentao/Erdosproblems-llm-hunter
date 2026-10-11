@@ -1,0 +1,94 @@
+% TOP_PROBLEM: {"id": 30003674, "title": "Quantum Optimal Transport for Mean-Field Dynamics", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The exact pseudo-metric and admissible quantum continuity equation are source-defined; different modern quantum Wasserstein metrics are not automatically the same quantity."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003674", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Give the quantum mean-field comparison distance an optimal-transport formulation, ideally through a dynamic variational formula.", "scope": "Proved the pure-marginal coupling identity and a positive quantum self-cost, excluding a zero-action constant-path formula for that diagnostic cost.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked positivity-based support reduction, the explicit 2 by 2 example, and that the exclusion applies only to actions permitting zero-cost constant curves. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the pure-marginal support argument and the explicit Pauli-diagonal self-cost 2. The diagnostic finite-dimensional cost is explicitly distinguished from the report's full unbounded cost. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked positivity-based support reduction, the explicit 2 by 2 example, and that the exclusion applies only to actions permitting zero-cost constant curves. The remaining gap is: Derive a dynamic action matching the actual source cost, including its unavoidable quantum fluctuations and operator domains. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30003674; source catalogue code OWR-15961-002
+\setcounter{section}{30003673}
+\section{Quantum Optimal Transport for Mean-Field Dynamics}\label{30003674}
+{\small UnsolvedMath ID 30003674 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+A quantum state is a positive trace-one operator. A coupling of two quantum states is a bipartite state with those partial traces. Quantum optimal transport seeks a cost or variational principle on such states analogous to classical optimal transport. A Benamou--Brenier formula in classical transport minimizes a kinetic action over density and velocity curves subject to a continuity equation. The source pseudo-metric for mean-field comparison has its own cost operator and need not be a genuine metric with zero self-distance.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Can the pseudo-metric used for quantum mean-field dynamics be formulated through a quantum analogue of optimal transport, such as a Benamou-Brenier variational formula?
+
+\paragraph{Source scope and qualification.}
+The exact pseudo-metric and admissible quantum continuity equation are source-defined; different modern quantum Wasserstein metrics are not automatically the same quantity.
+\subsection{Short English statement}
+Give the quantum mean-field comparison distance an optimal-transport formulation, ideally through a dynamic variational formula.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved the pure-marginal coupling identity and a positive quantum self-cost, excluding a zero-action constant-path formula for that diagnostic cost.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30003674. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{A self-distance obstruction to a naive dynamic action.} The qualification in [S2] says the mean-field cost may have nonzero self-distance. Here is an exact finite-dimensional diagnostic. For a unit vector \(u\) let \(\rho=|u\rangle\langle u|\). Any positive bipartite density matrix \(\Gamma\) with both marginals \(\rho\) equals \(\rho\otimes\rho\). Indeed \(\operatorname{Tr}((I-\rho)\otimes I)\Gamma=0\); writing this as the squared Hilbert--Schmidt norm of \(((I-\rho)\otimes I)\Gamma^{1/2}\) proves support in \(\mathbb Cu\otimes\mathcal H\), and the other marginal reduces it to \(\mathbb Cu\otimes\mathbb Cu\).
+For any self-adjoint matrix \(A\), the cost \(C=(A\otimes I-I\otimes A)^2\) therefore satisfies
+\[
+ \inf_{\Gamma\mapsto(\rho,\rho)}\operatorname{Tr}(C\Gamma)
+ =2\big(\langle u,A^2u\rangle-\langle u,Au\rangle^2\big).
+\]
+Take \(A=\operatorname{diag}(1,-1)\), \(u=(1,1)/\sqrt2\): the answer is \(2\).
+\paragraph{Failed proposed formula.} Any dynamic action which permits a constant state curve with zero velocity and assigns it zero nonnegative kinetic action has zero self-distance. It cannot equal the displayed static cost on all states. This does not preclude a quantum dynamic formula with an additional fluctuation term or different constraints. Nor is this finite matrix cost asserted to be exactly the report's unbounded position/momentum pseudo-metric. It isolates the conceptual obstacle that must be checked for that cost. Matching the actual mean-field quantity, admissible continuity equation and boundary terms remains the first gap; existing modern quantum metrics are not interchangeable with it.
+
+\paragraph{Verification and adversarial audit.}
+Checked positivity-based support reduction, the explicit 2 by 2 example, and that the exclusion applies only to actions permitting zero-cost constant curves. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked positivity-based support reduction, the explicit 2 by 2 example, and that the exclusion applies only to actions permitting zero-cost constant curves. The remaining gap is: Derive a dynamic action matching the actual source cost, including its unavoidable quantum fluctuations and operator domains. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the pure-marginal support argument and the explicit Pauli-diagonal self-cost 2. The diagnostic finite-dimensional cost is explicitly distinguished from the report's full unbounded cost. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Derive a dynamic action matching the actual source cost, including its unavoidable quantum fluctuations and operator domains.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30003674:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30003674 (OWR-15961-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30003674:2}{S2}] Classical and Quantum Mechanical Models of Many-Particle Systems (2017), Oberwolfach Reports, DOI 10.4171/owr/2017/56, pp. 3345--3425. Primary report accessed 2026-10-11; relevant PDF pages 70, 71, 72.
+\url{https://doi.org/10.4171/owr/2017/56}.
+\item[\hypertarget{source:30003674:3}{S3}] Quantum statistical learning (catalogue-listed context; not independently consulted in this preparation).
+\url{https://doi.org/10.1007/s10955-020-02682-1}.
+\item[\hypertarget{source:30003674:4}{S4}] Quantum optimal transport (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/2105.06922}.
+\item[\hypertarget{source:30003674:5}{S5}] OWR Report 56/2018 (catalogue-listed context; not independently consulted in this preparation).
+\url{https://oa.tib.eu/renate/bitstreams/63dd963a-2f59-4c50-b626-ffc98e104dc8/download}.
+\end{itemize}
+\label{end:30003674}
+\end{document}

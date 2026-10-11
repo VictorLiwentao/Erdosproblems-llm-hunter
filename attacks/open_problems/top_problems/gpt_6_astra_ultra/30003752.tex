@@ -1,0 +1,98 @@
+% TOP_PROBLEM: {"id": 30003752, "title": "Factorial Lattice-Regularity Bounds for Equilibrium Displacements", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The report already gives bounds with order-dependent constants $C_j$; the target is the stronger common-$C$ factorial estimate. The defect model, stability and meaning of away from the defect must remain the source hypotheses."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003752", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Can the far-field regularity constants for crystalline-defect equilibria be controlled by a single factorial bound in every derivative order?", "scope": "Proved an exact all-order reciprocal-sequence difference bound matching the proposed decay in a one-ray benchmark; no defect equilibrium estimate is proved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the induction numerator, n=1 and all orders, and kept C times A^j distinct from a common C. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the forward-difference induction and exact common factorial bound, with the actual defect-equilibrium problem explicitly unproved. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked the induction numerator, n=1 and all orders, and kept C times A^j distinct from a common C. The remaining gap is: Derive and close a uniform-order derivative recurrence for the source nonlinear stable lattice equilibrium, with the exact normalization requested. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30003752; source catalogue code OWR-15998-002
+\setcounter{section}{30003751}
+\section{Factorial Lattice-Regularity Bounds for Equilibrium Displacements}\label{30003752}
+{\small UnsolvedMath ID 30003752 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+For a lattice function $f$, the forward discrete gradient is $Df(\ell)=(f(\ell+e_i)-f(\ell))_{i=1}^d$, with $e_i$ the coordinate lattice vectors; $D^j$ is its iterated tensor-valued finite difference. The displacement $\bar u$ is measured relative to the reference lattice and satisfies the source\textquotesingle s equilibrium equations and defect boundary conditions. The norm $|D^j\bar u(\ell)|$ is a fixed finite-dimensional tensor norm. The proposed constant $C$ is independent of differentiation order $j$ and far-field site $\ell$.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Let $\bar u:\mathbb Z^d\to\mathbb R^d$ be an equilibrium displacement field for a crystalline defect. Is there a constant $C>0$ such that, for every $j\geq1$ and lattice site $\ell$ away from the defect,
+
+$$\lvert D^j\bar u(\ell)\rvert\leq Cj!\lvert\ell\rvert^{1-d-j}$$
+
+hold?
+
+\paragraph{Source scope and qualification.}
+The report already gives bounds with order-dependent constants $C_j$; the target is the stronger common-$C$ factorial estimate. The defect model, stability and meaning of away from the defect must remain the source hypotheses.
+\subsection{Short English statement}
+Can the far-field regularity constants for crystalline-defect equilibria be controlled by a single factorial bound in every derivative order?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved an exact all-order reciprocal-sequence difference bound matching the proposed decay in a one-ray benchmark; no defect equilibrium estimate is proved.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30003752. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{An all-order lattice model.} The source asks for one constant, not arbitrary order-dependent constants. A useful exact benchmark is \(u(n)=1/n\) on positive integers, with \(Du(n)=u(n+1)-u(n)\). Induction proves
+\[
+ D^ju(n)=\frac{(-1)^jj!}{n(n+1)\cdots(n+j)}.
+\]
+For the induction step the difference of the reciprocal products starting at \(n+1\) and \(n\), after putting them over the common product through \(n+j+1\), has numerator \(n-(n+j+1)=-(j+1)\). In particular
+\[
+ |D^ju(n)|\le j!\,n^{-j-1},\qquad j\ge1,n\ge1.
+\]
+This has precisely the power \(1-d-j\) along a ray when \(d=2\), and the constant is one for every order. It confirms that factorial control is compatible with discrete differences and is not automatically spoiled by arbitrarily long forward stencils in an outward direction.
+\paragraph{Failed extrapolation.} This sequence is not asserted to be an equilibrium of the report's defect model. For a multi-dimensional displacement, mixed directions may move a stencil toward the defect, and nonlinear equilibrium coefficients can introduce order-dependent growth absent from the reciprocal identity. Neither the report's existing \(C_j\) bounds nor this benchmark controls those effects. The first gap is a recurrence for the actual equilibrium derivatives whose constants close with the exact common-\(C\) normalization in the statement, rather than a silently weaker \(C A^j j!\). The proof checks all positive \(n\), but supplies no new defect-equilibrium theorem.
+
+\paragraph{Verification and adversarial audit.}
+Checked the induction numerator, n=1 and all orders, and kept C times A\textasciicircum{}j distinct from a common C. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked the induction numerator, n=1 and all orders, and kept C times A\textasciicircum{}j distinct from a common C. The remaining gap is: Derive and close a uniform-order derivative recurrence for the source nonlinear stable lattice equilibrium, with the exact normalization requested. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the forward-difference induction and exact common factorial bound, with the actual defect-equilibrium problem explicitly unproved. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Derive and close a uniform-order derivative recurrence for the source nonlinear stable lattice equilibrium, with the exact normalization requested.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30003752:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30003752 (OWR-15998-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30003752:2}{S2}] Mathematical Methods in Quantum Chemistry (2018), Oberwolfach Reports, DOI 10.4171/owr/2018/13, pp. 631--721. Primary report accessed 2026-10-11; relevant PDF pages 13.
+\url{https://doi.org/10.4171/owr/2018/13}.
+\item[\hypertarget{source:30003752:3}{S3}] Oberwolfach Report 13 (catalogue-listed context; not independently consulted in this preparation).
+\url{https://doi.org/10.4171/OWR/2018/13}.
+\item[\hypertarget{source:30003752:4}{S4}] Crystal equilibration (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/1709.02770}.
+\end{itemize}
+\label{end:30003752}
+\end{document}

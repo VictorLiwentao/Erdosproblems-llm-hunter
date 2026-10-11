@@ -1,0 +1,156 @@
+% RESEARCH_DRAFT_SHA256: ad4c06ca0060d14e44dff86d0b51e494953e11d36e1dd0402483833fe521ccbb
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001262, "title": "A nonresidue-to-witness reduction and exact witness count", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001262", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly, metadata checks and the finite exact computation described in the manuscript. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 12. Let p be prime, write p − 1 = 2 `m where m is odd, and assume\n\n` ≥ 3. Find in deterministic polynomial time x ∈ Fp such that x2`−1\n\n+ 1 is not a 2 `−1th power. (Kedlaya)", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. A complete deterministic reduction from one supplied quadratic nonresidue is proved, but producing that input unconditionally for arbitrary p within the required time remains missing.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{A higher-power witness from one nonresidue: exact boundary search and root extraction}
+\noindent UnsolvedMath ID 20001262; AIM-COMPUTATION-0100. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Polynomial time means a bound polynomial in the finite input length; for an integer input, its binary length is proportional to its logarithm. Write $p-1=2^\ell m$ with m odd and $\ell\ge3$. A $2^{\ell-1}$th power in $\mathbb F_p$ is an element $y^{2^{\ell-1}}$ for some $y\in\mathbb F_p$. The target is to produce x for which $x^{2^{\ell-1}}+1$ is not such a power, in deterministic time polynomial in the binary length of p.
+\paragraph{Statement recorded in the supplied source.}
+Question 12. Let p be prime, write p − 1 = 2 `m where m is odd, and assume
+
+` ≥ 3. Find in deterministic polynomial time x ∈ Fp such that x2`−1
+
++ 1 is not a 2 `−1th power. (Kedlaya) \href{https://aimath.org/WWN/primesinp/primesinp.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The superscript nesting and the symbol ell have been flattened by extraction; the definitions use the exponents printed in the primary notes.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can a specified higher-power nonresidue expression be found deterministically in polynomial time?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001262 (AIM-COMPUTATION-0100). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0100
+\url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 12. Let p be prime, write p − 1 = 2 `m where m is odd, and assume
+
+` ≥ 3. Find in deterministic polynomial time x ∈ Fp such that x2`−1
+
++ 1 is not a 2 `−1th power. (Kedlaya)
+
+\section{Attempt and supplied-data condition}
+Write $p-1=2^\ell m=2km$, with $m$ odd, $\ell\ge3$ and
+$k=2^{\ell-1}$. The target is $x$ for which $x^k+1$ is not a
+$k$th power, including zero among the powers. We prove a deterministic
+construction if one quadratic nonresidue $z$ is supplied. Producing
+that supplied nonresidue for arbitrary $p$ remains a separate step,
+so the conditional construction is not the original unconditional
+algorithm.
+
+\paragraph{The power subgroup and its membership test.}
+The multiplicative group of a finite field is cyclic. Here is the
+needed elementary proof. In any finite abelian group one can construct
+an element whose order is the exponent (the least common multiple of
+all element orders): for each prime choose an element containing the
+maximal prime-power order, raise it to remove its other primary parts,
+and multiply these commuting elements of coprime orders. In a finite
+subgroup of a field, if this exponent is $e$, all group elements are
+roots of $X^e-1$, so their number is at most $e$. The constructed
+element gives $e$ distinct elements, hence it generates the group.
+Thus
+$H=(\mathbb F_p^*)^k$ has size $2m$, equals the roots of
+$u^{2m}=1$, and contains $-1$. Each $h\in H$ has exactly $k$
+preimages under $x\mapsto x^k$, as is immediate from exponents of
+a generator. Let $H_0=H\cup\{0\}$. Membership in $H_0$ is tested
+by equality to zero or by the displayed power test. Since $k$ is even,
+$H$ consists of squares, and a quadratic nonresidue is outside $H_0$.
+
+\paragraph{Nonmonotone bisection finds an additive boundary.}
+Represent the supplied nonresidue $z$ as an integer in $[1,p-1]$.
+Maintain integers $a<b$ with $a\in H_0$ and $b\notin H_0$, starting
+at $a=0,b=z$. Test the integer midpoint: if it is in $H_0$, replace
+$a$ by it; otherwise replace $b$. Each step preserves the opposite
+endpoint labels and halves the interval length up to rounding, so after
+$O(\log p)$ tests we have $b=a+1$. No monotonicity of the subgroup
+labels is assumed. Since one belongs to $H_0$, the final $a$ cannot
+be zero. Set $h=a\in H$; then $h+1\notin H_0$.
+
+\paragraph{An explicit $k$th root of the boundary value.}
+If $m>1$, choose an integer $e$ with $ke\equiv1\pmod m$ by the
+integer Euclidean algorithm; this is possible since $k$ is a power of
+two and $m$ is odd. For $m=1$ set $e=0$. In either case
+$ke=1+tm$ with $t$ odd, since $ke$ is even and $m$ is odd.
+For $h\in H$, $h^m$ equals $1$ or $-1$, so
+\[
+(h^e)^k=h(h^m)^t=h h^m.
+\]
+A nonresidue $z$ has $z^{(p-1)/2}=-1$, by the cyclic-group
+criterion for squares. Therefore $c=z^m$ satisfies $c^k=-1$.
+If $h^m=1$, take $x=h^e$; if $h^m=-1$, take $x=h^e c$.
+The displayed equations prove $x^k=h$ in both cases. Consequently
+$x^k+1=h+1$ is not a $k$th power, as required.
+The membership tests and exponentiations use exponents with
+$O(\log p)$ bits; binary powering uses $O(\log p)$ field
+multiplications per test. Together with the Euclidean algorithm and
+$O(\log p)$ bisections this is polynomial in the binary length of
+$p$, conditional on the supplied nonresidue.
+
+\paragraph{Existence alone does not locate a witness efficiently.}
+The proper set $H_0$ contains zero and one. Taking the least positive
+integer outside it gives an additive boundary as above, so such a
+boundary exists without any algorithmic assumption. Each boundary
+$h\in H$ has $k$ distinct $k$th roots, giving at least $k$ witnesses.
+This bound can be exact: for $p=17$, $m=1$, $k=8$ and
+$H=\{1,-1\}$. Only $h=1$ has $h+1$ outside $H_0$, since
+$1+1=2\notin\{0,1,-1\}$ while $-1+1=0$; $x=0$ also fails.
+There are exactly eight witnesses. An existence proof or a brute-force
+scan over $p$ values is not a deterministic bound polynomial in $\log p$.
+
+\section{Audit and gap}
+The primary Question 12's nested exponents and the nearby Agrawal
+nonresidue discussion were checked. Exact Python tests on every prime
+$p<200$ with $8\mid p-1$, and every supplied quadratic nonresidue for
+each such prime, checked the bisection, extracted root and witness
+condition; the $p=17$ witness count was eight. These finite tests only
+verify implementation examples of the proved conditional construction.
+The audit checked zero as a power, the $m=1$ inverse convention,
+nonmonotone bisection and the supplied-nonresidue dependency. No
+unconditional fast nonresidue routine is proved, and no new resolution
+of the source's deterministic all-primes target is claimed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. A complete deterministic reduction from one supplied quadratic nonresidue is proved, but producing that input unconditionally for arbitrary p within the required time remains missing.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Future directions in algorithmic number theory, workshop 24--28 March 2003, report version 30 April 2003; original question, relevant lecture context and adjoining remarks inspected on 11 October 2026. \url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} A complete deterministic reduction from one supplied quadratic nonresidue is proved, but producing that input unconditionally for arbitrary p within the required time remains missing.
+\end{document}

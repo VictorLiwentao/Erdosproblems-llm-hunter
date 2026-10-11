@@ -1,0 +1,84 @@
+% TOP_PROBLEM: {"id": 20002510, "title": "Normalization-aware leading quintic amplitudes at the Gepner point", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The source does not fix the flat coordinate, period normalization or holomorphic ambiguity. These choices must be recorded for numerical coefficients to be meaningful; z=0 is retained in the displayed family convention. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002510", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Compute the leading B-model genus amplitudes of the mirror quintic near its orbifold point.", "scope": "Computed how leading coefficients change under flat-coordinate and holomorphic-ambiguity choices. No mirror-quintic orbifold amplitude coefficient is determined.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked Laurent as well as Taylor powers, nonzero coordinate derivative, holomorphic ambiguity and preservation of z=0 in the source family. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the coordinate-change leading factor and holomorphic ambiguity, including the period-line tensor-power convention. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked Laurent as well as Taylor powers, nonzero coordinate derivative, holomorphic ambiguity and preservation of z=0 in the source family. Scope remains limited: Fix period normalization, orbifold flat coordinate and holomorphic-ambiguity boundary conditions, then solve the corresponding amplitude equations."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002510; source catalogue code AIM-PHYSICS-0018
+\setcounter{section}{20002509}
+\section{Normalization-aware leading quintic amplitudes at the Gepner point}\label{20002510}
+{\small UnsolvedMath ID 20002510 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}The displayed family is the mirror-quintic model obtained from $\sum_{i=1}^5x_i^5+z\prod_{i=1}^5x_i=0$ by the indicated $(\mathbb Z/5\mathbb Z)^3$ quotient, with the geometric resolution/convention required for mirror calculations. $F_g^B$ denotes a genus-$g$ B-model amplitude. The variable $q$ is the source’s amplitude coordinate; its relation to $z$ and period normalization matters at the orbifold/Gepner point.
+
+\paragraph{Catalogue wording retained for traceability.}
+Can we calculate the leading terms of $F_g^B(q)$ at the orbifold point $z=0$ of the quintic
+\[
+(\sum x_i^5 + z \prod x_i =0 )/ \mathbb{Z}_5^3?
+\]
+\paragraph{Scope and source qualification.}The source does not fix the flat coordinate, period normalization or holomorphic ambiguity. These choices must be recorded for numerical coefficients to be meaningful; z=0 is retained in the displayed family convention. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Compute the leading B-model genus amplitudes of the mirror quintic near its orbifold point.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Computed how leading coefficients change under flat-coordinate and holomorphic-ambiguity choices. No mirror-quintic orbifold amplitude coefficient is determined.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{Coordinate dependence of a leading coefficient.}Suppose in a chosen holomorphic trivialization an amplitude has leading expansion \(F_g(q)=a q^r+O(q^{r+1})\), with integer \(r\) and \(a\ne0\). Under a local flat-coordinate change \(\widetilde q=cq+O(q^2)\), \(c\ne0\), inversion gives
+\[F_g=a c^{-r}\widetilde q^{\,r}+O(\widetilde q^{\,r+1}).\]
+This follows by substituting \(q=c^{-1}\widetilde q+O(\widetilde q^2)\), and remains valid for negative \(r\) as a Laurent expansion. If the amplitude is a section of the tensor power \(2-2g\) of the period line bundle in the chosen period normalization, rescaling its frame by a nonzero constant \(b\) supplies the corresponding additional frame factor; its convention must be stated rather than inferred from a numerical coefficient.
+\paragraph{An ambiguity that affects the target directly.}An equation determining only \(\bar\partial F_g\) cannot determine a holomorphic addition \(h(q)\), because \(\bar\partial h=0\). A constant \(h\) changes a constant leading term; \(h(q)=cq^r\) changes the first coefficient at any nonnegative power \(r\) allowed by the boundary conditions. Thus anomaly equations alone do not fix leading holomorphic amplitudes without boundary or normalization data.
+\paragraph{Gap.}No period basis, orbifold flat coordinate or genus-dependent ambiguity conditions have been computed for the displayed quotient family. The first required step is to fix those choices at the stated point \(z=0\), then solve the actual period/anomaly system. The variable \(z\) is not silently replaced by the large-complex-structure coordinate often used for another quintic convention. This calculation identifies a real normalization obstruction but supplies no quintic coefficient and no claimed progress percentage.
+
+\paragraph{Verification and adversarial audit.}
+Checked Laurent as well as Taylor powers, nonzero coordinate derivative, holomorphic ambiguity and preservation of z=0 in the source family. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked Laurent as well as Taylor powers, nonzero coordinate derivative, holomorphic ambiguity and preservation of z=0 in the source family. Scope remains limited: Fix period normalization, orbifold flat coordinate and holomorphic-ambiguity boundary conditions, then solve the corresponding amplitude equations.
+
+Coordinator checked the coordinate-change leading factor and holomorphic ambiguity, including the period-line tensor-power convention. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Fix period normalization, orbifold flat coordinate and holomorphic-ambiguity boundary conditions, then solve the corresponding amplitude equations.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002510:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002510 (AIM-PHYSICS-0018). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002510:2}{S2}] American Institute of Mathematics, Gromov-Witten invariants and number theory, source item 4.1.
+\url{http://aimpl.org/gromwitnumthry/4/}.
+\end{itemize}
+\label{end:20002510}
+\end{document}

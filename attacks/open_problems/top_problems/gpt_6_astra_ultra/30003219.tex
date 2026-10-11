@@ -1,0 +1,113 @@
+% TOP_PROBLEM: {"id": 30003219, "title": "Reconstruction of Many-Body Dynamics from One-Particle Density", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The scalar density is not the entire one-particle density matrix. The appropriate potential class, time regularity and gauge equivalence must be kept in a precise reconstruction theorem; these are not supplied in the extraction."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003219", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "With the interaction and initial state known, does a particle density determine the driving potential and the resulting many-body evolution?", "scope": "Gives explicit density-to-current-to-potential reconstruction and uniqueness modulo time gauge for a smooth positive one-particle density on a circle, with initial-state compatibility; does not settle interacting many-body reconstruction.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked current integration and winding normalization, the quantum-pressure sign, periodicity of the potential, initial-current compatibility, and the precise failure at density zeros or many-body correlations. Model self-audit only; no independent human proof checking. Coordinator checked the circle current reconstruction, winding constraint, potential formula and initial-state compatibility required for uniqueness modulo a time gauge. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked current integration and winding normalization, the quantum-pressure sign, periodicity of the potential, initial-current compatibility, and the precise failure at density zeros or many-body correlations. Retained unresolved status and zero original-target progress; Replace the single-wave-function phase representation by a controlled interacting density-potential map, including representability, correlations, nodes and the required regularity class."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30003219; source catalogue code OWR-14751-003
+\setcounter{section}{30003218}
+\section{Reconstruction of Many-Body Dynamics from One-Particle Density}\label{30003219}
+{\small UnsolvedMath ID 30003219 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+For an $N$-particle state $\Psi(t)$, the one-particle reduced density matrix is obtained by tracing out $N-1$ particles. Its diagonal is the one-particle density $n(x,t)$; for a normalized wave function one convention multiplies this diagonal by $N$ so that $\int n=N$. Bosonic and fermionic wave functions are respectively symmetric and antisymmetric. Reconstruction is relative to fixed interactions and the supplied initial state, with external potentials equivalent up to a purely time-dependent additive scalar when that only changes the global phase.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+For time-dependent $N$-boson or $N$-fermion systems with known interactions and initial state, can the full quantum dynamics, and in particular the external potential, be reconstructed from the one-particle density?
+
+\paragraph{Source scope and qualification.}
+The scalar density is not the entire one-particle density matrix. The appropriate potential class, time regularity and gauge equivalence must be kept in a precise reconstruction theorem; these are not supplied in the extraction.
+\subsection{Short English statement}
+With the interaction and initial state known, does a particle density determine the driving potential and the resulting many-body evolution?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Gives explicit density-to-current-to-potential reconstruction and uniqueness modulo time gauge for a smooth positive one-particle density on a circle, with initial-state compatibility; does not settle interacting many-body reconstruction.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A reconstructible one-particle case.}
+Take one particle on the circle $\mathbb R/L\mathbb Z$, with kinetic operator $-\tfrac12\partial_x^2$. Suppose a proposed density $n(x,t)$ is smooth, strictly positive, periodic, and has integral one at every time. Write a wave function as $\psi=\sqrt n\,e^{iS}$, allowing the real phase to have winding $S(L,t)-S(0,t)=2\pi k$, $k\in\mathbb Z$. The fixed nonvanishing initial wave function determines $k$.
+The imaginary part of the Schr\"odinger equation is the continuity equation
+\[
+ n_t+\partial_x j=0,\qquad j=nS_x.
+\]
+Define $F(x,t)=\int_0^x n_t(y,t)\,dy$. Every periodic current satisfying continuity has the form $j(x,t)=J(t)-F(x,t)$, since $F(L,t)=0$. Winding then determines the previously unknown spatially constant current:
+\[
+ J(t)=\frac{2\pi k+\int_0^L F(x,t)/n(x,t)\,dx}
+              {\int_0^L 1/n(x,t)\,dx}.
+\]
+The denominator is finite and strictly positive. Thus density plus winding fixes $S_x=j/n$. Integrating in $x$ fixes $S$ up to a function of time.
+
+\paragraph{Recovering and checking the potential.}
+The real part gives the explicit real potential
+\[
+ v(x,t)=-S_t(x,t)-\tfrac12 S_x(x,t)^2
+             +\frac{\partial_x^2\sqrt{n(x,t)}}{2\sqrt{n(x,t)}}.
+\]
+Substitution of $\psi=\sqrt n e^{iS}$ verifies both real and imaginary parts of
+$i\psi_t=-\tfrac12\psi_{xx}+v\psi$.
+Because the winding $k$ is constant, $S_t$ is periodic, so $v$ is a potential on the circle. Replacing $S$ by $S+a(t)$ replaces $v$ by $v-a'(t)$, exactly the allowed time-dependent scalar gauge.
+
+\paragraph{Compatibility and limitation.}
+For reconstruction from a specified initial state, require $n(x,0)=|\psi_0(x)|^2$ and require the displayed reconstructed current at $t=0$ to equal $\operatorname{Im}(\overline{\psi_0}\partial_x\psi_0)$. These are genuine representability conditions; an arbitrary smooth density history need not satisfy the second one. With them, a constant phase choice matches $\psi_0$. Within this smooth positive one-particle class, any other solution with the same density and initial state has the same fixed winding, hence the same current and potential modulo gauge. Nodes invalidate division by $n$. For interacting many-particle states, the scalar density does not provide a single phase field with current $nS_x$, and internal stresses and correlations remain undetermined by this computation. Those are the first missing ingredients in the full source problem.
+
+\paragraph{Verification and adversarial audit.}
+Checked current integration and winding normalization, the quantum-pressure sign, periodicity of the potential, initial-current compatibility, and the precise failure at density zeros or many-body correlations. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked current integration and winding normalization, the quantum-pressure sign, periodicity of the potential, initial-current compatibility, and the precise failure at density zeros or many-body correlations. Retained unresolved status and zero original-target progress; Replace the single-wave-function phase representation by a controlled interacting density-potential map, including representability, correlations, nodes and the required regularity class.
+
+Coordinator checked the circle current reconstruction, winding constraint, potential formula and initial-state compatibility required for uniqueness modulo a time gauge. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Replace the single-wave-function phase representation by a controlled interacting density-potential map, including representability, correlations, nodes and the required regularity class.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Replace the single-wave-function phase representation by a controlled interacting density-potential map, including representability, correlations, nodes and the required regularity class.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30003219:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30003219 (OWR-14751-003). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30003219:2}{S2}] Many-Body Quantum Systems and Effective Theories (2016), Oberwolfach Reports, DOI 10.4171/owr/2016/43, pp. 2465--2511. Primary report accessed 2026-10-11; relevant PDF pages 32.
+\url{https://doi.org/10.4171/owr/2016/43}.
+\item[\hypertarget{source:30003219:3}{S3}] Runge--Gross (catalogue-listed context; not independently consulted in this preparation).
+\url{https://doi.org/10.1103/PhysRevLett.52.997}.
+\item[\hypertarget{source:30003219:4}{S4}] density--potential mapping (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/1610.05552}.
+\item[\hypertarget{source:30003219:5}{S5}] TDDFT foundations review (catalogue-listed context; not independently consulted in this preparation).
+\url{https://doi.org/10.1039/D4CP04551C}.
+\end{itemize}
+\label{end:30003219}
+\end{document}

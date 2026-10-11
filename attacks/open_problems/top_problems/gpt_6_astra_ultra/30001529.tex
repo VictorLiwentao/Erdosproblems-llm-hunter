@@ -1,0 +1,93 @@
+% TOP_PROBLEM: {"id": 30001529, "title": "Oceanic Mid-Depth Stratification and Overturning Circulation", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The report argues for a mean-versus-eddy overturning mechanism in its specific basin/channel geometry. The title question is a physical mechanism program; no universal inversion or exact circulation formula for every ocean is stated."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001529", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Explain which processes maintain mid-depth ocean stratification and its overturning circulation.", "scope": "Solves a constant-coefficient vertical buoyancy balance and proves a transport/diffusivity nonidentifiability from stratification alone.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked both signs of w, w=0 limit, stable-gradient sign and exact scaling degeneracy. Model self-audit only; no independent human proof checking. Coordinator checked the vertical boundary-value solution, both velocity signs and the common transport/diffusivity scaling ambiguity. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked both signs of w, w=0 limit, stable-gradient sign and exact scaling degeneracy. Retained unresolved status and zero original-target progress; The source basin/channel mean-eddy closure and independent transport information are missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001529; source catalogue code OWR-4415-002
+\setcounter{section}{30001528}
+\section{Oceanic Mid-Depth Stratification and Overturning Circulation}\label{30001529}
+{\small UnsolvedMath ID 30001529 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} Oceanic stratification is the vertical variation of density, often represented by $N^2=-(g/\rho_{\rm ref})\partial_z\rho$ in a stably stratified Boussinesq convention. Overturning circulation is the large-scale transport in vertical and meridional directions, measured by a corresponding streamfunction. The source's mid-depth region lies approximately 1000--3000 m below the surface, below the main thermocline and above the abyss. Its model has a semi-enclosed basin and a southern reentrant channel representing the Antarctic Circumpolar Current.
+
+\paragraph{Source scope and qualifications.} The report argues for a mean-versus-eddy overturning mechanism in its specific basin/channel geometry. The title question is a physical mechanism program; no universal inversion or exact circulation formula for every ocean is stated.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+What sets the oceanic mid-depth stratification and overturning circulation?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The extracted question concerns the mechanisms maintaining oceanic mid-depth stratification and overturning; the report presents model-dependent mechanisms, not a general definitive resolution. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Explain which processes maintain mid-depth ocean stratification and its overturning circulation.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Solves a constant-coefficient vertical buoyancy balance and proves a transport/diffusivity nonidentifiability from stratification alone.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{An exact vertical balance and its ambiguity.} On $0\leq z\leq H$, prescribe constant upward velocity $w$, diffusivity $\kappa>0$, buoyancy endpoints $b(0)=b_0$, $b(H)=b_1$, and steady balance $wb'=\kappa b''$. For $w\ne0$ integration gives
+\[
+ b(z)=b_0+(b_1-b_0)\frac{e^{wz/\kappa}-1}{e^{wH/\kappa}-1}.
+\]
+For $w=0$ its continuous limit is the linear profile. Differentiation verifies the equation and endpoints. The stratification $N^2=b'$ is positive when $b_1>b_0$, regardless of the sign of $w$, because numerator and denominator signs cancel.
+
+\paragraph{A concrete identification obstruction.} The profile depends on $w$ and $\kappa$ only through $w/\kappa$. Multiplying both by any $c>0$ leaves $b$ and $N^2$ unchanged while multiplying vertical transport by $c$. Thus stratification data alone cannot identify overturning in this model. Even full knowledge of the profile and boundary values does not resolve the ambiguity without an independent transport or mixing measurement.
+
+\paragraph{Source scope.} The actual source has a basin and a reentrant southern channel, with competing mean and eddy overturning. Its mid-depth stratification cannot be identified with this one-dimensional imposed-upwelling balance without justification. The calculation exposes why an independent closure for eddy compensation, boundary forcing and mixing is needed. Deriving that closure and its basin/channel matching is the first gap; neither a universal ocean formula nor a unique inference of overturning from stratification has been proved.
+
+\paragraph{Verification and adversarial audit.}
+Checked both signs of w, w=0 limit, stable-gradient sign and exact scaling degeneracy. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked both signs of w, w=0 limit, stable-gradient sign and exact scaling degeneracy. Retained unresolved status and zero original-target progress; The source basin/channel mean-eddy closure and independent transport information are missing.
+
+Coordinator checked the vertical boundary-value solution, both velocity signs and the common transport/diffusivity scaling ambiguity. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. The source basin/channel mean-eddy closure and independent transport information are missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. The source basin/channel mean-eddy closure and independent transport information are missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001529:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001529 (OWR-4415-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001529:2}{S2}] Mathematical Theory and Modelling in Atmosphere-Ocean-Science (2010), Oberwolfach Reports, DOI 10.4171/owr/2010/34, pp. 2027--2099; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2010/34}.
+\item[\hypertarget{source:30001529:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 15--16, printed pages 2041--2042.
+\url{https://ems.press/content/serial-article-files/46292}.
+\end{itemize}
+\label{end:30001529}
+\end{document}

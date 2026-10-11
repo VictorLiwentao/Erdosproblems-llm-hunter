@@ -1,0 +1,152 @@
+% RESEARCH_DRAFT_SHA256: ba699a53b8f9a5f54ea44932b2edd349b269442ea6ef143449467d6f11bdd517
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000802, "title": "Fast Instance-Optimal Decoders for Compressed Sensing", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000802", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and overlapping mathematical projector derivation and source/quantifier audit. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "In compressed sensing, suppose the $\\ell^2$ instance-optimal recovery estimate $\\lVert x-\\Delta(\\Phi x)\\rVert_2\\leq C_0\\sigma_k(x)_2$ holds for $k\\leq cn\\log(N/n)$ with probability at least $1-e^{-bn}$. Can one construct a decoder $\\Delta$ with the same guarantee and low algorithmic complexity?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. No decoder with the full source-specific probability, measurement, and running-time guarantee is constructed; known uniform impossibility and a failed simple decoder do not resolve the per-fixed-signal target.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Fast decoding attempts: the uniformity obstruction and a failed matched filter}
+\noindent UnsolvedMath ID 30000802; OWR-1592-001. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+$\sigma_k(x)_2=\inf\{\lVert x-z\rVert_2:z\text{ has at most }k\text{ nonzero coordinates}\}$ is the best $k$-term approximation error. $\Phi$ maps $N$-dimensional signals to $n$ measurements and $\Delta$ is a reconstruction map.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The measurement distribution and whether probability is uniform over all signals are not specified; the unusual supplied sparsity range is preserved without correction.
+
+Source-record limitation: The measurement ensemble/uniformity is absent and the supplied n log(N/n) sparsity range has unresolved extraction concerns; no corrected recovery target is introduced.
+\paragraph{Statement recorded in the supplied source.}
+In compressed sensing, suppose the $\ell^2$ instance-optimal recovery estimate $\lVert x-\Delta(\Phi x)\rVert_2\leq C_0\sigma_k(x)_2$ holds for $k\leq cn\log(N/n)$ with probability at least $1-e^{-bn}$. Can one construct a decoder $\Delta$ with the same guarantee and low algorithmic complexity? \href{https://doi.org/10.4171/owr/2007/36}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Construct a fast compressed-sensing decoder with the same stated high-probability recovery guarantee.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000802 (OWR-1592-001). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Wavelet and Multiscale Methods (2008), Oberwolfach Reports, DOI 10.4171/owr/2007/36, pp. 2079--2172
+\url{https://doi.org/10.4171/owr/2007/36}.
+\item[S3] instance optimality with l1 decoding
+\url{https://doi.org/10.1016/j.acha.2009.05.001}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+In compressed sensing, suppose the $\ell^2$ instance-optimal recovery estimate $\lVert x-\Delta(\Phi x)\rVert_2\leq C_0\sigma_k(x)_2$ holds for $k\leq cn\log(N/n)$ with probability at least $1-e^{-bn}$. Can one construct a decoder $\Delta$ with the same guarantee and low algorithmic complexity?
+
+\section{Primary-source scope}
+The primary contribution defines uniform instance optimality, proves a linear
+measurement lower bound for that notion in $\ell^2$, and then explicitly weakens
+to a probability statement for each fixed signal. Theorem 4 and its following
+paragraph pose the fast-decoder question in the latter setting, with Gaussian
+or Bernoulli measurement ensembles under discussion. Its printed sparsity
+condition really is $k\le cn\log(N/n)$; the multiplication is not merely an
+extraction error. We retain it and do not silently substitute another range.
+The preserved catalogue's uncertainty about the ensemble and quantifiers is
+partly resolved by this source inspection; it is not an instruction to prove
+a stronger simultaneous guarantee.
+
+\section{Attempt and results}
+\paragraph{A complete known obstruction to the wrong quantifier order.}
+Suppose $k\ge1$, $C_0\ge1$, and one fixed $n\times N$ real matrix $\Phi$
+and decoder obey the requested estimate for every $x$. Then
+$n\ge N/C_0^2$. Here is a rederivation of the source's Theorem 3.
+The case $n\ge N$ is immediate. Otherwise let $P$ be the orthogonal
+projector onto $\ker\Phi$. Since its eigenvalues are zero or one,
+$\operatorname{tr}P=\dim\ker\Phi\ge N-n$. Some diagonal entry
+$p=P_{ii}\ge1-n/N>0$. Put $h=Pe_i$. Symmetry and $P^2=P$ give
+$\|h\|_2^2=p$ and $h_i=p$. Keeping coordinate $i$ proves
+$\sigma_k(h)_2^2\le\sigma_1(h)_2^2\le p-p^2$.
+At $x=0$ the estimate forces $\Delta(0)=0$; since $\Phi h=0$, applying
+it to $h$ gives $p\le C_0^2p(1-p)\le C_0^2pn/N$. Cancel $p>0$.
+This argument was suggested, with the endpoint qualification $C_0\ge1$,
+by the root Codex GPT-6 agent and audited here. It is known-source mathematics,
+not original-target progress. Its vector $h$ depends on $\Phi$, so it cannot
+refute a guarantee whose signal is fixed before the random matrix is drawn.
+
+\paragraph{Concrete fast candidate and exact failure on a fixed sparse input.}
+Try a matched filter followed by hard thresholding: with unit-norm columns
+$a_j$ of $\Phi$, form $z=\Phi^Ty$ and retain its two largest-magnitude
+coordinates, without refitting their values. Fix $x=e_1+e_2$ before the
+matrix is chosen. Let $\rho=\langle a_1,a_2\rangle$. Then
+$z_1=z_2=1+\rho$. If the selected support omits either coordinate 1 or 2,
+the answer differs from $x$. If it contains both, it still differs whenever
+$\rho\ne0$. Independent normalized Gaussian columns in $\mathbb R^n$,
+$n\ge2$, satisfy $\rho\ne0$ with probability one: conditional on nonzero
+$a_1$, its inner product with an unnormalized independent Gaussian column
+is a nondegenerate one-dimensional Gaussian, hence has zero probability
+of being zero; normalization does not alter this event.
+Thus this candidate fails almost surely on that fixed input, although
+$\sigma_2(x)_2=0$. The source's exact bound cannot tolerate an arbitrarily
+small amplitude bias on a sparse vector. Normalization was a favorable
+modification of the candidate, not a claim that its ensemble equals the report's.
+
+\paragraph{Least-squares refitting removes the bias only after support selection.}
+For a selected $k$-element support $S$ with full-column-rank submatrix
+$A=\Phi_S$, define $\widehat x_S=(A^TA)^{-1}A^Ty$ and
+$\widehat x_{S^c}=0$. Substituting
+$y=A x_S+\Phi_{S^c}x_{S^c}$ gives the exact identity
+\[
+\|x-\widehat x\|_2^2
+=\|x_{S^c}\|_2^2+
+ \|(A^TA)^{-1}A^T\Phi_{S^c}x_{S^c}\|_2^2.
+\]
+The two terms live on disjoint coordinates, proving the equality. In particular
+if $S$ contains the true support, recovery is exact. If $S$ is a best-$k$
+support and the second norm is at most $L\|x_{S^c}\|_2$, the desired
+bound follows with $C_0=\sqrt{1+L^2}$. These are hypotheses, not outputs
+of the matched filter. The missing inference is an efficient support-selection
+procedure together with a per-fixed-signal high-probability control of that
+cross term at the printed measurement and failure-probability scales.
+The projector obstruction prevents replacing this probabilistic analysis by
+one simultaneous bound for all inputs in the compressed regime.
+
+\section{Adversarial audit and unresolved scope}
+The audit checked that the sparse-input counterexample addresses a particular
+algorithm and a fixed input, while the projector witness has the opposite
+quantifier order. Neither refutes the intended existence problem. A later
+primary abstract, Gilbert et al. (2013), explicitly studies foreach recovery
+with low failure probability and nearly matching sublinear-time upper bounds.
+Only its abstract was inspected here; its full parameter/ensemble comparison
+with the printed question was not verified, so no present open-status or
+full historical-resolution claim follows. No numerical experiment was used.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration, format review, and overlapping mathematical projector derivation and source/quantifier audit. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. No decoder with the full source-specific probability, measurement, and running-time guarantee is constructed; known uniform impossibility and a failed simple decoder do not resolve the per-fixed-signal target.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Cohen, Instance Optimality in Compressed Sensing, Oberwolfach Report 36/2007, printed pp.2091--2094. Full relevant passage read from cached primary PDF text on 11 October 2026; publisher landing page also inspected. \url{https://ems.press/content/serial-article-files/46120}.
+\item Gilbert, Ngo, Porat, Rudra, Strauss, L2/L2-foreach sparse recovery with low risk (2013), primary abstract read only; full theorem comparison not audited. \url{https://arxiv.org/abs/1304.6232}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} No decoder with the full source-specific probability, measurement, and running-time guarantee is constructed; known uniform impossibility and a failed simple decoder do not resolve the per-fixed-signal target.
+\end{document}

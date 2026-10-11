@@ -1,0 +1,82 @@
+% TOP_PROBLEM: {"id": 20002540, "title": "Circulant mass compatibility and a six-body temporal Fourier obstruction", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The source records results for n<6 and a different logarithmic potential, which are historical partial context. Distinct phase shifts have a separate canonical record 20002541. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002540", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Determine whether a Newtonian equal-time-shift choreography forces all masses to be equal.", "scope": "Proved that full nonzero-residue Fourier support forces equal masses and checked how dynamics removes an alternating-mass circular candidate. General equal-shift choreographies remain unresolved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked center-of-mass Fourier factors, finite transform inversion, circular missing modes and both alternating-square force coefficients. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the choreography Fourier mass equations and alternating-mass square force comparison. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked center-of-mass Fourier factors, finite transform inversion, circular missing modes and both alternating-square force coefficients. Scope remains limited: Use the complete Newtonian force equations to control mass Fourier modes invisible to the trace frequencies."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002540; source catalogue code AIM-PHYSICS-0048
+\setcounter{section}{20002539}
+\section{Circulant mass compatibility and a six-body temporal Fourier obstruction}\label{20002540}
+{\small UnsolvedMath ID 20002540 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}In the Newtonian $n$-body problem, positions $q_i\in\mathbb R^d$ and masses $m_i>0$ obey $m_i\ddot q_i=\nabla_{q_i}U$, where $U(q)=\sum_{i<j}m_im_j/|q_i-q_j|$ and the gravitational constant is normalized to one. Here $T=\tfrac12\sum_i m_i|\dot q_i|^2$, $E=T-U$, and a collision has $q_i=q_j$. The center of mass can be fixed at zero; moment of inertia is $I=\sum_i m_i|q_i|^2$. An equal-time-shift choreography has $q_i(t)=q(t+(i-1)P/n)$ for one $P$-periodic curve, with distinct bodies avoiding collision. The masses still appear separately in the Newtonian equations. Equal phase shifts are an assumption of this source question, not of every generalized single-trace motion.
+
+\paragraph{Catalogue wording retained for traceability.}
+Problem 11. Do choreographies imply equal masses? (Alain Chenciner)
+\paragraph{Scope and source qualification.}The source records results for n<6 and a different logarithmic potential, which are historical partial context. Distinct phase shifts have a separate canonical record 20002541. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Determine whether a Newtonian equal-time-shift choreography forces all masses to be equal.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved that full nonzero-residue Fourier support forces equal masses and checked how dynamics removes an alternating-mass circular candidate. General equal-shift choreographies remain unresolved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{A Fourier obstruction from center of mass.}Write an equal-shift choreography as \(q_i(t)=q(t+iP/n)\), \(0\le i<n\), and expand its smooth periodic trace in Fourier coefficients \(\widehat q_\ell\). In an inertial frame its center of mass is constant, so every nonzero temporal frequency satisfies
+\[\widehat q_\ell\sum_{i=0}^{n-1}m_i e^{2\pi i\ell i/n}=0.
+\]
+If for each nonzero residue \(r\pmod n\) at least one coefficient \(\widehat q_\ell\ne0\) occurs with \(\ell\equiv r\), all nonconstant discrete Fourier coefficients of the mass vector vanish. Inverting the finite Fourier transform then forces every mass to equal their average. This proves a conditional obstruction requiring only the center-of-mass equation.
+\paragraph{An inactive-mode test.}For a circular trace only frequencies \(\pm1\) occur. With four bodies, alternating masses \((a,b,a,b)\), \(a,b>0\), satisfy the center-of-mass condition. Newton's equations add an obstruction: at an a-mass vertex of radius \(R\), the required angular frequency is \(\omega^2=(a/4+b/\sqrt2)/R^3\); at a b-mass vertex it is \((b/4+a/\sqrt2)/R^3\). Equality implies \((a-b)(1/4-1/\sqrt2)=0\), hence \(a=b\). Thus passing the Fourier test is not sufficient.
+\paragraph{Gap.}For a general trace with missing Fourier residues, one must use the full force equations to eliminate the remaining mass modes or construct a genuine counterexample. No such argument is proved here for arbitrary n. The source's historical small-n context is not treated as a new proof, and unequal phase shifts remain the distinct question of record 20002541.
+
+\paragraph{Verification and adversarial audit.}
+Checked center-of-mass Fourier factors, finite transform inversion, circular missing modes and both alternating-square force coefficients. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked center-of-mass Fourier factors, finite transform inversion, circular missing modes and both alternating-square force coefficients. Scope remains limited: Use the complete Newtonian force equations to control mass Fourier modes invisible to the trace frequencies.
+
+Coordinator checked the choreography Fourier mass equations and alternating-mass square force comparison. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Use the complete Newtonian force equations to control mass Fourier modes invisible to the trace frequencies.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002540:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002540 (AIM-PHYSICS-0048). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002540:2}{S2}] American Institute of Mathematics, Variational Methods in Celestial Mechanics; notes by Kuo-Chang Chen, version 22 June 2003, source item 11.
+\url{https://aimath.org/WWN/varcelest/varcelest.pdf}.
+\end{itemize}
+\label{end:20002540}
+\end{document}

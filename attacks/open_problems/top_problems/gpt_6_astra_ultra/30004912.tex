@@ -1,0 +1,147 @@
+% RESEARCH_DRAFT_SHA256: be08021ab23aa905ecbd88b9ac24d15a2176630c98c08ece2664e0c6980aa3f7
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004912, "title": "Compact Representations of Four-Thirds Near-Mincuts", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004912", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Can all cuts of weight at most $\\tfrac43$ times the minimum-cut value in an $n$-vertex graph be represented compactly, exploiting the fact that there are at most $n^2$ such cuts?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The cycle family has an exact compact encoding, but K4 defeats extending a single interval order to the inclusive endpoint; no general structural representation is provided.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Four-thirds near-mincuts: a cycle encoding and failure of one circular order}
+\noindent UnsolvedMath ID 30004912; OWR-8415356-023. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+In an undirected weighted graph, a cut is the unordered bipartition $\{S,V\setminus S\}$ with $\varnothing\ne S\ne V$. Its weight is the sum of nonnegative weights of crossing edges. Let $\lambda>0$ be the minimum cut weight. A $4/3$-near-mincut has weight at most $4\lambda/3$. A compact representation should describe the family structurally and allow its cuts to be recovered, rather than store every cut as a separate vertex subset.
+\paragraph{Statement recorded in the supplied source.}
+Can all cuts of weight at most $\tfrac43$ times the minimum-cut value in an $n$-vertex graph be represented compactly, exploiting the fact that there are at most $n^2$ such cuts? \href{https://doi.org/10.4171/owr/2021/53}{[S2]}
+\paragraph{Scope qualification.}
+The quoted count concerns the usual positive-mincut setting and identifies complementary subsets as the same cut. The source does not prescribe a particular representation format or encoding-size bound; those are part of the target.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Find a structural representation for all cuts whose weights lie within four-thirds of the minimum.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004912 (OWR-8415356-023). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/53, pp. 2893--2954
+\url{https://doi.org/10.4171/owr/2021/53}.
+\item[S3] Combinatorial Optimization, Oberwolfach Reports 53/2021, primary report PDF
+\url{https://ems.press/content/serial-article-files/46931}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Can all cuts of weight at most $\tfrac43$ times the minimum-cut value in an $n$-vertex graph be represented compactly, exploiting the fact that there are at most $n^2$ such cuts?
+
+\section{A representation route with a precise test case}
+The report seeks structure beyond a list of all vertex subsets and
+does not prescribe a final representation format. We test the simplest
+such format: one circular order in which each represented cut is
+an interval versus its complement. It exactly encodes a substantial
+quadratic family, but fails at the inclusive four-thirds threshold
+on a four-vertex graph. This does not rule out more flexible polygon
+representations or any other compact format.
+
+\paragraph{All near-mincuts of a unit cycle.}
+Let $G$ be a cycle on $n\ge3$ vertices, with every edge
+of weight one. Along the cyclic order the indicator of a nonempty
+proper set changes at least twice and an even number of times,
+because it returns to its starting value. Thus every cut has
+even weight at least two, and a single vertex attains two.
+The minimum cut value is $\lambda=2$. A cut of weight at
+most $4\lambda/3=8/3$ must therefore have weight exactly two.
+Its indicator changes twice, so its two sides are the two
+consecutive vertex intervals obtained by deleting the crossing edges.
+Conversely every unordered pair of distinct cycle edges gives such
+a cut: deleting them leaves exactly two nonempty path components,
+including the possibility that one component is a singleton.
+The crossing-edge pair uniquely identifies the unordered cut.
+There are consequently exactly $\binom n2$ near-mincuts.
+
+They are represented using just the cyclic list of $n$ vertices:
+choose two gaps in the list and recover the two intervals.
+This is $O(n\log n)$ bits for labeled vertices, compared with
+listing $\Theta(n^2)$ separate subsets. It is an exact structural
+compression for this family, with a complete recovery rule.
+
+\paragraph{The inclusive endpoint defeats that same format on $K_4$.}
+In the unit complete graph on four vertices, a singleton cut has
+weight three and a two-versus-two cut has weight four, by counting
+$s(4-s)$ crossing edges. Hence $\lambda=3$, and all seven
+unordered nontrivial cuts have weight at most $4\lambda/3=4$:
+four singleton cuts and three distinct two-versus-two cuts.
+In any circular order of four labels, only two of the three
+two-versus-two bipartitions are intervals. The third separates the
+two opposite positions from the other two; each side is disconnected
+in the circular order and has four changes rather than two.
+Therefore no single circular order on the original vertices
+represents all these near-mincuts as intervals. The obstruction is
+independent of which circular order is chosen.
+
+This calculation also checks the endpoint convention: with the
+strict threshold $<4\lambda/3$, only the four singleton cuts
+remain in this example. Statements about a strict threshold cannot
+be copied to the inclusive question without checking equality cases.
+The example is consistent with the catalogue's coarse $n^2$ count,
+since seven is at most sixteen. It is not consistent with a
+claim of at most $\binom n2$ at the inclusive endpoint;
+the primary report's typographically displayed binomial count must
+therefore be read with its threshold conventions rather than silently
+strengthened into an inclusive theorem.
+
+\paragraph{Why counting alone does not produce the requested structure.}
+Even if at most $n^2$ distinct cuts are given, listing their
+$n$-bit characteristic vectors takes $O(n^3)$ bits. That is
+a polynomial list, but does not provide the type of common
+geometric/combinatorial representation sought by the source. The
+cycle example compresses the list by explaining its compatibility.
+The $K_4$ example shows that its simplest compatibility rule
+does not extend to all graphs. A richer rule with proved size
+and recovery properties remains necessary; the source does not fix
+one for us to declare sufficient without such a proof.
+
+\section{Audit}
+The primary near-mincut discussion on printed page 2947 was inspected,
+including its strict six-fifths description and its count notation.
+The audit identifies complementary subsets as one cut, retains
+$\lambda>0$, and distinguishes a counterexample to one representation
+from impossibility of compact representation. All counts were proved
+by hand, with no graph enumeration program. The general four-thirds
+representation problem remains unresolved in this attempt.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The cycle family has an exact compact encoding, but K4 defeats extending a single interval order to the inclusive endpoint; no general structural representation is provided.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 53/2021, Combinatorial Optimization, original question and surrounding discussion read from the primary PDF text on 11 October 2026. Historical statements are not a current-status survey. \url{https://ems.press/content/serial-article-files/46931}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The cycle family has an exact compact encoding, but K4 defeats extending a single interval order to the inclusive endpoint; no general structural representation is provided.
+\end{document}

@@ -1,0 +1,129 @@
+% RESEARCH_DRAFT_SHA256: 918a5520ce9ba5098142e98749b98db23d40f5afe644a3b0caa75e9fe7ecdd74
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30005066, "title": "Gaussian Mean Testing under Information Constraints", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005066", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Gaussian Mean Testing under Information Constraints; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A one-bit scalar test and a matching scalar information lower bound; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch012 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30005066; source catalogue code OWR-9790365-016
+\section{Gaussian Mean Testing under Information Constraints}\label{30005066}
+{\small UnsolvedMath ID 30005066 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Gaussian mean testing observes samples from a multivariate normal distribution $N(\mu,\Sigma)$ and distinguishes two specified sets of means. For example, a zero-versus-separated-mean test compares $\mu=0$ with $\lVert\mu\rVert_2\geq\varepsilon$ under a specified covariance; this example explains the terminology without fixing the entire source family. Information constraints restrict which observations or messages reach the decision procedure. Optimality compares achievable sample, communication and error tradeoffs with lower bounds applying to every permitted test.
+\paragraph{Statement recorded in the supplied source.}
+Determine optimal tests and matching lower bounds for Gaussian mean testing under communication or information constraints. \href{https://doi.org/10.4171/owr/2022/14}{[S2]}
+\paragraph{Scope qualification.}
+The admissible channels and null/alternative classes are part of the cited information-constraint model. The supplied partially solved status is preserved; it is not a claim that every communication-allocation variant remains unresolved.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Determine the best achievable Gaussian-mean tests when communication or other information restrictions limit what the tester can observe.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30005066 (OWR-9790365-016). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] New Mathematical Techniques in Information Theory (2023), Oberwolfach Reports, DOI 10.4171/owr/2022/14, pp. 683--707
+\url{https://doi.org/10.4171/owr/2022/14}.
+\item[S3] Acharya--Canonne--Tyagi, distributed signal detection
+\url{https://proceedings.mlr.press/v125/acharya20b.html}.
+\item[S4] Canonne--Nimitt, distributed Gaussian mean testing
+\url{https://arxiv.org/abs/2605.29426}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30005066 and source code OWR-9790365-016 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30005066}
+
+\section{Literature and context check}
+The primary report, p.~703, presents Gaussian mean testing within broad channel-family information constraints. Canonne--Nimitt's May 2026 primary abstract was also consulted; it describes communication models with varying sample counts, bit budgets, and shared randomness. Only that abstract is used for this context, not an unverified transfer of its full results. The calculation below is an elementary scalar, one-sample-per-user case and does not claim a solution of the high-dimensional allocation problem.
+\section{Research attempt: A one-bit scalar test and a matching scalar information lower bound}
+Fix $0<\varepsilon\leq1$. Each of $N$ users sees one independent $X_i\sim N(\mu,1)$ and transmits the bit $Z_i=\mathbf1\{X_i\geq0\}$. We test $\mu=0$ against $|\mu|\geq\varepsilon$. Let $\phi(t)=(2\pi)^{-1/2}e^{-t^2/2}$ and $c=\phi(1)>0$. The bit mean is $p_\mu=\Phi(\mu)$. By symmetry, monotonicity, and integration over $[0,\varepsilon]$,
+\[
+ |p_\mu-1/2|\geq\int_0^\varepsilon\phi(t)\,dt\geq c\varepsilon
+ \quad\text{whenever }|\mu|\geq\varepsilon.
+\]
+Reject the null when $|\overline Z-1/2|>c\varepsilon/2$. Under the null, an error requires $|\overline Z-p_0|>c\varepsilon/2$. Under an alternative, acceptance requires $|\overline Z-p_\mu|\geq c\varepsilon/2$ by the triangle inequality. Since $\operatorname{Var}(\overline Z)=p_\mu(1-p_\mu)/N\leq1/(4N)$, each error probability is at most
+\[
+ {1\over Nc^2\varepsilon^2}.
+\]
+This follows directly by taking expectations in $\mathbf1\{|V-\mathbb EV|\geq t\}\leq(V-\mathbb EV)^2/t^2$. Thus $N\geq4/(c^2\varepsilon^2)$ suffices for both errors at most $1/4$, with one bit per user and no shared randomness.
+
+For a converse, even allow the referee the full samples and restrict the alternative to $\mu=\varepsilon$. Let $P=N(0,1)^{\otimes N}$ and $Q=N(\varepsilon,1)^{\otimes N}$ have densities $p,q$. Completing the square in one coordinate gives
+\[
+ \int\sqrt{p q}=\exp(-N\varepsilon^2/8)=:A.
+\]
+More explicitly, the one-coordinate integrand is $e^{-\varepsilon^2/8}$ times the density of $N(\varepsilon/2,1)$; multiply over independent coordinates. Cauchy--Schwarz now gives
+\[
+ \operatorname{TV}(P,Q)={1\over2}\int|\sqrt p-\sqrt q|(\sqrt p+\sqrt q)
+ \leq\tfrac12\sqrt{(2-2A)(2+2A)}=\sqrt{1-A^2}.
+\]
+For every randomized test with rejection probability $f(x)\in[0,1]$, the sum of its errors is $1-\int f(q-p)\geq1-\operatorname{TV}(P,Q)$: the positive part of $q-p$ integrates to total variation and bounds the integral against any $0\leq f\leq1$. If $N\varepsilon^2\leq1$, then $A^2\geq e^{-1/4}>3/4$ (use $e^{-t}>1-t$ for $t>0$), so total variation is strictly less than $1/2$. The two errors therefore cannot both be at most $1/4$.
+
+Any communication protocol, including one with randomization and interaction, merely induces such a test function of the complete sample vector after averaging its internal coins. Hence the same lower bound holds under communication restrictions. Together these arguments establish order $\varepsilon^{-2}$ sample complexity in this specified scalar model. They also identify why this route does not detect a scalar communication penalty: thresholding preserves a mean shift of constant order $\varepsilon$ in a single Bernoulli parameter.
+\section{Verification and adversarial audit}
+The upper bound treats both signs of the mean and all $|\mu|\geq\varepsilon$, not only the boundary alternative. The range $\varepsilon\leq1$ is essential to the uniform constant $\phi(1)$. The converse uses an allowed simple alternative and therefore applies to the composite testing problem. Constants and the strict inequality excluding two errors of $1/4$ at $N\varepsilon^2\leq1$ are checked explicitly.
+\paragraph{Audit corrections.} The scalar auxiliary model is explicit. A centralized lower bound is used only as a valid lower bound for constrained protocols; it is not asserted to reveal a high-dimensional communication cost.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The result is a known elementary scalar order bound, not a sharp constant and not the original general information-constraint tradeoff. Dimension dependence, covariance families, privacy channels, heterogeneous budgets, and the source's full channel constraints remain untreated.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46950} (consulted 2026-10-11). 
+\item \url{https://arxiv.org/abs/2605.29426} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

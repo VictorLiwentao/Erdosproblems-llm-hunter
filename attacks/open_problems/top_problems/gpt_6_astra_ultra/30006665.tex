@@ -1,0 +1,98 @@
+% RESEARCH_DRAFT_SHA256: ac26e16673fd483e40bece6cc7f766ae0f41cc83336fd1f0185a1396e71710d0
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30006665, "title": "Curricula for Algorithmic Reasoning in Sequence Models", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006665", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Exact noncommuting consistent gradient updates show a norm-based easy-first curriculum need not improve test risk.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch011/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 30006665; source catalogue code OWR-14299916-003
+\section{Curricula for Algorithmic Reasoning in Sequence Models}\label{30006665}
+{\small UnsolvedMath ID 30006665 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A curriculum specifies the order or sampling frequency of training examples. A sequence model maps token sequences to outputs; algorithmic reasoning must be defined by the task and desired input-size generalization.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The architecture, disruption criterion, task family, and training/generalization guarantee are not specified.
+
+Source-record limitation: Curriculum and data-selection design is requested without a formal model or guarantee.
+\paragraph{Statement recorded in the supplied source.}
+Beyond currently studied stylized settings, which curricula encourage algorithmic reasoning in transformers? How can disruptive but correctly labeled examples be identified for structured state-space or hybrid architectures? Can these insights be converted into principled data-selection or curriculum-learning methods for training foundation models at scale? \href{https://doi.org/10.4171/owr/2026/11}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Develop curricula and data selection that encourage algorithmic sequence reasoning.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30006665 (OWR-14299916-003). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Modern and Emerging Phenomena in Machine Learning (2026), Oberwolfach Reports, DOI 10.4171/owr/2026/11, pp. 683--736
+\url{https://doi.org/10.4171/owr/2026/11}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30006665 and code OWR-14299916-003 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30006665}
+
+\section{Research attempt}
+\subsection{Literature, source context and scope}
+The full catalogue body, including qualifications and historical source status, is preserved above. The original workshop report was inspected in the locally cached publisher PDF text. This attempt distinguishes the source question from any explicitly restricted model introduced below. Repeated records retain their own source IDs and do not become independent conjectures. Elementary results and attributed literature results are not claimed as new original-target progress.
+
+\subsection{A curriculum-order route and its obstruction}
+The report discusses architecture-specific reasoning and clean-label effects, not a universal easy-first theorem. We test whether correctly labeled examples can be ordered by a simple feature-norm notion of ease without regard to optimization interactions. Our explicit surrogate is linear regression with two sequential stochastic-gradient updates, not a transformer or state-space model.
+Let the true coefficient be $\beta=(1,1)$, and take examples
+\[
+ a=(1,0),\ y_a=1;\qquad b=(1,1),\ y_b=2.
+\]
+Both labels equal the true linear response. Start $\theta=0$ and use step size $\eta=1/2$ on each individual loss $\tfrac12(\theta^Tx-y)^2$, so the update is
+$T_x(\theta)=\theta+\tfrac12(y-\theta^Tx)x$.
+\begin{proposition}
+The order $a,b$ ends at $(5/4,3/4)$; the order $b,a$ ends at $(1,1)$. Under a test law with $\mathbb E[XX^T]=I$, their squared prediction risks are respectively $1/8$ and zero.
+\end{proposition}
+\begin{proof}
+The first $a$ update gives $(1/2,0)$. Its prediction on $b$ is $1/2$, hence the $b$ update adds $(3/4,3/4)$, yielding $(5/4,3/4)$. In the other order, the first $b$ update is $(1,1)$, already the true coefficient, so the $a$ update is zero. For either output, risk is $(\theta-\beta)^T\mathbb E[XX^T](\theta-\beta)=\|\theta-\beta\|^2$, giving $2(1/4)^2=1/8$ and zero.
+\end{proof}
+Thus the smaller-norm example first is worse for this declared one-pass objective even though all labels are correct. The lesson is the exact failure of a universal ordering inference, not a recommendation to reverse practical curricula. Multiple passes, other step sizes and other test laws can change the comparison.
+\subsection{Verification and remaining gaps}
+The four rational updates and both risks were computed. Architecture-specific algorithmic reasoning, long-sequence extrapolation and scalable clean-example selection remain outside this model. No criterion in the source is declared met by this auxiliary example.
+
+\section{References and source attribution}
+The primary Oberwolfach workshop report, \url{https://doi.org/10.4171/owr/2026/11}, was inspected on 11 October 2026. Relevant source passages: 2026/11 pp. 694--696, curricula and disruptive correctly labeled examples. Catalogue and contributor attribution remain in the original Sources section. Mathematical arguments labeled as this attempt are proved above; cited external results remain attributed to their authors and are not independently reproved or claimed as our discoveries.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch011/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

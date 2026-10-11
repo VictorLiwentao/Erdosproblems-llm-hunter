@@ -1,0 +1,85 @@
+% TOP_PROBLEM: {"id": 30006480, "title": "Quasi-Bosonic Ground States and Excitation Spectra", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "Energy convergence alone does not imply convergence of states. The statement retains both the transformed-state and excited-spectrum questions."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006480", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Extend the quasi-bosonic energy approximation to the actual many-body ground state and higher excitation spectrum.", "scope": "Proved the gap-relative overlap estimate and gave explicit energy-convergence/state-divergence and higher-spectrum counterchecks.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked normalization, form-domain hypothesis, unique-ground-state gap, exact three-level counterexamples and unitary invariance of spectrum. Model self-audit only; no independent human mathematical verification. Coordinator checked the energy-gap overlap inequality and both diagonal-matrix counterchecks separating energy, vector and higher-spectrum approximation. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked normalization, form-domain hypothesis, unique-ground-state gap, exact three-level counterexamples and unitary invariance of spectrum. First remaining gap: Control the transformed quasi-bosonic remainder on the source low-energy subspace at a scale smaller than its relevant spectral separations. The inherited source status is preserved; original-target completion remains zero."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30006480; source catalogue code OWR-14299579-002
+\setcounter{section}{30006479}
+\section{Quasi-Bosonic Ground States and Excitation Spectra}\label{30006480}
+{\small UnsolvedMath ID 30006480 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+Bosonization approximates collective fermionic excitations by operators with approximately bosonic commutation relations. A quasi-bosonic energy approximation concerns an eigenvalue, whereas a ground-state approximation concerns a vector or density matrix and its observables. A unitary transformation can change the excitation representation without changing the spectrum.
+
+\paragraph{Catalogue wording retained for traceability.}
+Can the quasi-bosonic approximation established for the first eigenvalue be extended to the true many-body ground state, possibly after suitable unitary transformations, and does it yield a quasi-bosonic description of the higher excitation spectrum?
+
+\paragraph{Scope and source qualification.}Energy convergence alone does not imply convergence of states. The statement retains both the transformed-state and excited-spectrum questions.
+\subsection{Short English statement}
+Extend the quasi-bosonic energy approximation to the actual many-body ground state and higher excitation spectrum.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved the gap-relative overlap estimate and gave explicit energy-convergence/state-divergence and higher-spectrum counterchecks.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30006480. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{The quantitative energy-to-state requirement.} Suppose a self-adjoint Hamiltonian has normalized unique ground vector \(\Omega\), energy \(E_0\), and gap \(\Delta>0\), so \(H-E_0\geq\Delta(I-|\Omega\rangle\langle\Omega|)\) as quadratic forms. For any normalized trial vector \(\psi\) in the form domain, with the energy expectation below understood as the associated quadratic form,
+\[
+ 1-|\langle\Omega,\psi\rangle|^2
+ \leq\frac{\langle\psi,H\psi\rangle-E_0}{\Delta}.
+\]
+This follows by taking its expectation in the assumed form inequality. Hence energy convergence gives overlap convergence only if the error is small relative to the gap.
+\paragraph{A closing-gap countercheck.} Let \(H_n=\operatorname{diag}(0,n^{-1},1)\) and \(\psi_n=e_2\). The energy error tends to zero, but \(\psi_n\) remains orthogonal to the true ground state \(e_1\). Further, \(\widetilde H_n=\operatorname{diag}(0,n^{-1},2)\) has exactly the same ground energy while its higher spectrum differs by one. A unitary conjugation preserves eigenvalues, so matching the first energy alone cannot fix this discrepancy by changing representation.
+\paragraph{What would be needed after transformation.} If a proposed unitary \(U\) gives \(UHU^*=H_{\rm eff}+R\), then a ground-state estimate requires a form or operator bound on \(R\) relative to the relevant low-energy gaps and projections. Uniform control of a whole low-energy subspace is needed to compare excitation spectra. The source quasi-bosonic first-eigenvalue theorem supplies neither conclusion automatically; obtaining these transformed remainder estimates in its actual many-fermion scaling is the first unresolved step. Both the true-state and higher-spectrum targets remain.
+
+\paragraph{Verification and adversarial audit.}
+Checked normalization, form-domain hypothesis, unique-ground-state gap, exact three-level counterexamples and unitary invariance of spectrum. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked normalization, form-domain hypothesis, unique-ground-state gap, exact three-level counterexamples and unitary invariance of spectrum. First remaining gap: Control the transformed quasi-bosonic remainder on the source low-energy subspace at a scale smaller than its relevant spectral separations. The inherited source status is preserved; original-target completion remains zero.
+
+Coordinator checked the energy-gap overlap inequality and both diagonal-matrix counterchecks separating energy, vector and higher-spectrum approximation. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Control the transformed quasi-bosonic remainder on the source low-energy subspace at a scale smaller than its relevant spectral separations.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30006480:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30006480 (OWR-14299579-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30006480:2}{S2}] Arbeitsgemeinschaft: Analysis of Many-body Quantum Systems (2025), Oberwolfach Reports, DOI 10.4171/owr/2025/46, pp. 2491--2544. Original report and mathematical context. Incorporated report material remains under the source CC BY-SA 4.0 terms unless otherwise noted.
+\url{https://doi.org/10.4171/owr/2025/46}.
+\end{itemize}
+\label{end:30006480}
+\end{document}

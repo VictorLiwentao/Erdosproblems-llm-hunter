@@ -1,0 +1,138 @@
+% RESEARCH_DRAFT_SHA256: d2717144e172cbd6bebd55349dff4654d41e5bb32c94707dac6f34eaf74ca6ca
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001317, "title": "Semantic leakage barriers for learned group cryptanalysis", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001317", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Machine learning-based cryptanalysis of group-theoretic protocols\n\nThere have been some results in the application of machine learning to the cryptanalysis of lattice-based schemes; whether these methods translate to the group-theoretic realm remains open.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Representation diagnostics and information-theoretic fiber bounds do not construct or evaluate a learned attack against any specified group-based protocol.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Learned cryptanalysis: an exact representation-leakage example and a fiber barrier}
+\noindent UnsolvedMath ID 20001317; AIM-CRYPTOGRAPHY-0004. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+Cryptanalysis seeks information that violates a protocol's specified security goal. A machine-learning attack trains a predictor from a stated sample distribution and measures its success on a stated attack task. Group-based protocols encode secret or public operations in finitely represented groups; their security depends on the particular problem and representation.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+No protocol, dataset, attack objective, or advantage criterion is supplied. The record remains a proposed transfer study, without claiming that learned attacks succeed or fail. The supplied catalogue marks this record partially solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+Machine learning-based cryptanalysis of group-theoretic protocols
+
+There have been some results in the application of machine learning to the cryptanalysis of lattice-based schemes; whether these methods translate to the group-theoretic realm remains open. \href{http://aimpl.org/postquantgroup/1/}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The source asks whether learning-based cryptanalysis can transfer from lattice schemes to group-based schemes.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001317 (AIM-CRYPTOGRAPHY-0004). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-CRYPTOGRAPHY-0004.
+\url{http://aimpl.org/postquantgroup/1/}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Machine learning-based cryptanalysis of group-theoretic protocols
+
+There have been some results in the application of machine learning to the cryptanalysis of lattice-based schemes; whether these methods translate to the group-theoretic realm remains open.
+
+\section{Attempt and results}
+No protocol, data distribution, or attack goal is fixed in the source. We test
+whether high prediction accuracy on encoded group words could itself establish
+a group-theoretic attack. The counterexample and information bound below show
+what that inference lacks; they do not rule out useful learning attacks on
+specified protocols.
+
+\paragraph{Perfect syntactic prediction with zero semantic signal.}
+Let $G$ be any group represented by words with a formal letter $a$ and its
+inverse. Let a fair bit $B$ determine the word $W$: use the empty word if
+$B=0$ and the two-letter word $aa^{-1}$ if $B=1$. Both evaluate to the
+identity in $G$. The rule that predicts one exactly for length two recovers
+$B$ with probability one. However, any classifier whose input is only the
+represented group element always receives the identity; even with independent
+randomness its success probability is exactly $1/2$.
+Thus observed word-label prediction does not imply extraction of any semantic
+group secret. This is a constructed diagnostic distribution, not an assertion
+that an existing experiment uses it. Adding arbitrary independent identity
+padding at training time can change the syntactic distribution while preserving
+the semantic problem, so a claimed transfer needs an explicit representation
+and train/test generation rule.
+
+\paragraph{The optimal information-only binary benchmark.}
+For a fair bit $B$ and a countable observation $Z$ with distributions $P_0,P_1$,
+let $a(z)\in[0,1]$ be the probability that a possibly randomized classifier
+outputs zero. Its success is
+\[
+\tfrac12\sum_z\bigl(P_0(z)a(z)+P_1(z)(1-a(z))\bigr)
+=\tfrac12+\tfrac12\sum_z a(z)(P_0(z)-P_1(z)).
+\]
+The maximum is attained by $a(z)=1$ wherever $P_0(z)>P_1(z)$, yielding
+$\tfrac12(1+\operatorname{TV}(P_0,P_1))$, where
+$\operatorname{TV}=\tfrac12\sum_z|P_0(z)-P_1(z)|$.
+For a deterministic semantic parser $\pi$, grouping terms by fibers and
+using $|\sum u_i|\le\sum|u_i|$ proves
+$\operatorname{TV}(\pi_*P_0,\pi_*P_1)\le\operatorname{TV}(P_0,P_1)$.
+In the preceding example these quantities are zero and one respectively.
+This bound applies to any predictor, learned or otherwise, and says nothing
+about the computational cost of attaining it.
+
+\paragraph{Multiple conjugacy reveals a coset, not the planted secret.}
+Let $H$ be a finite subgroup of a group $G$, let $b_1,\ldots,b_t$ be fixed,
+and publish $\Phi(s)=(s^{-1}b_i s)_{i=1}^t$ for uniform $s\in H$.
+For $s,u\in H$, equality $\Phi(s)=\Phi(u)$ is equivalent to
+$us^{-1}$ commuting with every $b_i$: multiply the conjugacy equalities on
+the left by $u$ and on the right by $s^{-1}$. Thus every fiber is the left
+coset $Cs$, where $C=H\cap\bigcap_i C_G(b_i)$, and has size $|C|$.
+Conditioned on the transcript, $s$ is uniform on that fiber. An estimator
+using only this transcript and independent randomness recovers the exact
+planted $s$ with probability at most $1/|C|$. If the cryptanalytic task instead
+accepts any conjugator with the same transcript, this bound does not restrict
+success: every element of $Cs$ is a valid solution. Additional public leakage
+or correlated side information would also change the conditioning and must
+be modeled explicitly.
+
+\section{Context, adversarial audit, and gap}
+The official AIM workshop description was inspected for provenance. AIMPL
+retrieval failed, so no present survey of learned attacks is inferred from
+the historical snapshot. The audit checked parser direction, randomized
+classifiers, left-coset orientation, and the exact-secret versus valid-witness
+distinction. The source's potential transfer from lattice-based learning has
+not been tested on a protocol or dataset here; no empirical accuracy or
+security claim is manufactured. No training or numerical computation occurred.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Representation diagnostics and information-theoretic fiber bounds do not construct or evaluate a learned attack against any specified group-based protocol.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Official AIM workshop description, Post-quantum group-based cryptography, 29 April--3 May 2024; inspected for provenance and scope. AIMPL section pages failed retrieval, so exact question text comes from the supplied snapshot. \url{https://aimath.org/workshops/upcoming/postquantgroup/}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Representation diagnostics and information-theoretic fiber bounds do not construct or evaluate a learned attack against any specified group-based protocol.
+\end{document}

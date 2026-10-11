@@ -1,0 +1,129 @@
+% RESEARCH_DRAFT_SHA256: 9772d2e8b58c7a56dd5125ab2e164aecb5b208f9ef67bd9aac8bc3348818297a
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30001933, "title": "Integer Carathéodory Property for Arborescence Polytopes", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001933", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, format review, and mathematical corroboration of the tree examples and decomposition-proof details expressly described in the manuscript; exact serving revision not exposed. Codex GPT-6 completed written mathematical review at the declared scope; no independent human verification. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Integer Carathéodory Property for Arborescence Polytopes; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Acyclic arborescence decomposition and a cyclic obstruction to naive peeling; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch018 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30001933; source catalogue code OWR-11451-006
+\section{Integer Carathéodory Property for Arborescence Polytopes}\label{30001933}
+{\small UnsolvedMath ID 30001933 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+The Integer Caratheodory Property requires integer points of dilates to admit integer-weighted decompositions using affinely independent integer polytope points, with coefficients totaling the dilation factor. The graphic matroid regards forests as independent; a partition matroid restricts how many elements can be chosen from each part.
+
+An arborescence rooted at $r$ is a directed spanning tree with a unique directed path from $r$ to every other vertex; reversing all arcs gives the inward-rooted convention. The source question fixes the orientation convention.
+
+A polyhedron is an intersection of finitely many closed affine half-spaces; a polytope is a bounded polyhedron. Its faces are its intersections with supporting hyperplanes.
+\paragraph{Statement recorded in the supplied source.}
+Does the $r$-arborescence polytope—the common-base polytope of the graphic matroid and the appropriate partition matroid—have the Integer Carathéodory Property? \href{https://doi.org/10.4171/owr/2011/53}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Determine whether rooted-arborescence polytopes have the stated integer decomposition property.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30001933 (OWR-11451-006). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2012), Oberwolfach Reports, DOI 10.4171/owr/2011/53, pp. 3003--3076
+\url{https://doi.org/10.4171/owr/2011/53}.
+\item[S3] recent box-TDI survey
+\url{https://dial.uclouvain.be/pr/boreal/object/boreal%3A312886/datastream/PDF_01/view}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30001933 and source code OWR-11451-006 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30001933}
+
+\section{Literature and context check}
+The primary report on printed page 3027 asks for ICP of rooted-arborescence polytopes. This attempt proves it for directed acyclic graphs and tests the natural extension by minimum-coordinate subtraction on a four-vertex cyclic example. The parent Codex GPT-6 reviewed and corroborated the directed example and suggested an affine-independence verification for the cumulative construction; the full proof below was written and checked by gpt-6-astra.
+\section{Research attempt: Acyclic arborescence decomposition and a cyclic obstruction to naive peeling}
+
+\paragraph{An affine-independent integer decomposition of a product of simplices}
+Let $k\geq1$ be an integer. Consider nonnegative integer coordinates $w_{b,j}$ divided into finitely many nonempty blocks $b$, each satisfying $\sum_jw_{b,j}=k$. Form the cumulative sums $s_{b,j}=\sum_{i\leq j}w_{b,i}$ and sort all their distinct values together with zero and $k$:
+\[
+ 0=t_0<t_1<\cdots<t_h=k.
+\]
+For each interval $(t_{\ell-1},t_\ell]$, choose in each block the coordinate whose cumulative interval contains it, and let $v_\ell$ be the corresponding zero-one vector with one chosen coordinate per block. This is unambiguous even with zero coordinates, because a nonempty interval lies inside exactly one positive-length cumulative interval per block. Assign multiplicity $n_\ell=t_\ell-t_{\ell-1}$. Lengths of the relevant intervals add to $w_{b,j}$, so
+\[
+ w=\sum_{\ell=1}^h n_\ell v_\ell,\qquad
+ n_\ell\in\mathbb Z_{>0},\qquad\sum_\ell n_\ell=k.
+\]
+To prove affine independence, suppose $\sum_\ell c_\ell v_\ell=0$ and $\sum_\ell c_\ell=0$. Each internal breakpoint $t_j$ is a cumulative sum in some block. The linear functional summing the corresponding initial coordinates of that block is one on $v_1,\ldots,v_j$ and zero on all later vectors. Applying it gives $\sum_{\ell\leq j}c_\ell=0$ for each $j<h$. Taking consecutive differences and using the total coefficient sum proves every $c_\ell=0$.
+
+\paragraph{Application to acyclic directed arborescences}
+Let a directed acyclic graph have a first vertex $r$ in a topological order, no arcs entering $r$, and at least one incoming arc at every other vertex. Choose one incoming arc for each nonroot vertex. Following parent arcs backwards strictly decreases the order and must end at $r$, since every other vertex has a parent. Thus the chosen arcs connect every vertex to $r$ and form an outward rooted arborescence. Conversely an arborescence makes exactly these choices. The polytope is therefore a product of the incoming-arc simplices: the convex-hull equality follows by independently sampling each incoming choice from its specified probability vector. The construction above proves its Integer Caratheodory Property for every integer dilation. The graph with only $r$ has the singleton empty-vector polytope and has the property trivially.
+
+\paragraph{Why independent incoming-arc subtraction fails with cycles}
+On vertices $r,a,b,c$, include the three spokes from $r$ and the directed cycle $a\to b\to c\to a$. Let $w$ put one on each arc and $k=2$. It belongs to $2P$: decompose it into the arborescence $\{r\to a,a\to b,b\to c\}$ and the arborescence $\{r\to b,r\to c,c\to a\}$. Let $x$ instead be the three-spoke arborescence. Every arborescence has at least one arc entering $\{a,b,c\}$ from $r$, so a residual in $(2-\lambda)P$ must satisfy
+\[
+ 3-3\lambda\geq2-\lambda,
+\]
+forcing $\lambda\leq1/2$ in the nonnegative-removal range. At $\lambda=1/2$, the normalized residual has spoke coordinates $1/3$ and cycle coordinates $2/3$. It is the average of the three arborescences obtained by taking one spoke and deleting the cycle arc entering its endpoint. Thus the maximum removable multiple of this chosen arborescence is exactly $1/2$, even though the smallest positive arc weight was one. Removing one full copy would leave the directed cycle, violating rooted reachability. This is a counterexample to arbitrary-coordinate-minimum subtraction, not to the existence of some better decomposition or to the original ICP question.
+
+\section{Verification and adversarial audit}
+The acyclic proof follows parent arcs in decreasing topological order, establishing rooted reachability rather than only indegree constraints. Cumulative breakpoints and multiplicities are integer; the prefix-coordinate functionals prove affine independence even when some original coordinates are zero. In the cyclic example, two explicit arborescences certify $w\in2P$, and three explicit arborescences certify the fractional maximum rather than relying only on a necessary cut inequality.
+\paragraph{Audit corrections.} Distinguished rooted reachability from independent incoming choices and supplied a separate affine-independence argument. Credited the parent's mathematical corroboration.
+\paragraph{External computation.} Executed \texttt{check\_decompositions.py}: 500 deterministic pseudorandom product-simplex integer inputs passed exact reconstruction and affine-rank checks using rational Gaussian elimination. The nine-tree undirected and three-tree directed residual averages were also checked exactly with rational arithmetic. These finite tests supplement, rather than replace, the written proofs.
+\section{Scope and remaining gaps}
+General directed graphs and their arborescence ICP remain unresolved. The cycle example defeats an arbitrary chosen-tree subtraction rule, but does not disprove ICP or the existence of another successful decomposition.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46369} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+The parent Codex GPT-6 model reviewed the written arguments at their declared scopes. This is model-assisted review, not independent human verification.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+provided the mathematical corroboration credited above and performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

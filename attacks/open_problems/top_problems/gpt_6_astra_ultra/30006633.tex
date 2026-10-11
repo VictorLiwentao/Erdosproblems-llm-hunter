@@ -1,0 +1,90 @@
+% TOP_PROBLEM: {"id": 30006633, "title": "Higher-Categorical Models of Continuous and Spacetime Symmetries", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "This is a construction programme. Which higher category, topology on continuous data and functorial properties are used must be specified in a proposed framework."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006633", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Build precise higher-categorical descriptions recovering continuous internal and spacetime symmetries of field theories.", "scope": "Constructed a strongly continuous projective translation/modulation representation and verified its cocycle coherence and central extension.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked unitarity, strong continuity by density, the phase multiplication, both associativity factors and the distinction between scalar projective coherence and the full higher programme. Model self-audit only; no independent human mathematical verification. Coordinator checked the strongly continuous translation-modulation representation, projective multiplier and cocycle identity. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked unitarity, strong continuity by density, the phase multiplication, both associativity factors and the distinction between scalar projective coherence and the full higher programme. First remaining gap: Build a functorial QFT defect/junction framework whose continuous higher data reproduce both internal actions and spacetime covariance. The inherited source status is preserved; original-target completion remains zero."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30006633; source catalogue code OWR-14299913-002
+\setcounter{section}{30006632}
+\section{Higher-Categorical Models of Continuous and Spacetime Symmetries}\label{30006633}
+{\small UnsolvedMath ID 30006633 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+Higher-categorical symmetry includes objects, morphisms and higher compositions encoding defects, their fusion and junctions. Continuous internal symmetries act on field degrees of freedom, while spacetime symmetries act on geometry. Recovering standard symmetries requires a precise comparison between the higher data and these usual actions.
+
+\paragraph{Catalogue wording retained for traceability.}
+Develop precise higher-categorical data and constructions that recover standard continuous internal symmetries and spacetime symmetries of quantum field theories, and establish their functorial and physical properties.
+
+\paragraph{Scope and source qualification.}This is a construction programme. Which higher category, topology on continuous data and functorial properties are used must be specified in a proposed framework.
+\subsection{Short English statement}
+Build precise higher-categorical descriptions recovering continuous internal and spacetime symmetries of field theories.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Constructed a strongly continuous projective translation/modulation representation and verified its cocycle coherence and central extension.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30006633. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{Continuous symmetries already need coherence data.} On \(L^2(\mathbb R)\), define \(U(a,b)\psi(x)=e^{ibx}\psi(x+a)\), for real \(a,b\). These operators are unitary. Continuity on compactly supported smooth functions follows by dominated convergence and uniform continuity; density and the unitary norm bound extend strong continuity to every \(L^2\) vector. Direct multiplication gives
+\[
+ U(a,b)U(a',b')=e^{iab'}U(a+a',b+b').
+\]
+Thus the additive group \(\mathbb R^2\) acts projectively, with continuous scalar comparison \(c(g,h)=e^{iab'}\), where \(g=(a,b)\), \(h=(a',b')\).
+\paragraph{Associativity becomes a coherence equation.} For \(k=(a'',b'')\),
+\[
+ c(g,h)c(g+h,k)
+ =e^{i(ab'+ab''+a'b'')}
+ =c(h,k)c(g,h+k).
+\]
+This is exactly the consistency of the two triple-product parenthesizations. It permits the honest central extension with multiplication \((g,z)(h,w)=(g+h,zwc(g,h))\). Translation and modulation also have commutator phase \(e^{iab}\), which a discrete list of symmetry labels would fail to record.
+\paragraph{Scope and source gap.} This is an elementary continuous/projective representation test, not a higher-categorical model of the source QFTs. It identifies a minimal scalar two-morphism and topology that a proposed framework must recover. Defect fusion, higher junctions, local observable actions and spacetime covariance require additional levels of data, and the physically relevant central phases may depend on the theory. The first gap is a functorial construction attaching those coherent structures to actual field theories and matching both their internal and geometric symmetry actions.
+
+\paragraph{Verification and adversarial audit.}
+Checked unitarity, strong continuity by density, the phase multiplication, both associativity factors and the distinction between scalar projective coherence and the full higher programme. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked unitarity, strong continuity by density, the phase multiplication, both associativity factors and the distinction between scalar projective coherence and the full higher programme. First remaining gap: Build a functorial QFT defect/junction framework whose continuous higher data reproduce both internal actions and spacetime covariance. The inherited source status is preserved; original-target completion remains zero.
+
+Coordinator checked the strongly continuous translation-modulation representation, projective multiplier and cocycle identity. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Build a functorial QFT defect/junction framework whose continuous higher data reproduce both internal actions and spacetime covariance.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30006633:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30006633 (OWR-14299913-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30006633:2}{S2}] Higher Structures from Symmetries in Quantum Field Theory (2026), Oberwolfach Reports, DOI 10.4171/owr/2026/12, pp. 737--794. Original report and mathematical context. Incorporated report material remains under the source CC BY-SA 4.0 terms unless otherwise noted.
+\url{https://doi.org/10.4171/owr/2026/12}.
+\end{itemize}
+\label{end:30006633}
+\end{document}

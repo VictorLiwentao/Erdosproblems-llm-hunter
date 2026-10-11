@@ -1,0 +1,137 @@
+% RESEARCH_DRAFT_SHA256: c77d70e5520d86784d4b091b3591170ca98ceda713f9cce405c352f1d41bbf79
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 2801001, "title": "10 Lectures and 42 Open Problems — Angular Synchronization via Projected Power Method", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "2801001", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Does the projected power method converge (with high probability) to the optimal solution of the angular synchronization problem with (small enough) gaussian noise?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. No proof for the Gaussian trajectory and a specified successful initialization is supplied; the cited literature theorem is reported rather than reproduced, and monotonicity alone cannot imply global convergence.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Projected power for phases: exact noiseless behavior and two extrapolation failures}
+\noindent UnsolvedMath ID 2801001; AMR-027-1001. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+Angular synchronization estimates a vector $z\in\mathbb C^n$ with $|z_i|=1$ from noisy relative-phase measurements. In the standard source model $C=zz^*+\sigma W$, $W$ is Hermitian Gaussian noise. The optimization maximizes $x^*Cx$ subject to $|x_i|=1$, with a common global phase unidentifiable. A projected or generalized power iteration applies the source linear update and normalizes each nonzero coordinate to unit modulus; initialization, shifts and zero-coordinate conventions are part of the algorithm. High probability refers to the source noise law as $n$ grows.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The source catalogue labels the historical question solved. Zhong and Boumal's primary abstract states global convergence of their generalized power method, with linear rate, in a noise regime $\sigma=O(\sqrt{n/\log n})$. Their algorithm and initialization hypotheses must be used; this does not assert convergence of every unshifted iteration from every starting point. The original question and catalogue label are retained separately from the cited result.
+\paragraph{Statement recorded in the supplied source.}
+Does the projected power method converge (with high probability) to the optimal solution of the angular synchronization problem with (small enough) gaussian noise? \href{https://afonsobandeira.wordpress.com/2015/12/09/42l10psynchronization/}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. This is documentation of a source-labelled solved record, not a newly proposed unsolved problem.
+\subsection{Short English statement}
+Does the specified projected power iteration find a globally optimal phase-synchronization solution when Gaussian noise is sufficiently small?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 2801001 (AMR-027-1001). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AMR Open Problem Lists, source linked by catalogue record AMR-027-1001.
+\url{https://afonsobandeira.wordpress.com/2015/12/09/42l10psynchronization/}.
+\item[S3] Yiqiao Zhong and Nicolas Boumal, Near-optimal bounds for phase synchronization, arXiv:1703.06605; SIAM Journal on Optimization, DOI 10.1137/17M1122025. Abstract inspected for the scoped convergence claim.
+\url{https://arxiv.org/abs/1703.06605}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Does the projected power method converge (with high probability) to the optimal solution of the angular synchronization problem with (small enough) gaussian noise?
+
+\section{Attempt and results}
+The source asks for high-probability convergence under a Gaussian noise
+model. Initialization, shifts, and handling zero coordinates affect the
+algorithm. We analyze an explicitly stated unshifted update and then a
+shifted ascent argument. Neither is substituted for an unspecified universal
+algorithm. The optimal noisy estimator is not in general the latent vector.
+
+\paragraph{Noiseless calculation and an initialization obstruction.}
+Let $C=zz^*$ with $|z_i|=1$. Define $\operatorname{phase}(w)_i=w_i/|w_i|$
+when $w_i\ne0$, retaining the previous iterate's coordinate when $w_i=0$.
+For an iterate $x$ with unit coordinates, put $c=z^*x$. If $c\ne0$, then
+$Cx=zc$ and the next iterate is $z(c/|c|)$. Its objective is $n^2$,
+which is maximal since $|z^*x|\le\sum_i|\overline z_ix_i|=n$.
+Thus one iteration suffices from every nonorthogonal initialization.
+But if $c=0$, the update is zero everywhere and the stated convention
+retains $x$. For $n=2$, $z=(1,1)$ and $x=(1,-1)$, this is a stationary
+iterate of objective zero although the maximum is four. So no proof can
+assert convergence from every starting point, even at zero noise, for this
+update convention. This does not refute the source's probabilistic question
+with a suitable specified initialization.
+
+\paragraph{Why noisy optimum is not exactly the latent vector.}
+Take $z=(1,1)$ and
+\[
+C=\begin{pmatrix}1&1+i\epsilon\\1-i\epsilon&1\end{pmatrix},\qquad\epsilon>0.
+\]
+This is an arbitrarily small Hermitian perturbation of $zz^*$. Write
+$c=1+i\epsilon$ and choose $x=(1,\overline c/|c|)$. Direct substitution
+gives $x^*Cx=2+2|c|>4=z^*Cz$. Thus a claim of exact recovery of $z$ cannot
+be inferred from convergence to the global maximizer of the noisy problem.
+The displayed perturbation is deterministic and is not asserted to have
+positive probability as one exact Gaussian realization; its role is to
+falsify that deterministic identification of the two objectives.
+
+\paragraph{A monotonicity proof and its missing global step.}
+Choose a real shift $\alpha$ so $B=C+\alpha I\succeq0$. The shift changes
+the objective only by the constant $\alpha n$ on unit-modulus vectors,
+but it changes the iteration. Set $y=\operatorname{phase}(Bx)$ with any
+unit-modulus choices at zero coordinates. Coordinatewise maximization gives
+$\operatorname{Re}(y^*Bx)\ge\operatorname{Re}(x^*Bx)=x^*Bx$.
+Writing $d=y-x$,
+\[
+y^*By-x^*Bx=2\operatorname{Re}(d^*Bx)+d^*Bd\ge0.
+\]
+This proves objective ascent. It does not prove global convergence:
+for the noiseless example above, take any $\alpha>0$. The bad $x$ obeys
+$Bx=\alpha x$, so it is a fixed point of the shifted update too.
+Therefore the exact attempted implication ``positive shift plus monotone
+objective implies convergence to a global optimum'' is false. Its
+counterexample retains a strict objective gap. Controlling a specified
+initialization and its entire noisy trajectory is an additional task.
+
+\section{Context and adversarial audit}
+Zhong and Boumal's primary abstract, arXiv:1703.06605, was consulted on
+11 October 2026. It reports global convergence with a linear rate for its
+generalized power method in the noise regime
+$\sigma=O(\sqrt{n/\log n})$. That reported theorem is not re-proved here,
+and its algorithmic hypotheses cannot be replaced by arbitrary starting
+points or shifts. The preserved catalogue solved status refers to literature,
+while this manuscript's unresolved status describes its own proof coverage.
+The calculations are elementary checks, not a new noisy convergence result.
+The audit checked global-phase equivalence, zero-coordinate conventions,
+the sign of the complex off-diagonal term, and the difference between
+objective monotonicity and global optimality. No numerical experiment or
+theorem prover was used.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. No proof for the Gaussian trajectory and a specified successful initialization is supplied; the cited literature theorem is reported rather than reproduced, and monotonicity alone cannot imply global convergence.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Yiqiao Zhong and Nicolas Boumal, Near-optimal bounds for phase synchronization, arXiv:1703.06605 (2017); primary abstract inspected for reported noise regime and convergence scope. \url{https://arxiv.org/abs/1703.06605}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} No proof for the Gaussian trajectory and a specified successful initialization is supplied; the cited literature theorem is reported rather than reproduced, and monotonicity alone cannot imply global convergence.
+\end{document}

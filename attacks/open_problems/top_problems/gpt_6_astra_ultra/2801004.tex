@@ -1,0 +1,259 @@
+% RESEARCH_DRAFT_SHA256: 3afb0fa392de303b1fffb18edfefc73d4a6c241968b0281fec5434ff1515d8ff
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 2801004, "title": "10 Lectures and 42 Open Problems — Consistency and sample complexity of Multireference Alignment", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "2801004", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, mathematical audit and suggestion to complete the compact-family likelihood proof, plus repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "10 Lectures and 42 Open Problems — Consistency and sample complexity of Multireference Alignment; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Fixed-L, fixed-positive-noise marginalized global MLE consistency with exactly known true power spectrum; known statistical material rederived, original bundled target unresolved.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "gpt-6-astra proof development and Prompt B self-audit; Codex GPT-6 mathematical audit/suggestion; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch003 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 2801004; source catalogue code AMR-027-1004
+\section{10 Lectures and 42 Open Problems — Consistency and sample complexity of Multireference Alignment}\label{2801004}
+{\small UnsolvedMath ID 2801004 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Fix a signal length $L$ and unknown $u\in\mathbb{R}^L$. A cyclic shift acts by $(R_\ell u)_j=u_{j-\ell\bmod L}$. In the standard uniform-shift Gaussian model, independent observations are
+\[
+ y_i=R_{\ell_i}u+\sigma\xi_i,\qquad
+ \ell_i\sim\operatorname{Unif}(\mathbb{Z}/L\mathbb{Z}),\quad
+ \xi_i\sim N(0,I_L),
+\]
+with independent shifts and noise, and noise level $\sigma>0$. The signal is identifiable only up to a common cyclic shift; estimation error is therefore $\min_\ell\|\widehat u-R_\ell u\|_2$.
+
+For the unitary discrete Fourier transform $\widehat u_k=L^{-1/2}\sum_j u_j e^{-2\pi i jk/L}$, the power spectrum is $(|\widehat u_k|^2)_k$; shifts leave it invariant. The noise contribution to the empirical power spectrum must be removed or otherwise fixed before judging phase consistency. Consistency means that the orbit error tends to zero in probability as the number of observations tends to infinity at fixed $L$ and $\sigma$. Sample complexity asks how many observations guarantee a specified error and success probability, as a function of signal class, $L$ and $\sigma$.
+
+Two distinct likelihood conventions matter. A joint/profile estimator optimizes over unknown shifts as incidental parameters, minimizing $\sum_i\min_\ell\|y_i-R_\ell u\|_2^2$. A marginalized maximum-likelihood estimator instead maximizes
+\[
+ \prod_i\left(\frac1L\sum_{\ell=0}^{L-1}
+ \exp\left[-\frac{\|y_i-R_\ell u\|_2^2}{2\sigma^2}\right]\right).
+\]
+These objectives need not have the same statistical behavior; the source lecture discussion refers to the quasi-MLE as well as the MLE.
+\paragraph{Statement recorded in the supplied source.}
+Is the Maximum likelihood for Multireference Alignment consistent? (after fixing the power spectrum) What is the sample complexity of the Multireference Alignment problem? \href{https://afonsobandeira.wordpress.com/2015/12/09/42l10psynchronization/}{[S2]}
+\paragraph{Scope qualification.}
+This retains both parts of the historical question. The later primary sample-complexity paper establishes the cubic inverse-SNR scaling for generic signals in the high-noise uniform-shift regime; that is substantial progress on the second part and must not be described as still wholly unknown. Consistency of a marginalized likelihood and of a profile/quasi-likelihood are separate claims; the catalogue's short wording does not settle which estimator or signal class is intended. The author's original question and later primary literature were inspected on 2026-10-11, without claiming a complete resolution-status audit for every estimator or nongeneric case.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+After correcting the signal's Fourier magnitudes, does likelihood-based alignment consistently recover its phases, and how many noisy shifted samples are needed for accurate recovery?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 2801004 (AMR-027-1004). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AMR Open Problem Lists, original problem source linked by catalogue record AMR-027-1004
+\url{https://afonsobandeira.wordpress.com/2015/12/09/42l10psynchronization/}.
+\item[S3] Afonso S. Bandeira, Ten Lectures and Forty-Two Open Problems in the Mathematics of Data Science (2016), Section 10.3, Open Problem 10.4; Gaussian shift model and quasi-MLE qualification.
+\url{https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf#page=139}.
+\item[S4] Amelia Perry, Jonathan Weed, Afonso S. Bandeira, Philippe Rigollet and Amit Singer, The Sample Complexity of Multireference Alignment (2017/2019); generic-signal sample complexity.
+\url{https://arxiv.org/abs/1707.00943}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 2801004 and source code AMR-027-1004 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:2801004}
+
+\section{Literature and context check}
+Bandeira's original question and the abstract of Perry--Weed--Bandeira--Rigollet--Singer
+were consulted. The latter establishes a generic high-noise sample-complexity
+regime; the historical problem must not be described as wholly untouched.
+The calculations below examine the gap between population identifiability,
+finite candidate selection, and the full continuum estimator. They are standard
+statistical mechanisms, not a novelty claim.
+\section{Research attempt: Compact-family marginalized likelihood consistency and profile bias}
+Fix $L\ge1$ and $\sigma>0$. For a signal $v$ let $p_v$ be its uniform-shift
+Gaussian density. Distinct shift orbits have distinct densities. To see this,
+suppose $p_v=p_u$. Multiplication by $\exp(\|y\|^2/(2\sigma^2))$ gives equality
+between two finite sums
+\[
+ \sum_{s\in\{R_\ell u\}_{\ell=0}^{L-1}}
+ e^{-\|s\|^2/(2\sigma^2)}e^{y\cdot s/\sigma^2},
+\]
+where the sum is a multiset, and the analogous sum for $v$. Choose a real
+direction $w$ giving distinct dot products on every distinct point in the union
+of the two supports. Such $w$ exists because finitely many proper hyperplanes
+cannot fill $\mathbb R^L$ (one may take $w=(1,t,\ldots,t^{L-1})$ outside the
+finitely many roots of the corresponding nonzero polynomials). Substitute
+$y=tw$ and let $t\to+\infty$ after dividing by the largest exponential. Its
+coefficient must agree on both sides; subtract it and repeat. Thus the supports
+coincide, so $v$ is a shift of $u$. This includes periodic and zero signals.
+
+For a fixed finite candidate list $v_1,\ldots,v_m$, including the true orbit,
+put $Z_v(Y)=\log(p_v(Y)/p_u(Y))$. A finite Gaussian mixture with bounded centers
+satisfies
+$|Z_v(y)|\le C_v+D_v\|y\|$: factor the common Gaussian term, and bound each
+logarithm of a finite exponential sum between its largest linear exponent and
+that exponent plus $\log L$, retaining the constant norm terms. Hence $Z_v$
+has finite second moment under $p_u$.
+Using $\log t\le t-1$ and integration gives
+$E_u Z_v\le0$, with equality only when $p_v/p_u=1$ almost everywhere.
+Continuity and the preceding argument make the inequality strict for a wrong orbit.
+Set $K_v=-E_u Z_v>0$ and $s_v^2=\operatorname{Var}_u Z_v$. Independence yields
+\[
+ \Pr_u\!\left\{\sum_{i=1}^N Z_v(Y_i)\ge0\right\}
+ \le\frac{s_v^2}{NK_v^2}.
+\]
+This follows by applying Markov to the squared centered sample average.
+Summing over the finitely many wrong candidates proves consistency on that list,
+with an explicit, though implicit-in-$K_v$, finite-list error bound.
+
+The final audit suggested carrying this argument through the compact
+parameter family, and that step can in fact be completed. The conclusion is
+consistency of a global marginalized MLE at fixed $L,\sigma$, with the true
+power spectrum fixed exactly. This is known statistical material rederived here,
+not a new solution of the source's bundled question.
+
+Let
+\[
+ \Theta=\{v\in\mathbb R^L: |\widehat v_k|=|\widehat u_k|
+                  \text{ for every }k\},\qquad R=\|u\|.
+\]
+The unitary Fourier transform preserves norm, so every member has norm $R$.
+The set is closed and bounded, hence compact, and contains the true orbit.
+When $R=0$ it contains only zero, making consistency immediate. Assume $R>0$.
+Write $f_v(y)=\log p_v(y)-\log p_u(y)$ and
+$G(y)=(\|y\|+R)/\sigma^2$. Differentiating the finite Gaussian mixture gives
+\[
+ \nabla_v\log p_v(y)
+  =\sigma^{-2}\left(\sum_{\ell=0}^{L-1}
+            w_\ell(v,y)R_{-\ell}y-v\right),
+ \quad w_\ell\ge0,\quad\sum_\ell w_\ell=1.
+\]
+Its norm is at most $G(y)$ throughout the ball $\|v\|\le R$.
+Integrating on the segment between two points of $\Theta$ (which stays in that
+ball even when it leaves $\Theta$) proves
+\[
+ |f_v(y)-f_w(y)|\le G(y)\|v-w\|,\qquad
+ |f_v(y)|\le2RG(y).
+\]
+The Gaussian observation has finite second moment, so $E_uG^2<\infty$.
+
+Here is the uniform convergence argument explicitly. Let $P_N$ denote the
+empirical average and $P$ expectation under $p_u$. For any fixed $h>0$,
+compactness gives a finite $h$-net $v_1,\ldots,v_M$ in $\Theta$. The displayed
+Lipschitz bound gives
+\[
+ \sup_{v\in\Theta}|P_Nf_v-Pf_v|
+ \le\max_{j\le M}|P_Nf_{v_j}-Pf_{v_j}|+h(P_NG+PG).
+\]
+For each net point, variance of its sample average is its finite variance
+divided by $N$; the same holds for $G$. Markov's inequality on squared
+deviations and a finite union bound make the maximum tend to zero in probability
+and make $P_NG\to PG$ in probability. Given a desired positive tolerance,
+first choose $h$ so that $3hPG$ is smaller than half that tolerance, then
+take $N$ large. This proves the supremum tends to zero in probability.
+The supremum is measurable, since continuous functions on compact $\Theta$
+have the same supremum over a fixed countable dense subset.
+
+The population objective $m(v)=Pf_v$ is continuous by the same Lipschitz
+bound after expectation. The previously proved density identifiability and
+strict logarithm inequality say $m(v)=0$ exactly on the orbit of $u$, and
+$m(v)<0$ elsewhere. For each $\epsilon>0$ the set
+\[
+ K_\epsilon=\{v\in\Theta:\min_\ell\|v-R_\ell u\|\ge\epsilon\}
+\]
+is compact. If nonempty, its maximum population objective is a strictly
+negative number $-c_\epsilon$. On the event that the uniform empirical error
+is less than $c_\epsilon/2$, every member of $K_\epsilon$ has strictly
+negative empirical objective, while $f_u$ is identically zero. Therefore no
+global maximizer lies in $K_\epsilon$. Global maximizers exist because the
+sample objective is continuous on compact $\Theta$. Every measurable choice
+of a global maximizer is consequently orbit-consistent in probability. In
+fact the event just proved confines all maximizers simultaneously; it does
+not depend on a particular tie rule.
+
+This proof covers zero and periodic signals as well as generic signals at
+fixed $L$ and positive fixed $\sigma$. It assumes the true Fourier magnitudes
+are imposed exactly. Estimating those magnitudes from the data creates a
+moving constraint set and needs an additional stability argument. The proof
+also does not locate a global maximizer computationally, give sharp high-noise
+rates, or analyze profile likelihood.
+
+A second tempting extension identifies marginalized likelihood with profile
+alignment. It fails before any phase conclusion: for $L=2$, true signal
+$(a,-a)$, $a>0$, and unrestricted fitted contrast $c\ge0$, each centered
+observation has contrast $d=\pm a+\zeta$ with nondegenerate Gaussian $\zeta$.
+Its profiled squared contrast residual is $2(|d|-c)^2$, so the population
+minimizer is $c=E|a+\zeta|>a$. Indeed
+$E|a+\zeta|-a=2E[-(a+\zeta)\mathbf1_{a+\zeta<0}]>0$.
+This is an actual bias calculation, but fixing the power spectrum forces
+$c=a$ in this example. It therefore does not refute the source's power-fixed
+phase-consistency question.
+\section{Verification and adversarial audit}
+The density-identification proof keeps repeated orbit points and checks
+zero and periodic signals. The uniform-convergence audit checked the gradient
+bound along the whole parameter segment, finite second moments, the order of
+choosing the net then sample size, measurability of the supremum, compact
+separation away from the true orbit and existence of global maximizers. The
+profile example was checked against the exact-power qualifier and remains only
+an amplitude-bias example. Codex GPT-6 supplied the compact-family extension
+suggestion and reviewed the initial finite-list reasoning; gpt-6-astra developed
+the complete proof and performed this self-audit. No independent human checking
+occurred.
+\paragraph{Audit corrections.} The initially incomplete finite-to-compact step was completed after a Codex GPT-6 mathematical audit suggestion. Oracle fixed-power marginalized-MLE consistency is now proved; profile likelihood, estimated power and sample complexity remain separate. No novelty or complete-original-target claim is made.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The marginalized global MLE has been proved consistent for the compact
+family with the true power spectrum fixed exactly, at fixed $L$ and positive
+fixed $\sigma$. This is standard statistical material, without a novelty claim.
+The original also asks about a profile/quasi-likelihood interpretation and sample
+complexity. Profile phase consistency, data-estimated power constraints, sharp
+rates and lower bounds across growing $L$, noise and signal classes remain.
+The first gap toward the qualified profile question is an analysis of its
+population phase objective; the displayed amplitude counterexample does not answer it.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://afonsobandeira.wordpress.com/2015/12/09/42l10psynchronization/} (consulted 2026-10-11). 
+\item \url{https://arxiv.org/abs/1707.00943} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, mathematical audit and the suggestion to extend the
+finite-list proof to the compact family, plus repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved. This is a research attempt with an explicit failed route or restricted
+calculation, not a full solution, not a current-status certification, and not a claim
+that the elementary material is new. The catalogue's original source-status label
+is preserved independently of this attempt status.
+\end{document}

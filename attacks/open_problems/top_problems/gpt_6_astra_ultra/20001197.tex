@@ -1,0 +1,158 @@
+% RESEARCH_DRAFT_SHA256: e11a7baa4fad791db28fff6aab77cd13490d2786bd072671b790e9064abb5711
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001197, "title": "Exact CI rationalization through rational local charts", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001197", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Conjecture 21. Every p-representable CI-structure can be p-represented by a random vector living on a finite probability space endowed with the uniform distribution.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Finite-uniform equivalence and a restricted rational-chart construction are proved, but arbitrary asserted-CI intersections and any finite-alphabet reduction remain unproved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Finite uniform CI representations: a rationalization route and its unproved step}
+\noindent UnsolvedMath ID 20001197; AIM-COMPUTATION-0035. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A conditional-independence (CI) structure records exactly which relations $X_A\perp X_B\mid X_C$ hold for disjoint index sets. It is probabilistically representable when it is the CI structure of some random vector. A finite uniform probability space gives each elementary outcome the same probability, while the random vector may identify multiple elementary outcomes.
+\paragraph{Statement recorded in the supplied source.}
+Conjecture 21. Every p-representable CI-structure can be p-represented by a random vector living on a finite probability space endowed with the uniform distribution. \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The source uses p-representable for probabilistic representability; uniformity concerns elementary outcomes, not necessarily the distinct values of the random vector.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can every probabilistically realizable conditional-independence pattern be realized on a finite uniform probability space?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001197 (AIM-COMPUTATION-0035). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0035
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Conjecture 21. Every p-representable CI-structure can be p-represented by a random vector living on a finite probability space endowed with the uniform distribution.
+
+\section{The exact representation requirement}
+The source asks for exactly the same complete CI structure, not merely
+for a distribution satisfying selected independences. Uniformity refers
+to elementary outcomes, not to distinct vector values. We first make this
+arithmetic requirement explicit, then try rational approximation within
+a specified conditional-independence parametrization. The source does
+not supply a finite-alphabet restriction on all initial representations;
+our finite-alphabet argument does not establish such a reduction.
+
+\paragraph{Finite uniform spaces and rational probability tables.}
+A random vector on a uniform space of $N$ points has cell probabilities
+$k_x/N$, where $k_x$ counts elementary outcomes with value $x$.
+Conversely, if a finite table has rational nonnegative entries summing
+to one, choose a common positive denominator $N$ and make $Np_x$
+distinct elementary outcomes for each cell $x$, all of mass $1/N$.
+Their total number is $N$ and the induced vector has exactly the
+specified law. Consequently a rational finite table suffices for the
+conjectured representation; equal positive masses at distinct vector
+values are not necessary.
+
+\paragraph{A rationalization theorem for a positive three-block chain.}
+Let $X,Y,Z$ have fixed finite alphabets, a strictly positive joint table,
+and $X\perp Z\mid Y$. Write
+\[
+p(x,y,z)=r_y a_{x\mid y}b_{z\mid y},
+\]
+where $r$ and each conditional vector $a,b$ are positive and sum to one.
+Choose rational positive approximations to all but the last entry of
+each vector and set the last entry to one minus their sum. Sufficiently
+close approximations stay positive, and this polynomial
+parametrization then produces rational tables converging to $p$, all
+satisfying $X\perp Z\mid Y$ exactly.
+To preserve the complete CI pattern, include every additional CI that
+actually holds as a constraint on the parameter choice; the preceding
+unrestricted approximation does not generally do that. Thus the theorem
+proved by this argument is the following precisely limited one: if the
+complete CI structure of $p$ has no additional nontrivial CIs beyond
+those forced by $X\perp Z\mid Y$, then a rational table with that same
+complete structure exists.
+Here is the missing non-CI part of the proof. On fixed finite alphabets
+there are finitely many disjoint-set CI statements. Each is expressed
+by finitely many polynomial equations in table entries, for example
+$p_{abc}p_c-p_{ac}p_{bc}=0$ for every assignment, with these symbols
+meaning the corresponding marginal probabilities. At every absent CI,
+at least one such polynomial is nonzero at $p$. Choose one witness for
+each absent statement. By continuity, all the finitely many witnesses
+remain nonzero in a sufficiently small neighborhood. The rational
+parameter approximations can be taken in that neighborhood. All forced
+CIs remain true by factorization and all absent CIs remain false by
+the witnesses, proving the restricted claim. Trivial empty-set CIs
+are automatically preserved.
+
+\paragraph{General chart criterion and the exact unproved step.}
+The same proof applies whenever a rational map, defined on an open
+parameter neighborhood, takes that whole neighborhood into the asserted
+CI locus and the probability simplex, takes one parameter point to the
+given exact representation, has nonvanishing denominators there, and
+has rational parameter points arbitrarily nearby. Rational outputs
+preserve the asserted equations and finitely many nonzero witnesses
+preserve every absent CI. This is a sufficient criterion, proved by
+those two continuity arguments. It is not a proof that every CI locus
+has such a chart.
+
+For example, even the displayed chain approximation fails to preserve
+an additional marginal independence unless its parameters satisfy the
+additional polynomial exactly. General rational approximation in the
+ambient simplex is still less adequate. The strictly positive normalized
+set
+\[
+u^2=2v^2,\qquad u+v=1,\qquad u,v>0
+\]
+has a real point $v=1/(1+\sqrt2)$ but no rational point: rational
+$u,v$ with $v>0$ would imply a rational square root of two. Its
+irrationality follows by reducing $a^2=2b^2$ to coprime integers,
+forcing both $a$ and $b$ even. This set is not asserted to be a CI
+variety or a counterexample to the conjecture. It disproves only the
+proposed general inference from rational defining polynomials and a real
+point to rational points on the same locus.
+
+\section{Audit and scope}
+The AIM Conjecture 21 was inspected. The audit explicitly corrected an
+initial overly broad chain-approximation idea: retaining one factorization
+does not retain every additional CI of a special parameter point.
+The final restricted theorem includes this essential hypothesis. It
+also checks complete patterns, support positivity, common-denominator
+refinement, and the missing finite-alphabet reduction. No numerical or
+formal algebra computation was run. The general existence of a
+rational chart or another exact rational representation is not proved;
+no original conjectural progress or novelty is claimed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Finite-uniform equivalence and a restricted rational-chart construction are proved, but arbitrary asserted-CI intersections and any finite-alphabet reduction remain unproved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Computational Algebraic Statistics, prepared by Seth Sullivant, version 27 March 2004; the original numbered source question and its adjacent scope were inspected on 11 October 2026. \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Finite-uniform equivalence and a restricted rational-chart construction are proved, but arbitrary asserted-CI intersections and any finite-alphabet reduction remain unproved.
+\end{document}

@@ -1,0 +1,138 @@
+% RESEARCH_DRAFT_SHA256: 6bf358b3088ad44ce751ab69dd3de5d2a983ec1aa97fea587b2a2dded5db02e1
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20002192, "title": "A fixed-basis semibasis certificate for DG-module interoperability", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002192", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "What functionality should be added to the DGAlgebras package? Can we handle DG ideals and modules? What about semifree resolutions? Can it be better incorporated with the AInfinity and EagonResolution packages? Can we add higher-order Massey operations?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The two proved certificate mechanisms do not implement the multi-part DGAlgebras agenda or compute higher operations and semifree resolutions in general.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{DG-module certificates: basis filtrations and information lost by forgetting the action}
+\noindent UnsolvedMath ID 20002192; AIM-INFRASTRUCTURE-0092. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A differential graded (DG) algebra is a graded algebra with a differential d satisfying $d^2=0$ and the graded Leibniz rule. DG modules and ideals respect both multiplication and differential. Semifree resolutions build modules in stages from free graded generators; higher Massey operations record additional homological structure.
+\paragraph{Statement recorded in the supplied source.}
+What functionality should be added to the DGAlgebras package? Can we handle DG ideals and modules? What about semifree resolutions? Can it be better incorporated with the AInfinity and EagonResolution packages? Can we add higher-order Massey operations? \href{http://aimpl.org/macaulay2efie/3/}{[S2]}
+\paragraph{Scope qualification.}
+The source is a request for mathematical computational functionality and package interoperability, not a single complexity or existence conjecture.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can computations with differential graded ideals, modules, semifree resolutions, and higher Massey operations be incorporated into the stated algebra packages?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20002192 (AIM-INFRASTRUCTURE-0092). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-INFRASTRUCTURE-0092
+\url{http://aimpl.org/macaulay2efie/3/}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+What functionality should be added to the DGAlgebras package? Can we handle DG ideals and modules? What about semifree resolutions? Can it be better incorporated with the AInfinity and EagonResolution packages? Can we add higher-order Massey operations?
+
+\section{Attempt and results}
+The source requests several package features. We analyze two concrete
+interoperability and semifreeness checks; this is known elementary material,
+not a completed implementation of modules, resolutions, or Massey operations.
+The supplied research summary already describes a fixed-basis graph test;
+we independently prove its exact scope below.
+
+\paragraph{The action is additional data.}
+Use homological grading, so differentials have degree $-1$. For a DG algebra
+$(A,d_A)$, a left DG module must satisfy
+\[
+d_M(am)=d_A(a)m+(-1)^{|a|}a d_M(m)
+\]
+for homogeneous $a$. Its underlying complex over the ground field does not
+determine the action. Take $A=k[t]$ in degree zero with zero differential and
+$M=k$ concentrated in degree zero. Let $t$ act by zero on $M_0$ and by one on
+$M_1$. The complexes are identical and both satisfy the displayed rule.
+An $A$-linear map $f:M_0\to M_1$ satisfies
+$0=f(t\cdot1)=t\cdot f(1)=f(1)$, so there is no nonzero such map, in
+particular no isomorphism. A bridge retaining only the complex therefore
+cannot recover the original DG-module isomorphism type.
+
+\paragraph{A finite specified-basis semifree test.}
+Let $M=\bigoplus_{j=1}^s A e_j$ be graded free with a specified homogeneous
+basis and a valid DG differential. Expand it uniquely as
+$d_M(e_j)=\sum_i a_{ij}e_i$. Form a directed edge $j\to i$ exactly when
+$a_{ij}\ne0$. A basis-compatible semifree filtration means a filtration
+formed by subsets of this basis, in which each generator's differential is
+in the span of strictly earlier stages. Such a filtration exists exactly
+when this finite graph has no directed cycle.
+One direction is immediate: the stage index decreases strictly along every
+edge, which cannot occur around a cycle. For the converse, a finite acyclic
+graph has a vertex with no outgoing edge, since otherwise repeatedly following
+edges would revisit a vertex. Remove such vertices in successive rounds;
+induction exhausts all vertices and gives the required stage order.
+The Leibniz rule shows each earlier span is a DG submodule, since its basis
+generator differentials stay inside it. The quotient at any new stage is a
+direct sum of shifted copies of $A$ with the differential inherited from
+$A$, exactly as required for semifreeness.
+More precisely, assign a sink level zero and
+$\ell(j)=1+\max_{j\to i}\ell(i)$ otherwise. Induction in the removal order
+shows this is the length of a longest path starting at $j$. Every admissible
+stage assignment, starting at zero, must be at least this large along that
+path. Consequently $1+\max_j\ell(j)$ is the minimum number of nonempty
+stages for this fixed basis when $s>0$; the zero module needs zero stages.
+This assertion does not optimize over changes of basis.
+
+\paragraph{Why checking only $d^2=0$ is insufficient.}
+Take $A=k[\epsilon]/(\epsilon^2)$ with $|\epsilon|=-1$ and $d_A=0$.
+Let $M=Ae$, $|e|=0$, and define $d_M(e)=\epsilon e$, extending by the
+Leibniz rule. This is well defined and $d_M^2(e)=d_M(\epsilon e)
+=-\epsilon^2e=0$; on $a e$ the same computation gives zero. But the
+dependency graph has a self-loop, and no filtration by subsets of this basis
+is semifree. This exhibits a valid graded-free DG module that fails the
+specified-basis certificate. It is not a claim that a detected cycle in an
+arbitrary larger presentation rules out every possible semibasis.
+An actual verifier must check the Leibniz rule and $d_M^2=0$ as well as the
+graph; acyclicity alone says nothing about incorrectly supplied coefficients.
+
+\section{Context, adversarial audit, and gap}
+The official report and the primary DGAlgebras index show active DG-module
+functionality; we do not repeat the historical prompt as a present absence
+claim. Only a search excerpt of that index was retrievable. The AIMPL page
+was unavailable, so the full original wording is preserved from the snapshot.
+The audit checked homological signs, the zero module, fixed-basis dependence,
+and the distinction between an action and a complex. Higher Massey operations,
+semifree-resolution construction, and tested package interoperability remain
+outside what has been built or proved here. No software tests were run.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The two proved certificate mechanisms do not implement the multi-part DGAlgebras agenda or compute higher operations and semifree resolutions in general.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item AIM, Macaulay2: expanded functionality and improved efficiency, official workshop summary; relevant implementation discussion inspected on 11 October 2026. Original AIMPL pages failed retrieval; exact questions are taken from the supplied snapshot. \url{https://aimath.org/pastworkshops/macaulay2efierep.pdf}.
+\item Official DGAlgebras index, primary search excerpt inspected; it lists DG-module and acyclic-closure functionality. Full direct-page retrieval failed, and listed operations were not executed. \url{https://macaulay2.com/doc/Macaulay2-1.26.06/share/doc/Macaulay2/DGAlgebras/html/master.html}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The two proved certificate mechanisms do not implement the multi-part DGAlgebras agenda or compute higher operations and semifree resolutions in general.
+\end{document}

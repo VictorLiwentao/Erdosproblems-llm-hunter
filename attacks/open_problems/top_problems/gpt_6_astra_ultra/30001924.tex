@@ -1,0 +1,95 @@
+% TOP_PROBLEM: {"id": 30001924, "title": "Semiclassical Measures and Exceptional Eigenmodes", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The report ranges over several quantized systems and highlights Laplace eigenfunctions on compact negatively curved manifolds. It does not claim that every invariant measure is realizable for every system; arithmetic joint eigenbases and unqualified Laplace eigenbases are different cases. Classification, rates, and exceptional modes are separate retained requests."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001924", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Classify possible eigenfunction limits, quantify approach to equidistribution, and determine whether exceptional eigenmodes can follow exceptional classical measures.", "scope": "Computes an exact phase-space limit of torus plane waves and shows position equidistribution alone misses momentum concentration.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked eigenvalue normalization, quantization convention, observable matrix element and nonergodicity of the comparison torus. Model self-audit only; no independent human proof checking. Coordinator checked the flat-torus eigenfunction normalization and product-observable identity separating position from phase-space equidistribution. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked eigenvalue normalization, quantization convention, observable matrix element and nonergodicity of the comparison torus. Retained unresolved status and zero original-target progress; No classification, rate or exceptional-eigenmode result is established for the source chaotic/negative-curvature systems."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001924; source catalogue code OWR-11447-001
+\setcounter{section}{30001923}
+\section{Semiclassical Measures and Exceptional Eigenmodes}\label{30001924}
+{\small UnsolvedMath ID 30001924 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} For normalized eigenfunctions $u_h$ in a high-energy or semiclassical regime, a semiclassical measure $\nu$ is a weak limit satisfying $\langle u_h,\operatorname{Op}_h(a)u_h\rangle\to\int a\,d\nu$ for smooth phase-space observables $a$. Such limits are invariant under the corresponding classical Hamiltonian or geodesic flow. Liouville measure is the normalized natural volume measure on the relevant energy surface. Quantum ergodicity gives this limit on a density-one subsequence under classical ergodicity; quantum unique ergodicity asks for it on every eigenfunction sequence.
+
+\paragraph{Source scope and qualifications.} The report ranges over several quantized systems and highlights Laplace eigenfunctions on compact negatively curved manifolds. It does not claim that every invariant measure is realizable for every system; arithmetic joint eigenbases and unqualified Laplace eigenbases are different cases. Classification, rates, and exceptional modes are separate retained requests.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+What are the possible semiclassical measures, and do they include all classically invariant measures? What is the rate of convergence to Liouville measure, and can exceptional eigenmodes exhibit the behavior of exceptional invariant measures?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The question asks whether exceptional eigenmodes occur; arithmetic cases are proved, while the general negative-curvature case remains open. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Classify possible eigenfunction limits, quantify approach to equidistribution, and determine whether exceptional eigenmodes can follow exceptional classical measures.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Computes an exact phase-space limit of torus plane waves and shows position equidistribution alone misses momentum concentration.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{An explicit invariant measure realized in an integrable comparison system.} On the unit flat torus $\mathbb T^d$, take $u_N(x)=e^{2\pi iNx_1}$ and semiclassical parameter $h_N=(2\pi N)^{-1}$. Then $-h_N^2\Delta u_N=u_N$ and its position density is identically one, while momentum is exactly the unit vector $e_1$. For a test observable $a(x,p)=b(x)c(p)$ with quantization $b(x)c(hD)$, $D=-i\nabla$,
+\[
+ \langle u_N,b(x)c(h_ND)u_N\rangle=c(e_1)\int_{\mathbb T^d}b(x)dx.
+\]
+Thus the limit is $dx\otimes\delta_{e_1}$, invariant under the straight geodesic flow and strongly concentrated in momentum.
+
+\paragraph{Position equidistribution does not certify phase-space equidistribution.} Every position-only observable has its uniform mean exactly at each $N$, whereas a momentum observable with $c(e_1)$ different from its spherical mean distinguishes the limit from Liouville measure. Hence a convergence-rate claim must specify the observable class; zero error for position tests need not control the full semiclassical measure.
+
+\paragraph{Source-scope gap.} Flat torus dynamics is not ergodic and is not the report's highlighted negatively curved case. The example cannot produce exceptional eigenmodes there or show that every invariant measure is realizable. In a negative-curvature system the first missing step is controlling high-energy eigenfunctions at the scales needed to restrict or construct exceptional phase-space limits. Classification, convergence rates and exceptional-mode existence all remain unresolved in that general setting, with arithmetic joint eigenbases kept distinct.
+
+\paragraph{Verification and adversarial audit.}
+Checked eigenvalue normalization, quantization convention, observable matrix element and nonergodicity of the comparison torus. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked eigenvalue normalization, quantization convention, observable matrix element and nonergodicity of the comparison torus. Retained unresolved status and zero original-target progress; No classification, rate or exceptional-eigenmode result is established for the source chaotic/negative-curvature systems.
+
+Coordinator checked the flat-torus eigenfunction normalization and product-observable identity separating position from phase-space equidistribution. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. No classification, rate or exceptional-eigenmode result is established for the source chaotic/negative-curvature systems.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. No classification, rate or exceptional-eigenmode result is established for the source chaotic/negative-curvature systems.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001924:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001924 (OWR-11447-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001924:2}{S2}] Arbeitsgemeinschaft: Quantum Ergodicity (2011), Oberwolfach Reports, DOI 10.4171/owr/2011/49, pp. 2781--2835; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2011/49}.
+\item[\hypertarget{source:30001924:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 3--4, printed pages 2783--2784.
+\url{https://ems.press/content/serial-article-files/46365}.
+\item[\hypertarget{source:30001924:4}{S4}] current QUE survey; reference in the saved dated catalogue literature review.
+\url{https://www.ams.org/journals/notices/202310/noti2801/noti2801.html}.
+\end{itemize}
+\label{end:30001924}
+\end{document}

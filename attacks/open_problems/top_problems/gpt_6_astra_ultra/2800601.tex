@@ -1,0 +1,158 @@
+% RESEARCH_DRAFT_SHA256: 62d518f6d4551016f6b7747fed8d90ec7fd27004f35b98c3d320b06d7439e0e2
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 2800601, "title": "10 Lectures and 42 Open Problems — Random Partial Discrete Fourier Transform", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "problem_number": "AMR-027-0601", "set_id": 13}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "2800601", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Consider a $A\\in\\mathbb{C}^{M\\times N}$ obtained by sampling random rows of a Discrete Fourier Tranform. How large does $M$ need to be in order for, with high probability, $A$ to satisfy the $(s,\\frac13)$ -RIP?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Sharp upper and lower sampling scales uniformly in N, s, and eta are not matched; the subgroup lower bound needs s dividing N and the elementary upper bound is too large.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Subsampled Fourier RIP: a subgroup obstruction and an elementary upper bound}
+\noindent UnsolvedMath ID 2800601; AMR-027-0601. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+For an integer $N\ge2$, let the unitary discrete Fourier matrix be
+$F_{rj}=N^{-1/2}\exp(2\pi i rj/N)$, with $0\le r,j<N$.
+Choose $R_1,\ldots,R_M$ independently and uniformly from
+$\{0,\ldots,N-1\}$, allowing repetitions, and put
+\[
+ A_{tj}=\sqrt{N/M}\,F_{R_tj}
+       =M^{-1/2}\exp(2\pi i R_tj/N).
+\]
+The rescaling ensures $\mathbb E(A^*A)=I_N$ and gives every column
+Euclidean norm one.
+
+For $1\le s\le N$, the event of interest is
+\[
+ \frac23\|x\|_2^2\le\|Ax\|_2^2\le\frac43\|x\|_2^2
+ \quad\text{for every }x\in\mathbb C^N
+       \text{ with }|\operatorname{supp}(x)|\le s.
+\]
+For $0<\eta<1/2$, determine the sharp order of the smallest sample
+size $M=M(N,s,\eta)$ for which this event has probability at least
+$1-\eta$. In particular, determine the necessary logarithmic factors
+in the high-probability regimes, for example $\eta=N^{-1}$.
+
+The probability concerns the sampled rows, while the assertion within
+the event is uniform over every support and every coefficient vector.
+Recovery of one fixed sparse signal need not require the same number
+of measurements. Rows are sampled with replacement, exactly as in
+the primary formulation; sampling a subset without replacement is a
+related but different random model. Both lower and upper bounds are
+needed to identify the sample scale rather than merely provide a
+sufficient oversampling rule.
+\subsection{Short English statement}
+How many independently sampled Fourier rows are necessary and sufficient to preserve all sparse vectors with high probability?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] ULAM.AI and the UnsolvedMath Contributors, supplied problems.json, record 2800601 (AMR-027-0601), AMR Open Problem Lists. Catalogue identity and source transcription; CC BY 4.0.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Bandeira - 42 Open Problems in Data Science (2016), Open Problem 6.1. Original source indexed by AMR-027-0601.
+\url{https://afonsobandeira.wordpress.com/2015/12/07/10l42pcompressedsensing/}.
+\item[S3] A. S. Bandeira, Ten Lectures and Forty-Two Open Problems in the Mathematics of Data Science, corresponding numbered problem and surrounding definitions.
+\url{https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Consider a $A\in\mathbb{C}^{M\times N}$ obtained by sampling random rows of a Discrete Fourier Tranform. How large does $M$ need to be in order for, with high probability, $A$ to satisfy the $(s,\frac13)$ -RIP?
+
+\section{Attempt and results}
+Rows are independent samples with replacement and the matrix has exactly the
+normalization in the preserved definition. We retain uniformity over all
+complex sparse vectors and the failure parameter $0<\eta<1/2$.
+
+\paragraph{A subgroup lower bound when $s\mid N$.}
+Assume $2\le s\le N$ and $s\mid N$. For $0\le a<s$, define a unit vector
+supported on $\{\ell N/s:0\le\ell<s\}$ by
+$x^{(a)}_{\ell N/s}=s^{-1/2}e^{-2\pi i a\ell/s}$.
+A geometric sum shows
+\[
+\|Ax^{(a)}\|^2=\frac sM C_a,
+\qquad C_a=|\{t:R_t\equiv a\pmod s\}|.
+\]
+Thus RIP implies every residue class is sampled. Let $X$ count missing
+classes. Uniform independent sampling gives
+$\mathbb EX=s(1-1/s)^M=:u$ and
+\[
+\mathbb EX^2=u+s(s-1)(1-2/s)^M\le u+u^2,
+\]
+because $1-2/s\le(1-1/s)^2$. Cauchy--Schwarz applied to
+$X\boldsymbol1_{X>0}$ gives $\Pr(X>0)\ge u/(1+u)$.
+If RIP succeeds with probability at least $1-\eta$, necessarily
+\[
+M\ge\frac{\log(s(1-\eta)/\eta)}{-\log(1-1/s)}.
+\]
+This is only a necessary coupon-collection condition; even all nonempty
+classes do not guarantee the required counts within $[2M/(3s),4M/(3s)]$.
+It yields order $s\log(s/\eta)$ for this divisor regime. It cannot be applied
+unchanged when $N$ is prime and $1<s<N$.
+
+\paragraph{An elementary sufficient bound.}
+For distinct columns $i,j$, their inner product is the average of $M$
+independent unit complex numbers of mean zero. A real zero-mean variable
+$Y\in[-1,1]$ satisfies $\mathbb E e^{\lambda Y}\le\cosh\lambda
+\le e^{\lambda^2/2}$: convexity bounds the exponential by its chord at
+$-1,1$, and comparison of power-series coefficients gives the second inequality.
+Independence and Markov's inequality imply that the mean of $M$ such variables
+has either real tail bounded by $e^{-Mt^2/2}$. If a complex average has
+magnitude at least $t$, one of its real or imaginary parts has absolute value
+at least $t/\sqrt2$. Hence
+\[
+\Pr(|\langle a_i,a_j\rangle|\ge t)\le4e^{-Mt^2/4}.
+\]
+Taking a union bound over pairs, with
+$t=\sqrt{4\log(4N^2/\eta)/M}$, bounds the failure probability by $\eta$.
+Every column has norm one. For a support of size at most $s$, Cauchy--Schwarz
+as in the preceding argument gives a Gram-error norm at most $(s-1)t$.
+Thus for $s\ge2$ the sufficient condition
+\[
+M\ge36(s-1)^2\log(4N^2/\eta)
+\]
+ensures $(s,1/3)$-RIP with probability at least $1-\eta$.
+For $s=1$ every $M\ge1$ works exactly. For all $s$, $M\ge s$ is also
+necessary: otherwise an $M$ by $s$ column submatrix has a nonzero kernel.
+
+\section{Context, audit, and remaining scope}
+Haviv and Regev's primary abstract, arXiv:1507.01768, was consulted on
+11 October 2026 for its improved Fourier sampling result; we do not reprove
+or use its chaining argument. The pairwise upper bound above is deliberately
+weaker known material. The attempt to close the target by matching coupon
+collection with pairwise concentration leaves a factor comparable to $s$
+and does not handle all cyclic-group arithmetic in the lower bound.
+The audit checked replacement sampling, Fourier normalization, divisibility,
+$s=1,N$, and the direction of the second-moment implication. No simulation
+or formal theorem proving was performed. No claim about sharp logarithmic
+factors follows from these two elementary bounds.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Sharp upper and lower sampling scales uniformly in N, s, and eta are not matched; the subgroup lower bound needs s dividing N and the elementary upper bound is too large.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Bandeira, lecture notes (2016), Open Problem 6.1; sampling formulation inspected. \url{https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf}.
+\item Ishay Haviv and Oded Regev, The Restricted Isometry Property of Subsampled Fourier Matrices, arXiv:1507.01768; primary abstract inspected, improved proof not rederived. \url{https://arxiv.org/abs/1507.01768}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Sharp upper and lower sampling scales uniformly in N, s, and eta are not matched; the subgroup lower bound needs s dividing N and the elementary upper bound is too large.
+\end{document}

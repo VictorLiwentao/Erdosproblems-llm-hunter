@@ -1,0 +1,86 @@
+% TOP_PROBLEM: {"id": 30005723, "title": "Modular Generators for Massive Double Cones", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The decomposition defining $M_-$ is source-specific. Mass independence of this component would not automatically imply mass independence of the entire modular flow."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005723", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Determine whether the double-cone modular-generator component for a massive scalar field is mass independent and acts by multiplication.", "scope": "Exact finite-dimensional source-formula test rules out an automatic algebraic mass cancellation; neither continuum mass dependence nor multiplication is decided.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked projection and positivity, c>1, odd arcoth branch, large-mass order and the difference between an algebraic toy model and the localized continuum operator. Model self-audit only; no independent human mathematical verification. Coordinator checked the two-dimensional functional calculus, large-mass order and commuting localization projection; no continuum counterexample is inferred. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked projection and positivity, c>1, odd arcoth branch, large-mass order and the difference between an algebraic toy model and the localized continuum operator. First remaining gap: Control the source continuum functional calculus and find a rigorous smeared mass variation or spatial commutator. The inherited source status is preserved; original-target completion remains zero."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30005723; source catalogue code OWR-14298009-001
+\setcounter{section}{30005722}
+\section{Modular Generators for Massive Double Cones}\label{30005723}
+{\small UnsolvedMath ID 30005723 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+For a von Neumann algebra with cyclic separating vacuum vector, modular theory supplies a one-parameter group of automorphisms and its generator. A double cone is the intersection of the causal future of one point with the causal past of another. $M_-$ denotes the particular modular-generator component used in the report; multiplication means pointwise action in the specified representation.
+
+\paragraph{Catalogue wording retained for traceability.}
+For a massive free scalar field localized in a double cone, determine whether the modular-generator component $M_-$ is independent of the mass and whether $M_-$ is a multiplication operator.
+
+\paragraph{Scope and source qualification.}The decomposition defining $M_-$ is source-specific. Mass independence of this component would not automatically imply mass independence of the entire modular flow.
+\subsection{Short English statement}
+Determine whether the double-cone modular-generator component for a massive scalar field is mass independent and acts by multiplication.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Exact finite-dimensional source-formula test rules out an automatic algebraic mass cancellation; neither continuum mass dependence nor multiplication is decided.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition and the cached original report root\_report\_2023\_50.txt, specifically its displayed formula (7) and numerical discussion on report pages 2862–2863. Its numerical evidence is not treated as proof. No fresh literature or novelty search was performed.
+
+\paragraph{Testing algebraic cancellation in the source formula.} The cached [S2] report gives \(M_-=2A^{-1/4}\operatorname{arcoth}(B)A^{-1/4}\), with \(A=-\Delta+m^2\) and \(B=A^{1/4}\chi A^{-1/4}+A^{-1/4}\chi A^{1/4}-I\). Here \(\chi\) is spatial localization. Its numerical discussion explicitly lacks rigorous discretization error estimates. To test whether mass independence follows from this algebraic form alone, replace \(A\) by \(\operatorname{diag}(m^2+1,m^2+4)\) and \(\chi\) by the rank-one projection with every entry \(1/2\).
+\paragraph{Exact two-dimensional calculation.} Put \(a=m^2+1\), \(b=m^2+4\), \(r=(a/b)^{1/4}\), and \(c=(r+r^{-1})/2>1\). Direct multiplication gives
+\[
+ B=\begin{pmatrix}0&c\\c&0\end{pmatrix},\qquad
+ M_-=2(ab)^{-1/4}\operatorname{arcoth}(c)
+ \begin{pmatrix}0&1\\1&0\end{pmatrix}.
+\]
+The odd real branch \(\operatorname{arcoth}(x)=\frac12\log((x+1)/(x-1))\) for \(|x|>1\) justifies the functional calculus. At \(m=0\) the coefficient is positive. As \(m\to\infty\), \(c-1\) has order \(m^{-4}\), so the coefficient is of order \(m^{-1}\log m\) and tends to zero. It is therefore mass dependent.
+\paragraph{What is and is not falsified.} This disproves a proposed purely algebraic cancellation valid for arbitrary positive \(A\) and projections \(\chi\). It is not a counterexample for the continuum double cone: this matrix pair does not satisfy all localization/geometric relations of the differential operator. Furthermore the matrix \(M_-\) commutes with \(\chi\), so the same test does not even obstruct multiplication in its two-point position basis. Both source questions require continuum estimates, either a nonzero mass derivative of a smeared matrix element or a nonvanishing commutator with a spatial multiplier, with domains and limits controlled.
+
+\paragraph{Verification and adversarial audit.}
+Checked projection and positivity, c>1, odd arcoth branch, large-mass order and the difference between an algebraic toy model and the localized continuum operator. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked projection and positivity, c>1, odd arcoth branch, large-mass order and the difference between an algebraic toy model and the localized continuum operator. First remaining gap: Control the source continuum functional calculus and find a rigorous smeared mass variation or spatial commutator. The inherited source status is preserved; original-target completion remains zero.
+
+Coordinator checked the two-dimensional functional calculus, large-mass order and commuting localization projection; no continuum counterexample is inferred. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Control the source continuum functional calculus and find a rigorous smeared mass variation or spatial commutator.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30005723:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30005723 (OWR-14298009-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30005723:2}{S2}] Mini-Workshop: Standard Subspaces in Quantum Field Theory and Representation Theory (2023), Oberwolfach Reports, DOI 10.4171/owr/2023/50, pp. 2851--2901. Original report and mathematical context.
+\url{https://doi.org/10.4171/owr/2023/50}.
+\end{itemize}
+\label{end:30005723}
+\end{document}

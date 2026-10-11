@@ -1,0 +1,174 @@
+% RESEARCH_DRAFT_SHA256: 5cc7cc9237753dbdf5b73bfcf9b5bc0a1d60100dc8a7b66b8ff2473924c4623e
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001255, "title": "Adjacent nonisogenous fibers in the Legendre family", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001255", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 5. Suppose that you have a nonconstant family of elliptic curves Eλ\n\nover Fp (e.g. the Frey curves), λ ∈ P1(Fp). Can you find deterministically λ such that Eλ\n\nand Eλ+1 are not isogenous (i.e. Eλ(Fp) 6 = Eλ+1 (Fp)). (Elkies)", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. A complete Legendre existence proof is obtained, but the general low-degree-family scope and deterministic bit-polynomial location algorithm remain unproved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Adjacent Legendre fibers: a moment proof of existence and the search-time gap}
+\noindent UnsolvedMath ID 20001255; AIM-COMPUTATION-0093. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+An elliptic curve over $\mathbb F_p$ is a nonsingular genus-one curve with a chosen rational point. Its rational-point count is $\#E(\mathbb F_p)$. The source seeks adjacent parameters in a nonconstant family with unequal point counts, corresponding to nonisogenous fibers over the stated finite field.
+\paragraph{Statement recorded in the supplied source.}
+Question 5. Suppose that you have a nonconstant family of elliptic curves Eλ
+
+over Fp (e.g. the Frey curves), λ ∈ P1(Fp). Can you find deterministically λ such that Eλ
+
+and Eλ+1 are not isogenous (i.e. Eλ(Fp) 6 = Eλ+1 (Fp)). (Elkies) \href{https://aimath.org/WWN/primesinp/primesinp.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The extraction drops the point-count symbols. The primary source uses point counts and remarks that p should be sufficiently large and the family degree small, without giving a numerical uniform threshold.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can one deterministically find two adjacent members of an elliptic-curve family that have different finite-field point counts?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001255 (AIM-COMPUTATION-0093). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0093
+\url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 5. Suppose that you have a nonconstant family of elliptic curves Eλ
+
+over Fp (e.g. the Frey curves), λ ∈ P1(Fp). Can you find deterministically λ such that Eλ
+
+and Eλ+1 are not isogenous (i.e. Eλ(Fp) 6 = Eλ+1 (Fp)). (Elkies)
+
+\section{A concrete family and an actual attempted route}
+The original target concerns nonconstant elliptic families, with small
+degree and sufficiently large characteristic mentioned but not quantified
+in its remarks. We work first with the Legendre family
+$E_\lambda:y^2=x(x-1)(x-\lambda)$ for odd primes $p\ge5$ and
+$\lambda\notin\{0,1\}$. These fibers are smooth because the cubic
+has three distinct roots. The goal of this route is to prove the point
+counts are not constant on the consecutive smooth parameters, then find
+an adjacent change. It does not give a general-family or bit-polynomial
+search theorem.
+
+\paragraph{Elementary character identities.}
+Let $\chi$ be the quadratic character on $\mathbb F_p$, with
+$\chi(0)=0$. Nonzero squares form an index-two subgroup: the squaring
+map has exactly two preimages $\pm u$ for each square, and its image
+is closed under products and inverses. Assigning signs to its two
+cosets proves multiplicativity and $\sum_t\chi(t)=0$.
+For distinct $x,y$,
+\[
+\sum_\lambda\chi((x-\lambda)(y-\lambda))=-1.
+\]
+Indeed, for $\lambda\ne y$ the summand equals
+$\chi((x-\lambda)/(y-\lambda))$, since the omitted factor is a
+nonzero square. The fractional transformation is a bijection from
+$\mathbb F_p\setminus\{y\}$ to $\mathbb F_p\setminus\{1\}$:
+solving its equation gives a unique $\lambda$ unless the ratio is one.
+The sum is therefore $-\chi(1)=-1$; the omitted summand was zero.
+The case $x=0,y=1$ also gives
+$\sum_x\chi(x(x-1))=-1$.
+
+\paragraph{First and second moments with singular parameters removed.}
+Define for every $\lambda\in\mathbb F_p$,
+$S_\lambda=\sum_x\chi(x(x-1)(x-\lambda))$.
+For smooth fibers the number of affine $y$ values above each $x$ is
+$1+\chi(x(x-1)(x-\lambda))$, and there is one point at infinity.
+Hence $\#E_\lambda(\mathbb F_p)=p+1+S_\lambda$.
+Summing first over $\lambda$ gives $\sum_\lambda S_\lambda=0$,
+because $\sum_\lambda\chi(x-\lambda)=0$.
+At the two singular parameters, direct summation yields
+$S_0=-\chi(-1)$ and $S_1=-1$: cancel the square factor and subtract
+the omitted $x=0$ or $x=1$ term from a complete character sum.
+Consequently
+\[
+\sum_{\lambda\ne0,1}S_\lambda=1+\chi(-1).
+\]
+Put $a_x=\chi(x(x-1))$. Then $\sum_xa_x=-1$ and
+$\sum_xa_x^2=p-2$. Expanding the second moment, the diagonal inner
+character sums equal $p-1$ and the off-diagonal ones equal $-1$ by
+the preceding identity. Therefore
+\[
+\sum_\lambda S_\lambda^2
+=(p-1)\sum_xa_x^2-\sum_{x\ne y}a_xa_y
+=p(p-2)-1.
+\]
+Removing $S_0^2=S_1^2=1$ gives
+\[
+\sum_{\lambda\ne0,1}S_\lambda^2=(p-3)(p+1)>0.
+\]
+
+If all smooth $S_\lambda$ were a common integer $c$, their first
+moment would give $(p-2)c=1+\chi(-1)$. If $\chi(-1)=1$, this is
+impossible since $p-2\ge3$ does not divide two. If $\chi(-1)=-1$,
+it forces $c=0$, contradicting the positive second moment. Thus the
+smooth counts are not all equal. The parameter list
+$2,3,\ldots,p-1$ is a connected chain under adding one, so some
+$\lambda\in\{2,\ldots,p-2\}$ has $S_\lambda\ne S_{\lambda+1}$.
+Both fibers are smooth, proving existence of a pair with the source's
+unequal-point-count criterion for every $p\ge5$.
+
+\paragraph{Why this route still falls short.}
+One may precompute squares modulo $p$ and all character values with
+$O(p)$ field operations, then compute the $p$ sums in $O(p^2)$
+operations and scan the adjacent pairs. This is deterministic but
+exponential in $\log p$; the moment proof does not locate the change
+in a set of only polynomially many bit-length candidates.
+Nor does nonconstancy alone ensure a useful rational-parameter family
+without the source's degree restriction. For example, replace the
+Legendre parameter by $\lambda(t)=t^p-t+2$. At every $t\in\mathbb F_p$
+this equals two, so all finite rational fibers are the same smooth
+curve. Over the rational function field the family is nonconstant:
+its usual Legendre invariant
+$256(\lambda^2-\lambda+1)^3/[\lambda^2(1-\lambda)^2]$ has a pole
+at a zero of $t^p-t+2$ and is not constant. The parameter polynomial
+has derivative $-1$, so such zeros exist and are simple over the
+algebraic closure. This is a degree-growing warning, not a
+counterexample to a fixed-small-degree hypothesis or an assertion that
+the fiber at infinity is smooth.
+
+\section{Audit and gap}
+The AIM Question 5 and its small-degree remark were inspected. The
+proof above uses unequal point counts, exactly the criterion in the
+source, without importing a new isogeny classification. The audit
+checked singular fibers, all odd primes at least five, character-sum
+signs and the difference between existence and efficient location.
+No point-count experiment or numerical search was run. The elementary
+Legendre moment result is a known-type special-case argument, and no
+new general-family or polynomial-in-logarithm algorithm is claimed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. A complete Legendre existence proof is obtained, but the general low-degree-family scope and deterministic bit-polynomial location algorithm remain unproved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Future directions in algorithmic number theory, workshop 24--28 March 2003, report version 30 April 2003; original question, relevant lecture context and adjoining remarks inspected on 11 October 2026. \url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} A complete Legendre existence proof is obtained, but the general low-degree-family scope and deterministic bit-polynomial location algorithm remain unproved.
+\end{document}

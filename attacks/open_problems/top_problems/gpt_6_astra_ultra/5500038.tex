@@ -1,0 +1,139 @@
+% RESEARCH_DRAFT_SHA256: 3a2f2f0fb4e61885384359bb99a1c566651076b7fb2569cf6eeea0702a4d5818
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 5500038, "title": "Compatible Triangulations", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "5500038", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Compatible Triangulations; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A common fan-refinement recipe can produce incompatible outputs; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch003 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Mathematical question.}#1}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 5500038; source catalogue code AMR-054-0038
+\section{Compatible Triangulations}\label{5500038}
+{\small UnsolvedMath ID 5500038 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$, and $\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$ denote the integers, rationals, reals and complex numbers. Any other conventions are specified locally.
+
+
+A planar point set is in general position if no three points are collinear. A triangulation of it subdivides its convex hull into triangles with that point set as its vertices and with disjoint triangle interiors. Triangulations of $S_1,S_2$ are compatible if a bijection $\phi:S_1\to S_2$ identifies their face lattices; equivalently, a triple spans an empty triangular face in one precisely when its image spans an empty triangular face in the other. The bijection is free to be chosen, and no extra Steiner vertices are added.
+\paragraph{Statement recorded in the supplied source.}
+For every two $n$-point planar sets in general position having the same number of convex-hull vertices, do compatible triangulations exist? \href{https://github.com/edemaine/topp/blob/main/Problems/P.000038}{[S2]}
+\subsection{Short English statement}
+For every two $n$-point planar sets in general position having the same number of convex-hull vertices, do compatible triangulations exist?
+\subsection{Sources}
+\begin{description}
+\item[S1] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 5500038 (AMR-054-0038). CC BY 4.0. \url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Erik D. Demaine, Joseph S. B. Mitchell and Joseph O\textquotesingle Rourke (editors), \emph{The Open Problems Project}, maintained original source, Problem 38, Statement and complete Partial/Related Results. \url{https://github.com/edemaine/topp/blob/main/Problems/P.000038}.
+\end{description}
+\label{end:5500038}
+
+\section{Literature and context check}
+The consulted TOPP Problem 38 page states the free-bijection, no-Steiner-point
+conjecture and reports known cases with few interior points. Consequently the
+small example below is a test of an algorithmic recipe, not a new counterexample
+to the conjecture or a claim beyond those known cases.
+\section{Research attempt: A common fan-refinement recipe can produce incompatible outputs}
+If all points are in convex position, matching cyclic boundary orders and
+choosing corresponding fans gives compatible triangulations. If there is exactly
+one interior point, join it to each hull vertex; every ray from it meets a unique
+hull edge except on boundary rays, so these triangles partition the hull. Matching
+the interior points and cyclic hull orders then gives compatibility. The attempted
+extension was to keep this interior fan and insert remaining interior points into
+the triangles containing them.
+
+The following explicit pair defeats that recipe. Use the common hull
+\[
+ A=(0,0),\ B=(6,0),\ C=(7,5),\ D=(0,6),
+ \qquad o=(2,2),\ q=(2,1/2).
+\]
+In $S_1$ add $r_1=(3,7/10)$; in $S_2$ add $r_2=(3,4)$.
+All triples in each seven-point set have nonzero oriented area, and the four
+listed boundary points form a strictly convex quadrilateral. Both $q,r_1$ lie
+inside $oAB$, while $r_2$ lies inside $oCD$. These inclusions follow by testing
+the three directed edges of each counterclockwise triangle; no point is on an edge.
+
+Start in each set with the fan from $o$, insert $q$, and then insert $r_i$,
+joining an inserted point to all three vertices of its containing triangle.
+In $S_1$ the first insertion divides $oAB$ into three triangles, every one of
+which contains $q$ as a vertex. Thus inserting $r_1$ creates the edge $qr_1$;
+it also need not create $or_1$ in every position, so that edge must be checked
+rather than assumed. For the displayed coordinates, $r_1$ lies in triangle
+$qBo$: its directed cross products are positive. Consequently both $or_1$
+and $qr_1$ occur, and the subgraph induced by the three interior vertices is
+the triangle $K_3$.
+In $S_2$, $r_2$ is inserted into the unchanged triangle $oCD$, so its only
+interior neighbor is $o$. The induced interior subgraph is the path $q,o,r_2$.
+
+Any face-lattice isomorphism of the completed triangulations preserves the
+boundary and hence the set of interior vertices. It cannot take a triangle
+induced on those vertices to a path. Therefore these particular outputs are
+incompatible even if a new, unrestricted vertex bijection is allowed after the
+construction. Merely renaming hull vertices or the interior roots does not fix
+the edge-count discrepancy. Other triangulations may work, as the source's
+known small-interior cases suggest; this is not a counterexample to their existence.
+
+The failed induction tried to use only equal total interior counts. A recursive
+compatible construction needs compatible distributions among corresponding
+faces, or a mechanism for changing the partial triangulations when those
+distributions differ. The example shows that unconstrained sequential insertion
+does not preserve that invariant.
+\section{Verification and adversarial audit}
+Python 3.14.2 using exact Fraction arithmetic checked all 35 triple
+determinants in each set and found no collinear triple. Triangle-sector membership
+and the final interior adjacency were checked directly from the listed coordinates.
+In particular the extra $or_1$ edge was checked rather than inferred merely from
+two points starting in the same fan triangle.
+\paragraph{Audit corrections.} The recipe obstruction was checked against the free-bijection quantifier using an invariant induced subgraph; no fixed correspondence was silently imposed.
+\paragraph{External computation.} Exact Fraction determinant enumeration: 35 triples in each seven-point set, zero collinear triples; command run in the session, no standalone computation script saved.
+\section{Scope and remaining gaps}
+A paired construction that chooses its triangulations jointly and keeps
+compatible face populations remains missing. No new case of the original
+conjecture is claimed; the small sets provide an explicit failure of the proposed
+greedy recipe under every possible final bijection.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://topp.openproblem.net/p38} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved. This is a research attempt with an explicit failed route or restricted
+calculation, not a full solution, not a current-status certification, and not a claim
+that the elementary material is new. The catalogue's original source-status label
+is preserved independently of this attempt status.
+\end{document}

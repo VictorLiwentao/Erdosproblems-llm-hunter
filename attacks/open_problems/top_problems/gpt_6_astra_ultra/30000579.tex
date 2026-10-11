@@ -1,0 +1,97 @@
+% TOP_PROBLEM: {"id": 30000579, "title": "Linear Baroclinic Prediction of Ocean Eddies", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The source presents a null hypothesis and a model/data comparison program, not an exact equality or a universal prediction-error bound. The baseline mean state, observations, and meaning of largely predicted must be supplied in any quantitative follow-up."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000579", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Determine how much observed ocean-eddy structure can be explained by the linear instability of the mean ocean.", "scope": "Shows explicitly that identical linear instability data permit arbitrary nonlinear saturated amplitudes in a mode model.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked logistic solution, zero initial amplitude, early-time regime and separation of scale/growth predictions from amplitude predictions. Model self-audit only; no independent human proof checking. Coordinator checked the logistic equation for squared amplitude, its positive limiting value and the dependence on the undetermined nonlinear coefficient. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked logistic solution, zero initial amplitude, early-time regime and separation of scale/growth predictions from amplitude predictions. Retained unresolved status and zero original-target progress; A specified ocean baseline/data metric and control of nonlinear saturation for the selected observables are absent."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30000579; source catalogue code OWR-1325-004
+\setcounter{section}{30000578}
+\section{Linear Baroclinic Prediction of Ocean Eddies}\label{30000579}
+{\small UnsolvedMath ID 30000579 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} Baroclinic instability transfers potential energy from a stratified, vertically sheared mean flow into growing perturbations. Linear theory predicts growth rates and spatial structures by linearizing about that mean state. Oceanic eddy statistics include their horizontal scales and amplitudes; the deformation scale reflects the balance between stratification and rotation.
+
+\paragraph{Source scope and qualifications.} The source presents a null hypothesis and a model/data comparison program, not an exact equality or a universal prediction-error bound. The baseline mean state, observations, and meaning of largely predicted must be supplied in any quantitative follow-up.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+Can observed ocean eddy structure be largely predicted and understood through linear baroclinic-instability theory?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The report presents this as an open problem, conjecture, or unresolved research direction; targeted literature checking found no authoritative resolution of the extracted claim as of 2026-08-21. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Determine how much observed ocean-eddy structure can be explained by the linear instability of the mean ocean.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Shows explicitly that identical linear instability data permit arbitrary nonlinear saturated amplitudes in a mode model.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{An amplitude-identifiability test.} Suppose a particular linearly unstable eddy mode has complex amplitude $A$ and growth rate $\sigma>0$. Every nonlinear model in the family
+\[
+ \dot A=\sigma A-g|A|^2A,\qquad g>0,
+\]
+has the identical linearization $\dot A=\sigma A$ at zero. Writing $R=|A|^2$ gives $\dot R=2\sigma R-2gR^2$, whose solution for $R(0)=R_0>0$ is
+\[
+ R(t)=\frac{\sigma/g}{1+(\sigma/(gR_0)-1)e^{-2\sigma t}}.
+\]
+Direct substitution verifies the expression, and $R(t)\to\sigma/g$. Varying $g$ leaves all linear mode shapes and growth rates unchanged while changing the saturated amplitude arbitrarily.
+
+\paragraph{What linear predictions can still test.} At early times with $gR_0e^{2\sigma t}\ll\sigma$, the solution is close to $R_0e^{2\sigma t}$. The regime ends on a time scale comparable to $(2\sigma)^{-1}\log(\sigma/(gR_0))$ when the logarithm is positive. Thus an observed scale or initial growth can be compared with a linear instability, but mature amplitude is not determined by the linearization alone. At $R_0=0$ the solution stays zero, another reminder that excitation must be specified.
+
+\paragraph{Source-scope gap.} This is an exactly solved mode model, not a fitted ocean model or a counterexample to the report's broad null hypothesis. Whether observed eddy shapes and scales are ``largely'' predicted requires a chosen mean state, data, error criterion and nonlinear saturation information. None is supplied here. The first obstacle to an amplitude prediction is identifying the analogue of $g$ or proving it is irrelevant to the chosen observable.
+
+\paragraph{Verification and adversarial audit.}
+Checked logistic solution, zero initial amplitude, early-time regime and separation of scale/growth predictions from amplitude predictions. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked logistic solution, zero initial amplitude, early-time regime and separation of scale/growth predictions from amplitude predictions. Retained unresolved status and zero original-target progress; A specified ocean baseline/data metric and control of nonlinear saturation for the selected observables are absent.
+
+Coordinator checked the logistic equation for squared amplitude, its positive limiting value and the dependence on the undetermined nonlinear coefficient. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. A specified ocean baseline/data metric and control of nonlinear saturation for the selected observables are absent.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. A specified ocean baseline/data metric and control of nonlinear saturation for the selected observables are absent.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30000579:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30000579 (OWR-1325-004). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30000579:2}{S2}] Mathematical Theory and Modelling in Atmosphere-Ocean Science (2006), Oberwolfach Reports, DOI 10.4171/owr/2006/39, pp. 2307--2398; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2006/39}.
+\item[\hypertarget{source:30000579:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 82--83, printed pages 2388--2389.
+\url{https://ems.press/content/serial-article-files/46068}.
+\end{itemize}
+\label{end:30000579}
+\end{document}

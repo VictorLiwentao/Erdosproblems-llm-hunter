@@ -1,0 +1,99 @@
+% TOP_PROBLEM: {"id": 30002924, "title": "Weak Limits of Discrete Wave-Turbulence Spectra", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The extraction omits the original nonlinear Schrödinger equation, collision integral and test-function topology. Those are source-defined parts of the target; no alternative kinetic equation is supplied here."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002924", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Under the stated damping, forcing and box scalings, does the discrete averaged wave spectrum converge to the damped-driven kinetic equation?", "scope": "Checks the source forcing scaling through exact linear stochastic modes and proves their compact-test-function continuum limit under explicit regularity.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked complex-noise factor two, action normalization, equilibrium and Riemann-sum weights; distinguished compact tests from global tails and retained nonlinear/source limit order. Model self-audit only; no independent human proof checking. Coordinator checked the complex-Brownian normalization, rescaled action equation and compactly supported Riemann-sum limit under the stated assumptions. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked complex-noise factor two, action normalization, equilibrium and Riemann-sum weights; distinguished compact tests from global tails and retained nonlinear/source limit order. Retained unresolved status and zero original-target progress; Nonlinear resonant averaging, moment closure and collision-integral convergence in the prescribed iterated limit are missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30002924; source catalogue code OWR-13855-007
+\setcounter{section}{30002923}
+\section{Weak Limits of Discrete Wave-Turbulence Spectra}\label{30002924}
+{\small UnsolvedMath ID 30002924 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+The torus $\mathbb T_L^d$ has a period proportional to $L$ under the source convention, so its Fourier lattice becomes dense as $L\to\infty$. The Fourier variables $v_k^{\nu,L}$ are the slow-time modes of the damped, forced Schrödinger evolution. Their averaged actions $n_k^{\nu,L}$ are second moments. Weak convergence to a continuous spectrum is tested against functions of the wave vector after placing the discrete actions in the source\textquotesingle s rescaled measure. The iterated limit sends $\nu$ to zero first at fixed $L$, then sends $L$ to infinity.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+For the damped, randomly forced nonlinear Schrödinger equation on the torus $\mathbb T_L^d$, impose $\nu=\varepsilon^2$, $\rho=L^{1/2}\rho_0$, and $b_k=L^{-d/2}b_k^0$. Under the iterated limit $\lim_{L\to\infty}\lim_{\nu\to0}$, do the averaged actions
+
+$$n_k^{\nu,L}(\tau)=\frac12\mathbb E\lvert v_k^{\nu,L}(\tau)\rvert^2$$
+
+converge weakly to a function $n_k^0(\tau)$ satisfying the corresponding damped-driven wave kinetic equation?
+
+\paragraph{Source scope and qualification.}
+The extraction omits the original nonlinear Schrödinger equation, collision integral and test-function topology. Those are source-defined parts of the target; no alternative kinetic equation is supplied here.
+\subsection{Short English statement}
+Under the stated damping, forcing and box scalings, does the discrete averaged wave spectrum converge to the damped-driven kinetic equation?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Checks the source forcing scaling through exact linear stochastic modes and proves their compact-test-function continuum limit under explicit regularity.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{The linear damped-forced normalization test.} Suppress the nonlinear interaction and let each complex Fourier mode solve $dv_k=-\gamma_kv_kd\tau+b_kdW_k$, where $\gamma_k>0$ and complex Brownian motion is normalized by $\mathbb E|dW_k|^2=2d\tau$. With $n_k=\frac12\mathbb E|v_k|^2$, direct Itô differentiation gives
+\[
+ \dot n_k=-2\gamma_kn_k+|b_k|^2.
+\]
+Under the source scaling $b_k=L^{-d/2}b_k^0$, the rescaled action $\widetilde n_k=L^dn_k$ has equation $\dot{\widetilde n}_k=-2\gamma_k\widetilde n_k+|b_k^0|^2$. Its solution is explicit, and the equilibrium is $|b_k^0|^2/(2\gamma_k)$.
+
+\paragraph{A genuine weak-limit subcase.} In a convention with wave lattice $L^{-1}\mathbb Z^d$, assume $\gamma(k)$ and $b^0(k)$ are continuous, $\gamma$ is uniformly positive, and initial rescaled actions converge uniformly on compact wave-vector sets. The displayed explicit solutions then converge on compact sets for fixed times. Riemann sums $L^{-d}\sum_k\widetilde n_k\varphi(k)$ converge to $\int n(k)\varphi(k)dk$ for every compactly supported continuous $\varphi$, by the usual partition-cell estimate using uniform continuity. Global mass convergence additionally requires tail control.
+
+\paragraph{First nonlinear gap.} This checks forcing normalization and the collision-free kinetic balance only. The source retains nonzero nonlinear coupling with $\rho=L^{1/2}\rho_0$ and the iterated limit $\nu\to0$ before $L\to\infty$. Neither resonant averaging nor convergence of the nonlinear collision term is proved. Those require moment closure and uniform resonance/tail estimates; the linear Riemann-sum argument cannot replace them or change the order of limits.
+
+\paragraph{Verification and adversarial audit.}
+Checked complex-noise factor two, action normalization, equilibrium and Riemann-sum weights; distinguished compact tests from global tails and retained nonlinear/source limit order. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked complex-noise factor two, action normalization, equilibrium and Riemann-sum weights; distinguished compact tests from global tails and retained nonlinear/source limit order. Retained unresolved status and zero original-target progress; Nonlinear resonant averaging, moment closure and collision-integral convergence in the prescribed iterated limit are missing.
+
+Coordinator checked the complex-Brownian normalization, rescaled action equation and compactly supported Riemann-sum limit under the stated assumptions. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Nonlinear resonant averaging, moment closure and collision-integral convergence in the prescribed iterated limit are missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Nonlinear resonant averaging, moment closure and collision-integral convergence in the prescribed iterated limit are missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30002924:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30002924 (OWR-13855-007). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30002924:2}{S2}] Dynamische Systeme (2015), Oberwolfach Reports, DOI 10.4171/owr/2015/34, pp. 1937--1988. Primary report accessed 2026-10-11; relevant PDF pages 24.
+\url{https://doi.org/10.4171/owr/2015/34}.
+\item[\hypertarget{source:30002924:3}{S3}] Kuksin--Maiocchi, derivation of a wave kinetic equation (catalogue-listed context; not independently consulted in this preparation).
+\url{https://doi.org/10.1016/j.physd.2015.04.002}.
+\item[\hypertarget{source:30002924:4}{S4}] Grande--Hani, rigorous damped-driven wave turbulence (catalogue-listed context; not independently consulted in this preparation).
+\url{https://doi.org/10.1007/s00205-026-02181-9}.
+\end{itemize}
+\label{end:30002924}
+\end{document}

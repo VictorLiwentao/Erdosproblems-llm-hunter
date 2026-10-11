@@ -1,0 +1,93 @@
+% TOP_PROBLEM: {"id": 30000466, "title": "Higher-Dimensional Thermodynamic Limits", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The report notes boundary-condition dependence even for invariant observables. Existence, normalization, convergence, and dependence are different aspects of rigorous control; the question does not assert a unique boundary-independent limit."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000466", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Control infinite-volume limits of the report's noncompact sigma models in more than one spatial dimension.", "scope": "Proves a pinned finite-volume hyperbolic-spin partition-function bound using a spanning tree; no infinite-volume control follows.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked beta positivity, hyperbolic-volume tail, leaf integration, unpinned infinite volume factor and dependence on graph size. Model self-audit only; no independent human proof checking. Coordinator checked the spanning-tree upper bound, radial hyperbolic tail integrability and leaf integration under pinning. Infinite-volume tightness remains outside the argument. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked beta positivity, hyperbolic-volume tail, leaf integration, unpinned infinite volume factor and dependence on graph size. Retained unresolved status and zero original-target progress; Uniform tightness or another uniform observable bound under the source boundary conditions is missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30000466; source catalogue code OWR-1266-005
+\setcounter{section}{30000465}
+\section{Higher-Dimensional Thermodynamic Limits}\label{30000466}
+{\small UnsolvedMath ID 30000466 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} For finite regions $\Lambda\subset\mathbb Z^d$, the sigma model has spins in a noncompact target manifold with nonamenable global symmetry and Gibbs distributions specified by interactions and boundary conditions. A thermodynamic limit takes $\Lambda\nearrow\mathbb Z^d$ and controls expectations of suitable observables, limit states, and their dependence on the boundary conditions. Because the target volume is noncompact, a normalization or symmetry fixing is needed in the report's construction.
+
+\paragraph{Source scope and qualifications.} The report notes boundary-condition dependence even for invariant observables. Existence, normalization, convergence, and dependence are different aspects of rigorous control; the question does not assert a unique boundary-independent limit.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+Establish rigorous control of the thermodynamic limit in spatial dimension greater than one for nonlinear sigma models with noncompact target spaces and nonamenable symmetry groups.
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: Rigorous thermodynamic-limit control is available for selected one-dimensional and special higher-dimensional models, but the broad more-than-one-dimensional problem stated in the report remains open. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Control infinite-volume limits of the report's noncompact sigma models in more than one spatial dimension.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proves a pinned finite-volume hyperbolic-spin partition-function bound using a spanning tree; no infinite-volume control follows.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Finite-volume normalization after pinning.} On a connected finite graph with root $o$, put spins in hyperbolic space $\mathbb H^m$, fix $s_o$, and use energy $\beta\sum_{xy}(\cosh d(s_x,s_y)-1)$ with $\beta>0$. Let $T$ be a spanning tree. Dropping nonnegative non-tree terms increases the Boltzmann weight. By isometry invariance the one-edge integral
+\[
+ c_{\beta,m}=\int_{\mathbb H^m}e^{-\beta(\cosh d(s_o,s)-1)}ds
+\]
+is independent of the parent spin and finite: in polar coordinates its tail is bounded by a constant times $e^{(m-1)r-\beta e^r/2}$. Integrating tree leaves successively gives the explicit bound $Z_{\Lambda}^{\rm pinned}\leq c_{\beta,m}^{|\Lambda|-1}$. Positivity on a compact product neighborhood also gives $Z_{\Lambda}^{\rm pinned}>0$.
+
+\paragraph{Why this does not give a thermodynamic limit.} Without pinning, the integral over the root is an infinite target-volume factor even for a tree. With pinning, the displayed upper bound grows with volume and does not control tails of a spin far from the root. To extract a probability limit on local spin variables one needs uniform tightness: for each fixed site $x$, the probabilities of $d(s_x,s_o)>R$ must become uniformly small as $R\to\infty$. The tree calculation supplies no such bound because path lengths grow and the partition-function lower bound can deteriorate.
+
+\paragraph{Scope.} This applies in every spatial dimension at finite volume and explains an elementary normalization mechanism. It neither proves higher-dimensional convergence nor uniqueness or independence of boundary conditions; the source explicitly allows boundary dependence even for invariant observables. Uniform control of the chosen observables after symmetry fixing is the first remaining gap.
+
+\paragraph{Verification and adversarial audit.}
+Checked beta positivity, hyperbolic-volume tail, leaf integration, unpinned infinite volume factor and dependence on graph size. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked beta positivity, hyperbolic-volume tail, leaf integration, unpinned infinite volume factor and dependence on graph size. Retained unresolved status and zero original-target progress; Uniform tightness or another uniform observable bound under the source boundary conditions is missing.
+
+Coordinator checked the spanning-tree upper bound, radial hyperbolic tail integrability and leaf integration under pinning. Infinite-volume tightness remains outside the argument. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Uniform tightness or another uniform observable bound under the source boundary conditions is missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Uniform tightness or another uniform observable bound under the source boundary conditions is missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30000466:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30000466 (OWR-1266-005). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30000466:2}{S2}] The Rigorous Renormalization Group (2006), Oberwolfach Reports, DOI 10.4171/owr/2006/17, pp. 1027--1076; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2006/17}.
+\item[\hypertarget{source:30000466:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 42--43, printed pages 1068--1069.
+\url{https://ems.press/content/serial-article-files/46049}.
+\end{itemize}
+\label{end:30000466}
+\end{document}

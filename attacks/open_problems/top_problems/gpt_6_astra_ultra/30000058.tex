@@ -1,0 +1,140 @@
+% RESEARCH_DRAFT_SHA256: fbc0d6ff2e591f23617d3aa24851c524a27f61b30311497004968a11bbfe4654
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000058, "title": "Approximability and Parameterized Complexity of Steiner Forest", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000058", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Give stronger lower bounds on the approximability of the Steiner Forest problem, and characterize its fixed-parameter complexity when the parameter depends on the number of terminal sets.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The exact one-group reduction blocks a group-count-only FPT route assuming set-cover hardness, but supplies no improved approximation gap or characterization of broader parameters.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Steiner forest: the one-group reduction and why it gives no stronger ratio}
+\noindent UnsolvedMath ID 30000058; OWR-730-008. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Fixed-parameter tractability for parameter $k$ means running time $f(k)N^{O(1)}$, where $N$ is the input length and $f$ is computable. The exponent is independent of $k$.
+
+In Steiner Tree a weighted graph and designated terminals are given, and one minimizes the cost of a connected subgraph containing them. Steiner Forest instead specifies terminal groups or demand pairs that must each be connected, allowing distinct groups to remain disconnected.
+\paragraph{Statement recorded in the supplied source.}
+Give stronger lower bounds on the approximability of the Steiner Forest problem, and characterize its fixed-parameter complexity when the parameter depends on the number of terminal sets. \href{https://doi.org/10.4171/owr/2004/28}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Determine approximability and Parameterized Complexity of Steiner Forest.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000058 (OWR-730-008). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Approximation Algorithms for NP-Hard Problems (2005), Oberwolfach Reports, DOI 10.4171/owr/2004/28, pp. 1461--1540
+\url{https://doi.org/10.4171/owr/2004/28}.
+\item[S3] parameterized approximation and hardness results
+\url{https://epubs.siam.org/doi/10.1137/18M1209489}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Give stronger lower bounds on the approximability of the Steiner Forest problem, and characterize its fixed-parameter complexity when the parameter depends on the number of terminal sets.
+
+\section{The parameter route}
+The report allows pairwise disjoint terminal sets of unrestricted
+cardinality. The number $m$ of sets is not the total number of
+terminals and is not the number of demand pairs after expanding a
+large group. We test an algorithm whose parameter depends only on
+$m$, and a direct reduction intended to transfer stronger hardness.
+
+\paragraph{An exact set-cover encoding with one terminal group.}
+Let a set-cover instance have a universe $U$ of $q$ elements,
+sets $A_1,\ldots,A_t$ whose union is $U$, and optimum cover
+size $\tau$. Build a graph with a root $r$, a vertex $s_j$
+for each set, and a terminal vertex $v_u$ for each element.
+Join $r$ to every $s_j$, and join $s_j$ to $v_u$ exactly
+when $u\in A_j$. All edges have cost one. Use the single
+terminal group $\{r\}\cup\{v_u:u\in U\}$.
+Then the optimum Steiner-tree cost is exactly $q+\tau$.
+
+To prove the upper bound, choose a minimum cover and its $\tau$
+set vertices. Connect each to $r$, and connect each element terminal
+to one chosen set containing it. These edges form a connected graph
+with $q+\tau+1$ vertices and $q+\tau$ edges; more directly,
+each element is a leaf attached to a root-centered star, so it is
+a tree. For the lower bound, discard any unnecessary components
+of a feasible forest and remove cycles, which cannot increase cost.
+The remaining tree contains $r$, all $q$ element terminals, and
+some $a$ set vertices. Every element has a neighbor among those
+set vertices, so their sets cover $U$ and $a\ge\tau$.
+A finite tree on $q+a+1$ vertices has $q+a$ edges: induction
+removing a leaf proves this identity. Hence its cost is at least
+$q+\tau$. The construction and decision threshold $q+K$ have
+polynomial encoding length.
+
+Consequently, an algorithm with time $f(m)N^C$, where $C$ is
+independent of $m$ and the parameter is bounded for $m=1$,
+would solve set cover in polynomial time by this exact reduction.
+The usual consequence ``unless $P=NP$'' additionally uses the
+classical NP-hardness of set cover; that external complexity fact
+is not reproved here. The reduction itself, and the implication to
+a polynomial set-cover algorithm, are proved completely above.
+This excludes the most literal group-count-only strategy under that
+standard complexity assumption, but does not characterize parameters
+that also include group sizes or other structural data.
+
+\paragraph{Why the same reduction does not transfer a strong ratio.}
+Suppose an approximation returns a tree of cost at most
+$\rho(q+\tau)$. It uses at most that cost minus $q$ set
+vertices, so the cover extracted by the preceding argument obeys only
+\[
+a\le\rho\tau+(\rho-1)q.
+\]
+The additive $q$ term can dominate $\tau$. For example a universe
+of arbitrary size may have a one-set cover. Thus this calculation
+does not convert a constant-factor Steiner approximation into the
+same factor for set cover and does not prove the stronger
+approximability lower bound requested by the report.
+Removing that additive contribution would require a different
+gap-preserving construction; setting those edge costs to zero changes
+the reduction's approximation behavior and needs a separate analysis.
+
+\section{Audit and remaining scope}
+The Steiner Forest discussion and Problem 2a on printed pages
+1531--1532 were inspected. This is a rederivation of a standard
+root-and-incidence encoding, with no novelty claim. The audit checked
+that the terminal group contains the root, that arbitrary forests
+can be reduced to a single relevant tree, and that the number of
+sets remains exactly one. No graph experiments were performed.
+Stronger quantitative approximation lower bounds and the wider
+parameter landscape remain unresolved here.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The exact one-group reduction blocks a group-count-only FPT route assuming set-cover hardness, but supplies no improved approximation gap or characterization of broader parameters.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 28/2004, Approximation Algorithms for NP-Hard Problems, original question and surrounding discussion read from the cached primary PDF text on 11 October 2026. Historical statements are not a current-status survey. \url{https://doi.org/10.4171/owr/2004/28}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The exact one-group reduction blocks a group-count-only FPT route assuming set-cover hardness, but supplies no improved approximation gap or characterization of broader parameters.
+\end{document}

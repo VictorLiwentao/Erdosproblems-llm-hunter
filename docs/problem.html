@@ -171,7 +171,7 @@
 
     <script src="data/erdos_data.js"></script>
     <script src="data/mo_data.js"></script>
-    <script src="data/open_problems_data.js?v=4364dfebe51eb4bd"></script>
+    <script src="data/open_problems_data.js?v=071d4f0d1a3586f4"></script>
     <script src="app.js?v=c608223712e188cb"></script>
     <script src="attempt-previews.js"></script>
     <script src="tex-references.js?v=3"></script>
@@ -610,6 +610,16 @@
                 (match, environment, content) => protectHTML(`<pre>${escapeHTML(content)}</pre>`));
             text = text.replace(/\\verb\*?([^\w\s])([^\n]*?)\1/g,
                 (match, delimiter, content) => protectHTML(`<code>${escapeHTML(content)}</code>`));
+
+            // Literal source extracts can contain detached square brackets.
+            // Keep those lines from acquiring inferred display-math delimiters.
+            text = text.replace(/(\\paragraph\{Record scope and qualifications\.\})([\s\S]*?)(\\paragraph\{Statement recorded in the supplied source\.\})([\s\S]*?)(?=\\paragraph\{Source status\.\})/g,
+                (match, scope, notes, heading, source) => {
+                    if (!notes.includes('The source text below is rendered literally where necessary')) return match;
+                    const literal = source.replace(/(^|\n)[ \t]*([\[\]])(?=\r?\n|$)/g,
+                        (line, prefix, bracket) => prefix + protectHTML(`<code>${bracket}</code>`));
+                    return scope + notes + heading + literal;
+                });
             // Comment lines are source metadata, not visible content. Literal
             // code is already protected; retain collection boundaries until
             // labels and references have been assigned their source scopes.
@@ -905,6 +915,9 @@
 
             // These escapes belong to prose; retain their mathematical meanings
             // in the protected expressions above.
+            // Literal source backslashes must stay outside MathJax delimiters.
+            text = text.replace(/\\textbackslash\b(?:\{\})?/g,
+                () => protectHTML('<code>\\</code>'));
             text = text.replace(/\\\*/g, () => protectHTML('*'));
             // MathJax handles escaped prose dollars through processEscapes.
             // Unescaping them here would turn currency into math delimiters and
@@ -1336,6 +1349,10 @@
 
             // Convert line breaks to paragraphs, avoid inserting <br> inside math
             formatted = formatted
+                // TeX does not require a blank line around a proof. Keep block
+                // boundaries separate even when the next heading is adjacent.
+                .replace(/(<(?:div|blockquote)\b[^>]*>)/gi, '\n\n$1')
+                .replace(/(<\/(?:div|blockquote)>)/gi, '\n\n$1\n\n')
                 .split(/\n{2,}/)
                 .map(para => para.replace(/\n/g, ' ').trim())
                 .filter(para => para.length > 0)
@@ -1349,6 +1366,13 @@
                     }
                     const literalBlock = para.match(/^\uE000TEX(\d+)\uE001$/);
                     if (literalBlock && protectedFragments[Number(literalBlock[1])].startsWith('<pre>')) return para;
+                    // A proof or quotation may span blank lines. Close its last
+                    // paragraph before closing the surrounding block element.
+                    const blockEnd = para.match(/((?:\s*<\/(?:div|blockquote)>)+\s*)$/i);
+                    if (blockEnd) {
+                        const body = para.slice(0, -blockEnd[0].length);
+                        return (body ? '<p>' + body + '</p>' : '') + blockEnd[0];
+                    }
                     return '<p>' + para + '</p>';
                 })
                 .join('');

@@ -1,0 +1,142 @@
+% RESEARCH_DRAFT_SHA256: 1eb6e2db333a5b4a81cf79646f69bf744876be9f88e01fa02c03a4caff48ce2e
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001323, "title": "A fiber--leakage--arity audit for group-theoretic cryptographic building blocks", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001323", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Cryptographic building blocks from problems in group theory\n\nWe would like to use computational problems in group theory to derive fundamental cryptographic objects including one-way functions and multilinear maps.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Exact conjugation fibers and an easy large-orbit counterexample do not provide a one-way function or multilinear map under a substantiated cryptographic assumption.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Conjugation as a candidate one-way function: exact fibers and an easy large-orbit family}
+\noindent UnsolvedMath ID 20001323; AIM-CRYPTOGRAPHY-0010. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A one-way function is efficiently computable while inversion on its specified input distribution is computationally hard. A multilinear map is linear or homomorphic separately in each argument in its stated algebraic domains. A cryptographic construction from a group problem needs an explicit representation, hardness assumption, and reduction connecting that assumption to the desired security property.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+No underlying problem, map, distribution, or security reduction is given. The record states a construction agenda without asserting that arbitrary group-theoretic hardness yields those primitives. The supplied catalogue marks this record partially solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+Cryptographic building blocks from problems in group theory
+
+We would like to use computational problems in group theory to derive fundamental cryptographic objects including one-way functions and multilinear maps. \href{http://aimpl.org/postquantgroup/3/}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The source asks for cryptographic building blocks derived from computational group problems.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001323 (AIM-CRYPTOGRAPHY-0010). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-CRYPTOGRAPHY-0010.
+\url{http://aimpl.org/postquantgroup/3/}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Cryptographic building blocks from problems in group theory
+
+We would like to use computational problems in group theory to derive fundamental cryptographic objects including one-way functions and multilinear maps.
+
+\section{Attempt and results}
+The broad source asks for one-way functions and multilinear maps. We test
+conjugation as an efficiently computable candidate, derive its exact inversion
+relation, and disprove a simple size-based hardness criterion. This does not
+supply a secure primitive or settle the multilinear-map agenda.
+
+\paragraph{Fiber size and a direct inversion baseline.}
+For a finite group $G$ and fixed $x\in G$, let $F(g)=g^{-1}xg$ and
+$C=C_G(x)=\{c:cx=xc\}$. Equality $F(g)=F(h)$ holds exactly when
+$hg^{-1}\in C$, by multiplying the equality on the left by $h$ and on the
+right by $g^{-1}$. Thus the fiber of $F(g)$ is $Cg$, of size $|C|$.
+The image has $M=|G|/|C|$ elements, and uniform $g$ gives uniform image
+because every fiber has the same size. An inverter sampling independent
+uniform $h$ and checking $F(h)=y$ succeeds per trial with probability $1/M$;
+its expected number of trials is $M$, by summing the geometric series.
+Therefore polynomial image size gives a polynomial expected-time baseline
+provided sampling, operations, and equality each have polynomial cost.
+For larger images the argument supplies no lower bound.
+
+\paragraph{Both image and fiber can be huge while inversion is elementary.}
+Let $G=S_{2m}$ with permutations represented by their image arrays, and put
+$x=(1\ 2)(3\ 4)\cdots(2m-1\ 2m)$.
+Its conjugates are precisely the fixed-point-free involutions: conjugation
+relabels the $m$ unordered pairs, and any perfect pairing can be relabelled
+to this standard pairing. A commuting permutation must send each $x$-pair
+to an $x$-pair; it can permute the $m$ pairs and independently swap endpoints
+inside each pair. Conversely every such choice commutes with $x$.
+Hence $|C|=2^m m!$ and the orbit size is $(2m)!/(2^m m!)$.
+The latter also equals $(2m-1)(2m-3)\cdots1$, by choosing the partner of
+the smallest unpaired point recursively. For growing $m$, both sizes exceed
+any fixed polynomial in the array length $O(m\log m)$: for example, at least
+$\lfloor m/2\rfloor$ factors in $m!$ and in that odd product are at least
+$m/2$, giving lower bound $(m/2)^{\lfloor m/2\rfloor}$ up to the harmless
+factor $2^m$ for the centralizer.
+
+Nevertheless, given a promised output $y$, scan its array to list its disjoint
+pairs $\{u_j,v_j\}$, $1\le j\le m$, taking the smaller element first and
+ordering pairs by that element. Define $g(u_j)=2j-1$ and $g(v_j)=2j$.
+Then for either element of the $j$th pair, $g^{-1}xg$ exchanges the two, so
+$g^{-1}xg=y$ on every point. This constructs a valid preimage with one scan
+and $O(m)$ array assignments; sorting is unnecessary if the scan visits points
+in increasing order and skips previously visited partners. Validation that
+a proposed $y$ is a fixed-point-free involution also takes a scan.
+Thus large image and large fibers are simultaneously compatible with easy
+inversion. Entropy counts cannot replace a hardness argument for the chosen
+representation and distribution.
+
+\paragraph{The attempted implication and its missing content.}
+A conjugation-based one-wayness assertion must concern producing any member
+of $Cg$ on the sampled input distribution, not identifying the planted $g$.
+The preceding family invalidates the proposed inference from both cardinalities
+being large. A proof would instead need a reduction from a specified hard
+average-case transporter problem, with efficient sampling and encodings.
+Moreover a group action alone combines a group element with one point; it
+supplies no operation taking two hidden action points to their combined
+transporter. A multilinear-map construction would need additional explicitly
+specified structure and a correctness/security argument; none is inferred
+from the existence of the conjugation map.
+
+\section{Context, adversarial audit, and gap}
+The official AIM workshop description was inspected; AIMPL retrieval failed.
+The supplied summary already highlights conjugation fibers and this involution
+family, so the manuscript is a full rederivation and failed-route audit, not
+a new cryptanalytic claim. The audit checked the left-coset orientation,
+transporter direction, exact array algorithm, and dependence of complexity
+on the representation. No security assumption is declared proved, and no
+experiment or implementation was run.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Exact conjugation fibers and an easy large-orbit counterexample do not provide a one-way function or multilinear map under a substantiated cryptographic assumption.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Official AIM workshop description, Post-quantum group-based cryptography, 29 April--3 May 2024; provenance and scope inspected on 11 October 2026. AIMPL pages failed retrieval, so the exact problem wording remains supplied-snapshot material. \url{https://aimath.org/workshops/upcoming/postquantgroup/}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Exact conjugation fibers and an easy large-orbit counterexample do not provide a one-way function or multilinear map under a substantiated cryptographic assumption.
+\end{document}

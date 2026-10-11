@@ -1,0 +1,82 @@
+% TOP_PROBLEM: {"id": 20002551, "title": "A Jacobi-Maupertuis and McGehee scale-shape dictionary", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "This is a request for useful mathematical insight, not a fixed theorem or an asserted equivalence of coordinate constructions. The conditions E=0 and angular momentum=0 remain explicit. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002551", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Determine whether the Jacobi metric yields new zero-energy, zero-angular-momentum insights beyond McGehee coordinates.", "scope": "Derived the exact zero-energy scale-shape Jacobi metric and finite collision distance/time, distinguishing metric completion from dynamical blow-up. No new global celestial-mechanics insight theorem is proved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked mass-metric orthogonality, U homogeneity, rho substitution, retained shape factor and separate physical-time integral. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the scale substitution in the zero-energy Jacobi metric and both finite collision integrals, with the shape-dependent radial coefficient retained. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked mass-metric orthogonality, U homogeneity, rho substitution, retained shape factor and separate physical-time integral. Scope remains limited: Use the metric geometry to obtain controlled global shape/geodesic results beyond the coordinate dictionary, handling collision degeneracy."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002551; source catalogue code AIM-PHYSICS-0059
+\setcounter{section}{20002550}
+\section{A Jacobi-Maupertuis and McGehee scale-shape dictionary}\label{20002551}
+{\small UnsolvedMath ID 20002551 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}In the Newtonian $n$-body problem, positions $q_i\in\mathbb R^d$ and masses $m_i>0$ obey $m_i\ddot q_i=\nabla_{q_i}U$, where $U(q)=\sum_{i<j}m_im_j/|q_i-q_j|$ and the gravitational constant is normalized to one. Here $T=\tfrac12\sum_i m_i|\dot q_i|^2$, $E=T-U$, and a collision has $q_i=q_j$. The center of mass can be fixed at zero; moment of inertia is $I=\sum_i m_i|q_i|^2$. At fixed energy $E$, the Jacobi--Maupertuis metric on the Hill region is conformal to the mass metric by the factor $2(E+U)$. Its geodesics, with appropriate reparametrization away from degeneracies, describe mechanical trajectories. McGehee coordinates rescale position and time to analyze collision or asymptotic boundaries. The two frameworks encode different geometric features.
+
+\paragraph{Catalogue wording retained for traceability.}
+Assume $E=0$ and angular momentum zero in the source’s celestial-mechanics setting. Can Jacobi’s metric give insights beyond those obtained from McGehee coordinates?
+\paragraph{Scope and source qualification.}This is a request for useful mathematical insight, not a fixed theorem or an asserted equivalence of coordinate constructions. The conditions E=0 and angular momentum=0 remain explicit. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Determine whether the Jacobi metric yields new zero-energy, zero-angular-momentum insights beyond McGehee coordinates.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derived the exact zero-energy scale-shape Jacobi metric and finite collision distance/time, distinguishing metric completion from dynamical blow-up. No new global celestial-mechanics insight theorem is proved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{An explicit scale-shape Jacobi metric.}In center-of-mass mass coordinates write \(q=rs\), with \(r=\sqrt I>0\) and \(\sum m_i|s_i|^2=1\). Since \(s\) is tangent-orthogonal to its derivative, the mass metric is \(dr^2+r^2g_{\mathrm{shape}}\), before rotation reduction or on its horizontal zero-angular-momentum part. Homogeneity gives \(U(q)=U(s)/r\). At \(E=0\), the Jacobi--Maupertuis metric therefore becomes
+\[g_{JM}=2U(s)\left(\frac{dr^2}{r}+r g_{\mathrm{shape}}\right).
+\]
+Set \(\rho=2\sqrt r\). Direct substitution yields \(g_{JM}=2U(s)[d\rho^2+(\rho^2/4)g_{\mathrm{shape}}]\). The shape-dependent factor on the radial term is retained; this is not automatically an ordinary metric cone with constant radial coefficient.
+\paragraph{Collision distance and mechanical time.}Along a fixed noncollision shape the radial distance to total collision is finite, equal to \(2\sqrt{2U(s)r_0}\) from radius \(r_0\). In a zero-energy homothetic mechanical motion, \(\tfrac12\dot r^2=U(s)/r\), so collision time is \(\int_0^{r_0}\sqrt{r/(2U(s))}\,dr\), also finite. A coordinate blow-up that resolves a dynamical collision boundary is therefore not the same operation as completing this finite-distance metric.
+\paragraph{Gap.}The metric formula supplies a precise dictionary and warns against conflating geodesic distance with rescaled McGehee time. It proves no new global geodesic, curvature or scattering result beyond those coordinates. The first missing step is an estimate or variational construction using this geometry that controls shape behavior and collision degeneracy. Zero angular momentum is retained in the horizontal reduction, and no nonzero-energy extension is silently substituted for the source question.
+
+\paragraph{Verification and adversarial audit.}
+Checked mass-metric orthogonality, U homogeneity, rho substitution, retained shape factor and separate physical-time integral. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked mass-metric orthogonality, U homogeneity, rho substitution, retained shape factor and separate physical-time integral. Scope remains limited: Use the metric geometry to obtain controlled global shape/geodesic results beyond the coordinate dictionary, handling collision degeneracy.
+
+Coordinator checked the scale substitution in the zero-energy Jacobi metric and both finite collision integrals, with the shape-dependent radial coefficient retained. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Use the metric geometry to obtain controlled global shape/geodesic results beyond the coordinate dictionary, handling collision degeneracy.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002551:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002551 (AIM-PHYSICS-0059). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002551:2}{S2}] American Institute of Mathematics, Variational Methods in Celestial Mechanics; notes by Kuo-Chang Chen, version 22 June 2003, source item 22.
+\url{https://aimath.org/WWN/varcelest/varcelest.pdf}.
+\end{itemize}
+\label{end:20002551}
+\end{document}

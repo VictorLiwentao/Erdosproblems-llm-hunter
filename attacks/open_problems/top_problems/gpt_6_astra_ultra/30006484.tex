@@ -1,0 +1,94 @@
+% TOP_PROBLEM: {"id": 30006484, "title": "Open Problems on Spectral-Parameter Yang–Baxter Solutions", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "For infinite-dimensional $V$, domains and the topology of invertibility must be specified. Different checked and unchecked $R$ conventions give different written equations, so the report's convention is retained."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006484", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Develop a common theory of spectral-parameter Yang--Baxter families and relate their analytic behavior to braided or quasi-braided categories.", "scope": "Constructed and verified a bounded unitary checked spectral-parameter flip family, including infinite-dimensional Hilbert spaces, as an analytic benchmark.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked unitarity, all product coefficients, the x+y convention, symmetric/antisymmetric eigenvalues and the difference between parameter and constant braid equations. Model self-audit only; no independent human mathematical verification. Coordinator checked the flip-operator unitarity and all coefficients in the checked spectral-parameter braid equation. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked unitarity, all product coefficients, the x+y convention, symmetric/antisymmetric eigenvalues and the difference between parameter and constant braid equations. First remaining gap: Build the source spectral-label/coherence framework and control domains/topologies for general families beyond the bounded flip ansatz. The inherited source status is preserved; original-target completion remains zero."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30006484; source catalogue code OWR-14299580-001
+\setcounter{section}{30006483}
+\section{Open Problems on Spectral-Parameter Yang–Baxter Solutions}\label{30006484}
+{\small UnsolvedMath ID 30006484 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+A spectral-parameter Yang--Baxter operator is an invertible map $R(x)$ on $V\otimes V$. Set $R_1(x)=R(x)\otimes I$ and $R_2(x)=I\otimes R(x)$. In the report's checked convention it satisfies, for every real $x,y$,
+\[
+R_1(x)R_2(x+y)R_1(y)=R_2(y)R_1(x+y)R_2(x).
+\]
+A braided category packages compatible exchanges; a quasi-braided variant allows the source's additional associativity data.
+
+\paragraph{Catalogue wording retained for traceability.}
+Let $V$ be a possibly infinite-dimensional vector space and let $R:\mathbb R\to\operatorname{GL}(V\otimes V)$ satisfy the Yang–Baxter equation with spectral parameter. Can such families be studied by a unified algebraic or categorical theory, and how do analytic properties of $R(x)$ control the associated braided or quasi-braided categories?
+
+\paragraph{Scope and source qualification.}For infinite-dimensional $V$, domains and the topology of invertibility must be specified. Different checked and unchecked $R$ conventions give different written equations, so the report's convention is retained.
+\subsection{Short English statement}
+Develop a common theory of spectral-parameter Yang--Baxter families and relate their analytic behavior to braided or quasi-braided categories.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Constructed and verified a bounded unitary checked spectral-parameter flip family, including infinite-dimensional Hilbert spaces, as an analytic benchmark.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30006484. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{An exact checked-parameter family.} Let \(V\) be a complex Hilbert space and \(P(v\otimes w)=w\otimes v\) the bounded flip on its Hilbert tensor square. Then \(P^2=I\), \(P^*=P\), and on triple tensors \(P_1P_2P_1=P_2P_1P_2\), verified by permuting the three entries. Define
+\[
+ R(x)=\frac{I+ixP}{\sqrt{1+x^2}},\qquad x\in\mathbb R.
+\]
+It is unitary because \((I-ixP)(I+ixP)=(1+x^2)I\). Hence domain and invertibility difficulties are absent even if \(V\) is infinite dimensional.
+\paragraph{Direct spectral-parameter verification.} For \(a=ix\), \(c=iy\), \(b=i(x+y)=a+c\), expand
+\[
+ (I+aP_1)(I+bP_2)(I+cP_1)
+ =(1+ac)I+(a+c)P_1+bP_2
+ +abP_1P_2+bcP_2P_1+abcP_1P_2P_1.
+\]
+The reversed product exchanges \(P_1,P_2\) in the linear terms and in the final braid word, leaving the mixed terms unchanged. Equality follows from \(b=a+c\) and the flip braid relation. The scalar normalizations on both sides are identical. This proves exactly the source checked equation.
+\paragraph{Analytic and categorical limits.} The family is norm continuous, \(R(0)=I\), and its symmetric/antisymmetric eigenvalues are \((1\pm ix)/\sqrt{1+x^2}\). Fixing one nonzero parameter does not automatically turn the parameter equation into a constant braid relation, since its middle argument is \(x+y\). A unified theory still needs spectral labels, tensor composition and coherence, especially for unbounded or merely densely defined families. This known elementary family supplies a benchmark, not a classification or a theorem connecting all source analytic properties to braided or quasi-braided categories.
+
+\paragraph{Verification and adversarial audit.}
+Checked unitarity, all product coefficients, the x+y convention, symmetric/antisymmetric eigenvalues and the difference between parameter and constant braid equations. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked unitarity, all product coefficients, the x+y convention, symmetric/antisymmetric eigenvalues and the difference between parameter and constant braid equations. First remaining gap: Build the source spectral-label/coherence framework and control domains/topologies for general families beyond the bounded flip ansatz. The inherited source status is preserved; original-target completion remains zero.
+
+Coordinator checked the flip-operator unitarity and all coefficients in the checked spectral-parameter braid equation. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Build the source spectral-label/coherence framework and control domains/topologies for general families beyond the bounded flip ansatz.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30006484:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30006484 (OWR-14299580-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30006484:2}{S2}] Mini-Workshop: The Yang–Baxter Equation and Representations of Braid Groups (2025), Oberwolfach Reports, DOI 10.4171/owr/2025/49, pp. 2633--2672. Original report and mathematical context. Incorporated report material remains under the source CC BY-SA 4.0 terms unless otherwise noted.
+\url{https://doi.org/10.4171/owr/2025/49}.
+\end{itemize}
+\label{end:30006484}
+\end{document}

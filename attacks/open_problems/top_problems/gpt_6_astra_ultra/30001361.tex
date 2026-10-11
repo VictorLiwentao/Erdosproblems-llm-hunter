@@ -1,0 +1,97 @@
+% TOP_PROBLEM: {"id": 30001361, "title": "Weak Cosmic Censorship for Einstein–Vlasov", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "Genericity, data topology, matter regularity, and the precise completeness formulation must be fixed in a proof. The source emphasizes that dust and scalar-field results cannot be transferred automatically to Vlasov matter; this is not a theorem for every initial datum without exceptional sets."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001361", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Prove weak cosmic censorship for collisionless gravitating matter, especially in spherical symmetry.", "scope": "Derives the Vlasov null-energy inequality and integrates the conditional null-focusing differential inequality.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked nonnegative stress integrand, finite-moment and massless caveats, negative-expansion integration and distinction between local focusing and weak censorship. Model self-audit only; no independent human proof checking. Coordinator checked the Vlasov null-energy integral and conditional finite-affine-time focusing comparison, distinguished from global censorship. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked nonnegative stress integrand, finite-moment and massless caveats, negative-expansion integration and distinction between local focusing and weak censorship. Retained unresolved status and zero original-target progress; Global asymptotic development/completeness and a precise generic-data statement are missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001361; source catalogue code OWR-4129-003
+\setcounter{section}{30001360}
+\section{Weak Cosmic Censorship for Einstein–Vlasov}\label{30001361}
+{\small UnsolvedMath ID 30001361 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} The Einstein--Vlasov system couples $G_{\mu\nu}=8\pi T_{\mu\nu}[f]$ to collisionless transport of a nonnegative phase-space density $f$ along the spacetime geodesic flow on the particle mass shell. The stress-energy tensor is obtained by integrating particle momenta against $f$. Asymptotically flat initial data describe an isolated system; spherical symmetry reduces the metric and matter fields to radial variables. Weak cosmic censorship asks for complete future null infinity for generic admissible data. Strong cosmic censorship concerns inextendibility of the maximal globally hyperbolic development in a specified regularity class.
+
+\paragraph{Source scope and qualifications.} Genericity, data topology, matter regularity, and the precise completeness formulation must be fixed in a proof. The source emphasizes that dust and scalar-field results cannot be transferred automatically to Vlasov matter; this is not a theorem for every initial datum without exceptional sets.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+Does weak cosmic censorship hold for the asymptotically flat Einstein–Vlasov system, in particular for generic spherically symmetric initial data?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The extracted Einstein--Vlasov weak-cosmic-censorship claim remains a conjecture; analytical results establish important collapse and regularity cases, but not the asserted general behavior. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Prove weak cosmic censorship for collisionless gravitating matter, especially in spherical symmetry.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derives the Vlasov null-energy inequality and integrates the conditional null-focusing differential inequality.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A matter inequality from the Vlasov representation.} At a spacetime point choose an orthonormal frame, particle mass $m_0\geq0$ and future momentum $p^0=\sqrt{m_0^2+|p|^2}$. For a nonnegative integrable distribution $f(p)$ define $T^{ab}=\int f(p)p^ap^b\,dp/p^0$, with the usual exclusion of the zero momentum singularity in the massless case. For any null vector $k$,
+\[
+ T_{ab}k^ak^b=\int f(p)(p_ak^a)^2\,dp/p^0\geq0.
+\]
+This proves the null energy inequality directly whenever the integral is finite; it does not depend on dust or scalar-field analogies.
+
+\paragraph{A conditional focusing estimate.} For a hypersurface-orthogonal null congruence in four dimensions with expansion $\theta$, Raychaudhuri's equation and this inequality would give $d\theta/d\lambda\leq-\theta^2/2$ along an affinely parameterized generator. If $\theta(0)<0$ and the inequality remains valid before a caustic, integration of $d(1/\theta)/d\lambda\geq1/2$ forces blowup or breakdown by affine time at most $2/|\theta(0)|$. This is a local focusing consequence; the Raychaudhuri identity is stated as an explicit geometric input, not independently rederived.
+
+\paragraph{Why censorship does not follow.} Focusing alone says nothing about whether the focusing region is hidden from complete future null infinity. The first missing step is global control of the Einstein--Vlasov development and its asymptotic outgoing geometry. Genericity, data topology and exceptional sets also remain unspecified in the broad source statement. The calculation neither transfers a scalar-field theorem nor proves the assertion for every spherically symmetric datum.
+
+\paragraph{Verification and adversarial audit.}
+Checked nonnegative stress integrand, finite-moment and massless caveats, negative-expansion integration and distinction between local focusing and weak censorship. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked nonnegative stress integrand, finite-moment and massless caveats, negative-expansion integration and distinction between local focusing and weak censorship. Retained unresolved status and zero original-target progress; Global asymptotic development/completeness and a precise generic-data statement are missing.
+
+Coordinator checked the Vlasov null-energy integral and conditional finite-affine-time focusing comparison, distinguished from global censorship. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Global asymptotic development/completeness and a precise generic-data statement are missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Global asymptotic development/completeness and a precise generic-data statement are missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001361:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001361 (OWR-4129-003). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001361:2}{S2}] Mathematical Aspects of General Relativity (2009), Oberwolfach Reports, DOI 10.4171/owr/2009/46, pp. 2585--2646; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2009/46}.
+\item[\hypertarget{source:30001361:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 20--22.
+\url{https://ems.press/content/serial-article-files/46246}.
+\item[\hypertarget{source:30001361:4}{S4}] Rein--Rendall--Schaeffer, regularity theorem; reference in the saved dated catalogue literature review.
+\url{https://arxiv.org/abs/gr-qc/9306020}.
+\item[\hypertarget{source:30001361:5}{S5}] Ames--Andreasson--Rinne, recent Vlasov censorship study; reference in the saved dated catalogue literature review.
+\url{https://doi.org/10.1103/PhysRevD.108.064054}.
+\end{itemize}
+\label{end:30001361}
+\end{document}

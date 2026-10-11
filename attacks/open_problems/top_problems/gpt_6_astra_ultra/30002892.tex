@@ -1,0 +1,87 @@
+% TOP_PROBLEM: {"id": 30002892, "title": "Existence of Time-Dependent Bivariational Quantum Dynamics", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The action explains the bivariational convention, not an asserted globally well-posed system for arbitrary trial spaces. The question asks existence and conditions, and does not already assume a nondegenerate finite-dimensional manifold."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002892", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Under what mathematical hypotheses does time-dependent bivariational quantum approximation produce an actual trajectory?", "scope": "Proves a local finite-dimensional invertible-pairing existence/uniqueness criterion and gives an explicit degenerate equation with no differentiable initial solution.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked contraction ball/time bounds, inverse smoothness and the z*z′=1 endpoint; retained finite-dimensional and local restrictions. Model self-audit only; no independent human proof checking. Coordinator checked the local contraction criterion for the invertible pairing equation and impossibility of a differentiable zero-initial solution to the degenerate scalar equation. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked contraction ball/time bounds, inverse smoothness and the z*z′=1 endpoint; retained finite-dimensional and local restrictions. Retained unresolved status and zero original-target progress; Nondegeneracy, gauge and operator-domain control for the actual trial manifolds, and global continuation, are missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30002892; source catalogue code OWR-13684-002
+\setcounter{section}{30002891}
+\section{Existence of Time-Dependent Bivariational Quantum Dynamics}\label{30002892}
+{\small UnsolvedMath ID 30002892 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+A bivariational approximation varies a ket $|\psi\rangle$ and an independently parametrized dual bra $\langle\widetilde\psi|$. A typical action has integrand $\langle\widetilde\psi|(i\partial_t-H)|\psi\rangle$; stationarity on the trial manifolds yields coupled evolution equations. The initial-value problem asks for a trajectory through prescribed initial bra and ket data. The trial manifolds, nondegeneracy of their induced pairing and the operator domains control whether this system defines an ordinary differential equation.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+For the time-dependent bivariational initial-value problem used to approximate quantum dynamics, does an approximate trajectory exist, and under what mathematical conditions?
+
+\paragraph{Source scope and qualification.}
+The action explains the bivariational convention, not an asserted globally well-posed system for arbitrary trial spaces. The question asks existence and conditions, and does not already assume a nondegenerate finite-dimensional manifold.
+\subsection{Short English statement}
+Under what mathematical hypotheses does time-dependent bivariational quantum approximation produce an actual trajectory?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proves a local finite-dimensional invertible-pairing existence/uniqueness criterion and gives an explicit degenerate equation with no differentiable initial solution.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A finite-dimensional local existence criterion.} Let local real coordinates $z\in\mathbb R^m$ parametrize a trial bra/ket manifold, and suppose variation of the action gives $B(z)\dot z=f(z)$, with $B$ and $f$ continuously differentiable near initial data $z_0$ and $\det B(z_0)\ne0$. The inverse matrix formula makes $V(z)=B(z)^{-1}f(z)$ continuously differentiable on a small closed ball, hence bounded by $M$ and Lipschitz with constant $L$ there. On continuous paths staying in the ball, the map $\mathcal Tz(t)=z_0+\int_0^tV(z(s))ds$ preserves the ball for $TM$ below its radius and is a contraction when $TL<1$. Iteration is Cauchy in the supremum norm and its limit is a differentiable solution; the same estimate proves uniqueness locally.
+
+\paragraph{An explicit degeneracy failure.} The scalar variational equation $z\dot z=1$ has no differentiable trajectory through $z(0)=0$, because substitution at zero would give $0=1$. Integrating away from zero yields $z(t)^2=2t+C$, whose zero-initial branches have unbounded derivative at the endpoint. Smooth coefficients alone thus do not ensure a classical trajectory if the induced pairing degenerates.
+
+\paragraph{Scope.} The source does not assume a finite-dimensional nondegenerate trial manifold. For an actual bivariational ansatz one must verify this matrix comes from its independent bra/ket pairing, fix gauge redundancies and keep the Hamiltonian action in its operator domain. Global existence additionally requires avoiding pairing degeneracy and escape from coordinate charts. Establishing those properties for the intended trial spaces is the first gap; the local ODE criterion is an elementary sufficient case, not a general bivariational well-posedness theorem.
+
+\paragraph{Verification and adversarial audit.}
+Checked contraction ball/time bounds, inverse smoothness and the z*z′=1 endpoint; retained finite-dimensional and local restrictions. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked contraction ball/time bounds, inverse smoothness and the z*z′=1 endpoint; retained finite-dimensional and local restrictions. Retained unresolved status and zero original-target progress; Nondegeneracy, gauge and operator-domain control for the actual trial manifolds, and global continuation, are missing.
+
+Coordinator checked the local contraction criterion for the invertible pairing equation and impossibility of a differentiable zero-initial solution to the degenerate scalar equation. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Nondegeneracy, gauge and operator-domain control for the actual trial manifolds, and global continuation, are missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Nondegeneracy, gauge and operator-domain control for the actual trial manifolds, and global continuation, are missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30002892:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30002892 (OWR-13684-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30002892:2}{S2}] Mathematical Methods in Quantum Molecular Dynamics (2015), Oberwolfach Reports, DOI 10.4171/owr/2015/27, pp. 1499--1569. Primary report accessed 2026-10-11; relevant PDF pages 61, 62, 63.
+\url{https://doi.org/10.4171/owr/2015/27}.
+\end{itemize}
+\label{end:30002892}
+\end{document}

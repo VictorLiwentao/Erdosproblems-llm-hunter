@@ -1,0 +1,153 @@
+% RESEARCH_DRAFT_SHA256: d3988d36c1b54accf6f7b13bfec75e9475fab25e700adfa5cab2cf914ad7faff
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001193, "title": "BIC evidence, mixture singularities, and an exact quotient diagnostic", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001193", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 17. Why does the BIC work for model fitting with mixture models? What is being approximated (and why is it good to approximate these things?) This question raised some controversy during the discussion following the talk which was later resolved. The main issue that is interesting in this situation is that the likelihood function for mixture models does not satisfy the necessary regularity conditions to apply the classical results about the BIC.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. A fully specified singular mixture disproves universal nominal-parameter Laplace counting, but the original broad model-fitting and approximation questions remain unresolved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{A singular Bernoulli mixture and the penalty missed by nominal parameter counting}
+\noindent UnsolvedMath ID 20001193; AIM-COMPUTATION-0031. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+The Bayesian information criterion uses $-2\log L(\widehat\theta)+k\log N$, where $k$ is parameter dimension and $N$ sample size. Its usual asymptotic justification approximates integrated likelihood under regular local identifiability assumptions. A finite mixture combines component distributions with nonnegative weights summing to one; coinciding components and zero weights can create singularities.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+This is a historical explanatory discussion, with no specified mixture family or residual target. The ordinary regular-model approximation need not apply unchanged at mixture singularities. The supplied catalogue marks this record partially solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+Question 17. Why does the BIC work for model fitting with mixture models? What is being approximated (and why is it good to approximate these things?) This question raised some controversy during the discussion following the talk which was later resolved. The main issue that is interesting in this situation is that the likelihood function for mixture models does not satisfy the necessary regularity conditions to apply the classical results about the BIC. \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The source asks why BIC is used for mixture models and notes that the discussion was resolved during the workshop.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001193 (AIM-COMPUTATION-0031). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-COMPUTATION-0031.
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 17. Why does the BIC work for model fitting with mixture models? What is being approximated (and why is it good to approximate these things?) This question raised some controversy during the discussion following the talk which was later resolved. The main issue that is interesting in this situation is that the likelihood function for mixture models does not satisfy the necessary regularity conditions to apply the classical results about the BIC.
+
+\section{A concrete test of the proposed BIC explanation}
+The source asks why BIC works for mixture fitting, then explicitly notes
+that classical regularity assumptions fail. It does not identify a
+mixture family, a prior, or a model-selection loss. Here BIC means the
+regular Laplace approximation $\log L(\widehat\theta)-(d/2)\log n+O(1)$
+to log integrated likelihood. We test whether using the nominal mixture
+parameter count $d$ can justify that approximation universally.
+
+\paragraph{A three-parameter mixture with one observable parameter.}
+Let $0<q<1$, $1/4<\lambda<3/4$, and
+$|h|<\min(q,1-q)/2$. Set
+\[
+p_1=q+(1-\lambda)h,\qquad p_2=q-\lambda h.
+\]
+Both probabilities are strictly between zero and one, and a mixture
+with weights $\lambda,1-\lambda$ has Bernoulli success probability
+$\lambda p_1+(1-\lambda)p_2=q$. This parameter region is genuinely
+three-dimensional: the inverse transformation is
+$q=\lambda p_1+(1-\lambda)p_2$, $h=p_1-p_2$, with the same $\lambda$,
+and its Jacobian in $(q,h)$ has determinant $-1$.
+Choose a proper prior by taking $q$ uniform on $(0,1)$, $\lambda$
+uniform on $(1/4,3/4)$, and, conditionally on $q$, $h$ uniform on
+the displayed nonempty interval. This prior is explicitly specified;
+its density need not extend boundedly to the boundary $q=0,1$.
+For an ordered sample with $s$ successes in $n$ trials the likelihood
+is $q^s(1-q)^{n-s}$, independent of $\lambda,h$. Integrating out those
+two normalized conditional priors leaves exactly
+\[
+ Z_{n,s}=\int_0^1q^s(1-q)^{n-s}dq
+          =\frac{s!(n-s)!}{(n+1)!}.
+\]
+For completeness, integration by parts gives
+$B(a,b)=aB(a-1,b+1)/(b+1)$ for integers $a\ge1,b\ge0$,
+where $B(a,b)=\int_0^1x^a(1-x)^b dx$.
+Iterating and using $B(0,k)=1/(k+1)$ proves the formula.
+
+\paragraph{Interior penalty proved without a regular Hessian argument.}
+Take $n=2m$, $s=m$, $m\ge1$. The maximum likelihood is $4^{-m}$, and
+\[
+\frac{Z_{2m,m}}{4^{-m}}=
+ \int_{-1/2}^{1/2}(1-4u^2)^m du.
+\]
+For an upper bound use $1-v\le e^{-v}$, proved by differentiating
+$e^{-v}-1+v$ for $v\ge0$. Hence the integral is at most
+$\int_{\mathbb R}e^{-4mu^2}du=\sqrt\pi/(2\sqrt m)$.
+The Gaussian integral equality follows by squaring the integral of
+$e^{-x^2}$, using polar coordinates in the plane, and taking the
+positive square root. For a lower bound integrate over
+$|u|\le1/(4\sqrt m)$. On this interval,
+$(1-4u^2)^m\ge(1-1/(4m))^m\ge3/4$.
+The last inequality is Bernoulli's inequality
+$(1-v)^m\ge1-mv$, proved by induction for $0\le v\le1$.
+The interval length is $1/(2\sqrt m)$, giving lower bound
+$3/(8\sqrt m)$. Consequently
+\[
+\log Z_{2m,m}=\log L_{\max}-\tfrac12\log n+O(1).
+\]
+The nominal three-parameter BIC instead subtracts $\tfrac32\log n$.
+The discrepancy grows as $\log n$, so it is not a missing constant
+such as the effect of finitely many label permutations.
+The reason is visible directly: two parameter directions leave every
+observation probability unchanged, so the likelihood Hessian cannot be
+nondegenerate in all three coordinates.
+
+\paragraph{Boundary behavior is a separate issue.}
+For $s=0$, the same exact calculation gives $Z_{n,0}=1/(n+1)$ and
+likelihood supremum one as $q\downarrow0$. The log penalty is then
+$\log n+O(1)$, even though the observable family is still one-dimensional.
+Thus replacing nominal dimension by observable dimension alone does not
+justify a single formula at all sample limits. This statement concerns
+the explicitly chosen prior and data sequence, not every prior.
+
+\section{Audit and unresolved scope}
+The AIM Question 17 and its regularity warning were inspected directly.
+The audit checked the full-dimensional prior construction, the ordered
+sample likelihood, supremum versus attained boundary maximum, and all
+inequalities establishing the asymptotic coefficient. No numerical
+computation was used. This standard type of counterexample invalidates
+a universal dimension-count explanation; it does not determine penalties
+for general Gaussian or other mixtures, nor establish model-selection
+consistency or the unspecified sense in which BIC works. No new general
+BIC result is claimed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. A fully specified singular mixture disproves universal nominal-parameter Laplace counting, but the original broad model-fitting and approximation questions remain unresolved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Computational Algebraic Statistics, prepared by Seth Sullivant, version 27 March 2004; the original numbered source question and its adjacent scope were inspected on 11 October 2026. \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} A fully specified singular mixture disproves universal nominal-parameter Laplace counting, but the original broad model-fitting and approximation questions remain unresolved.
+\end{document}

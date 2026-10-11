@@ -1,0 +1,110 @@
+% RESEARCH_DRAFT_SHA256: 673cd06c8a0e287a3ea2ec6ec02171434453e543b550574cc915e4b0f18d446b
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30005056, "title": "Capacity Criteria for Arbitrarily Varying Channels with Causal State Information", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005056", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Capacity Criteria for Arbitrarily Varying Channels with Causal State Information; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Causal state cancellation invalidates an uncoded-channel shortcut; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch012 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30005056; source catalogue code OWR-9790365-005
+\section{Capacity Criteria for Arbitrarily Varying Channels with Causal State Information}\label{30005056}
+{\small UnsolvedMath ID 30005056 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+An arbitrarily varying channel is a family of transition laws $W(y\mid x,s)$ whose state sequence may be chosen adversarially subject to the source constraints. Causal state information permits the encoder at time $t$ to use the message and $s_1,\ldots,s_t$, but not future states. Deterministic codes have fixed encoder/decoder maps; random codes use a shared random code choice under the source adversary-information convention. Capacity is the supremum of achievable message rates with error tending to zero uniformly over the permitted state sequences. A single-letter criterion uses one channel use, whereas a multiletter criterion involves arbitrarily long blocks.
+\paragraph{Statement recorded in the supplied source.}
+For arbitrarily varying channels with causal state information at the encoder, when do deterministic-code and random-code capacities coincide, and does the criterion necessarily require a multiletter characterization? \href{https://doi.org/10.4171/owr/2022/14}{[S2]}
+\paragraph{Scope qualification.}
+State constraints, the error convention and access to shared randomness follow the cited channel model. The question does not equate unrestricted and constrained arbitrarily varying channels.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+When does shared random coding offer no capacity advantage with causal encoder state information, and can this be decided using a one-use condition?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30005056 (OWR-9790365-005). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] New Mathematical Techniques in Information Theory (2023), Oberwolfach Reports, DOI 10.4171/owr/2022/14, pp. 683--707
+\url{https://doi.org/10.4171/owr/2022/14}.
+\item[S3] Pereg--Steinberg, arbitrarily varying channels
+\url{https://arxiv.org/abs/1701.03342}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30005056 and source code OWR-9790365-005 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30005056}
+
+\section{Literature and context check}
+The report, p. 694, asks for improved equality criteria for deterministic and random-code capacities with causal state information. Its stated symmetrizability distinctions involve the appropriate channel models. The elementary unconstrained binary example below tests what goes wrong if the encoder's state-adaptive strategies are omitted.
+\section{Research attempt: Causal state cancellation invalidates an uncoded-channel shortcut}
+Consider the channel $Y_t=X_t\oplus S_t$ on binary symbols, with arbitrary state sequence, no input or state cost constraints, and the current state $S_t$ known to the encoder before choosing $X_t$. To send a desired bit $U_t$, use $X_t=U_t\oplus S_t$. This causal strategy gives $Y_t=U_t$ for every state sequence, so $n$ bits are transmitted in $n$ uses with zero error. It is deterministic and needs no shared randomness.
+
+No deterministic or shared-randomness code can exceed one bit per use with vanishing average error. For any fixed state sequence and shared-randomness realization, there are only $2^n$ possible output strings. A deterministic decoder can correctly associate at most one message with each output, so under $M$ equiprobable messages its correct-decoding probability is at most $2^n/M$. A randomized decoder obeys the same bound by summing its probabilities of correct labels for each output, which sum to one. Averaging over shared randomness preserves the inequality. If $M\ge2^{n(1+\delta)}$ for fixed $\delta>0$, success is at most $2^{-n\delta}$ rather than tending to one. Thus both capacities in this declared causal model equal one bit per use.
+
+Without state information at the encoder, let the adversary draw each state independently and uniformly. For any transmitted sequence depending on the message and a shared seed, the output is uniform on $\{0,1\}^n$ and independent of that message conditional on the seed. The success probability is then exactly at most $1/M$. Averaging over the adversary's state sequences implies that at least one fixed sequence gives success no larger than $1/M$ for the code's average over its shared seed. Hence reliable positive-rate transmission fails without state knowledge, even with shared randomness unknown to the adversary.
+
+The same physical transition law therefore has different operational behavior depending on whether causal strategies are admissible. This does not contradict the report's more refined claims about single-letter symmetrizability: a criterion must be applied to the specified effective strategy/channel model. Nor does cancellation remain automatically admissible under additional input-cost constraints, because the chosen $X_t$ may violate them.
+\section{Verification and adversarial audit}
+The achievability identity holds pointwise for every state sequence. The converse explicitly counts outputs and survives randomization. The no-state-information comparison uses an oblivious uniform state law and then averaging to a fixed adverse sequence, without giving the jammer access to a private seed.
+\paragraph{Audit corrections.} Physical-channel symmetry is not substituted for the source's effective causal-strategy criterion. The absence of cost constraints is an explicit special-case assumption.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+Only one unconstrained binary channel is solved. A necessary-and-sufficient capacity-equality criterion for the report's general causal-state model, and whether it requires multiple letters, remain unresolved.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46950} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

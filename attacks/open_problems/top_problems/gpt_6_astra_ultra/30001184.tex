@@ -1,0 +1,93 @@
+% TOP_PROBLEM: {"id": 30001184, "title": "Extending Dilated E0-Semigroups Beyond GNS Representations", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "Both kernel invariance and the full-algebra extension are needed. The phrase not too big is conjectural; generation by i(B) and its time shifts is the report's proposed example of minimality, not a proved sufficient condition."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001184", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Find minimality assumptions ensuring that a general Markov dilation descends through its GNS representation and extends to all adjointable module operators.", "scope": "Proves descent and full B(H) extension for state-preserving scalar-GNS automorphism groups, and identifies why the endomorphism argument fails.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked well-defined GNS implementation, inverse surjectivity, strong continuity and the nonunital isometry-conjugation boundary. Model self-audit only; no independent human proof checking. Coordinator checked the state-preserving GNS unitary and kernel invariance, together with the failure of unital conjugation for a proper isometry. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked well-defined GNS implementation, inverse surjectivity, strong continuity and the nonunital isometry-conjugation boundary. Retained unresolved status and zero original-target progress; The source module kernel invariance and unital extension do not follow from the stated minimal-generation assumption by this proof."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001184; source catalogue code OWR-3392-012
+\setcounter{section}{30001183}
+\section{Extending Dilated E0-Semigroups Beyond GNS Representations}\label{30001184}
+{\small UnsolvedMath ID 30001184 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} A Markov semigroup $T_t$ is a continuous semigroup of unital completely positive maps on the specified operator algebra $B$. A dilation consists of an embedding $i:B\to A$, a conditional expectation or compression $p:A\to B$, and endomorphisms $\vartheta_t$ with $T_t=p\vartheta_t i$. The GNS construction for $p$ gives a Hilbert $B$-module $E$ and a represented algebra in $\mathcal B^a(E)$. An automorphic dilation has invertible $*$-automorphisms; an inner one is implemented by unitaries. Respecting the GNS kernel means that the kernel of this representation is carried into itself, so the dilation descends to the represented algebra. Extending to $\mathcal B^a(E)$ means finding unital endomorphisms of the full adjointable-operator algebra agreeing with that descended semigroup.
+
+\paragraph{Source scope and qualifications.} Both kernel invariance and the full-algebra extension are needed. The phrase not too big is conjectural; generation by i(B) and its time shifts is the report's proposed example of minimality, not a proved sufficient condition.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+Let a Markov semigroup have a dilation to an automorphism or $E_0$-semigroup on an algebra $A$, and suppose $A$ is generated by the image of the original algebra and its time shifts. Must the dilation respect the GNS kernel, and must the induced $E_0$-semigroup on the represented subalgebra extend to all of $\mathcal B^a(E)$? What weaker minimality hypotheses on $A$ suffice?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The report states this as a conjecture about extending the induced E0-semigroup and explicitly asks for a proof or counterexample; no general resolution was located. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Find minimality assumptions ensuring that a general Markov dilation descends through its GNS representation and extends to all adjointable module operators.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proves descent and full B(H) extension for state-preserving scalar-GNS automorphism groups, and identifies why the endomorphism argument fails.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A sufficient descent condition in the scalar automorphic case.} Let $A$ be a unital $C^*$-algebra with state $\phi$ and automorphism $\alpha$ satisfying $\phi\circ\alpha=\phi$. On the GNS dense domain define $U[a]=[\alpha(a)]$. The identity
+\[
+ \|[\alpha(a)]\|^2=\phi(\alpha(a^*a))=\phi(a^*a)
+\]
+makes this well defined and isometric. Surjectivity follows from $\alpha^{-1}$, so $U$ is unitary. It implements $U\pi(a)U^*=\pi(\alpha(a))$. Therefore $\ker\pi$ is invariant in both directions, and conjugation by $U$ extends the descended automorphism to all $B(\mathcal H_\phi)$.
+
+\paragraph{Continuity and the semigroup distinction.} For a point-norm continuous state-preserving automorphism group $\alpha_t$, the estimate $\|[\alpha_t(a)]-[a]\|\leq\|\alpha_t(a)-a\|$ gives strong continuity of $U_t$ on a dense domain and then everywhere. If $\alpha$ is only an endomorphism, the same construction gives an isometry, whose conjugation map need not be unital on all $B(\mathcal H_\phi)$: $UIU^*=UU^*$ can be a proper projection. Thus the extension argument relies essentially on invertibility.
+
+\paragraph{Original-target gap.} The source uses a conditional-expectation GNS module and does not assume this scalar state invariance. Minimal generation by time shifts has not been shown to imply the needed kernel invariance or a unitary module implementation. The calculation proves a restricted sufficient case, not the proposed minimality conjecture, and yields no weaker minimality criterion for general $E_0$ dilations.
+
+\paragraph{Verification and adversarial audit.}
+Checked well-defined GNS implementation, inverse surjectivity, strong continuity and the nonunital isometry-conjugation boundary. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked well-defined GNS implementation, inverse surjectivity, strong continuity and the nonunital isometry-conjugation boundary. Retained unresolved status and zero original-target progress; The source module kernel invariance and unital extension do not follow from the stated minimal-generation assumption by this proof.
+
+Coordinator checked the state-preserving GNS unitary and kernel invariance, together with the failure of unital conjugation for a proper isometry. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. The source module kernel invariance and unital extension do not follow from the stated minimal-generation assumption by this proof.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. The source module kernel invariance and unital extension do not follow from the stated minimal-generation assumption by this proof.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001184:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001184 (OWR-3392-012). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001184:2}{S2}] Mini-Workshop: Product Systems and Independence in Quantum Dynamics (2009), Oberwolfach Reports, DOI 10.4171/owr/2009/09, pp. 493--548; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2009/09}.
+\item[\hypertarget{source:30001184:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 50--51, printed pages 542--543.
+\url{https://ems.press/content/serial-article-files/46209}.
+\end{itemize}
+\label{end:30001184}
+\end{document}

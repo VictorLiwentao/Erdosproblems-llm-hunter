@@ -1,0 +1,87 @@
+% TOP_PROBLEM: {"id": 7900014, "title": "Continuity of the Integrated Density of States", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The original higher-dimensional continuum scope is restored; the bare catalogue sentence omitted it. The operator class and regularity hypotheses of the referenced integrated-density-of-states framework require specification, rather than an assertion for every arbitrary spectral model."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "7900014", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Show that the integrated density of states has no jumps as the energy varies.", "scope": "Computed the free higher-dimensional continuum IDS and showed why weak convergence alone does not exclude atoms. The target potential class still lacks a uniform small-interval counting estimate.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked cube-volume normalization, E=0, negative energies, and a concrete atom-creation weak limit; no arbitrary-operator continuity assertion. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the periodic lattice-counting limit and the weak convergence example with a limiting atom. The need for a uniform small-interval estimate is stated. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked cube-volume normalization, E=0, negative energies, and a concrete atom-creation weak limit; no arbitrary-operator continuity assertion. Scope remains limited: Prove a volume-uniform spectral counting modulus for the intended higher-dimensional continuum operator class."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 7900014; source catalogue code AMR-078-0014
+\setcounter{section}{7900013}
+\section{Continuity of the Integrated Density of States}\label{7900014}
+{\small UnsolvedMath ID 7900014 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}For finite-volume restrictions $H_\Lambda$ of a lattice or continuum Schrödinger operator, the integrated density of states is a thermodynamic limit of $|\Lambda|^{-1}$ times the number of eigenvalues at most $E$, with an appropriate volume normalization. Denote that distribution function by $k(E)$. Continuity means that the limiting spectral counting measure has no atom at any energy.
+
+\paragraph{Catalogue wording retained for traceability.}
+Prove continuity in energy of the integrated density of states $k(E)$ in the higher-dimensional continuum setting targeted by Simon. The source explicitly says that the one-dimensional and discrete cases were already known when this question was posed.
+\paragraph{Scope and source qualification.}The original higher-dimensional continuum scope is restored; the bare catalogue sentence omitted it. The operator class and regularity hypotheses of the referenced integrated-density-of-states framework require specification, rather than an assertion for every arbitrary spectral model.
+\subsection{Short English statement}
+Show that the integrated density of states has no jumps as the energy varies.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Computed the free higher-dimensional continuum IDS and showed why weak convergence alone does not exclude atoms. The target potential class still lacks a uniform small-interval counting estimate.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{Free continuum density of states.}On a cube of side \(L\) with periodic boundary conditions, \(-\Delta\) has eigenvalues \(|2\pi n/L|^2\), \(n\in\mathbb Z^d\). For \(E\ge0\), its counting function per volume is
+\[k_L(E)=L^{-d}\#\{n:|n|\le L\sqrt E/(2\pi)\}.
+\]
+Cover each lattice point by a unit cube. A ball of radius \(R-\sqrt d/2\) is contained in the union of cubes whose centers lie in the radius-\(R\) ball, and that union lies in the radius-\(R+\sqrt d/2\) ball. Dividing their volumes by \(L^d\) and taking \(L\to\infty\) proves
+\[k(E)=\frac{\operatorname{vol}(B_d)}{(2\pi)^d}(E_+)^{d/2},\quad E_+=\max(E,0).
+\]
+In particular the continuum benchmark is continuous, including at zero. The possible zero eigenvalue in each finite torus contributes only \(L^{-d}\).
+\paragraph{Why atom-freeness does not pass through a bare limit.}Each finite-volume counting measure is discrete. Even replacing it by a smooth approximation and proving atom-freeness would not suffice: the probability densities \(f_n(E)=n\mathbf1_{[0,1/n]}(E)\) are absolutely continuous but converge weakly to \(\delta_0\). Thus convergence of measures alone cannot establish continuity of the limiting distribution. A sufficient estimate would be a uniform modulus \(k_L(E+\eta)-k_L(E-\eta)\le\omega(\eta)+o_L(1)\), where \(\omega(\eta)\to0\). Taking the volume limit and then shrinking \(\eta\) would exclude an atom at \(E\).
+\paragraph{Gap.}No such uniform small-interval estimate is proved for the higher-dimensional continuum potential class intended by Simon. The restored scope cannot be replaced by already-treated discrete or one-dimensional models, nor can unspecified operator hypotheses be ignored. The explicit free calculation and weak-limit counterexample identify a necessary type of argument but establish no new continuity theorem for the target class.
+
+\paragraph{Verification and adversarial audit.}
+Checked cube-volume normalization, E=0, negative energies, and a concrete atom-creation weak limit; no arbitrary-operator continuity assertion. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked cube-volume normalization, E=0, negative energies, and a concrete atom-creation weak limit; no arbitrary-operator continuity assertion. Scope remains limited: Prove a volume-uniform spectral counting modulus for the intended higher-dimensional continuum operator class.
+
+Coordinator checked the periodic lattice-counting limit and the weak convergence example with a limiting atom. The need for a uniform small-interval estimate is stated. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Prove a volume-uniform spectral counting modulus for the intended higher-dimensional continuum operator class.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:7900014:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 7900014 (AMR-078-0014). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:7900014:2}{S2}] Barry Simon, Schrödinger operators in the twenty-first century, Mathematical Physics 2000, pp. 283–288, original Problem 14.
+\url{https://web.ma.utexas.edu/mp_arc-bin/mpa?yn=00-78}.
+\item[\hypertarget{source:7900014:3}{S3}] Wikipedia contributors, Simon problems, pinned revision 1335881350, The 2000 list. Existing catalogue wording adapted; CC BY-SA 4.0.
+\url{https://en.wikipedia.org/w/index.php?title=Simon_problems&oldid=1335881350#The_2000_list}.
+\end{itemize}
+\label{end:7900014}
+\end{document}

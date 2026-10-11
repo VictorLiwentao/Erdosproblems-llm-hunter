@@ -1,0 +1,89 @@
+% TOP_PROBLEM: {"id": 30006045, "title": "Uniqueness of Spherical Schwarzschild–Anti-de Sitter Spacetimes", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The abbreviated source target does not specify all boundary and horizon hypotheses. They must be stated before claiming that all static Einstein metrics with negative cosmological constant are Schwarzschild--AdS."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006045", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Establish the appropriate uniqueness theorem for spherical Schwarzschild--anti-de Sitter black holes among static negatively curved Einstein spacetimes.", "scope": "Integrated the static spherical Einstein equations and checked the Schwarzschild–AdS exterior horizon; no rigidity among nonspherical static metrics.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the mixed Einstein components, angular equation, time normalization, positive-mass simple horizon and zero-mass boundary case. Model self-audit only; no independent human mathematical verification. Coordinator checked the radial Einstein equations, integrated lapse and positive-mass simple horizon under spherical symmetry. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked the mixed Einstein components, angular equation, time normalization, positive-mass simple horizon and zero-mass boundary case. First remaining gap: Prove symmetry and global rigidity from the precise source conformal-boundary, horizon and regularity hypotheses. The inherited source status is preserved; original-target completion remains zero."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30006045; source catalogue code OWR-14298591-009
+\setcounter{section}{30006044}
+\section{Uniqueness of Spherical Schwarzschild–Anti-de Sitter Spacetimes}\label{30006045}
+{\small UnsolvedMath ID 30006045 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+A static spacetime has a hypersurface-orthogonal timelike Killing field. Schwarzschild--anti-de Sitter is the spherically symmetric black-hole family with negative cosmological constant. A uniqueness theorem compares static solutions subject to an asymptotic conformal boundary, horizon conditions and regularity assumptions.
+
+\paragraph{Catalogue wording retained for traceability.}
+Prove a uniqueness theorem for spherical Schwarzschild–anti-de Sitter spacetimes among static Einstein spacetimes with negative cosmological constant.
+
+\paragraph{Scope and source qualification.}The abbreviated source target does not specify all boundary and horizon hypotheses. They must be stated before claiming that all static Einstein metrics with negative cosmological constant are Schwarzschild--AdS.
+\subsection{Short English statement}
+Establish the appropriate uniqueness theorem for spherical Schwarzschild--anti-de Sitter black holes among static negatively curved Einstein spacetimes.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Integrated the static spherical Einstein equations and checked the Schwarzschild–AdS exterior horizon; no rigidity among nonspherical static metrics.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30006045. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{Solving the spherical ansatz.} Restrict to a four-dimensional static spherically symmetric exterior
+\[
+ g=-e^{2\Phi(r)}F(r)dt^2+F(r)^{-1}dr^2+r^2d\Omega^2,
+ \qquad F>0,
+\]
+with \(\Lambda=-3/\ell^2\), \(\ell>0\). Direct computation of the mixed Einstein tensor gives \(G^t{}_t=(rF'+F-1)/r^2\) and \(G^r{}_r-G^t{}_t=2F\Phi'/r\). The vacuum equations \(G^a{}_b+\Lambda\delta^a_b=0\) therefore imply
+\[
+ (rF)'=1+3r^2/\ell^2,\qquad \Phi'=0.
+\]
+Integration gives \(F=1-2M/r+r^2/\ell^2\); a constant change of the time coordinate removes \(\Phi\). Substitution in the angular equation verifies it as well: with constant \(\Phi\), \(G^\theta{}_\theta=F'/r+F''/2=3/\ell^2\).
+\paragraph{Boundary and horizon test.} For \(M>0\), \(F'=2M/r^2+2r/\ell^2>0\), while \(F\to-\infty\) at zero and \(F\to+\infty\) at infinity. There is exactly one positive simple zero, delimiting this static exterior. For \(M=0\), no such positive horizon occurs. The normalization of time still has to match the specified conformal boundary.
+\paragraph{First uniqueness gap.} Spherical symmetry was assumed, whereas the source seeks uniqueness among the relevant static Einstein competitors. The calculation cannot derive spherical symmetry from a spherical conformal boundary and the appropriate horizon/regularity hypotheses; nor does it specify all global topologies. That rigidity step, with exact source boundary data, is the first gap. The familiar ansatz calculation is not a full static uniqueness theorem.
+
+\paragraph{Verification and adversarial audit.}
+Checked the mixed Einstein components, angular equation, time normalization, positive-mass simple horizon and zero-mass boundary case. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked the mixed Einstein components, angular equation, time normalization, positive-mass simple horizon and zero-mass boundary case. First remaining gap: Prove symmetry and global rigidity from the precise source conformal-boundary, horizon and regularity hypotheses. The inherited source status is preserved; original-target completion remains zero.
+
+Coordinator checked the radial Einstein equations, integrated lapse and positive-mass simple horizon under spherical symmetry. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Prove symmetry and global rigidity from the precise source conformal-boundary, horizon and regularity hypotheses.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30006045:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30006045 (OWR-14298591-009). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30006045:2}{S2}] Mathematical Aspects of General Relativity (2024), Oberwolfach Reports, DOI 10.4171/owr/2024/36, pp. 2033--2112. Original report and mathematical context. Incorporated report material remains under the source CC BY-SA 4.0 terms unless otherwise noted.
+\url{https://doi.org/10.4171/owr/2024/36}.
+\end{itemize}
+\label{end:30006045}
+\end{document}

@@ -1,0 +1,130 @@
+% RESEARCH_DRAFT_SHA256: 97ddefff581a9f2fb167e8c5ef56b98f9b28d0947e3a6ee8672ca7aadc3eacc3
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001181, "title": "Linear collapse, binomial hypersurfaces, and the image of local-odds fibers", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001181", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 5. What is the algebro-geometric structure of passing from local to global odds ratios? Note that local odds ratio is obtained by looking at a 2 k subtable of a given table whereas a global odds ratio is obtained by looking at the odds-ratio in a 2 k collapsing of a given table.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Only specific positive two-way collapse identities and a three-row fiber image are proved; no general multiway algebraic-geometric classification or boundary analysis is obtained.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Local and collapsed odds: a convex-combination calculation and a failed invariance route}
+\noindent UnsolvedMath ID 20001181; AIM-COMPUTATION-0019. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For positive entries in a $2\times2$ probability table, the odds ratio is $p_{00}p_{11}/(p_{01}p_{10})$. For $k$ binary factors, local contrasts use selected $2^k$ cells, while collapsing aggregates levels by summing probabilities before computing the corresponding contrast. The question asks for the algebraic-geometric relation between these operations.
+\paragraph{Statement recorded in the supplied source.}
+Question 5. What is the algebro-geometric structure of passing from local to global odds ratios? Note that local odds ratio is obtained by looking at a 2 k subtable of a given table whereas a global odds ratio is obtained by looking at the odds-ratio in a 2 k collapsing of a given table. \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The source does not select one table dimension or one fixed collection of odds ratios; the question remains a family of algebraic characterization tasks.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+How are odds ratios of small subtables related geometrically to odds ratios after categories are aggregated?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001181 (AIM-COMPUTATION-0019). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0019
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 5. What is the algebro-geometric structure of passing from local to global odds ratios? Note that local odds ratio is obtained by looking at a 2 k subtable of a given table whereas a global odds ratio is obtained by looking at the odds-ratio in a 2 k collapsing of a given table.
+
+\section{Attempt and results}
+The source asks for a family of geometric descriptions, without fixing
+the table sizes, a selection of local ratios, or a chosen collapse. We
+work first with a positive two-way table and a specified dichotomization;
+this restriction is not identified with the entire source question.
+
+\paragraph{A precise weighted-average identity.}
+Partition row indices into nonempty $I,I^c$ and column indices into
+nonempty $J,J^c$. The collapsed odds ratio is
+\[
+\Theta=\frac{(\sum_{i\in I,j\in J}p_{ij})
+(\sum_{k\in I^c,l\in J^c}p_{kl})}
+{(\sum_{i\in I,l\in J^c}p_{il})
+(\sum_{k\in I^c,j\in J}p_{kj})}.
+\]
+For the same quadruples put
+$\theta_{ik;jl}=p_{ij}p_{kl}/(p_{il}p_{kj})$ and
+$w_{ik;jl}=p_{il}p_{kj}/\sum_{i,j,k,l}p_{il}p_{kj}$.
+Expanding numerator and denominator proves
+$\Theta=\sum w_{ik;jl}\theta_{ik;jl}$, with all $w>0$ and $\sum w=1$.
+Consequently $\Theta$ is strictly between the smallest and largest of
+these local ratios unless all of them agree. In particular, if all the
+relevant cross-block ratios agree, the collapse preserves their value.
+The weights depend on the actual table, not only on a list of local ratios.
+
+\paragraph{A complete small positive fiber image.}
+For a three-row, two-column table, collapse rows one and two against row
+three. Fix their two ratios against row three at $\theta_1,\theta_2>0$.
+Writing row $i$ as $(a_i,b_i)$ gives
+$a_i=\theta_i b_i a_3/b_3$ for $i=1,2$, and hence
+\[
+\Theta=\frac{b_1\theta_1+b_2\theta_2}{b_1+b_2}.
+\]
+Every $b_1/b_2>0$ is permitted: choose positive unnormalized entries with
+these relations and divide all entries by their total. The positive image
+is therefore the open interval between $\theta_1,\theta_2$, or their common
+singleton. This is an exact image calculation for this particular fiber.
+
+\paragraph{Why conditional independence is not preserved by marginalization.}
+One proposed simplification is to replace every local ratio constraint by
+the same ratio after summing another factor. Consider the positive two
+layers
+\[
+P_0=\begin{pmatrix}9&3\\3&1\end{pmatrix},\qquad
+P_1=\begin{pmatrix}1&3\\3&9\end{pmatrix}.
+\]
+Each has odds ratio one. Normalize the whole three-way table by its total
+$32$; this leaves every ratio unchanged. Its sum over the layer factor is
+$\left(\begin{smallmatrix}10&6\\6&10\end{smallmatrix}\right)/32$,
+whose odds ratio is $25/9$. Thus within-layer independence does not imply
+marginal independence. This operation differs from selecting all cross-block
+ratios in the first identity; confusing the two is exactly the failed step.
+
+\section{Scope and adversarial audit}
+The primary AIM question was inspected. The displayed calculations are
+standard elementary facts, not a classification of all multiway images or
+their singularities. The audit checked positivity of weights, normalization,
+and the distinction between subtable selection and marginalization of a
+factor. No numerical computation or formal proof checking was used.
+Descriptions of arbitrary local-ratio fibers after arbitrary multiway
+collapses, including boundary components and inequalities, remain absent.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Only specific positive two-way collapse identities and a three-row fiber image are proved; no general multiway algebraic-geometric classification or boundary analysis is obtained.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Computational Algebraic Statistics, prepared by Seth Sullivant, version 27 March 2004; the original numbered source question and its adjacent scope were inspected on 11 October 2026. \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Only specific positive two-way collapse identities and a three-row fiber image are proved; no general multiway algebraic-geometric classification or boundary analysis is obtained.
+\end{document}

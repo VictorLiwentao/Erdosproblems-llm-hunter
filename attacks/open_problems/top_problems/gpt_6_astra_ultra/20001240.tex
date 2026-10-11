@@ -1,0 +1,107 @@
+% RESEARCH_DRAFT_SHA256: a9076d16182c5be8214136c1c898c0ccdb061cffa0491d913e3ae3f6a5e0af0b
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001240, "title": "Base-encoded monomial-curve designs", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001240", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review and model-assisted mathematical audit of written arguments; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Base-encoded monomial-curve designs; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A finite grid construction and the failure of rank as a statistical criterion; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch006 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 20001240; source catalogue code AIM-COMPUTATION-0078
+\section{Base-encoded monomial-curve designs}\label{20001240}
+{\small UnsolvedMath ID 20001240 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+For a finite design $D$, evaluation sends a polynomial $f$ to $(f(v))_{v\in D}$. Monomials in a model set $L$ are linearly independent modulo $I(D)$ precisely when their evaluation vectors are independent. Thus an evaluation matrix with columns indexed by $L$ has full column rank. Statistical design properties impose additional conditions beyond that rank test.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The special statistical properties and admissible designs are not specified. Full evaluation rank is a defined part of the source question; no particular base encoding or optimality criterion is assumed. The supplied catalogue marks this record partially solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+Problem 63 (Riccomagno). Given a model L find a design D with special statistical prop-erties such that the monomials in L are linearly independent modulo I(D). \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The source asks for designs giving independent model monomials together with desired statistical properties.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001240 (AIM-COMPUTATION-0078). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-COMPUTATION-0078.
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 20001240 and code AIM-COMPUTATION-0078 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:20001240}
+
+\section{Literature and context check}
+AIM Problem 63 includes both independence and unspecified statistical properties. The selected route solves only the elementary independence subtask for distinct monomials; it then tests why that fact does not settle the design objective.
+\section{Research attempt: A finite grid construction and the failure of rank as a statistical criterion}
+Let $L=\{x^{\alpha_1},\ldots,x^{\alpha_N}\}$ be distinct monomials in $d\ge1$ variables, with $N\ge1$, and set $m=\max_{i,j}\alpha_{i,j}$. Evaluate them on $G=\{0,1,\ldots,m\}^d$. The resulting matrix has full column rank over $\mathbb Q$. To prove this, a linear combination vanishing on $G$ is a polynomial of degree at most $m$ in each variable. Such a polynomial must be zero: for $d=1$, a nonzero degree-at-most-$m$ polynomial has at most $m$ roots, since each root gives a linear factor by division and repeated division cannot exceed the degree. For $d>1$, fix the first $d-1$ grid coordinates and view the polynomial in the last variable. Its $m+1$ zero values force all its coefficient polynomials to vanish on the smaller grid. Induction makes all coefficients zero. Distinct formal monomials then force the proposed linear combination to be trivial.
+
+One can therefore scan the rows, retaining a row whenever it increases rank, until $N$ rows have been retained. Failure to reach $N$ would make the span of all rows have dimension less than $N$, contradicting full column rank. The corresponding $N$ distinct rational grid points form a design $D$ for which the monomials of $L$ are independent modulo $I(D)$: a combination in that ideal evaluates to zero on the invertible $N$-row submatrix. This gives a terminating exact construction. Its candidate grid has $(m+1)^d$ points, so the argument is no claim of a polynomial-time algorithm in the sparse binary encoding of the exponents.
+
+The first tempting shortcut, sampling on a single diagonal, fails already for $L=\{x,y\}$: at every point $(t,t)$ the two evaluation columns coincide, regardless of how many points are sampled. The second shortcut, accepting any full-rank design as statistically good, fails for $L=\{1,x\}$ and $D_\varepsilon=\{0,\varepsilon\}$. The determinant is $\varepsilon\ne0$, so interpolation is valid. But if the two observed responses have independent mean-zero errors of variance $\sigma^2>0$, the fitted slope error is $(e_2-e_1)/\varepsilon$ and has variance $2\sigma^2/\varepsilon^2$, which diverges as $\varepsilon\to0$. Independence of the polynomial classes therefore supplies no uniform estimation precision.
+\section{Verification and adversarial audit}
+The argument covers $m=0$, when distinctness forces $N=1$ and the one grid point suffices. Repeated monomials cannot satisfy the requested independence and are explicitly excluded. The statistical failure uses an identified noise model and computes its variance, rather than attaching an undefined quality score to rank.
+\paragraph{Audit corrections.} Distinct monomials and the exponential grid size are explicit. Exact interpolation is not equated with robust estimation.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The rank subtask has a known elementary construction, but optimality, admissible design domains, noise models, and the requested special statistical properties are not fixed in the source. No full design solution or improved complexity result is claimed.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and a model-assisted mathematical
+audit of the written arguments; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

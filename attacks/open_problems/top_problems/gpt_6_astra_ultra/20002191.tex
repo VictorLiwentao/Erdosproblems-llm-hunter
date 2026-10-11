@@ -1,0 +1,135 @@
+% RESEARCH_DRAFT_SHA256: 8bea94d9997148a738ed86112af03e656355eb70fa267d12303437b3b6fa71a5
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20002191, "title": "Random-access slices of free resolutions", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002191", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Can we compute the n-th step of a resolution quickly, without computing the previous steps?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. A complete directly indexed special family and output bound do not give fast arbitrary-resolution slices, and the source does not fix the required output representation.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Random-access resolution columns over square-zero rings and explicit-output growth}
+\noindent UnsolvedMath ID 20002191; AIM-INFRASTRUCTURE-0091. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A resolution of a module M is an exact chain complex $\cdots\to F_2\to F_1\to F_0\to M\to0$, with the stated class of free or projective modules. Its nth step can refer to the nth module, syzygy module, or differential, which have different output requirements.
+\paragraph{Statement recorded in the supplied source.}
+Can we compute the n-th step of a resolution quickly, without computing the previous steps? \href{http://aimpl.org/macaulay2efie/3/}{[S2]}
+\paragraph{Scope qualification.}
+The source does not choose free versus minimal resolution, the underlying ring, or the exact output meant by a step; no one narrower interpretation is imposed.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can a chosen later step of a module resolution be computed quickly without constructing all the preceding steps?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20002191 (AIM-INFRASTRUCTURE-0091). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-INFRASTRUCTURE-0091
+\url{http://aimpl.org/macaulay2efie/3/}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Can we compute the n-th step of a resolution quickly, without computing the previous steps?
+
+\section{Attempt and results}
+The source leaves the ring, minimality, and output meaning of a resolution
+step unspecified. We test random access on an explicit infinite minimal
+resolution. This gives a concrete positive special case and a size obstruction
+to an unrestricted fast materialization claim, not a replacement target.
+
+\paragraph{A directly indexed infinite resolution.}
+Let $e\ge1$, $k$ be a field, and
+$R=k[x_1,\ldots,x_e]/(x_i x_j:1\le i,j\le e)$.
+Its maximal ideal $\mathfrak m$ has $k$-basis $x_1,\ldots,x_e$ and
+$\mathfrak m^2=0$. Let $F_n$ be the free $R$-module on all length-$n$ words
+$w=(i_1,\ldots,i_n)$ in $\{1,\ldots,e\}$; $F_0=R$ has the empty word.
+Define
+\[
+d_n(e_{i_1\cdots i_n})=x_{i_1}e_{i_2\cdots i_n},\qquad n\ge1,
+\]
+and augment $F_0$ by $R\to k=R/\mathfrak m$.
+The composition of two successive maps is zero because every product
+$x_i x_j$ is zero. To prove exactness, write an element of $F_n$ as
+$\sum_w(c_w+u_w)e_w$ with $c_w\in k$, $u_w\in\mathfrak m$.
+For each suffix $v$ of length $n-1$, its image coefficient is
+$\sum_i c_{iv}x_i$. Linear independence of the $x_i$ gives
+$d_n(\sum_w(c_w+u_w)e_w)=0$ exactly when every $c_w=0$.
+Hence $\ker d_n=\mathfrak m F_n$, and $\operatorname{im}d_{n+1}$ equals
+this same module, since every $x_i e_w$ is the image of $e_{iw}$.
+Exactness at $F_0$ is $\operatorname{im}d_1=\mathfrak m=\ker(R\to k)$.
+We have proved the entire resolution and its rank $\operatorname{rank}F_n=e^n$.
+All matrix entries lie in the maximal ideal, which is the usual local minimality
+criterion; if minimality is defined as this condition, the resolution is minimal.
+One can also see why a free cancellation cannot occur: a cancellable rank-one
+identity block would require a unit coefficient after invertible basis changes,
+but any such changes preserve the property that all entries lie in
+$\mathfrak m$.
+
+\paragraph{What random access does and does not save.}
+For a supplied word $w$, the corresponding column of $d_n$ has exactly one
+nonzero, at the row indexed by its suffix, with coefficient $x_{i_1}$.
+This is obtained by reading the word and deleting its first letter; none of
+$F_1,\ldots,F_{n-1}$ needs to be materialized. The same formula gives a lazy
+matrix representation using $e$ and $n$ with an explicit indexing convention.
+However, explicitly listing all nonzero column entries costs at least $e^n$
+output symbols, because there are $e^n$ distinct columns and each has one
+nonzero. For fixed $e=2$, this is exponential in $n$ and more than exponential
+in the binary length of $n$. This is only an output bound for the stated
+explicit format; it does not prevent the short formula or query access.
+
+\paragraph{Why a rank oracle is insufficient for the general map request.}
+Over $S=k[x,y]$, the modules $S/(x)$ and $S/(y)$ both have free resolutions
+$0\to S\to S\to M\to0$ of ranks one and one, using maps multiplication
+by $x$ and $y$ respectively. Exactness follows because each multiplication
+is injective in a domain and its cokernel is the indicated quotient.
+But the modules are not isomorphic as $S$-modules: the annihilator of the
+first is $(x)$ and that of the second is $(y)$, and isomorphic modules have
+equal annihilators. Thus identical rank or Betti-number data cannot determine
+the requested differential and its cokernel. A route that computes a term
+rank and then declares the map recovered has a genuine missing step.
+
+\section{Context, adversarial audit, and gap}
+The official workshop report discusses resolutions and DG methods over
+nonregular rings; the original AIMPL page failed retrieval. We preserve the
+terse source question instead of imposing a universal polynomial-time demand.
+The audit distinguished encoded index length, column-query cost, and matrix
+serialization, and proved exactness in every degree rather than checking
+only $d^2=0$. The example does not provide random access for arbitrary input
+modules, nor a method for discovering such formulas from a presentation.
+No implementation or computational experiment was performed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. A complete directly indexed special family and output bound do not give fast arbitrary-resolution slices, and the source does not fix the required output representation.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item AIM, Macaulay2: expanded functionality and improved efficiency, official workshop summary; local-cohomology, DG, and direct-summand discussion read on 11 October 2026. The original AIMPL problem pages failed retrieval; their wording is available here only from the supplied snapshot. \url{https://aimath.org/pastworkshops/macaulay2efierep.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} A complete directly indexed special family and output bound do not give fast arbitrary-resolution slices, and the source does not fix the required output representation.
+\end{document}

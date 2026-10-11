@@ -1,0 +1,128 @@
+% RESEARCH_DRAFT_SHA256: 5b2a971e1163bc6e8c013007cb690ecbf324f1bcabe05cf5f052ead999c3c988
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001185, "title": "Unique minimal Markov bases, bipartite cycles, and padding monotonicity", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001185", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 9. Do I × J × K tables under the no 3-way interaction model always have a unique minimal Markov basis? Bernd Sturmfels asked, \"What about problems for 3-way tables that have structural zeros coming from a very regular design?\" Henry Wynn asked, \"Does the group structure of circuits play a role in the solution of this problem?\"\n\nEmily Gamundi", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Uniqueness is proved only for the established two-slice family; arbitrary I,J,K and the full structural-zero/circuit questions remain beyond the flow argument.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Two-slice no-three-way-interaction tables: a cycle basis and its necessity}
+\noindent UnsolvedMath ID 20001185; AIM-COMPUTATION-0023. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For an integer matrix $A$, the fiber at $b$ is $\mathcal F_b=\{x\in\mathbb Z_{\ge0}^d:Ax=b\}$. A Markov basis is a finite set of integer moves $u$ with $Au=0$ such that steps $x\mapsto x\pm u$ staying nonnegative connect every nonempty fiber. The no-three-way-interaction model fixes all two-way margins of an $I\times J\times K$ table. A Markov basis is minimal if removing any move destroys its universal fiber-connectivity property. Structural zeros forbid specified cells; the accompanying questions ask how regular zero patterns and circuits affect this basis.
+\paragraph{Statement recorded in the supplied source.}
+Question 9. Do I × J × K tables under the no 3-way interaction model always have a unique minimal Markov basis? Bernd Sturmfels asked, "What about problems for 3-way tables that have structural zeros coming from a very regular design?" Henry Wynn asked, "Does the group structure of circuits play a role in the solution of this problem?" \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The supplied extraction includes adjacent workshop exposition; the numbered target passage is retained verbatim and that surrounding exposition is omitted. The source also includes related questions on regularly designed structural zeros and circuits; no restriction to a special table size is imposed.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Is the smallest essential set of margin-preserving moves unique for every three-way table model without a three-way interaction?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001185 (AIM-COMPUTATION-0023). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0023
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 9. Do I × J × K tables under the no 3-way interaction model always have a unique minimal Markov basis? Bernd Sturmfels asked, "What about problems for 3-way tables that have structural zeros coming from a very regular design?" Henry Wynn asked, "Does the group structure of circuits play a role in the solution of this problem?"
+
+Emily Gamundi
+
+\section{Attempt in a fully specified subfamily}
+Take the full $2$ by $J$ by $K$ model, $J,K\ge1$. Fix every two-way
+margin. Writing $x_{jk}=T_{0jk}$ and $t_{jk}=T_{0jk}+T_{1jk}$, the
+fiber becomes the bounded two-way tables with fixed row and column sums
+and $0\le x_{jk}\le t_{jk}$. The second layer is $t-x$. All moves
+below change the first layer by $u$ and the second by $-u$.
+
+\paragraph{Cycle connectivity with coordinate bounds.}
+Include every simple even cycle of the complete bipartite graph on the
+$J$ row and $K$ column vertices, with alternating $+1,-1$ entries on
+its edges. Let $x,y$ be two tables in the fiber and put $d=y-x$.
+The signed matrix $d$ has zero row and column sums. Orient each nonzero
+edge from its row to its column if $d>0$, and from column to row if
+$d<0$, assigning integer flow $|d|$. Every vertex has equal incoming
+and outgoing flow. Starting on any edge and repeatedly following an
+outgoing edge eventually finds a directed cycle; remove repetitions to
+obtain a simple directed cycle. Its signs alternate because the graph
+is bipartite. Add its alternating unit move to $x$, toward $y$ on
+every affected coordinate. The step remains between $x$ and $y$
+coordinatewise, hence respects both zero and upper bounds. It decreases
+$\sum|y-x|$ by the cycle length. Iteration terminates at $y$.
+Thus the lifted simple cycles form a Markov basis for every such fiber.
+
+\paragraph{Every cycle is indispensable, even if it has ambient chords.}
+Fix one simple cycle. Set $t_{jk}=1$ on that cycle and zero off it.
+Set first-layer row and column sums to one at cycle vertices and zero
+elsewhere. The feasible first layers are perfect matchings of this
+cycle. There are exactly two: choosing either of the two incident edges
+at one vertex forces the next choice, and continuing around the even
+cycle is consistent and forces every edge. Thus the full three-way
+fiber has two states, differing by the lifted cycle move. Any universal
+basis must contain this difference up to sign, because no other state
+can occur on a connecting path. Ambient chords are unavailable since
+their $t$ entries are zero. The displayed basis is therefore the unique
+minimal one, up to signs, for every $2$ by $J$ by $K$ full model.
+For $J=1$ or $K=1$, the margins determine the table and the empty
+move set is the unique minimal basis.
+
+\paragraph{Attempted extension and its first obstruction.}
+The proof relies on one free layer and its complementary layer $t-x$.
+For three or more layers, subtracting one layer leaves a multi-layer
+allocation whose separate two-way margins are still coupled; a cycle
+adjustment in one layer need not have a feasible compensating allocation.
+The two-slice flow proof does not supply those allocations. Therefore it
+does not establish uniqueness in arbitrary $I$ by $J$ by $K$ format.
+Nor does an arbitrary lattice generating set imply universal Markov
+connectivity at the boundary; the two-point fibers show why individual
+cycle moves can be forced despite algebraic relations among them.
+
+\section{Context and audit}
+The primary AIM Question 9 was inspected. This is a known-type two-slice
+cycle argument, fully reproduced; no new general uniqueness result is
+claimed. The audit checked upper bounds, ambient chords, all fiber
+parameters, and the definition of inclusion-minimality rather than
+smallest cardinality. Structural-zero patterns restrict available edges
+in this special case, but the source's broad regular-design and circuit
+questions remain. No numerical or formal computation was used.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Uniqueness is proved only for the established two-slice family; arbitrary I,J,K and the full structural-zero/circuit questions remain beyond the flow argument.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Computational Algebraic Statistics, prepared by Seth Sullivant, version 27 March 2004; the original numbered source question and its adjacent scope were inspected on 11 October 2026. \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Uniqueness is proved only for the established two-slice family; arbitrary I,J,K and the full structural-zero/circuit questions remain beyond the flow argument.
+\end{document}

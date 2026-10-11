@@ -1,0 +1,95 @@
+% TOP_PROBLEM: {"id": 30000775, "title": "Current Criteria for Phase Separation in Driven Systems", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The report describes a proposed correspondence and quantitative criterion in selected models. It does not define one class covering every driven system or prove necessity and sufficiency without assumptions; those choices cannot be invented from this programmatic extract."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000775", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Relate macroscopic phase separation and traffic jams to how stationary currents depend on domain length.", "scope": "Derives the power-law domain weights and finite-critical-mean threshold b>2 for an explicit zero-range surrogate.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked logarithmic product asymptotics, summable errors and borderline b=1,2; did not infer condensation merely from a finite mean. Model self-audit only; no independent human proof checking. Coordinator checked the logarithmic weight asymptotic and both convergence thresholds, including the endpoint divergences. The surrogate-to-source reduction remains unproved. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked logarithmic product asymptotics, summable errors and borderline b=1,2; did not infer condensation merely from a finite mean. Retained unresolved status and zero original-target progress; The domain-process reduction and canonical macroscopic-condensation argument for the original driven models are missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30000775; source catalogue code OWR-1544-002
+\setcounter{section}{30000774}
+\section{Current Criteria for Phase Separation in Driven Systems}\label{30000775}
+{\small UnsolvedMath ID 30000775 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} A one-dimensional driven conserving system has locally moving particles, a fixed total density, and a nonequilibrium stationary current. Phase separation means macroscopic domains with distinct densities rather than a homogeneous stationary state. If $J_\ell$ is the outgoing steady current of a domain of length $\ell$, its large-$\ell$ dependence can be compared with condensation criteria in an associated zero-range process. A jamming transition is the formation of a persistent macroscopic congested region in the traffic interpretation.
+
+\paragraph{Source scope and qualifications.} The report describes a proposed correspondence and quantitative criterion in selected models. It does not define one class covering every driven system or prove necessity and sufficiency without assumptions; those choices cannot be invented from this programmatic extract.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+Characterize when phase separation occurs in one-dimensional driven density-conserving systems and how this is related to traffic-jamming phase transitions, including a criterion in terms of the size dependence of steady-state currents.
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: This is a contextual statement about one-dimensional phase separation and traffic jams rather than a precise theorem; the extracted item has no standalone resolved claim and is retained as open. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Relate macroscopic phase separation and traffic jams to how stationary currents depend on domain length.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derives the power-law domain weights and finite-critical-mean threshold b>2 for an explicit zero-range surrogate.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{The zero-range current calculation.} In a selected zero-range surrogate let the departure rate at occupation $n\geq1$ be $u(n)=u_\infty(1+b/n)$, with $u_\infty>0$ and $b>0$. Its product-form single-site weight, after absorbing $u_\infty$ into fugacity, is
+\[
+ f(0)=1,\qquad f(n)=\prod_{k=1}^n(1+b/k)^{-1}.
+\]
+Since $\log(1+b/k)=b/k+O(k^{-2})$ and the error is summable, $\log f(n)=-b\log n+O(1)$. Hence positive constants bound $f(n)$ above and below by multiples of $n^{-b}$.
+
+\paragraph{A sharp critical-mean test in this surrogate.} At the limiting fugacity one, $Z=\sum_nf(n)$ is finite exactly when $b>1$. When normalized, its mean $\rho_c=Z^{-1}\sum_nnf(n)$ is finite exactly when $b>2$. The endpoints matter: $b=1$ gives harmonic divergence of $Z$, and $b=2$ gives harmonic divergence of the first moment. These statements follow directly from the comparison series, without invoking a condensation theorem.
+
+\paragraph{The source-level gap.} Thus a current correction of order $b/n$ can determine whether the surrogate has finite background carrying capacity. It does not establish macroscopic condensation, which additionally needs a canonical large-deviation argument, and it does not prove that domain lengths of a driven traffic system form this zero-range process. Correlations between domains can change the stationary weights. The first missing step for the original problem is a justified current-to-domain-process reduction; even after it, the relation between excess mass, phase-separated domains and traffic jams must be proved. This reconstructs the mechanism behind a criterion, not a universal necessary-and-sufficient theorem.
+
+\paragraph{Verification and adversarial audit.}
+Checked logarithmic product asymptotics, summable errors and borderline b=1,2; did not infer condensation merely from a finite mean. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked logarithmic product asymptotics, summable errors and borderline b=1,2; did not infer condensation merely from a finite mean. Retained unresolved status and zero original-target progress; The domain-process reduction and canonical macroscopic-condensation argument for the original driven models are missing.
+
+Coordinator checked the logarithmic weight asymptotic and both convergence thresholds, including the endpoint divergences. The surrogate-to-source reduction remains unproved. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. The domain-process reduction and canonical macroscopic-condensation argument for the original driven models are missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. The domain-process reduction and canonical macroscopic-condensation argument for the original driven models are missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30000775:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30000775 (OWR-1544-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30000775:2}{S2}] Phase Transitions (2007), Oberwolfach Reports, DOI 10.4171/owr/2007/28, pp. 1575--1650; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2007/28}.
+\item[\hypertarget{source:30000775:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 46--47, printed pages 1620--1621.
+\url{https://ems.press/content/serial-article-files/46114}.
+\item[\hypertarget{source:30000775:4}{S4}] Ergodic theory of traffic jams; reference in the saved dated catalogue literature review.
+\url{https://doi.org/10.1023/A:1012202706850}.
+\end{itemize}
+\label{end:30000775}
+\end{document}

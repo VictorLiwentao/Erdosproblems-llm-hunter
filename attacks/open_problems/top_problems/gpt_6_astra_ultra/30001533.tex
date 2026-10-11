@@ -1,0 +1,95 @@
+% TOP_PROBLEM: {"id": 30001533, "title": "Errors in Long Equatorial Wave Models", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The governing approximation, comparison solutions, and wave-scale regime must be inherited from the report. A universal error estimate for every equatorial-wave model is not supplied; the question is to identify missing dynamics and possible extensions across scales."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001533", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Explain and reduce the long-equatorial-wave errors in the report's otherwise globally valid wave model.", "scope": "Computes an exact short-wave dispersion error and a denominator repair in a specified quasigeostrophic test equation.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked plane-wave signs, geometric-series convergence, exact relative error and k=0; did not identify the test equation with the source model. Model self-audit only; no independent human proof checking. Coordinator checked the dispersion expansion, exact relative-error formula and all zero-frequency cases, including the undefined constant-mode short-wave approximation. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked plane-wave signs, geometric-series convergence, exact relative error and k=0; did not identify the test equation with the source model. Retained unresolved status and zero original-target progress; The actual equatorial model has not been matched to a uniform long-wave approximation with controlled error."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001533; source catalogue code OWR-4415-006
+\setcounter{section}{30001532}
+\section{Errors in Long Equatorial Wave Models}\label{30001533}
+{\small UnsolvedMath ID 30001533 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} Equatorial wave dynamics are affected by the variation and vanishing of the Coriolis parameter near the equator. Long-wave and short-wave asymptotic models retain different balances. The source discusses a global short-wave theory whose longest equatorial waves have significant errors, and possible missing ingredients from equatorial long-wave theory. Errors mean the discrepancies in that model comparison, not an unspecified error in all equatorial-wave observations.
+
+\paragraph{Source scope and qualifications.} The governing approximation, comparison solutions, and wave-scale regime must be inherited from the report. A universal error estimate for every equatorial-wave model is not supplied; the question is to identify missing dynamics and possible extensions across scales.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+How can the significant errors in the longest equatorial waves be explained or reduced?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The extracted question concerns unexplained long equatorial wave errors; later observational and modeling work still documents unresolved equatorial wave representation errors, without resolving this specific issue. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Explain and reduce the long-equatorial-wave errors in the report's otherwise globally valid wave model.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Computes an exact short-wave dispersion error and a denominator repair in a specified quasigeostrophic test equation.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A long-wave failure visible in a dispersion relation.} In a constant-coefficient quasigeostrophic test model the linear equation $\partial_t(\Delta\psi-L_D^{-2}\psi)+\beta\partial_x\psi=0$ has plane-wave frequency
+\[
+ \omega(k,l)=-\frac{\beta k}{k^2+l^2+L_D^{-2}},
+\]
+obtained by substituting $e^{i(kx+ly-\omega t)}$. Put $K^2=k^2+l^2$ and $a=L_D^{-2}>0$. The short-wave expansion is $\omega=-(\beta k/K^2)\sum_{n\geq0}(-a/K^2)^n$, which converges only when $K^2>a$.
+
+\paragraph{Quantifying the leading error.} With $\omega_0=-\beta k/K^2$ and $\beta k\ne0$, the relative frequency error is exactly $|\omega_0-\omega|/|\omega|=a/K^2$. It becomes large for the longest waves. Retaining $a$ in the denominator is a simple uniform repair for this test equation; it recovers the finite long-wave form $\omega\sim-\beta k/a$. At $\beta k=0$ with $K>0$, both frequencies vanish, so relative error is undefined and one must use absolute error. At $K=0$, the exact frequency is zero but the short-wave expression itself is undefined.
+
+\paragraph{Source limitation.} This is not the report's global short-wave equatorial model, and the constant-coefficient approximation omits equatorial trapping and meridional mode structure. It therefore diagnoses a generic nonuniform denominator expansion rather than explaining the source discrepancy. The first gap is locating the corresponding discarded balance in the actual model and deriving a matched approximation with a norm and wavelength range. Its longest-wave errors remain unresolved by the illustrative calculation.
+
+\paragraph{Verification and adversarial audit.}
+Checked plane-wave signs, geometric-series convergence, exact relative error and k=0; did not identify the test equation with the source model. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked plane-wave signs, geometric-series convergence, exact relative error and k=0; did not identify the test equation with the source model. Retained unresolved status and zero original-target progress; The actual equatorial model has not been matched to a uniform long-wave approximation with controlled error.
+
+Coordinator checked the dispersion expansion, exact relative-error formula and all zero-frequency cases, including the undefined constant-mode short-wave approximation. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. The actual equatorial model has not been matched to a uniform long-wave approximation with controlled error.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. The actual equatorial model has not been matched to a uniform long-wave approximation with controlled error.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001533:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001533 (OWR-4415-006). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001533:2}{S2}] Mathematical Theory and Modelling in Atmosphere-Ocean-Science (2010), Oberwolfach Reports, DOI 10.4171/owr/2010/34, pp. 2027--2099; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2010/34}.
+\item[\hypertarget{source:30001533:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 39--40, printed pages 2065--2066.
+\url{https://ems.press/content/serial-article-files/46292}.
+\item[\hypertarget{source:30001533:4}{S4}] equatorial-wave modeling study; reference in the saved dated catalogue literature review.
+\url{https://acp.copernicus.org/articles/22/15379/2022/}.
+\end{itemize}
+\label{end:30001533}
+\end{document}

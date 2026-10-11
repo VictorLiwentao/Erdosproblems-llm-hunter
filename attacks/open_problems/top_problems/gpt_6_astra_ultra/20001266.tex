@@ -1,0 +1,154 @@
+% RESEARCH_DRAFT_SHA256: 5185c5d86e1192da786c99bd4e8d886b85444954df682b401e8983f7efb7ce1b
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001266, "title": "Fields, orbits, and explicit torsion points", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001266", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 16. How can you compute with points as in Edixhoven's talk? In that application, you can avoid writing down explicit `-torsion points (only the fields of definition), but can you write them down for other transformation? (Edixhoven)", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Supplied Frobenius matrices yield orbit counts, but neither a characteristic polynomial nor unlabelled fields supply the missing geometric point arithmetic; no sufficient compact implementation is constructed.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Explicit torsion points: information retained and lost by fields of definition}
+\noindent UnsolvedMath ID 20001266; AIM-COMPUTATION-0104. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+An $\ell$-torsion point on an abelian variety is a point $P$ with $\ell P=0$. Its field of definition contains coordinates for $P$, whereas a defining extension can sometimes be represented without writing every coordinate. Explicit point arithmetic also requires a curve or abelian-variety model and a representation for its elements.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The extraction loses the torsion glyph and does not identify the points, talk construction, or other transformation. The torsion definition gives context only; the missing computational task is not reconstructed. The supplied catalogue marks this record partially solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+Question 16. How can you compute with points as in Edixhoven's talk? In that application, you can avoid writing down explicit `-torsion points (only the fields of definition), but can you write them down for other transformation? (Edixhoven) \href{https://aimath.org/WWN/primesinp/primesinp.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The source asks about explicit computation with points mentioned in a workshop talk.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001266 (AIM-COMPUTATION-0104). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-COMPUTATION-0104.
+\url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 16. How can you compute with points as in Edixhoven's talk? In that application, you can avoid writing down explicit `-torsion points (only the fields of definition), but can you write them down for other transformation? (Edixhoven)
+
+\section{A proposed compression and a recoverable invariant}
+Question 16 asks how to deal explicitly with points appearing in
+Edixhoven's method and whether one can work just with their fields
+of definition, especially where arithmetic is harder. We test that
+replacement directly. The calculations below show which orbit data
+a supplied Frobenius action determines, and why bare fields do not
+determine point arithmetic. They do not construct Edixhoven's required
+geometric representation.
+
+\paragraph{Orbit counts from a supplied Frobenius matrix.}
+Suppose the relevant point group is supplied as
+$V=\mathbb F_\ell^n$ with an invertible Frobenius matrix $F$.
+Then
+\[
+A_d=|\ker(F^d-I)|=\ell^{\dim\ker(F^d-I)}
+\]
+counts points fixed by the $d$th iterate, by the elementary coordinate
+count in a vector space. If $E_d$ denotes the number of vectors
+of exact period $d$, every vector fixed by $F^d$ has a unique
+minimal period dividing $d$. Indeed division of $d$ by a minimal
+period leaves a smaller fixing remainder, so the remainder is zero.
+Thus $A_d=\sum_{e\mid d}E_e$, and recursively
+\[
+E_d=A_d-\sum_{\substack{e\mid d\\e<d}}E_e.
+\]
+There are $E_d/d$ orbits of length $d$, since those disjoint orbits
+each contain exactly $d$ vectors. This computes field-degree counts
+when the supplied matrix really represents geometric Frobenius: an
+algebraic point has coordinates in $\mathbb F_{q^d}$ precisely when
+all coordinates are fixed by the $q^d$-power map, since that field
+is exactly the root set of $X^{q^d}-X$.
+
+\paragraph{A characteristic polynomial loses even this information.}
+Over $\mathbb F_\ell$ compare $I_2$ with
+$J=\left(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\right)$.
+Both characteristic polynomials are $(T-1)^2$. Writing $J=I+N$
+with $N^2=0$ gives $J^d=I+dN$, by induction or the binomial
+formula. The identity fixes all $\ell^2$ vectors. The matrix $J$
+fixes exactly $\ell$ vectors unless $\ell\mid d$, and fixes all
+vectors when $\ell\mid d$. Hence $J$ has $\ell$ orbits of
+length one and $(\ell^2-\ell)/\ell=\ell-1$ orbits of length
+$\ell$, whereas the identity has only singleton orbits. This is
+an abstract linear-algebra counterexample to recovering orbit data
+from a characteristic polynomial without further hypotheses; no
+claim is made that these two matrices realize a particular geometric
+family in the source.
+
+\paragraph{Even exact fields cannot specify point addition.}
+For an actual elliptic-curve example over $\mathbb Q$, take
+$E:y^2=x^3+1$ and $P=(0,1)$. It is nonsingular: an affine
+singularity would have $2y=3x^2=0$ and violate the equation;
+at the unique point at infinity the partial derivative with respect
+to $Z$ of $Y^2Z-X^3-Z^3$ is $Y^2\ne0$.
+The tangent slope at $P$ is $3x^2/(2y)=0$.
+The chord-and-tangent group law therefore gives
+$2P=(0,-1)=-P$, since its formulas are
+$x(2P)=\lambda^2-2x(P)$ and
+$y(2P)=\lambda(x(P)-x(2P))-y(P)$.
+Equivalently the line $y=1$ meets the cubic at $P$ three times,
+and reflection gives the same doubling. Thus $P$ has order three.
+Both $P$ and $-P$ have the identical field of definition $\mathbb Q$.
+The ordered input pairs $(P,P)$ and $(P,-P)$ consequently give
+the same pair of bare fields, but their sums are $-P$ and the
+point at infinity respectively. Those are distinct. Any procedure
+depending only on that pair of fields must give the same output
+for both pairs, so cannot recover both correct sums.
+
+This refutes only replacing points by unlabelled fields alone.
+A field equipped with a chosen coordinate tuple, embedding or other
+point label is richer data and escapes the counterexample. The source
+may contemplate just such additional structure; the present argument
+does not rule that out or rule out an invariant-specific computation
+that never needs arbitrary addition.
+
+\section{Audit and missing step}
+The primary Question 16 and its reference to higher cohomology were
+inspected. The audit avoids assuming that a characteristic polynomial
+determines a matrix, or that abstract orbit counts construct geometric
+points. The elliptic example is exact hand algebra. No torsion-field
+construction or point-count computation was implemented. The unresolved
+step is a compact, sufficient representation with algorithms for the
+particular arithmetic and correspondence operations in Edixhoven's
+method, including its proposed higher-dimensional extension.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Supplied Frobenius matrices yield orbit counts, but neither a characteristic polynomial nor unlabelled fields supply the missing geometric point arithmetic; no sufficient compact implementation is constructed.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Future directions in algorithmic number theory, workshop 24--28 March 2003, report version 30 April 2003; original question, relevant lecture context and adjoining remarks inspected on 11 October 2026. \url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Supplied Frobenius matrices yield orbit counts, but neither a characteristic polynomial nor unlabelled fields supply the missing geometric point arithmetic; no sufficient compact implementation is constructed.
+\end{document}

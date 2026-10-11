@@ -1,0 +1,92 @@
+% TOP_PROBLEM: {"id": 30002077, "title": "Nonlinear Stability of Subextremal Kerr Black Holes", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The catalogue does not specify the perturbation norm, gauge or convergence topology. Those are parts of the stability formulation in the cited report; the target is the full subextremal family, rather than a silently restricted small-rotation theorem."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002077", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Do all sufficiently small perturbations of a nonextremal rotating vacuum black hole settle to another Kerr black hole?", "scope": "Identifies stationary Kerr-parameter and diffeomorphism modes explicitly, showing why decay must be formulated modulo gauge and final parameters.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked derivatives of the exact vacuum family, Schwarzschild mass component and covariance-generated gauge modes; retained final-parameter freedom. Model self-audit only; no independent human proof checking. Coordinator checked the Ricci parameter derivatives and diffeomorphism-covariance gauge derivatives, with global coordinate and decay claims excluded. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked derivatives of the exact vacuum family, Schwarzschild mass component and covariance-generated gauge modes; retained final-parameter freedom. Retained unresolved status and zero original-target progress; No nonlinear global radiative estimate after gauge/parameter modulation is established for the full subextremal range."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30002077; source catalogue code OWR-11788-003
+\setcounter{section}{30002076}
+\section{Nonlinear Stability of Subextremal Kerr Black Holes}\label{30002077}
+{\small UnsolvedMath ID 30002077 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+The vacuum Einstein equations are $\operatorname{Ric}(g)=0$ for a Lorentzian spacetime metric $g$. Kerr solutions are the stationary rotating black-hole family with mass $M>0$ and rotation parameter $a$; subextremality means $|a|<M$. Initial data consist of a Riemannian metric and second fundamental form satisfying the vacuum constraint equations. Nonlinear stability concerns the maximal evolution of perturbed data, including its exterior geometry and late-time convergence, with final Kerr parameters allowed to differ from the initial parameters.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Black-hole stability conjecture: do sufficiently small perturbations of sub-extremal Kerr initial data for the vacuum Einstein equations evolve toward a nearby Kerr black hole?
+
+\paragraph{Source scope and qualification.}
+The catalogue does not specify the perturbation norm, gauge or convergence topology. Those are parts of the stability formulation in the cited report; the target is the full subextremal family, rather than a silently restricted small-rotation theorem.
+\subsection{Short English statement}
+Do all sufficiently small perturbations of a nonextremal rotating vacuum black hole settle to another Kerr black hole?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Identifies stationary Kerr-parameter and diffeomorphism modes explicitly, showing why decay must be formulated modulo gauge and final parameters.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Stationary parameter modes must be removed before decay.} Let $g(M,a)$ be the Kerr metric in a smooth common coordinate region, with $|a|<M$. Since $\operatorname{Ric}(g(M,a))=0$, differentiating the identity gives
+\[
+ D\operatorname{Ric}_{g}(\partial_Mg)=0,\qquad
+ D\operatorname{Ric}_{g}(\partial_ag)=0.
+\]
+These are solutions of the linearized vacuum equation and are stationary in stationary coordinates. They cannot decay to zero in any norm that detects the changed parameters. Already at $a=0$, the asymptotic component $g_{tt}=-1+2M/r$ has $\partial_Mg_{tt}=2/r$, which is time independent and nonzero.
+
+\paragraph{Gauge modes add another kernel.} For a differentiable family of diffeomorphisms $\Phi_s$ with generator $X$, covariance gives $\operatorname{Ric}(\Phi_s^*g)=0$. Differentiation yields $D\operatorname{Ric}_g(\mathcal L_Xg)=0$. Thus a naive coercive estimate on every metric perturbation is obstructed both by genuine parameter changes and by pure coordinate changes. The two should not be identified: the mass change has an asymptotic charge interpretation, whereas the allowed gauge changes depend on boundary conventions.
+
+\paragraph{What a nonlinear proof still needs.} One must choose gauge and final parameters and estimate the remaining radiative part; the source explicitly permits convergence to a nearby Kerr member. The calculation does not construct those modulation parameters dynamically or prove global existence, exterior control or decay for the full subextremal range. The first gap is a nonlinear estimate after accounting for these kernels, in a precisely specified perturbation and convergence topology. No small-rotation result is substituted for all $|a|<M$.
+
+\paragraph{Verification and adversarial audit.}
+Checked derivatives of the exact vacuum family, Schwarzschild mass component and covariance-generated gauge modes; retained final-parameter freedom. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked derivatives of the exact vacuum family, Schwarzschild mass component and covariance-generated gauge modes; retained final-parameter freedom. Retained unresolved status and zero original-target progress; No nonlinear global radiative estimate after gauge/parameter modulation is established for the full subextremal range.
+
+Coordinator checked the Ricci parameter derivatives and diffeomorphism-covariance gauge derivatives, with global coordinate and decay claims excluded. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. No nonlinear global radiative estimate after gauge/parameter modulation is established for the full subextremal range.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. No nonlinear global radiative estimate after gauge/parameter modulation is established for the full subextremal range.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30002077:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30002077 (OWR-11788-003). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30002077:2}{S2}] Nonlinear Evolution Problems (2012), Oberwolfach Reports, DOI 10.4171/owr/2012/26, pp. 1563--1637. Primary report accessed 2026-10-11; relevant PDF pages 11, 12.
+\url{https://doi.org/10.4171/owr/2012/26}.
+\end{itemize}
+\label{end:30002077}
+\end{document}

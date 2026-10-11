@@ -1,0 +1,153 @@
+% RESEARCH_DRAFT_SHA256: 1be8dbe8f441eb366b531582a0ef181914a5e27b3f38ad1b59af36023821a25b
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 2801003, "title": "10 Lectures and 42 Open Problems — Tightness of the Multireference Alignment SDP", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "2801003", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "10 Lectures and 42 Open Problems — Tightness of the Multireference Alignment SDP; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A pairwise certificate and its sample-size bottleneck; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch003 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 2801003; source catalogue code AMR-027-1003
+\section{10 Lectures and 42 Open Problems — Tightness of the Multireference Alignment SDP}\label{2801003}
+{\small UnsolvedMath ID 2801003 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$, and $\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$ denote the integers, rationals, reals and complex numbers. Any other conventions are specified locally.
+
+
+Let $L,N\ge1$, and write $\mathbb Z_L=\mathbb Z/L\mathbb Z$. For $a\in\mathbb Z_L$, $R_a$ cyclically shifts the coordinates of $\mathbb R^L$. Observe $y_i=R_{\ell_i}x+\xi_i$, $1\le i\le N$, where $x\in\mathbb R^L$ and the shifts $\ell_i\in\mathbb Z_L$ are unknown and the $\xi_i$ are independent $\mathcal N(0,\sigma^2 I_L)$ random vectors. No prior distribution on the shifts is imposed. Define $C_{ia,jb}=\langle R_{-a}y_i,R_{-b}y_j\rangle$ for $a,b\in\mathbb Z_L$. The maximum-likelihood alignment objective is $\max_{a_1,\ldots,a_N}\sum_{i,j}C_{ia_i,ja_j}$. Its semidefinite relaxation maximizes $\operatorname{tr}(CV)$ over real symmetric $NL\times NL$ matrices satisfying \[V\succeq0,\quad V_{ia,jb}\ge0,\quad V_{ia,ib}=0\ (a\ne b),\quad \sum_{a,b\in\mathbb Z_L}V_{ia,jb}=1\ (i,j\in[N]).\] A shift assignment gives a feasible matrix $u u^\mathsf T$, where $u_{ia}=\mathbf1_{\{a=a_i\}}$; averaging its $L$ global cyclic translates is also feasible with the same objective. Tightness means that the optimal relaxed value equals the discrete alignment value, equivalently an optimal integral matrix exists. It does not mean the noisy maximum-likelihood shifts equal the true shifts.
+\paragraph{Statement recorded in the supplied source.}
+Determine the noise levels $\sigma$ for which this multireference-alignment semidefinite relaxation is tight, including its dependence on the number of observations, dimension and underlying signal. In probabilistic asymptotic regimes, determine when tightness occurs with probability tending to one. \href{https://arxiv.org/pdf/1308.5256}{[S2]}
+\subsection{Short English statement}
+Determine when the multireference-alignment SDP exactly optimizes the discrete alignment objective, despite the noise.
+\subsection{Sources}
+\begin{description}
+\item[S1] ULAM.AI and the UnsolvedMath Contributors, \emph{UnsolvedMath: A Curated Collection of Open Mathematics Problems}, record 2801003 (AMR-027-1003). CC BY 4.0. \url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] A. S. Bandeira, M. Charikar, A. Singer and A. Zhu, Multireference Alignment using Semidefinite Programming (2013), Sections 1--3, equations (1), (6)--(8), and Section 6, pp.2,4--6 and11. \url{https://arxiv.org/pdf/1308.5256}.
+\end{description}
+\label{end:2801003}
+
+\section{Literature and context check}
+The original Bandeira--Charikar--Singer--Zhu paper was consulted, including
+the observation model and SDP formulation. It treats dependent pairwise noise and
+gives high-signal stability results. The argument below is an elementary
+all-pairs sufficient condition, not a claimed improvement of that literature.
+\section{Research attempt: A pairwise certificate and its sample-size bottleneck}
+Write $r=\|x\|$ and suppose initially that no nonzero cyclic shift fixes $x$.
+Define
+\[
+ \gamma=\min_{k\ne0}\{r^2-\langle x,R_kx\rangle\}>0.
+\]
+The positivity follows from
+$r^2-\langle x,R_kx\rangle=\tfrac12\|x-R_kx\|^2$ and finiteness of the shifts.
+Undo the true shifts, giving observations $x+e_i$. Suppose
+$\|e_i\|\le\eta$ for every $i$. For $i\ne j$ and $k\ne0$, expansion and
+Cauchy--Schwarz give
+\[
+ \langle x+e_i,x+e_j\rangle-
+ \langle x+e_i,R_k(x+e_j)\rangle
+ \ge\gamma-4r\eta-2\eta^2.
+\]
+There are two mixed terms bounded by $2r\eta$ each, and the difference of
+noise--noise terms is bounded by $2\eta^2$. If this lower bound is positive,
+each cross block $C_{ia,jb}$ is maximized by the consistent true relative shift.
+Every feasible SDP block consists of nonnegative weights with total one, so its
+contribution is at most that block maximum. The within-observation block
+contributes exactly $\|y_i\|^2$: its off-diagonal entries vanish and its diagonal
+weights sum to one. The integral true-shift assignment attains all these bounds
+simultaneously. This proves equality of the SDP and discrete values under this
+deterministic condition without using its positive-semidefinite constraint.
+
+For comparison with a probability statement, $E\|e_i\|^2=L\sigma^2$.
+Markov's inequality and a union bound imply
+\[
+ \Pr\{\max_i\|e_i\|>\eta\}\le NL\sigma^2/\eta^2.
+\]
+Thus, for $0<\delta<1$, taking $\eta=\sigma\sqrt{NL/\delta}$ gives a proved,
+very weak sufficient high-probability regime whenever
+$\gamma>4r\eta+2\eta^2$. Markov here follows by
+$E Z\ge a\Pr(Z\ge a)$ for nonnegative $Z$; the union bound just sums indicators.
+
+The route fundamentally demands the correctness of every pairwise comparison.
+For $L=2$, set $x=(a,-a)$ with $a>0$ and write the contrast coefficient of
+$y_i$ as $d_i=a+\zeta_i$, where $\zeta_i$ is a nondegenerate centered Gaussian
+when $\sigma>0$. The difference between the aligned and swapped inner products
+is $4d_id_j$. Let $q=\Pr(d_i>0)$, so $0<q<1$. All pairs prefer the true
+relative orientation precisely when all $d_i$ have the same sign, an event of
+probability $q^N+(1-q)^N$ for $N\ge2$. This tends to zero at fixed noise.
+Thus this all-pairs proof cannot exploit arbitrarily many samples at fixed
+positive noise, even in the simplest nontrivial signal length.
+
+This is failure of the certificate, not of SDP tightness. In fact for any $N$
+and $L=2$, after writing each observation as $(m_i+d_i,m_i-d_i)$, all pairwise
+maxima are simultaneously attained by choosing its swap so that the resulting
+contrast is $|d_i|$. The same blockwise upper bound proves tightness for all such
+data. For $N=2$ and arbitrary $L$, one can also attain the single cross-block
+maximum, proving tightness at every noise value. These elementary edge cases
+show why failure of exact recovery must not be equated with failure of tightness.
+\section{Verification and adversarial audit}
+The three perturbation terms and their constants were checked separately.
+The $L=2$ contrast formula verifies an explicit obstruction to using uniform
+pairwise truth recovery as a large-sample tightness argument. The $N=1$ case is
+constant objective, and $L=1$ has only one assignment. Periodic signals have
+$\gamma=0$, so the positive-margin argument is deliberately not applied to them.
+\paragraph{Audit corrections.} Tightness was kept separate from recovery of the planted shifts. Zero-margin periodic signals and the constant-objective cases were excluded from the margin claim and handled separately.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+No necessary noise condition or sharp $N,L,x$ dependence is obtained. The
+next missing ingredient is a global certificate that tolerates inconsistent noisy
+pairwise maximizers. The finite-dimensional $L=2$ and $N\le2$ calculations and
+the small-noise sufficient bound are not presented as new original-target progress.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://arxiv.org/pdf/1308.5256} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved. This is a research attempt with an explicit failed route or restricted
+calculation, not a full solution, not a current-status certification, and not a claim
+that the elementary material is new. The catalogue's original source-status label
+is preserved independently of this attempt status.
+\end{document}

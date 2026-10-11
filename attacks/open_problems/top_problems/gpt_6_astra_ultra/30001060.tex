@@ -1,0 +1,160 @@
+% RESEARCH_DRAFT_SHA256: e606258ad642ed6e87c0977373c18cc205c75b91eb0b436eafdb64b007ada1a0
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30001060, "title": "Decidability of Simplicial-Complex Embeddability", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001060", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "For fixed integers $k\\leq d$, is there an algorithm that decides whether the polyhedron of a given finite simplicial complex $K$ of dimension at most $k$ admits a piecewise-linear embedding into $\\mathbb R^d$?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The known high-ambient-dimension and graph-to-line regimes are proved, but no complete classification of fixed dimension pairs or terminating general PL decision procedure is obtained.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{PL embeddability attempt: explicit safe dimensions and the subdivision gap}
+\noindent UnsolvedMath ID 30001060; OWR-2090-010. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A polyhedron is an intersection of finitely many closed affine half-spaces; a polytope is a bounded polyhedron. Its faces are its intersections with supporting hyperplanes.
+
+A finite simplicial complex is a finite family of vertex subsets closed under taking subsets. Its dimension is one less than its largest simplex size. A piecewise-linear embedding is an injective map linear on simplices after finite subdivisions.
+
+A continuous piecewise-linear function is continuous and agrees with an affine function on each member of a finite polyhedral partition. A difference-of-convex decomposition writes it as $g-h$ with both $g$ and $h$ convex.
+\paragraph{Statement recorded in the supplied source.}
+For fixed integers $k\leq d$, is there an algorithm that decides whether the polyhedron of a given finite simplicial complex $K$ of dimension at most $k$ admits a piecewise-linear embedding into $\mathbb R^d$? \href{https://doi.org/10.4171/owr/2008/44}{[S2]}
+\paragraph{Scope qualification.}
+The target is a classification over fixed dimension pairs, not a blanket claim that one algorithm must work uniformly in all dimensions.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Determine decidability of piecewise-linear embedding for all the stated source and ambient dimensions.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30001060 (OWR-2090-010). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Discrete Geometry (2009), Oberwolfach Reports, DOI 10.4171/owr/2008/44, pp. 2477--2556
+\url{https://doi.org/10.4171/owr/2008/44}.
+\item[S3] Matousek--Tancer--Wagner
+\url{https://arxiv.org/abs/0807.0336}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+For fixed integers $k\leq d$, is there an algorithm that decides whether the polyhedron of a given finite simplicial complex $K$ of dimension at most $k$ admits a piecewise-linear embedding into $\mathbb R^d$?
+
+\section{Attempt and known regimes rederived}
+The target concerns embeddings after arbitrary finite subdivisions. A coordinate
+search on the given vertices alone tests a stronger property. We first give
+two elementary decidable regimes, then formulate exactly where this tempting
+finite-coordinate route stops.
+
+\paragraph{Explicit linear embedding into $\mathbb R^{2k+1}$.}
+For a complex of dimension at most $k$ with $v$ vertices, assign distinct
+integers $t=1,\ldots,v$ and place its vertices at
+$p(t)=(t,t^2,\ldots,t^{2k+1})$. Every set of at most $2k+2$ such points
+is affinely independent. Indeed the first $r$ columns of their augmented
+coordinate matrix $(1,t,\ldots,t^{2k+1})$ have Vandermonde determinant
+$\prod_{i<j}(t_j-t_i)\ne0$ for $r$ rows. This determinant formula follows
+because the determinant, an alternating polynomial of total degree
+$r(r-1)/2$, is divisible by every $t_j-t_i$; comparison of the coefficient
+of $t_2t_3^2\cdots t_r^{r-1}$ gives multiplicative constant one.
+For any two simplices $\sigma,\tau$, their union has at most $2k+2$
+vertices. Uniqueness of affine coordinates on this independent set shows
+that a point in both convex hulls has zero weights outside the intersection,
+so the hulls intersect exactly in the common face. Each simplex is nondegenerate.
+Linear extension on simplices is therefore continuous and injective.
+A continuous injective map from compact $|K|$ to a Hausdorff space is an
+embedding: images of closed subsets are compact and hence closed, so its
+inverse on the image is continuous. This proves the claim. Append zero
+coordinates for larger $d$.
+For fixed $k$, the integer coordinates have $O(k\log(v+1))$ bits, giving
+an explicit polynomial-size construction. This is the known general-position
+regime stated in the report, not a new extension of it.
+
+\paragraph{Complete graph-to-line criterion.}
+A finite one-dimensional simplicial complex embeds in $\mathbb R$ exactly
+when every connected component is a path or an isolated vertex. Necessity:
+a vertex cannot have three incident edges, since three small incident arcs
+on a line must place two on the same side, where continuity makes their
+images overlap in an interval beyond the vertex. More explicitly, the image
+of each incident interval contains every point between the vertex image
+and a nearby distinct image point, so two such intervals cannot be disjoint
+away from the vertex. A cycle also cannot embed: its compact connected image
+would be a closed interval; remove the preimage of an interior point. The
+cycle minus that point is connected, whereas the interval minus it is not,
+contradicting the embedding homeomorphism. A finite graph of maximum degree
+two without cycles has only path/isolated components: following successive
+neighbors cannot branch or revisit a vertex and therefore exhausts a path
+component. Conversely place each path in a separate interval with vertices
+in path order and edges straight; place isolated vertices separately.
+Degrees, cycle detection and component traversal give a finite decision method.
+For zero-dimensional complexes in $\mathbb R^0$, at most one vertex is
+allowed; in positive-dimensional Euclidean space all finite vertex sets embed.
+
+\paragraph{The finite-coordinate proposal and its exact obstruction.}
+For a specified finite complex $L$, use variables $p_v\in\mathbb R^d$.
+For each pair of faces $\sigma,\tau$, quantify nonnegative barycentric
+weights summing to one on each. Require that
+\[
+\sum_{v\in\sigma}\alpha_vp_v=\sum_{v\in\tau}\beta_vp_v
+\quad\Longrightarrow\quad
+\alpha_v=\beta_v\ \text{for all }v\in\sigma\cup\tau,
+\]
+where a weight outside its face is zero. Include pairs with $\sigma=\tau$
+to enforce simplex injectivity. A coordinate assignment satisfies these
+conditions exactly when its simplexwise linear map is injective, by the
+uniqueness condition for the two represented domain points. Thus this is a
+finite first-order formula over the reals for linear embeddability of $L$.
+A decision procedure for real closed fields would decide that finite formula;
+that general decision theorem is an external standard dependency, not proved
+by the displayed encoding.
+Putting $L=K$ cannot decide the stated PL problem: a PL map is allowed
+new vertices in a subdivision, and the number of these variables is not
+bounded by this formula. Even testing successively larger admissible
+subdivisions would need a proven terminating bound or a separate certificate
+for NO instances before becoming a decision algorithm. None is supplied.
+The source itself distinguishes these notions and reports PL-versus-linear
+examples, so treating the original-vertex test as equivalent would erase
+an essential hypothesis rather than solve the question.
+
+\section{Adversarial audit and remaining scope}
+The audit checked pairs of faces that share vertices, compactness needed for
+the embedding conclusion, and the distinction between a finite algebraic
+feasibility problem and unbounded subdivision search. The report's deeper
+undecidability and hardness results were inspected as historical context,
+not reproved here or used to claim a complete dimension-pair classification.
+No experiment was performed. All other required regimes remain outside the
+proved elementary cases, which are known material and receive no new progress credit.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The known high-ambient-dimension and graph-to-line regimes are proved, but no complete classification of fixed dimension pairs or terminating general PL decision procedure is obtained.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 44/2008: Wagner on PL embeddability, printed pp.2505--2507; Rote/Zikan least-squares rotation questions, pp.2546--2547. Item-specific primary passages read on 11 October 2026; publisher landing page also checked. \url{https://ems.press/content/serial-article-files/46191}.
+\item Matoušek--Tancer--Wagner primary abstract page inspected as an original-paper pointer; deeper results used only as report context, not claimed proved here. \url{https://arxiv.org/abs/0807.0336}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The known high-ambient-dimension and graph-to-line regimes are proved, but no complete classification of fixed dimension pairs or terminating general PL decision procedure is obtained.
+\end{document}

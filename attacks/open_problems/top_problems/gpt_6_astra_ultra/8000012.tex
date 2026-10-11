@@ -1,0 +1,85 @@
+% TOP_PROBLEM: {"id": 8000012, "title": "Perturbation theory for infinite dimensional integrable systems", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The catalogue extract has incomplete sentences and a cut-off ending. The target is reconstructed from the complete primary Problem 12, retaining the focusing multi-soliton, Toda, sine-Gordon and periodic questions. The source’s defocusing progress and periodic KAM discussion are historical context, not fresh verification of integrability or settlement."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "8000012", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Develop perturbation theory for infinite-dimensional integrable systems, including focusing NLS and multi-soliton behavior.", "scope": "Proved a conditional finite-time L2 stability estimate for a quintic-perturbed focusing NLS. Long-time multi-soliton, Toda, sine-Gordon and periodic finite-gap questions remain unresolved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked cubic Lipschitz constant, quintic forcing norm, zero-norm regularization, M=0, conditional smoothness and every restored bundled question. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the cubic Lipschitz constant, positive-parameter forcing bound and finite-time Gronwall estimate. The source includes small positive epsilon; long-time modulation control remains open in this attempt. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked cubic Lipschitz constant, quintic forcing norm, zero-norm regularization, M=0, conditional smoothness and every restored bundled question. Scope remains limited: Obtain modulation and dispersive estimates that control perturbative accumulation uniformly on long times near multiple solitons."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 8000012; source catalogue code AMR-079-0012
+\setcounter{section}{8000011}
+\section{Perturbation theory for infinite dimensional integrable systems}\label{8000012}
+{\small UnsolvedMath ID 8000012 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}An integrable evolution admits a special algebraic or spectral description allowing exact solution; a perturbation changes its equation by a small parameter-dependent term. For nonlinear Schrödinger equations, scattering coordinates may be used to compare perturbed and unperturbed dynamics. Long-time persistence, soliton behavior and asymptotic stability are different mathematical targets.
+
+\paragraph{Catalogue wording retained for traceability.}
+Develop perturbation theory for infinite-dimensional integrable systems. For the NLS example retain initial data $u_0\in H^{1,1}=\{f\in L^2(\mathbb R):f',xf\in L^2(\mathbb R)\}$ and a perturbing function $V(r)\sim r^p$ as $r\to0$, with sufficiently large $p>2$ and small positive $\varepsilon$. Beyond the source's defocusing context $iu_t+u_{xx}-2|u|^2u-\varepsilon V(|u|)u=0$, analyze the focusing sign, particularly near a $k$-soliton with $k\ge2$, and obtain detailed long-time asymptotics. Investigate persistence of Toda shock and rarefaction phenomena when exponential forces are perturbed, and sine-Gordon perturbations motivated by the Fermi--Pasta--Ulam problem. Investigate related spatially periodic Hamiltonian perturbations and surviving finite-gap tori, where whole-line dispersive decay cannot be assumed.
+\paragraph{Scope and source qualification.}The catalogue extract has incomplete sentences and a cut-off ending. The target is reconstructed from the complete primary Problem 12, retaining the focusing multi-soliton, Toda, sine-Gordon and periodic questions. The source’s defocusing progress and periodic KAM discussion are historical context, not fresh verification of integrability or settlement.
+\subsection{Short English statement}
+Develop perturbation theory for infinite-dimensional integrable systems, including focusing NLS and multi-soliton behavior.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved a conditional finite-time L2 stability estimate for a quintic-perturbed focusing NLS. Long-time multi-soliton, Toda, sine-Gordon and periodic finite-gap questions remain unresolved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{A finite-time perturbation bound for the NLS component.}Restrict to smooth solutions on \([0,T]\) of the focusing cubic equation and its real quintic perturbation,
+\[iu_t+u_{xx}+2|u|^2u=0,\qquad iv_t+v_{xx}+2|v|^2v-\varepsilon|v|^4v=0,
+\]
+with common initial data. The quintic corresponds to the source's \(V(r)=r^4\), which is one admissible higher-power test, not the full perturbation class. Assume \(\|u(t)\|_\infty,\|v(t)\|_\infty\le M\) and \(\|v(t)\|_2\le K\). For \(w=v-u\), the skew-adjoint linear Schrödinger part drops out of the derivative of \(\|w\|_2\). The elementary pointwise inequality \(||v|^2v-|u|^2u|\le3M^2|v-u|\) gives
+\[\frac{d}{dt}\|w\|_2\le6M^2\|w\|_2+\varepsilon M^4K.
+\]
+The inequality at zero norm follows by regularizing the norm with a positive constant and taking its limit. Integrating yields \(\|w(t)\|_2\le\varepsilon M^4K(e^{6M^2t}-1)/(6M^2)\) for \(M>0\); if \(M=0\), both solutions vanish.
+\paragraph{Why it does not supply scattering asymptotics.}Even assuming the bounds remain uniform, this estimate grows exponentially with time and becomes useless on sufficiently long scales. A multi-soliton background has neutral position and phase directions, so persistent small forcing can accumulate into modulation even when a naive norm difference grows. The estimate neither removes those directions nor gives asymptotic soliton parameters.
+\paragraph{Full scope comparison.}The initial-data space \(H^{1,1}\) and the source's broader \(V(r)\sim r^p\) assumptions are not replaced by a claimed global theorem; the extra smoothness and a priori bounds are explicit. Focusing \(k\ge2\) soliton asymptotics, perturbed Toda shocks/rarefactions, sine-Gordon/Fermi--Pasta--Ulam questions and periodic finite-gap tori all remain. The first missing step for this route is a coercive modulation estimate with time-integrable forcing, rather than the displayed finite-time Gronwall factor.
+
+\paragraph{Verification and adversarial audit.}
+Checked cubic Lipschitz constant, quintic forcing norm, zero-norm regularization, M=0, conditional smoothness and every restored bundled question. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked cubic Lipschitz constant, quintic forcing norm, zero-norm regularization, M=0, conditional smoothness and every restored bundled question. Scope remains limited: Obtain modulation and dispersive estimates that control perturbative accumulation uniformly on long times near multiple solitons.
+
+Coordinator checked the cubic Lipschitz constant, positive-parameter forcing bound and finite-time Gronwall estimate. The source includes small positive epsilon; long-time modulation control remains open in this attempt. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Obtain modulation and dispersive estimates that control perturbative accumulation uniformly on long times near multiple solitons.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:8000012:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 8000012 (AMR-079-0012). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:8000012:2}{S2}] Percy Deift, Some open problems in random matrix theory and the theory of integrable systems (2007), arXiv:0712.0849, Problem 12.
+\url{https://arxiv.org/abs/0712.0849}.
+\end{itemize}
+\label{end:8000012}
+\end{document}

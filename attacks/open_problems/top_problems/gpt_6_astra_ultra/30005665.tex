@@ -1,0 +1,91 @@
+% TOP_PROBLEM: {"id": 30005665, "title": "Lee–Huang–Yang Upper Bound for Hard-Sphere Bosons", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The target is an upper bound with the displayed Lee--Huang--Yang coefficient, not an independent demand to reprove the matching lower bound. Related record 30006479 asks the same upper-bound question in a later report."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005665", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Prove the upper half of the predicted second-order dilute hard-sphere Bose-gas energy expansion.", "scope": "Computed the hard-sphere truncated scattering cost and demonstrated incompatible scales in a rare-overlap trial-state strategy.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the exact radial integral, b>a, relative rather than absolute error, and both dilute-limit inequalities; did not infer a no-go theorem for all trial states. Model self-audit only; no independent human mathematical verification. Coordinator checked the truncated scattering energy and incompatibility of the two stated dilute-error requirements. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked the exact radial integral, b>a, relative rather than absolute error, and both dilute-limit inequalities; did not infer a no-go theorem for all trial states. First remaining gap: Control many-body correlation overlap and normalization at Lee--Huang--Yang accuracy in an admissible hard-core trial state. The inherited source status is preserved; original-target completion remains zero."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30005665; source catalogue code OWR-14297742-005
+\setcounter{section}{30005664}
+\section{Lee–Huang–Yang Upper Bound for Hard-Sphere Bosons}\label{30005665}
+{\small UnsolvedMath ID 30005665 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+A hard-sphere Bose gas is described by symmetric wave functions vanishing whenever two particle centers are closer than the hard-core distance. Let $a$ be the scattering length and $\rho=N/L^3$ the density. Its thermodynamic energy density is $e(\rho)=\lim E_0(N,L)/L^3$ at fixed $\rho$, followed by the dilute limit $\rho a^3\to0$. Units are chosen so that the kinetic operator is $-\Delta$.
+
+\paragraph{Catalogue wording retained for traceability.}
+For a dilute hard-sphere Bose gas in the thermodynamic limit, prove the second-order upper bound matching the Lee–Huang–Yang expansion $e(\rho)=4\pi a\rho^2\bigl(1+128(\rho a^3)^{1/2}/(15\sqrt\pi)+o((\rho a^3)^{1/2})\bigr)$.
+
+\paragraph{Scope and source qualification.}The target is an upper bound with the displayed Lee--Huang--Yang coefficient, not an independent demand to reprove the matching lower bound. Related record 30006479 asks the same upper-bound question in a later report.
+\subsection{Short English statement}
+Prove the upper half of the predicted second-order dilute hard-sphere Bose-gas energy expansion.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Computed the hard-sphere truncated scattering cost and demonstrated incompatible scales in a rare-overlap trial-state strategy.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30005665. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{Truncated two-body scattering test.} For hard-core radius \(a>0\) and cutoff \(b>a\), consider the radial correlation
+\[
+ f_b(r)=0\ (r\leq a),\qquad
+ f_b(r)=\frac{1-a/r}{1-a/b}\ (a<r<b),\qquad f_b(r)=1\ (r\geq b).
+\]
+On the annulus its derivative is \(a/(r^2(1-a/b))\); consequently
+\[
+ \int_{\mathbb R^3}|\nabla f_b|^2
+ =\frac{4\pi a^2}{(1-a/b)^2}\int_a^b r^{-2}dr
+ =\frac{4\pi a}{1-a/b}.
+\]
+The relative truncation excess over \(4\pi a\) is \(a/(b-a)\).
+\paragraph{Testing a simple dilute-pair strategy.} Write \(\delta=\rho a^3\). A strategy that requires the truncation error to be \(o(\sqrt\delta)\) forces \(b/a\gg\delta^{-1/2}\). A strategy simultaneously treating the correlation balls as rarely overlapping requires \(\rho b^3=o(1)\), or \(b/a\ll\delta^{-1/3}\). The requirements are incompatible as \(\delta\to0\): the first already makes \(\rho b^3\gg\delta^{-1/2}\). This is a contradiction between the two proposed error controls, not a lower bound on all Jastrow trial states.
+\paragraph{Source gap.} The two-body integral alone is not a many-body upper bound; normalization, overlapping correlations and collective kinetic terms must be handled. To attain the specified Lee--Huang--Yang upper coefficient one needs a trial construction controlling those terms at relative order \(\sqrt\delta\), with the thermodynamic limit taken as in [S2]. No matching lower-bound claim is needed or supplied, and the inherited partially-solved source label is retained.
+
+\paragraph{Verification and adversarial audit.}
+Checked the exact radial integral, b>a, relative rather than absolute error, and both dilute-limit inequalities; did not infer a no-go theorem for all trial states. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked the exact radial integral, b>a, relative rather than absolute error, and both dilute-limit inequalities; did not infer a no-go theorem for all trial states. First remaining gap: Control many-body correlation overlap and normalization at Lee--Huang--Yang accuracy in an admissible hard-core trial state. The inherited source status is preserved; original-target completion remains zero.
+
+Coordinator checked the truncated scattering energy and incompatibility of the two stated dilute-error requirements. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Control many-body correlation overlap and normalization at Lee--Huang--Yang accuracy in an admissible hard-core trial state.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30005665:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30005665 (OWR-14297742-005). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30005665:2}{S2}] Many-Body Quantum Systems (2023), Oberwolfach Reports, DOI 10.4171/owr/2023/39, pp. 2247--2302. Original report and mathematical context.
+\url{https://doi.org/10.4171/owr/2023/39}.
+\end{itemize}
+\label{end:30005665}
+\end{document}

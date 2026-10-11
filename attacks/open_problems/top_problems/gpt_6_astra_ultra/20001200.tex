@@ -1,0 +1,165 @@
+% RESEARCH_DRAFT_SHA256: 355fa41f6380f01a79a90cd53f2449aaae249c0521a2db47cfc83d6e4f8a73cf
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001200, "title": "Behrens–Fisher likelihood equations and an equal-scatter bifurcation", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001200", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Problem 24 (Behrens-Fischer Problem). Solve the maximum likelihood equations for the mixture of two multivariate Gaussians with the same mean and different covariance matrices.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The literal mixture has a proved unbounded likelihood and exact implicit score equations, but the requested solution of all stationary equations is not supplied and the labelled two-sample problem is not substituted.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{The literal common-mean Gaussian mixture: covariance collapse and stationary equations}
+\noindent UnsolvedMath ID 20001200; AIM-COMPUTATION-0038. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A multivariate Gaussian law has a mean vector and positive-definite covariance matrix. A two-component mixture with common mean has density $w\varphi_{\mu,\Sigma_1}+(1-w)\varphi_{\mu,\Sigma_2}$, with $0\leq w\leq1$. Maximum-likelihood equations are stationary equations for the log likelihood of specified observations, with boundary and degeneracy cases handled separately.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The source names this the Behrens--Fischer problem but gives a mixture formulation. The two-sample common-mean testing problem is a different statistical model; the source wording is preserved, and no equal-scatter bifurcation is assumed. The supplied catalogue marks this record solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+Problem 24 (Behrens-Fischer Problem). Solve the maximum likelihood equations for the mixture of two multivariate Gaussians with the same mean and different covariance matrices. \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. This is documentation of a source-labelled solved record, not a newly proposed unsolved problem.
+\subsection{Short English statement}
+The historical problem requests likelihood equations for two multivariate Gaussian components sharing a mean.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001200 (AIM-COMPUTATION-0038). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-COMPUTATION-0038.
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Problem 24 (Behrens-Fischer Problem). Solve the maximum likelihood equations for the mixture of two multivariate Gaussians with the same mean and different covariance matrices.
+
+\section{Retaining the mixture formulation}
+The source calls its problem Behrens--Fischer but explicitly says mixture
+of two multivariate Gaussians. A labelled two-sample common-mean model
+has a different likelihood. This attempt uses the literal latent-mixture
+density specified in the imported definition, for observations
+$y_1,\ldots,y_n\in\mathbb R^d$, $n,d\ge1$:
+\[
+f(y)=w\varphi_{\mu,\Sigma_1}(y)+(1-w)\varphi_{\mu,\Sigma_2}(y),
+\quad 0<w<1,\quad\Sigma_1,\Sigma_2\succ0.
+\]
+The target asks to solve likelihood equations, so an obstruction to a
+finite global maximum alone cannot count as a full solution.
+
+\paragraph{Unbounded likelihood even with a common mean.}
+Fix $w=1/2$, $\mu=y_1$, $\Sigma_2=I_d$, and
+$\Sigma_1=\varepsilon^2 I_d$ for $0<\varepsilon<1$.
+The covariances are positive definite and distinct. At $y_1$ the first
+component contributes
+$\tfrac12(2\pi)^{-d/2}\varepsilon^{-d}$.
+At every other observation the second component supplies the strictly
+positive lower bound
+$\tfrac12(2\pi)^{-d/2}\exp(-\|y_i-y_1\|^2/2)$, independent of
+$\varepsilon$. Multiplying the bounds gives
+\[
+\prod_{i=1}^n f(y_i)\ \ge C\varepsilon^{-d}\longrightarrow\infty
+\]
+for a constant $C>0$ determined by the data. For $n=1$ the empty
+product in $C$ is one. Every fixed admissible parameter has a finite
+likelihood, so no finite global maximizer exists in this unconstrained
+model. Common means do not prevent the usual component-collapse route.
+This proof does not say that stationary points cannot exist.
+
+\paragraph{Interior stationary equations derived explicitly.}
+Let $r_i=y_i-\mu$ and define the responsibilities
+\[
+\tau_i=\frac{w\varphi_{\mu,\Sigma_1}(y_i)}{f(y_i)},\quad
+N_1=\sum_i\tau_i,\quad N_2=n-N_1.
+\]
+They satisfy $0<\tau_i<1$ and $N_1,N_2>0$.
+Differentiating a log sum shows that the derivative with respect to a
+component's parameters is weighted by its responsibility. For a
+Gaussian, differentiating
+$-\tfrac12\log\det\Sigma-\tfrac12r^T\Sigma^{-1}r$ gives mean
+score $\Sigma^{-1}r$ and covariance differential
+$\tfrac12\operatorname{tr}[(\Sigma^{-1}rr^T\Sigma^{-1}
+-\Sigma^{-1})\,d\Sigma]$.
+The inverse identity follows by differentiating
+$\Sigma\Sigma^{-1}=I$, and the log determinant identity follows from
+$\det(I+tB)=1+t\operatorname{tr}B+O(t^2)$, whose linear terms in
+the determinant expansion are its diagonal entries.
+Thus every interior stationary point obeys
+\[
+w=N_1/n,\qquad
+\Sigma_1=N_1^{-1}\sum_i\tau_i r_i r_i^T,\qquad
+\Sigma_2=N_2^{-1}\sum_i(1-\tau_i)r_i r_i^T,
+\]
+\[
+(N_1\Sigma_1^{-1}+N_2\Sigma_2^{-1})\mu
+ =\Sigma_1^{-1}\sum_i\tau_i y_i
+ +\Sigma_2^{-1}\sum_i(1-\tau_i)y_i.
+\]
+For the first equation the weight derivative is
+$\sum_i[\tau_i/w-(1-\tau_i)/(1-w)]=0$.
+For the covariance equations multiply the zero covariance score on
+both sides by the positive-definite covariance matrix.
+The mean equation is the rearranged sum of the two weighted mean
+scores. Conversely these equations, together with the definition of
+$\tau_i$ and the open-domain conditions, make every first derivative
+zero by the same formulas. They are therefore equivalent to interior
+stationarity, but remain implicit because $\tau_i$ depends on all
+unknowns through Gaussian exponentials.
+
+\paragraph{A check of a tempting symmetry reduction.}
+For scalar data consisting of $-a,+a$ with $a>0$, impose a candidate
+common mean $\mu=0$. Both squared residuals are then $a^2$.
+The two covariance equations force $\Sigma_1=\Sigma_2=a^2$ at any
+interior stationary point with that mean, independently of the
+responsibilities. Hence an assumed symmetric mean does not produce
+a stationary solution with distinct variances in this example.
+The equal-covariance point may be considered if coinciding components
+are allowed, but it is excluded by a strict distinct-covariance reading.
+Neither this check nor iterating the implicit equations classifies all
+other stationary means.
+
+\section{Audit and remaining target}
+The primary AIM Problem 24 was inspected. The audit preserves the
+latent-mixture wording, checks positive definiteness during collapse,
+distinguishes absence of a global maximum from absence of critical
+points, and keeps implicit score equations separate from their solution.
+No numerical fit or symbolic solver was used. Labelled-model algebraic
+ML-degree claims in the source catalogue are not transferred to this
+different likelihood. A complete solution/classification of the mixture
+stationary equations remains missing, so no full solution or novelty
+is claimed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The literal mixture has a proved unbounded likelihood and exact implicit score equations, but the requested solution of all stationary equations is not supplied and the labelled two-sample problem is not substituted.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Computational Algebraic Statistics, prepared by Seth Sullivant, version 27 March 2004; the original numbered source question and its adjacent scope were inspected on 11 October 2026. \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The literal mixture has a proved unbounded likelihood and exact implicit score equations, but the requested solution of all stationary equations is not supplied and the labelled two-sample problem is not substituted.
+\end{document}

@@ -1,0 +1,97 @@
+% TOP_PROBLEM: {"id": 30001928, "title": "Classification of Gapped Ground-State Phases", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The primary source already supplies the displayed path definition and spectral-flow automorphisms linking equivalent ground-state sets. The broader unresolved task is classification and understanding those phases, not simply inventing the definition. Uniform finite-volume gap bounds, ground-state degeneracy, and optional symmetries must remain explicit."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001928", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Classify the equivalence classes of infinite-volume ground states connected by uniformly gapped paths of local interactions.", "scope": "Constructs a differentiable uniformly gap-one path connecting arbitrary unconstrained on-site product ground states.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked unitary logarithm, commuting projection spectrum, all-volume uniformity and consistency of product-state limits; stated symmetry restriction. Model self-audit only; no independent human proof checking. Coordinator checked the on-site projection path, exact uniform gap in site dimension at least two and consistent infinite product states. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked unitary logarithm, commuting projection spectrum, all-volume uniformity and consistency of product-state limits; stated symmetry restriction. Retained unresolved status and zero original-target progress; A classification of general entangled/degenerate/symmetry-constrained phases is not obtained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001928; source catalogue code OWR-11448-002
+\setcounter{section}{30001927}
+\section{Classification of Gapped Ground-State Phases}\label{30001928}
+{\small UnsolvedMath ID 30001928 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} For a lattice $\Gamma$ with finite-dimensional site Hilbert spaces, $\Phi(X)$ is a short-range interaction supported on finite $X\subseteq\Gamma$, and $H_\Lambda=\sum_{X\subseteq\Lambda}\Phi(X)$ is the local Hamiltonian. Infinite-volume ground states are thermodynamic-limit states on the quasi-local observable algebra. In the source, two ground-state sets belong to the same gapped phase when a differentiable path $\Phi_s$, $s\in[0,1]$, connects their interactions, has the required uniform locality bounds, and has a common positive lower bound $\gamma>0$ for the local ground-state spectral gap.
+
+\paragraph{Source scope and qualifications.} The primary source already supplies the displayed path definition and spectral-flow automorphisms linking equivalent ground-state sets. The broader unresolved task is classification and understanding those phases, not simply inventing the definition. Uniform finite-volume gap bounds, ground-state degeneracy, and optional symmetries must remain explicit.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+What is a gapped ground-state phase for an infinite quantum spin system, when phases are defined by differentiable paths of sufficiently short-range interactions with a uniform positive spectral gap?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The question has a rigorous phase definition and substantial one-dimensional classifications, but no general classification of gapped ground-state phases in the stated setting is known. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Classify the equivalence classes of infinite-volume ground states connected by uniformly gapped paths of local interactions.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Constructs a differentiable uniformly gap-one path connecting arbitrary unconstrained on-site product ground states.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{An explicit uniformly gapped product-state path.} Fix a site space of finite dimension at least two and two unit vectors $v,w$. Choose a unitary $U$ with $Uv=w$, diagonalize it, and choose a self-adjoint logarithm $K$ so $U=e^{iK}$. Put $v_s=e^{isK}v$ and define the on-site interaction $h_s=I-|v_s\rangle\langle v_s|$, $0\leq s\leq1$. For any finite nonempty region $\Lambda$,
+\[
+ H_{\Lambda,s}=\sum_{x\in\Lambda}h_s^{(x)}
+\]
+is a sum of commuting projections. Its unique ground vector is $v_s^{\otimes|\Lambda|}$, and every nonzero eigenvalue is a positive integer. The gap is exactly one, uniformly in $s$ and $\Lambda$. The path is differentiable with uniformly bounded on-site derivative $i[K,h_s]$.
+
+\paragraph{Infinite-volume interpretation.} The product states have consistent local density matrices, so define states on local observables and extend by norm continuity to the quasi-local algebra. The constructed path places all such unconstrained on-site product ground states in the same phase under the source definition. No finite-volume gap is inferred from a numerical finite-size sequence; it was computed exactly for every volume.
+
+\paragraph{Limits of classification.} An imposed symmetry could forbid the chosen $U_s$, and degenerate, entangled or topologically ordered ground-state sets need not admit this on-site path. The source already defines gapped phases and supplies spectral flow; this calculation is just a verified elementary phase class, not a new definition or classification. The first gap is a complete invariant and a constructive gapped interpolation criterion for the broader interaction class, respecting any chosen symmetries and ground degeneracies.
+
+\paragraph{Verification and adversarial audit.}
+Checked unitary logarithm, commuting projection spectrum, all-volume uniformity and consistency of product-state limits; stated symmetry restriction. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked unitary logarithm, commuting projection spectrum, all-volume uniformity and consistency of product-state limits; stated symmetry restriction. Retained unresolved status and zero original-target progress; A classification of general entangled/degenerate/symmetry-constrained phases is not obtained.
+
+Coordinator checked the on-site projection path, exact uniform gap in site dimension at least two and consistent infinite product states. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. A classification of general entangled/degenerate/symmetry-constrained phases is not obtained.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. A classification of general entangled/degenerate/symmetry-constrained phases is not obtained.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001928:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001928 (OWR-11448-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001928:2}{S2}] Correlations and Interactions for Random Quantum Systems (2011), Oberwolfach Reports, DOI 10.4171/owr/2011/50, pp. 2837--2890; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2011/50}.
+\item[\hypertarget{source:30001928:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 31--33.
+\url{https://ems.press/content/serial-article-files/46367}.
+\item[\hypertarget{source:30001928:4}{S4}] automorphic equivalence theorem; reference in the saved dated catalogue literature review.
+\url{https://arxiv.org/abs/1102.0842}.
+\item[\hypertarget{source:30001928:5}{S5}] one-dimensional classification; reference in the saved dated catalogue literature review.
+\url{https://arxiv.org/abs/1212.3718}.
+\end{itemize}
+\label{end:30001928}
+\end{document}

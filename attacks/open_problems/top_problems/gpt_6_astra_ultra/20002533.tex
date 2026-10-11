@@ -1,0 +1,82 @@
+% TOP_PROBLEM: {"id": 20002533, "title": "Fixed winding numbers: exact pair bounds, graph coercivity, and collision loss", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The source distinguishes collision-free minimizers from collisional ones and records Lagrange equilateral minimizers when all windings are +1 or all −1. The restricted-case question is restored from its remark; no collision-free conclusion is assumed. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002533", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Determine when fixed pairwise winding numbers produce periodic three-body solutions by action minimization.", "scope": "Proved H1 coercivity when nonzero-winding edges form a connected graph and exhibited finite-action collision behavior. No collision-free minimizer classification or restricted-case theorem.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked degree-zero disk argument, oscillation constant, graph paths, center-of-mass identity and t^{2/3} kinetic/potential integrability. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the nonzero-degree mean/oscillation argument, connected winding-graph coercivity and finite-action collision profile. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked degree-zero disk argument, oscillation constant, graph paths, center-of-mass identity and t^{2/3} kinetic/potential integrability. Scope remains limited: Exclude collision limits while preserving winding constraints; handle escape when the nonzero-winding graph is disconnected."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002533; source catalogue code AIM-PHYSICS-0041
+\setcounter{section}{20002532}
+\section{Fixed winding numbers: exact pair bounds, graph coercivity, and collision loss}\label{20002533}
+{\small UnsolvedMath ID 20002533 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}In the Newtonian $n$-body problem, positions $q_i\in\mathbb R^d$ and masses $m_i>0$ obey $m_i\ddot q_i=\nabla_{q_i}U$, where $U(q)=\sum_{i<j}m_im_j/|q_i-q_j|$ and the gravitational constant is normalized to one. Here $T=\tfrac12\sum_i m_i|\dot q_i|^2$, $E=T-U$, and a collision has $q_i=q_j$. The center of mass can be fixed at zero; moment of inertia is $I=\sum_i m_i|q_i|^2$. For a fixed period $P$, the action is $\mathcal A(q)=\int_0^P(T+U)\,dt$. A collision-free minimizer in an admissible loop class satisfies the Newtonian equations when variations are permitted. The period, constraints and closure of the class must be specified: a minimizing sequence can escape or approach collisions. For a planar collision-free periodic loop, identify the plane with $\mathbb C$ and define $k_{ij}=\deg(t\mapsto(q_i(t)-q_j(t))/|q_i(t)-q_j(t)|)\in\mathbb Z$. These pairwise winding numbers describe homology information; they do not determine the full braid homotopy class. 
+
+\paragraph{Catalogue wording retained for traceability.}
+In the planar three-body problem, can periodic solutions be obtained by minimizing action while fixing the three winding numbers $k_{ij}$, as in Poincaré's proposal? Also ask whether the answer is the same in the restricted case, as the source’s remark does.
+\paragraph{Scope and source qualification.}The source distinguishes collision-free minimizers from collisional ones and records Lagrange equilateral minimizers when all windings are +1 or all −1. The restricted-case question is restored from its remark; no collision-free conclusion is assumed. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Determine when fixed pairwise winding numbers produce periodic three-body solutions by action minimization.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved H1 coercivity when nonzero-winding edges form a connected graph and exhibited finite-action collision behavior. No collision-free minimizer classification or restricted-case theorem.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{Winding can prevent spatial escape.}Let \(r:[0,P]\to\mathbb C\setminus\{0\}\) be an absolutely continuous closed loop with nonzero degree. Write \(\bar r=P^{-1}\int r\). The oscillation estimate \(\sup_t|r(t)-\bar r|\le\sqrt P\|r'\|_2\) follows by integrating \(|r(t)-r(s)|\) and Cauchy--Schwarz. If \(|\bar r|\) exceeded the right side, the entire loop would lie in a disk centered at \(\bar r\) avoiding zero and would have degree zero, a contradiction. Hence
+\[\sup_t|r(t)|\le2\sqrt P\|r'\|_2.
+\]
+For a center-of-mass-zero n-body loop, apply this bound to every pair with nonzero winding. If the graph of those pairs is connected, path sums control all pair distances, and \(q_i=M^{-1}\sum_jm_j(q_i-q_j)\), \(M=\sum_jm_j\), controls every position. A bound on action bounds the kinetic energy and therefore all these derivative norms, yielding an H1 bound.
+\paragraph{The unresolved collision boundary.}This coercivity does not make the collision-free class closed. The scalar collision profile \(r(t)=|t|^{2/3}\) has \(\int_0^\delta|r'|^2dt<\infty\) and \(\int_0^\delta|r|^{-1}dt<\infty\), because both integrands are constant multiples of \(t^{-2/3}\). Thus bounded Newtonian action permits collision limits, where winding numbers cease to be defined. Uniform convergence away from collision preserves degree, but the missing clearance is precisely what must be proved.
+\paragraph{Scope.}The first gap is exclusion or analysis of collision minimizers for each prescribed winding class. Disconnected winding graphs can also allow cluster escape, so even coercivity is conditional. No general collision-free minimizing theorem or restricted-problem analogue follows, and fixed homology is not replaced by a full braid constraint. The source's equilateral cases remain context rather than newly established results here.
+
+\paragraph{Verification and adversarial audit.}
+Checked degree-zero disk argument, oscillation constant, graph paths, center-of-mass identity and t\textasciicircum{}\{2/3\} kinetic/potential integrability. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked degree-zero disk argument, oscillation constant, graph paths, center-of-mass identity and t\textasciicircum{}\{2/3\} kinetic/potential integrability. Scope remains limited: Exclude collision limits while preserving winding constraints; handle escape when the nonzero-winding graph is disconnected.
+
+Coordinator checked the nonzero-degree mean/oscillation argument, connected winding-graph coercivity and finite-action collision profile. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Exclude collision limits while preserving winding constraints; handle escape when the nonzero-winding graph is disconnected.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002533:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002533 (AIM-PHYSICS-0041). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002533:2}{S2}] American Institute of Mathematics, Variational Methods in Celestial Mechanics; notes by Kuo-Chang Chen, version 22 June 2003, source item 4.
+\url{https://aimath.org/WWN/varcelest/varcelest.pdf}.
+\end{itemize}
+\label{end:20002533}
+\end{document}

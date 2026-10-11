@@ -1,0 +1,92 @@
+% TOP_PROBLEM: {"id": 30003909, "title": "Axisymmetry of Spherical Near-Horizon Geometries", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The actual vacuum equation was recovered from PDF page 18. The report establishes local rigidity near Kerr and states the global removal-of-axisymmetry conjecture; modern status is not freshly established here. The problem is not enlarged to matter or nonzero cosmological constant."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003909", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Must every spherical solution of the indicated near-horizon equations have rotational symmetry and come from extremal Kerr?", "scope": "Proved a conditional obstruction to globally exact horizon one-forms on metrics with nonnegative nonzero scalar curvature; no axisymmetry theorem is obtained.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked Hessian signs, integration on a closed manifold, positivity of u and the indispensable extra global-exactness and scalar-curvature hypotheses. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the positive-potential substitution, integration-by-parts sign and the necessity of the extra global exactness and scalar-curvature assumptions. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked Hessian signs, integration on a closed manifold, positivity of u and the indispensable extra global-exactness and scalar-curvature hypotheses. The remaining gap is: Construct a nontrivial symmetry of every smooth solution with general horizon one-form, without local-Kerr or added curvature assumptions. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30003909; source catalogue code OWR-16411-001
+\setcounter{section}{30003908}
+\section{Axisymmetry of Spherical Near-Horizon Geometries}\label{30003909}
+{\small UnsolvedMath ID 30003909 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+A degenerate black-hole horizon has zero surface gravity. Its near-horizon limit gives equations for a Riemannian cross-section metric and a one-form on the horizon section. Axisymmetry means there is a nontrivial circle action preserving those data. A spherical section is topologically $S^2$; classification up to diffeomorphism must respect the field equation\textquotesingle s cosmological constant and matter assumptions. A Kerr near-horizon geometry is the vacuum spherical example singled out by the question. In the primary vacuum convention, the unknowns are a smooth metric $g_{AB}$ and one-form $\omega_A$ on $S^2$, satisfying $R_{AB}-(D_A\omega_B+D_B\omega_A+2\omega_A\omega_B)=0$, where $D$ and $R_{AB}$ are the metric covariant derivative and Ricci tensor.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Is every solution of the near-horizon-geometry equations on $S^2$ axisymmetric and therefore induced by a degenerate Kerr metric?
+
+\paragraph{Source scope and qualification.}
+The actual vacuum equation was recovered from PDF page 18. The report establishes local rigidity near Kerr and states the global removal-of-axisymmetry conjecture; modern status is not freshly established here. The problem is not enlarged to matter or nonzero cosmological constant.
+\subsection{Short English statement}
+Must every spherical solution of the indicated near-horizon equations have rotational symmetry and come from extremal Kerr?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved a conditional obstruction to globally exact horizon one-forms on metrics with nonnegative nonzero scalar curvature; no axisymmetry theorem is obtained.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30003909. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{Testing the exact-one-form reduction.} The source vacuum equation is \(R_{AB}=D_A\omega_B+D_B\omega_A+2\omega_A\omega_B\) on a smooth closed sphere. Suppose, as an additional attempted ansatz, that \(\omega=df\) globally, and set \(u=e^f>0\). Differentiation gives
+\[
+ D_AD_Bu=u(D_AD_Bf+D_AfD_Bf)=\tfrac12uR_{AB}.
+\]
+Tracing therefore yields \(\Delta u=\tfrac12Ru\), where \(R\) is scalar curvature. Integration against \(u\), with no boundary term, implies
+\[
+ -\int|Du|^2\,dV=\tfrac12\int R u^2\,dV.
+\]
+If \(R\ge0\) everywhere and is positive somewhere, the right side is positive and the left side nonpositive, a contradiction. Thus this extra curvature condition excludes the globally exact-one-form ansatz. For a round sphere it applies immediately.
+\paragraph{Audit and obstruction.} The proof used global exactness; a local potential cannot be substituted in the integration. It also used a sign of scalar curvature that is not part of the original near-horizon target, so it does not exclude all solutions or all possible rotating geometries. Its practical consequence is that reducing the system to a positive scalar potential under positive curvature cannot produce the desired classification. Constructing a Killing field from a general, potentially nonexact \(\omega\), without imposing axisymmetry or proximity to Kerr, is the first gap. Neither the report's local rigidity nor a modern global status is claimed to have been re-established here.
+
+\paragraph{Verification and adversarial audit.}
+Checked Hessian signs, integration on a closed manifold, positivity of u and the indispensable extra global-exactness and scalar-curvature hypotheses. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked Hessian signs, integration on a closed manifold, positivity of u and the indispensable extra global-exactness and scalar-curvature hypotheses. The remaining gap is: Construct a nontrivial symmetry of every smooth solution with general horizon one-form, without local-Kerr or added curvature assumptions. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the positive-potential substitution, integration-by-parts sign and the necessity of the extra global exactness and scalar-curvature assumptions. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Construct a nontrivial symmetry of every smooth solution with general horizon one-form, without local-Kerr or added curvature assumptions.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30003909:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30003909 (OWR-16411-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30003909:2}{S2}] Mathematical General Relativity (2018), Oberwolfach Reports, DOI 10.4171/owr/2018/36, pp. 2157--2251. Primary report accessed 2026-10-11; relevant PDF pages 18.
+\url{https://doi.org/10.4171/owr/2018/36}.
+\item[\hypertarget{source:30003909:3}{S3}] Chrusciel--Szybka--Tod 2018 (catalogue-listed context; not independently consulted in this preparation).
+\url{https://doi.org/10.1088/1361-6382/aa90e7}.
+\end{itemize}
+\label{end:30003909}
+\end{document}

@@ -1,0 +1,95 @@
+% TOP_PROBLEM: {"id": 30001178, "title": "Adapted Cocycles and Tensor Subsystems of Free Filtrations", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "There are three retained requests: the adaptedness notion, the proposed Fock-case construction from units, and generation by the intersection tensor subsystem. The last request is repeated separately at ID 30001179."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001178", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Define adapted cocycles for the free filtration, construct them from tensor units, and determine whether the largest tensor subsystem generates the free system.", "scope": "Constructs and checks the standard tensor-Fock Weyl cocycle from a normalized unit, pinpointing identities missing in the free setting.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked Weyl inner products, inverse, disjoint-support cocycle, strong continuity and all three bundled requests. Model self-audit only; no independent human proof checking. Coordinator checked the Weyl exponential-vector formula, disjoint-support product and adapted tensor-Fock cocycle identity. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked Weyl inner products, inverse, disjoint-support cocycle, strong continuity and all three bundled requests. Retained unresolved status and zero original-target progress; A free-filtration adaptedness notion and corresponding construction are missing, as is the tensor-subsystem generation theorem."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001178; source catalogue code OWR-3392-004
+\setcounter{section}{30001177}
+\section{Adapted Cocycles and Tensor Subsystems of Free Filtrations}\label{30001178}
+{\small UnsolvedMath ID 30001178 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} For a unital coefficient algebra $B$, a Hilbert $B$-bimodule is a right Hilbert $B$-module with a compatible left action. $\mathcal B^a(E)$ denotes its adjointable operators. A pointed free product system $(E_t,\omega_t)$ has central reference vectors and associative identifications $E_s*E_t\simeq E_{s+t}$, using the source's reduced free product over $B$. A tensor product subsystem instead has $E_s\odot E_t\simeq E_{s+t}$ with $\odot$ the internal tensor product over $B$. An $E_0$-semigroup is a continuous semigroup of unital $*$-endomorphisms. A unit is a section whose values multiply according to the product-system structure. The time-indexed subalgebras embedded through the free left dilation give the free filtration. A unitary cocycle relative to an endomorphism semigroup $\vartheta_t$ obeys $U_{s+t}=U_s\vartheta_s(U_t)$, with a fixed cocycle convention. Adaptedness is intended to express localization in the available past filtration; finding the appropriate definition for this free setting is itself part of the question. Generation by a subsystem means that the closed free product subsystem it generates equals the original system.
+
+\paragraph{Source scope and qualifications.} There are three retained requests: the adaptedness notion, the proposed Fock-case construction from units, and generation by the intersection tensor subsystem. The last request is repeated separately at ID 30001179.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+What is the correct notion of a cocycle adapted to the free filtration, and can it yield adapted unitary cocycles directly from units of the tensor-product system? Does the largest tensor-product subsystem contained in a free product system generate the whole free product system?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: Adapted cocycles and related cohomological constructions have been developed, but a general construction or characterization for cocycles adapted to the free filtration remains unresolved. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Define adapted cocycles for the free filtration, construct them from tensor units, and determine whether the largest tensor subsystem generates the free system.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Constructs and checks the standard tensor-Fock Weyl cocycle from a normalized unit, pinpointing identities missing in the free setting.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{The tensor-Fock benchmark.} In symmetric Fock space over $L^2(\mathbb R_+)$, use exponential vectors $e(g)$ with $\langle e(g),e(h)\rangle=e^{\langle g,h\rangle}$ and define
+\[
+ W(f)e(g)=\exp(-\|f\|^2/2-\langle f,g\rangle)e(f+g).
+\]
+An inner-product calculation shows that this preserves inner products on the total exponential-vector span, and $W(-f)$ is its inverse; hence it extends to a unitary. For functions with disjoint supports, direct substitution gives $W(f)W(g)=W(f+g)$, since their inner product is zero.
+
+\paragraph{An explicit adapted cocycle.} Fix $z\in\mathbb C$, put $f_t=z1_{(0,t)}$ and $U_t=W(f_t)$. If $S_s$ shifts functions by $s$ and the Fock shift endomorphism sends $W(f)$ to $W(S_sf)$, then $f_{s+t}=f_s+S_sf_t$ with disjoint supports. Consequently $U_{s+t}=U_s\vartheta_s(U_t)$. Moreover $U_t$ acts only on the past tensor factor and sends the vacuum to $e^{-\|f_t\|^2/2}e(f_t)$, a normalized unit. Strong continuity follows first from the displayed formula on exponential vectors and then from unitarity and density.
+
+\paragraph{The free-system gap.} This is the familiar tensor-Fock construction, not a definition of adaptedness for the source's free filtration. Its proof uses orthogonal tensor splitting and commuting disjoint Weyl operators. In a free product there is no justified substitution of those tensor identities. Extending this construction while specifying the proper localization notion is unresolved, and the further claim that the largest intersection tensor subsystem generates the entire free system is independent and remains unproved, including the repeated question at 30001179.
+
+\paragraph{Verification and adversarial audit.}
+Checked Weyl inner products, inverse, disjoint-support cocycle, strong continuity and all three bundled requests. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked Weyl inner products, inverse, disjoint-support cocycle, strong continuity and all three bundled requests. Retained unresolved status and zero original-target progress; A free-filtration adaptedness notion and corresponding construction are missing, as is the tensor-subsystem generation theorem.
+
+Coordinator checked the Weyl exponential-vector formula, disjoint-support product and adapted tensor-Fock cocycle identity. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. A free-filtration adaptedness notion and corresponding construction are missing, as is the tensor-subsystem generation theorem.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. A free-filtration adaptedness notion and corresponding construction are missing, as is the tensor-subsystem generation theorem.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001178:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001178 (OWR-3392-004). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001178:2}{S2}] Mini-Workshop: Product Systems and Independence in Quantum Dynamics (2009), Oberwolfach Reports, DOI 10.4171/owr/2009/09, pp. 493--548; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2009/09}.
+\item[\hypertarget{source:30001178:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF page 38, printed page 530.
+\url{https://ems.press/content/serial-article-files/46209}.
+\item[\hypertarget{source:30001178:4}{S4}] Skeide free product systems and adapted cocycles; reference in the saved dated catalogue literature review.
+\url{https://iris.unimol.it/handle/11695/18113}.
+\end{itemize}
+\label{end:30001178}
+\end{document}

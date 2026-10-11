@@ -1,0 +1,83 @@
+% TOP_PROBLEM: {"id": 82, "title": "Symmetries and Action Principles for Biology", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The problem is a modelling programme and does not assert that all biological systems already possess an action principle. The historical DARPA mirror was unavailable during this check."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "82", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Develop symmetry and variational principles that explain biological robustness, modularity, evolvability and variability.", "scope": "Constructed an action for every smooth ODE and compared stable and unstable symmetric examples, showing that unrestricted action existence does not imply biological robustness. Modularity, evolvability and variability remain unresolved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked endpoint variation, adjoint sign, zero multiplier lift and exact input-response bounds; distinguished an action embedding from a physical action. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked both Euler-Lagrange equations, the zero-multiplier lift and stable/unstable input-response comparison. The unrestricted auxiliary action supplies no biological explanation. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked endpoint variation, adjoint sign, zero multiplier lift and exact input-response bounds; distinguished an action embedding from a physical action. Scope remains limited: Specify biologically constrained action variables and admissible functionals so that symmetry yields testable constraints."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 82; source catalogue code DARPA-016
+\setcounter{section}{81}
+\section{Symmetries and Action Principles for Biology}\label{82}
+{\small UnsolvedMath ID 82 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}A symmetry is a transformation preserving a model’s governing equations or relevant observables. An action principle selects trajectories by stationarity of a functional, commonly an integral of a Lagrangian. Robustness concerns persistence under perturbations; modularity concerns interacting subsystems; evolvability concerns accessible heritable changes; variability concerns differences among states or individuals. These concepts require model-specific definitions before a theorem can be posed.
+
+\paragraph{Catalogue wording retained for traceability.}
+Extend understanding of symmetries and action principles in biology to include robustness, modularity, evolvability, and variability.
+\paragraph{Scope and source qualification.}The problem is a modelling programme and does not assert that all biological systems already possess an action principle. The historical DARPA mirror was unavailable during this check.
+\subsection{Short English statement}
+Develop symmetry and variational principles that explain biological robustness, modularity, evolvability and variability.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Constructed an action for every smooth ODE and compared stable and unstable symmetric examples, showing that unrestricted action existence does not imply biological robustness. Modularity, evolvability and variability remain unresolved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{Testing whether an action principle constrains a model.}Let \(F:\mathbb R^d\to\mathbb R^d\) be smooth. Any differential equation \(\dot x=F(x)\) can be embedded in an action principle by introducing an auxiliary variable \(p\in\mathbb R^d\):
+\[\mathcal A[x,p]=\int_0^T p(t)\cdot(\dot x(t)-F(x(t)))\,dt.\]
+With fixed endpoints for \(x\) and unrestricted interior variations, integration by parts gives the Euler--Lagrange equations \(\dot x=F(x)\) and \(\dot p=-DF(x)^Tp\). In particular every original trajectory lifts with \(p=0\). Thus mere existence of an action of this kind is unable to distinguish robust from fragile biological dynamics.
+\paragraph{A concrete robustness comparison.}In one dimension take \(F_-(x)=-x\) and \(F_+(x)=x\). Both admit the preceding action and both commute with the sign symmetry \(x\mapsto-x\). Their trajectories, however, satisfy \(|x_-(t)|=e^{-t}|x_-(0)|\) and \(|x_+(t)|=e^t|x_+(0)|\). For \(\dot x=-x+u(t)\), variation of constants yields
+\[|x(t)|\le e^{-t}|x(0)|+(1-e^{-t})\|u\|_{L^\infty(0,t)},\]
+whereas a constant nonzero input to \(\dot x=x+u\) produces exponential amplification. The same formal symmetry and multiplier construction therefore coexist with incompatible stability properties.
+\paragraph{First obstruction to the programme.}The auxiliary action has no supplied biological interpretation or positive cost, and its stationarity supplies no modularity, heritability or evolvability criterion. To turn variational language into an explanatory constraint, one must restrict admissible variables and actions and relate their coefficients to observable biology. The explicit comparison rules out the attempted inference from unrestricted stationarity and symmetry to robustness. It does not refute the broad source objective, and the other named traits remain unaddressed. This is a methodological counterexample, with no claim of new biological theory or fresh source verification.
+
+\paragraph{Verification and adversarial audit.}
+Checked endpoint variation, adjoint sign, zero multiplier lift and exact input-response bounds; distinguished an action embedding from a physical action. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked endpoint variation, adjoint sign, zero multiplier lift and exact input-response bounds; distinguished an action embedding from a physical action. Scope remains limited: Specify biologically constrained action variables and admissible functionals so that symmetry yields testable constraints.
+
+Coordinator checked both Euler-Lagrange equations, the zero-multiplier lift and stable/unstable input-response comparison. The unrestricted auxiliary action supplies no biological explanation. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Specify biologically constrained action variables and admissible functionals so that symmetry yields testable constraints.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:82:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 82 (DARPA-016). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:82:2}{S2}] DARPA DSO, Mathematical Challenges, BAA 07-68 (catalogue attribution: 2007), Challenge 016. Historical source mirror; unavailable in this check.
+\url{https://web.math.utk.edu/~vasili/refs/darpa07.MathChallenges.html}.
+\end{itemize}
+\label{end:82}
+\end{document}

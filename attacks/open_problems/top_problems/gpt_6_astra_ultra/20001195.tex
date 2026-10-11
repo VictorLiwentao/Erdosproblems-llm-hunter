@@ -1,0 +1,138 @@
+% RESEARCH_DRAFT_SHA256: 194aa93e0f97d40d302bd23a342833789ffc0ef2f21a11175f6428dfe5bbbf4c
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001195, "title": "Algebraic fibers and sharp sets for missing categorical data", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001195", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 19. Can algebraic techniques be used to better imputing missing categorical variable?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Sharp completion fibers and an independence feasibility calculation are proved; the source’s unspecified imputation model, mechanism, loss and quality criterion remain unresolved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Missing categorical data: a sharp completion fiber before choosing an imputation law}
+\noindent UnsolvedMath ID 20001195; AIM-COMPUTATION-0033. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+Categorical data take values in finite sets. Imputation fills missing entries or samples possible completions using a model for observed and missing data. Algebraic statistical methods describe model constraints by polynomial equalities or inequalities. An improvement in imputation requires an explicit loss, predictive criterion, or inferential target.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+No missingness mechanism, distribution family, loss function, or success condition is specified; the record remains a methodological question. The supplied catalogue marks this record partially solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+Question 19. Can algebraic techniques be used to better imputing missing categorical variable? \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The source asks broadly whether algebraic methods can help impute missing categorical values.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001195 (AIM-COMPUTATION-0033). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-COMPUTATION-0033.
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 19. Can algebraic techniques be used to better imputing missing categorical variable?
+
+\section{A concrete identifiability attempt}
+The original question specifies no missingness mechanism, model, loss or
+estimand. We first try to recover a binary missing value law from the
+observed categorical probabilities alone, then test whether an algebraic
+model can narrow the answer. These restrictions are explicit and do not
+replace the broad source question by a claimed solved problem.
+
+\paragraph{The entire binary completion fiber.}
+Let $R=1$ mean that binary $Y$ is observed. The observed law gives
+\[
+a=\Pr(R=1,Y=1),\quad b=\Pr(R=1,Y=0),\quad
+m=\Pr(R=0),\qquad a,b,m\ge0,\quad a+b+m=1.
+\]
+Every compatible full law is uniquely described by
+$t=\Pr(R=0,Y=1)\in[0,m]$, with the four joint cells
+$(a,b,t,m-t)$. These numbers are nonnegative and sum to one for every
+such $t$, so the interval is both necessary and sufficient, not merely
+a relaxation. The marginal success probability ranges sharply over
+$[a,a+m]$. If $m>0$, the missing-case success probability is $t/m$
+and ranges over all of $[0,1]$.
+
+In particular $t=0$ and $t=m$ produce exactly the same observed data
+law, while missing cases have opposite deterministic outcomes. No
+single data-dependent imputation rule can reconstruct both full laws.
+The respondent fraction $a/(a+b)$, when $a+b>0$, determines the missing
+fraction only after a condition such as $Y\perp R$ is added. Under
+that condition, $a=\Pr(R=1)\Pr(Y=1)$ yields
+$\Pr(Y=1)=a/(a+b)$, and $t=m a/(a+b)$; this is an added assumption,
+not a consequence of the observed table.
+
+\paragraph{An explicit algebraic restriction across observed strata.}
+Suppose a finite covariate $X=i$ is always observed. Let the known stratum
+mass be $w_i>0$, observed cells $a_i=\Pr(X=i,R=1,Y=1)$ and
+$b_i=\Pr(X=i,R=1,Y=0)$, and missing mass
+$m_i=w_i-a_i-b_i\ge0$. Arbitrary completions form the product
+$t_i\in[0,m_i]$. Impose the additional model $Y\perp X$ while
+allowing the response mechanism to depend arbitrarily on $X,Y$.
+Writing $\theta=\Pr(Y=1)$, independence is equivalent to
+\[
+a_i+t_i=w_i\theta\quad\hbox{for every }i.
+\]
+Hence compatibility with independence is equivalent to the interval
+\[
+L:=\max_i a_i/w_i\ \le\theta\le\
+U:=\min_i(1-b_i/w_i).
+\]
+Necessity follows by $0\le t_i\le m_i$. Conversely any $\theta$
+in this interval defines $t_i=w_i\theta-a_i\in[0,m_i]$ and therefore
+a full joint law with the required observed cells and common stratum
+success probability. Thus $L\le U$ is a complete feasibility test and
+$[L,U]$ is the sharp marginal identified interval in this specified
+model. It can remain wide; equations alone need not choose one
+imputation distribution. If $L>U$ the model is contradicted by the
+observed probabilities, rather than repaired by negative missing cells.
+
+\section{First gap and model-assisted audit}
+The attempted inference from an observed contingency table to a unique
+missing-case law fails at the explicit interval above. Independence
+adds tractable polynomial constraints but supplies a justified imputation
+only if that scientific assumption and a choice within the remaining
+fiber are defended. The primary AIM Question 19 was inspected, and no
+missing mechanism was supplied there. The audit checked boundary masses,
+strata with no respondents, sharpness in both directions, and the
+distinction between recovering a law and choosing a loss-optimal action.
+No simulation, dataset fit or formal computation was performed. These
+are elementary known identification arguments, not a new general
+imputation improvement or an assessment of multiple-imputation coverage.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Sharp completion fibers and an independence feasibility calculation are proved; the source’s unspecified imputation model, mechanism, loss and quality criterion remain unresolved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Computational Algebraic Statistics, prepared by Seth Sullivant, version 27 March 2004; the original numbered source question and its adjacent scope were inspected on 11 October 2026. \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Sharp completion fibers and an independence feasibility calculation are proved; the source’s unspecified imputation model, mechanism, loss and quality criterion remain unresolved.
+\end{document}

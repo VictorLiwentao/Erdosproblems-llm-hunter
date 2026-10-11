@@ -1,0 +1,61 @@
+% SUBMISSION: {"kind": "statement_only", "category": "top_problems", "problem_id": "3406", "proposal_type": "established", "source": "OpenGarden, original problem source linked by catalogue record OPG-36884: http://www.openproblemgarden.org/op/refuting_random_3sat_instances_on_o_n_clauses_weak_form", "status_evidence": "The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.", "status_checked_on": "2026-10-11", "duplicate_check": "Canonical ID 3406 and source code OPG-36884 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed.", "attribution": "Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted."}
+% TOP_PROBLEM: {"id": 3406, "title": "Refuting random 3SAT-instances on $O(n)$ clauses (weak form)", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: null
+% ENTRY_KIND: statement_only
+% Imported from: computer_science_statements.tex; UnsolvedMath ID 3406
+% Compile twice: lualatex 3406.tex
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+% UnsolvedMath ID 3406; source catalogue code OPG-36884
+\setcounter{section}{3405}
+\section{Refuting random 3SAT-instances on $O(n)$ clauses (weak form)}\label{3406}
+{\small\sffamily UnsolvedMath ID 3406 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A Boolean literal is a variable or its negation; a 3CNF formula is a conjunction of clauses, each the disjunction of three literals. A clause is satisfied if at least one of its literals is true. For a formula $I$ with $m$ clauses, define
+\[
+ \operatorname{OPT}(I)=\max_{x\in\{0,1\}^n}\#\{\text{clauses of }I\text{ satisfied by }x\}.
+\]
+For the random model, a fixed nonnegative rational density $\Delta$ determines $m=\lfloor\Delta n\rfloor$. One may sample each clause by choosing three distinct variables uniformly and choosing their signs independently, with independent clauses. ``Typical'' is an algorithm's output label, not an assertion that each such instance is unsatisfiable. Its soundness requirement is that it never labels an input typical when $\operatorname{OPT}(I)\ge(1-\epsilon)m$; its success requirement is probability at least $1/2$ on the random-instance distribution. Polynomial time is measured in the formula's encoding length, with the fixed parameters held constant.
+\paragraph{Statement recorded in the supplied source.}
+Conjecture For every rational $\epsilon > 0$ and every rational $\Delta$, there is no polynomial-time algorithm for the following problem.
+
+Given is a 3SAT (3CNF) formula $I$ on $n$ variables, for some $n$, and $m = \lfloor\Delta n\rfloor$ clauses drawn uniformly at random from the set of formulas on $n$ variables. Return with probability at least 0.5 (over the instances) that $I$ is typical without returning typical for any instance with at least $(1 - \epsilon)m$ simultaneously satisfiable clauses. \sref{3406}{2}
+\paragraph{Scope qualification.}
+The catalogue reproduces the Open Problem Garden weak form, including its universal density quantifier. The clause distribution must be fixed; the problem page explicitly discusses sampling with versus without replacement. The source wording allows a rational $\Delta$ without explicitly stating its nonnegativity; negative clause counts have no meaning. No randomized-algorithm soundness convention is supplied in the quoted question, so its probability over instances is not silently replaced by an average-error guarantee. This is a conjectural computational lower bound, not an established consequence of $\mathsf{P}\ne\mathsf{NP}$. The problem page and its displayed formulation were inspected on 2026-10-11; its historical bibliography was inspected, but a complete current proof-status audit was not performed.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can a polynomial-time algorithm reliably recognize random formulas with only a constant number of clauses per variable while never accepting a formula whose clauses are almost all simultaneously satisfiable?
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:3406:1}{S1}] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 3406 (OPG-36884). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:3406:2}{S2}] OpenGarden, original problem source linked by catalogue record OPG-36884
+\url{http://www.openproblemgarden.org/op/refuting_random_3sat_instances_on_o_n_clauses_weak_form}.
+\item[\hypertarget{source:3406:3}{S3}] Uriel Feige, Relations between average case complexity and approximation complexity, STOC 2002, pp. 534--543; original publication cited by the problem page.
+\url{https://doi.org/10.1145/509907.509985}.
+\item[\hypertarget{source:3406:4}{S4}] Uriel Feige and Eran Ofek, Easily refutable subformulas of large random 3CNF formulas, Theory of Computing 3 (2007), pp. 25--43; algorithmic context.
+\url{https://theoryofcomputing.org/articles/v003a002/}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 3406 and source code OPG-36884 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:3406}
+\end{document}

@@ -1,0 +1,127 @@
+% RESEARCH_DRAFT_SHA256: f273bb18537def1df440960e30eac512a79da5c47d2072a12216ae5aa484651f
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 3406, "title": "Refuting random 3SAT-instances on $O(n)$ clauses (weak form)", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "3406", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Boundary impossibility and Chernoff feasibility proved; complete triple-core certificate is both insufficient for gap soundness after padding and absent with probability 1-O(n^-13) at linear density.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch001/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 3406; source catalogue code OPG-36884
+\section{Refuting random 3SAT-instances on $O(n)$ clauses (weak form)}\label{3406}
+{\small UnsolvedMath ID 3406 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A Boolean literal is a variable or its negation; a 3CNF formula is a conjunction of clauses, each the disjunction of three literals. A clause is satisfied if at least one of its literals is true. For a formula $I$ with $m$ clauses, define
+\[
+ \operatorname{OPT}(I)=\max_{x\in\{0,1\}^n}\#\{\text{clauses of }I\text{ satisfied by }x\}.
+\]
+For the random model, a fixed nonnegative rational density $\Delta$ determines $m=\lfloor\Delta n\rfloor$. One may sample each clause by choosing three distinct variables uniformly and choosing their signs independently, with independent clauses. ``Typical'' is an algorithm's output label, not an assertion that each such instance is unsatisfiable. Its soundness requirement is that it never labels an input typical when $\operatorname{OPT}(I)\ge(1-\epsilon)m$; its success requirement is probability at least $1/2$ on the random-instance distribution. Polynomial time is measured in the formula's encoding length, with the fixed parameters held constant.
+\paragraph{Statement recorded in the supplied source.}
+Conjecture For every rational $\epsilon > 0$ and every rational $\Delta$, there is no polynomial-time algorithm for the following problem.
+
+Given is a 3SAT (3CNF) formula $I$ on $n$ variables, for some $n$, and $m = \lfloor\Delta n\rfloor$ clauses drawn uniformly at random from the set of formulas on $n$ variables. Return with probability at least 0.5 (over the instances) that $I$ is typical without returning typical for any instance with at least $(1 - \epsilon)m$ simultaneously satisfiable clauses. \href{http://www.openproblemgarden.org/op/refuting_random_3sat_instances_on_o_n_clauses_weak_form}{[S2]}
+\paragraph{Scope qualification.}
+The catalogue reproduces the Open Problem Garden weak form, including its universal density quantifier. The clause distribution must be fixed; the problem page explicitly discusses sampling with versus without replacement. The source wording allows a rational $\Delta$ without explicitly stating its nonnegativity; negative clause counts have no meaning. No randomized-algorithm soundness convention is supplied in the quoted question, so its probability over instances is not silently replaced by an average-error guarantee. This is a conjectural computational lower bound, not an established consequence of $\mathsf{P}\ne\mathsf{NP}$. The problem page and its displayed formulation were inspected on 2026-10-11; its historical bibliography was inspected, but a complete current proof-status audit was not performed.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can a polynomial-time algorithm reliably recognize random formulas with only a constant number of clauses per variable while never accepting a formula whose clauses are almost all simultaneously satisfiable?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 3406 (OPG-36884). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] OpenGarden, original problem source linked by catalogue record OPG-36884
+\url{http://www.openproblemgarden.org/op/refuting_random_3sat_instances_on_o_n_clauses_weak_form}.
+\item[S3] Uriel Feige, Relations between average case complexity and approximation complexity, STOC 2002, pp. 534--543; original publication cited by the problem page.
+\url{https://doi.org/10.1145/509907.509985}.
+\item[S4] Uriel Feige and Eran Ofek, Easily refutable subformulas of large random 3CNF formulas, Theory of Computing 3 (2007), pp. 25--43; algorithmic context.
+\url{https://theoryofcomputing.org/articles/v003a002/}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 3406 and source code OPG-36884 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:3406}
+
+
+\section{Research attempt}
+Use the explicit random model in the definition: $n\ge3$, $m=\lfloor\Delta n\rfloor$, fixed rational $\Delta\ge0$, and independent clauses with three distinct variables and independent signs. The original universal quantifiers and source warning about other distributions are retained. This attempt tests local unsatisfiable subformulas as sound ``typical'' certificates. Two obstructions emerge: a single contradiction does not certify a fixed unsatisfied fraction, and the simplest complete contradiction on one triple is absent with high probability at fixed linear density.
+
+\paragraph{Parameter ranges with no possible success.}
+A uniformly random assignment satisfies each proper three-variable clause with probability $7/8$. By linearity of expectation some assignment therefore satisfies at least $7m/8$ clauses of every such formula. For $\epsilon\ge1/8$, every input in this random model meets $\operatorname{OPT}(I)\ge(1-\epsilon)m$, so soundness forbids the label typical on every random input, regardless of running time. At $\Delta=0$, $m=0$ and the same impossibility holds. These boundary cases do not prove the conjecture for $0<\epsilon<1/8$ and positive density. Negative densities have no clause-count interpretation, as the preserved source qualification states.
+
+\begin{proposition}
+Fix $0<\epsilon<1/8$ and put $q=1-\epsilon$, $p=7/8$ and
+\[
+ D(q\|p)=q\log(q/p)+(1-q)\log((1-q)/(1-p)).
+\]
+In the independent-clause model,
+\[
+ \mathbb P\{\operatorname{OPT}(I)\ge qm\}\le2^n e^{-mD(q\|p)}. \tag{4}
+\]
+In particular, if $\Delta D(q\|p)>\log2$, the probability on the left tends to zero as $n\to\infty$.
+\end{proposition}
+\begin{proof}
+For one fixed assignment the satisfaction indicators of the clauses are independent Bernoulli variables with mean $p$. If their sum is $S$, then for $t>0$,
+\[
+ \mathbb P(S\ge qm)\le e^{-tqm}\mathbb Ee^{tS}
+ =\left(e^{-tq}(1-p+pe^t)\right)^m.
+\]
+Choose $e^t=q(1-p)/(p(1-q))>1$ and substitute, obtaining $e^{-mD(q\|p)}$. Taking a union bound over all $2^n$ assignments gives (4). The divergence is positive because its derivative in $q$ is $\log(q(1-p)/(p(1-q)))>0$ for $q>p$, and its value at $q=p$ is zero. Finally $m\ge\Delta n-1$, so the right side is at most $e^{D(q\|p)}e^{-n(\Delta D(q\|p)-\log2)}$, proving convergence to zero.
+\end{proof}
+
+Exhaustively calculating $\operatorname{OPT}$ and reporting typical only when it is below $qm$ is sound, and (4) gives asymptotic success above one half at sufficiently large fixed density. But it takes exponential time by the stated procedure. This is an information-theoretic feasibility calculation, not a polynomial algorithm, and it does not silently replace the source's wording about input lengths with an asymptotic success convention.
+
+\paragraph{Failure of the smallest local certificate.}
+Take all eight sign patterns on one triple of variables. Every assignment falsifies exactly one, so this subformula has optimum seven. Padding it with $m-8$ repetitions of one of its clauses gives an $m$-clause formula with optimum exactly $m-1$: choose an assignment satisfying the repeated clause, which then falsifies exactly one of the other core clauses. For $m\ge1/\epsilon$, this padded formula satisfies at least $(1-\epsilon)m$ clauses. Therefore the presence of that unsatisfiable core cannot by itself be a sound typical certificate. Repetition is allowed in the independent-clause model.
+
+Its frequency also defeats the proposed search. Put $N=\binom n3$ and $K=8N$, the number of clause types. For one fixed triple, the probability that all eight sign types appear is at most $(m)_8/K^8$, where $(m)_8$ counts ordered distinct positions and is zero if $m<8$. Indeed, assign a distinct position to each required type and take a union bound; each assignment has probability $K^{-8}$. Consequently the expected number of such triples is at most
+\[
+ N\frac{(m)_8}{(8N)^8}\le \frac{m^8}{8^8N^7}=O(n^{-13})
+\]
+for fixed $\Delta$. The probability of even one such core is at most this expectation and tends to zero. Searching every triple is polynomial but fails the required success probability. Larger or global certificates are not covered by this obstruction.
+
+\section{Literature and context}
+The Open Problem Garden weak-form page and the primary Feige--Ofek journal abstract were inspected on 11 October 2026. The former states the all-density conjecture and discusses the sampling convention. The latter gives a polynomial unsatisfiability-refutation algorithm at sufficiently large constant times $n^{3/2}$ clauses. That is a superlinear density result and is not used here as a proof of a fixed-fraction soundness certificate. Neither source check was a complete current-literature audit. The Chernoff calculation and local-core argument above are elementary analyses; no improvement of the established refutation threshold is claimed.
+
+\section{Verification and remaining gaps}
+Exact enumeration of the eight assignments to the complete eight-clause triple gave seven satisfied clauses in every case. At $\epsilon=0.1$, numerical evaluation gives $D(0.9\|0.875)\approx0.0030394341$ and the sufficient density threshold from (4) is approximately $228.051$; these figures are illustrative, while (4) is proved symbolically. The audit distinguished unsatisfiability from the required gap below $1-\epsilon$, and fixed the clause distribution before using independence. No polynomial-time algorithm for any nontrivial fixed-density range or unconditional lower bound for all polynomial algorithms is obtained. The first remaining gap is a sound certificate that controls a linear number of unsatisfied clauses and occurs on at least half the random instances at fixed density, or a lower bound ruling out all such algorithms.
+
+\section{References}
+Original S1--S4 above. Open Problem Garden, original weak-form page, \url{https://www.openproblemgarden.org/op/refuting_random_3sat_instances_on_o_n_clauses_weak_form}. U. Feige and E. Ofek, \emph{Easily refutable subformulas of large random 3CNF formulas}, Theory of Computing 3 (2007), 25--43, primary abstract, \url{https://theoryofcomputing.org/articles/v003a002/}. The mathematical estimates actually used in this attempt are proved above.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch001/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

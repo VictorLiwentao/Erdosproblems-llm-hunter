@@ -1,0 +1,115 @@
+% RESEARCH_DRAFT_SHA256: 8ac2096473fabb28dcedfb20293f25f022920c4e4c5ca2b798472967bcff4084
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 71, "title": "Mathematics of Quantum Computing", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "71", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Full two-qubit symmetry obstruction and perturbative control-time lower bound for a specified collective-control model; failed inference from entangling drift to individual-gate control.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch001/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 71; source catalogue code DARPA-012
+\section{Mathematics of Quantum Computing}\label{71}
+{\small UnsolvedMath ID 71 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+An $n$-qubit pure state is a unit vector in $(\mathbb C^2)^{\otimes n}$, considered up to global phase. Quantum gates act by the permitted unitary maps, and measurements produce classical outcomes according to the chosen measurement model. Entanglement means that a joint state cannot be represented as a product of subsystem states. Quantum error correction encodes logical information in a larger state space to protect it against a specified error class. A computation or control task must additionally specify its inputs, outputs and resources.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+This is DARPA Mathematical Challenge Twelve, a field-wide program. No fixed control system, quantum computational task, noise model or resource bound is supplied; the definitions explain its terminology rather than creating a new conjecture. The catalogue-linked mirror returned HTTP 404 during this preparation; its full original solicitation was not reverified. The supplied catalogue extract and historical attribution are documented with that access limitation.
+\paragraph{Statement recorded in the supplied source.}
+Develop the mathematics required to control the quantum world for computation. \href{https://web.math.utk.edu/~vasili/refs/darpa07.MathChallenges.html}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+Develop mathematical tools for using and controlling quantum systems in computation.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 71 (DARPA-012). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] DARPA DSO, Broad Agency Announcement 07-68, Mathematical Challenges (2007), challenge identified above; the catalogue-linked University of Tennessee mirror.
+\url{https://web.math.utk.edu/~vasili/refs/darpa07.MathChallenges.html}.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. The supplied catalogue credits: DARPA. Permanent source ID 71 and code DARPA-012 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:71}
+
+
+\section{Research attempt}
+The source has no fixed hardware, noise model, or computational task. This attempt tests a specific control proposal: an entangling two-qubit interaction plus arbitrarily shaped collective controls should allow individual gates. The proposal fails by an exact symmetry obstruction. We then quantify the control time needed if a weak symmetry-breaking term is added. These are illustrative control calculations, not a completion of the source program and not claimed novel.
+
+Let $I$ be the $2\times2$ identity, $X=\left(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\right)$, $Z=\operatorname{diag}(1,-1)$, and let $W(v\otimes w)=w\otimes v$ be the swap operator. In units with $\hbar=1$, consider
+\[
+ H_0(t)=J(t)Z\otimes Z+u(t)(X\otimes I+I\otimes X)
+             +v(t)(Z\otimes I+I\otimes Z),
+\]
+with real piecewise continuous functions on $[0,T]$. Its unitary propagator solves $\dot U_0=-iH_0U_0$, $U_0(0)=I_4$. Norms below are operator norms induced by Euclidean norm.
+
+\begin{proposition}
+Every such propagator commutes with $W$. For the target $V=X\otimes I$ and every real global phase $\theta$,
+\[
+ \|U_0(T)-e^{i\theta}V\|\ge\sqrt2.
+\]
+If $H(t)=H_0(t)+E(t)$ is Hermitian with $\|E(t)\|\le\varepsilon$, its propagator satisfies
+\[
+ \|U(T)-e^{i\theta}V\|\ge\sqrt2-\varepsilon T.
+\]
+Thus operator-norm error at most $\eta<\sqrt2$ requires $T\ge(\sqrt2-\eta)/\varepsilon$ when $\varepsilon>0$.
+\end{proposition}
+\begin{proof}
+Swapping exchanges the summands in each collective term and leaves $Z\otimes Z$ unchanged. Therefore $[H_0(t),W]=0$. The matrix $WU_0(t)W$ obeys the same linear initial-value equation as $U_0(t)$, proving equality by uniqueness. Unitarity follows from $\frac d{dt}(U_0^*U_0)=0$; these arguments apply on each continuous piece and then concatenate.
+
+The antisymmetric subspace is one-dimensional, spanned by the unit vector
+\[
+ s=(|01\rangle-|10\rangle)/\sqrt2.
+\]
+Consequently $U_0(T)s=e^{i\alpha}s$ for some phase. But $Vs=(|11\rangle-|00\rangle)/\sqrt2$ lies in the symmetric subspace and is orthogonal to $s$. Hence $\|(U_0-e^{i\theta}V)s\|^2=2$ for every $\theta$, proving the first norm bound.
+
+To compare propagators, differentiate $R(t)=U_0(t)^*U(t)$, obtaining $\dot R=-iU_0^*EU$. Integration and unitary invariance give $\|R(T)-I\|\le\int_0^T\|E(t)\|dt\le\varepsilon T$. Since $\|U-U_0\|=\|R-I\|$, the triangle inequality gives the second bound. Rearrangement proves the time constraint.
+\end{proof}
+
+This obstruction persists with arbitrarily rapid collective pulses so long as the same swap symmetry is preserved. It concerns the full unitary task; controllability on a smaller invariant subspace is a different question. An entangling drift by itself does not remove all conserved symmetries. Conversely, the lower time bound alone does not prove that a chosen asymmetric perturbation enables the target at any finite time.
+
+\section{Literature and context}
+The original DARPA mirror could not be accessed on 11 October 2026 (tool returned Internal Error). The primary arXiv abstract of P. J. Pemberton-Ross, A. Kay and S. G. Schirmer, \emph{Quantum Control Theory for State Transformations: Dark States and their Enlightenment}, arXiv:1003.4290, was inspected. It studies symmetry-related restrictions in quantum state control. This confirms that the obstruction method belongs to existing quantum-control theory; its external results are not used to prove the proposition. No literature claim of novelty for the present two-qubit example is made.
+
+\section{Verification and remaining gaps}
+For $J=1$, $u=0.7$, $v=-0.3$ and $T=1$, NumPy/SciPy matrix evaluation returned a zero commutator with swap, zero singlet/target overlap, and distance $1.4142135623730951$ on the singlet. This checks one instance only. The self-audit retained arbitrary global phases, specified an operator norm and bounded perturbations, and avoided inferring reachability from absence of this one obstruction. The source additionally encompasses algorithms, error correction and other control models, none settled here.
+
+\section{References}
+Original S1--S2 above. P. J. Pemberton-Ross, A. Kay and S. G. Schirmer, \emph{Quantum Control Theory for State Transformations: Dark States and their Enlightenment}, arXiv:1003.4290, \url{https://arxiv.org/abs/1003.4290}, abstract inspected 11 October 2026. The symmetry and perturbation bounds are proved in full above.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch001/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

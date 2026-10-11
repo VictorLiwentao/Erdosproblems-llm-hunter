@@ -1,0 +1,129 @@
+% RESEARCH_DRAFT_SHA256: c621a7a77d82d3c59d4c3f06116ca1f5d47646cb434d0f383bf79e5baae95d60
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30001934, "title": "Greedy Decomposition of the Spanning-Tree Polytope", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001934", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, format review, and mathematical corroboration of the tree examples and decomposition-proof details expressly described in the manuscript; exact serving revision not exposed. Codex GPT-6 completed written mathematical review at the declared scope; no independent human verification. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Greedy Decomposition of the Spanning-Tree Polytope; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A fractional star subtraction and an integer cactus rule; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch018 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30001934; source catalogue code OWR-11451-007
+\section{Greedy Decomposition of the Spanning-Tree Polytope}\label{30001934}
+{\small UnsolvedMath ID 30001934 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+$kP=\{kx:x\in P\}$ is a polytope dilation. An integral point of the spanning-tree polytope is the incidence vector of a spanning tree; the displayed maximum chooses the largest removable multiple of such a point while staying in the residual dilation.
+
+A spanning tree of a connected finite graph is an acyclic connected subgraph containing every vertex. Its cost is the sum of its edge costs.
+
+A polyhedron is an intersection of finitely many closed affine half-spaces; a polytope is a bounded polyhedron. Its faces are its intersections with supporting hyperplanes.
+\paragraph{Statement recorded in the supplied source.}
+Does the spanning-tree polytope $P$ admit greedy decomposition, meaning that for every positive integer $k$ and integral $w\in kP$, there is an integral $x\in P$ for which $\max\{\lambda:w-\lambda x\in(k-\lambda)P\}$ is an integer? \href{https://doi.org/10.4171/owr/2011/53}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Find a spanning tree whose maximal greedy removal from every integral dilated-polytope point has an integer coefficient.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30001934 (OWR-11451-007). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2012), Oberwolfach Reports, DOI 10.4171/owr/2011/53, pp. 3003--3076
+\url{https://doi.org/10.4171/owr/2011/53}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30001934 and source code OWR-11451-007 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30001934}
+
+\section{Literature and context check}
+The primary report on printed page 3027 asks for existence of some tree having an integer maximal removable multiple. The distinction between existence and arbitrary choice is crucial. The K4 route and its nine-tree certificate were independently developed in this attempt and corroborated in detailed mathematical notes from the parent Codex GPT-6; the cactus construction is expanded below. These limited results are not a general resolution.
+\section{Research attempt: A fractional star subtraction and an integer cactus rule}
+
+\paragraph{An arbitrary tree can have a fractional maximal subtraction}
+Let $P$ be the spanning-tree polytope of $K_4$, $k=2$, and $w_e=1$ on all six edges. Two complementary Hamilton paths are spanning trees, so $w\in2P$. Choose the star $x$ at one vertex. On the remaining three vertices, every spanning tree has at most two internal edges. The star has none there, so a residual in $(2-\lambda)P$ must satisfy $3\leq2(2-\lambda)$, giving $\lambda\leq1/2$. At $\lambda=1/2$, the normalized residual has values $1/3$ on the three spokes and $2/3$ on the leaf-triangle edges. Average the nine trees formed by one of the three spokes and any two of the three leaf-triangle edges. Every such graph is a tree, and each spoke appears in three of them while each triangle edge appears in six. This proves feasibility and hence maximal value $1/2$ for the star. In contrast, choosing one of the Hamilton paths permits $\lambda=1$, since its complement is a tree; a chosen edge has weight one, so nonnegativity prevents any larger removal with nonnegative remaining scale. For $\lambda>2$, an unchosen edge would remain positive whereas a negative dilation of this nonnegative polytope has nonpositive coordinates, so no extra feasible values occur in this example.
+
+Thus ``choose any spanning tree and remove its largest multiple'' is not a valid integer greedy rule. The original question asks for existence of a suitable tree, and this instance has such a tree; it is not a counterexample to that question.
+
+\paragraph{A complete restricted greedy result for cactus graphs}
+Let a connected cactus graph mean here a graph in which any two simple cycles share at most one vertex. Its edges split into bridges and these simple cycles. Every spanning tree contains the bridges and omits exactly one edge from each cycle. To prove sufficiency of these choices, removing one edge of every cycle leaves each cycle's vertices connected along a path, so the graph remains connected; no cycle remains because every original cycle block has been broken. Conversely a tree must retain every bridge and must omit at least one edge in each cycle, and its edge count forces exactly one omission. Consequently its spanning-tree polytope is a product of the cycle simplices, with fixed bridge coordinates; the convex hull is obtained by independent random omission choices.
+
+For an integer $w\in kP$, each bridge has weight $k$, and on every cycle $C$ the integer deficits
+\[
+ d_{C,e}=k-w_e\geq0,\qquad \sum_{e\in C}d_{C,e}=k
+\]
+are the scaled probabilities of omitting edges. Choose in each cycle an edge $e_C$ with positive deficit and let $x$ be the tree omitting these edges. After subtracting $\lambda x$, the residual at scale $k-\lambda$ has cycle deficits
+\[
+ d'_{C,e}=d_{C,e}-\lambda\,\mathbf1_{\{e=e_C\}}.
+\]
+For $0\leq\lambda\leq k$, membership is exactly nonnegativity of these deficits, because their sum is $k-\lambda$. The largest allowed removal is therefore
+\[
+ \lambda_* =\min_C d_{C,e_C},
+\]
+a positive integer. If the graph has no cycles, its unique tree can be removed with multiplicity $k$. This proves the desired greedy existence in this restricted graph class, with no claim for overlapping cycles in general graphs.
+
+The range $0\leq\lambda\leq k$ states explicitly the usual meaning of removing copies while leaving a nonnegative dilation. The source's displayed maximum leaves this upper endpoint implicit. If negative dilation factors are admitted literally, a singleton polytope with $w=kx$ satisfies $w-\lambda x\in(k-\lambda)P$ for every $\lambda$, so that literal maximum is undefined. This boundary notation does not provide a mathematical counterexample to the intended decomposition problem; the restricted result uses the nonnegative-dilation interpretation.
+
+\section{Verification and adversarial audit}
+The K4 membership certificates are explicit convex combinations and do not invoke an unproved full spanning-tree inequality characterization. The Hamilton-path choice shows why the star failure is not a counterexample to the existential question. For a cactus, nonnegative cycle deficits describe the product-simplex polytope exactly, so all residual constraints are checked. Bridges, a graph with no cycles, zero deficits and the terminal removal $\lambda=k$ are covered in the nonnegative-dilation convention.
+\paragraph{Audit corrections.} Retained the existential quantifier, proved the fractional optimum with a convex combination, and stated the residual-scale convention explicitly. Credited root mathematical corroboration.
+\paragraph{External computation.} Executed \texttt{check\_decompositions.py}: 500 deterministic pseudorandom product-simplex integer inputs passed exact reconstruction and affine-rank checks using rational Gaussian elimination. The nine-tree undirected and three-tree directed residual averages were also checked exactly with rational arithmetic. These finite tests supplement, rather than replace, the written proofs.
+\section{Scope and remaining gaps}
+The original spanning-tree question for general connected graphs remains unresolved. The cactus theorem covers only edge-disjoint cycle blocks, and the K4 example rules out a stronger arbitrary-choice rule. The displayed source maximum also requires its intended nonnegative residual-scale convention at singleton/terminal boundary cases; no solved claim is based on that notation issue.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46369} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+The parent Codex GPT-6 model reviewed the written arguments at their declared scopes. This is model-assisted review, not independent human verification.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+provided the mathematical corroboration credited above and performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

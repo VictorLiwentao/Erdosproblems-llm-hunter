@@ -1,0 +1,81 @@
+% TOP_PROBLEM: {"id": 8000004, "title": "Painlev\\'e equations", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The source expressly calls this a large-scale project. Its example asks about a Painlevé II solution asymptotic to the Airy function as $x\\to+\\infty$ and the location of complex poles; it is not a claim about all Painlevé solutions simultaneously."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "8000004", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Create reliable mathematical and numerical resources for Painlevé functions, including pole locations, asymptotics and connection formulae.", "scope": "Derived necessary Laurent coefficients and residue checks for a Painleve-II pole. No poles of the globally Airy-selected solution are located and no software project is completed.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked pole-order balance, both residue signs, constant and resonance coefficients, and the difference between a formal local expansion and a certified global solution. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the pole balance, both residues and Laurent coefficients through the free cubic parameter. No convergence or globally selected pole location is claimed. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked pole-order balance, both residue signs, constant and resonance coefficients, and the difference between a formal local expansion and a certified global solution. Scope remains limited: Connect the asymptotic solution data to validated complex continuation and certified pole enclosures."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 8000004; source catalogue code AMR-079-0004
+\setcounter{section}{8000003}
+\section{Painlev\'e equations}\label{8000004}
+{\small UnsolvedMath ID 8000004 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}The Painlevé equations are six families of nonlinear second-order ordinary differential equations distinguished by absence of movable branching singularities. For example, Painlevé II has the form $u''=2u^3+xu+\alpha$. Its solutions are selected by initial or asymptotic data; a pole is a point where the meromorphic solution diverges. Riemann--Hilbert representations encode selected solutions in matrix jump data.
+
+\paragraph{Catalogue wording retained for traceability.}
+What I have in mind here is not a specific problem, but a project, a very large scale project. The six (nonlinear) Painlev\'e equations form the core of ``modern special function theory.'' The role that the classical special functions, such as the Airy, Bessel, and Legendre functions, started to play in the 19$^th$ century, has now been greatly expanded by the Painlev\'e functions. Increasingly, as nonlinear science develops, people are finding that the solutions to an extraordinarily broad array of scientific problems, from neutron scattering theory, to PDEs, to transportation problems, to combinatorics,..., can be expressed in terms of Painlev\'e functions. What is needed is a project, similar to the Bateman project, or a new volume of Abramowitz and Stegun, devoted to the Painlev\'e equations. Much can be, and has been, proved regarding the algebraic and asymptotic properties of Painlev\'e functions. Here the role of integral representations and the classical steepest descent method in deriving precise asymptotics and connection formulae for the classical special functions is played, and expanded, by a Riemann-Hilbert representation of the Painlev\'e equations, together with the non-commutative steepest descent method introduced in 1993. Very little is known, however, beyond ad hoc calculations, about the numerical solution of the Painlev\'e equations. If $u(x)$ is the solution of the Painlev\'e II equation, say, which is asymptotic to the Airy function $Ai(x)$ as $x\to+\infty$, one would like to know, for example, the location of its poles in the complex $x$-plane. A modern ``Bateman Project: Painlev\'e equations'' would not/should not provide tables for such solutions. Rather, it should provide reliable, easy to use software to compute the solutions. Writing useful software for such nonlinear equations presents many challenges, conceptual, philosophical and technical. Without the help of linearity, it is not at all clear how to select a broad enough class of ``representative problems.'' The software should be in the form of a living document where new numerical problems can be addressed by a pool of experts as they arise. And at the technical level, how does one combine asymptotic information about the solutions obtained from the Riemann-Hilbert problem, together with efficient numerical codes in order to compute the solution $u(x)$ at finite values of $x$? I believe that the importance of the Painlev\'e Project will only grow with time. It should be viewed as creating a national resource and should probably be funded and led at the national level. The NIST Project ``Digital Library of Mathematical Functions'', where Peter Clarkson has a contribution on Painlev\'e functions, is an encouraging first step.
+\paragraph{Scope and source qualification.}The source expressly calls this a large-scale project. Its example asks about a Painlevé II solution asymptotic to the Airy function as $x\to+\infty$ and the location of complex poles; it is not a claim about all Painlevé solutions simultaneously.
+\subsection{Short English statement}
+Create reliable mathematical and numerical resources for Painlevé functions, including pole locations, asymptotics and connection formulae.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derived necessary Laurent coefficients and residue checks for a Painleve-II pole. No poles of the globally Airy-selected solution are located and no software project is completed.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{A local pole certificate for Painleve II.}Consider \(u''=2u^3+xu+\alpha\) and suppose a solution has a pole at \(x_0\). Write \(t=x-x_0\). Balancing the most singular terms for a pole of order \(m\) gives \(m+2=3m\), hence \(m=1\), and its residue \(a\) satisfies \(2a=2a^3\), so \(a=\pm1\). Substitute a Laurent series into the equation. Comparing coefficients successively yields
+\[u(x)=\frac a t-\frac{a x_0}{6}t-\frac{a+\alpha}{4}t^2+d t^3+\cdots .\]
+For clarity, the constant term is zero because the \(t^{-2}\) coefficient is six times that constant. At order \(t^{-1}\), \(6b+x_0a=0\), where \(b\) is the coefficient of \(t\). At order one, \(2c=6c+a+\alpha\). At order \(t\), the coefficient \(d\) cancels on both sides and the remaining compatibility is \(6ab^2+x_0b=0\), which the value of \(b\) satisfies.
+\paragraph{A possible numerical check with no claimed implementation.}Near such a pole the reciprocal \(w=1/u\) has a simple zero and \(w'(x_0)=1/a=\pm1\). Thus a purported isolated pole found by a numerical continuation should have residue tending to one of these values and the next coefficients above. These are necessary consistency checks, not a validated root enclosure: roundoff, missed poles and analytic continuation choices require separate control. The calculation assumes meromorphicity locally and does not prove convergence of the full formal Laurent series here.
+\paragraph{Scope limitation.}The source's Airy-asymptotic Painleve II solution is selected globally; no matching from that asymptotic condition to \(x_0\) or \(d\) is supplied. Locating its complex poles therefore remains unresolved. Reliable software, error certification, connection formulas and representative data for all six equations are also not produced. This standard local singularity calculation is a diagnostic for the requested numerical project, not a completed resource or a newly established pole theorem.
+
+\paragraph{Verification and adversarial audit.}
+Checked pole-order balance, both residue signs, constant and resonance coefficients, and the difference between a formal local expansion and a certified global solution. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked pole-order balance, both residue signs, constant and resonance coefficients, and the difference between a formal local expansion and a certified global solution. Scope remains limited: Connect the asymptotic solution data to validated complex continuation and certified pole enclosures.
+
+Coordinator checked the pole balance, both residues and Laurent coefficients through the free cubic parameter. No convergence or globally selected pole location is claimed. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Connect the asymptotic solution data to validated complex continuation and certified pole enclosures.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:8000004:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 8000004 (AMR-079-0004). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:8000004:2}{S2}] Percy Deift, Some open problems in random matrix theory and the theory of integrable systems (2007), arXiv:0712.0849, Problem 4.
+\url{https://arxiv.org/abs/0712.0849}.
+\end{itemize}
+\label{end:8000004}
+\end{document}

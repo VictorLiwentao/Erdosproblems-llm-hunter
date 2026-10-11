@@ -1,0 +1,130 @@
+% RESEARCH_DRAFT_SHA256: b97a60e8a1b974393b4e1f0efca8f139c938f49ec6dac47feaaeb17a988fdc8e
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30001325, "title": "Connectivity Reconstruction in Large Neuronal Networks", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001325", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written mathematical review at the declared scope; no independent human verification. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Connectivity Reconstruction in Large Neuronal Networks; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Covariance identification and a hidden-common-input obstruction; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch018 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30001325; source catalogue code OWR-4082-002
+\section{Connectivity Reconstruction in Large Neuronal Networks}\label{30001325}
+{\small UnsolvedMath ID 30001325 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A network connectivity matrix records which pairs of neurons are linked, optionally with strengths or directions. Reconstruction estimates this latent matrix from observed activity; identifiability requires different matrices to have distinguishable observation laws.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The dynamics, noise law, observation access, and desired recovery accuracy are not supplied.
+
+Source-record limitation: The network, observation distribution, identifiability assumptions, and recovery criterion are unspecified.
+\paragraph{Statement recorded in the supplied source.}
+Reconstruct the connectivity of a large neuronal network from limited, noisy, and incomplete observations. \href{https://doi.org/10.4171/owr/2009/39}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Infer neuronal connections from limited and noisy measurements.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30001325 (OWR-4082-002). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Challenges in Statistical Theory: Complex Data Structures and Algorithmic Optimization (2010), Oberwolfach Reports, DOI 10.4171/owr/2009/39, pp. 2179--2234
+\url{https://doi.org/10.4171/owr/2009/39}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30001325 and code OWR-4082-002 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30001325}
+
+\section{Literature and context check}
+The primary neuroscience report describes noisy incomplete connectivity inference and mentions generalized linear models and sequential Monte Carlo, without fixing an identifiable observation law for the catalogue agenda. This attempt analyzes an explicit linear stochastic model and a two-variable latent alternative. The examples are mathematical identifiability tests, not biological or clinical claims.
+\section{Research attempt: Covariance identification and a hidden-common-input obstruction}
+
+\paragraph{Full-state identification in a specified linear model}
+Suppose zero-mean random vectors satisfy $X_{t+1}=AX_t+\xi_t$, with finite second moments and $\mathbb E[\xi_tX_t^T]=0$. Write $\Sigma=\mathbb E[X_tX_t^T]$ and $\Gamma=\mathbb E[X_{t+1}X_t^T]$. Multiplication and expectation give $\Gamma=A\Sigma$. Thus if $\Sigma$ is invertible, population observations of these two matrices determine $A=\Gamma\Sigma^{-1}$. No stationarity assumption is needed for this single-time identity, although repeated-data estimation would require further assumptions.
+
+If $\Sigma$ is singular, choose a nonzero vector $v$ with $\Sigma v=0$ and a nonzero vector $u$, and let $D=uv^T$. Since $\mathbb E[(v^TX_t)^2]=v^T\Sigma v=0$, we have $DX_t=0$ almost surely. Replacing $A$ by $A+D$ therefore changes the connectivity coefficients while leaving the one-step observation equation unchanged on the observed state distribution. Persistently unexcited directions cannot be recovered from this experiment.
+
+For finite matrices $Y=AX+E$, where columns are consecutive observed input states and responses, assume $X$ has full row rank. The least-squares minimizer is uniquely
+\[
+ \widehat A=YX^T(XX^T)^{-1},\qquad
+ \widehat A-A=EX^T(XX^T)^{-1}.
+\]
+To verify uniqueness, the residual at this matrix is orthogonal rowwise to every row of $X$; expansion of the squared Frobenius norm for any perturbation $D$ adds $\lVert DX\rVert_F^2$, positive for $D\ne0$. Singular-value decomposition, or orthogonal diagonalization of $XX^T$, shows $\lVert X^T(XX^T)^{-1}\rVert_2=1/\sigma_{\min}(X)$. Hence
+\[
+ \lVert\widehat A-A\rVert_2\leq\lVert E\rVert_2/\sigma_{\min}(X).
+\]
+This finite bound explicitly requires full observation and excitation; it supplies neither a noise concentration theorem nor sparse recovery from incomplete observations.
+
+\paragraph{Two different networks with exactly the same observed law}
+Consider repeated independent observations of two variables. In a direct-edge model take $X\sim N(0,2)$ and $Y=X/2+\eta$, where $\eta\sim N(0,3/2)$ is independent. In a hidden-common-input model take independent $Z,\varepsilon_1,\varepsilon_2\sim N(0,1)$ and set $X=Z+\varepsilon_1$, $Y=Z+\varepsilon_2$. The first model has a direct coefficient $1/2$ from observed $X$ to observed $Y$; the second has no such direct edge but a latent common parent. Both observed vectors are centered Gaussian with covariance
+\[
+ \begin{pmatrix}2&1\\1&2\end{pmatrix}.
+\]
+Their characteristic functions are therefore both $\exp(-\tfrac12 t^T\Sigma t)$, as follows by multiplying the characteristic functions of the independent Gaussian terms. The observation laws are identical for every sample size. Any estimator choosing between the two graphs has output probabilities with the same distribution under both models; its two success probabilities sum to at most one, so one is at most $1/2$. Adding independent observed coordinates embeds the ambiguity in arbitrarily large networks.
+
+This obstruction concerns a specified static observation scheme and does not assert that these models have identical interventional or rich temporal data. It proves why more data of an unidentifiable type cannot substitute for assumptions about hidden variables and causal access.
+
+\section{Verification and adversarial audit}
+All Gaussian noise variances are strictly positive, so the common-input example does not rely on a noiseless latent duplicate. The covariance identity explicitly uses uncorrelated innovations, and the finite error estimate includes the smallest singular value rather than assuming invertibility is well-conditioned. The estimator impossibility applies only to the identical stated observation laws.
+\paragraph{Audit corrections.} Distinguished structural connectivity from correlation, full-state excitation from partial observation, and static observational equivalence from equivalence under interventions.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+No general reconstruction algorithm for the broad neuronal-network agenda follows. The calculations give an identifiable full-state linear regime, a conditioning bound, and exact latent-observation ambiguity; selecting and validating a physiological dynamics and observation model remains outside the supplied target data.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46240} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+The parent Codex GPT-6 model has reviewed the written mathematical arguments at their declared scopes. This is model-assisted review, not independent human verification.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

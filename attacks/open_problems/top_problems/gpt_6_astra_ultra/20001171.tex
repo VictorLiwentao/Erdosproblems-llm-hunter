@@ -1,0 +1,145 @@
+% RESEARCH_DRAFT_SHA256: 08aea87aee62686c8824a5356b05504f7db17b126af6229e00450d5fda6175ff
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001171, "title": "From an approximate HJB value to implemented control", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001171", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review and model-assisted mathematical audit of the written arguments; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "From an approximate HJB value to implemented control; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Uniform value error alone does not control sampled feedback; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch006 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 20001171; source catalogue code AIM-COMPUTATION-0009
+\section{From an approximate HJB value to implemented control}\label{20001171}
+{\small UnsolvedMath ID 20001171 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A control policy chooses actions from available state or observation information. A value function records the optimal expected cost, while an approximate value function can be used to select a candidate policy. Its suboptimality is the difference between that policy's cost and the optimal cost under the same initial condition and model. Numerical solution of a Bellman equation and faithful implementation of a feedback policy are separate tasks.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The participant identifies a dimensionality and implementation problem without a specified system, cost, approximation method, or error bound. The supplied catalogue marks this record open; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+A.6 Kushner, Harold
+
+I have been interested in numerical methods in stochastic (and deterministic) control for several decades, and have developed the current methods of choice for the stochastic problem (which is often the best method for determinstic problems as well, as seen in applications to complex variational problems in out book). These cover virtually all of the cost functions and systems of current interest. But, in applications, there is a serious dimensioanlity problem, beyond 4 dimensions. Various approximation schemes (say, Q-learning or neural nets) have been hyped, but with llittle to show, outside of some very special cases. Additionally, solving the Bellman or HJ-Bellman equation is not enough. One wants the control, and to investigate the effects of implemetation of reasonable approximations. The visualization problem, even in 3 dimensions, is formidable. \href{https://aimath.org/WWN/optimalcontrol/optimalcontrol.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The source asks how high-dimensional value approximations translate into useful implemented controls.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001171 (AIM-COMPUTATION-0009). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-COMPUTATION-0009.
+\url{https://aimath.org/WWN/optimalcontrol/optimalcontrol.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 20001171 and code AIM-COMPUTATION-0009 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:20001171}
+
+\section{Literature and context check}
+The participant contribution in the primary AIM optimal-control workshop
+ PDF was consulted. Its broad scope is retained above. The following explicitly
+ chosen finite or smooth model tests one route suggested by the agenda; it is
+ not a reconstruction of a missing theorem. The elementary arguments are not
+ claimed novel, and no current-resolution audit of the whole field is asserted.
+\section{Research attempt: Uniform value error alone does not control sampled feedback}
+Choose finite-horizon deterministic dynamics $\dot x=f(t,x,u)$ and cost
+$J=\int_0^T c(t,x,u)\,dt+g(x(T))$. For any smooth candidate $W$, integration
+along a trajectory gives the exact identity
+\[
+ J-W(0,x_0)=g(x(T))-W(T,x(T))+
+ \int_0^T[c+W_t+\nabla W\cdot f](t,x(t),u(t))\,dt.
+\]
+Assume trajectories exist on the horizon, terminal error is at most $\delta$,
+the minimum over actions of the integrand lies in $[-\epsilon,\epsilon]$,
+and the implemented action has integrand at most $\epsilon+\zeta$.
+Every admissible cost is at least $W(0,x_0)-\delta-T\epsilon$; the implemented
+cost is at most $W(0,x_0)+\delta+T(\epsilon+\zeta)$. Taking the infimum
+proves loss at most $2\delta+2T\epsilon+T\zeta$. This elementary verification
+argument shows precisely which residual and implementation quantities are needed.
+
+The attempted shortcut bounds only $\|W-V^*\|_\infty$. Consider
+$\dot x=u\in[-1,1]$, $T=1$, $c=u^2$, $g=0$, $x_0=0$.
+The optimal value is zero, achieved by $u=0$. Set
+$W_n(t,x)=n^{-1}\sin(n^2x)$. Its uniform value error and terminal error are
+at most $1/n$, but $\partial_xW_n(0,0)=n$. Minimizing the instantaneous
+Hamiltonian $u^2+nu$ at the observed state yields $u=-1$ for $n\ge2$.
+If an implementation samples the state only at time zero and holds this
+action until time one, its cost is exactly one for every $n$. Thus vanishing
+uniform value error does not ensure vanishing implemented-control loss.
+
+This does not assert the same loss for continuously recomputed feedback:
+its state sees a changing oscillatory derivative. The fixed sample interval
+is part of the exhibited implementation and the source explicitly asks about
+implementation effects. The residual-based identity explains the failure:
+the derivatives and held-action Hamiltonian error are not controlled by the
+uniform approximation error.
+\section{Verification and adversarial audit}
+The minimizer of $u^2+nu$ on the stated interval and the held-control cost
+were checked exactly. The verification identity includes terminal mismatch and
+a separate action error. No differentiability of the true value function was
+assumed; smoothness is imposed only on the auxiliary candidate.
+\paragraph{Audit corrections.} The bad sampled feedback was not misreported as continuously recomputed feedback, and the approximation norm was not silently strengthened to a derivative norm.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+No dimension-scalable approximation method or general implementation rule
+was obtained. The first gap is deriving the needed residual and held-action
+errors from the actual numerical scheme, with its regularity and sampling
+assumptions, rather than assuming a value norm controls derivatives.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://aimath.org/WWN/optimalcontrol/optimalcontrol.pdf} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and a model-assisted mathematical
+audit of the written arguments; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

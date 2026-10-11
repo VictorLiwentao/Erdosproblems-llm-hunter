@@ -1,0 +1,153 @@
+% RESEARCH_DRAFT_SHA256: 6ccd6293c15621c2e20ee2eb7f0350141050821440c59aaf20fae144d01136e5
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000994, "title": "Learning Capacity of Totally Geodesic Map Families", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000994", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and overlapping circle digit-shattering suggestion. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "For which pairs of manifolds $M$ and $N$ does the set of totally geodesic mappings from $M$ to $N$ have finite capacity in the learning-theoretic sense?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Euclidean and circle squared-loss classes are analyzed, but the source-wide capacity notion and the classification for general manifold pairs are unresolved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Totally geodesic capacity: an explicit circle shattering construction}
+\noindent UnsolvedMath ID 30000994; OWR-2041-002. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A smooth map between Riemannian manifolds is totally geodesic if it maps geodesics to geodesics with the corresponding affine parameterization. Learning-theoretic capacity measures how rich the induced hypothesis class is, such as by an appropriate shattering dimension.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The particular capacity notion and loss/label representation are not specified in the supplied question.
+
+Source-record limitation: The learning-theoretic capacity notion and hypothesis representation are absent, so the stated finiteness question has no fixed mathematical meaning.
+\paragraph{Statement recorded in the supplied source.}
+For which pairs of manifolds $M$ and $N$ does the set of totally geodesic mappings from $M$ to $N$ have finite capacity in the learning-theoretic sense? \href{https://doi.org/10.4171/owr/2008/30}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Characterize manifold pairs for which totally geodesic maps form a finite-capacity learning class.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000994 (OWR-2041-002). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Learning Theory and Approximation (2009), Oberwolfach Reports, DOI 10.4171/owr/2008/30, pp. 1655--1706
+\url{https://doi.org/10.4171/owr/2008/30}.
+\item[S3] manifold-regression paper
+\url{https://doi.org/10.1137/080744189}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+For which pairs of manifolds $M$ and $N$ does the set of totally geodesic mappings from $M$ to $N$ have finite capacity in the learning-theoretic sense?
+
+\section{Source scope and test of the finite-parameter route}
+The primary report supplies squared geodesic distance as regression loss,
+but the final classification question still does not select a formal capacity
+notion. We test strict threshold shattering of that loss class, a standard
+pseudodimension formulation: points $(x_i,y_i)$ and real thresholds $r_i$
+are shattered if every binary pattern is realized by losses strictly above
+or below the corresponding thresholds. This is an explicit interpretation
+for the following auxiliary results, not a silent full specification of the
+catalogue's broad classification.
+
+\paragraph{Euclidean totally geodesic maps are affine and have finite loss capacity.}
+If $F:\mathbb R^d\to\mathbb R^q$ is smooth and totally geodesic with
+affine geodesic parameter, every line has affine image, so
+$D^2F(x)[v,v]=0$ for every $x,v$. Polarizing the symmetric bilinear
+second derivative gives
+$2D^2F(x)[u,v]=D^2F(x)[u+v,u+v]-D^2F(x)[u,u]-D^2F(x)[v,v]=0$.
+Thus each first derivative is constant along line segments, and
+$F(x)=Ax+b$. Conversely affine maps take affine-parameterized lines to such
+lines and are totally geodesic.
+The loss $\|Ax+b-y\|_2^2$ is a polynomial of total degree at most two in
+$z=(x,y)\in\mathbb R^{d+q}$. All such losses lie in the span of
+$p=\binom{d+q+2}{2}$ monomial features $\psi(z)$.
+Any real linear feature class with $p$ features has strict threshold-shattering
+dimension at most $p$. Indeed, among more than $p$ feature vectors choose
+a nonzero relation $\sum_i\alpha_i\psi(z_i)=0$. For fixed thresholds
+$r_i$, put $s=\sum_i\alpha_i r_i$. If $s\ge0$, demand that
+$g(z_i)-r_i$ have the same strict sign as $\alpha_i$ wherever it is nonzero;
+then $\sum_i\alpha_i(g(z_i)-r_i)>0$, contradicting its value $-s\le0$.
+If $s<0$, demand opposite signs, producing a negative sum equal to
+$-s>0$. Indices with $\alpha_i=0$ may have either label. Thus not all
+patterns are possible. The squared-loss subclass inherits this finite bound.
+
+\paragraph{Circle maps shatter arbitrarily many loss samples at one fixed margin.}
+Identify the circle with $\mathbb R/(2\pi\mathbb Z)$ and use its geodesic
+distance. For every nonnegative integer $K$, the map
+$F_K(x)=Kx\pmod{2\pi}$ is totally geodesic: an affine lift $x_0+vt$ of
+any local geodesic maps to the affine lift $Kx_0+Kvt$.
+For any $m\ge1$, choose distinct inputs $x_i=2\pi/4^i$, outputs $y_i=0$,
+and thresholds $r_i=\pi^2/4$, $1\le i\le m$.
+For a prescribed binary pattern $(b_1,\ldots,b_m)$, choose
+$K=\sum_{j=1}^m2b_j4^{j-1}$, and add $4^m$ if a positive $K$ is desired.
+The fractional part of $K/4^i$ equals
+\[
+\frac{b_i}{2}+\sum_{j<i}2b_j4^{j-1-i},
+\qquad 0\le\sum_{j<i}2b_j4^{j-1-i}<1/6.
+\]
+If $b_i=0$, the image angle is in $[0,\pi/3)$ and its distance to zero
+is less than $\pi/3$. If $b_i=1$, the angle is in $[\pi,4\pi/3)$
+and that distance is greater than $2\pi/3$ (or equals $\pi$ at the
+left endpoint). Therefore the squared loss is respectively less than
+$\pi^2/9$ or greater than $4\pi^2/9$. It is below or above $\pi^2/4$
+according to the desired bit, with margin at least $\pi^2/10$.
+This proves infinite pseudodimension, and even infinite fixed-margin
+shattering dimension at that stated margin, for this circle loss class.
+Only one integer parameter was varied. Finite-dimensional or one-parameter
+parametrization alone therefore cannot imply finite statistical capacity.
+
+\paragraph{The source's universal interpolation sentence needs qualifications.}
+The displayed source theorem speaks of arbitrary training data for maps
+$Kx+\delta\pmod{2\pi}$. Literally, the distinct inputs $0,\pi$ with
+targets $0,\pi/2$ cannot be approximated to error $\varepsilon<\pi/4$
+by such a map. Their image difference is $K\pi$, either zero or $\pi$
+modulo $2\pi$, and its distance from the target difference $\pi/2$ is
+$\pi/2$. If both individual errors were at most $\varepsilon$, the
+triangle inequality and translation invariance of circle distance would
+bound this difference error by $2\varepsilon<\pi/2$, a contradiction.
+Thus some nonresonance or sampling qualification would be needed for that
+universal wording. The explicit shattering proof above avoids assuming it.
+This discrepancy does not refute the source's broader infinite-capacity insight.
+
+\section{Adversarial audit and classification gap}
+The audit checked affine parameterization, global circle well-definedness
+(integer $K$), every base-four digit bound, and the use of the actual squared
+geodesic loss. These are complete special-case proofs, not a classification
+of all manifold pairs. They recover known finite/infinite examples and
+invalidate the attempted finite-parameter criterion. A specified capacity
+notion and new geometric conditions for general $M,N$ remain necessary.
+The root Codex GPT-6 agent independently suggested the overlapping circle digit-shattering route with a semicircle classifier; this manuscript uses its independently developed base-four squared-loss version. That overlapping mathematical suggestion is acknowledged. No computation was performed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration, format review, and overlapping circle digit-shattering suggestion. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Euclidean and circle squared-loss classes are analyzed, but the source-wide capacity notion and the classification for general manifold pairs are unresolved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Hein, Steinke, Schölkopf contribution on regression between manifolds, Oberwolfach Report 30/2008, printed pp.1688--1689. Loss, geodesic discussion, theorem and question read on 11 October 2026; publisher landing page checked. \url{https://ems.press/content/serial-article-files/46176}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Euclidean and circle squared-loss classes are analyzed, but the source-wide capacity notion and the classification for general manifold pairs are unresolved.
+\end{document}

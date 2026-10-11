@@ -1,0 +1,157 @@
+% RESEARCH_DRAFT_SHA256: 0fe3aa0ba9ebee8f1df9829d656392ff1fd0319845eb31c1dcf35537467c7505
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001261, "title": "Geometry, residues, and scale thresholds for prescribed-prefix prime products", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001261", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 11. Given a (random) number n of 10000 digits, it may be impossible to find 5000 digit primes p, q such that n = pq. Much easier: find some 10000 digit primes\n\np, q such that n is the first 10000 digits of pq. Instead, find 7500 digit primes p, q such that\n\nn is the first 10000 digits of pq. (Coppersmith) Therefore, do this for 6000 digit primes. (Bernstein)", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Both product-length branches and exact residue constraints are derived, but no guaranteed or probability-certified construction of prime factors at the requested lengths is obtained.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Prescribed product prefixes: both digit-length branches and the linearization barrier}
+\noindent UnsolvedMath ID 20001261; AIM-COMPUTATION-0099. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+An integer with d decimal digits lies in $[10^{d-1},10^d)$. Saying n is the first k digits of a product means its decimal expansion begins with that k-digit string. The source fixes k=10000 and successively asks for prime factors of 10000, 7500, and 6000 digits.
+\paragraph{Statement recorded in the supplied source.}
+Question 11. Given a (random) number n of 10000 digits, it may be impossible to find 5000 digit primes p, q such that n = pq. Much easier: find some 10000 digit primes
+
+p, q such that n is the first 10000 digits of pq. Instead, find 7500 digit primes p, q such that
+
+n is the first 10000 digits of pq. (Coppersmith) Therefore, do this for 6000 digit primes. (Bernstein) \href{https://aimath.org/WWN/primesinp/primesinp.pdf}{[S2]}
+\paragraph{Scope qualification.}
+Prescribed leading digits are the objective, rather than exact factorization of the given integer; the source does not specify a worst-case guarantee or success probability for the random-input wording.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can one construct primes of the requested lengths whose product begins with a prescribed ten-thousand-digit integer?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001261 (AIM-COMPUTATION-0099). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0099
+\url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 11. Given a (random) number n of 10000 digits, it may be impossible to find 5000 digit primes p, q such that n = pq. Much easier: find some 10000 digit primes
+
+p, q such that n is the first 10000 digits of pq. Instead, find 7500 digit primes p, q such that
+
+n is the first 10000 digits of pq. (Coppersmith) Therefore, do this for 6000 digit primes. (Bernstein)
+
+\section{Exact digit condition before choosing primes}
+Let $N$ have $D$ decimal digits and require two $A$-digit prime factors.
+For the source's $A=6000,7500,10000$ and $D=10000$, their product
+can have either $2A-1$ or $2A$ digits. Both possibilities must be
+kept: a statement excluding prefixes for only the longer product does
+not exclude the original leading-digit condition.
+For each possible product length $J\in\{2A-1,2A\}$ with $J\ge D$,
+put $W=10^{J-D}$ and $M=NW$. The exact branch condition is
+\[
+M\le pq<M+W,\qquad 10^{A-1}\le p,q<10^A.
+\]
+This follows directly by dividing the product by $10^{J-D}$ and
+taking its integer part. Conversely the interval has $J$-digit
+endpoints in the correct decimal range because $N$ has exactly $D$
+digits, so membership gives the desired prefix. The union of the two
+branches is the original requirement.
+
+\paragraph{A fixed-factor residue test.}
+For any positive integer candidate $p$, the possible integers $q$ are
+\[
+\left\lceil M/p\right\rceil\le q\le
+\left\lceil(M+W)/p\right\rceil-1,
+\]
+intersected with the $A$-digit range. If $W<p$, this interval contains
+at most one integer. Put $q_0=\lceil M/p\rceil$ and
+$\delta=pq_0-M\in\{0,\ldots,p-1\}$. A candidate exists exactly when
+$\delta<W$ and $q_0$ has the required length. The residue $\delta$
+is the least nonnegative residue of $-M$ modulo $p$.
+Thus even after choosing a prime $p$, the integer-existence step is a
+thin residue condition before the independent requirement that $q_0$
+be prime. Assuming it holds merely because a real hyperbolic strip is
+nonempty is invalid. For $A=6000,D=10000$, the wider branch has
+$W=10^{2000}$ whereas $p\ge10^{5999}$; a row is much thinner than
+one integer. The shorter branch is ten times thinner still.
+
+\paragraph{Exact perturbation equation.}
+Given integer starting values $p_0,q_0$, write $r=M-p_0q_0$.
+With corrections $x,y$, the prefix interval is exactly
+\[
+r\le q_0x+p_0y+xy<r+W.
+\]
+Discarding $xy$ is not harmless without an error budget. If
+$|x|,|y|\le H$, its absolute value can be as large as $H^2$;
+for a method that uniformly ignores this term, $H^2\le W$ is one
+natural necessary scale requirement for an error allowance $W$.
+This requirement is about that ansatz, not about an algorithm retaining
+the exact product.
+There is a separate elementary coverage restriction on a linear residue
+search: if only $K$ candidate values of $x$ are used, then
+$q_0x+p_0y$ modulo $p_0$ has at most $K$ possible residues, regardless
+of $y$. Intervals of $W$ consecutive integer residues following those
+positions cover at most $KW$ residue classes. Covering every target
+residual class therefore requires $KW\ge p_0$.
+This counting fact does not prove the residues actually cover even
+when the inequality holds.
+
+At the nominal balanced scale $U=10^A$, taking about $H$ choices
+for a correction and combining the putative residue-coverage scale
+$U/H\le W$ with the uniform linearization-error scale $H^2\le W$ yields
+$U^2\le W^3$. In the longer branch $W=10^{2A-D}$, this is
+$A\ge3D/4$. It explains the $7500$-digit threshold of this particular
+pair of scale requirements. For $A=6000$, the putative coverage scale
+$H=10^{D-A}=10^{4000}$ has
+$H^2/W=10^{6000}$. The discarded term exceeds the prefix-window scale
+by that factor. These equalities audit a suggested linearization;
+they do not prove impossibility for all methods or for nonuniform
+random-input strategies. Constants in the number of signed corrections
+also do not constitute a prime-distribution theorem.
+
+\section{Audit and remaining problem}
+The source Question 11 and its perturbation remark were inspected.
+The audit corrected a potential one-branch error: upper-product endpoint
+obstructions for $J=2A$ cannot be asserted for the whole problem because
+$J=2A-1$ is also allowed. It checks strict upper endpoints, factor digit
+ranges, residue versus real feasibility, the $xy$ term and primality.
+No large integers or primes were constructed, and no lattice reduction
+experiment was run. A proved construction or success probability for
+the source's random prefix, especially at $6000$ digits, remains missing.
+These exact arithmetic reductions and failed-route checks are not
+claimed novel progress on that target.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Both product-length branches and exact residue constraints are derived, but no guaranteed or probability-certified construction of prime factors at the requested lengths is obtained.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Future directions in algorithmic number theory, workshop 24--28 March 2003, report version 30 April 2003; original question, relevant lecture context and adjoining remarks inspected on 11 October 2026. \url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Both product-length branches and exact residue constraints are derived, but no guaranteed or probability-certified construction of prime factors at the requested lengths is obtained.
+\end{document}

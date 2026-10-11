@@ -1,0 +1,114 @@
+% RESEARCH_DRAFT_SHA256: 64196328c0ae2b9ebb8fce17d60cc68c26a56768b7f3ccea24db407f8d2132ff
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 76, "title": "Computational Duality", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "76", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Exact primal-dual residual certificate for ridge least squares and explicit quartic equality problem with a unit duality gap; rejects an unrestricted no-gap algorithmic inference.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch001/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 76; source catalogue code DARPA-006
+\section{Computational Duality}\label{76}
+{\small UnsolvedMath ID 76 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A dual formulation associates another mathematical description with a given problem. For example, an optimization primal and dual compare minimization and maximization values; weak duality supplies an ordering, while strong duality is equality under appropriate hypotheses. A geometric representation uses structures such as convex sets, metric spaces or algebraic varieties. A computational advantage requires a specified task, input representation, correctness condition and resource comparison.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+This is DARPA Mathematical Challenge Six. The source does not select a duality, input class, computational resource or baseline algorithm. Optimization duality is an explanatory example, rather than the only intended interpretation. The catalogue-linked mirror returned HTTP 404 during this preparation; its full original solicitation was not reverified. The supplied catalogue extract and historical attribution are documented with that access limitation.
+\paragraph{Statement recorded in the supplied source.}
+Use mathematical duality and geometry as foundations for developing novel computational algorithms. \href{https://web.math.utk.edu/~vasili/refs/darpa07.MathChallenges.html}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+Investigate whether duality and geometric descriptions can lead to principled new algorithms.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 76 (DARPA-006). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] DARPA DSO, Broad Agency Announcement 07-68, Mathematical Challenges (2007), challenge identified above; the catalogue-linked University of Tennessee mirror.
+\url{https://web.math.utk.edu/~vasili/refs/darpa07.MathChallenges.html}.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. The supplied catalogue credits: DARPA. Permanent source ID 76 and code DARPA-006 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:76}
+
+
+\section{Research attempt}
+The source asks for algorithms based on duality and geometry, without specifying a task or baseline. This attempt tests two concrete implications: whether a dual representation produces checkable error bounds, and whether merely forming a dual preserves a nonconvex optimum. The first works for the quadratic family below; the second fails on a one-variable polynomial problem. These are worked standard mechanisms, not a novel algorithmic completion of the agenda.
+
+Fix a real $m\times n$ matrix $A$, $b\in\mathbb R^m$ and $\lambda>0$. Define
+\[
+ f(x)=\tfrac12\|Ax-b\|^2+\tfrac\lambda2\|x\|^2,
+ \qquad
+ g(y)=b^Ty-\tfrac12\|y\|^2-\tfrac1{2\lambda}\|A^Ty\|^2.
+\]
+
+\begin{proposition}
+For every $x\in\mathbb R^n$ and $y\in\mathbb R^m$,
+\[
+ f(x)-g(y)=\tfrac12\|Ax-b+y\|^2+
+               \tfrac1{2\lambda}\|\lambda x-A^Ty\|^2. \tag{1}
+\]
+The minima and maxima agree at $x_*=(A^TA+\lambda I)^{-1}A^Tb$ and $y_*=b-Ax_*$. Moreover,
+\[
+ \|x-x_*\|\le\sqrt{2(f(x)-g(y))/\lambda}. \tag{2}
+\]
+\end{proposition}
+\begin{proof}
+Expand both squares in (1). The cross terms are $y^T(Ax-b)-x^TA^Ty=-b^Ty$, giving the identity. In particular $g(y)\le f(x)$ for all $x,y$. The matrix $A^TA+\lambda I$ is positive definite because its quadratic form on nonzero $v$ is $\|Av\|^2+\lambda\|v\|^2>0$, so the displayed inverse exists. Its normal equation gives $\lambda x_*=A^T(b-Ax_*)=A^Ty_*$. Both squares in (1) vanish at this pair, proving equality of optimal values and attainment. Expanding $f(x_*+h)$ and cancelling its linear term by the normal equation gives
+\[
+ f(x)-f(x_*)=\tfrac12\|A(x-x_*)\|^2+\tfrac\lambda2\|x-x_*\|^2.
+\]
+Since $g(y)\le f(x_*)$, this proves (2).
+\end{proof}
+
+Eliminating $x_*$ instead gives $(I+AA^T/\lambda)y_*=b$. Thus one can solve an $m$-dimensional system and reconstruct $x_*=A^Ty_*/\lambda$, or solve the $n$-dimensional normal equation. Identity (1) certifies a candidate pair using matrix-vector products; no appeal to an unverified optimization routine is needed for the certificate. This dimension comparison alone does not imply a uniform running-time improvement: forming dense matrices, conditioning and bit precision still matter, and bound (2) deteriorates as $\lambda\downarrow0$. The positive regularization assumption is essential to that error guarantee.
+
+\paragraph{A failed extension to nonconvex constraints.}
+Consider $\min x^2$ over real $x$ subject to $x^4=1$. Its feasible set is $\{-1,1\}$, so its value is $1$. The equality-constraint Lagrangian is $L(x,t)=x^2+t(x^4-1)$ with unrestricted $t\in\mathbb R$. If $t<0$, the quartic leading term gives $\inf_xL=-\infty$. If $t\ge0$, $x^2+tx^4\ge0$ with equality at zero, so $\inf_xL=-t$. The dual supremum is therefore $0$, attained at $t=0$. The gap is exactly one. Consequently ``optimize the dual, then read off the original optimum'' is false without additional structure; even exact solution of this simple dual leaves the primal value undetermined by equality of objectives.
+
+\section{Literature and context}
+The original DARPA mirror returned an internal access error on 11 October 2026. Boyd and Vandenberghe's author-hosted \emph{Convex Optimization}, Sections 5.1--5.2, was consulted for the definitions and least-squares examples of Lagrange duality. The square-completion identity and quartic example above are proved directly. Their role is to audit a candidate approach; neither strong duality for quadratics nor the existence of nonconvex gaps is presented as new research.
+
+\section{Verification and remaining gaps}
+For a specified $2\times3$ matrix and numerical vectors in the reproduction script, the two sides of (1) differed by $8.89\times10^{-16}$ or less, consistent with floating-point roundoff. The audit also checked singular $A$ (permitted because $\lambda>0$), the sign of the dual variable, and all real multipliers in the nonconvex example. No timing comparison or universal conditioning bound was performed. The agenda's request for novel algorithms remains unfulfilled; the first mathematical gap in the proposed unrestricted extension is a valid no-gap theorem or a quantified relaxation bound for the chosen nonconvex class.
+
+\section{References}
+Original S1--S2 above. S. Boyd and L. Vandenberghe, \emph{Convex Optimization}, Sections 5.1--5.2, author-hosted PDF, \url{https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf}, consulted 11 October 2026. No external strong-duality theorem is required for the explicit calculations here.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch001/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

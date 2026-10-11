@@ -1,0 +1,159 @@
+% RESEARCH_DRAFT_SHA256: 21825ab122818403defdacd4d4257433052c7f670c80fe5cdf3e3d9447b76ed1
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000889, "title": "Multiplicity Decoding for Order-Domain Codes", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000889", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Extend the Geil–Matsumoto Sudan-type list-decoding algorithm for order-domain codes to use multiplicities. In particular, develop an appropriate notion of multiplicity in order-domain theory.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Polynomial-grid multiplicity interpolation is fully justified, but the needed order-domain multiplicity/zero-count/factorization framework and decoding guarantee are not supplied.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Multiplicity attempt: polynomial interpolation and the singular local-order obstruction}
+\noindent UnsolvedMath ID 30000889; OWR-1739-003. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+List decoding uses interpolation constraints at received symbols. Multiplicity requires specified derivatives or algebraic orders of vanishing in those constraints. An order domain supplies an algebra with an ordering/weight function used to construct evaluation codes.
+
+A code $C\subseteq\Sigma^N$ is a set of permitted length-$N$ words. Its Hamming minimum distance is the minimum number of unequal coordinates of two distinct words. For a linear $[N,K,D]_q$ code, rate is $K/N$ and relative distance is $D/N$; decoding recovers a codeword from corrupted observations.
+
+List decoding returns every codeword within a prescribed distance of the received word, allowing several answers. Efficient list decoding requires polynomial runtime and a controlled output-list size; the intended capacity and alphabet are those in the source.
+\paragraph{Statement recorded in the supplied source.}
+Extend the Geil–Matsumoto Sudan-type list-decoding algorithm for order-domain codes to use multiplicities. In particular, develop an appropriate notion of multiplicity in order-domain theory. \href{https://doi.org/10.4171/owr/2007/56}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Extend the cited order-domain list decoder using a mathematically appropriate multiplicity notion.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000889 (OWR-1739-003). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Coding Theory (2008), Oberwolfach Reports, DOI 10.4171/owr/2007/56, pp. 3241--3302
+\url{https://doi.org/10.4171/owr/2007/56}.
+\item[S3] generalized Sudan order-domain decoding
+\url{https://people.math.aau.dk/~olav/gensud.pdf}.
+\item[S4] multivariate multiplicity-code decoding
+\url{https://arxiv.org/abs/2012.01530}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Extend the Geil–Matsumoto Sudan-type list-decoding algorithm for order-domain codes to use multiplicities. In particular, develop an appropriate notion of multiplicity in order-domain theory.
+
+\section{Attempted multiplicity construction}
+For a polynomial $Q$ at a point $a$, define its multiplicity as the smallest
+total degree of a nonzero term in $Q(a+U)$, and give zero polynomial infinite
+multiplicity. Equivalently this is the largest $s$ with
+$Q\in(X_1-a_1,\ldots,X_r-a_r)^s$. This Taylor-coefficient definition works
+in every characteristic. Ordinary derivatives alone would fail, for example
+on $X^p$ in characteristic $p$, whose first derivative is zero even though
+its multiplicity at zero is the finite number $p$.
+We first prove the polynomial-ring zero estimate used by the report, then
+locate what does not transfer to an arbitrary order domain.
+
+\paragraph{Complete multiplicity bound on a grid.}
+For a nonzero polynomial $P$ in $r$ variables of total degree at most $D$
+and a set $T$ of $n\ge1$ distinct field elements,
+\[
+\sum_{a\in T^r}\operatorname{mult}(P,a)\le Dn^{r-1}.
+\]
+For $r=1$, distinct linear factors are coprime and their product, with
+root multiplicities, divides $P$ by successive polynomial division; their
+total degree is at most $D$. For the induction write
+$P(X,Y)=\sum_{j=0}^lP_j(X)Y^j$, with $P_l\ne0$ and $r-1$ variables $X$.
+At each $a\in T^{r-1}$ let $m=\operatorname{mult}(P_l,a)$ and choose
+a multi-index $\alpha$ of size $m$ whose coefficient in $P_l(a+U)$ is
+nonzero. In the expansion $P(a+U,Y)=\sum_\beta U^\beta R_\beta(Y)$,
+the polynomial $R_\alpha$ is nonzero of degree exactly $l$.
+For every $b\in T$, one of the terms at total degree
+$m+\operatorname{mult}(R_\alpha,b)$ has a nonzero coefficient, so
+\[
+\operatorname{mult}(P,(a,b))\le
+m+\operatorname{mult}(R_\alpha,b).
+\]
+Sum first over $b$ and use the univariate bound to get at most $nm+l$.
+Then sum over $a$. Since $\deg P_l\le D-l$, the induction hypothesis
+bounds the result by $n(D-l)n^{r-2}+l n^{r-1}=Dn^{r-1}$.
+
+\paragraph{Interpolation consequence, with exact equation counts.}
+Let messages be polynomials $f(X)$ of total degree at most $h\ge1$,
+evaluated on $T^r$. Seek a nonzero $Q(X,Z)$ of weighted degree at most
+$D$, with weights $(1,\ldots,1,h)$, that lies in
+$(X-a,Z-y_a)^s$ at every received point $(a,y_a)$, where $s\ge1$.
+There are exactly $\binom{s+r}{r+1}$ monomials of total degree less than
+$s$ in $r+1$ local variables, so each point imposes at most that many
+homogeneous linear equations. The number of available monomials is exactly
+\[
+M(D)=\sum_{j=0}^{\lfloor D/h\rfloor}\binom{D-hj+r}{r}.
+\]
+If $M(D)>n^r\binom{s+r}{r+1}$, rank-nullity guarantees a nonzero solution
+of these linear equations. This imposes multiplicity at least $s$, not an
+unjustified equality exactly $s$.
+If $f(a)=y_a$, substituting $Z=f(X)$ sends every generator of the local
+maximal ideal into $(X-a)$; hence $Q(X,f(X))$ has multiplicity at least
+$s$ at each agreement point. Its degree is at most $D$ by the weighted
+bound. If there are $A$ agreements and $sA>Dn^{r-1}$, the grid theorem
+forces $Q(X,f(X))=0$ identically. Distinct polynomial solutions $f$ are
+distinct roots of the nonzero polynomial $Q$ in $Z$ over the field
+$\mathbb F(X)$, so there are at most $\deg_ZQ$ of them, by univariate
+root division. This proves containment and a list-size bound; it does not
+by itself supply a factorization algorithm or an order-domain extension.
+
+\paragraph{A direct local-ideal transfer loses additivity at a singular point.}
+Consider $R=\mathbb F[t^2,t^3]$ and $\mathfrak m=(t^2,t^3)$.
+Define $\mu(g)=\max\{s:g\in\mathfrak m^s\}$ for nonzero $g$.
+Every monomial in $\mathfrak m^s$ has exponent at least $2s$, so
+$t^2,t^3\notin\mathfrak m^2$, and both have $\mu=1$.
+But $(t^3)^2=t^6=(t^2)^3$ lies in $\mathfrak m^3$ and not in
+$\mathfrak m^4$, giving $\mu(t^6)=3>2\mu(t^3)$.
+The usual order-of-vanishing-on-a-smooth-curve argument, which adds
+multiplicities under products, therefore cannot be transplanted unchanged
+using this local-ideal order. This calculation does not deny useful
+multiplicity notions on order domains, or their possible nonadditive bounds.
+It identifies the false inference in the attempted direct transfer.
+
+\section{Source context, adversarial audit, and remaining gap}
+The primary report explicitly proves/uses polynomial-grid multiplicity bounds
+before asking for the Geil--Matsumoto extension. The grid theorem above is a
+complete rederivation of that known ingredient, not new target progress.
+The exact interpolation count avoids replacing a lattice-point count by its
+leading asymptotic term. The audit also checked positive characteristic,
+the strict zero-forcing inequality, and the singular-ring example.
+An appropriate order-domain zero estimate, compatible interpolation spaces,
+and an efficient extraction algorithm with the desired radius are not proved.
+The supplied source status partially solved is preserved, while this attempt
+remains unresolved. No computer experiment was performed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Polynomial-grid multiplicity interpolation is fully justified, but the needed order-domain multiplicity/zero-count/factorization framework and decoding guarantee are not supplied.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 56/2007, hypergraph-code and multiplicity-decoding contributions, printed pp.3224--3229 in the cached report. Relevant original passages read on 11 October 2026; publisher landing page inspected. Its catalogue page range differs from the printed running pagination; no source mathematics is changed. \url{https://ems.press/content/serial-article-files/46142}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Polynomial-grid multiplicity interpolation is fully justified, but the needed order-domain multiplicity/zero-count/factorization framework and decoding guarantee are not supplied.
+\end{document}

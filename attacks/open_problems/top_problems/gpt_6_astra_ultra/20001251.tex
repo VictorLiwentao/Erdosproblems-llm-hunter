@@ -1,0 +1,148 @@
+% RESEARCH_DRAFT_SHA256: 034e0cc64336d23db6ba3a0e3f5a58fec020fc2b310d386d089cbab805a38be8
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001251, "title": "A norm obstruction for Agrawal's conjecture", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001251", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly, metadata checks and the finite exact computation described in the manuscript. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 1. If (X − 1) n ≡ Xn − 1 (mod n, X r − 1) and gcd( r, n ) = 1 does this imply that\n\nn2 ≡ 1 (mod r)when n is composite? (AKS)", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The complete scalar norm obstruction is proved, but its failure to imply the requested residue condition is explicit; no full-hypothesis counterexample or general implication is established.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{A determinant-norm consequence of the Agrawal congruence and its insufficiency}
+\noindent UnsolvedMath ID 20001251; AIM-COMPUTATION-0089. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For positive integers $n,r$, $(X-1)^n\equiv X^n-1\pmod{n,X^r-1}$ is equality in the quotient ring $(\mathbb Z/n\mathbb Z)[X]/(X^r-1)$. The source asks whether this congruence and $\gcd(r,n)=1$ force $n^2\equiv1\pmod r$ when $n$ is composite.
+\paragraph{Statement recorded in the supplied source.}
+Question 1. If (X − 1) n ≡ Xn − 1 (mod n, X r − 1) and gcd( r, n ) = 1 does this imply that
+
+n2 ≡ 1 (mod r)when n is composite? (AKS) \href{https://aimath.org/WWN/primesinp/primesinp.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The primary notes include heuristic discussion and conditional constructions of counterexamples; no current resolution is inferred from those historical remarks.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Does the stated polynomial congruence force a composite integer to have square one modulo the polynomial period?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001251 (AIM-COMPUTATION-0089). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0089
+\url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 1. If (X − 1) n ≡ Xn − 1 (mod n, X r − 1) and gcd( r, n ) = 1 does this imply that
+
+n2 ≡ 1 (mod r)when n is composite? (AKS)
+
+\section{Attempt through a scalar invariant}
+Retain positive integers $n,r$ with $n$ composite and $\gcd(n,r)=1$,
+and the full hypothesis $(X-1)^n=X^n-1$ modulo $(n,X^r-1)$.
+The source records $r^n\equiv r\pmod n$ as a consequence. We prove
+this including nonsquarefree $n$, then test whether it can yield the
+requested congruence $n^2\equiv1\pmod r$.
+
+\paragraph{Finite-free norm proof.}
+For $r=1$ the scalar conclusion is immediate. For $r\ge2$, put
+$S_r(X)=1+X+\cdots+X^{r-1}$ and
+$A=(\mathbb Z/n\mathbb Z)[t]/(S_r(t))$.
+This is free of rank $r-1$ with basis $1,t,\ldots,t^{r-2}$,
+because division by a monic polynomial works over any coefficient ring.
+For $a\in A$ let $N(a)$ be the determinant of multiplication by $a$;
+determinant multiplicativity gives $N(ab)=N(a)N(b)$.
+Multiplication by $t$ is the companion matrix of $S_r$, so its
+characteristic polynomial is $S_r$. This follows directly by expanding
+$\det(XI-M_t)$ along the companion matrix columns, or equivalently
+by the defining recurrence $t^{r-1}=-(1+\cdots+t^{r-2})$.
+Thus $N(t-1)=(-1)^{r-1}S_r(1)=(-1)^{r-1}r$.
+
+Since $t^r=1$, substitution $t\mapsto t^n$ preserves $S_r(t)=0$:
+its $r$ terms permute those of $S_r$ as $\gcd(n,r)=1$.
+An inverse substitution uses any integer $a$ with $an\equiv1\pmod r$,
+so this is an algebra automorphism. Conjugating multiplication operators
+by this automorphism shows $N(t^n-1)=N(t-1)$.
+The given polynomial identity descends to $A$ because $S_r$ divides
+$X^r-1$. Taking determinants therefore yields
+\[
+[(-1)^{r-1}r]^n=(-1)^{r-1}r\pmod n.
+\]
+The factor $r$ is a unit modulo $n$. After division the possible sign
+is $(-1)^{(r-1)(n-1)}=1$: if $n$ is odd then $n-1$ is even, while
+if $n$ is even then coprimality forces $r$ odd. We have proved
+\[
+r^{n-1}\equiv1\pmod n.
+\]
+No step replaced $n$ by its radical or assumed that $A$ is a field.
+
+\paragraph{Exact obstruction to finishing with the norm alone.}
+Take $n=217=7\cdot31$ and $r=5$. Since $5^6\equiv1\pmod7$
+and $5^3=125\equiv1\pmod{31}$, and both $6,3$ divide $216$,
+we get $5^{216}\equiv1\pmod{217}$. For the first congruence,
+$5^3\equiv-1\pmod7$, so its square is one.
+Yet $217^2\equiv4\pmod5$, not one. Thus the scalar norm condition
+with coprimality and compositeness does not imply the desired conclusion.
+The example is not a counterexample to the original conjecture:
+an exact cyclic multiplication computation gives residual coefficients
+\[
+(X-1)^{217}-(X^{217}-1)
+ \equiv207+10X^2+159X^3+58X^4\pmod{217,X^5-1},
+\]
+which is nonzero. The finite computation can be checked by repeated
+squaring with cyclic convolution of five integer residues.
+
+\paragraph{Automatic periods do not test the difficult implication.}
+For $r$ dividing $24$, every integer coprime to $r$ has square one
+modulo $r$. Indeed an odd integer $2k+1$ has square
+$1+4k(k+1)\equiv1\pmod8$, and an integer not divisible by three
+has square one modulo three by its two possible nonzero residues.
+The Chinese remainder theorem gives the assertion for $24$, and
+reduction gives it for its divisors. Thus calculations at these periods
+cannot supply evidence for the nontrivial part of the conjecture.
+No classification of all other periods is needed for this observation.
+
+\section{Source context and audit}
+The original Question 1 and the report's later Lenstra--Pomerance
+conditional counterexample construction were inspected. No integers
+satisfying all conditions of that historical construction are asserted
+here. The audit checked determinant norms over composite rings,
+automorphism well-definedness, signs, and the precise failure of the
+scalar-only argument. Python checked the displayed residual, not the
+universal conjecture. A stronger invariant retaining more polynomial
+information, or an actual full-hypothesis counterexample, is still
+missing. No new solution or novelty is claimed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The complete scalar norm obstruction is proved, but its failure to imply the requested residue condition is explicit; no full-hypothesis counterexample or general implication is established.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Future directions in algorithmic number theory, workshop 24--28 March 2003, report version 30 April 2003; original question, relevant lecture context and adjoining remarks inspected on 11 October 2026. \url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The complete scalar norm obstruction is proved, but its failure to imply the requested residue condition is explicit; no full-hypothesis counterexample or general implication is established.
+\end{document}

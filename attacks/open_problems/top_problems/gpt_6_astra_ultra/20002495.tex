@@ -1,0 +1,82 @@
+% TOP_PROBLEM: {"id": 20002495, "title": "Exact zero-Kerr spectrum and high-energy Kerr localization", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The source calls a and its adjoint raising and lowering in the opposite order to the standard convention. The displayed Hamiltonian is retained and the convention is made explicit. No positivity, nonzero-parameter restriction, or compact-resolvent claim is inserted. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002495", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Determine the eigenvalue distribution of the damped, driven Kerr-type bosonic Hamiltonian.", "scope": "Computed the exact undriven diagonal spectrum for all remaining real parameters and a driven high-level coupling scale. The general driven spectral distribution is not proved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked aa-dagger=N+I, diagonal domain, zero-operator exception, compact resolvent criterion, adjacent gap and coupling norms. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the diagonal spectrum and compact-resolvent alternatives, as well as the basis-vector drive/gap ratio and its limitations. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked aa-dagger=N+I, diagonal domain, zero-operator exception, compact resolvent criterion, adjacent gap and coupling norms. Scope remains limited: Prove full-operator resolvent localization for the unbounded drive, treating zero-Kerr and degenerate parameter regimes separately."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002495; source catalogue code AIM-PHYSICS-0003
+\setcounter{section}{20002494}
+\section{Exact zero-Kerr spectrum and high-energy Kerr localization}\label{20002495}
+{\small UnsolvedMath ID 20002495 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}In the standard bosonic Fock representation, $a|n\rangle=\sqrt n\,|n-1\rangle$, $a^\dagger|n\rangle=\sqrt{n+1}\,|n+1\rangle$, $[a,a^\dagger]=I$ and the number operator is $N=a^\dagger a$. Thus $aa^\dagger=N+I$. The displayed Hamiltonian is generally unbounded on its natural operator domain. Its spectral behavior depends on the real parameters, including zero-parameter cases.
+
+\paragraph{Catalogue wording retained for traceability.}
+Determine the distribution of eigenvalues of $H=\omega a^\dagger a+\chi(a^\dagger a)^2-i\gamma aa^\dagger+\beta(a^\dagger+a)$, with $\omega,\chi,\gamma,\beta\in\mathbb R$, as asked by the source.
+\paragraph{Scope and source qualification.}The source calls a and its adjoint raising and lowering in the opposite order to the standard convention. The displayed Hamiltonian is retained and the convention is made explicit. No positivity, nonzero-parameter restriction, or compact-resolvent claim is inserted. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Determine the eigenvalue distribution of the damped, driven Kerr-type bosonic Hamiltonian.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Computed the exact undriven diagonal spectrum for all remaining real parameters and a driven high-level coupling scale. The general driven spectral distribution is not proved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{Exact diagonal parameter slice.}Set \(\beta=0\), retaining arbitrary real \(\omega,\chi,\gamma\). In the number basis, the displayed operator is diagonal:
+\[H|n\rangle=d_n|n\rangle,\qquad d_n=\chi n^2+(\omega-i\gamma)n-i\gamma,\quad n\ge0.
+\]
+On its maximal diagonal domain \(\{u:\sum|d_nu_n|^2<\infty\}\), the spectrum is the closure of \(\{d_n\}\). Indeed outside that closure the diagonal inverse is bounded, while each \(d_n\) is an eigenvalue and every finite accumulation point prevents bounded invertibility. If \(\chi\ne0\), or if \(\chi=0\) and \(\omega-i\gamma\ne0\), then \(|d_n|\to\infty\), and the resolvent diagonal entries tend to zero, making the resolvent compact. If all three parameters vanish, \(H=0\) has infinite multiplicity and no compact resolvent on the infinite-dimensional Fock space.
+\paragraph{Testing a driven perturbation.}The drive sends \(|n\rangle\) to \(\beta\sqrt{n+1}|n+1\rangle+\beta\sqrt n|n-1\rangle\). Its norm on this vector is \(|\beta|\sqrt{2n+1}\). For \(\chi\ne0\), the adjacent diagonal gap is \(d_{n+1}-d_n=\chi(2n+1)+\omega-i\gamma\), of order \(n\). The ratio of these scales is therefore \(O(n^{-1/2})\). This suggests high-level localization but is not an eigenvalue estimate: the drive is unbounded and neighboring couplings interact through the full operator.
+\paragraph{Gap.}A rigorous driven distribution needs resolvent bounds on isolating contours and operator-domain control, including zero-Kerr and degenerate coefficient cases. A single basis-vector ratio does not provide those bounds. This attempt solves only the elementary undriven slice and preserves the source's full real parameter range as the remaining target; no positivity or blanket compactness assumption is added.
+
+\paragraph{Verification and adversarial audit.}
+Checked aa-dagger=N+I, diagonal domain, zero-operator exception, compact resolvent criterion, adjacent gap and coupling norms. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked aa-dagger=N+I, diagonal domain, zero-operator exception, compact resolvent criterion, adjacent gap and coupling norms. Scope remains limited: Prove full-operator resolvent localization for the unbounded drive, treating zero-Kerr and degenerate parameter regimes separately.
+
+Coordinator checked the diagonal spectrum and compact-resolvent alternatives, as well as the basis-vector drive/gap ratio and its limitations. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Prove full-operator resolvent localization for the unbounded drive, treating zero-Kerr and degenerate parameter regimes separately.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002495:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002495 (AIM-PHYSICS-0003). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002495:2}{S2}] American Institute of Mathematics, Non-Hermitian quantum mechanics and symplectic geometry, source item 1.3.
+\url{http://aimpl.org/nhquantumsymp/1/}.
+\end{itemize}
+\label{end:20002495}
+\end{document}

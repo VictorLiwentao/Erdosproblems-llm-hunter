@@ -1,0 +1,88 @@
+% TOP_PROBLEM: {"id": 30006191, "title": "Counterexamples to Strongly Continuous Many-Fermion Dynamics", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The primary report explicitly distinguishes operator-norm continuity from strong operator continuity. Self-adjointness of a represented Hamiltonian supplies the latter and does not automatically settle the former. Related record 30006190 asks about cutoff removal."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006191", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Find an unregularized fermion interaction and states exhibiting the requested failure of strong continuity.", "scope": "Constructed an exact toy Fock-space norm-discontinuous annihilator evolution with strong operator continuity, isolating the required high-sector witness mechanism.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the self-adjoint domain, sector phase, normalized occupation witnesses, t_n tending to zero, norm exactly two and strong-operator continuity on fixed vectors. Model self-audit only; no independent human mathematical verification.  No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked the self-adjoint domain, sector phase, normalized occupation witnesses, t_n tending to zero, norm exactly two and strong-operator continuity on fixed vectors. First remaining gap: Realize the mechanism with an admissible source continuum interaction and a well-defined limiting evolution on the relevant algebra. The inherited source status is preserved; original-target completion remains zero. Additional GPT-6 Astra reviewer (ultra reasoning): Checked the self-adjoint diagonal N² domain sum n^4||psi_n||²<infinity and the occupation-sector phase exp(-it(2n-1)) after annihilation. At t_n=pi/(2n-1), checked the witness norm equals two, with the universal upper bound from ||a1||=1, so the operator norm is exactly two. Checked strong operator continuity on fixed vectors by finite-sector truncation and uniform boundedness; moving occupation witnesses do not contradict it. Confirmed the draft explicitly withholds identification with an admissible continuum potential and invariance of the abstract CAR algebra, preserving the actual source gap."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30006191; source catalogue code OWR-14299085-005
+\setcounter{section}{30006190}
+\section{Counterexamples to Strongly Continuous Many-Fermion Dynamics}\label{30006191}
+{\small UnsolvedMath ID 30006191 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+For a one-particle test function $f\in L^2(\mathbb R^d)$, $a(f)$ is a bounded fermionic annihilation operator. The source's strong continuity means norm continuity of the CAR-algebra automorphism group: $\|\tau_t(a(f))-a(f)\|\to0$ as $t\to0$. A counterexample must give a nonzero lower bound along a sequence of times approaching zero. Suitable states can witness such a bound through expectations or vector norms.
+
+\paragraph{Catalogue wording retained for traceability.}
+For the unregularized continuum fermion Hamiltonian, find an interaction $V$ and states for which the Heisenberg evolution of $a(f)$ fails to be strongly continuous.
+
+\paragraph{Scope and source qualification.}The primary report explicitly distinguishes operator-norm continuity from strong operator continuity. Self-adjointness of a represented Hamiltonian supplies the latter and does not automatically settle the former. Related record 30006190 asks about cutoff removal.
+\subsection{Short English statement}
+Find an unregularized fermion interaction and states exhibiting the requested failure of strong continuity.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Constructed an exact toy Fock-space norm-discontinuous annihilator evolution with strong operator continuity, isolating the required high-sector witness mechanism.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30006191. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{An exact represented norm-discontinuity mechanism.} On fermionic Fock space over countably many orthonormal modes let \(N\) be total particle number and set the toy Hamiltonian \(H=N^2\), defined diagonally with eigenvalue \(n^2\) on the \(n\)-particle sector. It is self-adjoint on vectors with \(\sum_n n^4\|\psi_n\|^2<\infty\). Fix the annihilator \(a_1\). On any normalized occupation vector \(\Psi_n\) with \(n\) occupied modes including mode one,
+\[
+ e^{itH}a_1e^{-itH}\Psi_n
+ =e^{-it(2n-1)}a_1\Psi_n,
+ \qquad\|a_1\Psi_n\|=1.
+\]
+Taking \(t_n=\pi/(2n-1)\to0\) gives
+\[
+ \|e^{it_nH}a_1e^{-it_nH}-a_1\|\geq2.
+\]
+The opposite inequality is the triangle inequality, so the norm is exactly two along this sequence.
+\paragraph{Continuity topology countercheck.} On each fixed finite-sector vector the phase varies continuously. For a general vector, approximate by finitely many sectors and use the uniform bound \(\|a_1\|=1\); this proves strong operator continuity. The moving witnesses \(\Psi_n\) account for the failure of operator-norm continuity. There is no contradiction with self-adjointness.
+\paragraph{Why this is not the requested counterexample.} The all-to-all number-square interaction is an auxiliary represented model, not an identified admissible unregularized continuum pair potential \(V\) of [S2]. Nor has invariance of the abstract quasi-local CAR algebra under this conjugation been proved. The first source gap is realizing an analogous diverging occupation-dependent frequency using the actual allowed continuum interactions and states, with a well-defined limiting Heisenberg evolution. Without those properties the example only demonstrates the topology mechanism, not a solution to the source problem.
+
+\paragraph{Verification and adversarial audit.}
+Checked the self-adjoint domain, sector phase, normalized occupation witnesses, t\_n tending to zero, norm exactly two and strong-operator continuity on fixed vectors. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked the self-adjoint domain, sector phase, normalized occupation witnesses, t\_n tending to zero, norm exactly two and strong-operator continuity on fixed vectors. First remaining gap: Realize the mechanism with an admissible source continuum interaction and a well-defined limiting evolution on the relevant algebra. The inherited source status is preserved; original-target completion remains zero. Additional GPT-6 Astra reviewer (ultra reasoning): Checked the self-adjoint diagonal N² domain sum n\textasciicircum{}4||psi\_n||²<infinity and the occupation-sector phase exp(-it(2n-1)) after annihilation. At t\_n=pi/(2n-1), checked the witness norm equals two, with the universal upper bound from ||a1||=1, so the operator norm is exactly two. Checked strong operator continuity on fixed vectors by finite-sector truncation and uniform boundedness; moving occupation witnesses do not contradict it. Confirmed the draft explicitly withholds identification with an admissible continuum potential and invariance of the abstract CAR algebra, preserving the actual source gap.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Realize the mechanism with an admissible source continuum interaction and a well-defined limiting evolution on the relevant algebra.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30006191:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30006191 (OWR-14299085-005). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30006191:2}{S2}] Mini-Workshop: New Directions in Correlated Quantum Systems (2025), Oberwolfach Reports, DOI 10.4171/owr/2025/7, pp. 339--374. Original report and mathematical context. Incorporated report material remains under the source CC BY-SA 4.0 terms unless otherwise noted.
+\url{https://doi.org/10.4171/owr/2025/7}.
+\end{itemize}
+\label{end:30006191}
+\end{document}

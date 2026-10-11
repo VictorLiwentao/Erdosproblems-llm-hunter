@@ -1,0 +1,83 @@
+% TOP_PROBLEM: {"id": 20002541, "title": "Fourier obstructions to unequally phased single-trace motions", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The source does not prescribe the masses, n, phase vector or equivalence under time translation. A nontrivial interpretation must distinguish the requested unequal-shift motions from ordinary choreographies whose shifts are already distinct. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002541", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Prove existence of Newtonian choreographies with unequal phase shifts.", "scope": "Proved that positive masses and nonzero first n-1 trace harmonics force equal masses and equally spaced phases. Unequal-phase Newtonian existence remains unproved and must avoid this frequency condition.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked positive diagonal weights, Vandermonde moment identity, square-unitary implication, column norms and geometric-sum phase conclusion. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the weighted Vandermonde unitary argument forcing equal masses and regular phases under the explicit harmonic hypotheses. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked positive diagonal weights, Vandermonde moment identity, square-unitary implication, column norms and geometric-sum phase conclusion. Scope remains limited: Construct a collision-free force-balanced single-trace motion with nonuniform phases and compatible sparse Fourier support."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002541; source catalogue code AIM-PHYSICS-0049
+\setcounter{section}{20002540}
+\section{Fourier obstructions to unequally phased single-trace motions}\label{20002541}
+{\small UnsolvedMath ID 20002541 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}In the Newtonian $n$-body problem, positions $q_i\in\mathbb R^d$ and masses $m_i>0$ obey $m_i\ddot q_i=\nabla_{q_i}U$, where $U(q)=\sum_{i<j}m_im_j/|q_i-q_j|$ and the gravitational constant is normalized to one. Here $T=\tfrac12\sum_i m_i|\dot q_i|^2$, $E=T-U$, and a collision has $q_i=q_j$. The center of mass can be fixed at zero; moment of inertia is $I=\sum_i m_i|q_i|^2$. A generalized choreography has $q_i(t)=q(t+\theta_i)$ on a common periodic curve, with phase shifts distinct modulo the period. They need not be equally spaced. A collision-free solution must satisfy the different mass-weighted equations at every shifted time.
+
+\paragraph{Catalogue wording retained for traceability.}
+Establish the existence of choreographies with distinct time shifts in the sense asked by the source, allowing phase choices beyond the equal-spacing choreography convention.
+\paragraph{Scope and source qualification.}The source does not prescribe the masses, n, phase vector or equivalence under time translation. A nontrivial interpretation must distinguish the requested unequal-shift motions from ordinary choreographies whose shifts are already distinct. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Prove existence of Newtonian choreographies with unequal phase shifts.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved that positive masses and nonzero first n-1 trace harmonics force equal masses and equally spaced phases. Unequal-phase Newtonian existence remains unproved and must avoid this frequency condition.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{A positivity obstruction for rich Fourier traces.}Let \(q_i(t)=q(t+\theta_i)\), with distinct phases modulo \(P\), positive masses \(m_i\), and set \(z_i=e^{2\pi i\theta_i/P}\), \(M=\sum m_i\). If each Fourier coefficient \(\widehat q_\ell\) for \(1\le\ell\le n-1\) is nonzero, constancy of the center of mass forces \(\sum_im_i z_i^\ell=0\) in that range. Conjugation gives the corresponding negative moments.
+Let \(V\) be the square matrix \(V_{ai}=z_i^a\), \(0\le a<n\), and \(D=\operatorname{diag}(m_i)\). The moment equations say \(VDV^*=MI\). Hence \(M^{-1/2}VD^{1/2}\) is unitary. Its column norms give \(nm_i=M\), so all masses are equal. Orthogonality of distinct columns gives
+\[\sum_{a=0}^{n-1}(\overline z_i z_j)^a=0.
+\]
+Since \(z_i\ne z_j\), the geometric sum implies \((\overline z_i z_j)^n=1\). The phases therefore form a rotated regular n-gon.
+\paragraph{Consequence and missing construction.}A genuinely unequal-phase choreography must omit at least one of these first \(n-1\) Fourier harmonics, or evade one of the explicitly stated hypotheses. This is a necessary condition, not a nonexistence theorem for all smooth traces: a circle already lacks most harmonics. Conversely choosing sparse Fourier support satisfies only a center-of-mass compatibility condition and gives no force balance.
+\paragraph{Gap.}The first missing step is a collision-free Newtonian solution with nonuniform phases, a declared n and masses, and compatible sparse frequency structure. Ordinary equally spaced choreographies are not counted as answering the source's intended unequal-shift question. No existence or full classification is claimed from the finite moment argument.
+
+\paragraph{Verification and adversarial audit.}
+Checked positive diagonal weights, Vandermonde moment identity, square-unitary implication, column norms and geometric-sum phase conclusion. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked positive diagonal weights, Vandermonde moment identity, square-unitary implication, column norms and geometric-sum phase conclusion. Scope remains limited: Construct a collision-free force-balanced single-trace motion with nonuniform phases and compatible sparse Fourier support.
+
+Coordinator checked the weighted Vandermonde unitary argument forcing equal masses and regular phases under the explicit harmonic hypotheses. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Construct a collision-free force-balanced single-trace motion with nonuniform phases and compatible sparse Fourier support.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002541:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002541 (AIM-PHYSICS-0049). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002541:2}{S2}] American Institute of Mathematics, Variational Methods in Celestial Mechanics; notes by Kuo-Chang Chen, version 22 June 2003, source item 12.
+\url{https://aimath.org/WWN/varcelest/varcelest.pdf}.
+\end{itemize}
+\label{end:20002541}
+\end{document}

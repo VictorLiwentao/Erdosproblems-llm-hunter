@@ -1,0 +1,142 @@
+% RESEARCH_DRAFT_SHA256: 173d4b05541109b14959a25554b8c49b40655345a266bca107f1886bb50837ba
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000785, "title": "Explicit Polynomial Maps Escaping Low-Degree Images", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000785", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Let $\\mathbb{F}$ be a field. First, for functions $s=s(n)$, $m=m(n)$, and $r=r(n)$ satisfying $n^{\\omega(1)}\\leq s<m=n^r$, with $r$ relatively small (for example, $r=\\log\\log n$), construct an explicit polynomial map $f:\\mathbb{F}^n\\to\\mathbb{F}^m$ of degree at most $2^n$ whose image is not contained in the image of any polynomial map $\\Gamma:\\mathbb{F}^s\\to\\mathbb{F}^m$ of degree at most $r$. Second, for integers $s<m=n^{r+1}$ and $2\\leq r\\leq O(1)$, given a map $\\Gamma:\\mathbb{F}^s\\to\\mathbb{F}^m$ of degree at most $2r-1$, design a polynomial-time algorithm that outputs an explicit map $f:\\mathbb{F}^n\\to\\mathbb{F}^m$ of degree $\\operatorname{poly}(n)$ whose image is not contained in the image of $\\Gamma$.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The affine construction fails against a small quadratic image, while elimination and grid search lack the required polynomial cost and do not yield one map escaping all competitors.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Elusive-map attempts: affine escape, a quadratic cover, and ineffective elimination}
+\noindent UnsolvedMath ID 30000785; OWR-1587-005. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+The image of a map $f$ is $f(\mathbb F^n)$. The requested noncontainment says that some point in this image is absent from the comparison map\textquotesingle s image. $n^{\omega(1)}$ denotes growth faster than every fixed power of $n$.
+
+Polynomial time means a number of elementary steps bounded by a polynomial in the encoded input length. A decision problem is in $\mathrm{NP}$ if yes-instances have polynomial-length certificates verifiable in polynomial time; NP-hardness is under polynomial-time reductions.
+\paragraph{Statement recorded in the supplied source.}
+Let $\mathbb{F}$ be a field. First, for functions $s=s(n)$, $m=m(n)$, and $r=r(n)$ satisfying $n^{\omega(1)}\leq s<m=n^r$, with $r$ relatively small (for example, $r=\log\log n$), construct an explicit polynomial map $f:\mathbb{F}^n\to\mathbb{F}^m$ of degree at most $2^n$ whose image is not contained in the image of any polynomial map $\Gamma:\mathbb{F}^s\to\mathbb{F}^m$ of degree at most $r$. Second, for integers $s<m=n^{r+1}$ and $2\leq r\leq O(1)$, given a map $\Gamma:\mathbb{F}^s\to\mathbb{F}^m$ of degree at most $2r-1$, design a polynomial-time algorithm that outputs an explicit map $f:\mathbb{F}^n\to\mathbb{F}^m$ of degree $\operatorname{poly}(n)$ whose image is not contained in the image of $\Gamma$. \href{https://doi.org/10.4171/owr/2007/31}{[S2]}
+\paragraph{Scope qualification.}
+The field, computational meaning of explicit, and encoding of the input map remain those of the report. Both distinct parameter regimes are retained.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Construct explicit polynomial maps escaping all the stated low-dimensional low-degree images, and solve the separate map-dependent construction task.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000785 (OWR-1587-005). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Complexity Theory (2008), Oberwolfach Reports, DOI 10.4171/owr/2007/31, pp. 1793--1864
+\url{https://doi.org/10.4171/owr/2007/31}.
+\item[S3] Raz, Elusive Functions and Lower Bounds
+\url{https://doi.org/10.4086/toc.2010.v006a007}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Let $\mathbb{F}$ be a field. First, for functions $s=s(n)$, $m=m(n)$, and $r=r(n)$ satisfying $n^{\omega(1)}\leq s<m=n^r$, with $r$ relatively small (for example, $r=\log\log n$), construct an explicit polynomial map $f:\mathbb{F}^n\to\mathbb{F}^m$ of degree at most $2^n$ whose image is not contained in the image of any polynomial map $\Gamma:\mathbb{F}^s\to\mathbb{F}^m$ of degree at most $r$. Second, for integers $s<m=n^{r+1}$ and $2\leq r\leq O(1)$, given a map $\Gamma:\mathbb{F}^s\to\mathbb{F}^m$ of degree at most $2r-1$, design a polynomial-time algorithm that outputs an explicit map $f:\mathbb{F}^n\to\mathbb{F}^m$ of degree $\operatorname{poly}(n)$ whose image is not contained in the image of $\Gamma$.
+
+\section{Attempt and results}
+The source has two distinct tasks: one map must escape every competitor in
+the first, whereas the second permits dependence on the supplied competitor.
+We test an explicit moment-curve candidate for the first and an elimination
+route for the second. The field and output representation matter throughout.
+
+\paragraph{Affine competitors can be escaped explicitly.}
+Over an infinite field, $f(x_1,\ldots,x_n)=(x_1,x_1^2,\ldots,x_1^m)$ has
+image in no proper affine subspace of $\mathbb F^m$. Otherwise there would
+be a nonzero affine functional $a_0+\sum_{j=1}^m a_j y_j$ vanishing on
+that image. The resulting polynomial $a_0+\sum_j a_j t^j$ vanishes at
+every field element; a nonzero degree-at-most-$m$ polynomial has at most $m$
+roots, by repeated division at distinct roots, so all coefficients must vanish,
+a contradiction. The same proof works over a finite field with more than $m$
+elements. Hence this map escapes every affine image of dimension $s<m$.
+Its degree is $m$; whether it meets a particular degree budget must be checked
+separately rather than assumed from this restricted statement.
+
+\paragraph{The same candidate is covered by a quadratic map.}
+Let $h=\lceil\sqrt m\rceil$, $l=\lfloor m/h\rfloor$. Use variables
+$u_0,\ldots,u_{h-1},v_0,\ldots,v_l$, a total of $s_0=h+l+1$.
+For $1\le j\le m$, write $j=hq+r$ with $0\le r<h$ and define
+$\Gamma_j(u,v)=u_rv_q$. These are degree-two polynomials. Setting
+$u_r=t^r$ and $v_q=t^{hq}$ gives $\Gamma_j=t^j$ for every coordinate,
+including the cases $r=0$ or $q=0$, where the assigned variable value is one.
+Thus the moment curve is contained in the image of this quadratic map.
+Whenever $s_0\le s<m$, unused domain variables extend it to the allowed
+competitor dimension. In particular large allowed $s$, such as $m-1$ once
+$m$ is sufficiently large, defeat the candidate despite its full affine span.
+This is a counterexample to extending the affine-span argument to higher
+degree; it is not a counterexample to the existence of other elusive maps.
+
+\paragraph{Nonconstructive elimination supplies a point, at a potentially huge cost.}
+Let $\Gamma:\mathbb F^s\to\mathbb F^m$, $s<m$, have coordinate degree
+at most $D$, where we choose the degree upper bound $D\ge1$ (also for constant maps). Substitution $Q\mapsto Q\circ\Gamma$ is a linear map from
+target polynomials of total degree at most $e$ to source polynomials of total
+degree at most $De$. Their dimensions are
+$\binom{m+e}{m}$ and $\binom{s+De}{s}$, respectively, by counting monomials.
+For sufficiently large $e$ the first is greater: as polynomials in $e$, their
+leading terms are $e^m/m!$ and $D^s e^s/s!$, and $m>s$.
+Thus a nonzero polynomial $Q$ of degree at most $e$ satisfies
+$Q\circ\Gamma=0$ identically. A nullspace calculation on the expanded
+substitution matrix finds such $Q$, with no promise that its size is polynomial
+in the original input length.
+Over an infinite field, choose a set $T$ of $e+1$ distinct field elements.
+A nonzero polynomial of degree at most $e$ in each variable cannot vanish
+on all of $T^m$. This follows by induction on the number of variables:
+view it as a polynomial in the last variable; vanishing on all $e+1$ choices
+forces each coefficient polynomial to vanish on the remaining grid, and
+induction then forces every coefficient to be zero.
+Enumerating that grid therefore finds $a$ with $Q(a)\ne0$. The constant
+map $f\equiv a$ escapes the supplied $\Gamma$ and has degree zero.
+The expansion and grid may both be exponential or worse in the relevant
+parameters; this existence argument does not produce the requested polynomial-time
+algorithm. It also depends on $\Gamma$, so it cannot answer the first universal
+escape task by exchanging the quantifiers.
+Over a small finite field, a nonzero formal $Q$ might vanish everywhere,
+as $z^{|\mathbb F|}-z$ does. Cardinality still ensures some point is outside
+$\Gamma(\mathbb F^s)$, but it does not make this formal-polynomial test find one.
+
+\section{Source context, adversarial audit, and gap}
+Raz's original two regimes were inspected on printed page 1846, including
+the second competitor-degree bound $2r-1$. The audit distinguished infinite
+and small finite fields, affine from degree-two images, polynomial degree
+from output size, and competitor-dependent from universal constructions.
+No circuit lower bound is imported from the source as proved here. The two
+explicit failed routes leave both original parameter regimes unresolved.
+No numerical experiment was performed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The affine construction fails against a small quadratic image, while elimination and grid search lack the required polynomial cost and do not yield one map escaping all competitors.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 31/2007, Koiran pp.1835--1836, Raz p.1846, Saxena p.1851, Sudan p.1855; the item-specific original passage was read from cached primary PDF text on 11 October 2026. This is source inspection, not a present-status survey. \url{https://ems.press/content/serial-article-files/46116}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The affine construction fails against a small quadratic image, while elimination and grid search lack the required polynomial cost and do not yield one map escaping all competitors.
+\end{document}

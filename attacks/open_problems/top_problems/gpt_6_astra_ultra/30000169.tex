@@ -1,0 +1,153 @@
+% RESEARCH_DRAFT_SHA256: 9dd1e710487621489db5d6c313dd9d718eb1dd8b84298a7de572b4ecb1eb739b
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000169, "title": "Robust Radio-Network Planning Under Traffic Misspecification", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000169", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Robust Radio-Network Planning Under Traffic Misspecification; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Distributional error and an interference-margin estimate; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch015 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30000169; source catalogue code OWR-783-001
+\section{Robust Radio-Network Planning Under Traffic Misspecification}\label{30000169}
+{\small UnsolvedMath ID 30000169 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A traffic distribution assigns probabilities to network-demand outcomes. A robust design evaluates a planning objective against a specified collection of alternative distributions; sensitivity measures how that objective changes when the distribution changes.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The stated ten-percent error has no specified distance between distributions or loss criterion; it remains a source-described design direction.
+
+Source-record limitation: The supplied assessment flags a qualitative traffic-sensitivity prompt with no specified mathematical proposition.
+\paragraph{Statement recorded in the supplied source.}
+Develop a robust radio-network planning method whose performance remains controlled when the assumed traffic distribution is misspecified by, for example, 10 percent. \href{https://doi.org/10.4171/owr/2005/02}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Design radio networks that remain effective under errors in the assumed traffic distribution.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000169 (OWR-783-001). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Optimization and Applications (2005), Oberwolfach Reports, DOI 10.4171/owr/2005/02, pp. 69--133
+\url{https://doi.org/10.4171/owr/2005/02}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30000169 and code OWR-783-001 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30000169}
+
+\section{Literature and context check}
+The primary report, printed pages 85--86, describes the transmit-power equation and asks qualitatively about ten-percent traffic errors. It does not select a probability metric or a loss scale. The following explicitly chooses two auxiliary models: total-variation misspecification of a finite traffic distribution, and an operator-norm perturbation of the reported linear interference equation. They yield different, concrete guarantees; neither silently defines the report's unspecified ten-percent criterion.
+\section{Research attempt: Distributional error and an interference-margin estimate}
+
+\paragraph{Bounded loss under a specified probability distance}
+Let $\Omega$ and a nonempty design set $\mathcal A$ be finite, let $0\leq\ell(a,\omega)\leq L$, and let nominal and actual distributions $p,q$ satisfy
+\[
+ \tfrac12\sum_{\omega\in\Omega}|p_\omega-q_\omega|\leq\varepsilon.
+\]
+Since the positive and negative parts of $p-q$ have equal total mass at most $\varepsilon$, multiplying by numbers in $[0,L]$ shows
+\[
+ |\mathbb E_p\ell(a,\omega)-\mathbb E_q\ell(a,\omega)|\leq L\varepsilon
+ \tag{1}
+\]
+for every design. If $a_p$ minimizes nominal loss and $a_q$ minimizes actual loss, inserting and subtracting the two nominal losses gives
+\[
+ \mathbb E_q\ell(a_p,\omega)-\mathbb E_q\ell(a_q,\omega)\leq2L\varepsilon.
+\]
+For violation indicators the same proof gives a chance-constraint certificate: nominal violation probability at most $\tau-\varepsilon$ implies actual violation probability at most $\tau$.
+
+There is also a finite exact robust optimization route. For each design maximize $\sum_\omega q_\omega\ell(a,\omega)$ over
+\[
+ q\geq0,\quad\sum_\omega q_\omega=1,\quad
+ -u_\omega\leq q_\omega-p_\omega\leq u_\omega,\quad
+ u\geq0,\quad\sum_\omega u_\omega\leq2\varepsilon.
+\]
+This is a linear program describing exactly the chosen total-variation ball: feasible $u$ implies the absolute-value bound, and conversely $u=|q-p|$ works. Minimize these finitely many optimum values over $\mathcal A$. This proves an exact finite method in the auxiliary scenario model, without a scalability claim or an empirical superiority claim for radio planning.
+
+The loss bound is substantive. With two outcomes, nominal mass one on a safe outcome, and actual mass $\varepsilon$ on a bad outcome with loss $M$, the expectation changes by $\varepsilon M$ at total-variation distance $\varepsilon$. Letting $M$ grow precludes any scale-free performance bound based on this distance alone.
+
+\paragraph{Perturbing the source's power equation}
+Write that equation as $z=(I-C)^{-1}\eta$, incorporating the fixed noise and overhead vector in $\eta$. Use the induced infinity norm and assume
+\[
+ \lVert C\rVert_\infty\leq1-\gamma,\quad 0<\gamma\leq1,\qquad
+ \lVert\Delta\rVert_\infty\leq\gamma/2.
+\]
+For a matrix of norm $r<1$, the partial geometric sums satisfy $(I-C)\sum_{j=0}^mC^j=I-C^{m+1}$; the remainder tends to zero in norm. Thus the inverse exists and its norm is at most $1/(1-r)$. Applying this twice gives
+\[
+ \lVert(I-C)^{-1}\rVert_\infty\leq1/\gamma,\qquad
+ \lVert(I-C-\Delta)^{-1}\rVert_\infty\leq2/\gamma.
+\]
+With $z'=(I-C-\Delta)^{-1}(\eta+\delta)$, subtracting the defining equations yields
+\[
+ z'-z=(I-C-\Delta)^{-1}(\delta+\Delta z),
+\]
+and therefore
+\[
+ \lVert z'-z\rVert_\infty
+ \leq\frac2\gamma\left(\lVert\delta\rVert_\infty+
+ \frac{\lVert\Delta\rVert_\infty\lVert\eta\rVert_\infty}{\gamma}\right).
+\]
+This displays the needed interference margin. If the coupling matrices and forcing are nonnegative, their geometric inverses also give nonnegative powers. Without a margin, even the scalar case is unstable in the planning sense: $z=0.95z+\eta$ with $\eta>0$ has positive solution $20\eta$, whereas a ten-percent relative increase in that coefficient gives $z=1.045z+\eta$, whose sole algebraic solution is negative. This is a coefficient perturbation, not a ten-percent total-variation perturbation of a distribution; the two must not be conflated.
+
+\section{Verification and adversarial audit}
+The expectation bound is proved with the convention that total variation is half the $\ell_1$ distance. The regret bound applies to finite design sets with attained minima; no optimizer-existence assumption is hidden. The matrix estimate separately states a quantitative margin and proves the inverse bounds by geometric series. The scalar counterexample checks physical nonnegativity, rather than incorrectly claiming the algebraic inverse ceases to exist.
+\paragraph{Audit corrections.} Kept distributional and coefficient errors distinct; included loss scale and interference margin instead of assigning an unsupported universal meaning to ten percent.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The original agenda requires a chosen traffic-error model, loss or feasibility objective, practical design space, data, and a comparison with planning heuristics. Those are not specified by the source, and no general radio-network planner has been validated. The two auxiliary guarantees and their counterexamples delimit what an eventual robust method would have to control.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/45976} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

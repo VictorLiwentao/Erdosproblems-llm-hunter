@@ -1,0 +1,158 @@
+% RESEARCH_DRAFT_SHA256: 15df82bd66eb770972a5355a838e17fa007bc010e00ba45b03ed3310db3abaad
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 5500029, "title": "Hamiltonian Tetrahedralizations", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "problem_number": "AMR-054-0029", "set_id": 13}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "5500029", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Hamiltonian Tetrahedralizations; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Shellability does not supply a Hamiltonian dual path; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch003 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{lmroman10-regular.otf}[BoldFont=lmroman10-bold.otf,
+ ItalicFont=lmroman10-italic.otf,BoldItalicFont=lmroman10-bolditalic.otf]
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{latinmodern-math.otf}
+\AtBeginDocument{\let\setminus\smallsetminus}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+\section*{Hamiltonian Tetrahedralizations}\label{5500029}
+{\small UnsolvedMath ID 5500029 · AMR-054-0029 · Computer Science · AMR Open Problem Lists}
+\subsection{Definitions and mathematical statement}
+Let $P\subset\mathbb R^3$ be a convex three-dimensional polytope. A
+tetrahedralization $\mathcal T$ partitions $P$ into finitely many
+tetrahedra meeting face-to-face, with vertices drawn only from the
+vertices of $P$. Subdivision of a nonsimplicial boundary face by
+diagonals is allowed; insertion of new vertices is not.
+
+The dual graph $G_{\mathcal T}$ has one vertex for each tetrahedron,
+with two vertices adjacent precisely when the corresponding
+tetrahedra share a triangular face. It has a Hamiltonian path if its
+tetrahedra can be ordered $T_1,\ldots,T_m$ so that every tetrahedron
+occurs once and $T_i,T_{i+1}$ share a face for each $i<m$.
+
+Does every convex $P$ admit a tetrahedralization with this property?
+The subdivision itself may be chosen to make the path possible;
+the claim is not that every tetrahedralization works. The path is
+in the dual graph, not a path through the original polytope vertices.
+
+Allowing new Steiner points gives a different problem and is known
+to permit additional constructions. The source's unrestricted
+vertex-preserving existence question is the one retained here.
+No bound on the number of tetrahedra beyond finiteness is part of
+the main assertion.
+\subsection{Short English statement}
+Can every convex three-dimensional polytope be tetrahedralized, using
+its existing vertices, so that all tetrahedra can be visited once in
+an order crossing a shared face at each step?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] ULAM.AI and the UnsolvedMath Contributors, supplied problems.json, record 5500029 (AMR-054-0029), AMR Open Problem Lists. Catalogue identity and source transcription; CC BY 4.0.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Open Problems Project - Computational Geometry, Problem 29. Original source indexed by AMR-054-0029.
+\url{https://topp.openproblem.net/p29}.
+\end{itemize}
+
+\section{Literature and context check}
+The consulted TOPP Problem 29 page labels the question open and records
+obstructions for particular pulling triangulations. The supplied prior narrative
+asserting a general positive solution is internally inconsistent with that source;
+this attempt does not adopt it. The argument below is independent of that
+literature and tests a specific shelling-based shortcut.
+\section{Research attempt: Shellability does not supply a Hamiltonian dual path}
+A necessary condition for a finite graph $G$ to possess a Hamiltonian path is
+\[
+ \#\operatorname{components}(G-S)\le |S|+1
+ \quad\hbox{for every vertex set }S.
+\]
+Indeed, deleting $|S|$ vertices from a path leaves at most $|S|+1$ nonempty
+path pieces. Each component of $G-S$ contains at least one such piece because
+the path visited every vertex; graph edges may merge pieces but cannot increase
+the number of components.
+
+Now start with a tetrahedron $T$ and stack one tetrahedron on each of three
+distinct boundary faces, with no further stacking. This is geometrically
+realizable as a convex polytope with a vertex-preserving tetrahedralization.
+Here is a justification of the geometric step often omitted from the graph
+picture. At any chosen triangular facet of a convex polytope, its barycenter
+satisfies strictly all other facet inequalities. Moving it a sufficiently small
+positive distance along the outward normal keeps those finitely many strict
+inequalities and violates only the chosen facet inequality. The convex hull
+with this new vertex adds exactly the pyramid over that facet; the visible
+boundary consists of that facet alone. The other two original facets remain
+facets. Apply this operation successively on the three selected original facets.
+Each new vertex is extreme, so all tetrahedra use only vertices of the resulting
+convex polytope.
+
+The resulting four-tetrahedron dual graph is $K_{1,3}$: each new tetrahedron
+shares a triangle with $T$, while two new ones meet, if at all, along an edge
+or vertex of $T$. The order consisting of $T$ followed by its three attachments
+is a shelling in the direct sense that each attachment meets the preceding
+union in a single triangular facet. Yet the dual has no Hamiltonian path:
+deleting its center leaves three components, violating the bound $3\le2$.
+
+Thus shelling, connectivity, and even convex realizability of every intermediate
+stacking step do not turn an arbitrary traversal into a face-adjacent
+Hamiltonian traversal. A depth-first walk would return through the central
+tetrahedron repeatedly. The problem asks for existence of some triangulation,
+however; the demonstrated failure of this triangulation leaves alternative
+tetrahedralizations entirely available. Any repair must modify the subdivision
+to eliminate such dual separation obstructions, rather than merely reorder the
+given shelling.
+\section{Verification and adversarial audit}
+The construction uses three separate facet stackings, and the strict
+inequality argument verifies convexity and extreme vertices without placing
+Steiner vertices in the interior. The dual's four vertices and three edges were
+counted explicitly. One or two attached tetrahedra instead have path duals,
+confirming the smallest branching obstruction in this family.
+\paragraph{Audit corrections.} The prior unsupported solved narrative was rejected. Failure of one shellable triangulation was not confused with failure of the existential original target.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+There is no proof that every convex polytope has a triangulation whose dual
+avoids all separating-set obstructions, and avoiding those obstructions alone
+would still be only necessary for Hamiltonicity. No negative example for all
+tetrahedralizations of one polytope is claimed.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://topp.openproblem.net/p29} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved. This is a research attempt with an explicit failed route or restricted
+calculation, not a full solution, not a current-status certification, and not a claim
+that the elementary material is new. The catalogue's original source-status label
+is preserved independently of this attempt status.
+\end{document}

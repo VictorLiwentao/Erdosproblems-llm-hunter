@@ -1,0 +1,104 @@
+% TOP_PROBLEM: {"id": 30001187, "title": "Multiparameter E0-Semigroups from Free Product Systems", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The report describes the free product construction and a full-Fock example. Its stated open program concerns the analysis of units, whether only the reference unit survives, and whether the induced Markov semigroups factor into strongly commuting one-parameter semigroups; those questions are not removed."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001187", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Carry out and analyze the proposed multiparameter free-flow construction, especially its units and resulting Markov semigroups.", "scope": "Derives the necessary interchange condition for axis units and tests it on an associative scalar twisted discrete system.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked cocycle associativity, nonzero normalized axes and order-dependent phase; kept the discrete countertest separate from the reference-unit construction. Model self-audit only; no independent human proof checking. Coordinator checked associativity of the discrete scalar twist and its incompatible axis-unit equations. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked cocycle associativity, nonzero normalized axes and order-dependent phase; kept the discrete countertest separate from the reference-unit construction. Retained unresolved status and zero original-target progress; The source free-system interchange equations and their nontrivial unit solutions/strong-commuting factorization are not solved."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001187; source catalogue code OWR-3392-015
+\setcounter{section}{30001186}
+\section{Multiparameter E0-Semigroups from Free Product Systems}\label{30001187}
+{\small UnsolvedMath ID 30001187 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} For a unital coefficient algebra $B$, a Hilbert $B$-bimodule is a right Hilbert $B$-module with a compatible left action. $\mathcal B^a(E)$ denotes its adjointable operators. A pointed free product system $(E_t,\omega_t)$ has central reference vectors and associative identifications $E_s*E_t\simeq E_{s+t}$, using the source's reduced free product over $B$. A tensor product subsystem instead has $E_s\odot E_t\simeq E_{s+t}$ with $\odot$ the internal tensor product over $B$. An $E_0$-semigroup is a continuous semigroup of unital $*$-endomorphisms. A unit is a section whose values multiply according to the product-system structure. The parameter is $\mathbf t=(t_1,\ldots,t_n)\in\mathbb R_+^n$, with addition componentwise. Each $E^i$ has a reference unit, and the proposed pointed free product at $\mathbf t$ uses these reference vectors. The inductive-limit dilation should give commuting endomorphisms indexed by $\mathbb R_+^n$. A multiparameter unit must satisfy the product law for all pairs of nonnegative parameter vectors.
+
+\paragraph{Source scope and qualifications.} The report describes the free product construction and a full-Fock example. Its stated open program concerns the analysis of units, whether only the reference unit survives, and whether the induced Markov semigroups factor into strongly commuting one-parameter semigroups; those questions are not removed.
+
+\paragraph{Units and factorization requested in the source.} Determine all unital units, including whether a nontrivial unit exists beyond the reference-vector unit. Decide whether the resulting Markov semigroups are products of strongly commuting one-parameter semigroups.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+Given $n$ one-parameter free product systems $E^1,\ldots,E^n$, carry out the proposed construction
+
+$$E(t_1,\ldots,t_n)=E^1_{t_1}*\cdots*E^n_{t_n}$$
+
+and its inductive limit over the reference vector to obtain candidate $n$-parameter $E_0$-semigroups, and analyze the resulting systems and their units.
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: Free-product constructions exist for one-parameter systems and related cases, but the proposed n-parameter program and the associated type II Arveson-system question for group-valued Levy processes are not fully resolved. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Carry out and analyze the proposed multiparameter free-flow construction, especially its units and resulting Markov semigroups.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derives the necessary interchange condition for axis units and tests it on an associative scalar twisted discrete system.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Axis units must be compatible.} In any two-parameter product system with multiplication maps $m_{s,t}$, a unit $u_{(a,b)}$ restricts to units $v_a=u_{(a,0)}$ and $w_b=u_{(0,b)}$. The two decompositions of $(a,b)$ force
+\[
+ m_{(a,0),(0,b)}(v_a\otimes w_b)
+ =m_{(0,b),(a,0)}(w_b\otimes v_a).
+\]
+Thus independently choosing one-parameter units is insufficient; they must agree under the system's interchange map. This follows just by applying the unit law in the two orders, so has no hidden regularity assumption beyond that law.
+
+\paragraph{An explicit discrete obstruction.} On the discrete semigroup $\mathbb N^2$, take one-dimensional fibers and multiplication $m_{s,t}(z\otimes w)=e^{i\theta s_2t_1}zw$. Associativity follows since $s_2t_1+(s_2+t_2)r_1=t_2r_1+s_2(t_1+r_1)$. A normalized unit would have nonzero axis values. Applying the preceding condition at $(1,0),(0,1)$ gives $vw=e^{i\theta}wv$, impossible unless $e^{i\theta}=1$. Each coordinate axis separately has plenty of units.
+
+\paragraph{Source scope.} This scalar twisted example is discrete and is not asserted to be the source's reference-unit free construction, which already provides a compatible reference unit. It shows why nontrivial axis units need not extend. Determining the actual interchange relations for those free fibers, classifying all multiparameter units and deciding strong-commuting factorization of the induced Markov semigroups remain the first substantive gaps after construction.
+
+\paragraph{Verification and adversarial audit.}
+Checked cocycle associativity, nonzero normalized axes and order-dependent phase; kept the discrete countertest separate from the reference-unit construction. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked cocycle associativity, nonzero normalized axes and order-dependent phase; kept the discrete countertest separate from the reference-unit construction. Retained unresolved status and zero original-target progress; The source free-system interchange equations and their nontrivial unit solutions/strong-commuting factorization are not solved.
+
+Coordinator checked associativity of the discrete scalar twist and its incompatible axis-unit equations. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. The source free-system interchange equations and their nontrivial unit solutions/strong-commuting factorization are not solved.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. The source free-system interchange equations and their nontrivial unit solutions/strong-commuting factorization are not solved.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001187:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001187 (OWR-3392-015). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001187:2}{S2}] Mini-Workshop: Product Systems and Independence in Quantum Dynamics (2009), Oberwolfach Reports, DOI 10.4171/owr/2009/09, pp. 493--548; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2009/09}.
+\item[\hypertarget{source:30001187:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 52--53, printed pages 544--545.
+\url{https://ems.press/content/serial-article-files/46209}.
+\item[\hypertarget{source:30001187:4}{S4}] Skeide free product systems; reference in the saved dated catalogue literature review.
+\url{https://iris.unimol.it/handle/11695/18113}.
+\item[\hypertarget{source:30001187:5}{S5}] Tsirelson stochastic flows and Arveson systems; reference in the saved dated catalogue literature review.
+\url{https://arxiv.org/abs/math/0402431}.
+\end{itemize}
+\label{end:30001187}
+\end{document}

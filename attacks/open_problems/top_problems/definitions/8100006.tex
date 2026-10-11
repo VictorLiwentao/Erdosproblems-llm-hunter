@@ -1,0 +1,58 @@
+% TOP_PROBLEM: {"id": 8100006, "title": "numerical solution of integrable systems", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The original is explicitly an open programme. The catalogue’s cut-off ending is restored from primary Problem 6. Known sine-kernel/prolate-spheroidal work is context rather than an extra claim of unresolved status."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: statement_only
+% SUBMISSION: {"kind": "statement_only", "category": "top_problems", "problem_id": "8100006", "proposal_type": "established", "source": "Percy Deift, Some Open Problems in Random Matrix Theory and the Theory of Integrable Systems. II, SIGMA 13 (2017), 016, Problem 6. https://arxiv.org/abs/1703.04931; Primary full-text formulation and 2017 historical progress discussion. https://arxiv.org/html/1703.04931v1", "status_evidence": "Inherited source-catalogue status partially_solved preserved. Primary source accessed 11 October 2026; compared against the supplied catalogue excerpt. Historical wording and partial-result remarks were checked for scope; no comprehensive current-literature or proof-verification audit was performed.", "status_checked_on": "2026-10-11", "duplicate_check": "Full 15,773-record source registry checked for identical normalized statements; available site registry checked for identical normalized title/statement and canonical-ID collision. Canonical ID is absent from the site registry. Related canonical records 8000004, 8000007, 20002493, 20002494. No mathematical-equivalence literature audit performed.", "attribution": "Percy Deift. Statement preparation: OpenAI GPT-6 Codex assistant, generation 11 October 2026; source-matching and notation editing by the assistant, no independent human mathematical verification. The consulted arXiv HTML version states CC BY-SA 4.0; preserve applicable attribution and share-alike provenance. Inherited rights/provenance note: Public arXiv source TeX; arXiv reuse license NEEDS_REVIEW"}
+% SOURCE_STATEMENT: "Solutions of the Cauchy problem for linear dispersive equations can be expressed in terms of Fourier integral operators. This is a very challenging problem in numerical analysis. Again the problem of the solution of the Cauchy problem is in two parts. Concerning the second problem, in a very significant development starting in 2011, S. Olver introduced a methodology to solve RHP's numerically and applied this methodology to compute solutions of the Painlev\\'e II equation, which has its own Riemann--Hilbert formulation. Rather than a single, or several, open problems, what we have here is an ``open program'', viz., to apply the Olver/Deconinck--Olver--Trogdon methodology to solve the many different numerical problems for integrable systems as they arise. Particularly difficult are situations where the forward problem is not self-adjoint, as in the case of focusing NLS. It remains an open problem (see ) to solve the forward problem for focusing NLS with general smooth initial data, and then implement the RHP methodology, to obtain the solution of the Cauchy problem in the small dispersion limit $\\epsilon=\\hbar\\downarrow 0$. At the technical level, the difficulty in solving the forward problem is that the relevant physical quantities only appear, in the language of Martin Kruskal, ``beyond all orders''. The forward problem for focusing NLS should, of course, be seen as one more example of the general open problem of computing the spectrum of non-self-adjoint problems (see, e.g., N. Dyson in the 1960's, followed by in the 70's, have contributed to the analysis of $F_s$ as $s\\to\\infty$ (see P. In a striking development in 2008, F. Bornemann devised a very general and flexible method to evaluate Fredholm determinants, and he then applied the method to compute a variety of determinants arising in modern mathematical physics, including $F_s$. Although Fredholm determinants were introduced more than 100 years, it is surprising that, prior to Bornemann's work, no such general method to evaluate Fredholm determinants numerically and accurately was developed. However, the behavior of the eigenfunctions for finite values of $s$, a problem of great practical interest, presents a serious numerical challenge (a priori, the problem is ill conditioned), which was taken up only very recently by A. A related open problem concerns the Airy operator $A_s$ with kernel $\\frac{A_i(\\lambda) A'_i(\\mu)- A'_i(\\lambda) A_i(\\mu)}{\\lambda-\\mu}$ acting on $L^2(s,\\infty)$ (here $A_i(\\lambda)$ is the standard Airy function). Bothner, confirming an earlier conjecture of C. It is an open problem to analyze the behavior of the eigenfunctions $\\tilde{u}_j(s)$ as $s\\to\\infty$, and to compute their behavior for finite $s$. Finally, in 2005 (see ), the idea was raised of a ``Painlev\\'e project'', which would provide a forum to assemble all current information on the algebraic, analytical and numerical properties of the Painlev\\'e"
+% Preparation and final self-audit: CONTRIBUTING.md prompts C and D; source/audit artifacts retained in the local physics_statements_2026_10_11 batch.
+% Imported from: physics_statements.tex; UnsolvedMath ID 8100006
+% !TeX program = lualatex
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 8100006; source catalogue code AMR-080-0006
+\setcounter{section}{8100005}
+\section{numerical solution of integrable systems}\label{8100006}
+{\small UnsolvedMath ID 8100006 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}The inverse-scattering forward map sends initial data to a reflection coefficient and, where present, discrete eigenvalues and norming constants. The inverse map is a matrix Riemann--Hilbert problem. Small dispersion introduces $\varepsilon\downarrow0$ in the forward spectral problem. The Airy operator on $L^2(s,\infty)$ has kernel $K(\lambda,\mu)=[\operatorname{Ai}(\lambda)\operatorname{Ai}'(\mu)-\operatorname{Ai}'(\lambda)\operatorname{Ai}(\mu)]/(\lambda-\mu)$, with diagonal defined by continuity.
+
+\paragraph{Catalogue wording retained for traceability.}
+Apply and extend the Olver--Deconinck--Trogdon numerical Riemann--Hilbert framework to integrable systems, addressing both forward scattering and inverse reconstruction. In particular, solve the non-self-adjoint forward problem for focusing NLS with general smooth initial data and reconstruct the solution in the small-dispersion limit $\varepsilon=\hbar\downarrow0$. Analyze Airy-operator eigenfunctions as $s\to\infty$ and compute them reliably for finite $s$. Continue the Painlevé resource project collecting algebraic, analytic and numerical information, with reliable computation of representative solutions.
+\paragraph{Scope and source qualification.}The original is explicitly an open programme. The catalogue’s cut-off ending is restored from primary Problem 6. Known sine-kernel/prolate-spheroidal work is context rather than an extra claim of unresolved status.
+\subsection{Short English statement}
+Develop reliable numerical inverse scattering, resolve general focusing small-dispersion data, and analyze Airy-operator eigenfunctions.
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:8100006:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 8100006 (AMR-080-0006). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:8100006:2}{S2}] Percy Deift, Some Open Problems in Random Matrix Theory and the Theory of Integrable Systems. II, SIGMA 13 (2017), 016, Problem 6.
+\url{https://arxiv.org/abs/1703.04931}.
+\item[\hypertarget{source:8100006:3}{S3}] Primary full-text formulation and 2017 historical progress discussion.
+\url{https://arxiv.org/html/1703.04931v1}.
+\end{itemize}
+\label{end:8100006}
+\end{document}

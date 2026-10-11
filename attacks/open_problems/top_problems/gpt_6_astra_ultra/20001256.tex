@@ -1,0 +1,138 @@
+% RESEARCH_DRAFT_SHA256: ebab72f3d8a5b02f23038b9675ef05ac16811bd3fe585bd9842e936b0fb899dc
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001256, "title": "Irreducible line sections: exact convention-sensitive counts and monodromy status", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001256", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 6. Let f (X, Y ) ∈ Fq[X, Y ] be irreducible. Let g(Y ) = f (aY + b, Y ). Count (or estimate) the number of pairs a, b over Fq such that g is irreducible over Fq. (Gao)", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Exact counts for several specified families expose convention and monodromy gaps, but no arbitrary-polynomial estimate or universal large-field theorem is proved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Irreducible line sections: exact quadratic counts and a degree-drop trap}
+\noindent UnsolvedMath ID 20001256; AIM-COMPUTATION-0094. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Let $\mathbb F_q$ be a finite field and $f\in\mathbb F_q[X,Y]$ irreducible. For $(a,b)\in\mathbb F_q^2$, substitute the affine line $X=aY+b$ to form $g_{a,b}(Y)=f(aY+b,Y)$. Count parameter pairs for which this univariate polynomial is irreducible, using the convention that irreducible polynomials are nonconstant nonunits.
+\paragraph{Statement recorded in the supplied source.}
+Question 6. Let f (X, Y ) ∈ Fq[X, Y ] be irreducible. Let g(Y ) = f (aY + b, Y ). Count (or estimate) the number of pairs a, b over Fq such that g is irreducible over Fq. (Gao) \href{https://aimath.org/WWN/primesinp/primesinp.pdf}{[S2]}
+\paragraph{Scope qualification.}
+Degree drops and zero or constant specializations are excluded from the irreducible count. The source does not claim the answer is always positive.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+How many affine line substitutions preserve irreducibility of a given polynomial over a finite field?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001256 (AIM-COMPUTATION-0094). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0094
+\url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 6. Let f (X, Y ) ∈ Fq[X, Y ] be irreducible. Let g(Y ) = f (aY + b, Y ). Count (or estimate) the number of pairs a, b over Fq such that g is irreducible over Fq. (Gao)
+
+\section{Counting convention and route}
+The imported definition excludes degree drops. We preserve that convention
+and also state what changes if the literal word irreducible alone counts
+all positive degrees. The primary source asks for arbitrary irreducible
+$f$ and its remarks discuss generic monodromy; neither a universally
+positive count nor a universal proportion $1/\deg f$ follows solely
+from bivariate irreducibility. We test those shortcuts on exact families.
+
+\paragraph{An exact quadratic count in every characteristic.}
+Take $f(X,Y)=X-Y^2$. It is irreducible because it is monic linear in
+$X$, and quotienting by it leaves the integral domain $\mathbb F_q[Y]$.
+Every section is $aY+b-Y^2$, of full degree two. For odd $q$ it is
+irreducible exactly when its discriminant $a^2+4b$ is a nonsquare.
+Indeed completing the square shows that a root exists exactly when
+this discriminant is a square (including zero), and a quadratic over
+a field is reducible exactly when it has a root. For fixed $a$, the
+map $b\mapsto a^2+4b$ is bijective. Exactly $(q-1)/2$ nonzero field
+elements are nonsquares, by the two-to-one squaring map on nonzero
+elements. Thus the count is $q(q-1)/2$.
+
+For even $q$, if $a=0$ then $Y^2+b$ is a square: the squaring map
+is injective on the finite field and hence surjective. If $a\ne0$,
+putting $Y=aZ$ gives, up to a nonzero scalar,
+$Z^2+Z+b/a^2$. The additive map $z\mapsto z^2+z$ has kernel
+$\{0,1\}$ and hence image of size $q/2$: two elements have the
+same image exactly when their difference is in that kernel. For
+exactly $q/2$ choices of $b$ the quadratic has no root and is
+irreducible. The total is again $q(q-1)/2$. This proves an exact
+answer for this particular absolutely irreducible family, including
+$q=2$, under both counting conventions.
+
+\paragraph{The source's own obstruction, checked with degree drops.}
+Consider $F(X,Y)=X^q-X+Y$. This is irreducible for the same monic-
+linear-in-$Y$ reason. Since $a^q=a$ and $b^q=b$ in $\mathbb F_q$,
+\[
+F(aY+b,Y)=aY^q+(1-a)Y
+        =Y(aY^{q-1}+1-a).
+\]
+For $a\ne0$ it has full degree $q$ and is reducible: the second
+factor has positive degree and $q\ge2$. For $a=0$ it equals $Y$,
+which is irreducible of degree one but is a degree drop. Consequently
+the count in the imported full-degree convention is exactly zero,
+while the ordinary positive-degree irreducible count is exactly $q$,
+one for each $b$ at $a=0$. The differing answers cannot be merged.
+The example has total degree $q$, so it does not refute the primary
+remark's hoped-for positivity when $q$ is much larger than the degree.
+
+\paragraph{Why a universal proportion is also unjustified.}
+For odd $q$, let $c$ be a nonsquare and take $f(X,Y)=X^2-c$.
+This polynomial is irreducible over $\mathbb F_q[X,Y]$: a
+factorization has degree zero in $Y$ in each factor, reducing to a
+factorization in $\mathbb F_q[X]$, which would give a square root
+of $c$. For every $a\ne0$, the invertible affine substitution
+$X=aY+b$ preserves irreducibility and degree two. For $a=0$ it is
+a nonzero constant. Its full-degree count is therefore $q(q-1)$,
+not approximately $q^2/2$. This family is not absolutely irreducible,
+which is precisely a geometric distinction the bare hypothesis did
+not impose. A proof based on a full symmetric generic Galois group
+would need to establish that group and its constant-field behavior.
+
+\section{Audit and remaining task}
+The original Question 6 and its obstruction and monodromy remarks were
+inspected. All counts are proved directly, without a point-counting or
+factorization package. The audit checked units, degree loss, repeated
+roots, characteristic two and ordinary versus absolute irreducibility.
+The calculations are known elementary families and do not provide an
+estimate with explicit uniform error for arbitrary input $f$, nor
+settle the stronger large-field positivity question. No novelty or
+full original-target solution is claimed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Exact counts for several specified families expose convention and monodromy gaps, but no arbitrary-polynomial estimate or universal large-field theorem is proved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Future directions in algorithmic number theory, workshop 24--28 March 2003, report version 30 April 2003; original question, relevant lecture context and adjoining remarks inspected on 11 October 2026. \url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Exact counts for several specified families expose convention and monodromy gaps, but no arbitrary-polynomial estimate or universal large-field theorem is proved.
+\end{document}

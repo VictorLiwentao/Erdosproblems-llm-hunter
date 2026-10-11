@@ -1,0 +1,115 @@
+% RESEARCH_DRAFT_SHA256: 22b1d34c2dff8325f902eba510f285baed31d04875b6f6cb01ee68bc81f2f8fd
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001335, "title": "The cyclic core of Heisenberg hidden shift", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001335", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and written mathematical review at the declared scope; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The cyclic core of Heisenberg hidden shift; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A central cyclic reduction and the loss in abelianization; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch015 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 20001335; source catalogue code AIM-CRYPTOGRAPHY-0022
+\section{The cyclic core of Heisenberg hidden shift}\label{20001335}
+{\small UnsolvedMath ID 20001335 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A hidden-shift instance consists of functions $f_0,f_1$ on a group $G$ related by $f_1(x)=f_0(xs)$ for an unknown shift $s$, with the additive version $f_1(x)=f_0(x+s)$ for abelian groups. The task is to recover a compatible shift from the stipulated function access. The Heisenberg group over $\mathbb F_p$ consists of upper-unitriangular $3\times3$ matrices, represented by triples $(a,b,c)$ with multiplication $(a,b,c)(a',b',c')=(a+a',b+b',c+c'+ab')$. The task is a hidden-shift algorithm on this nonabelian group.
+\paragraph{Statement recorded in the supplied source.}
+Is there a fast hidden shift algorithm for Heisenberg group over $\mathbb F_p$? \href{http://aimpl.org/quantumalg/4/}{[S2]}
+\paragraph{Scope qualification.}
+The source does not specify a collision promise, left-versus-right translation, or an explicit target runtime; the displayed convention merely defines the group.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Is there an efficient hidden-shift algorithm for the finite-field Heisenberg group?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001335 (AIM-CRYPTOGRAPHY-0022). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-CRYPTOGRAPHY-0022
+\url{http://aimpl.org/quantumalg/4/}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001335 and source code AIM-CRYPTOGRAPHY-0022 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001335}
+
+\section{Literature and context check}
+The original AIM URL was attempted on 2026-10-11, but the web fetch timed out and a direct retrieval failed at DNS resolution. Its supplied extract is preserved above; fresh access to that page is not claimed. Kuperberg's primary abstract was consulted for cyclic/abelian hidden shift; it does not itself provide a polynomial-time algorithm for the nonabelian Heisenberg question. The route below asks whether projecting to the abelianization can eliminate the difficulty. An explicit oracle reduction and a character calculation show the central obstruction under a declared injective right-shift model.
+\section{Research attempt: A central cyclic reduction and the loss in abelianization}
+Let $H_p$ consist of triples with multiplication $(a,b,c)(a',b',c')=(a+a',b+b',c+c'+ab')$ over $\mathbb F_p$. Its center contains $z_t=(0,0,t)$, since $gz_t=z_tg=(a,b,c+t)$. Given an injective cyclic hidden-shift pair $h_0,h_1:\mathbb F_p\to\mathcal Y$, with $h_1(c)=h_0(c+t)$, define
+\[
+ F_0(a,b,c)=(a,b,h_0(c)),\qquad F_1(a,b,c)=(a,b,h_1(c)).
+\]
+Both are injective and $F_1(g)=F_0(gz_t)$. Each coherent evaluation uses exactly one evaluation of the corresponding $h_b$ plus copying the two field coordinates; no search for $t$ is hidden in the construction. If an algorithm recovers a right shift $(u,v,w)$ for this pair, then equality of the first two output coordinates for all $a,b,c$ forces $u=v=0$, and injectivity of $h_0$ forces $w=t$. Hence an injective Heisenberg hidden-shift algorithm also solves cyclic hidden shift over $\mathbb F_p$, with the same number of original oracle evaluations and only the stated coordinate overhead.
+
+To see why abelianization alone cannot retrieve this central coordinate, the inverse of $(a,b,c)$ is $(-a,-b,-c+ab)$, as multiplication verifies. A direct calculation gives
+\[
+ [(a,0,0),(0,b,0)]=(0,0,ab),
+\]
+where $[g,h]=ghg^{-1}h^{-1}$. Every central element arises by choosing $a=1$, $b=t$. For any one-dimensional character $\chi:H_p\to\mathbb C^\times$, commutativity of scalar multiplication gives $\chi([g,h])=1$. Thus $\chi(z_t)=1$ for every $t$. In fact $\chi(a,b,c)$ factors through $(a,b)$: decompose $(a,b,c)=(a,b,0)z_c$ and use the preceding identity. Translation by $z_t$ therefore supplies no phase at all to these characters. A method retaining only one-dimensional-character shift phases has discarded precisely the unknown coordinate in the constructed family.
+
+This is not an unconditional lower bound on all Heisenberg algorithms. Higher-dimensional representations or other uses of the oracle might retain the missing information. Nor does reduction from cyclic hidden shift prove that a fast Heisenberg algorithm is impossible. It establishes that a proposed shortcut via the abelian quotient has not bypassed cyclic hidden shift.
+
+As a finite boundary check, an injective right-shift instance can always be solved by comparing $F_1(e)$ with $F_0(g)$ for all $p^3$ elements: equality holds exactly at the shift. On the central family, testing $z_t$ costs only $p$ candidates. Neither is polynomial in $\log p$, and the source does not specify whether ``fast'' means such a bound or a different improvement.
+\section{Verification and adversarial audit}
+The group inverse, commutator order, right-translation convention, and forced output coordinates were checked directly. The construction also works for $p=2$; no division by two is used. Injectivity is essential for uniqueness and is explicitly assumed rather than read into the original source.
+\paragraph{Audit corrections.} Hidden subgroup algorithms were not silently identified with hidden shift algorithms. The cyclic embedding supplies a reduction and a failed shortcut, not a hardness theorem against every quantum method.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+No fast general Heisenberg hidden-shift algorithm or oracle lower bound is obtained. The reduction and character obstruction identify a concrete failure of the abelianization route under one standard promise, while the original collision and runtime conventions remain open choices.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://arxiv.org/abs/quant-ph/0302112} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and written mathematical review at the declared scope; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

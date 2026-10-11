@@ -1,0 +1,97 @@
+% TOP_PROBLEM: {"id": 30002150, "title": "Resonant Mode Mixing in Anti-de-Sitter Instability", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "This asks for a mechanism in the source evolution problem. Resonance in a truncated mode system is not by itself proof that a horizon forms in the full field equations."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002150", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Does resonant transfer of energy to shorter scales explain black-hole formation in anti-de Sitter instability?", "scope": "Analyzes a bounded reversible resonant triad, demonstrating why resonance alone does not imply an unbounded cascade or a horizon.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked all amplitude derivatives and invariants, boundedness/global ODE continuation and the stationary single-mode boundary. Model self-audit only; no independent human proof checking. Coordinator checked the three amplitude derivatives, both positive conservation laws and global finite-dimensional boundedness. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked all amplitude derivatives and invariants, boundedness/global ODE continuation and the stationary single-mode boundary. Retained unresolved status and zero original-target progress; Infinite-mode transfer, long-time approximation to the full equations and geometric trapping estimates are missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30002150; source catalogue code OWR-12009-007
+\setcounter{section}{30002149}
+\section{Resonant Mode Mixing in Anti-de-Sitter Instability}\label{30002150}
+{\small UnsolvedMath ID 30002150 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+Anti-de Sitter spacetime is the maximally symmetric Lorentzian solution with negative cosmological constant. Its linearized field modes have frequencies; resonant interactions occur when combinations of those frequencies match. A transfer of energy to increasing frequencies is a turbulent cascade. An apparent horizon is a marginally outer trapped surface on a spacelike slice; its formation is a geometric diagnostic, distinct from a proof of linear mode instability.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Is the instability of anti-de-Sitter space caused by resonant mode mixing that transfers energy from low to high frequencies until an apparent horizon forms?
+
+\paragraph{Source scope and qualification.}
+This asks for a mechanism in the source evolution problem. Resonance in a truncated mode system is not by itself proof that a horizon forms in the full field equations.
+\subsection{Short English statement}
+Does resonant transfer of energy to shorter scales explain black-hole formation in anti-de Sitter instability?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Analyzes a bounded reversible resonant triad, demonstrating why resonance alone does not imply an unbounded cascade or a horizon.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A resonant triad transfers energy reversibly.} Consider complex amplitudes $a,b,c$ obeying $i\dot a=\overline b c$, $i\dot b=\overline a c$, $i\dot c=ab$, a basic exactly resonant three-wave system. With $z=\overline a\,\overline b\,c$, differentiation gives
+\[
+ \frac d{dt}|a|^2=2\operatorname{Im}z,\quad
+ \frac d{dt}|b|^2=2\operatorname{Im}z,\quad
+ \frac d{dt}|c|^2=-2\operatorname{Im}z.
+\]
+Therefore $|a|^2+|c|^2$ and $|b|^2+|c|^2$ are conserved. All amplitudes remain bounded for all time, since the polynomial vector field cannot cease to exist while its finite-dimensional solution stays bounded. Transfer can reverse because the sign depends on the phase of $z$, not solely on mode frequencies.
+
+\paragraph{What resonance does not force.} With $b=c=0$, $a$ is constant: exact resonance allows a stationary single-mode state. More generally a fixed finite truncation has no arbitrarily high frequencies to receive energy. Neither frequency matching nor growth of one selected high mode proves a monotone unbounded cascade.
+
+\paragraph{Einstein/AdS gap.} The triad is not the source resonant system and is not a counterexample to its instability mechanism. It tests the inference from resonant terms alone to horizon formation. One needs control of an infinite-mode transfer, comparison of the resonant approximation with the full field equations on the transfer time scale, and a geometric trapped-surface estimate. Those are separate missing steps; an apparent horizon cannot be deduced solely from modal occupation numbers without reconstructing and controlling the spacetime.
+
+\paragraph{Verification and adversarial audit.}
+Checked all amplitude derivatives and invariants, boundedness/global ODE continuation and the stationary single-mode boundary. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked all amplitude derivatives and invariants, boundedness/global ODE continuation and the stationary single-mode boundary. Retained unresolved status and zero original-target progress; Infinite-mode transfer, long-time approximation to the full equations and geometric trapping estimates are missing.
+
+Coordinator checked the three amplitude derivatives, both positive conservation laws and global finite-dimensional boundedness. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Infinite-mode transfer, long-time approximation to the full equations and geometric trapping estimates are missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Infinite-mode transfer, long-time approximation to the full equations and geometric trapping estimates are missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30002150:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30002150 (OWR-12009-007). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30002150:2}{S2}] Mathematical Aspects of General Relativity (2012), Oberwolfach Reports, DOI 10.4171/owr/2012/37, pp. 2269--2333. Primary report accessed 2026-10-11; relevant PDF pages 52.
+\url{https://doi.org/10.4171/owr/2012/37}.
+\item[\hypertarget{source:30002150:3}{S3}] Bizon--Rostworowski, weak turbulence (catalogue-listed context; not independently consulted in this preparation).
+\url{https://doi.org/10.1103/PhysRevLett.107.031102}.
+\item[\hypertarget{source:30002150:4}{S4}] Bizon--Maliborski--Rostworowski, resonant dynamics (catalogue-listed context; not independently consulted in this preparation).
+\url{https://doi.org/10.1103/PhysRevLett.115.081103}.
+\end{itemize}
+\label{end:30002150}
+\end{document}

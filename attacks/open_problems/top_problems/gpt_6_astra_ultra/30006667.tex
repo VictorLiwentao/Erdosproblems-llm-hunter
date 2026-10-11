@@ -1,0 +1,104 @@
+% RESEARCH_DRAFT_SHA256: c7e55ebf94bcc57d447e1df653b5dd3fe0662fc1f601900720e078a216806dbf
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30006667, "title": "Inference and Training Effects of the Softmax Bottleneck", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006667", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Identical top-901 nucleus laws coexist with arbitrarily large tail-induced training cross-entropy.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch011/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 30006667; source catalogue code OWR-14299916-005
+\section{Inference and Training Effects of the Softmax Bottleneck}\label{30006667}
+{\small UnsolvedMath ID 30006667 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+For logits $z_i$, softmax gives $p_i=e^{z_i}/\sum_j e^{z_j}$. Nucleus sampling restricts sampling to a chosen high-probability prefix. A softmax bottleneck constrains distributions representable through a low-dimensional output projection.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The performance measures, sampling threshold, data distribution, and asymptotic token/vocabulary regime are unspecified.
+
+Source-record limitation: Effects on unspecified performance measures are empirical prompts rather than a determinate mathematical statement.
+\paragraph{Statement recorded in the supplied source.}
+When nucleus sampling is used at inference time, do the probabilities of tokens outside the top one thousand have negligible effects on performance? Does the softmax bottleneck materially limit performance during training even when it does not significantly restrict the probabilities of the most likely tokens at inference time? \href{https://doi.org/10.4171/owr/2026/11}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Assess whether rare-token probabilities and output-rank constraints matter during training or sampling.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30006667 (OWR-14299916-005). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Modern and Emerging Phenomena in Machine Learning (2026), Oberwolfach Reports, DOI 10.4171/owr/2026/11, pp. 683--736
+\url{https://doi.org/10.4171/owr/2026/11}.
+\item[S3] Basri--Jacobs, The Softmax Bottleneck
+\url{https://openreview.net/forum?id=DgJqQk6y19}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30006667 and code OWR-14299916-005 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30006667}
+
+\section{Research attempt}
+\subsection{Literature, source context and scope}
+The full catalogue body, including qualifications and historical source status, is preserved above. The original workshop report was inspected in the locally cached publisher PDF text. This attempt distinguishes the source question from any explicitly restricted model introduced below. Repeated records retain their own source IDs and do not become independent conjectures. Elementary results and attributed literature results are not claimed as new original-target progress.
+
+\subsection{Attempted inference from negligible tail sampling to negligible training effect}
+The source asks about performance without fixing its metric. We separate one inference-time sampling metric from the training cross-entropy in a completely specified example. This does not assume that every distribution below is realizable by every fixed low-dimensional projection.
+Let $N=1001$, $\delta=10^{-6}$, and give the first 1000 tokens equal probabilities $(1-\delta)/1000$ under a data law $Q$, with $Q_{1001}=\delta$. For $M\ge0$, let a model law $P_M$ put probability $\delta e^{-M}$ on token 1001 and spread the remaining mass equally on the first 1000. Use nucleus threshold $\tau=0.9005$ and the same deterministic ordering to resolve equal-probability ties.
+\begin{proposition}
+Nucleus sampling from every $P_M$ and from $Q$ produces exactly the same uniform distribution on the first 901 tokens. Nevertheless the excess training cross-entropy $D_{\rm KL}(Q\|P_M)$ is unbounded as $M$ increases.
+\end{proposition}
+\begin{proof}
+The tail token is always smaller than each head token. For either law, the total probability of the first 900 tokens is at most $0.9<\tau$, while that of the first 901 is at least $0.901(1-10^{-6})>\tau$. Thus the smallest probability-ranked prefix reaching $\tau$ consists of 901 equal-probability tokens; conditioning makes it uniform, independently of $M$.
+Direct substitution gives
+\[
+ D_{\rm KL}(Q\|P_M)
+ =\delta M+(1-\delta)\log\frac{1-\delta}{1-\delta e^{-M}}
+ \ge\delta M+(1-\delta)\log(1-\delta).
+\]
+The lower bound tends to infinity. This divergence is exactly the difference between cross-entropy against $P_M$ and cross-entropy against $Q$, by expanding the definition.
+\end{proof}
+Consequently equality of these truncated one-step output laws does not bound the cross-entropy cost of the excluded tail. Small tail mass requires an additional likelihood-ratio or loss bound to imply a small training effect. This is not evidence that any deployed model suffers the displayed degradation, nor a statement about all sequence-level performance metrics.
+\subsection{Verification and remaining gaps}
+Prefix inequalities were checked exactly. The divergence was evaluated using the stable log expression at $M=0,10^3,10^6$, avoiding underflow in the tiny tail probability. Architectural attainability, actual data frequencies, sequential sampling effects and the empirical importance of the bottleneck remain unestablished.
+
+\section{References and source attribution}
+The primary Oberwolfach workshop report, \url{https://doi.org/10.4171/owr/2026/11}, was inspected on 11 October 2026. Relevant source passages: 2026/11 pp. 706--708, likely-token probabilities and training-versus-inference question. Catalogue and contributor attribution remain in the original Sources section. Mathematical arguments labeled as this attempt are proved above; cited external results remain attributed to their authors and are not independently reproved or claimed as our discoveries.
+
+\url{https://openreview.net/forum?id=DgJqQk6y19}. The supplied Basri--Jacobs OpenReview URL was attempted but returned a browser-verification page, so its full paper was not inspected through that endpoint. Context and the quoted agenda were instead checked in the accessible primary Oberwolfach contribution; no additional theorem from an inaccessible paper is assumed.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch011/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

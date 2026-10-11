@@ -1,0 +1,150 @@
+% RESEARCH_DRAFT_SHA256: 290fc3caae218505e78b6bb7660ee2dd9b1b4337d9adcb117cfc6941ea51544b
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 2800804, "title": "10 Lectures and 42 Open Problems — The Paley Clique Problem", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "2800804", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for exact finite algebraic checks, document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "What is the clique number of the Paley graph? Can the the SOS degree 4 analogue of the theta number help upper bound it?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. No asymptotic clique bound or growing-prime improvement for degree-four SOS is proved; the triangle-free certificate fails once genuine triangle moments occur.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Paley clique SOS: an exact small case and the limitation of degree-four positivity}
+\noindent UnsolvedMath ID 2800804; AMR-027-0804. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a prime $p\equiv1\pmod4$, the Paley graph $G_p$ has vertex set $\mathbb{F}_p$, with distinct $u,v$ adjacent exactly when $u-v$ is a nonzero square in $\mathbb{F}_p$. Since $-1$ is a square, adjacency is symmetric. A clique is a vertex subset whose distinct pairs are all adjacent; $\omega(G_p)$ is the largest possible cardinality of a clique.
+
+The Boolean clique formulation maximizes $\sum_v x_v$ subject to $x_v^2=x_v$ and $x_ux_v=0$ for nonedges $uv$. Its degree-four sum-of-squares upper bound replaces evaluation at a Boolean vector by a linear functional $\widetilde{\mathbb{E}}$ on real polynomials of degree at most four, with
+\[
+ \widetilde{\mathbb{E}}[1]=1,\qquad
+ \widetilde{\mathbb{E}}[f^2]\ge0\ (\deg f\le2),
+\]
+and $\widetilde{\mathbb{E}}[(x_v^2-x_v)q]=\widetilde{\mathbb{E}}[x_ux_vq]=0$ for every polynomial $q$ of degree at most two and every relevant vertex or nonedge. Maximizing $\widetilde{\mathbb{E}}[\sum_vx_v]$ is a semidefinite relaxation: every genuine clique supplies a feasible functional, so its value upper-bounds $\omega(G_p)$. The question concerns the growth of these quantities as $p$ tends to infinity through the stated primes.
+\paragraph{Statement recorded in the supplied source.}
+What is the clique number of the Paley graph? Can the the SOS degree 4 analogue of the theta number help upper bound it? \href{https://afonsobandeira.wordpress.com/2015/12/04/10l42pmaxcut/}{[S2]}
+\paragraph{Scope qualification.}
+The prime-order convention is the one used in the author's lecture context; it should not be silently extended to square prime powers, which have different clique behavior. Kunisky and Yu's 2023 paper supplies a lower bound on the relaxation's value and numerical evidence, not a determination of the true clique number. The 2026 Randomstrasse101 problem collection still poses polylogarithmic clique growth and polynomial improvement by degree-four sum of squares as conjectures. These primary sources were inspected on 2026-10-11.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+How large can a clique in a prime-order Paley graph be, and can degree-four sum-of-squares bounds improve our understanding of its size?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 2800804 (AMR-027-0804). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AMR Open Problem Lists, original problem source linked by catalogue record AMR-027-0804
+\url{https://afonsobandeira.wordpress.com/2015/12/04/10l42pmaxcut/}.
+\item[S3] Dmitriy Kunisky and Xifan Yu, A Degree 4 Sum-Of-Squares Lower Bound for the Clique Number of the Paley Graph, CCC 2023; precise relaxation and known limitations.
+\url{https://drops.dagstuhl.de/storage/00lipics/lipics-vol264-ccc2023/LIPIcs.CCC.2023.30/LIPIcs.CCC.2023.30.pdf}.
+\item[S4] Bandeira and collaborators, Randomstrasse101: Open Problems of 2025 (2026), Entry 12, Conjectures 25 and 28.
+\url{https://arxiv.org/abs/2603.29571}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+What is the clique number of the Paley graph? Can the the SOS degree 4 analogue of the theta number help upper bound it?
+
+\section{Attempt and results}
+The target concerns primes tending to infinity and both the actual clique
+number and the degree-four SOS relaxation. We work with precisely the
+pseudoexpectation constraints in the preserved definition. A feasible
+pseudoexpectation is positive on squares of degree at most two; it is not
+assumed to be a probability distribution on actual cliques.
+
+\paragraph{A degree-four certificate for every triangle-free graph.}
+Let $T=\sum_i x_i$, and let $m_j=\widetilde{\mathbb E}[T^j]$.
+Boolean reduction makes every repeated variable idempotent. In a
+triangle-free graph every set of at least three distinct vertices contains
+a nonedge, so every monomial on such a set of total degree at most four
+has zero pseudoexpectation: factor the nonedge and use its constraint
+with the remaining polynomial of degree at most two. Consequently,
+by expanding powers and grouping one- and two-vertex supports,
+\[
+m_3=3m_2-2m_1,\qquad m_4=7m_2-6m_1.
+\]
+For completeness, a fixed unordered pair appears twice in $T^2$, six
+times in $T^3$, and fourteen times in $T^4$; a single vertex appears once
+in each. These coefficients give the two identities.
+Positivity of the square of the degree-two polynomial $T(2-T)$ implies
+\[
+0\le\widetilde{\mathbb E}[T^2(2-T)^2]
+=4m_2-4m_3+m_4=2m_1-m_2.
+\]
+Positivity of $(T-m_1)^2$ gives $m_2\ge m_1^2$. Combining them yields
+$m_1^2\le2m_1$, hence $m_1\le2$. If the graph contains an edge, evaluation
+at its two-vertex clique attains two, so the relaxation value is exactly two.
+All constraint multipliers used have allowed degree; no unproved
+pointwise-to-pseudoexpectation inference is needed.
+
+\paragraph{Application and failed asymptotic extension.}
+For $p=5$ the nonzero squares are $1,4$, so $G_5$ is the cycle with steps
+$\pm1$. The neighbors of any vertex differ by two, a nonsquare; thus it is
+triangle-free. It has an edge, hence both clique number and SOS value are two.
+For $p=13$, squares are $1,3,4,9,10,12$, and $\{0,1,4\}$ is a triangle:
+its pairwise differences are $\pm1,\pm3,\pm4$.
+Thus the crucial vanishing of three-vertex moments cannot be used for all
+Paley primes. Indeed actual evaluation at that triangle gives
+$m_3-3m_2+2m_1=27-27+6=6\ne0$.
+This explicitly falsifies the proposed unchanged extension of the degree-four
+certificate. It does not imply that another degree-four certificate is weak.
+
+\paragraph{What remains after symmetry.}
+Automorphisms $x\mapsto ax+b$ with nonzero square $a$ preserve adjacency.
+Averaging a feasible functional over this finite group preserves every
+constraint, because each transformed square is still a square of the same
+degree, and preserves the objective. Vertex transitivity therefore permits
+equal first moments. But it does not force clique-supported third and
+fourth moments to vanish; the concrete $p=13$ evaluation already shows why
+that extra assumption would be false. A proof controlling these surviving
+moments as $p$ grows is missing.
+
+\section{Context and adversarial audit}
+Kunisky and Yu's primary CCC 2023 paper was inspected at its abstract on
+11 October 2026. It reports a lower bound of order $p^{1/3}$ for the SOS
+relaxation value. That is not a lower bound on the actual clique number.
+The present certificate is an elementary special-case calculation, not a
+new asymptotic Paley result. The audit checked all degree limits, moment
+coefficients, the $p=13$ obstruction, and the direction of relaxation bounds.
+An exact Python 3.14.2 check reduced the displayed three polynomial
+identities modulo Boolean and nonedge relations for $G_5$, using integer
+coefficient dictionaries; every coefficient identity passed. It also checked
+that $\{0,1,4\}$ is a clique in $G_{13}$. The local
+\texttt{exact\_checks.py} and \texttt{exact\_checks.json} record all inputs
+and output, with no random seed or external library. These finite algebraic
+checks do not certify the asymptotic target or supply independent human
+verification. No SDP solver or theorem prover was run.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. No asymptotic clique bound or growing-prime improvement for degree-four SOS is proved; the triangle-free certificate fails once genuine triangle moments occur.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Dmitriy Kunisky and Xifan Yu, A Degree 4 Sum-Of-Squares Lower Bound for the Clique Number of the Paley Graph, CCC 2023; primary abstract and direction of bound inspected. \url{https://drops.dagstuhl.de/storage/00lipics/lipics-vol264-ccc2023/LIPIcs.CCC.2023.30/LIPIcs.CCC.2023.30.pdf}.
+\item Bandeira, lecture notes (2016), Open Problem 8.4; both source questions inspected. \url{https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} No asymptotic clique bound or growing-prime improvement for degree-four SOS is proved; the triangle-free certificate fails once genuine triangle moments occur.
+\end{document}

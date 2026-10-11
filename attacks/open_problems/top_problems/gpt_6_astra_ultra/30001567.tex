@@ -1,0 +1,119 @@
+% RESEARCH_DRAFT_SHA256: ccfc02a5f5ef3d44578f5f9f00d618482d679e1145fa205f240537efe78bee87
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30001567, "title": "General Effectiveness of Symmetry-Aware Polyhedral Pivoting", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001567", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written mathematical review at the declared scope; no independent human verification. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "General Effectiveness of Symmetry-Aware Polyhedral Pivoting; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Exact quotient-graph enumeration and its unpriced operations; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch018 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30001567; source catalogue code OWR-4426-004
+\section{General Effectiveness of Symmetry-Aware Polyhedral Pivoting}\label{30001567}
+{\small UnsolvedMath ID 30001567 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+Polyhedral pivoting moves between adjacent basic feasible solutions or enumerated faces. Symmetry reduction groups equivalent points or faces into orbits so that equivalent work can be reused.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The general effectiveness sought by the source is not a quantified correctness or runtime requirement.
+
+Source-record limitation: Effectiveness of symmetry-aware pivoting is requested without a complexity bound or precise problem.
+\paragraph{Statement recorded in the supplied source.}
+To what extent can pivoting under symmetry be made effective in general for polyhedral computation, beyond the specialized applications where it is currently useful? \href{https://doi.org/10.4171/owr/2010/38}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Extend symmetry-based pivoting to more polyhedral computations.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30001567 (OWR-4426-004). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Mini-Workshop: Exploiting Symmetry in Optimization (2011), Oberwolfach Reports, DOI 10.4171/owr/2010/38, pp. 2245--2281
+\url{https://doi.org/10.4171/owr/2010/38}.
+\item[S3] orbitwise basis enumeration
+\url{https://plg.uwaterloo.ca/~a3moss/papers/Mos12_Basis_Enumeration_of_Hyperplane_Arrangements_up_to_Symmetries.pdf}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30001567 and code OWR-4426-004 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30001567}
+
+\section{Literature and context check}
+The primary report, printed page 2265, stresses that pivoting under symmetry enumerates orbits of the complete basis graph and is sensitive to perturbations that preserve symmetry. The following proves a general finite graph-orbit traversal once that graph and group action can be accessed. It deliberately keeps neighbor generation and canonicalization costs visible; it does not identify bases with geometric vertices in a degenerate polyhedron.
+\section{Research attempt: Exact quotient-graph enumeration and its unpriced operations}
+
+\paragraph{A correct orbit traversal under explicit access assumptions}
+Let $\Gamma=(V,E)$ be a finite connected undirected graph, and let a finite group $G$ act by graph automorphisms. Assume exact procedures to enumerate neighbors and to assign each vertex a canonical representative of its $G$-orbit. Start with the canonical representative of any vertex. Whenever an unprocessed representative $r$ is removed from a queue, enumerate every neighbor $u$ of $r$, canonicalize $u$, and enqueue its representative if unseen. Store all seen representatives.
+
+This visits every orbit. For any edge $v\sim w$, choose $g$ sending $v$ to its representative $r$. Then $r\sim gw$, and $gw$ lies in the orbit of $w$. Consequently all quotient-graph neighbors of an orbit appear when its representative is processed. The quotient graph is connected because a path between original vertices maps to a walk between their orbits. Induction along such a walk proves every orbit is eventually discovered. Finiteness gives termination; at most one representative is processed per orbit. Loops and multiple quotient edges merely produce already-seen representatives.
+
+With an explicitly listed group, a canonical representative can be defined as the lexicographically least exact encoding among $\{gv:g\in G\}$. This is correct and finite, but needs up to $|G|$ action/encoding comparisons. If $R$ is the chosen representative set, the algorithm makes exactly $\sum_{r\in R}\deg(r)$ neighbor-canonicalization calls, in addition to initialization. No polynomial output-sensitive bound follows until costs of these calls and the representation of $G$ are specified.
+
+\paragraph{An example of a real saving and a reason it is not automatic}
+For the graph of the $n$-cube with bit-flip adjacency and coordinate-permutation group, the vertex orbits are exactly Hamming weights $0,1,\ldots,n$. A canonical representative is a string of that many ones followed by zeros, obtainable by counting bits. Neighbors change weight by one. One can therefore enumerate the $n+1$ orbits by a path, although the original graph has $2^n$ vertices. Even an implementation enumerating all $n$ neighbors of each representative uses only $n(n+1)$ neighbor calls; enumerating all $n!$ group permutations for every canonicalization would squander this saving. The useful ingredient is the inexpensive canonicalization invariant, not only the existence of a large group.
+
+For the trivial group there is no orbit compression at all. For degenerate polyhedra, multiple bases can represent one geometric vertex, and a basis pivot graph can be much larger than the vertex graph. The graph algorithm counts whichever objects its input vertices encode; changing to geometric vertices needs a proof that adjacency and traversal remain complete. Likewise a perturbation that destroys the original automorphisms invalidates the quotient action used above, even if it makes ordinary pivots easier.
+
+\section{Verification and adversarial audit}
+The proof uses an automorphism sending an arbitrary endpoint to its selected representative, so processing only representatives cannot miss edges between orbits. Connectivity is an explicit graph assumption, not an unproved consequence of an unspecified pivot rule. The cube calculation counts exact orbits and does not transfer its easy canonical form to general group actions.
+\paragraph{Audit corrections.} Kept basis orbits distinct from vertex orbits and charged group enumeration and neighbor access instead of treating them as free operations.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+A complete finite traversal is given under specified graph oracles. General efficient polyhedral pivoting still needs bounded-cost canonicalization, orbit-aware neighbor generation, handling of degeneracy, and a perturbation scheme compatible with the retained group. None is solved merely by the quotient-graph proof.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46297} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+The parent Codex GPT-6 model has reviewed the written mathematical arguments at their declared scopes. This is model-assisted review, not independent human verification.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

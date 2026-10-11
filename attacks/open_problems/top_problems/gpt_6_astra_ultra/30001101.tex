@@ -1,0 +1,167 @@
+% RESEARCH_DRAFT_SHA256: 8fcf4d8a47aea450dad409a672eb8e846870e1a90effe1ef0fdfff62edfca128
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30001101, "title": "Alcuin Numbers and Recognition of Small Boat Graphs", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001101", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "For a perfect graph, is there a polynomial-time algorithm for computing its Alcuin number? Is recognizing small-boat graphs in NP?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Computing which of tau or tau+1 applies for all perfect graphs and supplying a complete polynomial certificate of small-boat status remain unresolved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Alcuin-number attempt: the cover bound and the missing optimality certificate}
+\noindent UnsolvedMath ID 30001101; OWR-2489-006. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+The Alcuin number is the least boat capacity permitting all vertices of a graph to cross a river without leaving an edge\textquotesingle s two endpoints together unattended. A perfect graph has chromatic number equal to clique number in every induced subgraph.
+
+Polynomial time means a number of elementary steps bounded by a polynomial in the encoded input length. A decision problem is in $\mathrm{NP}$ if yes-instances have polynomial-length certificates verifiable in polynomial time; NP-hardness is under polynomial-time reductions.
+\paragraph{Statement recorded in the supplied source.}
+For a perfect graph, is there a polynomial-time algorithm for computing its Alcuin number? Is recognizing small-boat graphs in NP? \href{https://doi.org/10.4171/owr/2008/51}{[S2]}
+\paragraph{Scope qualification.}
+The precise small-boat terminology and whether the operator occupies a boat slot follow the report\textquotesingle s convention.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Compute the river-crossing capacity of perfect graphs efficiently and determine certificate complexity of small-boat recognition.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30001101 (OWR-2489-006). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2009), Oberwolfach Reports, DOI 10.4171/owr/2008/51, pp. 2875--2942
+\url{https://doi.org/10.4171/owr/2008/51}.
+\item[S3] Csorba--Hurkens--Woeginger
+\url{https://pure.tue.nl/ws/portalfiles/portal/3740945/392629944726656.pdf}.
+\item[S4] FUN 2026 ferry-cover results
+\url{https://drops.dagstuhl.de/storage/00lipics/lipics-vol366/fun2026/html/LIPIcs.FUN.2026.6/LIPIcs.FUN.2026.6.html}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+For a perfect graph, is there a polynomial-time algorithm for computing its Alcuin number? Is recognizing small-boat graphs in NP?
+
+\section{Source convention and attempted certificate}
+The report's capacity $b\ge1$ counts transported graph vertices; the operator
+does not consume one of those $b$ places. During each crossing, both banks
+must be independent sets, since the operator is in the boat. A small-boat
+graph has $\operatorname{Alcuin}(G)=\tau(G)$, where $\tau$ is the minimum
+vertex-cover size. We test whether an ordinary crossing certificate plus
+an explicitly supplied vertex cover proves this equality.
+
+\paragraph{Complete standard two-value bound.}
+On the first trip the vertices left behind must be independent. Its boat
+load is consequently a vertex cover, proving every feasible capacity is
+at least $\tau(G)$. Conversely, keep a minimum vertex cover $W$ in the
+boat throughout, and transport vertices of the independent set $V\setminus W$
+one at a time in one extra place, returning with $W$ between trips.
+Both banks always contain only vertices of that independent set, so the
+schedule is feasible. At the end all vertices, including the boat load $W$,
+are across. If the independent set is empty, simply take $W$ across once.
+Thus for a nonempty graph
+\[
+\tau(G)\le\operatorname{Alcuin}(G)\le\tau(G)+1.
+\]
+For an edgeless nonempty graph, $\tau=0$ and the convention $b\ge1$
+gives Alcuin number one by the same one-at-a-time schedule. The empty
+input can be handled separately according to whether its boat capacity is
+required to remain at least one; it does not affect the questions below.
+
+\paragraph{Perfect graphs with the same cover number need different capacities.}
+For the path $a-v-b$, the seven successive boat loads
+$v,\varnothing,a,v,b,\varnothing,v$ (alternating directions) give a
+capacity-one schedule. Each unattended bank is an independent set; explicitly
+the central vertex is brought back before being left with a leaf. The first-trip
+bound gives equality $\operatorname{Alcuin}=\tau=1$.
+For the star with center $v$ and three leaves, $\tau=1$ but capacity one
+is impossible. Suppose there were a first trip that leaves at least two
+leaves on the right after arrival. It transports one leaf, so immediately
+before departure exactly one leaf is right and one other leaf remains left.
+The center cannot be in the boat together with the moving leaf. If it is on
+the left, the left bank contains the center and the remaining leaf during
+crossing; if it is on the right, the right bank contains the center and the
+already transported leaf. Both violate safety. No such first trip exists,
+contradicting final arrival of all leaves. The cover-plus-one construction
+gives capacity two, so the star is a big-boat graph.
+Both graphs are perfect: every induced subgraph is a forest, is two-colorable
+by distance parity when it has an edge, and has maximum clique size two;
+an edgeless induced subgraph needs one color and has clique size one
+(the empty subgraph uses zero). Thus knowing a perfect graph's cover number
+alone does not determine which of the two capacities occurs.
+
+\paragraph{Why a cover plus a short schedule is not a small-boat certificate.}
+A supplied cover of size $b$ proves $\tau\le b$; a valid capacity-$b$
+schedule proves $\operatorname{Alcuin}\le b$. These are two upper bounds.
+For the three-leaf star, choose the size-two cover consisting of its center
+and one leaf, and use a capacity-two schedule. Both certificates are valid,
+but $\tau=1<2=\operatorname{Alcuin}$. Hence the proposed inference of
+small-boat status is false, even on a perfect graph.
+A matching of $b$ disjoint edges would repair this particular certificate:
+every cover needs a different vertex for each matching edge, so
+$\tau\ge b$; together with a capacity-$b$ schedule and the first-trip
+lower bound, all three numbers equal $b$. This is a sound sufficient
+certificate but is incomplete. For a triangle, $\tau=2$ (every two vertices
+cover it, and one does not) and a capacity-two schedule with loads
+$\{a,b\},\{a\},\{a,c\}$ is feasible. Thus the triangle is small-boat,
+while its maximum matching has only one edge. It too is perfect, since all
+its induced subgraphs are cliques. A matching lower bound cannot certify
+all desired instances even in the perfect class.
+
+\paragraph{An exact exponential search does not settle NP membership.}
+For $n$ vertices, one can enumerate every partition $(L,B,R)$ with
+independent banks and $|B|\le b$, together with a direction bit.
+There are at most $2\cdot3^n$ states. Connect two states precisely when
+the boat arrives on the proper bank and its contents can be repartitioned
+there, leaving the opposite bank unchanged, as in source condition (FS3).
+Start with right bank empty and finish with left bank empty after a forward
+trip. A graph-reachability search accepts exactly feasible crossing schedules,
+because every edge is one legal successive trip and every schedule yields
+such a path. A shortest state path repeats no state, so this is a finite
+exponential procedure. It provides neither a polynomial search nor a
+polynomial certificate for the equality with an unknown optimum cover size.
+The source in fact already gives a separate polynomial-size certificate for
+bounded Alcuin number; its unresolved recognition issue is the lower bound
+on the cover number, not merely writing a route.
+
+\section{Adversarial audit and remaining questions}
+The audit checked operator capacity, both unattended banks, the first-two-leaves
+argument, and inequality directions in the proposed certificate. The primary
+Csorba--Hurkens--Woeginger paper's definitions and structural-certificate
+section were inspected as context; its full characterization is not claimed
+as newly proved here. The perfect-graph polynomial algorithm and general
+small-boat NP membership are not established by these known bounds and
+failed certificate routes. No computer experiment was performed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Computing which of tau or tau+1 applies for all perfect graphs and supplying a complete polynomial certificate of small-boat status remain unresolved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 51/2008: Conforti, Combinatorial Mixed-Integer Programming, printed pp.2904--2905; Alcuin-number contribution, pp.2891--2893. Each relevant original passage read from cached primary PDF text on 11 October 2026. \url{https://ems.press/content/serial-article-files/46195}.
+\item Csorba, Hurkens, Woeginger, The Alcuin Number of a Graph and Its Connections to the Vertex Cover Number (SIAM Review 2012), definitions and structural-certificate section inspected; used as contextual attribution, not a newly reproduced full theorem. \url{https://pure.tue.nl/ws/portalfiles/portal/3740945/392629944726656.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Computing which of tau or tau+1 applies for all perfect graphs and supplying a complete polynomial certificate of small-boat status remain unresolved.
+\end{document}

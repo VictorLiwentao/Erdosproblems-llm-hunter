@@ -1,0 +1,88 @@
+% RESEARCH_DRAFT_SHA256: 6fb4b05dc5a6937916474d3b21a28ff4b6bbdf110ba392e441b15bcef1c18b53
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001211, "title": "Simultaneously certified invariant quartet scoring and robust assembly", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001211", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Coupling obstruction to uniform quartet identification near a star tree.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch005/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 20001211; source catalogue code AIM-COMPUTATION-0049
+\section{Simultaneously certified invariant quartet scoring and robust assembly}\label{20001211}
+{\small UnsolvedMath ID 20001211 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A phylogenetic model assigns transition parameters to edges of a tree and maps them to joint probabilities at its observed leaves. A phylogenetic invariant is a polynomial vanishing on all probability vectors in that model. A quartet is the subtree induced by four leaves, with the induced topology used to infer a larger tree. Combining invariant methods with quartet methods requires a rule for evaluating algebraic constraints on four-leaf distributions and assembling the resulting topology information.
+\paragraph{Statement recorded in the supplied source.}
+Problem 35. Develop techniques to use invariants in combination with quartet methods. \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The source requests methods and does not specify a noise model or a uniform statistical guarantee.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can phylogenetic polynomial invariants be combined with four-leaf tree methods?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001211 (AIM-COMPUTATION-0049). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0049
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001211 and source code AIM-COMPUTATION-0049 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001211}
+
+
+\section{Research attempt}
+\subsection{Literature and scope}
+Problem 35 requests methods combining invariants and quartets without a separation or error guarantee. I tested whether any proposed quartet method could have a uniform finite sample guarantee over all strictly positive resolved trees. The following elementary coupling obstruction applies even to methods using all the data.
+\begin{proposition}
+For each $0<\eta<1$ there are two distinct CFN quartet distributions $P_\eta,Q_\eta$ on different resolutions such that $\operatorname{TV}(P_\eta,Q_\eta)\le\eta$. Any method that identifies both resolutions from $N$ independent sites with error at most $\delta<1/2$ must satisfy $N\eta\ge1-2\delta$.
+\end{proposition}
+\begin{proof}
+Use pendant means $q=1/2$, uniform root, and internal-edge mean $1-\eta$ on each of two different resolutions. Contracting the internal edge gives the same star distribution $P_0$. Couple each resolved model with this star by sharing the root and pendant noises. Their leaf patterns agree whenever the internal noise does not flip, which fails with probability $\eta/2$. Total variation is bounded by any coupling's disagreement probability: for any event, its two indicators can differ only on a disagreement. The triangle inequality gives $\operatorname{TV}(P_\eta,Q_\eta)\le\eta$.
+
+The distributions are distinct: a pair forming a cherry only in the first resolution has spin correlation $q^2$ there and $q^2(1-\eta)$ in the second. All transition probabilities are positive. Couple $N$ sites independently and use the union bound to obtain $\operatorname{TV}(P_\eta^{\otimes N},Q_\eta^{\otimes N})\le N\eta$. If $A$ is the event that the method outputs the first resolution, the error guarantee implies $P_\eta^{\otimes N}(A)\ge1-\delta$ and $Q_\eta^{\otimes N}(A)\le\delta$. Their difference is at least $1-2\delta$. For a randomized method include its independent random seed in the coupling; the same bound holds.
+\end{proof}
+\subsection{Verification and remaining gaps}
+For $\eta=1/100$ and $\delta=1/10$, the displayed necessary bound is $N\ge80$; it is not asserted sharp. Taking $\eta$ arbitrarily small rules out a sample bound uniform over this family. It does not rule out pointwise consistency, guarantees depending on edge separation, or useful invariant scoring algorithms. Developing and comparing those methods is still required by the original agenda.
+
+\section{References and source attribution}
+The original question is credited to the AIM workshop list prepared by Seth Sullivant (2004), \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}. The source question and catalogue attribution are reproduced above. This list was accessed on 11 October 2026; it is historical evidence of the question, not a certification of present open status.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch005/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

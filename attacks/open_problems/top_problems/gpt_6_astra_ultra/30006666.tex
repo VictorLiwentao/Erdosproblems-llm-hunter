@@ -1,0 +1,112 @@
+% RESEARCH_DRAFT_SHA256: fa10881f9d769a527f7a5991fb8cd8ddeec060d06d0d661e8915c4b6ca661ac7
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30006666, "title": "Cross-Entropy Dynamics Beyond Hadamard Initialization", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006666", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Exact conserved quantities and a nonzero stationary non-collapse family obstruct a naive all-initialization extension.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch011/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 30006666; source catalogue code OWR-14299916-004
+\section{Cross-Entropy Dynamics Beyond Hadamard Initialization}\label{30006666}
+{\small UnsolvedMath ID 30006666 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+With logits $Z=WH$, balanced one-hot targets give cross-entropy $L=-k^{-1}\sum_{j=1}^k\log(e^{Z_{jj}}/\sum_{i=1}^ke^{Z_{ij}})$. Gradient flow differentiates both factor matrices. Neural-collapse geometry concerns aligned class features and classifiers with centered simplex-like class means.
+
+A feed-forward neural network composes affine maps and specified nonlinear activations. ReLU is $\sigma(t)=\max\{0,t\}$. Empirical risk averages a loss on training samples; population risk is its expectation on the target distribution, and generalization compares these risks.
+
+For a differentiable loss $L$, gradient flow solves $\dot\theta=-\nabla L(\theta)$, while gradient descent updates $\theta_{t+1}=\theta_t-\eta_t\nabla L(\theta_t)$. Global optimality refers to the minimum over the whole admissible parameter space.
+\paragraph{Statement recorded in the supplied source.}
+For the multiclass two-layer linear unconstrained-features model with balanced standard-basis inputs, weights $W_t\in\mathbb R^{k\times d}$ and $H_t\in\mathbb R^{d\times k}$, and cross-entropy loss, determine the gradient-flow dynamics under general initialization. Do the normalized parameters converge to neural-collapse geometry, which quantities are monotone along the trajectory, and how do the answers depend on the initialization and the number of classes $k$? \href{https://doi.org/10.4171/owr/2026/11}{[S2]}
+\paragraph{Scope qualification.}
+The exact normalization and definition of neural collapse are the source\textquotesingle s conventions. Neither the known special Hadamard trajectory nor a generic-initialization result is substituted for the general target.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Describe every initialization-dependent training trajectory, limiting geometry, and monotonic quantity of the stated balanced linear model.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30006666 (OWR-14299916-004). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Modern and Emerging Phenomena in Machine Learning (2026), Oberwolfach Reports, DOI 10.4171/owr/2026/11, pp. 683--736
+\url{https://doi.org/10.4171/owr/2026/11}.
+\item[S3] Garrod--Keating--Thrampoulidis, Diagonalizing the Softmax
+\url{https://arxiv.org/abs/2512.04006}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30006666 and source code OWR-14299916-004 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30006666}
+
+\section{Research attempt}
+\subsection{Literature, source context and scope}
+The full catalogue body, including qualifications and historical source status, is preserved above. The original workshop report was inspected in the locally cached publisher PDF text. This attempt distinguishes the source question from any explicitly restricted model introduced below. Repeated records retain their own source IDs and do not become independent conjectures. Elementary results and attributed literature results are not claimed as new original-target progress.
+
+\subsection{A general-initialization calculation}
+The report's Hadamard analysis is a restricted invariant family. We attempt to extend a convergence argument by identifying quantities available for every initialization. Use exactly the catalogue mean loss, let $S$ be columnwise softmax, and set
+\[
+ Z=WH,\qquad E=\nabla_Z L=\frac1k(S(Z)-I),\qquad
+ \dot W=-EH^T,\quad\dot H=-W^TE.
+\]
+The factor $1/k$ fixes the time normalization.
+\begin{proposition}
+Along any solution, $W^TW-HH^T$ and $\mathbf1^TW$ are constant, and
+\[
+ \dot L=-\|EH^T\|_F^2-\|W^TE\|_F^2\le0.
+\]
+There nevertheless exist nonzero stationary initializations with no nondegenerate centered neural-collapse geometry.
+\end{proposition}
+\begin{proof}
+Differentiating $W^TW$ gives $-HE^TW-W^TEH^T$, and differentiating $HH^T$ gives the same expression. Since every softmax column sums to one, $\mathbf1^TE=0$, implying $\mathbf1^T\dot W=0$. The chain rule and the negative-gradient equations give the loss identity.
+For nonzero vectors $a,b\in\mathbb R^d$, put $W=\mathbf1a^T$ and $H=b\mathbf1^T$. All logits equal $a^Tb$, so $S=\mathbf1\mathbf1^T/k$. This $E$ has both zero row sums and zero column sums. Hence $EH^T=E\mathbf1b^T=0$ and $W^TE=a\mathbf1^TE=0$. Both matrices stay fixed. All class-feature columns are identical, so after centering they are zero, and cannot form a nondegenerate simplex frame for $k\ge2$. Nonzero matrix normalization does not repair the vanished centered class differences.
+\end{proof}
+The attempted inference from decreasing loss and conserved balance to universal neural collapse therefore fails: the dissipation can vanish at an undesired stationary state. Even the parameter norm need not increase monotonically. At $W=I_k,H=-I_k$, put $s=e^{-1}/(e^{-1}+k-1)$. Then
+\[
+ \frac{d}{dt}\|W\|_F^2=-2\langle Z,E\rangle_F=-2(1-s)<0\quad(k\ge2).
+\]
+Here the diagonal entries of $E$ are $(s-1)/k$, which proves the formula directly.
+\subsection{Verification and remaining gaps}
+For $k=d=3$, $a=e_1,b=e_2$ gives nonzero matrices, zero logits and exactly zero flow. A second numerical check at $(I_3,-I_3)$ confirms the negative norm derivative. The stationary family refutes an unqualified all-initialization convergence claim, but the original question asks for the initialization-dependent classification; generic basins, nonstationary limits and useful monotone collapse metrics remain unclassified.
+
+\section{References and source attribution}
+The primary Oberwolfach workshop report, \url{https://doi.org/10.4171/owr/2026/11}, was inspected on 11 October 2026. Relevant source passages: 2026/11 pp. 703--705, exact model, spectral invariant family and initialization questions. Catalogue and contributor attribution remain in the original Sources section. Mathematical arguments labeled as this attempt are proved above; cited external results remain attributed to their authors and are not independently reproved or claimed as our discoveries.
+
+\url{https://arxiv.org/abs/2512.04006}. Garrod, Keating and Thrampoulidis, Diagonalizing the Softmax. Opened primary abstract; the workshop proof explicitly restricts its neural-collapse convergence theorem to Hadamard spectral initialization. That theorem is not relabeled as an arbitrary-initialization result.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch011/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

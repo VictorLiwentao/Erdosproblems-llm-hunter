@@ -1,0 +1,159 @@
+% RESEARCH_DRAFT_SHA256: f297db285412469a9e5703663d94d1e9abb368d53087a93f7db8b09aa5f5cff7
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001328, "title": "Grover optimality and a tail-profile bound for average-value search", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001328", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Given a function $f:\\{0,1\\}^n \\to \\{0,1,2\\}$, find $x\\in \\{0,1\\}^n$ to maximize $f(x)$. Measure average resulting $f(x)$ if, e.g., $f$ has one 1, one 2, and all other values 0. Or consider the function $f:\\{0,1\\}^n \\to \\{0,1,2, \\dots, 1000\\}$. Or consider $f$ which is i.i.d.\n\nIs it possible to do better than Grover search for $x$ such that $f(x) \\geq T$ for threshold $T$?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. A single-mark query lower bound and explicit two-threshold utility comparison do not establish optimal average-value algorithms or bounds for all distributions in the source.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Threshold quantum search and expected value: two objectives with different schedules}
+\noindent UnsolvedMath ID 20001328; AIM-CRYPTOGRAPHY-0015. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Oracle access to f reveals values on the n-bit domain. A threshold search seeks an x with $f(x)\ge T$, while value maximization seeks the largest attained value. Average output value requires a stated distribution on functions and the algorithm's randomness. Grover search is the source's benchmark for finding marked inputs.
+\paragraph{Statement recorded in the supplied source.}
+Given a function $f:\{0,1\}^n \to \{0,1,2\}$, find $x\in \{0,1\}^n$ to maximize $f(x)$. Measure average resulting $f(x)$ if, e.g., $f$ has one 1, one 2, and all other values 0. Or consider the function $f:\{0,1\}^n \to \{0,1,2, \dots, 1000\}$. Or consider $f$ which is i.i.d.
+
+Is it possible to do better than Grover search for $x$ such that $f(x) \geq T$ for threshold $T$? \href{http://aimpl.org/quantumalg/2/}{[S2]}
+\paragraph{Scope qualification.}
+The source gives several value ranges and distributions; it does not select a single one or an oracle-cost convention.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+How efficiently can quantum algorithms find high-valued inputs, and can they improve on threshold search with Grover's algorithm?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001328 (AIM-CRYPTOGRAPHY-0015). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-CRYPTOGRAPHY-0015
+\url{http://aimpl.org/quantumalg/2/}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Given a function $f:\{0,1\}^n \to \{0,1,2\}$, find $x\in \{0,1\}^n$ to maximize $f(x)$. Measure average resulting $f(x)$ if, e.g., $f$ has one 1, one 2, and all other values 0. Or consider the function $f:\{0,1\}^n \to \{0,1,2, \dots, 1000\}$. Or consider $f$ which is i.i.d.
+
+Is it possible to do better than Grover search for $x$ such that $f(x) \geq T$ for threshold $T$?
+
+\section{Attempt and results}
+Use a domain of size $N=2^n$ and a reversible value oracle that writes or
+unwrites $f(x)$ in an auxiliary register. A threshold phase flip can be
+implemented by computing the value, applying a sign controlled on the
+threshold predicate, and uncomputing: two value queries per iteration.
+We prove a search lower bound for a subfamily and compare two explicit
+expected-value strategies. We do not claim an optimal solution for all the
+source's value distributions or query budgets.
+
+\paragraph{The two-dimensional Grover calculation.}
+Suppose exactly $k$, with $0<k<N$, inputs meet a chosen predicate. Let
+$|G\rangle$ and $|B\rangle$ be uniform unit vectors on good and bad inputs,
+and set $\sin\theta=\sqrt{k/N}$, so the initial uniform vector is
+$|u\rangle=\sin\theta|G\rangle+\cos\theta|B\rangle$.
+The phase flip is $\operatorname{diag}(-1,1)$ in this basis. Multiplying it
+by the reflection $2|u\rangle\langle u|-I$ gives the matrix
+\[
+\begin{pmatrix}\cos(2\theta)&\sin(2\theta)\\
+-\sin(2\theta)&\cos(2\theta)\end{pmatrix}.
+\]
+Applying this matrix to $(\sin a,\cos a)^T$ gives
+$(\sin(a+2\theta),\cos(a+2\theta))^T$ by the addition formulas.
+After $r$ iterations the success probability is therefore
+$\sin^2((2r+1)\theta)$, and conditional on success the output is uniform
+among the marked inputs. This is the standard Grover calculation, rederived.
+
+\paragraph{A full single-mark query obstruction.}
+Restrict to functions $f_i$ that are two at one input $i$ and zero elsewhere.
+Let a $q$-query algorithm's final pure states be $\psi_i$ and $\psi_0$ for
+$f_i$ and the zero function; deferred measurements and a purified random
+seed allow this form. Let $p_{t,i}$ be the probability that the query register
+is $i$ before query $t$ in the zero-oracle run. The difference of the two
+oracles has norm at most two and vanishes off that query input.
+Inserting the zero-run state into the two recurrence equations and using
+unitarity gives inductively
+$\|\psi_i-\psi_0\|\le2\sum_{t=1}^q\sqrt{p_{t,i}}$.
+Cauchy--Schwarz and $\sum_i p_{t,i}=1$ imply
+$\sum_i\|\psi_i-\psi_0\|^2\le4q^2$.
+For output projectors $Q_i$, the triangle inequality gives
+$\|Q_i\psi_i\|\le\|Q_i\psi_0\|+\|\psi_i-\psi_0\|$.
+Taking the Euclidean norm of this list over $i$ yields
+$\sum_i\|Q_i\psi_i\|^2\le(1+2q)^2$ because
+$\sum_i\|Q_i\psi_0\|^2\le1$. Thus average probability of finding the
+unique maximum is at most $(2q+1)^2/N$. Constant success for this family
+requires $q=\Omega(\sqrt N)$. This does not assert the same constant or
+optimal utility for a different promise such as one value one and one value two.
+
+\paragraph{The source's two-positive-value example.}
+Now assume $N\ge3$, exactly one input has value one, exactly one has value
+two, and all others have value zero. Marking both positive inputs and doing
+$r$ iterations gives expected output value
+\[
+U_{\ge1}(r)=\frac32\sin^2\bigl((2r+1)\arcsin\sqrt{2/N}\bigr),
+\]
+since the two marked locations are equiprobable. Marking only the value two
+gives
+\[
+U_{\ge2}(r)=2\sin^2\bigl((2r+1)\arcsin(1/\sqrt N)\bigr)
++\frac{\cos^2\bigl((2r+1)\arcsin(1/\sqrt N)\bigr)}{N-1}.
+\]
+The last term is the value-one location's share of the uniformly distributed
+unmarked output. Both use the same two value queries per Grover iteration.
+For each fixed integer $r\ge1$, putting $a=2r+1$ and using
+$\arcsin z=z+O(z^3)$ and $\sin z=z+O(z^3)$ gives
+$U_{\ge1}=3a^2/N+O(N^{-2})$ and
+$U_{\ge2}=(2a^2+1)/N+O(N^{-2})$.
+These expansions follow by Taylor's theorem at zero with bounded third
+derivatives on a small fixed interval. Their difference has positive leading
+coefficient $a^2-1$, so for sufficiently large $N$ the lower threshold gives
+higher expected value at this fixed budget. Thus always targeting the maximum
+value is not automatically the best short-budget expected-utility policy.
+Neither strategy comparison proves optimality among all quantum algorithms.
+For any integer-valued output $V\in\{0,\ldots,B\}$, the identity
+$\mathbb E V=\sum_{j=1}^B\Pr(V\ge j)$ follows by summing
+$V=\sum_j\mathbf1_{V\ge j}$, but optimizing each tail separately need not
+produce one algorithm simultaneously optimal for their sum.
+
+\section{Context, adversarial audit, and gap}
+The original questions were checked in the official workshop report. Grover's
+primary abstract was consulted for attribution; all calculations used here
+are proved above. The audit checked query conversion, output without final
+verification, the unmarked contribution to expected value, fixed-budget
+asymptotics, and the different single-mark promise of the lower bound. The
+source's general histograms, i.i.d. ensembles, and optimal average utility
+remain untreated. No quantum simulation or numerical experiment was run.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. A single-mark query lower bound and explicit two-threshold utility comparison do not establish optimal average-value algorithms or bounds for all distributions in the source.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item AIM, Quantum algorithms for analysis of public-key crypto, official workshop summary, printed page 3; original coding and Grover questions inspected directly on 11 October 2026. \url{https://aimath.org/pastworkshops/quantumalgrep.pdf}.
+\item Lov K. Grover, A fast quantum mechanical algorithm for database search; primary abstract inspected for attribution. The two-dimensional iteration used here is proved directly, not imported without proof. \url{https://arxiv.org/abs/quant-ph/9605043}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} A single-mark query lower bound and explicit two-threshold utility comparison do not establish optimal average-value algorithms or bounds for all distributions in the source.
+\end{document}

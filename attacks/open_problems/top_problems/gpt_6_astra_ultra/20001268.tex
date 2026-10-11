@@ -1,0 +1,170 @@
+% RESEARCH_DRAFT_SHA256: 579e2a515090ad1e9fa88e1f16b4cf446fb3236b2ff1d9cb975400ade6620660
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001268, "title": "Deterministic roots of X^3-2: a density-one-eighteenth residual envelope", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001268", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly, metadata checks and the finite exact computation described in the manuscript. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 18. Can you compute roots modulo p of a fixed polynomial (` a la Schoof-Pila) in polynomial time, like x3 − 2? (Schoof) 30", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Unconditional congruence branches and a complete conditional ternary root algorithm are proved; a deterministic polynomial-time nonresidue construction or replacement remains missing.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Fixed cubic root finding: exact easy cases and conditional ternary correction}
+\noindent UnsolvedMath ID 20001268; AIM-COMPUTATION-0106. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Polynomial time means a bound polynomial in the finite input length; for an integer input, its binary length is proportional to its logarithm. A root modulo p of a fixed polynomial f is an element $a\in\mathbb F_p$ with $f(a)=0$. The sample polynomial is $x^3-2$. Since f is fixed, polynomial time is measured in the binary length of the prime p; only roots that exist can be output.
+\paragraph{Statement recorded in the supplied source.}
+Question 18. Can you compute roots modulo p of a fixed polynomial (` a la Schoof-Pila) in polynomial time, like x3 − 2? (Schoof) 30 \href{https://aimath.org/WWN/primesinp/primesinp.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The source asks in the context of deterministic Schoof--Pila-style methods; it does not claim every prime yields a root.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can roots of a fixed polynomial, such as x cubed minus two, be found modulo primes in polynomial time?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001268 (AIM-COMPUTATION-0106). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0106
+\url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 18. Can you compute roots modulo p of a fixed polynomial (` a la Schoof-Pila) in polynomial time, like x3 − 2? (Schoof) 30
+
+\section{Target and attempted exponent route}
+Question 18 asks for a deterministic polynomial-time algorithm, for a
+fixed polynomial such as $X^3-2$, finding its roots modulo a varying
+prime $p$. Here polynomial time means polynomial in $\log p$ with
+the polynomial fixed. We prove unconditional elementary cases and a
+complete remaining root-extraction algorithm conditional on a supplied
+cubic nonresidue. We do not supply that nonresidue deterministically
+in the stated time for every prime, and do not infer such a construction
+from the source's complex-multiplication remark.
+
+\paragraph{The finite-field group fact used below.}
+The multiplicative group of a finite field is cyclic. A short proof
+is useful here. Let $e$ be the least common multiple of the orders
+of its elements. For each prime power dividing $e$ to its exact
+exponent, some element order contains that prime power; taking an
+appropriate power of the element gives precisely that order. Products
+of these elements have order the product of their pairwise coprime
+orders: if such a product raised to $k$ is one, isolating a factor
+and raising to the product of the other orders shows its order divides
+$k$ by coprimality. Thus an element of order $e$ exists. All group
+elements are roots of $X^e-1$, so their number is at most $e$;
+the element's distinct powers give the opposite inequality. It
+therefore generates the entire group. The root bound used here
+follows by repeatedly dividing a polynomial by $X-a$ for a root.
+
+\paragraph{Unconditional branches.}
+For $p=2$ the only root is zero; for $p=3$ it is two, by direct
+evaluation of the field elements. If $p\equiv2\pmod3$, set
+$e=(2p-1)/3$. Then $3e=2(p-1)+1$, so
+$(2^e)^3=2$ by the order-$p-1$ multiplicative group identity.
+The cube map is bijective because multiplication by three permutes
+exponents modulo $p-1$. Thus this gives all roots, namely the unique
+one, using binary exponentiation in polynomial time.
+
+For $p\equiv1\pmod3$, writing a generator as $w$ shows that
+$a\ne0$ is a cube exactly when $a^{(p-1)/3}=1$: both conditions
+say that its exponent relative to $w$ is divisible by three.
+This tests whether $2$ has any roots with polynomially many bit
+operations. If $p-1=3m$ with $3\nmid m$ and $2$ passes the
+test, choose $e$ inverse to three modulo $m$ (if $m=1$ set $e=0$).
+Then $2^m=1$ and $(2^e)^3=2$, so one root is found.
+Finding all three additionally needs a nontrivial cube root of unity;
+the one-root calculation alone has not constructed it.
+
+\paragraph{A complete conditional algorithm for the other cases.}
+Suppose $p-1=3^s m$, $s\ge1$, $3\nmid m$, and a noncube
+$z\in\mathbb F_p^*$ is supplied. Set $c=z^m$. Relative to
+a generator, the exponent of $z$ is not divisible by three,
+so $c$ has exact order $3^s$. Assume $a=2$ passes the cube test.
+Choose $e$ with $3e\equiv1\pmod m$, using $e=0$ when $m=1$,
+and put $b=a^e$, $u=a/b^3$. The exponent $1-3e$ is a multiple
+of $m$, so $u$ belongs to the cyclic subgroup generated by $c$.
+Moreover $a$ and $b^3$ are cubes, so $u$ is a cube. In this
+subgroup that says $u=c^{3j}$ for a unique $j$ modulo $3^{s-1}$:
+if $c=w^{mk}$ with $3\nmid k$, then $c^j$ is a cube
+precisely when $3\mid j$.
+
+This discrete logarithm in a power-of-three group can be computed
+digit by digit. Put $h=c^3$, of order $3^{s-1}$. If $s=1$,
+then $u=1$ and set $j=0$. Otherwise start $J=0$ and, for
+$k=0,\ldots,s-2$, form
+\[
+R=u h^{-J},\qquad D=R^{3^{s-2-k}},\qquad
+\omega=h^{3^{s-2}}.
+\]
+Choose the unique $d_k\in\{0,1,2\}$ for which $D=\omega^{d_k}$,
+and replace $J$ by $J+d_k3^k$. To verify this procedure, write
+the true $j$ in base three. If its first $k$ digits agree with
+$J$, then $j-J=d_k3^k+3^{k+1}v$. Consequently
+$R^{3^{s-2-k}}=h^{d_k3^{s-2}}$, since the remaining exponent
+is divisible by $3^{s-1}$. The three powers of $\omega$ are
+distinct because its order is three. This proves the inductive
+digit step, and at the end $u=h^J$. Therefore
+\[
+x=b c^J\quad\hbox{satisfies}\quad x^3=b^3u=a.
+\]
+All roots are $x,x\xi,x\xi^2$, where
+$\xi=c^{3^{s-1}}$ has order three. They are distinct and exhaust
+the roots because a cubic has at most three roots. There are
+$s\le\log_3(p-1)$ digit steps, each using modular powers with
+$O(\log p)$-bit exponents and arithmetic, so the conditional
+algorithm is polynomial in $\log p$.
+
+\section{First missing unconditional step and audit}
+The primary Question 18 was inspected. The proof locates the precise
+obstruction in this route: an unconditional deterministic polynomial-time
+construction of a cubic nonresidue, or another mechanism avoiding it.
+Trying $z=1,2,3,\ldots$ and testing each eventually succeeds, but no
+polynomial-in-$\log p$ bound for this search is proved here.
+Existence follows from cyclicity, since two thirds of nonzero elements
+are noncubes; that density does not bound their first position in a
+deterministic ordered search. Random sampling is not the requested
+deterministic algorithm. The audit distinguishes finding one root
+from all roots and handles $m=1$, $s=1$ and the primes two and
+three separately. The complete argument is algebraic; finite exact
+checks described below test implementation but not the unresolved bound.
+Exact Python integer arithmetic checked every supplied noncube for each
+prime below 500 congruent to one modulo three for which 2 is a cube.
+There were 2,664 input pairs across 15 primes. In every case all three
+outputs agreed with direct enumeration of $x^3=2$ in the field.
+The recorded prime list and case count are in the accompanying audit.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Unconditional congruence branches and a complete conditional ternary root algorithm are proved; a deterministic polynomial-time nonresidue construction or replacement remains missing.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Future directions in algorithmic number theory, workshop 24--28 March 2003, report version 30 April 2003; original question, relevant lecture context and adjoining remarks inspected on 11 October 2026. \url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Unconditional congruence branches and a complete conditional ternary root algorithm are proved; a deterministic polynomial-time nonresidue construction or replacement remains missing.
+\end{document}

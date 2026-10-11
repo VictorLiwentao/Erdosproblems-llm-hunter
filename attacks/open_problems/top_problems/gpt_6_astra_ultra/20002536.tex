@@ -1,0 +1,79 @@
+% TOP_PROBLEM: {"id": 20002536, "title": "Coercivity, collision support, and the identity braid for the class (1,0,-1)", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "Winding and braid constraints are kept distinct. The source does not impose additional symmetry constraints or mass ratios for these questions. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002536", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Find collision-free three-body periodic orbits in winding class (1,0,−1), assess their minimization, and realize the trivial braid.", "scope": "Constructed a finite-action collision-free representative of (1,0,-1) and proved constant trivial-braid loops cannot be Newtonian equilibria. No periodic solution or minimizer in either requested class.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked degree additivity, relative-vector sign, smooth retracing, center-of-mass subtraction, finite clearance and homogeneity obstruction to static equilibria. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the mixed winding construction, invariance under center-of-mass subtraction and homogeneity obstruction to constant Newtonian equilibria. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked degree additivity, relative-vector sign, smooth retracing, center-of-mass subtraction, finite clearance and homogeneity obstruction to static equilibria. Scope remains limited: Produce a collision-free Newtonian critical point in the prescribed winding or trivial-braid class, excluding collision loss under minimization."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002536; source catalogue code AIM-PHYSICS-0044
+\setcounter{section}{20002535}
+\section{Coercivity, collision support, and the identity braid for the class (1,0,-1)}\label{20002536}
+{\small UnsolvedMath ID 20002536 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}In the Newtonian $n$-body problem, positions $q_i\in\mathbb R^d$ and masses $m_i>0$ obey $m_i\ddot q_i=\nabla_{q_i}U$, where $U(q)=\sum_{i<j}m_im_j/|q_i-q_j|$ and the gravitational constant is normalized to one. Here $T=\tfrac12\sum_i m_i|\dot q_i|^2$, $E=T-U$, and a collision has $q_i=q_j$. The center of mass can be fixed at zero; moment of inertia is $I=\sum_i m_i|q_i|^2$. For a fixed period $P$, the action is $\mathcal A(q)=\int_0^P(T+U)\,dt$. A collision-free minimizer in an admissible loop class satisfies the Newtonian equations when variations are permitted. The period, constraints and closure of the class must be specified: a minimizing sequence can escape or approach collisions. For a planar collision-free periodic loop, identify the plane with $\mathbb C$ and define $k_{ij}=\deg(t\mapsto(q_i(t)-q_j(t))/|q_i(t)-q_j(t)|)\in\mathbb Z$. These pairwise winding numbers describe homology information; they do not determine the full braid homotopy class. A trivial braid is a loop null-homotopic in the ordered collision-free configuration space. It is a stronger constraint than having every pairwise winding number zero. The class $(1,0,-1)$ uses the source’s ordering of pairs.
+
+\paragraph{Catalogue wording retained for traceability.}
+Is $(1,0,-1)$ realized by a collision-free periodic orbit of the planar three-body problem as in the source’s figure 3? If such an orbit exists, is it minimizing? Is the trivial braid realized by a collision-free periodic solution?
+\paragraph{Scope and source qualification.}Winding and braid constraints are kept distinct. The source does not impose additional symmetry constraints or mass ratios for these questions. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Find collision-free three-body periodic orbits in winding class (1,0,−1), assess their minimization, and realize the trivial braid.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Constructed a finite-action collision-free representative of (1,0,-1) and proved constant trivial-braid loops cannot be Newtonian equilibria. No periodic solution or minimizer in either requested class.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{An explicit admissible loop, without a dynamics claim.}Fix \(q_1=(-2,0)\), \(q_3=(2,0)\). Move \(q_2\) along a smooth closed path that first makes one positive loop around \(q_1\) without surrounding \(q_3\), returns along the same connecting path, then makes one negative loop around \(q_3\) without surrounding \(q_1\), and returns. Choose all arcs a positive distance from both fixed points, with zero speed at concatenation points and smooth reparametrization. Degree additivity gives \((k_{12},k_{13},k_{23})=(1,0,-1)\): multiplying a relative vector by \(-1\) does not change its winding, and retraced connecting arcs cancel. Subtracting the time-dependent center of mass fixes it at zero without changing any relative path. The resulting loop is smooth, collision free and has finite action for all positive masses.
+\paragraph{What topology fails to provide.}This establishes nonemptiness of the variational class, but the loop does not satisfy Newton's equations. The nonzero edges 12 and 23 connect all bodies, so the elementary winding/oscillation argument bounds spatial size under bounded action. It does not exclude collision limits, at which winding information can disappear. The opposite signs alone provide no local collision-avoidance variation.
+\paragraph{The trivial-braid clause.}Constant configurations are collision-free trivial-braid loops, but they cannot be Newtonian equilibria with positive masses. Indeed an equilibrium would have \(\nabla U=0\), whereas Euler's homogeneity identity gives \(\sum_iq_i\cdot\nabla_iU=-U<0\). Thus even this simplest topological representative is not a periodic solution. Existence of a collision-free Newtonian trivial-braid motion, existence in the mixed winding class and its minimization all remain unproved. The first gap is converting a topological loop into a collision-free critical point without changing the required class.
+
+\paragraph{Verification and adversarial audit.}
+Checked degree additivity, relative-vector sign, smooth retracing, center-of-mass subtraction, finite clearance and homogeneity obstruction to static equilibria. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked degree additivity, relative-vector sign, smooth retracing, center-of-mass subtraction, finite clearance and homogeneity obstruction to static equilibria. Scope remains limited: Produce a collision-free Newtonian critical point in the prescribed winding or trivial-braid class, excluding collision loss under minimization.
+
+Coordinator checked the mixed winding construction, invariance under center-of-mass subtraction and homogeneity obstruction to constant Newtonian equilibria. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Produce a collision-free Newtonian critical point in the prescribed winding or trivial-braid class, excluding collision loss under minimization.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002536:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002536 (AIM-PHYSICS-0044). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002536:2}{S2}] American Institute of Mathematics, Variational Methods in Celestial Mechanics; notes by Kuo-Chang Chen, version 22 June 2003, source item 7.
+\url{https://aimath.org/WWN/varcelest/varcelest.pdf}.
+\end{itemize}
+\label{end:20002536}
+\end{document}

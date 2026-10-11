@@ -1,0 +1,111 @@
+% RESEARCH_DRAFT_SHA256: 61a9666673d4ccd1e3f517453467886dc11e17bdb68c1d61dcdd1bdeda5e92d5
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20002183, "title": "A deterministic contract for parallel Macaulay2 core routines", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002183", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Complete disjoint-output exact polynomial-convolution proof, work bounds and an order-dependence counterexample outside exact arithmetic.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch013/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 20002183; source catalogue code AIM-INFRASTRUCTURE-0083
+\section{A deterministic contract for parallel Macaulay2 core routines}\label{20002183}
+{\small UnsolvedMath ID 20002183 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+Macaulay2 is a system for computations in commutative algebra and algebraic geometry. Parallel execution performs parts of a computation concurrently. Shared mutable state must be coordinated to preserve correct results; garbage collection identifies and reclaims storage no longer needed. For $p$ processors, a comparison may use work and elapsed parallel time, but these are measures rather than guarantees in this extract.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The wording is marked reconstructed. The source specifies no algorithm, machine model, concurrency contract, or performance bound. The workshop report records progress, including parallelApply, rather than supporting a claim that no parallel facility exists.
+
+Catalogue screening limitation: Parallelization and garbage-collector implementation agenda; no specified core algorithm or mathematical parallel-complexity target.
+
+The source snapshot labels this record partially solved; this is catalogue metadata rather than independent verification of a mathematical result or the current completion of a project.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+The supplied catalogue marks this formulation as an unverified reconstruction; missing assumptions are not certified by the source link.
+\paragraph{Statement recorded in the supplied source.}
+Parellelization
+
+It would be nice to have parallel computation in the M2 core.
+
+How to parellize Macaulay2? Do we need a new garbage collector to do this? Which algorithms are inherently parallelizable and which need more thought? \href{http://aimpl.org/macaulay2efie/1/}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+Explore parallel execution in the Macaulay2 core and the consequences for algorithms and memory management.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20002183 (AIM-INFRASTRUCTURE-0083). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-INFRASTRUCTURE-0083.
+\url{http://aimpl.org/macaulay2efie/1/}.
+\item[S3] AIM workshop summary, Macaulay2: expanded functionality and improved efficiency (reports parallelization and sheaf-map implementation progress).
+\url{https://aimath.org/pastworkshops/macaulay2efierep.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 20002183 and code AIM-INFRASTRUCTURE-0083 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:20002183}
+
+\section{Research attempt}
+\subsection{Literature, source context and scope}
+The complete catalogue body above retains the original agenda, source status, and historical preparation. The AIMPL problem page could not be retrieved. The supplied complete source transcription was read, and the accessible primary AIM workshop announcement was checked for context. The announcement is not a substitute for verification of the inaccessible problem page. The catalogue's earlier proposed frameworks and research summaries are context, not established solutions credited to this attempt. The following is an explicitly limited investigation of one route; it neither substitutes a formalized toy model for the entire source agenda nor claims empirical or deployed-software results. Elementary auxiliary facts are not new original-target progress.
+
+\subsection{An exact parallelizable kernel and its assumptions}
+The primary workshop report already describes threads, tasks, MPI work and a parallel application routine. We therefore do not interpret the historical question as proof that current Macaulay2 has no parallel capabilities. For one elementary core operation, take dense univariate polynomials $a(x)=\sum_{i=0}^m a_ix^i$ and $b(x)=\sum_{j=0}^n b_jx^j$ over an exact commutative ring. Inputs are immutable, and each output coefficient has a unique writer.
+\begin{proposition}
+Workers assigned disjoint output indices can independently compute
+\[
+c_k=\sum_{\max(0,k-n)\le i\le\min(m,k)}a_i b_{k-i},\quad 0\le k\le m+n,
+\]
+and the assembled polynomial is exactly $ab$, independent of worker order. The total number of coefficient multiplications is $(m+1)(n+1)$. Assigning indices round-robin to $p\ge1$ workers gives at most $\lceil(m+n+1)/p\rceil\min(m+1,n+1)$ multiplications per worker.
+\end{proposition}
+\begin{proof}
+Distributivity expands $ab$ as the sum of all $(m+1)(n+1)$ terms $a_i b_jx^{i+j}$. For each exponent $k$, the displayed bounds enumerate exactly the pairs with $i+j=k$, each once. Thus each computed coefficient is correct. Different coefficients have no shared writes and depend only on immutable inputs; exact associative and commutative addition makes their local summation order irrelevant. Every pair contributes one multiplication, proving the total. Each coefficient uses at most $\min(m+1,n+1)$ pairs, and a round-robin assignment gives each worker at most the stated ceiling number of coefficients, proving the per-worker bound.
+\end{proof}
+For $a=(1,2,3)$ and $b=(4,5)$ the output is $(4,13,22,15)$. The attempted extension to arbitrary core routines stops at shared mutable state, memory management, task overhead and algebra-specific dependencies. Inexact arithmetic also changes the determinism contract: in ordinary binary floating-point arithmetic, $((10^{16}+(-10^{16}))+1)=1$ while $10^{16}+((-10^{16})+1)=0$.
+\subsection{Verification and remaining gaps}
+The coefficient formula and three-worker schedule were checked exactly on the example, with six multiplications, and the floating-point order discrepancy was reproduced. No Macaulay2 core patch, garbage collector analysis, speed measurement, thread-safety proof or general classification of parallel algorithms was produced. This is a correct small kernel model, not a demonstrated runtime improvement in the software.
+
+\section{References and source attribution}
+Primary source: \url{http://aimpl.org/macaulay2efie/1/}. Attempted primary AIMPL page retrieval; failed with timeout or gateway error. The supplied full source transcription was read; the inaccessible live page was not independently inspected.
+
+\url{https://aimath.org/pastworkshops/macaulay2efie.html}. Read the primary September 2023 workshop announcement.
+
+\url{https://aimath.org/pastworkshops/macaulay2efierep.pdf}. Read the complete three-page primary workshop report. Existing threads/tasks, MPI work and parallelApply are acknowledged; no absence of all existing parallelism is inferred.
+
+All retrievals were checked on 11 October 2026. Original contributor and catalogue attribution remains in the preserved Sources section. The elementary arguments below are self-contained; their exposition is not a claim of first discovery.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch013/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

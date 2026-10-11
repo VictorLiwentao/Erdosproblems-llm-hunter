@@ -1,0 +1,150 @@
+% RESEARCH_DRAFT_SHA256: 42f42aaa1913dd77c8981d7ef6abec53100290fa938270e1a49baa77fa450aaf
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004911, "title": "Balanced Signings in the Subtour Polytope", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004911", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "But is the following true: Open question 1. For any x \\in P and for any T \\subseteq VPof even cardinality, does there exist a signing s : T \\to \\{−1, +1\\} (with s(T ) := v\\inT s(v) = 0) such that there exists a transshipment (flow) f in G with capacities \\{ue : e \\in E\\} and whose excess at vertex v is s(v) for v \\in T and 0 otherwise. Open problem: Signings in the subtour polytope Michel Goemans", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The depth-first tree certificate and dense complete-graph flow are proved, but no construction covers every fractional subtour point.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Repeated signing question: a tree-flow construction and a dense fractional test}
+\noindent UnsolvedMath ID 30004911; OWR-8415356-022. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+For an undirected graph let $\delta(S)$ be the edges with exactly one endpoint in $S$. In the source's subtour cut relaxation, $x_e\geq0$ and $x(\delta(S))\geq2$ for every nonempty proper $S\subset V$. For an even terminal set $T$, a balanced signing is $s:T\to\{-1,1\}$ with $\sum_{v\in T}s(v)=0$. A capacitated transshipment routes these supplies and demands using edge capacities $x_e$; its cut feasibility condition is $|\sum_{v\in S\cap T}s(v)|\leq x(\delta(S))$ for every $S\subseteq V$.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The supplied registry flags this extraction as unrecoverable. It is displayed as a literal source fragment; the definitions provide context rather than a replacement formal statement.
+
+Source-record limitation: Source flags the statement as unrecoverable: The official report confirms that this is a duplicate extraction of the balanced-signing question retained in OWR-8415356-021. No separate clean mathematical statement is supplied; this source ID preserves its provenance.
+
+Related catalogue records: \href{https://mehmetmars7.github.io/Erdosproblems-llm-hunter/problem.html?type=open_problems&id=30004910}{30004910}. Separate source IDs are preserved for their provenance.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+The supplied catalogue marks this record as unrecoverable. Its extract and terminology are documented, but a complete original problem has not been reconstructed.
+\paragraph{Statement recorded in the supplied source.}
+But is the following true: Open question 1. For any x \textbackslash{}in P and for any T \textbackslash{}subseteq VPof even cardinality, does there exist a signing s : T \textbackslash{}to \textbackslash{}\{−1, +1\textbackslash{}\} (with s(T ) := v\textbackslash{}inT s(v) = 0) such that there exists a transshipment (flow) f in G with capacities \textbackslash{}\{ue : e \textbackslash{}in E\textbackslash{}\} and whose excess at vertex v is s(v) for v \textbackslash{}in T and 0 otherwise. Open problem: Signings in the subtour polytope Michel Goemans \href{https://doi.org/10.4171/owr/2021/53}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+The supplied fragment concerns balanced Signings in the Subtour Polytope. Its complete mathematical target is not recovered.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004911 (OWR-8415356-022). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/53, pp. 2893--2954
+\url{https://doi.org/10.4171/owr/2021/53}.
+\item[S3] Polygon structure for near-minimum cuts
+\url{https://pubsonline.informs.org/doi/10.1287/opre.2022.2338}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+But is the following true: Open question 1. For any x \textbackslash{}in P and for any T \textbackslash{}subseteq VPof even cardinality, does there exist a signing s : T \textbackslash{}to \textbackslash{}\{−1, +1\textbackslash{}\} (with s(T ) := v\textbackslash{}inT s(v) = 0) such that there exists a transshipment (flow) f in G with capacities \textbackslash{}\{ue : e \textbackslash{}in E\textbackslash{}\} and whose excess at vertex v is s(v) for v \textbackslash{}in T and 0 otherwise. Open problem: Signings in the subtour polytope Michel Goemans
+
+\section{Duplicate provenance and a different attempted route}
+This is the trailing duplicate of the signing question in 30004910.
+The original paragraph on printed page 2946 supplies the subtour
+capacities and even terminal set. Here we test a spanning-tree
+construction rather than denominator clearing. It works whenever
+the original capacities dominate a unit-capacity spanning tree,
+but a valid subtour point need not have such a tree.
+
+\paragraph{Alternating a depth-first terminal order on a tree.}
+Let $H$ be a rooted spanning tree, and list the vertices in
+depth-first preorder, visiting each child subtree completely before
+the next. In this order every rooted subtree is a consecutive
+interval: induction on the recursive traversal proves this directly.
+Restrict the list to the even terminal set $T$ and assign
+alternating $+1,-1$ signs. The sum of all signs is zero,
+and the signed sum on any rooted subtree has magnitude at most
+one because its terminals remain a consecutive subsequence of the
+alternating list.
+
+For an edge from child $v$ to its parent, send signed flow
+$s(T\cap V_v)$ in that direction, where $V_v$ is the
+child subtree. This has magnitude at most one. At a nonroot
+vertex the outgoing signed flow minus the incoming child flows is
+the subtree sum minus the sums of its child subtrees, exactly
+its own sign if it is a terminal and zero otherwise. At the
+root the same statement follows from the total signed sum being
+zero. Thus this flow has precisely the required divergences.
+If $x_e\ge1$ on every edge of $H$, it respects the
+original capacities, with zero flow on edges outside the tree.
+For a subtour point whose support itself is a tree, every edge
+even has capacity at least two by applying the cut inequality
+to a component after removing that edge; hence this special case
+is included.
+
+\paragraph{The threshold-tree extension fails on a valid subtour point.}
+On $K_n$ with $n\ge4$, assign every edge capacity
+$x_e=2/(n-1)<1$. A cut with side size $s$ has capacity
+$2s(n-s)/(n-1)\ge2$: the identity
+$s(n-s)-(n-1)=(s-1)(n-s-1)\ge0$ proves this for
+$1\le s\le n-1$. Thus $x$ is a valid source subtour
+point, but no edge reaches capacity one, so no spanning tree
+of the required type exists. The preceding construction cannot
+be extended merely by choosing a better threshold tree.
+
+The signing statement itself is nevertheless true on this example,
+as an explicit fractional flow shows. Choose any balanced signing
+on the given even $T$, and set $s_v=0$ off $T$.
+For each ordered pair of distinct vertices define
+$f_{uv}=(s_u-s_v)/n$, with $f_{vu}=-f_{uv}$.
+The divergence at $u$ is
+\[
+\sum_{v\ne u}f_{uv}
+=\frac{(n-1)s_u-\sum_{v\ne u}s_v}{n}=s_u,
+\]
+because the total sign sum is zero. Also
+$|f_{uv}|\le2/n\le2/(n-1)=x_{uv}$.
+Hence this is a valid transshipment within the original capacities.
+Failure of the tree certificate is therefore not a counterexample
+to the original signing question.
+
+\section{First gap and audit}
+The source paragraph and its thin-tree motivation were inspected.
+The tree construction gives a rigorous sufficient condition using
+edgewise capacity domination. A cutwise thin-tree statement would
+be a different, weaker hypothesis and needs its own flow argument;
+it is not silently assumed here. The complete-graph test shows
+that arbitrary fractional routing can succeed where this edgewise
+certificate fails. No general method finding a compatible signing
+and flow for all subtour points is supplied. All calculations
+are exact hand proofs, and this duplicate record claims no new
+independent conjecture or original-target progress.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The depth-first tree certificate and dense complete-graph flow are proved, but no construction covers every fractional subtour point.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 53/2021, Combinatorial Optimization, original question and surrounding discussion read from the primary PDF text on 11 October 2026. Historical statements are not a current-status survey. \url{https://ems.press/content/serial-article-files/46931}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The depth-first tree certificate and dense complete-graph flow are proved, but no construction covers every fractional subtour point.
+\end{document}

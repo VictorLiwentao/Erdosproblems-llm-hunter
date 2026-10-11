@@ -1,0 +1,132 @@
+% RESEARCH_DRAFT_SHA256: 6241f0c64e92020605dc2532ca59e462d23a8f2816b01c4613d860ae27d9e38a
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30001198, "title": "Achievable External Behaviors Under Controller Interconnection", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001198", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written mathematical review at the declared scope; no independent human verification. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Achievable External Behaviors Under Controller Interconnection; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A trace-level controller criterion and an autonomous bisimulation test; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch018 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30001198; source catalogue code OWR-3394-008
+\section{Achievable External Behaviors Under Controller Interconnection}\label{30001198}
+{\small UnsolvedMath ID 30001198 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Interconnection identifies the plant and controller control-variable trajectories. Bisimulation is a relation between system states that preserves observable behavior and matches transitions in both directions.
+
+A state-space system evolves as $\dot x=f(x,u)$ with output $y=h(x,u)$. Model reduction seeks a lower-dimensional system preserving specified input-output properties. Observability distinguishes initial states from their output trajectories, while controllability concerns reachable states under allowed inputs.
+\paragraph{Statement recorded in the supplied source.}
+Given a plant $P$ interconnected with a controller $C$ through control variables $c$, characterize the systems achievable in the external variables $w$, up to bisimulation. \href{https://doi.org/10.4171/owr/2009/11}{[S2]}
+\paragraph{Scope qualification.}
+The system class and exact bisimulation semantics are source-specific.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Characterize external dynamics realizable by connecting controllers to the specified plant.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30001198 (OWR-3394-008). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Control Theory: On the Way to New Application Fields (2009), Oberwolfach Reports, DOI 10.4171/owr/2009/11, pp. 593--680
+\url{https://doi.org/10.4171/owr/2009/11}.
+\item[S3] Pappas bisimilar linear systems
+\url{https://doi.org/10.1016/j.automatica.2003.07.003}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30001198 and source code OWR-3394-008 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30001198}
+
+\section{Literature and context check}
+The primary report, printed pages 656--657, gives a linear-systems result using a zero-system and simulation inequalities, and a canonical-controller construction. The broad catalogue question retains source-specific semantics. This attempt does not claim that theorem as new or reproduce its complete controlled-invariant proof. Instead it investigates why a natural trace-set synthesis route falls short of bisimulation, and proves a finite linear test in a restricted autonomous setting.
+\section{Research attempt: A trace-level controller criterion and an autonomous bisimulation test}
+
+\paragraph{What exact control can accomplish at the level of sets}
+Let $W,C$ be arbitrary trajectory sets, let the plant relation be $P\subseteq W\times C$, and let a controller allow a subset $D\subseteq C$. Define $P_c=\{w:(w,c)\in P\}$, so the resulting external behavior is $\bigcup_{c\in D}P_c$. For desired external set $K\subseteq W$, put
+\[
+ D_K=\{c\in C:P_c\subseteq K\}.
+\]
+Then $K$ is exactly achievable in this relation model if and only if
+\[
+ K=\bigcup_{c\in D_K}P_c.
+ \tag{1}
+\]
+If a controller realizes $K$, every one of its fibers is contained in $K$, so $D\subseteq D_K$ and $K\subseteq\bigcup_{c\in D_K}P_c\subseteq K$. Conversely the controller $D_K$ realizes $K$ when (1) holds. Empty fibers cause no problem. The statement assumes any subset is an admissible controller; causal realizability or finite-dimensional realization can impose further restrictions.
+
+\paragraph{Trace equality does not supply bisimulation}
+Consider labeled transition systems with one initial state each. System $P$ has transitions $p\xrightarrow{a}p_b$ and $p\xrightarrow{a}p_c$, followed only by $p_b\xrightarrow{b}p_0$ and $p_c\xrightarrow{c}p_0$. System $Q$ has $q\xrightarrow{a}q_{bc}$ followed by both $q_{bc}\xrightarrow{b}q_0$ and $q_{bc}\xrightarrow{c}q_0$. Both have precisely the finite traces $\epsilon,a,ab,ac$. They are not bisimilar: matching the transition to $p_b$ forces it to be related to $q_{bc}$, whose $c$ transition has no match from $p_b$. Thus (1), even when perfectly solved and realized, cannot by itself characterize the source's required branching equivalence.
+
+\paragraph{A finite test for autonomous linear systems}
+For the restricted systems $\dot x_i=A_ix_i$, $y_i=C_ix_i$ with no inputs or auxiliary disturbances, let $D=\operatorname{diag}(A_1,A_2)$ and set
+\[
+ R_0=\ker[\,C_1\ -C_2\,],\qquad
+ R_{k+1}=R_k\cap D^{-1}(R_k).
+\]
+The descending subspaces stabilize after at most $n_1+n_2$ strict dimension drops. At stabilization $R_*=R_*\cap D^{-1}R_*$, so $DR_*\subseteq R_*$. The flow $e^{tD}$ preserves $R_*$: each power of $D$ preserves it, and the exponential series converges inside this finite-dimensional closed subspace. Hence every pair of states in $R_*$ has equal outputs for all times. Conversely any linear bisimulation relation is contained in $R_0$ and is $D$-invariant, because differentiating its paired trajectories at time zero keeps their derivative in the linear subspace. Induction places it in every $R_k$, and thus in $R_*$. Therefore $R_*$ is the maximal linear bisimulation relation for this autonomous setting. The systems are bisimilar over their whole state spaces precisely when both coordinate projections of $R_*$ are surjective; each condition is a matrix rank test. Kernel, intersection and preimage calculations use finite Gaussian elimination.
+
+This test can verify an explicitly supplied autonomous closed-loop candidate but does not find all admissible controllers or cover the source's disturbance quantifiers. The missing synthesis step remains substantial, rather than being supplied by trace equality.
+
+\section{Verification and adversarial audit}
+The fiber argument proves both necessity and sufficiency under its explicitly unrestricted relation-controller model. The finite-state example checks equal prefix-closed traces but unequal branching behavior. The linear iteration is restricted to autonomous systems; no unproved assertion that transfer-matrix equality suffices for arbitrary initial states is used. Surjectivity onto both state spaces is checked separately from existence of a nonzero relation.
+\paragraph{Audit corrections.} Separated external trace sets, causal controller realization, and bisimulation; restricted the finite invariant-subspace proof to systems without unmatched disturbances.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The general achievable-bisimulation characterization and controller realizability are not established by these auxiliary results. The source's existing linear theorem is acknowledged but not misrepresented as a new proof. The concrete obstruction identifies exactly why the trace-set synthesis route does not settle the full target.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46211} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+The parent Codex GPT-6 model has reviewed the written mathematical arguments at their declared scopes. This is model-assisted review, not independent human verification.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

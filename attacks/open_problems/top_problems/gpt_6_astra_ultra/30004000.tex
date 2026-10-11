@@ -1,0 +1,120 @@
+% RESEARCH_DRAFT_SHA256: 81b0bf8df812cee8e3aeadc332bfed620f691ce6d789273f116b0194a7965c7f
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004000, "title": "Degree-Utility Optimization in Graphs", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004000", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and adversarial mathematical review of the written argument; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Degree-Utility Optimization in Graphs; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Linear utilities are easy but greedy nonlinear gains can be arbitrarily bad; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch012 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30004000; source catalogue code OWR-16633-017
+\section{Degree-Utility Optimization in Graphs}\label{30004000}
+{\small UnsolvedMath ID 30004000 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+$[n]=\{1,\ldots,n\}$ and $d_i$ is the number of edges incident to vertex $i$. The objective assigns a separate scalar utility to each vertex\textquotesingle s degree.
+\paragraph{Statement recorded in the supplied source.}
+Given $n,m$ and univariate functions $f_1,\ldots,f_n$, what is the complexity of finding an $m$-edge graph on $[n]$ that maximizes
+
+$$\sum_{i=1}^nf_i(d_i),$$
+
+where $d_i$ is the degree of vertex $i$ and the functions need not be identical? \href{https://doi.org/10.4171/owr/2018/50}{[S2]}
+\paragraph{Scope qualification.}
+The graph is taken in the source\textquotesingle s simple-graph convention; the representation and evaluation cost of the functions $f_i$ are not specified.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Optimize a sum of vertex-dependent degree utilities over graphs with a prescribed edge count.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004000 (OWR-16633-017). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2019), Oberwolfach Reports, DOI 10.4171/owr/2018/50, pp. 2969--3023
+\url{https://doi.org/10.4171/owr/2018/50}.
+\item[S3] Optimization over Degree Sequences of Graphs
+\url{https://arxiv.org/abs/1908.09278}.
+\item[S4] Optimization over Degree Sequences
+\url{https://arxiv.org/abs/1706.03951}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30004000 and source code OWR-16633-017 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30004000}
+
+\section{Literature and context check}
+The report asks about different vertex functions. The consulted 2017/2018 paper abstract treats identical functions and other special cases; the 2019 Deza--Onn abstract explicitly leaves arbitrary functions over complete graphs broadly unresolved there. Those abstracts do not establish a complete present-day classification, and no current-status certification is claimed. Here functions are supplied as finite rational tables on degrees 0 through n-1.
+\section{Research attempt: Linear utilities are easy but greedy nonlinear gains can be arbitrarily bad}
+For the linear subclass $f_i(d)=a_i d+b_i$, the objective for a simple graph $E$ is
+\[
+\sum_i b_i+\sum_{\{i,j\}\in E}(a_i+a_j).
+\]
+This follows by counting the contribution $a_i$ once for each edge incident to $i$. Thus, for $0\le m\le\binom n2$, choosing the $m$ largest edge weights $a_i+a_j$ is optimal. If a proposed set omits a larger weight than one it contains, exchanging the two improves the sum; repeating exchanges yields the top-$m$ set. This provides an exact polynomial-time subclass under the stated table/arithmetic model.
+
+A natural attempted extension adds the currently highest marginal-gain edge repeatedly for nonlinear utilities. It can fail by an unbounded factor. Let $n=4,m=2$, set $f_1(0)=f_1(1)=0$, $f_1(2)=M$ for $M>2$, and set $f_i(d)=d$ for $i=2,3,4$. Values at unused degrees can be chosen arbitrarily, for example $f_1(3)=2M$. Initially each edge among vertices 2,3,4 has gain two, while each edge incident to vertex 1 has gain one. After selecting any edge among 2,3,4, every remaining edge among those three still has gain two and every edge incident to 1 still has gain one. The greedy rule therefore chooses two edges avoiding vertex 1 and obtains objective four.
+
+Two distinct edges incident to vertex 1 instead give it degree two and the other vertices total degree two, for objective $M+2$. This is optimal: if vertex 1 has degree zero the value is four; if it has degree one the remaining vertices' degree sum is three, giving value three; if it has degree two the value is $M+2$. These exhaust its possible degrees when $m=2$. The ratio $(M+2)/4$ diverges with $M$, although the integer M has a short binary encoding. Thus local marginal choice does not extend the linear solution, even for a nondecreasing convex table at the distinguished vertex.
+\section{Verification and adversarial audit}
+The greedy choices are forced by strict gain inequalities, not adverse tie-breaking. Every possible degree of vertex 1 is checked to prove the exact optimum, and all graphs are simple with precisely two edges.
+\paragraph{Audit corrections.} A bad greedy approximation is not used as a proof of NP-hardness. Results stated in consulted abstracts are not generalized beyond their hypotheses.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The linear subclass and greedy obstruction do not classify optimization for arbitrary unequal functions. Input representation, general graphicality constraints, and the original full complexity question remain unresolved here.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46772} (consulted 2026-10-11). 
+\item \url{https://arxiv.org/abs/1908.09278} (consulted 2026-10-11). 
+\item \url{https://arxiv.org/abs/1706.03951} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and adversarial mathematical review of the written argument; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

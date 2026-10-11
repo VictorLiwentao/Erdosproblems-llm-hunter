@@ -1,0 +1,82 @@
+% TOP_PROBLEM: {"id": 20002516, "title": "Mock modularity, geometric invariants, and finite pole tomography", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The source uses Donaldson without specifying the variant; Donaldson, Donaldson–Thomas and Gromov–Witten invariants are not interchangeable. The record remains a broad connection programme and does not assert an unspecified universal equivalence. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002516", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Explain links between mock modular forms, geometric counting invariants and the OSV framework.", "scope": "Exhibited finite-coefficient nonuniqueness and stated the exact injectivity condition under which coefficient matching would become a proof. No geometric invariant/mock-modular or OSV correspondence is established.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked identical first N coefficients, differing boundary singularities, conditional finite-dimensional injectivity and distinct Donaldson versus Donaldson-Thomas scope. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the explicit finite-coefficient ambiguity and conditional injective coefficient-map uniqueness statement. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked identical first N coefficients, differing boundary singularities, conditional finite-dimensional injectivity and distinct Donaldson versus Donaldson-Thomas scope. Scope remains limited: Prove membership and uniqueness in a specified completed modular space for a precisely defined geometric counting theory."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002516; source catalogue code AIM-PHYSICS-0024
+\setcounter{section}{20002515}
+\section{Mock modularity, geometric invariants, and finite pole tomography}\label{20002516}
+{\small UnsolvedMath ID 20002516 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}Gromov--Witten invariants are virtual counts of stable maps into a specified target. Donaldson-type invariants depend on the relevant geometric/gauge-theoretic setting. Mock modular forms are holomorphic parts of modular completions. The OSV conjecture relates a black-hole counting ensemble to topological-string data under particular physical and normalization assumptions.
+
+\paragraph{Catalogue wording retained for traceability.}
+Determine the connection between Mock modular forms and geometric invariants like Gromov-Witten, Donaldson, and OSV conjecture.
+\paragraph{Scope and source qualification.}The source uses Donaldson without specifying the variant; Donaldson, Donaldson–Thomas and Gromov–Witten invariants are not interchangeable. The record remains a broad connection programme and does not assert an unspecified universal equivalence. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Explain links between mock modular forms, geometric counting invariants and the OSV framework.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Exhibited finite-coefficient nonuniqueness and stated the exact injectivity condition under which coefficient matching would become a proof. No geometric invariant/mock-modular or OSV correspondence is established.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{Finite coefficients cannot certify a mock-modular connection.}Suppose a geometric calculation supplies only \(a_0,\ldots,a_N\) of a holomorphic generating series. For any holomorphic function \(G(q)\) on the unit disk, the series
+\[F_G(q)=\sum_{n=0}^Na_nq^n+q^{N+1}G(q)
+\]
+has the same supplied data. Taking \(G=0\) and \(G=(1-q)^{-1}\), for example, gives different singular behavior at \(q=1\) while preserving every checked coefficient. Even an asserted finite list of polar coefficients at one cusp leaves analogous freedom unless a function space and transformations at all relevant cusps are fixed.
+\paragraph{A useful uniqueness condition, stated conditionally.}If a specified space \(\mathcal V\) of candidate completed modular objects is finite dimensional and a coefficient map \(E:\mathcal V\to\mathbb C^{N+1}\) is injective, then agreement of those coefficients does imply equality within \(\mathcal V\). This is immediate from \(E(F_1-F_2)=0\). The substantial work is proving membership in \(\mathcal V\), the same shadow and growth conditions, and injectivity of \(E\); none follows from the numerical match itself.
+\paragraph{First gap and scope.}A concrete target geometry and precise invariant theory must be selected before constructing the generating function and its completion. Donaldson invariants are not silently replaced by Donaldson--Thomas invariants. The relationship to Gromov--Witten counts and the OSV ensemble/normalization is separate and unproved. The explicit coefficient countercheck shows why fitting a mock-modular candidate is insufficient, but it supplies no geometric connection or current status claim about the broad programme.
+
+\paragraph{Verification and adversarial audit.}
+Checked identical first N coefficients, differing boundary singularities, conditional finite-dimensional injectivity and distinct Donaldson versus Donaldson-Thomas scope. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked identical first N coefficients, differing boundary singularities, conditional finite-dimensional injectivity and distinct Donaldson versus Donaldson-Thomas scope. Scope remains limited: Prove membership and uniqueness in a specified completed modular space for a precisely defined geometric counting theory.
+
+Coordinator checked the explicit finite-coefficient ambiguity and conditional injective coefficient-map uniqueness statement. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Prove membership and uniqueness in a specified completed modular space for a precisely defined geometric counting theory.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002516:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002516 (AIM-PHYSICS-0024). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002516:2}{S2}] American Institute of Mathematics, Gromov-Witten invariants and number theory, source item 5.3.
+\url{http://aimpl.org/gromwitnumthry/5/}.
+\end{itemize}
+\label{end:20002516}
+\end{document}

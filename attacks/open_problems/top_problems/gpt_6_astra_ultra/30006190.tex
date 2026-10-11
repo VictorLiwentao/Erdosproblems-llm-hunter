@@ -1,0 +1,88 @@
+% TOP_PROBLEM: {"id": 30006190, "title": "Strong Continuity Without Ultraviolet Regularization", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "Strong continuity at fixed cutoff does not automatically pass to a cutoff limit; the source representation and limiting dynamics must be identified."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006190", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Determine whether the source many-body time evolution remains strongly continuous after its ultraviolet cutoff is removed.", "scope": "Proved pointwise CAR-norm continuity of free dynamics and a sufficient uniform-in-time cutoff convergence criterion.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the CAR norm identity, extension from polynomials by isometry, order of the cutoff/time limits and distinction from strong operator continuity. Model self-audit only; no independent human mathematical verification.  No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked the CAR norm identity, extension from polynomials by isometry, order of the cutoff/time limits and distinction from strong operator continuity. First remaining gap: Establish norm approximation or equicontinuity and algebra invariance for the actual interacting ultraviolet cutoff limit. The inherited source status is preserved; original-target completion remains zero. Additional GPT-6 Astra reviewer (ultra reasoning): Checked the CAR norm identity using the anticommutator for the upper bound and a normalized one-particle Fock vector for the lower bound. Checked the free continuity calculation ||a(U_t f)-a(f)||=||(U_t-I)f|| and its extension through finite products and norm-dense polynomials using automorphism isometry. Checked the uniform-in-time cutoff convergence criterion: its displayed factor two is a valid loose upper bound, and the stated isometric-limit assumption is sufficient for the density extension. Confirmed the manuscript uses pointwise CAR operator-norm continuity, not strong operator topology, and does not claim existence/invariance of the unregularized interacting limit."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30006190; source catalogue code OWR-14299085-004
+\setcounter{section}{30006189}
+\section{Strong Continuity Without Ultraviolet Regularization}\label{30006190}
+{\small UnsolvedMath ID 30006190 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+Ultraviolet regularization smears the continuum fermionic interaction by Gaussian functions of width $\sigma$. The CAR algebra $\mathcal A$ is generated by the canonical anticommutation-relation observables. In this source, strong continuity of a $C^*$-dynamical system means pointwise operator-norm continuity: $\lim_{t\to0}\|\tau_t(A)-A\|=0$ for every $A\in\mathcal A$. This is stronger than continuity in the strong operator topology of a Hilbert-space representation. Removing the cutoff takes $\sigma\to0$.
+
+\paragraph{Catalogue wording retained for traceability.}
+Does strong continuity of the many-body dynamics persist when the ultraviolet regularization is removed, that is, in the limit $\sigma\to 0$?
+
+\paragraph{Scope and source qualification.}Strong continuity at fixed cutoff does not automatically pass to a cutoff limit; the source representation and limiting dynamics must be identified.
+\subsection{Short English statement}
+Determine whether the source many-body time evolution remains strongly continuous after its ultraviolet cutoff is removed.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved pointwise CAR-norm continuity of free dynamics and a sufficient uniform-in-time cutoff convergence criterion.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30006190. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{Unbounded free energy is not itself an obstruction.} Let \(U_t\) be a strongly continuous unitary group on a one-particle Hilbert space, possibly generated by an unbounded Hamiltonian. On the CAR algebra, the free automorphism is \(\tau_t(a(f))=a(U_tf)\). The CAR norm identity is \(\|a(g)\|=\|g\|\): the upper bound follows from \(a(g)^*a(g)+a(g)a(g)^*=\|g\|^2I\), and equality follows by acting on the normalized one-particle vector in direction \(g\). Consequently
+\[
+ \|\tau_t(a(f))-a(f)\|=\|(U_t-I)f\|\longrightarrow0.
+\]
+Telescoping products proves continuity on polynomials in the generators. Approximate any CAR element by such a polynomial and use isometry of automorphisms to extend norm continuity to the norm closure.
+\paragraph{A sufficient cutoff passage criterion.} For interacting cutoff automorphisms \(\tau_t^\sigma\), suppose on a norm-dense subalgebra and some fixed \(T>0\), \(\sup_{|t|\leq T}\|\tau_t^\sigma(A)-\tau_t(A)\|\to0\). Then
+\[
+ \|\tau_t(A)-A\|\leq
+ 2\sup_{|s|\leq T}\|\tau_s^\sigma(A)-\tau_s(A)\|
+ +\|\tau_t^\sigma(A)-A\|,
+\]
+where the factor two is a harmless upper bound. Fix a small cutoff error, then let \(t\to0\); density extends the result if the limit is an isometric automorphism group.
+\paragraph{First interaction gap.} The source asks whether such a limiting many-body dynamics exists with sufficient norm control as Gaussian smearing is removed. Fixed-cutoff continuity and strong operator convergence in a representation do not supply the displayed uniform norm approximation. Proving that estimate, or a suitable equicontinuity substitute with algebra invariance, is the first missing step. The free calculation is a boundary check, not an answer for unregularized interactions.
+
+\paragraph{Verification and adversarial audit.}
+Checked the CAR norm identity, extension from polynomials by isometry, order of the cutoff/time limits and distinction from strong operator continuity. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked the CAR norm identity, extension from polynomials by isometry, order of the cutoff/time limits and distinction from strong operator continuity. First remaining gap: Establish norm approximation or equicontinuity and algebra invariance for the actual interacting ultraviolet cutoff limit. The inherited source status is preserved; original-target completion remains zero. Additional GPT-6 Astra reviewer (ultra reasoning): Checked the CAR norm identity using the anticommutator for the upper bound and a normalized one-particle Fock vector for the lower bound. Checked the free continuity calculation ||a(U\_t f)-a(f)||=||(U\_t-I)f|| and its extension through finite products and norm-dense polynomials using automorphism isometry. Checked the uniform-in-time cutoff convergence criterion: its displayed factor two is a valid loose upper bound, and the stated isometric-limit assumption is sufficient for the density extension. Confirmed the manuscript uses pointwise CAR operator-norm continuity, not strong operator topology, and does not claim existence/invariance of the unregularized interacting limit.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Establish norm approximation or equicontinuity and algebra invariance for the actual interacting ultraviolet cutoff limit.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30006190:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30006190 (OWR-14299085-004). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30006190:2}{S2}] Mini-Workshop: New Directions in Correlated Quantum Systems (2025), Oberwolfach Reports, DOI 10.4171/owr/2025/7, pp. 339--374. Original report and mathematical context. Incorporated report material remains under the source CC BY-SA 4.0 terms unless otherwise noted.
+\url{https://doi.org/10.4171/owr/2025/7}.
+\end{itemize}
+\label{end:30006190}
+\end{document}

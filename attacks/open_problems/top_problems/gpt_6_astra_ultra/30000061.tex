@@ -1,0 +1,146 @@
+% RESEARCH_DRAFT_SHA256: 96afc31d295af1d8edd0cc3921eadb9e49850b0b290cd89146dbeb2ef35d33d8
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000061, "title": "Complexity and Approximation of Planar Min-Bisection", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000061", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "What is the exact computational complexity of PLANAR MIN-BISECTION, and does PLANAR MIN-BISECTION admit a polynomial-time approximation scheme?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. An exact tree algorithm and two obstruction families are proved, but neither general planar exact complexity nor a multiplicative PTAS is resolved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Planar bisection: exact balance on trees and failure of additive-error transfer}
+\noindent UnsolvedMath ID 30000061; OWR-730-011. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Polynomial time means a number of elementary steps bounded by a polynomial in the encoded input length. A decision problem is in $\mathrm{NP}$ if yes-instances have polynomial-length certificates verifiable in polynomial time; NP-hardness is under polynomial-time reductions.
+
+A PTAS has approximation ratio $1+\varepsilon$ for minimization (or $1-\varepsilon$ for maximization), with polynomial runtime for each fixed $\varepsilon>0$. A fully polynomial scheme is polynomial also in $\varepsilon^{-1}$.
+
+A bisection partitions the vertices into two parts of equal size (or differing by one for odd order). Its cut consists of the edges joining the parts; minimum bisection minimizes their total weight.
+\paragraph{Statement recorded in the supplied source.}
+What is the exact computational complexity of PLANAR MIN-BISECTION, and does PLANAR MIN-BISECTION admit a polynomial-time approximation scheme? \href{https://doi.org/10.4171/owr/2004/28}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Classify the difficulty of minimum bisection on planar graphs and decide whether arbitrarily accurate efficient approximation is possible.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000061 (OWR-730-011). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Approximation Algorithms for NP-Hard Problems (2005), Oberwolfach Reports, DOI 10.4171/owr/2004/28, pp. 1461--1540
+\url{https://doi.org/10.4171/owr/2004/28}.
+\item[S3] planar Min-Bisection complexity survey
+\url{https://sites.cs.ucsb.edu/~daniello/papers/bisection.pdf}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+What is the exact computational complexity of PLANAR MIN-BISECTION, and does PLANAR MIN-BISECTION admit a polynomial-time approximation scheme?
+
+\section{Attempted separator and balance route}
+The source asks both exact complexity and a multiplicative PTAS for
+planar minimum bisection. We retain exact part-size balance, with a
+one-vertex difference allowed at odd order. To isolate the global
+constraint, we first give a complete dynamic program for trees and
+then test the proposed extension of an additive cut bound to a
+multiplicative guarantee. Trees are only a planar special class.
+
+\paragraph{A complete tree dynamic program.}
+Root a weighted tree at $r$. Let $V_v$ denote the vertices of the subtree rooted at $v$, and let
+$D_v(k,b)$ be the minimum weight of crossing edges internal to
+that subtree among assignments of its vertices to sides zero and
+one, with exactly $k$ vertices on side one and $v$ on side
+$b\in\{0,1\}$. Impossible states have value $+\infty$.
+For a leaf, $D_v(b,b)=0$ and all other states are impossible.
+Process the children $u$ one at a time, starting from these
+single-vertex states. If a partial table is $D$, the update is
+\[
+D_{\rm new}(k,b)=\min_{\substack{0\le j\le |V_u|\\c\in\{0,1\}}}
+ \{D(k-j,b)+D_u(j,c)+w(vu){\bf1}_{b\ne c}\},
+\]
+where $j$ ranges over all valid subtree sizes and the notation
+means a minimum over such $j$ and the two choices of $c$.
+Every assignment uniquely restricts to the earlier children, the
+new child's subtree, and the one edge $vu$. Its cost is exactly
+the displayed sum. Conversely any two feasible component assignments
+combine because no other edge joins them. This proves the recurrence
+in both directions. Induction over children and then vertices proves
+every table value. Finally minimize $D_r(k,b)$ over $b$ and
+$k\in\{\lfloor n/2\rfloor,\lceil n/2\rceil\}$.
+Backtracking the minimizing choices gives an actual bisection.
+
+There are $O(n)$ entries per table and at most $n-1$ child
+merges, each using at most $O(n^2)$ pairs of counts and a
+constant number of side labels, so $O(n^3)$ arithmetic operations
+suffice. For rational edge weights, finite sums and comparisons have
+polynomial bit cost in their encoded lengths, since each sum involves
+at most $n-1$ input weights. This is an exact algorithm for trees,
+not for arbitrary planar graphs with edges across several subproblems.
+
+\paragraph{Two explicit failed simplifications.}
+On the unit-weight star with $2m$ vertices, $m\ge2$, every
+bisection has exactly $m$ leaves opposite the center and cut size
+$m$. The unconstrained nontrivial minimum cut isolates one leaf
+and has size one. Thus solving minimum cut and hoping balance
+comes automatically loses an unbounded factor, already on a tree.
+
+An additive guarantee of the form
+$A\le\operatorname{OPT}+\eta n$ also does not imply a
+$(1+\eta)$ ratio uniformly. On a unit path with $2m$ vertices,
+the first $m$ versus last $m$ vertices gives a bisection of
+size one; every nontrivial cut has size at least one because the
+path is connected. Hence $\operatorname{OPT}=1$, while the
+additive allowance is $2\eta m$. To get relative error
+$\varepsilon$ from this allowance one would need
+$\eta\le\varepsilon/(2m)$, not a fixed accuracy parameter.
+This disproves only the logical conversion of bounds. It does not
+prove that every algorithm with an additive guarantee returns a bad
+cut on paths, or preclude a PTAS using additional structure.
+
+\section{Audit and first general gap}
+The primary two questions on printed page 1533 were inspected,
+without importing the nearby planar maximum-bisection result.
+The recurrence retains the count in every state. General planar
+subproblems can interact through multiple boundary vertices, so the
+two-state root-side summary is no longer sufficient; an algorithm
+must control those boundary configurations and the relative error
+when the optimum is small. No general planar recurrence or cost
+bound is proved. The audit checked odd $n$, exact balance, rational
+weights, and the difference between additive and relative error.
+No computational experiment was run and no current complexity
+classification is claimed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. An exact tree algorithm and two obstruction families are proved, but neither general planar exact complexity nor a multiplicative PTAS is resolved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 28/2004, Approximation Algorithms for NP-Hard Problems, original question and surrounding discussion read from the cached primary PDF text on 11 October 2026. Historical statements are not a current-status survey. \url{https://doi.org/10.4171/owr/2004/28}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} An exact tree algorithm and two obstruction families are proved, but neither general planar exact complexity nor a multiplicative PTAS is resolved.
+\end{document}

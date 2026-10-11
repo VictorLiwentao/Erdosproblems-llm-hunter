@@ -1,0 +1,100 @@
+% TOP_PROBLEM: {"id": 30000345, "title": "Scaling Limits of Tensor Products in AQFT", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The report proves commutation under a uniform small-p nuclearity bound and twisted Haag duality. The open request is for more general conditions, not to reprove that stated sufficient case or to assert commutation without phase-space assumptions."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000345", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Find broader hypotheses under which taking the ultraviolet limit of two quantum field theories commutes with forming their tensor product.", "scope": "Proves fixed-tensor state convergence and a growing-Schmidt-rank obstruction to an unjustified uniform approximation step.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked common-subnet dependence, norm-one extension, the Schmidt-rank lower bound and the distinction between toy vectors and a genuine AQFT counterexample. Model self-audit only; no independent human proof checking. Coordinator checked fixed-product state convergence and the tensor-rank approximation lower bound 1-r/d. The vector example is not claimed as a counterexample net. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked common-subnet dependence, norm-one extension, the Schmidt-rank lower bound and the distinction between toy vectors and a genuine AQFT counterexample. Retained unresolved status and zero original-target progress; Uniform factorwise approximation of the full scaling algebra has not been proved under broader phase-space hypotheses."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30000345; source catalogue code OWR-1109-006
+\setcounter{section}{30000344}
+\section{Scaling Limits of Tensor Products in AQFT}\label{30000345}
+{\small UnsolvedMath ID 30000345 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} An algebraic quantum field theory net assigns an algebra $\mathcal F(O)$ to each spacetime region, together with vacuum and translation data. The tensor-product net has local algebras $\mathcal F_1(O)\overline\otimes\mathcal F_2(O)$. A scaling limit is obtained by rescaling regions $\lambda O$ and taking a scaling-algebra state limit as $\lambda\downarrow0$. Commutation means that the corresponding limit net is isomorphic to $\mathcal F_{1,0}\overline\otimes\mathcal F_{2,0}$, with compatible choices of limit states.
+
+\paragraph{Source scope and qualifications.} The report proves commutation under a uniform small-p nuclearity bound and twisted Haag duality. The open request is for more general conditions, not to reprove that stated sufficient case or to assert commutation without phase-space assumptions.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+Find general conditions under which scaling-limit and tensor-product operations commute for nets in algebraic quantum field theory.
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The report explicitly asks for general conditions allowing scaling limits and tensor products to interchange; the extracted question remains too general for a verified resolution. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Find broader hypotheses under which taking the ultraviolet limit of two quantum field theories commutes with forming their tensor product.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proves fixed-tensor state convergence and a growing-Schmidt-rank obstruction to an unjustified uniform approximation step.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{What product convergence really gives.} Suppose states $\omega_{i,\lambda}$ on fixed unital $C^*$-algebras $A_i$ converge pointwise to $\omega_{i,0}$ along the same subnet. On a fixed finite sum $z=\sum_{j=1}^r a_j\otimes b_j$,
+\[
+ (\omega_{1,\lambda}\otimes\omega_{2,\lambda})(z)
+ =\sum_j\omega_{1,\lambda}(a_j)\omega_{2,\lambda}(b_j)
+ \longrightarrow(\omega_{1,0}\otimes\omega_{2,0})(z).
+\]
+Since states have norm one, norm approximation extends this to every element of the spatial tensor product. This elementary argument justifies convergence on the fixed product algebra.
+
+\paragraph{The scaling-dependent obstruction.} It says nothing about families requiring an increasing number of tensor terms. Let $e_1,\ldots,e_d$ be an orthonormal basis and $\Omega_d=d^{-1/2}\sum_je_j\otimes e_j$. Any vector $v$ which is a sum of at most $r$ simple tensors has its first factor in a subspace $V$ of dimension at most $r$. If $P_V$ is the orthogonal projection, then
+\[
+ \|\Omega_d-v\|^2\geq\|((I-P_V)\otimes I)\Omega_d\|^2
+ =1-\dim(V)/d\geq1-r/d.
+\]
+Thus bounded tensor rank does not approximate these unit vectors uniformly as $d\to\infty$.
+
+\paragraph{Attempt outcome.} The example is finite-dimensional linear algebra, not a counterexample net. It isolates the missing uniform phase-space approximation: scaling families in the full product net need not be approximable by a fixed number of controlled factor families merely because fixed tensors converge. The source's small-$p$ nuclearity and twisted-duality assumptions address stronger structure; broadening them requires a uniform estimate not established here. Compatible scaling states are necessary but do not by themselves identify the full limiting local algebras.
+
+\paragraph{Verification and adversarial audit.}
+Checked common-subnet dependence, norm-one extension, the Schmidt-rank lower bound and the distinction between toy vectors and a genuine AQFT counterexample. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked common-subnet dependence, norm-one extension, the Schmidt-rank lower bound and the distinction between toy vectors and a genuine AQFT counterexample. Retained unresolved status and zero original-target progress; Uniform factorwise approximation of the full scaling algebra has not been proved under broader phase-space hypotheses.
+
+Coordinator checked fixed-product state convergence and the tensor-rank approximation lower bound 1-r/d. The vector example is not claimed as a counterexample net. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Uniform factorwise approximation of the full scaling algebra has not been proved under broader phase-space hypotheses.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Uniform factorwise approximation of the full scaling algebra has not been proved under broader phase-space hypotheses.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30000345:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30000345 (OWR-1109-006). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30000345:2}{S2}] Noncommutative Geometry and Quantum Field Theory (2005), Oberwolfach Reports, DOI 10.4171/owr/2005/48, pp. 2705--2760; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2005/48}.
+\item[\hypertarget{source:30000345:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 50--51, printed pages 2754--2755.
+\url{https://ems.press/content/serial-article-files/46022}.
+\end{itemize}
+\label{end:30000345}
+\end{document}

@@ -1,0 +1,95 @@
+% TOP_PROBLEM: {"id": 30000343, "title": "Geometric Spin–Statistics under Weakened Assumptions", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The nonrelativistic bundle framework is the context. Topology alone permits a choice of exchange sign and does not automatically prove the physical relation; the report explicitly requires an additional physically motivated input. The two source questions remain separate."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000343", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Find a geometric derivation of spin and statistics and identify which weaker physical assumptions still force their usual relation.", "scope": "Constructs rotation-covariant spinless odd sections, excluding topology plus rotation covariance as sufficient assumptions.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked nonzero odd sections, 2π rotations, collision removal and square-integrable radial extension; no relativistic counterexample claimed. Model self-audit only; no independent human proof checking. Coordinator checked exchange-sign subspaces, rotation covariance, the nonzero odd function and the limited nonrelativistic configuration-space scope. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked nonzero odd sections, 2π rotations, collision removal and square-integrable radial extension; no relativistic counterexample claimed. Retained unresolved status and zero original-target progress; A physically justified compatibility between exchange holonomy and spin rotation has not been derived."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30000343; source catalogue code OWR-1109-003
+\setcounter{section}{30000342}
+\section{Geometric Spin–Statistics under Weakened Assumptions}\label{30000343}
+{\small UnsolvedMath ID 30000343 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} The spin--statistics relation assigns Bose symmetry to integer spin $s\in\mathbb N_0$ and Fermi antisymmetry to half-integer spin $s\in\tfrac12+\mathbb N_0$. In three spatial dimensions the configuration space of $n$ indistinguishable particles is $((\mathbb R^3)^n\setminus\Delta)/S_n$, where $\Delta$ is the collision locus and $S_n$ permutes particles. Wavefunctions can be sections of bundles over this space; for two particles the relative direction space is $\mathbb{RP}^2$. The geometric formulation studies the exchange action and the rotation-group action on these bundles.
+
+\paragraph{Source scope and qualifications.} The nonrelativistic bundle framework is the context. Topology alone permits a choice of exchange sign and does not automatically prove the physical relation; the report explicitly requires an additional physically motivated input. The two source questions remain separate.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+Find a geometric proof of the spin–statistics relation. Determine whether the relation remains valid under weaker assumptions and identify the minimal sufficient hypotheses.
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: Geometric and projective-module approaches give spin--statistics results in important nonrelativistic configuration spaces, but the requested theorem under substantially weaker assumptions is not generally settled. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Find a geometric derivation of spin and statistics and identify which weaker physical assumptions still force their usual relation.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Constructs rotation-covariant spinless odd sections, excluding topology plus rotation covariance as sufficient assumptions.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A geometric countertest to topology alone.} For two particles remove collisions and keep the relative direction $n\in S^2$. For either $\varepsilon=1$ or $-1$, define
+\[
+ \mathcal H_\varepsilon=\{f\in L^2(S^2):f(-n)=\varepsilon f(n)\}.
+\]
+These are sections of the two flat complex line bundles over $\mathbb{RP}^2$ associated with the characters $\pm1$ of the deck transformation. Rotations act by $(U(R)f)(n)=f(R^{-1}n)$ and preserve each subspace because $R(-n)=-Rn$. This is a genuine representation of $SO(3)$, so a $2\pi$ rotation acts as the identity in both cases. Exchange instead acts by the independent sign $\varepsilon$.
+
+\paragraph{A nonzero wrong-statistics sector.} The odd space is nonzero: $f(n)=n_3$ lies in it. It therefore describes spinless orbital wavefunctions with antisymmetric exchange, while obeying rotation covariance and the collision-free configuration-space construction. Adding a radial compactly supported factor and a center-of-mass wavefunction gives square-integrable two-particle states in the original three-dimensional setting. The free Laplacian preserves the exchange condition, since permutation and rotations commute with its differential expression.
+
+\paragraph{What has and has not been disproved.} This does not contradict the physical spin--statistics theorem: no relativistic locality, positive-energy field algebra, or source-specific extra physical condition was imposed. It proves that the configuration bundle and ordinary rotation covariance alone cannot force Bose statistics for spin zero. A geometric proof needs an additional hypothesis identifying the exchange holonomy with the relevant spin rotation. Establishing a physically justified such hypothesis, then proving sufficiency and testing minimality, remains the exact missing step in both bundled source questions.
+
+\paragraph{Verification and adversarial audit.}
+Checked nonzero odd sections, 2π rotations, collision removal and square-integrable radial extension; no relativistic counterexample claimed. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked nonzero odd sections, 2π rotations, collision removal and square-integrable radial extension; no relativistic counterexample claimed. Retained unresolved status and zero original-target progress; A physically justified compatibility between exchange holonomy and spin rotation has not been derived.
+
+Coordinator checked exchange-sign subspaces, rotation covariance, the nonzero odd function and the limited nonrelativistic configuration-space scope. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. A physically justified compatibility between exchange holonomy and spin rotation has not been derived.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. A physically justified compatibility between exchange holonomy and spin rotation has not been derived.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30000343:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30000343 (OWR-1109-003). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30000343:2}{S2}] Noncommutative Geometry and Quantum Field Theory (2005), Oberwolfach Reports, DOI 10.4171/owr/2005/48, pp. 2705--2760; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2005/48}.
+\item[\hypertarget{source:30000343:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 34--35, printed pages 2738--2739.
+\url{https://ems.press/content/serial-article-files/46022}.
+\item[\hypertarget{source:30000343:4}{S4}] Spin--statistics and projective modules; reference in the saved dated catalogue literature review.
+\url{https://arxiv.org/abs/quant-ph/0608125}.
+\end{itemize}
+\label{end:30000343}
+\end{document}

@@ -1,0 +1,111 @@
+% RESEARCH_DRAFT_SHA256: 3ffe201133e6ed25377b52ea81474fe6109cea08aa154b66534aadbc58f85103
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 3395, "title": "P vs. NP", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "problem_number": "OPG-661", "set_id": 12}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "3395", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Exponential truth-matrix rank with a uniform easy equality function; full circuit and restricted representation proofs refute the attempted direct rank-to-time/circuit lower-bound inference.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch001/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec}
+\setmainfont{lmroman10-regular.otf}[BoldFont=lmroman10-bold.otf,
+ ItalicFont=lmroman10-italic.otf,BoldItalicFont=lmroman10-bolditalic.otf]
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{latinmodern-math.otf}
+\AtBeginDocument{\let\setminus\smallsetminus}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+\section*{P vs. NP}\label{3395}
+{\small UnsolvedMath ID 3395 · OPG-661 · Computer Science · OpenGarden}
+\subsection{Definitions and mathematical statement}
+A decision problem is a language $L\subseteq\{0,1\}^*$ of finite
+binary strings. Its input size is the string length $|x|$. The class
+$\mathrm P$ consists of languages decided by a deterministic Turing
+machine in at most $C(|x|+1)^c$ steps for some fixed constants $C,c$.
+The machine must halt and answer correctly on every input.
+
+A language belongs to $\mathrm{NP}$ if there are a polynomial $p$
+and a deterministic polynomial-time predicate $V$ such that
+\[
+ x\in L\quad\Longleftrightarrow\quad
+ \exists y\in\{0,1\}^{\le p(|x|)}\quad V(x,y)=1.
+\]
+The string $y$ is a certificate for a yes-instance. Its length and
+the verification time are bounded by fixed polynomials, uniformly
+over all inputs. The problem is to decide whether
+$\mathrm P=\mathrm{NP}$. Since $\mathrm P\subseteq\mathrm{NP}$,
+inequality means exhibiting a language in $\mathrm{NP}$ with no
+deterministic polynomial-time decision procedure.
+
+The question uses the ordinary uniform, worst-case bit model of
+computation. It does not permit a separate uncomputable advice string
+for each input size or replacement by a quantum algorithm. Efficient
+verification for no-instances is not part of the definition of
+$\mathrm{NP}$. Polynomial-time solution of every input, rather than
+success on a selected distribution of inputs, is required.
+\subsection{Short English statement}
+Does every decision problem with efficiently checkable yes-certificates also admit an efficient deterministic decision algorithm?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] ULAM.AI and the UnsolvedMath Contributors, supplied problems.json, record 3395 (OPG-661), OpenGarden collection. Catalogue identity and source transcription; CC BY 4.0.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Open Problem Garden, P vs. NP. Original problem and discussion; the mathematical formulation below is expanded from the supplied source record.
+\url{http://www.openproblemgarden.org/op/p_vs_np}.
+\end{itemize}
+
+
+\section{Research attempt}
+The target is the ordinary uniform worst-case question $\mathrm P=\mathrm{NP}$. This attempt tests a possible lower-bound route: split inputs into two blocks, build a truth-value matrix, and infer a large circuit from exponential matrix rank. The inference fails even on a language with a uniform linear-time algorithm. Establishing that failure does not separate $\mathrm P$ from $\mathrm{NP}$.
+
+For $n\ge1$ define $\operatorname{EQ}_n(x,y)=1$ if $x=y$ and zero otherwise, for $x,y\in\{0,1\}^n$. Let $M_n$ be its $2^n$-by-$2^n$ matrix, with rows indexed by $x$, columns by $y$, in the same order, over the real field.
+
+\begin{proposition}
+$\operatorname{rank}_{\mathbb R}M_n=2^n$, but $\operatorname{EQ}_n$ has a circuit with at most $6n-1$ gates from $\{\mathrm{AND},\mathrm{OR},\mathrm{NOT}\}$, with the binary gates of fan-in two. The corresponding equality language is in $\mathrm P$.
+\end{proposition}
+\begin{proof}
+$M_n$ is the identity matrix: the entry is one exactly when its row and column labels agree. Its columns are linearly independent, proving the rank assertion. For each coordinate use
+\[
+ e_i=(x_i\wedge y_i)\vee(\neg x_i\wedge\neg y_i).
+\]
+This uses two NOT gates, two AND gates and one OR gate. Combining all $e_i$ by $n-1$ AND gates gives $5n+n-1$ gates, and evaluates to one precisely when every pair agrees. A deterministic machine can scan the two explicitly delimited strings, compare their lengths and compare the corresponding symbols in polynomial time (linear time with two input heads). Thus the language is uniformly in $\mathrm P$; no uncomputable advice is involved.
+\end{proof}
+
+\paragraph{What the rank actually lower-bounds.}
+If a function has a representation $f(x,y)=\sum_{j=1}^r a_j(x)b_j(y)$ over the reals, its matrix has rank at most $r$, because each summand has all columns proportional to one vector and the total column space lies in the span of the $r$ vectors $a_j$. Conversely, if a matrix has rank $r$, choose $r$ basis columns; expressing every column in that basis yields exactly such a sum of $r$ outer products. Therefore matrix rank is precisely a lower bound on this separable-sum representation. It is not a lower bound of comparable magnitude on arbitrary Boolean circuits. The equality circuit combines simple cross-block tests with products; expanding those products into a separable sum can create exponentially many terms.
+
+For contrast, a deterministic one-way communication protocol in which Alice knows $x$, Bob knows $y$, and Alice sends a fixed-length message must send at least $n$ bits for exact equality. If two different $x,x'$ induce the same message, Bob on $y=x$ receives the same information for the accepting pair $(x,x)$ and rejecting pair $(x',x)$, a contradiction. Thus there must be at least $2^n$ messages. This proof identifies another genuinely restricted model. It supplies only a linear communication bound, consistent with the linear circuit, and no superpolynomial time lower bound.
+
+\section{Literature and context}
+The source's Open Problem Garden identity is preserved and is a repeated formulation of the classical problem, not a new independent conjecture. Clay Mathematics Institute's official P-versus-NP page was inspected on 11 October 2026 and continues to present the problem as unsolved. That page is used for current context, not as mathematical evidence for either answer. The rank calculation and circuit construction above are elementary and not claimed novel. No comprehensive survey of circuit lower-bound barriers or novelty check on rank methods was completed.
+
+\section{Verification and remaining gaps}
+The script constructed identity matrices for $n=1,\ldots,8$ and numerically recovered ranks $2,4,\ldots,256$. The algebraic proof already establishes every $n$; these matrix checks are diagnostic only. The gate count was checked at $n=1$, where no final combining gate is needed. The audit separated a uniform machine from circuit families and identified exactly which restricted representation matrix rank controls. To repair this route one would need an invariant that remains bounded for every polynomial-time computation yet grows superpolynomially for a particular NP language; no such invariant or argument is supplied. A large rank alone cannot be that invariant because equality is a counterexample.
+
+\section{References}
+Original S1--S2 above. Clay Mathematics Institute, \emph{P vs NP}, official problem page, \url{https://www.claymath.org/millennium/p-vs-np/}, inspected 11 October 2026. All rank, circuit and communication claims used in the failed-route audit are proved here; no external lower-bound theorem is invoked.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch001/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

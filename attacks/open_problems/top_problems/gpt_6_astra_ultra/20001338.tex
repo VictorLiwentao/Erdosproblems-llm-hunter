@@ -1,0 +1,115 @@
+% RESEARCH_DRAFT_SHA256: 8bce39c30b57b25fb3f2fd9e6bbef76b1ca7da4a5f8585f4388989c05518032c
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001338, "title": "Exact DDH leakage and sampler criteria for the CSIDH torsor", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001338", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and written mathematical review at the declared scope; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Exact DDH leakage and sampler criteria for the CSIDH torsor; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A character distinguisher with exact sampler dependence; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch015 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 20001338; source catalogue code AIM-CRYPTOGRAPHY-0025
+\section{Exact DDH leakage and sampler criteria for the CSIDH torsor}\label{20001338}
+{\small UnsolvedMath ID 20001338 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+The notation $\mathfrak a*E$ denotes the ideal-class action on an elliptic curve. The first distribution uses three independent ideal choices; the second replaces the third action by the product of the first two. Decisional Diffie--Hellman asks whether an algorithm can distinguish the resulting triple distributions.
+\paragraph{Statement recorded in the supplied source.}
+Solve Decisional Diffie-Hellman (DDH) in the context of CSIDH: Let $E_0$ be a supersingular elliptic curve defined over $\mathbb F_p$ with endomorphism ring $\mathbb Z[\pi]$. Distinguish between triples $(\mathfrak a * E_0, \mathfrak b* E_0,\mathfrak c* E_0)$ and triples $(\mathfrak a * E_0, \mathfrak b* E_0,\mathfrak a\mathfrak b * E_0)$ where $\mathfrak a, \mathfrak b, \mathfrak c$ are ideals in $\mathbb Z[\pi]$ of odd norm. \href{http://aimpl.org/quantumalg/5/}{[S2]}
+\paragraph{Scope qualification.}
+The source specifies odd-norm ideals but not their sampling distribution or finite representatives; no distributional hardness claim is assumed.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can independent ideal-action triples be distinguished from triples whose third component uses the product of the first two secret ideals?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001338 (AIM-CRYPTOGRAPHY-0025). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-CRYPTOGRAPHY-0025
+\url{http://aimpl.org/quantumalg/5/}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001338 and source code AIM-CRYPTOGRAPHY-0025 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001338}
+
+\section{Literature and context check}
+Fresh retrieval of the original AIM quantum-algorithm problem pages failed (web timeout and direct network/DNS failure; an escalated retry of the related chapter-four page also failed certificate validation). The supplied original extract remains the source text; successful fresh access to those pages is not claimed. The primary Castryck--Sotakova--Vercauteren abstract on DDH for class-group actions was read. It states that certain genus characters can be evaluated from public curves and identifies an even-class-number regime. Its actual character-evaluation algorithm and elliptic-curve hypotheses are not rederived here, so they are not assumed for every CSIDH parameter set. The supplied question does not specify how odd-norm ideals are sampled. The calculation below isolates exactly what a readable character would imply, including nonuniform sampling.
+\section{Research attempt: A character distinguisher with exact sampler dependence}
+Let a finite abelian group $G$ act freely and transitively on $\mathcal X$, and fix $E_0$. Assume there is a homomorphism $\chi:G\to\{\pm1\}$ and an available map $L:\mathcal X\to\{\pm1\}$ satisfying $L(gE_0)=\chi(g)$. Given a triple $(A,B,C)$, accept the Diffie--Hellman distribution when
+\[
+ L(C)=L(A)L(B).                                      \tag{1}
+\]
+If $(A,B,C)=(aE_0,bE_0,(ab)E_0)$, the test always accepts, directly by the homomorphism identity. In the independent distribution, suppose $a,b,c$ are independent draws with character means $\beta_A,\beta_B,\beta_C$. Then the sign $Z=\chi(a)\chi(b)\chi(c)$ has expectation $\beta_A\beta_B\beta_C$ by independence. Since $\mathbf1\{Z=1\}=(1+Z)/2$, the acceptance probability is
+\[
+ {1+\beta_A\beta_B\beta_C\over2},
+\]
+and the difference in acceptance probabilities is $(1-\beta_A\beta_B\beta_C)/2$. For a common sampler with mean $\beta$, this is $(1-\beta^3)/2$.
+
+If $\chi$ is nontrivial and the group draws are uniform, multiplication by any element of character $-1$ bijects its two fibers. Thus $\beta=0$, the independent acceptance probability is $1/2$, and equal-prior classification by (1) has success probability $3/4$. If the sampler is supported on $\ker\chi$, then $\beta=1$ and the same test has no distinguishing advantage at all. If it is supported on the other coset, $\beta=-1$ and the test distinguishes perfectly, because products return to the kernel while the independent third element does not. Hence the ideal-sampling convention can change this particular test from useless to perfect without changing its algebra.
+
+More generally, suppose a readable surjective homomorphism $\varphi:G\to Q$ to a finite group of order $q$ is given. Under uniform independent group elements its images are uniform: each fiber is a coset of the kernel and has the same size. The analogous test $\varphi(c)=\varphi(a)\varphi(b)$ therefore accepts the independent distribution with probability $1/q$ and the DH distribution with probability one. Readability from the public orbit point is the essential computational premise; the mere existence of an abstract quotient supplies no algorithm to evaluate it.
+
+A further boundary blocks an automatic genus-sign argument. If $|G|$ is odd, a homomorphism $G\to\{\pm1\}$ cannot be nontrivial: a nontrivial map would partition $G$ into two equally sized kernel cosets, contradicting odd cardinality. This does not rule out other distinguishers, but it proves that a nontrivial sign character must be justified before applying (1).
+\section{Verification and adversarial audit}
+Acceptance differences and equal-prior success probability are distinguished. Independence of the three group draws is used only in the independent experiment; the DH third coordinate is correctly dependent. The uniform, kernel-supported and opposite-coset samplers test every extreme $\beta\in\{-1,0,1\}$.
+\paragraph{Audit corrections.} A nontrivial readable character was made an explicit hypothesis. Odd-norm ideal sampling was not silently replaced by uniform class-group sampling, and the known even-class-number result was not asserted for every CSIDH instance.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The calculation is a conditional group-action distinguisher, not a construction of the needed public-curve character for the original family. The exact class group, readable invariant, ideal sampler, and relevant parameter regime remain to be established. The checked primary abstract is evidence for a known restricted attack, not a full solution claimed here.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://eprint.iacr.org/2020/151} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and written mathematical review at the declared scope; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

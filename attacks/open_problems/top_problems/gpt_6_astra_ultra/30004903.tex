@@ -1,0 +1,158 @@
+% RESEARCH_DRAFT_SHA256: 70db98e61e85c2fdf8426aadcad165b57afaf4b1222356479f8309ad3cdee337
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004903, "title": "Linear Bounds for Minimally Integer-Infeasible Systems", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004903", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Let $P=\\{x\\in\\mathbb R^n:Ax\\leq b\\}$ be full-dimensional and minimally integer-infeasible, and let $\\Delta$ be the maximum absolute subdeterminant of $A$. Do functions $f$ and $g$ exist such that the number $m$ of inequalities satisfies $m\\leq nf(\\Delta)+g(\\Delta)$?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The complete classical exponential parity bound uses no higher-minor information; the missing determinant-sensitive argument needed for a linear bound is not supplied.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Minimal integer infeasibility: a complete parity bound and where determinant information is lost}
+\noindent UnsolvedMath ID 30004903; OWR-8415356-014. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+The constraint matrix $A$ is integral, with rows defining the displayed inequalities. Integer-infeasible means $P\cap\mathbb Z^n=\varnothing$; minimally integer-infeasible means deleting any one inequality produces a set containing an integer point. Full-dimensional means that $P$ has nonempty interior in $\mathbb R^n$. The parameter $\Delta$ is the maximum absolute determinant among all square submatrices of $A$.
+\paragraph{Statement recorded in the supplied source.}
+Let $P=\{x\in\mathbb R^n:Ax\leq b\}$ be full-dimensional and minimally integer-infeasible, and let $\Delta$ be the maximum absolute subdeterminant of $A$. Do functions $f$ and $g$ exist such that the number $m$ of inequalities satisfies $m\leq nf(\Delta)+g(\Delta)$? \href{https://doi.org/10.4171/owr/2021/53}{[S2]}
+\paragraph{Scope qualification.}
+The source's subdeterminant-parameter setting uses an integral constraint matrix. The functions $f,g$ are independent of $n,m$ and the particular system; their quantitative growth is not prescribed in the supplied question.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Bound the number of essential inequalities excluding every integer point in terms of dimension and subdeterminant size.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004903 (OWR-8415356-014). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/53, pp. 2893--2954
+\url{https://doi.org/10.4171/owr/2021/53}.
+\item[S3] Combinatorial Optimization, Oberwolfach Reports 53/2021, primary report PDF
+\url{https://ems.press/content/serial-article-files/46931}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Let $P=\{x\in\mathbb R^n:Ax\leq b\}$ be full-dimensional and minimally integer-infeasible, and let $\Delta$ be the maximum absolute subdeterminant of $A$. Do functions $f$ and $g$ exist such that the number $m$ of inequalities satisfies $m\leq nf(\Delta)+g(\Delta)$?
+
+\section{A witness-expansion route}
+The target asks for a bound linear in dimension when every minor
+is bounded. We reconstruct the general exponential parity bound,
+including the facet-witness construction needed to make the midpoint
+argument valid, and locate the exact place where it fails to use
+the determinant promise. This is a rederivation of the classical
+integer Helly mechanism, not a new linear bound.
+
+\paragraph{Deletion witnesses and an integer-free enlargement.}
+Write the original inequalities as $a_i\cdot x\le b_i$,
+with $a_i,b_i$ integral, and suppose deleting any one row
+admits an integer point $z_i$. Thus $z_i$ satisfies all
+rows except possibly row $i$. Since the full system has no
+integer point, $a_i\cdot z_i\ge b_i+1$.
+Start with enlarged right sides $c_i=b_i+1/2$.
+The open system $a_i\cdot x<c_i$ for every $i$ still
+contains no integer point: for an integer point these strict
+inequalities imply $a_i\cdot x\le b_i$ by integrality.
+Moreover $z_i$ satisfies all the other enlarged inequalities
+strictly, since $a_j\cdot z_i\le b_j<c_j$ for $j\ne i$.
+
+Process indices $i=1,\ldots,m$. At its step consider the
+nonempty set of integer points satisfying all current inequalities
+other than $i$ strictly. It is nonempty because it contains
+the original $z_i$: right sides have only increased. Their
+integer values $a_i\cdot z$ are bounded below by the
+current $c_i$, since a smaller value would put $z$ in
+the integer-free open system. Hence these values have a smallest
+integer $t_i$, attained by some point $y_i$. Replace $c_i$
+by $t_i$. This is an enlargement, and it preserves absence of
+integer points in the open system by the definition of the minimum.
+The point $y_i$ now lies on boundary $i$ and strictly inside
+every other current inequality. Later right-side increases preserve
+those strict inequalities, so in the final system
+\[
+a_i\cdot y_i=c_i,
+\qquad a_j\cdot y_i<c_j\quad(j\ne i).
+\]
+Each step is an existence construction; no efficient search for
+the minimizing integer point is asserted.
+
+\paragraph{The parity argument, now valid.}
+If two of the $m$ points $y_i,y_j$ were congruent coordinatewise
+modulo two, their midpoint $u=(y_i+y_j)/2$ would be integral.
+For row $i$ one endpoint is on its boundary and the other is
+strictly below it, so the midpoint satisfies that row strictly.
+The same holds for row $j$, and every other row is strict
+at both endpoints. Thus $u$ belongs to the final open system,
+contradicting integer-freeness. The points occupy distinct classes
+of $\mathbb Z^n/2\mathbb Z^n$, of which there are $2^n$.
+Consequently $m\le2^n$. The proof does not actually need
+full-dimensionality beyond the original setting's promise.
+
+\paragraph{Why directly averaging the original witnesses is invalid.}
+Original deletion witnesses are outside their own halfspace, rather
+than on its boundary. For a row $i$, one witness may violate
+it by more than the slack of another, so their midpoint need
+not satisfy it. An explicit full-dimensional example with integral
+data is $3x\le2$ and $-3x\le-1$. The interval
+$[1/3,2/3]$ is full-dimensional in one dimension, integer-free
+and minimal. Deletion witnesses can be chosen as $z_1=10$ and
+$z_2=0$, both even, but their midpoint five still violates the
+first inequality. Thus parity of arbitrary deletion witnesses alone cannot
+prove the theorem. The boundary construction is essential.
+
+\paragraph{The determinant gap.}
+The proof above counts all $2^n$ parity classes and never uses
+$\Delta$. Merely observing that entries of $A$ lie in
+$[-\Delta,\Delta]$ gives at best $(2\Delta+1)^n$ possible
+rows, again exponential. Repeated rows are unnecessary in a minimal
+system: the weaker of two identical-left-side inequalities is
+redundant, and equal ones can also be deleted. But deleting duplicates
+does not turn that exponential row count into the requested linear
+bound. A useful extension must constrain the possible facet-witness
+or row configurations using the bounds on all higher minors, not
+just parity or entry sizes. No such argument is established here.
+
+\section{Audit}
+The primary question on printed page 2943 was inspected, including
+integrality of both $A$ and $b$. The audit checked existence
+and attainment of each integer minimum in the enlargement, strictness
+of all other facets, preservation under later steps, and the
+distinction between open enlarged systems and the closed original
+one. All steps are hand proofs, with no integer-feasibility oracle
+or finite enumeration used. The requested linear-in-$n$ bound for
+fixed general $\Delta$ remains unresolved in this attempt.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The complete classical exponential parity bound uses no higher-minor information; the missing determinant-sensitive argument needed for a linear bound is not supplied.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 53/2021, Combinatorial Optimization, original question and surrounding discussion read from the primary PDF text on 11 October 2026. Historical statements are not a current-status survey. \url{https://ems.press/content/serial-article-files/46931}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The complete classical exponential parity bound uses no higher-minor information; the missing determinant-sensitive argument needed for a linear bound is not supplied.
+\end{document}

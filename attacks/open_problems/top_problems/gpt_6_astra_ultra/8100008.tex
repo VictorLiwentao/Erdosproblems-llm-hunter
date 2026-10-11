@@ -1,0 +1,85 @@
+% TOP_PROBLEM: {"id": 8100008, "title": "Rigorous Diffraction from Two Slits", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The source does not fix slit geometry, screen boundary condition or incident field in its short formulation; these must be stated for any proposed solution. The Helmholtz description is explanatory context, not an invented choice of Dirichlet or Neumann target."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "8100008", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Find an explicit rigorous solution and asymptotic analysis for diffraction through two finite planar slits.", "scope": "Evaluated the two-uniform-aperture Fourier pattern and identified the unproved aperture-trace assumption. The coupled Helmholtz diffraction problem and rigorous exact asymptotics remain unresolved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked aperture endpoints, q=0, separation d>a, intensity zeros and the distinction between imposed aperture amplitudes and a boundary-value solution. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the two aperture integrals, limiting zero-frequency value and distinction between prescribed aperture data and the unknown physical trace. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked aperture endpoints, q=0, separation d>a, intensity zeros and the distinction between imposed aperture amplitudes and a boundary-value solution. Scope remains limited: Determine the coupled aperture traces with edge and radiation control for a specified incident wave and screen condition."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 8100008; source catalogue code AMR-080-0008
+\setcounter{section}{8100007}
+\section{Rigorous Diffraction from Two Slits}\label{8100008}
+{\small UnsolvedMath ID 8100008 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}At a fixed scalar-wave frequency the spatial field satisfies a Helmholtz equation $(\Delta+k^2)u=0$ away from the diffracting screen, with $k>0$. A diffraction problem includes an incident wave, boundary conditions on the screen and an outgoing radiation condition. Two finite slits introduce multiple edges and interactions absent from the single-slit setting.
+
+\paragraph{Catalogue wording retained for traceability.}
+Give a rigorous explicit solution of the fixed-frequency scalar-wave diffraction problem for two finite slits in the plane, including asymptotics of the solution.
+\paragraph{Scope and source qualification.}The source does not fix slit geometry, screen boundary condition or incident field in its short formulation; these must be stated for any proposed solution. The Helmholtz description is explanatory context, not an invented choice of Dirichlet or Neumann target.
+\subsection{Short English statement}
+Find an explicit rigorous solution and asymptotic analysis for diffraction through two finite planar slits.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Evaluated the two-uniform-aperture Fourier pattern and identified the unproved aperture-trace assumption. The coupled Helmholtz diffraction problem and rigorous exact asymptotics remain unresolved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{A specified aperture approximation.}Choose two parallel intervals of width \(a>0\) centered at \(\pm d/2\), with \(d>a\), on an otherwise opaque planar screen. Prescribe a uniform aperture amplitude one and define its Fourier far-field approximation at transverse wave number \(q\) by integrating over the two openings. Elementary integration yields
+\[F(q)=\int_{-d/2-a/2}^{-d/2+a/2}e^{-iqy}dy+\int_{d/2-a/2}^{d/2+a/2}e^{-iqy}dy
+=2a\,\frac{\sin(qa/2)}{qa/2}\cos(qd/2).
+\]
+At \(q=0\), the continuous value is \(2a\); the intensity is \(4a^2\operatorname{sinc}^2(qa/2)\cos^2(qd/2)\), where \(\operatorname{sinc}(z)=\sin z/z\) with value one at zero. This separates aperture-width zeros from interference zeros, except where they coincide.
+\paragraph{The precise failure as an exact solution.}The uniform amplitude is an imposed aperture datum. In a Helmholtz screen problem the aperture trace is an unknown determined jointly with normal derivatives, edge singularities and the radiation condition. Summing two single-aperture responses also generally changes the field on the other aperture and cannot enforce both sets of boundary conditions independently. The Fourier calculation thus assumes the main quantity that an exact two-slit solution must determine.
+\paragraph{Gap.}The first missing step is solving the coupled aperture boundary integral equation for a specified incident field and screen boundary condition, with enough edge control to justify far-field asymptotics. Neither the primary short source nor this test fixes a universal Dirichlet/Neumann choice. The displayed formula is a rigorous evaluation within an explicitly declared approximation, not an exact solution of the original diffraction problem or a theorem about all slit geometries.
+
+\paragraph{Verification and adversarial audit.}
+Checked aperture endpoints, q=0, separation d>a, intensity zeros and the distinction between imposed aperture amplitudes and a boundary-value solution. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked aperture endpoints, q=0, separation d>a, intensity zeros and the distinction between imposed aperture amplitudes and a boundary-value solution. Scope remains limited: Determine the coupled aperture traces with edge and radiation control for a specified incident wave and screen condition.
+
+Coordinator checked the two aperture integrals, limiting zero-frequency value and distinction between prescribed aperture data and the unknown physical trace. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Determine the coupled aperture traces with edge and radiation control for a specified incident wave and screen condition.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:8100008:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 8100008 (AMR-080-0008). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:8100008:2}{S2}] Percy Deift, Some Open Problems in Random Matrix Theory and the Theory of Integrable Systems. II, SIGMA 13 (2017), 016, final two-slit question.
+\url{https://arxiv.org/abs/1703.04931}.
+\item[\hypertarget{source:8100008:3}{S3}] Primary full-text formulation and 2017 historical progress discussion.
+\url{https://arxiv.org/html/1703.04931v1}.
+\end{itemize}
+\label{end:8100008}
+\end{document}

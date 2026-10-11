@@ -1,0 +1,91 @@
+% TOP_PROBLEM: {"id": 30002802, "title": "Quantum-Group and Affine-Hecke Solutions of Boundary qKZ Equations", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "This comparison depends on matching parameters, normalizations and analytic domains of the two constructions; an arbitrary basis identification is not the requested relation."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002802", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Relate boundary qKZ solutions built by quantum groups or q-integrals to the affine-Hecke basis selected by chamber asymptotics.", "scope": "Derives q-periodic connection matrices and a precise limiting-normalization condition forcing equality of two fundamental solutions.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked matrix order, invertibility and orbit-domain assumptions, plus an explicit nonconstant periodic factor without a zero limit. Model self-audit only; no independent human proof checking. Coordinator checked the multiplicatively periodic connection matrix and its continuous-zero-limit normalization criterion. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked matrix order, invertibility and orbit-domain assumptions, plus an explicit nonconstant periodic factor without a zero limit. Retained unresolved status and zero original-target progress; The actual q-integral/correlation asymptotics and chamber normalizations have not been matched to eliminate periodic connection factors."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30002802; source catalogue code OWR-13495-003
+\setcounter{section}{30002801}
+\section{Quantum-Group and Affine-Hecke Solutions of Boundary qKZ Equations}\label{30002802}
+{\small UnsolvedMath ID 30002802 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+The boundary quantum Knizhnik--Zamolodchikov (qKZ) equations are compatible difference equations for vector-valued functions of spectral parameters, with exchange operators built from $R$- and boundary $K$-matrices. An affine Hecke algebra is the deformation of an affine Weyl-group algebra subject to braid and quadratic relations. A Weyl chamber is a region determined by inequalities between root coordinates. A $q$-integral is the discrete analogue of integration adapted to multiplicative $q$-shifts.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Determine the relation between the special boundary quantum Knizhnik–Zamolodchikov solutions obtained as quantum correlation functions or $q$-integrals and the affine-Hecke-algebra basis characterized by its asymptotics in a Weyl chamber.
+
+\paragraph{Source scope and qualification.}
+This comparison depends on matching parameters, normalizations and analytic domains of the two constructions; an arbitrary basis identification is not the requested relation.
+\subsection{Short English statement}
+Relate boundary qKZ solutions built by quantum groups or q-integrals to the affine-Hecke basis selected by chamber asymptotics.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derives q-periodic connection matrices and a precise limiting-normalization condition forcing equality of two fundamental solutions.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{The connection coefficient is initially q-periodic.} Consider a common one-variable difference system $F(qz)=A(z)F(z)$ with $0<|q|<1$ and invertible matrix solutions $F,G$ on a $q$-stable domain. Define $C(z)=F(z)^{-1}G(z)$. Substitution gives
+\[
+ C(qz)=F(z)^{-1}A(z)^{-1}A(z)G(z)=C(z).
+\]
+Thus two fundamental solutions differ by a multiplicatively periodic matrix, not automatically a constant. The same argument in several variables yields invariance under every independent compatible shift.
+
+\paragraph{A useful normalization criterion.} If $C$ extends continuously to $z=0$, then for every point whose forward $q$-orbit remains in the domain, $C(z)=C(q^nz)\to C(0)$, so it is constant there. If the two constructions have identical normalized leading asymptotics, then $C(0)=I$ and the solutions agree on that domain. Without the extension hypothesis, nonconstant log-periodic functions are possible: on the positive real axis, $C(z)=\exp(2\pi i\log z/\log q)$ for real $0<q<1$ is $q$-periodic and lacks a limit at zero.
+
+\paragraph{Boundary-qKZ obstruction.} The source bases can have singular exponents, chamber-dependent asymptotics and nontrivial connection matrices. Their quantum correlation or $q$-integral normalizations have not been shown to satisfy the extension criterion after matching parameters. The first gap is analytic control of those asymptotics and of permissible $q$-periodic factors. Merely proving both families solve the same difference equations would not identify the affine-Hecke asymptotic basis.
+
+\paragraph{Verification and adversarial audit.}
+Checked matrix order, invertibility and orbit-domain assumptions, plus an explicit nonconstant periodic factor without a zero limit. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked matrix order, invertibility and orbit-domain assumptions, plus an explicit nonconstant periodic factor without a zero limit. Retained unresolved status and zero original-target progress; The actual q-integral/correlation asymptotics and chamber normalizations have not been matched to eliminate periodic connection factors.
+
+Coordinator checked the multiplicatively periodic connection matrix and its continuous-zero-limit normalization criterion. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. The actual q-integral/correlation asymptotics and chamber normalizations have not been matched to eliminate periodic connection factors.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. The actual q-integral/correlation asymptotics and chamber normalizations have not been matched to eliminate periodic connection factors.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30002802:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30002802 (OWR-13495-003). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30002802:2}{S2}] Mini-Workshop: Coideal Subalgebras of Quantum Groups (2015), Oberwolfach Reports, DOI 10.4171/owr/2015/10, pp. 533--569. Primary report accessed 2026-10-11; relevant PDF pages 31.
+\url{https://doi.org/10.4171/owr/2015/10}.
+\end{itemize}
+\label{end:30002802}
+\end{document}

@@ -1,0 +1,92 @@
+% TOP_PROBLEM: {"id": 30004023, "title": "The Quantum Unique Ergodicity Conjecture", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The supplied sentence asks equidistribution of all eigenfunctions, without discarding an exceptional subsequence. The displayed spatial criterion explains that wording; the microlocal version is identified separately and not silently treated as the same weaker target."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004023", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Must every high-energy eigenfunction sequence on a compact negatively curved manifold become uniformly distributed?", "scope": "Proved the density-zero consequence of variance control and explicitly falsified its upgrade to all-index equidistribution; no eigenfunction counterexample or QUE proof.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the sparse-square averages and distinguished arbitrary diagnostic measures from genuine eigenfunction semiclassical measures. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the counting estimate for fixed thresholds and the sparse square-index exception. The artificial measures are not claimed to be eigenfunction measures. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked the sparse-square averages and distinguished arbitrary diagnostic measures from genuine eigenfunction semiclassical measures. The remaining gap is: Exclude exceptional high-energy eigenfunction subsequences by a uniform argument using the actual negative-curvature geometry. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30004023; source catalogue code OWR-16636-006
+\setcounter{section}{30004022}
+\section{The Quantum Unique Ergodicity Conjecture}\label{30004023}
+{\small UnsolvedMath ID 30004023 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+Let $(M,g)$ be a compact boundaryless negatively curved Riemannian manifold and $-\Delta_g\varphi_j=\lambda_j^2\varphi_j$, with $\|\varphi_j\|_{L^2}=1$ and $\lambda_j\to\infty$. Configuration-space equidistribution means $\int_M a|\varphi_j|^2\,d\mathrm{vol}_g\to \mathrm{vol}_g(M)^{-1}\int_M a\,d\mathrm{vol}_g$ for every continuous test function $a$. The standard stronger microlocal QUE formulation concerns convergence of semiclassical measures on the unit cotangent bundle to normalized Liouville measure.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+On every compact negatively curved manifold, do all high-energy Laplace eigenfunctions equidistribute?
+
+\paragraph{Source scope and qualification.}
+The supplied sentence asks equidistribution of all eigenfunctions, without discarding an exceptional subsequence. The displayed spatial criterion explains that wording; the microlocal version is identified separately and not silently treated as the same weaker target.
+\subsection{Short English statement}
+Must every high-energy eigenfunction sequence on a compact negatively curved manifold become uniformly distributed?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved the density-zero consequence of variance control and explicitly falsified its upgrade to all-index equidistribution; no eigenfunction counterexample or QUE proof.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30004023. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{Testing the density-one route.} A common attempted upgrade starts from an averaged variance estimate for a fixed observable. Abstractly, let \(a_j\ge0\) be its squared equidistribution error and suppose \(N^{-1}\sum_{j\le N}a_j\to0\). For every \(\delta>0\), the number of \(j\le N\) with \(a_j\ge\delta\) is at most \(\delta^{-1}\sum_{j\le N}a_j=o(N)\). This establishes a zero-density exceptional set for each fixed threshold, but not its absence.
+\paragraph{An exact obstruction to the upgrade.} Set \(a_j=1\) when \(j\) is a perfect square and zero otherwise. Then
+\[
+ \frac1N\sum_{j\le N}a_j=\frac{\lfloor\sqrt N\rfloor}{N}\longrightarrow0,
+ \qquad a_{n^2}=1.
+\]
+The same issue can be expressed by probability measures: take normalized volume measure except at square indices, where take a fixed point mass. For a continuous observable separating that point from its volume average, its errors behave exactly in this sparse way.
+\paragraph{Source scope and gap.} These constructed measures are not claimed to be eigenfunction measures on a negatively curved manifold. They refute only the logical inference from averaged control to control of every eigenfunction, which is the source's explicit quantifier. Neither negative-curvature dynamics nor eigenfunction equations have been used to rule out the exceptional subsequence. The first gap is a uniform mechanism excluding every such concentration sequence. Spatial equidistribution and the stronger microlocal statement remain distinguished, and no arithmetic special-case theorem or current general status is asserted from memory.
+
+\paragraph{Verification and adversarial audit.}
+Checked the sparse-square averages and distinguished arbitrary diagnostic measures from genuine eigenfunction semiclassical measures. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked the sparse-square averages and distinguished arbitrary diagnostic measures from genuine eigenfunction semiclassical measures. The remaining gap is: Exclude exceptional high-energy eigenfunction subsequences by a uniform argument using the actual negative-curvature geometry. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the counting estimate for fixed thresholds and the sparse square-index exception. The artificial measures are not claimed to be eigenfunction measures. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Exclude exceptional high-energy eigenfunction subsequences by a uniform argument using the actual negative-curvature geometry.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30004023:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30004023 (OWR-16636-006). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30004023:2}{S2}] Free Probability Theory (2018), Oberwolfach Reports, DOI 10.4171/owr/2018/53, pp. 3147--3215. Primary report accessed 2026-10-11; relevant PDF pages 55.
+\url{https://doi.org/10.4171/owr/2018/53}.
+\item[\hypertarget{source:30004023:3}{S3}] Lindenstrauss (2006) (catalogue-listed context; not independently consulted in this preparation).
+\url{https://annals.math.princeton.edu/2006/163-1/p03}.
+\item[\hypertarget{source:30004023:4}{S4}] Soundararajan (2010) (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/0901.4060}.
+\end{itemize}
+\label{end:30004023}
+\end{document}

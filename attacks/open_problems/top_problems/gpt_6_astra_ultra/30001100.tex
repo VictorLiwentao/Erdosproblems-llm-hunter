@@ -1,0 +1,154 @@
+% RESEARCH_DRAFT_SHA256: 830659a0503121b79149daf9c2c2317cdf2ed35e5e780f5d71a097786211d0da
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30001100, "title": "Convex-Hull Decomposition for Mixed-Integer Bipartite Systems", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001100", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Let $G$ be bipartite, let $I$ be the set of integral-coordinate vertices, and let $S(G,I)=\\{x:x_i+x_j\\geq b_{ij}\\text{ for }ij\\in E,\\ x_i\\in\\mathbb{Z}\\text{ for }i\\in I\\}$. If $T$ ranges over subtrees of $G$ for which $I_T=V(T)\\cap I$ is the set of leaves, is $\\operatorname{conv}(S(G,I))=\\bigcap_T\\operatorname{conv}(S(T,I_T))$? The conjecture is known for denominator parameter $k=2$ and open for $k\\geq3$.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The literal intersection lacks ambient constraints; after acknowledging that defect, no reverse inclusion for the intended general mixed-integer conjecture is proved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Subtree-hull attempt: the ambient-relaxation omission and an integral boundary case}
+\noindent UnsolvedMath ID 30001100; OWR-2489-004. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a subtree $T$, its constraints and integral coordinates are restricted from the graph. The conjectured equality compares the convex hull of all mixed-integer solutions with the simultaneous convex-hull restrictions from the specified subtrees.
+
+An integer program imposes integral coordinates on a system of constraints. A mixed-integer program allows both integral and real coordinates; $\operatorname{conv}(S)$ denotes the set of finite convex combinations of feasible points of $S$.
+\paragraph{Statement recorded in the supplied source.}
+Let $G$ be bipartite, let $I$ be the set of integral-coordinate vertices, and let $S(G,I)=\{x:x_i+x_j\geq b_{ij}\text{ for }ij\in E,\ x_i\in\mathbb{Z}\text{ for }i\in I\}$. If $T$ ranges over subtrees of $G$ for which $I_T=V(T)\cap I$ is the set of leaves, is $\operatorname{conv}(S(G,I))=\bigcap_T\operatorname{conv}(S(T,I_T))$? The conjecture is known for denominator parameter $k=2$ and open for $k\geq3$. \href{https://doi.org/10.4171/owr/2008/51}{[S2]}
+\paragraph{Scope qualification.}
+The denominator parameter $k$ is not defined in the supplied question; its arithmetic assumptions are those of the report.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Determine whether all the stated leaf-integral subtree constraints describe the full mixed-integer convex hull.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30001100 (OWR-2489-004). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2009), Oberwolfach Reports, DOI 10.4171/owr/2008/51, pp. 2875--2942
+\url{https://doi.org/10.4171/owr/2008/51}.
+\item[S3] current single-source flow results
+\url{https://doi.org/10.1007/s10107-026-02365-x}.
+\item[S4] Salazar--Skutella
+\url{https://doi.org/10.1016/S0167637709000133}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Let $G$ be bipartite, let $I$ be the set of integral-coordinate vertices, and let $S(G,I)=\{x:x_i+x_j\geq b_{ij}\text{ for }ij\in E,\ x_i\in\mathbb{Z}\text{ for }i\in I\}$. If $T$ ranges over subtrees of $G$ for which $I_T=V(T)\cap I$ is the set of leaves, is $\operatorname{conv}(S(G,I))=\bigcap_T\operatorname{conv}(S(T,I_T))$? The conjecture is known for denominator parameter $k=2$ and open for $k\geq3$.
+
+\section{Source recovery and literal-scope audit}
+The report defines $k$ as the least positive integer for which every
+$kb_{ij}$ is integral, with rational right-hand sides. Its Conjecture 2
+really prints the subtree intersection in the supplied record and reports
+it known for $k=2$. Subtree hulls live on fewer coordinates; throughout,
+interpret them as cylinders in the full coordinate space.
+Under that literal reading the displayed identity omits an essential ambient
+restriction. Let $G$ be one edge $uv$, $I=\{u\}$, and $b_{uv}=1/3$.
+The only subtree containing the edge has leaves $\{u,v\}$, which are not
+exactly its integral vertices. Thus it is not allowed. Singleton subtrees,
+if a leaf convention allows any of them, have no edge inequalities and
+convex hull equal to the whole one-dimensional line, whether their sole
+coordinate is integral or continuous. Consequently the displayed right-hand
+side is $\mathbb R^2$, including $(0,0)$, whereas every point of
+$\operatorname{conv}(S(G,I))$ satisfies $x_u+x_v\ge1/3$.
+The same argument with $b_{uv}=1/2$ conflicts with the source's own known-$k=2$
+remark. This is evidence of a missing ambient-domain convention, not a
+new disproof of the intended research conjecture. We do not silently repair
+the original definition or claim a full solution from that omission.
+
+\paragraph{The easy inclusion survives every such convention.}
+For each allowed subtree $T$, restriction of any point of $S(G,I)$ lies
+in $S(T,I_T)$. Restriction is linear, so restricting a finite convex
+combination gives a convex combination of such subtree points. Therefore
+\[
+\operatorname{conv}(S(G,I))\subseteq
+\bigcap_T\operatorname{conv}(S(T,I_T)).
+\]
+The unresolved mathematical direction is the reverse, with whatever original
+ambient relaxation was intended. A generic appeal to convexity proves only
+the displayed easy inclusion.
+
+\section{A complete boundary case for the attempted rounding route}
+Suppose first that every coordinate is integral. Put
+$B_{uv}=\lceil b_{uv}\rceil$ and
+$Q=\{x:x_u+x_v\ge B_{uv}\text{ for }uv\in E\}$.
+We prove $Q=\operatorname{conv}(S(G,U\cup V))$ directly.
+For $x\in Q$, change signs on the second bipartition: $y_u=x_u$ for
+$u\in U$ and $y_v=-x_v$ for $v\in V$. Then
+$y_u-y_v\ge B_{uv}$, an integer right-hand side.
+For one common $\theta\in[0,1)$ set $z_i=\lfloor y_i+\theta\rfloor$.
+Since $y_u\ge y_v+B_{uv}$, monotonicity of the floor and its invariance
+under integer translation imply $z_u-z_v\ge B_{uv}$.
+Undo the sign change. The resulting vector is integral and feasible for
+all original edges simultaneously. Each rounded coordinate has expectation
+$y_i$ under uniform $\theta$: writing $y_i=m_i+r_i$, $0\le r_i<1$,
+its two values $m_i,m_i+1$ have probabilities $1-r_i,r_i$.
+There are finitely many threshold values $1-r_i$, so the rounded vectors
+have a finite distribution. Their weighted average is $x$, proving the
+nontrivial hull inclusion. The reverse follows because an integral sum
+at least $b_{uv}$ is at least $B_{uv}$ and inequalities persist under averaging.
+
+In this all-integral case, every single edge is an admissible subtree and
+its hull is its rounded half-space by the same two-vertex proof. Their
+intersection is $Q$. Every larger admissible subtree imposes valid
+restrictions on the global hull, so the subtree intersection equals $Q$.
+This verifies a special case for arbitrary rational denominators, but it
+is standard bipartite integral rounding, not progress for the mixed case.
+If all $b_{uv}$ are integral, the same rounding also shows that the
+continuous relaxation is the hull for every choice of $I$: it expresses
+any relaxed point as an average of fully integral feasible points, which
+are in particular feasible for the prescribed subset $I$.
+
+\section{Why the general rounding attempt fails and what is left}
+For a fractional right-hand side the common-floor proof cannot use
+$\lfloor a+B\rfloor=\lfloor a\rfloor+B$, since $B$ is no longer integral.
+Already on one edge with $x_u=x_v=1/4$ and $b_{uv}=1/2$, the sign-changed
+coordinates are $1/4,-1/4$. For $1/4\le\theta<3/4$, both floors are
+zero, yielding a rounded sum zero that violates the edge inequality.
+Rounding only the designated integral vertices requires a correlated
+adjustment of continuous neighbors; doing it independently does not inherit
+the integer-difference argument. The source's finer subtree facets are
+precisely the kind of information this crude rounding ignores.
+The audit distinguished the literal omitted-relaxation diagnostic from the
+intended mixed-integer conjecture, handled singleton-leaf conventions, and
+used finite convex combinations rather than an unexamined closure operation.
+No computation was performed. The intended general denominator case remains
+unresolved, and the source omission is not assigned mathematical progress credit.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The literal intersection lacks ambient constraints; after acknowledging that defect, no reverse inclusion for the intended general mixed-integer conjecture is proved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 51/2008: Conforti, Combinatorial Mixed-Integer Programming, printed pp.2904--2905; Alcuin-number contribution, pp.2891--2893. Each relevant original passage read from cached primary PDF text on 11 October 2026. \url{https://ems.press/content/serial-article-files/46195}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The literal intersection lacks ambient constraints; after acknowledging that defect, no reverse inclusion for the intended general mixed-integer conjecture is proved.
+\end{document}

@@ -1,0 +1,85 @@
+% TOP_PROBLEM: {"id": 30006231, "title": "Unique Ground-State Representability under Linear Constraints", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The catalogue wording below summarizes finite-dimensional uniqueness and degenerate cases. The primary report already develops those cases under its stated independent-observable assumptions; its explicit open question is the infinite-dimensional extension. Linear dependence of the original observable family is excluded in the report's finite-dimensional setup."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006231", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Extend the finite-dimensional constrained-search and multiplier theory to an infinite-dimensional Hilbert space.", "scope": "Constructed bounded commuting independent data with a feasible expectation constraint but unattained energy infimum and no multiplier ground state.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked linear independence, commuting bounded domains, exact expectation value, nonattainment for all density matrices and spectral infimum for every real beta. Model self-audit only; no independent human mathematical verification.  No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked linear independence, commuting bounded domains, exact expectation value, nonattainment for all density matrices and spectral infimum for every real beta. First remaining gap: Identify source-appropriate compactness/coercivity hypotheses ensuring infinite-dimensional attainment before extending regular and degenerate multiplier uniqueness. The inherited source status is preserved; original-target completion remains zero. Additional GPT-6 Astra reviewer (ultra reasoning): Checked bounded self-adjoint commuting H0 and B, and linear independence of I and the even-site projection B. Checked feasibility of each Gamma_k, its trace-one normalization, expectation 1/2 and energy converging to zero. For arbitrary positive trace-one Gamma, checked strict positivity of sum_n Gamma_nn/n even with off-diagonal entries, so no minimizer attains the infimum. Checked the parity spectra of H0+beta B: their infima are 0 and beta and neither branch attains its own infimum; therefore min(0,beta) is never a ground eigenvalue. Confirmed the draft targets failure of an assumption-free infinite-dimensional extension and does not attack the established finite-dimensional independent-observable theory."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30006231; source catalogue code OWR-14299094-001
+\setcounter{section}{30006230}
+\section{Unique Ground-State Representability under Linear Constraints}\label{30006231}
+{\small UnsolvedMath ID 30006231 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+For observables $B_i$ and density matrix $\Gamma$, the expectation vector is $b_i=\operatorname{Tr}(B_i\Gamma)$. Constrained search fixes $b$ while minimizing energy. Multipliers $\beta=(\beta_1,\ldots,\beta_m)$ enter a Hamiltonian of the form $H_0+\sum_i\beta_iB_i$, with the sign convention fixed by the source. The report initially assumes a finite-dimensional Hilbert space, self-adjoint operators $H_0,B_i$, commuting $B_i$, and linear independence of $\{I,B_1,\ldots,B_m\}$. It proves uniqueness of the multiplier vector for regular expectation values and treats critical or degenerate exceptions.
+
+\paragraph{Question recovered from the primary report.}Extend this constrained-search and multiplier theory to an infinite-dimensional Hilbert space, potentially retaining a finite family of observables $B_i$, with appropriate domains and regularity assumptions.
+
+\paragraph{Catalogue wording retained for traceability.}
+For a constrained-search problem with observables $B_1,\ldots,B_m$, characterize when a prescribed expectation vector has a unique representing parameter $\beta\in\mathbb{R}^m$ and a unique ground-state representation, including critical values and degenerate ground spaces.
+
+\paragraph{Scope and source qualification.}The catalogue wording below summarizes finite-dimensional uniqueness and degenerate cases. The primary report already develops those cases under its stated independent-observable assumptions; its explicit open question is the infinite-dimensional extension. Linear dependence of the original observable family is excluded in the report's finite-dimensional setup.
+\subsection{Short English statement}
+Extend the finite-dimensional constrained-search and multiplier theory to an infinite-dimensional Hilbert space.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Constructed bounded commuting independent data with a feasible expectation constraint but unattained energy infimum and no multiplier ground state.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30006231. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{An infinite-dimensional loss-of-attainment test.} Let the Hilbert space be \(\ell^2(\mathbb N)\), with basis \(e_n\), bounded self-adjoint \(H_0e_n=n^{-1}e_n\), and observable \(Be_n=e_n\) for even \(n\), \(Be_n=0\) for odd \(n\). The operators commute and \(I,B\) are linearly independent, as required by the finite-dimensional source assumptions. Prescribe \(\operatorname{Tr}(B\Gamma)=1/2\) for trace-one positive density operators.
+\paragraph{The infimum is not a ground state.} The admissible states
+\[
+ \Gamma_k=\tfrac12|e_{2k}\rangle\langle e_{2k}|+
+ \tfrac12|e_{2k+1}\rangle\langle e_{2k+1}|
+\]
+have energy \(\tfrac12((2k)^{-1}+(2k+1)^{-1})\to0\). Every admissible density operator has strictly positive energy: its diagonal probabilities are nonnegative, sum to one, and each coefficient \(1/n\) is positive. Hence the constrained infimum zero is not attained. For any real multiplier \(\beta\), \(H_0+\beta B\) has spectral infimum \(\min(0,\beta)\), approached along one parity but never attained by an eigenvector. No multiplier repairs the missing ground state.
+\paragraph{Implication and limit.} This counterexample disproves an assumption-free infinite-dimensional transfer of finite-dimensional existence, even with bounded commuting independent observables. It does not refute the source programme, which explicitly asks for suitable domains and regularity assumptions. The first missing ingredient is compactness or coercivity ensuring attainment; only then can uniqueness of multipliers and representations, regular/critical values and degeneracies be addressed. No claim to supersede the already developed finite-dimensional theory is made.
+
+\paragraph{Verification and adversarial audit.}
+Checked linear independence, commuting bounded domains, exact expectation value, nonattainment for all density matrices and spectral infimum for every real beta. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked linear independence, commuting bounded domains, exact expectation value, nonattainment for all density matrices and spectral infimum for every real beta. First remaining gap: Identify source-appropriate compactness/coercivity hypotheses ensuring infinite-dimensional attainment before extending regular and degenerate multiplier uniqueness. The inherited source status is preserved; original-target completion remains zero. Additional GPT-6 Astra reviewer (ultra reasoning): Checked bounded self-adjoint commuting H0 and B, and linear independence of I and the even-site projection B. Checked feasibility of each Gamma\_k, its trace-one normalization, expectation 1/2 and energy converging to zero. For arbitrary positive trace-one Gamma, checked strict positivity of sum\_n Gamma\_nn/n even with off-diagonal entries, so no minimizer attains the infimum. Checked the parity spectra of H0+beta B: their infima are 0 and beta and neither branch attains its own infimum; therefore min(0,beta) is never a ground eigenvalue. Confirmed the draft targets failure of an assumption-free infinite-dimensional extension and does not attack the established finite-dimensional independent-observable theory.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Identify source-appropriate compactness/coercivity hypotheses ensuring infinite-dimensional attainment before extending regular and degenerate multiplier uniqueness.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30006231:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30006231 (OWR-14299094-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30006231:2}{S2}] Mathematical Methods in Quantum Chemistry (2025), Oberwolfach Reports, DOI 10.4171/owr/2025/15, pp. 615--688. Original report and mathematical context. Incorporated report material remains under the source CC BY-SA 4.0 terms unless otherwise noted.
+\url{https://doi.org/10.4171/owr/2025/15}.
+\end{itemize}
+\label{end:30006231}
+\end{document}

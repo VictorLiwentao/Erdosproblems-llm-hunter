@@ -1,0 +1,95 @@
+% RESEARCH_DRAFT_SHA256: d2f464fd67d747b5a2cde478930bf1ace1cd924fae2057c7d095b49e9fb362a2
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001221, "title": "Exact Bayesian evidence and prediction for finite latent discrete models", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001221", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Exact Bayesian prediction counterexample to parameterization-independent uniform priors.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch005/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 20001221; source catalogue code AIM-COMPUTATION-0059
+\section{Exact Bayesian evidence and prediction for finite latent discrete models}\label{20001221}
+{\small UnsolvedMath ID 20001221 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For latent variables $Z$, parameters $\theta$, and observed data $D$, a Bayesian predictive distribution integrates the conditional observable distribution over the posterior law of $\theta$ and, where necessary, over $Z$. Identifiability asks whether distinct parameters produce the same observable distribution.
+\paragraph{Statement recorded in the supplied source.}
+Problem 45 (Fienberg). Computing the full distributions for observables using Bayesian extensions. Predictive distributions. Dinwoodie: How might you use algebra to pursue Bayesian directions in model fit criteria? Sturmfels: How to you compute this in Macaulay 2? What is Bayesian algebraic geometry? Fienberg: Taking mixtures of things the different models we have discussed at this conference. Meek: Finding the modes of the posterior distributions could be an interesting research problem. Pistone: You could use moment generating functions and cumulant generating func-tions for these problems. Fienberg: Identifiability is a big issue in the Bayesian context. Wynn: How may Edgeworth corrections play a role in this problem? \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The source bundles questions on posterior modes, mixtures, identifiability, and computational methods. It specifies no unique prior or universal symbolic formula.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can algebraic methods help compute Bayesian observable and predictive distributions in the model families discussed at the workshop?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001221 (AIM-COMPUTATION-0059). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0059
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001221 and source code AIM-COMPUTATION-0059 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001221}
+
+
+\section{Research attempt}
+\subsection{Literature and scope}
+Problem 45 is a collection of Bayesian questions, including prediction and identifiability. I tested whether a uniform prior on a convenient latent parameterization can be used as if it were uniform on the observable model. The following exact predictive calculation shows that it cannot. This is an elementary prior-dependence example, not a new Bayesian algebraic method.
+\begin{proposition}
+Two priors on parameterizations of the full Bernoulli observable family give posterior predictive success probabilities $2/3$ and $7/12$ after one observed success.
+\end{proposition}
+\begin{proof}
+First put the uniform prior on the observable success probability $q\in[0,1]$. For a prior on $q$, observing a single success weights it by $q$, so the probability of a further success is $E(q^2)/E(q)$. Uniform $q$ gives $E(q)=1/2$ and $E(q^2)=1/3$, hence $2/3$.
+
+Now write $q=(a+b)/2$ as an equal-weight mixture of two Bernoulli components and put independent uniform priors on $a,b\in[0,1]$. The observable image is still the whole interval: take $a=b=q$ for any desired $q$. But
+\[
+E(q)=\tfrac12,\qquad E(q^2)=\tfrac14\bigl(E(a^2)+2E(a)E(b)+E(b^2)\bigr)
+=\tfrac14(1/3+1/2+1/3)=7/24.
+\]
+Its predictive success probability is therefore $7/12$, which differs from $2/3$. This calculation already integrates over the latent parameters; no unobserved component assignments were fixed.
+\end{proof}
+\subsection{Failed route and original-scope comparison}
+The two likelihood families on observable distributions coincide, but their pushed-forward priors do not. Thus replacing an unidentifiable mixture by its observable image while retaining the phrase ``uniform prior'' changes the inference. A prior measure must be pushed forward explicitly before quotienting parameters. The two-dimensional latent integration here is exactly tractable; it does not give general posterior modes, model-fit criteria, Macaulay2 algorithms or Edgeworth corrections requested in the broader source discussion.
+\subsection{Verification and remaining gaps}
+All moments were integrated symbolically by $\int_0^1x^k\,dx=1/(k+1)$ and combined using rational arithmetic. The compared predictions are conditional on the stated, different priors and are not a claim that one prior is universally preferable. No new original-target completion is claimed.
+
+\section{References and source attribution}
+The original question is credited to the AIM workshop list prepared by Seth Sullivant (2004), \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}. The source question and catalogue attribution are reproduced above. This list was accessed on 11 October 2026; it is historical evidence of the question, not a certification of present open status.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch005/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

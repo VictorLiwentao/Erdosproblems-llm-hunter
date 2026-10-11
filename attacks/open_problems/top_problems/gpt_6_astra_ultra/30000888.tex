@@ -1,0 +1,156 @@
+% RESEARCH_DRAFT_SHA256: 994a99f70ba0d8ab3e4ff30d5398571efa6072260afa0c3b9fcfcf3b93471b80
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000888, "title": "Half-Distance Decoding for Hypergraph Codes", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000888", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "For the $t$-partite, $t$-uniform hypergraph codes defined from a local binary code and a regular expanding hypergraph, can one construct an efficient low-complexity decoder that corrects errors up to half the designed minimum distance for each fixed $t$?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The proved LP certificate only covers error patterns locally sparse at every vertex, and no expansion-based certificate covers every pattern up to half the global designed distance.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Hypergraph decoding attempt through a local-polytope certificate}
+\noindent UnsolvedMath ID 30000888; OWR-1739-002. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+In the LOCAL model vertices communicate synchronously along graph edges; messages and local computation are unrestricted and complexity is the number of rounds. After $t$ rounds a vertex can depend only on its radius-$t$ neighborhood and any supplied identifiers or randomness.
+
+A $k$-uniform hypergraph has edges that are $k$-element vertex subsets. A matching is a collection of pairwise disjoint edges. Its minimum $(k-1)$-codegree is the minimum number of edges containing a given $(k-1)$-subset.
+
+A code $C\subseteq\Sigma^N$ is a set of permitted length-$N$ words. Its Hamming minimum distance is the minimum number of unequal coordinates of two distinct words. For a linear $[N,K,D]_q$ code, rate is $K/N$ and relative distance is $D/N$; decoding recovers a codeword from corrupted observations.
+\paragraph{Statement recorded in the supplied source.}
+For the $t$-partite, $t$-uniform hypergraph codes defined from a local binary code and a regular expanding hypergraph, can one construct an efficient low-complexity decoder that corrects errors up to half the designed minimum distance for each fixed $t$? \href{https://doi.org/10.4171/owr/2007/56}{[S2]}
+\paragraph{Scope qualification.}
+The local code, expansion assumptions, designed distance, and complexity target are those of the report.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Efficiently correct errors up to half the designed minimum distance of every stated fixed-order hypergraph-code family.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000888 (OWR-1739-002). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Coding Theory (2008), Oberwolfach Reports, DOI 10.4171/owr/2007/56, pp. 3241--3302
+\url{https://doi.org/10.4171/owr/2007/56}.
+\item[S3] codes from hypergraphs
+\url{https://doi.org/10.1016/j.ejc.2003.10.002}.
+\item[S4] improved hypergraph-code decoding
+\url{https://arxiv.org/abs/0808.3453}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+For the $t$-partite, $t$-uniform hypergraph codes defined from a local binary code and a regular expanding hypergraph, can one construct an efficient low-complexity decoder that corrects errors up to half the designed minimum distance for each fixed $t$?
+
+\section{Source scope and attempted route}
+The report uses binary linear local codes $A\subseteq\{0,1\}^{\Delta}$
+of minimum distance $d_0$, on regular $t$-partite, $t$-uniform hypergraphs.
+Its requested error radius is global, approximately one half of
+$N\delta_0^{t/(t-1)}$ after the expansion error term. We try the relaxation
+that keeps every local codeword convex hull. The following sufficient condition
+is proved for arbitrary such hypergraphs; it is more restrictive than the target.
+
+\paragraph{Local inequalities and a complete sufficient decoding certificate.}
+Let $E(v)$ denote the $\Delta$ coordinates at vertex $v$, and define
+\[
+P=\{z\in[0,1]^E:z_{E(v)}\in\operatorname{conv}(A)\text{ for all }v\}.
+\]
+Assume $d_0\ge1$. For every $e\in E(v)$ and every $z\in P$,
+\[
+(d_0-1)z_e\le\sum_{f\in E(v)\setminus\{e\}}z_f.
+\]
+Indeed for a local codeword with coordinate $e=1$ its nonzero weight is
+at least $d_0$; for coordinate $e=0$ the inequality is automatic. Convex
+combinations preserve it. For an error set $F$, put $q_v=|F\cap E(v)|$.
+Summing this inequality over $e\in F\cap E(v)$ yields
+\[
+d_0\sum_{e\in F\cap E(v)}z_e\le q_v\sum_{e\in E(v)}z_e.
+\]
+If every $q_v\le q<d_0/2$, sum over all vertices. Each coordinate belongs
+to exactly $t$ local constraints, so
+$\sum_{e\in F}z_e\le(q/d_0)\sum_ez_e$.
+If the transmitted codeword is zero and the received bits have support $F$,
+minimizing their relaxed Hamming distance amounts, up to a constant, to
+minimizing $L(z)=\sum_{e\notin F}z_e-\sum_{e\in F}z_e$ over $P$.
+Every nonzero feasible $z$ has
+\[
+L(z)\ge(1-2q/d_0)\sum_ez_e>0=L(0).
+\]
+Thus zero is the unique optimum. For any transmitted codeword $c$, complement
+coordinate $e$ when $c_e=1$. On each local hull this affine transformation
+permutes its codeword vertices, because $A$ is linear and $c_{E(v)}\in A$.
+It preserves $P$ and transforms the objective into the zero-word instance.
+Hence the same condition certifies unique correct decoding for every $c$.
+
+\paragraph{What the relaxation costs and why the certificate stops early.}
+An explicit extended formulation uses variables $\lambda_{v,a}\ge0$,
+$\sum_{a\in A}\lambda_{v,a}=1$, and
+$z_e=\sum_{a\in A}\lambda_{v,a}a_e$ in each local ordering. It has
+$O(|V||A|+tN)$ variables/constraints and coefficients of bounded size.
+For fixed $\Delta$ this is a linear-size rational linear program; a running-time
+claim for solving it uses the standard polynomial-time rational LP theorem,
+not a new algorithm proved here. If $\Delta$ varies, explicit enumeration
+of $A$ may be exponential in $\Delta$ and this must be charged.
+Even a globally small error set can have more than $d_0/2$ errors at one
+vertex. Once $N$ is large, an error set of constant size concentrated there
+can lie well below the requested global radius but fail this certificate.
+This shows that the proved implication is insufficient; it does not show
+that the LP fails on that set. Exploiting the report's expansion to certify
+all globally small sets, including these concentrated ones, is the missing step.
+
+\paragraph{Why arbitrary local correction is not globally monotone.}
+Take the local repetition code $A=\{0^{\Delta},1^{\Delta}\}$, with
+$\Delta\ge3$, and a connected incidence structure. The global code is
+repetition: local equality propagates through incidence paths, so all edge
+bits agree. Put $q=\lfloor\Delta/2\rfloor+1<\Delta$ errors among the
+edges of a single vertex, and suppose $N>2\Delta$. The global word is
+within $N/2$ of zero. Nearest-local-codeword correction at that vertex
+chooses $1^{\Delta}$ uniquely and increases global distance to zero
+from $q$ to $\Delta$. The inequalities are direct since
+$\Delta-q<q$ and all coordinates changed lie at that vertex.
+No expansion claim for this example is required or asserted. It refutes
+only the proposed proof that each nearest-local update must decrease the
+unknown global error count. An actual iterative decoder needs a selection
+rule or a different potential and its expansion analysis.
+
+\section{Adversarial audit and gap}
+Both proofs use strict half-distance inequalities, avoiding ambiguity at a tie.
+The LP certificate assumes local error bounds; the source asks for a global
+bound. The local repetition example diagnoses a failed invariant, not an
+impossibility result for the expanding families. The numerical radii printed
+in the source were read as context and were not recomputed or asserted here
+as new theorems. The fixed-$t$ half-designed-distance question remains unresolved.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The proved LP certificate only covers error patterns locally sparse at every vertex, and no expansion-based certificate covers every pattern up to half the global designed distance.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 56/2007, hypergraph-code and multiplicity-decoding contributions, printed pp.3224--3229 in the cached report. Relevant original passages read on 11 October 2026; publisher landing page inspected. Its catalogue page range differs from the printed running pagination; no source mathematics is changed. \url{https://ems.press/content/serial-article-files/46142}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The proved LP certificate only covers error patterns locally sparse at every vertex, and no expansion-based certificate covers every pattern up to half the global designed distance.
+\end{document}

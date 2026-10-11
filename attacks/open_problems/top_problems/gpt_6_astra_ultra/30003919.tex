@@ -1,0 +1,88 @@
+% TOP_PROBLEM: {"id": 30003919, "title": "Global Geometric Inequalities for Material Bodies", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "No single radius, matter model or inequality is fixed by this programme. Such choices are part of the source question and cannot be filled by a generic Euclidean isoperimetric formula."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003919", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Find sharp global bounds for gravitating material bodies and decide which shape restrictions their validity requires.", "scope": "Proved a radius-based momentum bound and an explicit fixed-volume elongated-support obstruction in a Euclidean matter diagnostic.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked total momentum cancellation, exact angular momentum and fixed volume; distinguished matter integral mass from gravitational mass and disconnected from convex supports. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the radius-dependent angular-momentum inequality and the two separated-ball calculation, with the constraint-compatible gravitational construction left open. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked total momentum cancellation, exact angular momentum and fixed volume; distinguished matter integral mass from gravitational mass and disconnected from convex supports. The remaining gap is: Specify gravitational mass and size and construct constraint-compatible data before asserting sharp relativistic shape-dependent bounds. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30003919; source catalogue code OWR-16411-012
+\setcounter{section}{30003918}
+\section{Global Geometric Inequalities for Material Bodies}\label{30003919}
+{\small UnsolvedMath ID 30003919 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+A material body is a bounded matter region in gravitational initial data or a spacetime, with mass, angular momentum, charge and geometric size defined by a stated convention. A purely global inequality compares global quantities, unlike a bound confined to a single horizon section. Shape restrictions such as convexity or roundedness control how a radius or size describes the whole body. A sharp inequality includes the best constant and, where appropriate, an extremal or equality description.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Establish purely global geometric inequalities for material bodies and determine whether their sharp forms require convexity, roundedness, or a related shape condition.
+
+\paragraph{Source scope and qualification.}
+No single radius, matter model or inequality is fixed by this programme. Such choices are part of the source question and cannot be filled by a generic Euclidean isoperimetric formula.
+\subsection{Short English statement}
+Find sharp global bounds for gravitating material bodies and decide which shape restrictions their validity requires.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved a radius-based momentum bound and an explicit fixed-volume elongated-support obstruction in a Euclidean matter diagnostic.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30003919. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{A size-sensitive angular momentum estimate.} In a Euclidean diagnostic model let matter density \(\rho\ge0\) and momentum density \(j\) be integrable, with \(|j|\le\rho\), support in a ball of radius \(R\), mass \(m=\int\rho\), and angular momentum \(J=\int x\times j\). Then
+\[
+ |J|\le\int|x|\,|j|\le Rm.
+\]
+This uses a circumscribed radius, not a volume radius. To see why those cannot be exchanged without shape control, place two identical balls of fixed small radius at \(\pm Re_1\), each with total density mass \(m/2\), and assign momenta \(j=\rho e_2\) in the positive ball and \(j=-\rho e_2\) in the negative one. By symmetry their internal first moments vanish, so total momentum is zero and \(J=mR e_3\). Total occupied volume and mass stay fixed as \(R\to\infty\).
+\paragraph{Scope audit.} This proves that mass and occupied volume alone cannot bound this elementary angular momentum functional on disconnected arbitrarily elongated supports, even with the stated local momentum bound. It does not construct gravitational initial data satisfying the Einstein constraints, and its integral mass is not asserted to equal ADM or another quasilocal mass. Connectedness or convexity can change the admissible examples; a connecting low-density region also changes the meaning of occupied volume. Thus this is a targeted countercheck on radius choice, not a global relativistic inequality or a determination of its optimal shape hypotheses. The first gap is a specified gravitational mass/size convention with constraint-compatible test data.
+
+\paragraph{Verification and adversarial audit.}
+Checked total momentum cancellation, exact angular momentum and fixed volume; distinguished matter integral mass from gravitational mass and disconnected from convex supports. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked total momentum cancellation, exact angular momentum and fixed volume; distinguished matter integral mass from gravitational mass and disconnected from convex supports. The remaining gap is: Specify gravitational mass and size and construct constraint-compatible data before asserting sharp relativistic shape-dependent bounds. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the radius-dependent angular-momentum inequality and the two separated-ball calculation, with the constraint-compatible gravitational construction left open. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Specify gravitational mass and size and construct constraint-compatible data before asserting sharp relativistic shape-dependent bounds.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30003919:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30003919 (OWR-16411-012). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30003919:2}{S2}] Mathematical General Relativity (2018), Oberwolfach Reports, DOI 10.4171/owr/2018/36, pp. 2157--2251. Primary report accessed 2026-10-11; relevant PDF pages 79.
+\url{https://doi.org/10.4171/owr/2018/36}.
+\item[\hypertarget{source:30003919:3}{S3}] Geometrical inequalities review (catalogue-listed context; not independently consulted in this preparation).
+\url{https://doi.org/10.1007/s41114-018-0014-7}.
+\end{itemize}
+\label{end:30003919}
+\end{document}

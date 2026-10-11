@@ -1,0 +1,88 @@
+% TOP_PROBLEM: {"id": 7900011, "title": "Mathematical Nuclear Shell Model", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The registered title and short catalogue target say nuclear shell model, but the primary source explicitly says shell model of an atom and discusses atomic/chemical physics. The visible source target is corrected to atomic, while the canonical ID and inherited title/status are preserved. The source itself calls the programme vague."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "7900011", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Justify the atomic electron shell model from exact quantum theory.", "scope": "Derived fixed-N large-Z energy and ground-subspace bounds under explicit gap and trial-state assumptions. Neutral large-N shell structure and correlated shell selection are not justified.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the source correction to atomic physics, Coulomb scaling, positivity, gap projection inequality and failure of fixed-N constants to address neutral atoms. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the fixed-particle dilation, positive interaction energy bounds and conditional spectral-gap projection estimate. No uniform neutral-atom conclusion is asserted. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked the source correction to atomic physics, Coulomb scaling, positivity, gap projection inequality and failure of fixed-N constants to address neutral atoms. Scope remains limited: Obtain estimates uniform as electron number grows and resolve interaction-induced dynamics inside degenerate shell subspaces."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 7900011; source catalogue code AMR-078-0011
+\setcounter{section}{7900010}
+\section{Mathematical Nuclear Shell Model}\label{7900011}
+{\small UnsolvedMath ID 7900011 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}The primary source concerns the shell model of an atom with fermionic electrons, not a nuclear shell model. Electron states are antisymmetric in position and spin. The source's Coulomb Hamiltonian is $H(N,Z)=\sum_{i=1}^N(-\Delta_i-Z/|x_i|)+\sum_{i<j}|x_i-x_j|^{-1}$ on the fermionic space. Shell descriptions group effective one-electron orbitals into energy shells; the question asks how that approximation relates to exact quantum theory.
+
+\paragraph{Catalogue wording retained for traceability.}
+Make mathematical sense of the shell model of an atom and its relationship to the exact quantum theory, as in Simon’s original Problem 11.
+\paragraph{Scope and source qualification.}The registered title and short catalogue target say nuclear shell model, but the primary source explicitly says shell model of an atom and discusses atomic/chemical physics. The visible source target is corrected to atomic, while the canonical ID and inherited title/status are preserved. The source itself calls the programme vague.
+\subsection{Short English statement}
+Justify the atomic electron shell model from exact quantum theory.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derived fixed-N large-Z energy and ground-subspace bounds under explicit gap and trial-state assumptions. Neutral large-N shell structure and correlated shell selection are not justified.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{Atomic scope and a fixed-particle large-charge test.}The supplied repair identifies an atomic electron-shell programme despite the inherited nuclear title. In the stated kinetic normalization, dilate coordinates by \(y_i=Zx_i\). The unitary dilation gives
+\[Z^{-2}H(N,Z)=H_0+Z^{-1}W,\quad H_0=\sum_{i=1}^N(-\Delta_{y_i}-|y_i|^{-1}),\quad W=\sum_{i<j}|y_i-y_j|^{-1}\ge0.\]
+Keep \(N\) fixed. Let \(E_0\) be the infimum of \(H_0\) on the fermionic space. If \(\Phi\) is a normalized fermionic ground state of \(H_0\) with finite \(C=\langle\Phi,W\Phi\rangle\), the variational principle yields
+\[E_0\le Z^{-2}\inf\sigma(H(N,Z))\le E_0+C/Z.\]
+The assumptions on the trial state are explicit: one can use a Slater determinant of occupied bound one-electron orbitals, provided their Coulomb integrals are finite. No claim about a particular shell occupancy is needed for this conditional inequality.
+\paragraph{A quantitative shell-subspace consequence.}Suppose additionally that \(H_0\) has a gap \(\Delta>0\) above its ground eigenspace, and denote its projection by \(P\). For a normalized ground state \(\Psi_Z\) of the interacting scaled Hamiltonian, positivity of \(W\) and the gap give
+\[\Delta\|(I-P)\Psi_Z\|^2\le\langle\Psi_Z,(H_0-E_0)\Psi_Z\rangle\le C/Z.
+\]
+This proves concentration in the unperturbed ground subspace under the explicitly stated spectral assumptions. Degeneracy inside that subspace is allowed; the estimate does not pick an individual determinant.
+\paragraph{First obstruction.}For neutral atoms \(N\) grows with \(Z\), so \(C\), shell gaps and degeneracies depend on \(N\); the fixed-\(N\) estimate supplies no uniform control. Within a degenerate shell, the interaction may select correlated states, which the projection bound cannot distinguish. A justified shell model for the exact atomic theory therefore needs uniform many-electron estimates and an effective dynamics or energy selection inside shell spaces. The elementary scaling test is not a nuclear model or a complete atomic-shell justification.
+
+\paragraph{Verification and adversarial audit.}
+Checked the source correction to atomic physics, Coulomb scaling, positivity, gap projection inequality and failure of fixed-N constants to address neutral atoms. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked the source correction to atomic physics, Coulomb scaling, positivity, gap projection inequality and failure of fixed-N constants to address neutral atoms. Scope remains limited: Obtain estimates uniform as electron number grows and resolve interaction-induced dynamics inside degenerate shell subspaces.
+
+Coordinator checked the fixed-particle dilation, positive interaction energy bounds and conditional spectral-gap projection estimate. No uniform neutral-atom conclusion is asserted. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Obtain estimates uniform as electron number grows and resolve interaction-induced dynamics inside degenerate shell subspaces.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:7900011:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 7900011 (AMR-078-0011). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:7900011:2}{S2}] Barry Simon, Schrödinger operators in the twenty-first century, Mathematical Physics 2000, pp. 283–288, original Problem 11.
+\url{https://web.ma.utexas.edu/mp_arc-bin/mpa?yn=00-78}.
+\item[\hypertarget{source:7900011:3}{S3}] Wikipedia contributors, Simon problems, pinned revision 1335881350, The 2000 list. Existing catalogue wording adapted; CC BY-SA 4.0.
+\url{https://en.wikipedia.org/w/index.php?title=Simon_problems&oldid=1335881350#The_2000_list}.
+\end{itemize}
+\label{end:7900011}
+\end{document}

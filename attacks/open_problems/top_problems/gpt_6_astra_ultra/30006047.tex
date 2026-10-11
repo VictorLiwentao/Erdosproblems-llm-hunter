@@ -1,0 +1,78 @@
+% TOP_PROBLEM: {"id": 30006047, "title": "Stability of Extremal Critical Collapse", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The known family $D_{\\lambda_*}$ and its matter model are those of the source. A hypersurface must be defined in an appropriate data topology, not inferred merely from one one-parameter threshold."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006047", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Determine whether asymptotically extremal black holes form a hypersurface separating complete evolution from collapse near the known critical family.", "scope": "Exhibited a cusp threshold with a one-parameter crossing and contrasted it with an exactly codimension-one saddle condition; no collapse hypersurface theorem.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the cusp outcome signs and nonsmoothness, exact saddle solutions and change in codimension with the number of unstable directions. Model self-audit only; no independent human mathematical verification.  No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked the cusp outcome signs and nonsmoothness, exact saddle solutions and change in codimension with the number of unstable directions. First remaining gap: Identify the actual unstable modes and nonlinear constraint/gauge control near the source critical family in a precise initial-data topology. The inherited source status is preserved; original-target completion remains zero. Additional GPT-6 Astra reviewer (ultra reasoning): Tested the two outcome sets for x^3-y^2: the line y=0 crosses sign at x=0, while y^2=x^3 has two branches with the same tangent half-line and is not a regular C1 embedded curve at the cusp. Solved the displayed linear saddle and checked that bounded forward orbits require exactly x0=0; adding a second independent positive eigenvalue changes the codimension to two. Compared with the source qualification: the draft explicitly does not identify this toy cusp/saddle with the actual D_lambda_star family and retains the data-topology, gauge, nonlinear and extremal-black-hole gaps."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30006047; source catalogue code OWR-14298591-011
+\setcounter{section}{30006046}
+\section{Stability of Extremal Critical Collapse}\label{30006047}
+{\small UnsolvedMath ID 30006047 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+The moduli space consists of initial data modulo the relevant gauge equivalence. A hypersurface has local codimension one. Future-complete data evolve without a future singularity in the stated class; collapsing data form a black hole. A teleological criterion may use the full future evolution, rather than only local initial-data measurements.
+
+\paragraph{Catalogue wording retained for traceability.}
+Does there exist a teleologically determined hypersurface in the moduli space of initial data that consists of asymptotically extremal black holes, contains the known critical family $D_{\lambda_*}$, and locally separates future-complete data from collapsing data?
+
+\paragraph{Scope and source qualification.}The known family $D_{\lambda_*}$ and its matter model are those of the source. A hypersurface must be defined in an appropriate data topology, not inferred merely from one one-parameter threshold.
+\subsection{Short English statement}
+Determine whether asymptotically extremal black holes form a hypersurface separating complete evolution from collapse near the known critical family.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Exhibited a cusp threshold with a one-parameter crossing and contrasted it with an exactly codimension-one saddle condition; no collapse hypersurface theorem.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30006047. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{Testing what a one-parameter threshold implies.} In the plane of auxiliary initial parameters \((x,y)\), let two outcomes be the open sets \(x^3-y^2>0\) and \(x^3-y^2<0\). The family \((x,y)=(\lambda,0)\) crosses from one outcome to the other at \(\lambda=0\). Nevertheless the separating set \(y^2=x^3\) is a cusp, not a smooth embedded hypersurface at the origin. Both its branches have the same tangent half-line, whereas a regular embedded curve has a nonzero tangent vector and locally extends in both directions. Thus a one-parameter threshold and a boundary outcome alone do not prove the required hypersurface structure.
+\paragraph{A dynamical condition that would help.} For the linear saddle \(\dot x=\kappa x\), \(\dot y=-\lambda y\), with \(\kappa,\lambda>0\), explicit solutions are \(x(t)=e^{\kappa t}x_0\), \(y(t)=e^{-\lambda t}y_0\). Future bounded trajectories are exactly \(x_0=0\), a codimension-one set. It is singled out by cancellation of the one growing mode, not by merely labeling the boundary of two outcomes. With two independent growing coordinates, the bounded set instead has codimension two.
+\paragraph{Source gap.} Neither model is the source collapse equation or its known family \(D_{\lambda_*}\). The first missing step is identifying the actual unstable directions, constraint/gauge quotient and nonlinear control near that family in an appropriate data topology. One must then prove that the resulting teleological set consists of asymptotically extremal black holes and separates future-complete from collapsing data. These global conclusions do not follow from the auxiliary threshold calculation.
+
+\paragraph{Verification and adversarial audit.}
+Checked the cusp outcome signs and nonsmoothness, exact saddle solutions and change in codimension with the number of unstable directions. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked the cusp outcome signs and nonsmoothness, exact saddle solutions and change in codimension with the number of unstable directions. First remaining gap: Identify the actual unstable modes and nonlinear constraint/gauge control near the source critical family in a precise initial-data topology. The inherited source status is preserved; original-target completion remains zero. Additional GPT-6 Astra reviewer (ultra reasoning): Tested the two outcome sets for x\textasciicircum{}3-y\textasciicircum{}2: the line y=0 crosses sign at x=0, while y\textasciicircum{}2=x\textasciicircum{}3 has two branches with the same tangent half-line and is not a regular C1 embedded curve at the cusp. Solved the displayed linear saddle and checked that bounded forward orbits require exactly x0=0; adding a second independent positive eigenvalue changes the codimension to two. Compared with the source qualification: the draft explicitly does not identify this toy cusp/saddle with the actual D\_lambda\_star family and retains the data-topology, gauge, nonlinear and extremal-black-hole gaps.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Identify the actual unstable modes and nonlinear constraint/gauge control near the source critical family in a precise initial-data topology.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30006047:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30006047 (OWR-14298591-011). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30006047:2}{S2}] Mathematical Aspects of General Relativity (2024), Oberwolfach Reports, DOI 10.4171/owr/2024/36, pp. 2033--2112. Original report and mathematical context. Incorporated report material remains under the source CC BY-SA 4.0 terms unless otherwise noted.
+\url{https://doi.org/10.4171/owr/2024/36}.
+\end{itemize}
+\label{end:30006047}
+\end{document}

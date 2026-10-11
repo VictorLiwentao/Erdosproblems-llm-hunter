@@ -1,0 +1,100 @@
+% TOP_PROBLEM: {"id": 30000465, "title": "Continuous-Spectrum Analysis of Nelson-Type Models", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The curated QED energy set reverses the inequality in primary Remark 6. The report specifies (sigma(H) minus sigma_pp(H)) intersected with energies below Sigma_el; the catalogue instead removes the interval below Sigma_el. Both are displayed explicitly and cannot be treated as equivalent."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000465", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Extend the report's continuous-spectrum resolvent and decay method to its larger proposed energy ranges.", "scope": "Explicit no-eigenvalue threshold model shows why deleting point spectrum alone does not justify a uniform limiting-absorption extension.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked absence of an eigenvalue at zero, epsilon scaling and positive lower bound; retained the reversed QED energy-range qualification. Model self-audit only; no independent human proof checking. Coordinator checked the resolvent imaginary-part integral, threshold rescaling and time-evolution integral for the multiplication operator. No QED threshold theorem follows from this example. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked absence of an eigenvalue at zero, epsilon scaling and positive lower bound; retained the reversed QED energy-range qualification. Retained unresolved status and zero original-target progress; Threshold-uniform weighted resolvent estimates for the actual Nelson and source-corrected QED energy ranges are missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30000465; source catalogue code OWR-1266-004
+\setcounter{section}{30000464}
+\section{Continuous-Spectrum Analysis of Nelson-Type Models}\label{30000465}
+{\small UnsolvedMath ID 30000465 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} $H$ is the selfadjoint interacting Hamiltonian of the report's Nelson or nonrelativistic-QED model; $\sigma(H)$ is its spectrum and $\sigma_{\mathrm{pp}}(H)$ the set of its eigenvalues. $H_{\mathrm{el}}$ is the electronic Hamiltonian and $\Sigma_{\mathrm{el}}=\inf\sigma(H_{\mathrm{el}})$ is the threshold named in the report. A limiting-absorption principle establishes suitably weighted boundary values of $(H-E\mp i\varepsilon)^{-1}$ as $\varepsilon\downarrow0$ on continuous spectral energies; local-decay estimates control the corresponding time evolution.
+
+\paragraph{Source scope and qualifications.} The curated QED energy set reverses the inequality in primary Remark 6. The report specifies (sigma(H) minus sigma\_pp(H)) intersected with energies below Sigma\_el; the catalogue instead removes the interval below Sigma\_el. Both are displayed explicitly and cannot be treated as equivalent.
+
+\paragraph{Primary-source energy range.} Remark 6 requests $\sigma(H)\setminus\sigma_{\mathrm{pp}}(H)$ for the Nelson model and $\bigl(\sigma(H)\setminus\sigma_{\mathrm{pp}}(H)\bigr)\cap(-\infty,\Sigma_{\mathrm{el}})$ for the standard nonrelativistic-QED model. This is the source-faithful range, distinct from the preserved catalogue formula below.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+Can the limiting-absorption and local-decay method be extended to $\sigma(H)\setminus\sigma_{\mathrm{pp}}(H)$ for the Nelson model and to $\sigma(H)\setminus(\sigma_{\mathrm{pp}}(H)\cup(-\infty,\Sigma_{\mathrm{el}}))$ for the standard model of nonrelativistic QED, where $\Sigma_{\mathrm{el}}=\inf\sigma(H_{\mathrm{el}})$?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: Later spectral work proves limiting-absorption and continuous-spectrum results for important Nelson-model regimes, including below multi-boson thresholds, but the full extension to the general energy intervals stated in the conjecture is not established by the targeted search. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\paragraph{Scope and source qualification.}The curated QED energy set reverses the inequality in primary Remark 6. The report specifies (sigma(H) minus sigma_pp(H)) intersected with energies below Sigma_el; the catalogue instead removes the interval below Sigma_el. Both are displayed explicitly and cannot be treated as equivalent.
+\subsection{Short English statement}
+Extend the report's continuous-spectrum resolvent and decay method to its larger proposed energy ranges.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Explicit no-eigenvalue threshold model shows why deleting point spectrum alone does not justify a uniform limiting-absorption extension.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A continuous-spectrum threshold countertest.} Let $H$ act on $L^2(-1,1)$ by $(Hf)(x)=x^2f(x)$, and let $u(x)=1/\sqrt2$. The energy zero belongs to its spectrum but is not an eigenvalue, because an eigenfunction there would be supported on the null set $\{0\}$. Nevertheless
+\[
+ \operatorname{Im}\langle u,(H-i\epsilon)^{-1}u\rangle
+ =\tfrac12\int_{-1}^1\frac{\epsilon}{x^4+\epsilon^2}\,dx
+ =\epsilon^{-1/2}\int_0^{\epsilon^{-1/2}}\frac{dt}{1+t^4}.
+\]
+The last integral is bounded below by its positive integral on $[0,1]$ for $0<\epsilon\leq1$. Thus this rank-one compressed resolvent diverges at least as $c\epsilon^{-1/2}$. Removing point spectrum does not remove a threshold singularity.
+
+\paragraph{A decay consequence in the same model.} The scalar evolution is $\langle u,e^{-itH}u\rangle=\int_0^1e^{-itx^2}dx=t^{-1/2}\int_0^{\sqrt t}e^{-iy^2}dy$. Without needing its exact asymptotic constant, the rescaling identifies the threshold time scale and shows why a proof uniform through zero cannot simply reuse an estimate bounded away from threshold.
+
+\paragraph{Source qualification and missing step.} This is not a Nelson or QED counterexample, and it imposes no claim about the source's particular conjugate-operator weights. It diagnoses a necessary threshold analysis before extending the method to the entire continuous spectrum. For QED the primary report asks for energies below $\Sigma_{\rm el}$, whereas the retained catalogue removes that interval. The calculation settles neither range and preserves that difference. The first gap is a model-specific weighted resolvent bound at every remaining threshold, with an explicit account of the weights and excluded eigenvalues.
+
+\paragraph{Verification and adversarial audit.}
+Checked absence of an eigenvalue at zero, epsilon scaling and positive lower bound; retained the reversed QED energy-range qualification. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked absence of an eigenvalue at zero, epsilon scaling and positive lower bound; retained the reversed QED energy-range qualification. Retained unresolved status and zero original-target progress; Threshold-uniform weighted resolvent estimates for the actual Nelson and source-corrected QED energy ranges are missing.
+
+Coordinator checked the resolvent imaginary-part integral, threshold rescaling and time-evolution integral for the multiplication operator. No QED threshold theorem follows from this example. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Threshold-uniform weighted resolvent estimates for the actual Nelson and source-corrected QED energy ranges are missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Threshold-uniform weighted resolvent estimates for the actual Nelson and source-corrected QED energy ranges are missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30000465:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30000465 (OWR-1266-004). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30000465:2}{S2}] The Rigorous Renormalization Group (2006), Oberwolfach Reports, DOI 10.4171/owr/2006/17, pp. 1027--1076; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2006/17}.
+\item[\hypertarget{source:30000465:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF page 40, printed page 1066, Remark 6.
+\url{https://ems.press/content/serial-article-files/46049}.
+\item[\hypertarget{source:30000465:4}{S4}] Møller--Schenker--Vugalter, massive Nelson spectrum; reference in the saved dated catalogue literature review.
+\url{https://arxiv.org/abs/1207.6729}.
+\end{itemize}
+\label{end:30000465}
+\end{document}

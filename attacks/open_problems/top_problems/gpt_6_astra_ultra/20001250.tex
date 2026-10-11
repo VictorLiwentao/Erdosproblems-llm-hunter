@@ -1,0 +1,187 @@
+% RESEARCH_DRAFT_SHA256: 89b6b68d24abdc28b1159cf1c2fb3fb8d3e9992e855ddcfd5f851de5d830ff31
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001250, "title": "Cyclic-binomial structure in an early Agrawal conjecture", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001250", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly, metadata checks and the finite exact computation described in the manuscript. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Conjecture 3\n\nChapter A: Lecture Notes\n\nLecture notes were TeXed in real time by John Voight.\n\n#A.1 Agrawal: A Polynomial Time Algorithm for Testing Primality\n\nThe primality testing algorithm we present is based upon the following identity: n is prime if and only if (1 + X)n ≡ 1 + Xn (mod n),\n\nwhere we consider this congruence as an identity in the polynomial ring ( Z/n Z)[ X]. This easily gives a randomized algorithm which runs in polynomial time: rather than verifying it completely (which would be far too expensive), you verify it modulo a randomly chosen degree log n polynomial Q(X); repeating this sufficiently often, you expect to witness a failure of this congruence to hold fairly quickly if n is composite.\n\nConjecture. To prove that n is prime, it is enough to let Q(X) run over the set\n\n{X − 1, X 2 − 1,..., X log 2 n − 1}.\n\nWe were unable to prove this conjecture, but, instead the modified conjecture, which is then a proposition:\n\nProposition (Modified conjecture). To prove that n is prime, it is enough to let Q(X) run over the set\n\nR = {(X + a)r − 1: 1 ≤ r ≤ 16(log n)5, 1 ≤ a ≤ 8(log n)7/2},\n\nexcept when n has a 'small' prime factor ( ≤ (log n)5).", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Exact cyclic criteria and divisor pruning do not prove that every composite fails a period below the original logarithmic cutoff; this missing soundness implication remains.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{The early all-period Agrawal test: cyclic identities and the missing soundness implication}
+\noindent UnsolvedMath ID 20001250; AIM-COMPUTATION-0088. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Polynomial time means a bound polynomial in the finite input length; for an integer input, its binary length is proportional to its logarithm. A polynomial congruence modulo $(n,Q(X))$ means equality in $\mathbb Z[X]/(n,Q(X))$. The source first describes checking $(1+X)^n\equiv1+X^n\pmod n$, then asks whether the listed small-degree moduli suffice for a primality certificate. Its modified proposition is recorded as known in the source, not as the requested conjecture.
+\paragraph{Statement recorded in the supplied source.}
+Conjecture 3
+
+Chapter A: Lecture Notes
+
+Lecture notes were TeXed in real time by John Voight.
+
+\#A.1 Agrawal: A Polynomial Time Algorithm for Testing Primality
+
+The primality testing algorithm we present is based upon the following identity: n is prime if and only if (1 + X)n ≡ 1 + Xn (mod n),
+
+where we consider this congruence as an identity in the polynomial ring ( Z/n Z)[ X]. This easily gives a randomized algorithm which runs in polynomial time: rather than verifying it completely (which would be far too expensive), you verify it modulo a randomly chosen degree log n polynomial Q(X); repeating this sufficiently often, you expect to witness a failure of this congruence to hold fairly quickly if n is composite.
+
+Conjecture. To prove that n is prime, it is enough to let Q(X) run over the set
+
+\{X − 1, X 2 − 1,..., X log 2 n − 1\}.
+
+We were unable to prove this conjecture, but, instead the modified conjecture, which is then a proposition:
+
+Proposition (Modified conjecture). To prove that n is prime, it is enough to let Q(X) run over the set
+
+R = \{(X + a)r − 1: 1 ≤ r ≤ 16(log n)5, 1 ≤ a ≤ 8(log n)7/2\},
+
+except when n has a 'small' prime factor ( ≤ (log n)5). \href{https://aimath.org/WWN/primesinp/primesinp.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The extraction flattens exponents in the listed moduli. The source distinguishes its initial conjecture from the modified proposition it proves; this import does not present that proposition as an open question.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can a small family of polynomial congruence checks certify that an integer is prime?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001250 (AIM-COMPUTATION-0088). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0088
+\url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Conjecture 3
+
+Chapter A: Lecture Notes
+
+Lecture notes were TeXed in real time by John Voight.
+
+\#A.1 Agrawal: A Polynomial Time Algorithm for Testing Primality
+
+The primality testing algorithm we present is based upon the following identity: n is prime if and only if (1 + X)n ≡ 1 + Xn (mod n),
+
+where we consider this congruence as an identity in the polynomial ring ( Z/n Z)[ X]. This easily gives a randomized algorithm which runs in polynomial time: rather than verifying it completely (which would be far too expensive), you verify it modulo a randomly chosen degree log n polynomial Q(X); repeating this sufficiently often, you expect to witness a failure of this congruence to hold fairly quickly if n is composite.
+
+Conjecture. To prove that n is prime, it is enough to let Q(X) run over the set
+
+\{X − 1, X 2 − 1,..., X log 2 n − 1\}.
+
+We were unable to prove this conjecture, but, instead the modified conjecture, which is then a proposition:
+
+Proposition (Modified conjecture). To prove that n is prime, it is enough to let Q(X) run over the set
+
+R = \{(X + a)r − 1: 1 ≤ r ≤ 16(log n)5, 1 ≤ a ≤ 8(log n)7/2\},
+
+except when n has a 'small' prime factor ( ≤ (log n)5).
+
+\section{Recovered target and exact test}
+The primary lecture distinguishes the initial conjecture, which tests
+$(1+X)^n=1+X^n$ modulo $(n,X^r-1)$ for all positive periods up to
+$\log^2n$, from a modified proposition with shifts and a larger range.
+This attempt studies the former. We do not transfer the latter's proof
+to it. Let $n>1$ and an integer cutoff $L\ge1$ be fixed; the
+logarithm convention determines $L$ but is irrelevant to the lemmas below.
+
+\paragraph{Cyclic-binomial criterion and divisor pruning.}
+Division by the monic polynomial $X^r-1$ gives a unique representative
+of degree below $r$ over $\mathbb Z/n\mathbb Z$. Since $X^k=X^{k\bmod r}$,
+the $r$-test is equivalent to the $r$ congruences
+\[
+\sum_{\substack{0\le k\le n\\k\equiv j\pmod r}}\binom nk
+ \equiv {\bf1}_{j=0}+{\bf1}_{j\equiv n\pmod r}\pmod n,
+\quad 0\le j<r.
+\]
+If $d\mid r$, then $X^d-1$ divides $X^r-1$ by the finite geometric
+series identity, so passing the $r$-test implies passing the $d$-test.
+Every $d\le L$ has a multiple $r$ in $(L/2,L]$: take
+$r=d\lfloor L/d\rfloor$; if $d\le L/2$, then $r>L-d\ge L/2$,
+and if $d>L/2$ use $r=d$. Thus testing all periods through $L$ is
+exactly equivalent to testing the upper half of this range. This is
+only a deterministic redundancy reduction; it proves no primality
+soundness at the logarithmic cutoff.
+
+\paragraph{Why the unquotiented identity is stronger.}
+For prime $n$, all intermediate binomial coefficients are divisible
+by $n$, since the numerator $n!$ contains $n$ and neither denominator
+factorial does. Thus every quotient test passes.
+Conversely suppose $n$ is composite and $p\mid n$ is prime. Then
+$p<n$ and
+$\binom np=(n/p)\binom{n-1}{p-1}$. Modulo $p$, the second factor
+is $\prod_{i=1}^{p-1}(-i)/i=(-1)^{p-1}=1$, including $p=2$.
+Therefore its $p$-adic valuation is zero and
+$v_p(\binom np)=v_p(n)-1$. The coefficient cannot be divisible by
+$n$, so the identity in the full polynomial ring fails. Quotienting
+folds this bad coefficient together with others, however; the coefficient
+argument gives no reason its cyclic sum must remain nonzero at some
+$r\le\log^2n$. That uncancelled cyclic sum is the missing step.
+
+\paragraph{Low-period tests really can miss a composite.}
+For odd $n$, reduction modulo $X^2-1$ gives equal even and odd
+binomial sums $2^{n-1}$, by adding and subtracting
+$(1+1)^n$ and $(1-1)^n$ over the integers. The two-period test is
+therefore equivalent to $2^{n-1}\equiv1\pmod n$; the one-period test
+is the same condition for odd $n$.
+The composite $341=11\cdot31$ satisfies it: $2^{10}\equiv1\pmod{11}$
+and $2^5\equiv1\pmod{31}$, and both exponents divide $340$.
+The first congruence follows from $2^{10}=1024\equiv1\pmod{11}$;
+the second from $2^5=32$. Coprimality then gives the modulus $341$.
+An exact Python cyclic-binomial calculation also found that period three
+passes, while period four has residual coefficients
+$(340,340,1,1)$ modulo $341$, in increasing degree order.
+Thus this number is not a counterexample to the all-period conjecture.
+The finite calculation illustrates cancellation and is not evidence of
+soundness for arbitrary integers.
+
+Reduction modulo prime divisors alone loses additional information:
+for $n=p^a$, repeated characteristic-$p$ binomial expansion gives
+$(1+X)^n=1+X^n$ modulo $p$, although the preceding coefficient argument
+shows failure modulo $p^a$ when $a>1$. A proof using only distinct
+prime residue fields must still recover the prime-power information.
+
+\section{Audit and gap}
+The primary report and the oversized supplied source row were read;
+the row's absorbed later lectures are not treated as one extra target.
+The audit checked the all-period quantifier, shifts, prime-power
+multiplicity, the cutoff and the difference between a decision theorem
+and pruning repeated tests. Exact finite calculations are reproducible
+with modular cyclic multiplication or the displayed binomial formula.
+No exhaustive large search, current resolution claim or novelty is made.
+The soundness implication for the original small-period family remains
+unproved in this attempt.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Exact cyclic criteria and divisor pruning do not prove that every composite fails a period below the original logarithmic cutoff; this missing soundness implication remains.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Future directions in algorithmic number theory, workshop 24--28 March 2003, report version 30 April 2003; original question, relevant lecture context and adjoining remarks inspected on 11 October 2026. \url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Exact cyclic criteria and divisor pruning do not prove that every composite fails a period below the original logarithmic cutoff; this missing soundness implication remains.
+\end{document}

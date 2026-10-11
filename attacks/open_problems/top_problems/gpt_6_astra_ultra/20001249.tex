@@ -1,0 +1,328 @@
+% RESEARCH_DRAFT_SHA256: 19b730d8f4af155f321082aff73192ff39ce88983308b60c6c36f6a9b82f6520
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001249, "title": "Four distinct reductions in the American min-put benchmark", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001249", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and written mathematical review at the declared scope; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Four distinct reductions in the American min-put benchmark; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Which reductions preserve an American min-put problem; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch015 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 20001249; source catalogue code AIM-COMPUTATION-0087
+\section{Four distinct reductions in the American min-put benchmark}\label{20001249}
+{\small UnsolvedMath ID 20001249 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A backward stochastic differential equation couples a terminal random value with a backward evolution, often driven by a forward stochastic process. An American option value is an optimal-stopping quantity $\sup_{\tau\leq T}\mathbb E[e^{-r\tau}g(S_\tau)]$. Quantization approximates a process on a finite grid; Monte Carlo estimates expectations by sampling; martingale dual formulations can give upper bounds; cubature approximates selected stochastic integrals by weighted paths.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+This excerpt spans a workshop document, including multiple models, equations, algorithms, and references. No single canonical target is isolated, and the retained source text's broken formulas are not silently repaired. The supplied catalogue marks this record partially solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+3. A test problem 4. Reduction of the dimension 5. References 3
+
+Chapter A: Open problems
+
+A.1 High-dimensional Problems in Finance and extension
+
+A.1.a Some stochastic control problems in finance. Several examples were considered.
+
+Optimal Stopping and free boundary problems.
+
+Let's consider the following financial market containing a non-risky asset S0
+
+> t
+
+= ert, and
+
+d risky assets (e.g. stocks) with prices modeled by a d-dimensional diffusion process S with dynamics
+
+dS t = rS tdt + diag( St)σ(t, S t)dW t,
+
+where W is a standard Brownian motion. An important problem in finance is the pricing of American options. Given a reward function g, an American option is a contract that provides to the owner the right to receive (from the seller) the amount g(St) at any time t if exercised before some fixed maturity T.This right can be exercised only once during the period [0, T ]. The price of this option at time t can be expressed as the value function associated to the optimal stopping problem
+
+v(t, S t) = sup
+
+> τ∈T [t,T ]
+
+E[e−r(τ −t)g(St) | St] (1.1.1) where T[t,T ] is the set of all stopping times with values in [ t, T ]. The associated value function v is the solution of the free boundary problem min \{rv − vt − L v; v − g\} = 0 on [0, T ) × [0, ∞)d
+
+v(T,. ) = g(.) on [0, ∞)d
+
+where L is the generator of the diffusion S.
+
+Optimal Investment and Hamilton-Jacobi-Bellman equations.
+
+An other important issue in finance is that of optimal investment. Denoting by νt the number of stocks held by a given financial agent at time t, the associated wealth-process X ν
+
+has dynamics given by
+
+dX t = νtdS t + ( Xt − ν∗
+
+> t
+
+St)dS 0
+
+> t
+
+where ∗ stands for transposition, and S may have a general dynamics of the form
+
+dS t = μ(t, S t, ν t)dt + σ(t, S t, ν t)dW t,
+
+in order to take into account a possible influence of the agent's financial strategy on the dynamics of the risky assets. Given a concave (utility) function V, the agent tries to maximize the expected utility of terminal wealth max E[V (XνT )] (1.1.2) over a set of admissible financial strategies ( νt) with values in some subset U of Rd. The associated value function v is the solution of Hamilton-Jacobi-Bellman equation
+
+−vt − sup
+
+> ν∈U
+
+Lν v = 0 on [0, T ) × [0, ∞)d × Rv(T, s, x ) = V (x) for ( s, x ) ∈ [0, ∞)d × R
+
+where Lν is the generator of the diffusion ( S, X ν ). 4
+
+A.1.b Extensions and BSDE's. The value function of Problem (1.1.1) can be reformu-lated in terms of the Y component of the solution ( Y, Z, A ) of the Backward Stochastic Differential Equation
+
+Yt = g(ST ) −
+
+∫ Tt
+
+Z∗
+
+> t
+
+dW t + AT − At
+
+Yt ≥ g(St)where A is a non-decreasing process satisfying
+
+∫ T
+
+> 0
+
+(Yt − g(St)) dA t = 0,
+
+see e.g. [KKPPQ]. This leads us to consider the more general problem of approximating the solution of Reflected Forward - Backward Stochastic Differential Equations of the form
+
+Xt = X0 +
+
+∫ Tt
+
+b(t, X t, Y t, Z t)dt +
+
+∫ Tt
+
+a(t, X t, Y t, Z t)dW t
+
+Yt = g(T, X T ) +
+
+∫ Tt
+
+f (t, X t, Y t, Z t)dt −
+
+∫ Tt
+
+Z∗
+
+> t
+
+dW t + AT − At
+
+Yt ≥ g(t, X t)where A is a non-decreasing process satisfying
+
+∫ T
+
+> 0
+
+(Yt − g(t, X t)) dA t = 0.
+
+This framework partially includes control problems associated to HJB equations. It is related to non-linear PDE's of the form min \{− vt(t, x ) − 1
+
+2Trace[ vxx (t, x )aa ∗(t, x, v (t, x ), θ (t, x ))]
+
+−b(t, x, v (t, x ), θ (t, x )) ∗vx(t, x ) − f (t, x, v (t, x ), θ (t, x )); v(t, x ) − g(t, x )\} = 0
+
+v(T,. ) = g(T,. )where θ(t, x ) solves
+
+vx(t, x )a(t, x, v (t, x ), θ (t, x )) = θ(t, x ),
+
+through the relations
+
+v(t, X t) = Yt and θ(t, X t)∗ = Zt.
+
+See e.g. [MY].
+
+A.2 Some New Methodologies
+
+A.2.a The case where b and a does not depend on Y and Z. Several methods were considered.
+
+Pure Monte Carlo Methods.
+
+Pure Monte-Carlo methods are based on a discrete time approximation of the forward-backward equation. Once discretized the forward process can be simulated. These sim-ulations are then used to compute the conditional expectations involved in the backward 5
+
+discrete time approximation of ( Y, Z ). Two different methods can be used to compute these conditional expectations. a. The Longstaff-Schwartz (Carriere) approach consists in approximating the conditional expectations by regressions on a given basis of functions. This provides a very powerful, and, easy to implement, algorithm for which convergence has been shown to hold in the case of the American option pricing problem. However, no rate of convergence is given and the choice of the basis is a quite difficult problem. It has been used successfully in up to 20 factors models. See [C], [LS], [CLP]. b. The Malliavin approach consists in re-writing the conditional expectations as the ratio of two unconditional expectations that can be estimated by standard Monte-Carlo methods. Upper bounds for the rate of convergence are proved. Contrary to the previous approach, this algorithm also provides good approximations for the greeks, i.e. the gradient of the associated value function (which is related to the Z, see above). So far, the existing algorithm has a too important complexity, which explains why it has only been tested in small dimensions (up to 5). Some numerical improvements have been proposed, reducing the complexity from
+
+N 2 to N ln( N )d, where N is the number of simulated paths. This work is still in progress, the aim being to develop an algorithm such that the major part of the work is done before a reward function is specified, so as to reduce as much as possible the effective computation time once a particular payoff is defined. See [BET], [BT].
+
+Grid approximations.
+
+The Quantization approach consists in approximating the original forward process by a discrete time process which evolves on some finite grid. The grid is constructed so has to provide the best Lp approximation. It was first applied to the pricing of American options in dimension up to 10. The construction of the optimal grid (and the computation of the associated transition probabilities) is very time consuming, but it can be done once for all. Once the grid, which is independent of the payoff function, is constructed, it provides a very quick algorithm for pricing American options on different payoffs, whenever they are written on the same assets. As in the Malliavin and Longstaff-Schwartz approach, the use of a good control variable is required. Extensions to non-linear filtering, optimal control and Asian-type options have also been studied. See [BP1], [BP2], [PP1], [PP2].
+
+Dual formulation.
+
+This algorithm is based on a dual formulation for problem (1.1.1):
+
+v(0, S 0) = inf E
+
+[
+
+sup
+
+> t≤T
+
+(e−rt g(St) − Mt)
+
+]
+
+where the inf is taken over a well suited set of martingales M. This algorithm consists in providing a upper bound for v by choosing some martingale M ∗ and computing
+
+E
+
+[
+
+sup
+
+> t≤T
+
+(e−rt g(St) − M ∗
+
+> t
+
+)
+
+]
+
+In cases where a good martingale ˆM can be found, typically when
+
+E[e−r(T −t)g(ST )|St] =: ˆMt6
+
+is known as a function of S, this provides a quite sharp upper bound for the price of the American option. Numerical experiments, up to dimension 15, have been performed. See [R].
+
+Cubature on Wiener spaces.
+
+Cubature formula on Wiener spaces have been developed in [VL] in order to construct probability measures with finite support which approximate the Wiener measure in the sense that the expectation of iterated Stratonovich integrals under the approximating measure and the Wiener measure are close. In a sense, this approach is similar to that of the quantization since it allows to reduce to a finite dimensional setting. So far, it has been used to develop high order numerical schemes for high dimensional SDE's and semi-elliptic PDE's.
+
+A.2.b The case where b or a depends on Y and Z. In that case, it is no more possible to approximate (or simulate) the forward process X since its dynamic depends on the solu-tion. In such situations, two different solutions have been proposed: a - Construct an a priori grid for X, possibly based on some a priori on the dynamics of Y
+
+and Z.b - Given an a priori solution Y0 and Z0, approximate (or simulate) the corresponding forward process X0 and use the above methodologies to construct the corresponding solution ( Y1, Z 1)of the BSDE. Then, use this solution ( Y1, Z 1) to approximate (or simulate) the corresponding forward process X1 and go on iterating this procedure. Under some mild assumptions, this algorithm should be convergent. However, it seems to be quite heavy to implement. Solution a. has already been applied in the quantization approach but, so far, does not provide very good results. See [PP1].
+
+A.3 A test problem
+
+A test problem has been proposed to compare the performance of the different methods. It corresponds to the computation of a d dimensional at-the-money American min-put option in the Black-Scholes model. The assets are uncorrelated, have the same volatility and the same initial value:
+
+Sit = 100 exp(( r − σ2/2) t − σW it ) for each i = 1,..., d
+
+where W = ( W 1,..., W d) is a standard Brownian motion. The payoff function is
+
+g(x) = [100 − min \{x1,..., x d\}]+.
+
+Numerical tests will be performed for different dimensions with σ = 20\% and r = 5\%. Results will be collected and compared by J. Cvitanic.
+
+A.4 Reduction of the dimension
+
+Different ways of reducing the dimension were proposed. aThe first consists in using Principal Component Analysis in order to "aggregate" a large number of random variables in a small number of principal directions. Also it is used in 7
+
+practice, it does not really solve the problem of the dimension, but only surrounds it, replac-ing the initial model by a more tractable, but different, one. bInstead of relying on PCA, dimension could be reduced by considering models where a few number of economic fundamentals could explain the behavior of many financial assets. cIn some cases, it is possible to reduce the dimension without changing the initial model. This is the case in P. Carr's Canadization approach for the computation of American options, where the randomization of the maturity allows to reduce to a time homogeneous problem. Extensions to Markovian control problems have been discussed. See [Carr] and [BKT].
+
+A.5 References
+
+[BP1] Bally V. and G. Pages: A quantization algorithm for solving discrete time multidi-mensional optimal stopping problems, Bernoulli, (9) 6, 1-47, 2003. [BP2] Bally V. and G. Pages: Error analysis of the quantization algorithm for obstacle problems, Stochastic Processes and their Applications,106 (1), 1-40, 2003. [BT] Bouchard B. and N. Touzi: Discrete Time Approximation and Monte-Carlo Simulation of Backward Stochastic Differential Equations, Stochastic Processes and their Applications, to appear. [BET] Bouchard B., I. Ekeland and N. Touzi: On the Malliavin approach to Monte Carlo approximation of conditional expectations, Finance and Stochastics, 8 (1), 2004. [BKT] Bouchard B., N. El Karoui and N. Touzi: Maturity randomization for stochastic control problems, in preparation. [Carr] Carr P.: Randomization and the American Put, The Review of Financial Studies, 11, 597-626, 1997. [C] Carriere E.: Valuation of the Early-Exercise Price for Options using Simulations and Nonparametric Regression, Insurance: mathematics and Economics, 19, 19-30, 1996. [CLP] Cl´ ement E., D. Lamberton, and P. Protter: An analysis of a least squares regression method for American option pricing, Finance and Stochastics, 6, 449-472, 2002. [KKPPQ] El Karoui N., C. Kapoudjan, E. Pardoux, S. Peng and M.C. Quenez: Reflected solutions of backward stochastic differential equations and related obstacle problems for PDE's, Annals of Probability, 25, 702-737, 1997. [LS] Longstaff F.A. and R.S. Schwartz: Valuing American Options By Simulation: A simple Least-Square Approach, Review of Financial Studies, 14, 113-147, 2001. [MY] Ma J. and J. Yong: Forward-Backward Stochastic Differential Equations and Their Applications, Lecture Notes in Math., 1702, Springer, 1999. [PP1] Pages G. and H. Pham: A quantization algorithm for multidimensional stochastic control problems, preprint LPMA n ◦697, 2001. [PP2] Pages G. and H. Pham: Optimal quantization methods for nonlinear filtering with discrete-time observations, preprint LPMA n ◦778, 2002. 8
+
+[R] Rogers L.C.G.: Monte Carlo valuation of American options, Mathematical Finance, 12, 271-286, 2002. [VL] Victoir N. and T. Lyons: Cubature on Wiener space, Proc. R. Soc. Lond. A, 460, 169-198, 2004. \href{https://aimath.org/WWN/highdimfinance/highdimfinance.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The composite surveys several probabilistic numerical methods and an American min-put benchmark.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001249 (AIM-COMPUTATION-0087). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-COMPUTATION-0087.
+\url{https://aimath.org/WWN/highdimfinance/highdimfinance.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 20001249 and code AIM-COMPUTATION-0087 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:20001249}
+
+\section{Literature and context check}
+The actual eight-page AIM report, Numerical probabilistic methods for high-dimensional problems in finance, dated 26 March 2004, was retrieved and its benchmark and dimension-reduction sections read. It specifies independent identically volatile Black--Scholes assets, equal initial prices 100, and payoff $(100-\min_iS_i)^+$. It also explicitly notes that PCA can replace the model by a different one. The preserved catalogue extract spans many methods and contains damaged formulas; no single repaired theorem is treated as the entire target. The arguments below investigate four particular reductions, using an explicitly stated discrete-time or continuous-payoff formulation where needed.
+\section{Research attempt: Which reductions preserve an American min-put problem}
+First, permutation symmetry is exact under identical independent asset dynamics and the symmetric min-put payoff. Write $S_i(t)=s_iR_i(t)$ with iid positive return processes. A permutation of the initial coordinates and the same permutation of the return paths preserves their joint law, their natural filtration and every stopping rule after relabeling. It preserves the minimum payoff pathwise. Taking expectations and then suprema over stopping times proves $V(s_1,\ldots,s_d)=V(s_{\pi(1)},\ldots,s_{\pi(d)})$. This identifies permuted states; it does not replace the unordered vector by one number.
+
+Second, replacing the vector by its current minimum generally loses information. In a two-asset, one-step exercise model with strike one, compare initial states $(1,1)$ and $(1,M)$ for $M>1$. Let independent nondegenerate lognormal returns be $R_1,R_2$. Both initial minima are one and both immediate payoffs are zero. The terminal payoff at the first state is pointwise at least that at the second:
+\[
+ (1-\min(R_1,R_2))^+\geq(1-\min(R_1,MR_2))^+.
+\]
+The inequality is strict on $0<R_2<1/M$ and $R_1>MR_2$, an event of positive probability because the independent lognormal densities are positive on all positive arguments. Both continuation values are positive, so their one-step optimal-stopping values, which are the maximum of zero and the discounted continuation expectation, differ strictly. Thus even a symmetric model does not admit a universal value function of the current minimum alone. The two states test the state-reduction claim; they are not substituted for the benchmark's equal initial vector. In the different common-factor model $S_i(t)=s_iR(t)$, the identity $\min_iS_i(t)=(\min_i s_i)R(t)$ is exact, illustrating why changing dependence can change the conclusion.
+
+Third, exercise-grid restriction is a one-sided approximation under explicit regularity. Let $Y_t$ be an adapted continuous discounted payoff on $[0,T]$ with $\mathbb E\sup_{t\leq T}|Y_t|<\infty$. Let nested deterministic grids contain $0,T$ and have mesh tending to zero, and let $V_n$ be the supremum over grid-valued stopping times. Then $V_n$ is nondecreasing and at most $V=\sup_{\tau\leq T}\mathbb EY_\tau$. For any stopping time $\tau$, round it up to the next grid point $\tau_n$. This is a stopping time: at a grid point $t_j$, $\{\tau_n\leq t_j\}=\{\tau\leq t_j\}$, and between grid points the event is the one at the preceding point. Continuity gives $Y_{\tau_n}\to Y_\tau$ almost surely, and the integrable supremum gives convergence of expectations. Therefore $\liminf V_n\geq\mathbb EY_\tau$ for every $\tau$, so $V_n\uparrow V$. This establishes convergence, not a rate or an efficient regression method.
+
+Fourth, replacing stopping by the pathwise maximum gives an upper bound rather than an equality: $Y_\tau\leq\sup_tY_t$ pointwise for every admissible $\tau$. The gap can be strict in the smallest example. At time zero let $Y_0=1/2$ and have no information; at time one let $Y_1$ be zero or one with equal probability. The best stopping value is $1/2$, since either initial decision has expectation $1/2$, whereas $\mathbb E\max(Y_0,Y_1)=3/4$. A simulation that chooses the best exercise date after inspecting the whole path has priced perfect foresight. This finite example tests the methodology; it is not claimed to be a Black--Scholes price calculation.
+\section{Verification and adversarial audit}
+The minimum counterexample uses a positive-probability strict event and compares actual optimal values in the declared two-date model. Symmetry relabels both the states and the stopping information. Grid convergence includes the terminal time and an integrable domination hypothesis; no convergence rate follows from continuity alone. The perfect-foresight gap is computed exactly.
+\paragraph{Audit corrections.} The actual benchmark was checked against the primary report. Auxiliary one-step examples and a common-factor model are clearly distinguished from the independent-asset benchmark; damaged source equations are preserved rather than silently repaired.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The report's high-dimensional benchmark, BSDE schemes, optimal-control extensions, numerical comparisons, and complexity questions are not solved. These calculations separate exact symmetry, an invalid scalar statistic, time discretization, and a biased pathwise optimization route; they do not convert the damaged composite extract into a single completed problem.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://aimath.org/WWN/highdimfinance/highdimfinance.pdf} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and written mathematical review at the declared scope; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

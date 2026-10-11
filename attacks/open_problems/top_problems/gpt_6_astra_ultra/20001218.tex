@@ -1,0 +1,96 @@
+% RESEARCH_DRAFT_SHA256: 9109da42c7a09cd548a132be275a967b5358819471208db2107e9b411d32cd1d
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001218, "title": "Complex count solved, with an exact real-root cusp slice", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001218", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Unequal-size univariate Behrens--Fisher example with two maxima and one saddle.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch005/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 20001218; source catalogue code AIM-COMPUTATION-0056
+\section{Complex count solved, with an exact real-root cusp slice}\label{20001218}
+{\small UnsolvedMath ID 20001218 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a statistical model with parameter $\theta$ and observations $D$, the likelihood is $L(\theta;D)=\Pr_\theta(D)$, or the corresponding density. Maximum likelihood seeks a global maximum over the admissible parameter space. The source's Behrens--Fischer estimation problem concerns two multivariate Gaussian populations with a shared unknown mean and separate unknown covariance matrices. The target asks for the number and structure of stationary solutions to the joint likelihood equations.
+\paragraph{Statement recorded in the supplied source.}
+Question 42 (Richards). What can be said about the number and structure of solutions to the likelihood equations which arise in the Behrens-Fischer problem? 10 \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The source uses the shared-mean multivariate formulation, rather than substituting a different hypothesis-testing version of the Behrens--Fischer problem.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+What is the number and structure of solutions to the likelihood equations for two Gaussian populations with a common mean?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001218 (AIM-COMPUTATION-0056). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0056
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001218 and source code AIM-COMPUTATION-0056 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001218}
+
+
+\section{Research attempt}
+\subsection{Literature and scope}
+Question 42 asks about the Behrens--Fisher likelihood equations. The primary paper by Buot, Ho\c{s}ten and Richards reports the generic complex count $2p+1$ when both sample sizes exceed dimension $p$. That established result is not claimed as new progress. I instead tested the inference that three real univariate roots give three local maxima, using unequal sample sizes.
+\begin{proposition}
+For two univariate normal samples of sizes $2,3$, means $-2,2$, and sample variances $1,1$ computed with their respective sample-size divisors, the common-mean likelihood has three real interior stationary solutions. Exactly two are local maxima; the third is a saddle in the full parameter space.
+\end{proposition}
+\begin{proof}
+For fixed mean $\mu$, the unique variance maximizers are $q_1=1+(\mu+2)^2$ and $q_2=1+(\mu-2)^2$, both positive. Indeed, each variance $v$ has log likelihood $-n(\log v+q/v)/2$, whose derivative is $n(q-v)/(2v^2)$. The profile log likelihood is therefore, up to a constant,
+\[
+L(\mu)=-\log q_1-\tfrac32\log q_2,
+\qquad L'(\mu)=-\frac{P(\mu)}{q_1q_2},\quad
+P(\mu)=5\mu^3+2\mu^2-15\mu-10.
+\]
+The values $P(-2)=-12$, $P(-1)=2$, $P(0)=-10$ and $P(2)=8$ force roots in $(-2,-1)$, $(-1,0)$ and $(0,2)$. A cubic cannot have more than three distinct roots, so these are all its roots and each is simple. Its positive leading coefficient implies alternating signs, giving profile maxima at the first and third roots and a minimum at the middle root. Every full stationary solution must use the unique variance critical points, so there are exactly three.
+
+Near an outer root, the profile has a strict local maximum and each conditional variance maximum is strict. The full likelihood is bounded above by its profile, so these give strict full local maxima. At the middle root, moving along the profiled variance curve increases likelihood, whereas varying either variance at fixed mean decreases it. It is therefore a saddle. The sample summaries are realizable: use observations $(-3,-1)$ and $(2-\sqrt{3/2},2,2+\sqrt{3/2})$.
+\end{proof}
+\subsection{Verification and remaining gaps}
+Numerical roots were approximately $-1.509654,-0.722921,1.832575$; the exact sign argument, not these approximations, proves their number and classification. Positive sample variances are essential here: if one group is constant at $m$, holding $\mu=m$ and sending its variance to zero makes its likelihood unbounded while the other group's likelihood can remain positive. This example neither replaces the established generic complex count nor solves all multivariate or nongeneric cases. The attempted identification of real roots with modes is disproved.
+
+\section{References and source attribution}
+The original question is credited to the AIM workshop list prepared by Seth Sullivant (2004), \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}. The source question and catalogue attribution are reproduced above. This list was accessed on 11 October 2026; it is historical evidence of the question, not a certification of present open status.
+
+\url{https://arxiv.org/abs/0709.0957}. Primary abstract by M.-L. G. Buot, S. Hosten and D. St. P. Richards inspected; it states the generic 2p+1 complex-solution result for sample sizes exceeding p.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch005/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

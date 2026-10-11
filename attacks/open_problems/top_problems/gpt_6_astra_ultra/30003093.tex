@@ -1,0 +1,94 @@
+% TOP_PROBLEM: {"id": 30003093, "title": "Attainment of Constrained Domain-Wall Energies", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The energy, strip and both constraints were recovered from PDF page 21. The source first singles out $q\\in\\{-1,0,1\\}$ and also asks the general integer case, so both are retained. Its negative-end square-integrability line displays a questionable plus sign inconsistent with its stated far-field value; that sign is not silently used to define an empty class. The asymptotic notation above retains the intended boundary-state statement, and a theorem must explicitly fix its convergence convention."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003093", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Does every allowed angle and integer winding class have an energy-minimizing domain wall?", "scope": "Derives normalized degree/winding energy lower bounds and identifies translation-induced loss of the wall boundary condition.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked both topological constants, pointwise inequalities, translation invariance and the intended far-field convention rather than the source sign artifact. Model self-audit only; no independent human proof checking. Coordinator checked both topological energy bounds against the canonical degree and winding normalizations and the conditional translation compactness obstruction. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked both topological constants, pointwise inequalities, translation invariance and the intended far-field convention rather than the source sign artifact. Retained unresolved status and zero original-target progress; Admissible constructions and compactness excluding splitting/charge loss for every angle and integer charge are missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30003093; source catalogue code OWR-14225-001
+\setcounter{section}{30003092}
+\section{Attainment of Constrained Domain-Wall Energies}\label{30003093}
+{\small UnsolvedMath ID 30003093 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+In the report, $\Omega=\mathbb R\times(-1,1)$ has coordinates $(x_1,x_3)$, and magnetizations $m=(m_1,m_2,m_3)$ take values in $S^2$ with finite Dirichlet energy. Put $m'=(m_1,m_3)$ and $m_\theta^\pm=(\cos\theta,\pm\sin\theta,0)$. The class $\mathcal M_\theta$ has $\operatorname{div}m'=0$ in $\Omega$, $m_3=0$ on its boundary, and the source far-field condition $m(\pm\infty,\cdot)=m_\theta^\pm$. Its energy is $\int_\Omega|\nabla m|^2\,dx$. The two topological constraints are $D(m)=(2\pi)^{-1}\int_\Omega m\cdot(\partial_1m\times\partial_3m)\,dx$ and $W(m)=\pi^{-1}\int_\Omega\nabla m_1\times\nabla m_2\,dx$, where the last cross product is the determinant in the $(x_1,x_3)$ plane. The infimum is taken over $m\in\mathcal M_\theta$ with either $D(m)=q$ or $W(m)=q$.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+For the domain-wall minimization problem, is the constrained infimum attained for every $0<\theta\leq\pi/2$ and every $q\in\mathbb{Z}$, when $q$ is the degree or winding number?
+
+\paragraph{Source scope and qualification.}
+The energy, strip and both constraints were recovered from PDF page 21. The source first singles out $q\in\{-1,0,1\}$ and also asks the general integer case, so both are retained. Its negative-end square-integrability line displays a questionable plus sign inconsistent with its stated far-field value; that sign is not silently used to define an empty class. The asymptotic notation above retains the intended boundary-state statement, and a theorem must explicitly fix its convergence convention.
+\subsection{Short English statement}
+Does every allowed angle and integer winding class have an energy-minimizing domain wall?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derives normalized degree/winding energy lower bounds and identifies translation-induced loss of the wall boundary condition.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Topological charge gives a rigorous energy floor.} For a smooth finite-energy admissible magnetization $m:\Omega\to S^2$, $\partial_1m$ and $\partial_3m$ are tangent to the sphere. Cauchy--Schwarz and $2ab\leq a^2+b^2$ give
+\[
+ |m\cdot(\partial_1m\times\partial_3m)|
+ \leq\tfrac12(|\partial_1m|^2+|\partial_3m|^2).
+\]
+With the source normalization of $D$, integration yields $\int_\Omega|\nabla m|^2\geq4\pi|D(m)|$. Likewise $|\nabla m_1\times\nabla m_2|\leq\tfrac12(|\nabla m_1|^2+|\nabla m_2|^2)$ gives $\int|\nabla m|^2\geq2\pi|W(m)|$. These bounds preserve the different normalizations of degree and winding.
+
+\paragraph{Why coercivity does not ensure attainment.} The energy, divergence constraint, strip boundary condition and either charge are invariant under translations $m(x_1,x_3)\mapsto m(x_1-a,x_3)$. If an admissible wall with the intended far-field convergence is shifted to $a\to+\infty$, its local limit can be the negative-end constant state, losing the opposite far field while preserving each translated wall's energy and charge. This is a conditional compactness obstruction; existence of a wall in every charge class is not asserted.
+
+\paragraph{Remaining gap.} Translation recentering is necessary but may not prevent splitting into several separated charge-carrying walls or charge loss under weak convergence. One needs admissible constructions and a concentration-compactness argument respecting $\operatorname{div}m'=0$, both topology constraints and all $0<\theta\leq\pi/2$, including all integer $q$. The source's questionable sign in an integrability line is not used to make the class empty. Neither energy lower bound proves attainment.
+
+\paragraph{Verification and adversarial audit.}
+Checked both topological constants, pointwise inequalities, translation invariance and the intended far-field convention rather than the source sign artifact. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked both topological constants, pointwise inequalities, translation invariance and the intended far-field convention rather than the source sign artifact. Retained unresolved status and zero original-target progress; Admissible constructions and compactness excluding splitting/charge loss for every angle and integer charge are missing.
+
+Coordinator checked both topological energy bounds against the canonical degree and winding normalizations and the conditional translation compactness obstruction. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Admissible constructions and compactness excluding splitting/charge loss for every angle and integer charge are missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Admissible constructions and compactness excluding splitting/charge loss for every angle and integer charge are missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30003093:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30003093 (OWR-14225-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30003093:2}{S2}] Mechanics of Materials: Mechanics of Interfaces and Evolving Microstructure (2016), Oberwolfach Reports, DOI 10.4171/owr/2016/17, pp. 797--867. Primary report accessed 2026-10-11; relevant PDF pages 21, 22.
+\url{https://doi.org/10.4171/owr/2016/17}.
+\item[\hypertarget{source:30003093:3}{S3}] Döring--Ignat--Otto (catalogue-listed context; not independently consulted in this preparation).
+\url{https://doi.org/10.4171/JEMS/464}.
+\end{itemize}
+\label{end:30003093}
+\end{document}

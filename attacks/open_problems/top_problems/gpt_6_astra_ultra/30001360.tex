@@ -1,0 +1,95 @@
+% TOP_PROBLEM: {"id": 30001360, "title": "Uniqueness of Stationary Black-Hole Exteriors", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The catalogue literature assessment calls this a dynamical settling expectation, but the clean statement and primary uniqueness contribution concern stationary uniqueness. The report explains real-analytic uniqueness and seeks weaker regularity. Dynamical Kerr stability is a different target, related to ID 30001359."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001360", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Determine whether the regular stationary vacuum black-hole exteriors under the report's horizon assumptions are all Kerr.", "scope": "Integrates the stated static-spherical vacuum ODEs as a conditional reconstruction of Schwarzschild; the Einstein-tensor reduction itself is not claimed proved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked ODE integration, asymptotic normalization and mass endpoints; explicitly disclosed the unproved field-equation reduction and corrected stationary-versus-dynamical scope. Model self-audit only; no independent human proof checking. Coordinator checked the integration and boundary normalization of the explicitly assumed radial vacuum equations, without replacing the general stationary target. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked ODE integration, asymptotic normalization and mass endpoints; explicitly disclosed the unproved field-equation reduction and corrected stationary-versus-dynamical scope. Retained unresolved status and zero original-target progress; Smooth stationary rigidity and a justified global rotating reduction under the source assumptions are missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001360; source catalogue code OWR-4129-002
+\setcounter{section}{30001359}
+\section{Uniqueness of Stationary Black-Hole Exteriors}\label{30001360}
+{\small UnsolvedMath ID 30001360 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} An asymptotically flat vacuum initial data set $(\Sigma,\bar g,K)$ satisfies the Einstein constraints and has maximal globally hyperbolic development $(M,g)$ with $\operatorname{Ric}(g)=0$. The Kerr family describes rotating vacuum black holes by mass $m>0$ and specific angular momentum $a$; its subextremal black-hole range is $|a|<m$. Future null infinity $\mathcal I^+$ is the ideal endpoint boundary of outgoing null rays, and $J^-(\mathcal I^+)$ is its causal past. Completeness of $\mathcal I^+$ is the future-completeness condition in the report's asymptotically flat formulation. A stationary exterior admits a time-translation Killing field. A bifurcate event horizon has future and past null branches meeting in a bifurcation surface. Nondegeneracy excludes zero surface gravity. The source's uniqueness question concerns sufficiently regular asymptotically flat vacuum stationary exteriors with the stated simple-connectivity and horizon assumptions.
+
+\paragraph{Source scope and qualifications.} The catalogue literature assessment calls this a dynamical settling expectation, but the clean statement and primary uniqueness contribution concern stationary uniqueness. The report explains real-analytic uniqueness and seeks weaker regularity. Dynamical Kerr stability is a different target, related to ID 30001359.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+Are the Kerr solutions the only sufficiently regular stationary black-hole exteriors with a simply connected, non-degenerate bifurcate event horizon?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The extracted statement is an asymptotic-settling expectation for general dynamical black-hole exteriors rather than a theorem; existing uniqueness results are stationary or perturbative and do not settle this general dynamical claim. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Determine whether the regular stationary vacuum black-hole exteriors under the report's horizon assumptions are all Kerr.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Integrates the stated static-spherical vacuum ODEs as a conditional reconstruction of Schwarzschild; the Einstein-tensor reduction itself is not claimed proved.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{The static spherically symmetric reduction.} In the additional static spherical ansatz write $g=-e^{2\Phi(r)}dt^2+(1-2m(r)/r)^{-1}dr^2+r^2d\Omega^2$. The vacuum Einstein equations in these coordinates reduce to
+\[
+ m'(r)=0,\qquad \Phi'(r)=\frac{m(r)}{r(r-2m(r))}.
+\]
+These reduced equations are the only field-equation input used in this conditional calculation; their derivation from the Einstein tensor is not supplied here. Integrating gives $m(r)=M$ and $\Phi(r)=\tfrac12\log(1-2M/r)+C$. Asymptotic normalization of the time coordinate sets $C=0$, yielding Schwarzschild on $r>2M$.
+
+\paragraph{What the reduction buys and costs.} Within those explicit reduced equations there are no additional radial vacuum metric functions. For $M>0$ the horizon is nondegenerate, while $M=0$ gives Minkowski with no black-hole horizon and negative $M$ does not give the required positive-radius horizon. The calculation therefore recovers the expected spherical member but uses staticity and spherical symmetry, neither of which follows from the source assumptions.
+
+\paragraph{First gap.} The actual uniqueness question is stationary and may rotate. Deriving an additional axial Killing field and the global reduction under sufficiently weak smoothness is not achieved by the radial ODE. The supplied catalogue's dynamical-settling assessment is a provenance mismatch and is not used as the target. No conclusion about generic dynamical relaxation, nor a smooth stationary Kerr uniqueness theorem, is claimed. The missing geometric rigidity step precedes any attempt to use special-coordinate equations.
+
+\paragraph{Verification and adversarial audit.}
+Checked ODE integration, asymptotic normalization and mass endpoints; explicitly disclosed the unproved field-equation reduction and corrected stationary-versus-dynamical scope. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked ODE integration, asymptotic normalization and mass endpoints; explicitly disclosed the unproved field-equation reduction and corrected stationary-versus-dynamical scope. Retained unresolved status and zero original-target progress; Smooth stationary rigidity and a justified global rotating reduction under the source assumptions are missing.
+
+Coordinator checked the integration and boundary normalization of the explicitly assumed radial vacuum equations, without replacing the general stationary target. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Smooth stationary rigidity and a justified global rotating reduction under the source assumptions are missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Smooth stationary rigidity and a justified global rotating reduction under the source assumptions are missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001360:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001360 (OWR-4129-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001360:2}{S2}] Mathematical Aspects of General Relativity (2009), Oberwolfach Reports, DOI 10.4171/owr/2009/46, pp. 2585--2646; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2009/46}.
+\item[\hypertarget{source:30001360:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 18--20.
+\url{https://ems.press/content/serial-article-files/46246}.
+\item[\hypertarget{source:30001360:4}{S4}] Ionescu--Klainerman, stationary uniqueness; reference in the saved dated catalogue literature review.
+\url{https://arxiv.org/abs/0711.0040}.
+\end{itemize}
+\label{end:30001360}
+\end{document}

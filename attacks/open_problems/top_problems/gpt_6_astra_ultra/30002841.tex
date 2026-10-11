@@ -1,0 +1,91 @@
+% TOP_PROBLEM: {"id": 30002841, "title": "Weak Verlinde Formula beyond Rational Conformal Field Theory", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "Existence and normalization of the character limits and the chosen fusion ring are part of the problem. Logarithmic and nonrational theories must not be replaced by the rational case in a proposed answer."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002841", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Beyond rational conformal theory, do asymptotic quantum dimensions still multiply according to fusion?", "scope": "Derives a nilpotent obstruction for scalar fusion characters and computes the blindness of ordinary traces to a Jordan extension.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked nilpotent homomorphism argument, Jordan exponential trace and the distinction between a toy ring and a CFT fusion ring. Model self-audit only; no independent human proof checking. Coordinator checked annihilation of nilpotents by scalar characters and the exact exponential and trace of the Jordan block. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked nilpotent homomorphism argument, Jordan exponential trace and the distinction between a toy ring and a CFT fusion ring. Retained unresolved status and zero original-target progress; Actual nonrational/logarithmic fusion relations and normalized character asymptotics have not been linked analytically."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30002841; source catalogue code OWR-13673-011
+\setcounter{section}{30002840}
+\section{Weak Verlinde Formula beyond Rational Conformal Field Theory}\label{30002841}
+{\small UnsolvedMath ID 30002841 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+The fusion ring has a basis of sectors or modules and product given by fusion multiplicities. A one-dimensional representation of this ring is a multiplicative scalar assignment to those basis elements. An asymptotic quantum dimension is obtained from an appropriate limiting ratio of characters, when that limit exists. The weak Verlinde question asks whether these asymptotic dimensions respect fusion even outside semisimple rational conformal theories.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Does the weak Verlinde formula hold beyond rational conformal field theory; specifically, do asymptotic quantum dimensions define a one-dimensional representation of the fusion ring for nonrational or logarithmic conformal field theories?
+
+\paragraph{Source scope and qualification.}
+Existence and normalization of the character limits and the chosen fusion ring are part of the problem. Logarithmic and nonrational theories must not be replaced by the rational case in a proposed answer.
+\subsection{Short English statement}
+Beyond rational conformal theory, do asymptotic quantum dimensions still multiply according to fusion?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derives a nilpotent obstruction for scalar fusion characters and computes the blindness of ordinary traces to a Jordan extension.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A necessary nilpotent test for scalar fusion characters.} Any unital ring homomorphism $d:R\to\mathbb C$ annihilates nilpotents: if $x^n=0$, then $d(x)^n=0$ and hence $d(x)=0$. Thus whenever the chosen complexified fusion ring has a nilpotent element, a proposed asymptotic dimension must vanish on it. For the simple algebra $R=\mathbb C[\epsilon]/(\epsilon^2)$, every scalar character sends $a+b\epsilon$ to $a$; assigning a nonzero value to $\epsilon$ is immediately incompatible with multiplicativity.
+
+\paragraph{Ordinary traces can miss logarithmic structure.} Let a two-dimensional generalized energy block be $L=hI+N$, where $N\ne0$ and $N^2=0$. Then $e^{-tL}=e^{-th}(I-tN)$ and $\operatorname{Tr}(e^{-tL})=2e^{-th}$, exactly the same as for the semisimple block $hI$. Thus ordinary character traces may ignore nilpotent Jordan data. Ratios of such traces can exist while failing to distinguish extensions; their existence alone supplies no fusion-product identity.
+
+\paragraph{Original-target gap.} The toy dual-number ring is not asserted to be a particular logarithmic CFT fusion ring, and the Jordan calculation does not disprove any correctly regularized weak Verlinde formula. It identifies two checks: choose the actual fusion ring and prove that the character limits respect its relations, including nilpotent ones if present. The first missing step is an analytic fusion/character asymptotic relation in the nonrational or logarithmic theory with controlled normalization and regularization. A rational semisimple theorem would not settle that step.
+
+\paragraph{Verification and adversarial audit.}
+Checked nilpotent homomorphism argument, Jordan exponential trace and the distinction between a toy ring and a CFT fusion ring. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked nilpotent homomorphism argument, Jordan exponential trace and the distinction between a toy ring and a CFT fusion ring. Retained unresolved status and zero original-target progress; Actual nonrational/logarithmic fusion relations and normalized character asymptotics have not been linked analytically.
+
+Coordinator checked annihilation of nilpotents by scalar characters and the exact exponential and trace of the Jordan block. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Actual nonrational/logarithmic fusion relations and normalized character asymptotics have not been linked analytically.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Actual nonrational/logarithmic fusion relations and normalized character asymptotics have not been linked analytically.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30002841:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30002841 (OWR-13673-011). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30002841:2}{S2}] Subfactors and Conformal Field Theory (2015), Oberwolfach Reports, DOI 10.4171/owr/2015/16, pp. 849--926. Primary report accessed 2026-10-11; relevant PDF pages 53, 54.
+\url{https://doi.org/10.4171/owr/2015/16}.
+\item[\hypertarget{source:30002841:3}{S3}] Huang, Verlinde conjecture (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/math/0406291}.
+\item[\hypertarget{source:30002841:4}{S4}] Creutzig--Milas--Wood, regularized dimensions (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/1411.3282}.
+\end{itemize}
+\label{end:30002841}
+\end{document}

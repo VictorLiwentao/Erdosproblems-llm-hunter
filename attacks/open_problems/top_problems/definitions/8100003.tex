@@ -1,0 +1,58 @@
+% TOP_PROBLEM: {"id": 8100003, "title": "interacting particle systems and KPZ", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "Broken sentences and a truncated final question in the catalogue are replaced by a paraphrase of the full primary Problem 3. Historical descriptions of partial progress are dated 2017, and are not assertions that all these subquestions remain open today."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: statement_only
+% SUBMISSION: {"kind": "statement_only", "category": "top_problems", "problem_id": "8100003", "proposal_type": "established", "source": "Percy Deift, Some Open Problems in Random Matrix Theory and the Theory of Integrable Systems. II, SIGMA 13 (2017), 016, Problem 3. https://arxiv.org/abs/1703.04931; Primary full-text formulation and 2017 historical progress discussion. https://arxiv.org/html/1703.04931v1", "status_evidence": "Inherited source-catalogue status partially_solved preserved. Primary source accessed 11 October 2026; compared against the supplied catalogue excerpt. Historical wording and partial-result remarks were checked for scope; no comprehensive current-literature or proof-verification audit was performed.", "status_checked_on": "2026-10-11", "duplicate_check": "Full 15,773-record source registry checked for identical normalized statements; available site registry checked for identical normalized title/statement and canonical-ID collision. Canonical ID is absent from the site registry. Related canonical records 8000013. No mathematical-equivalence literature audit performed.", "attribution": "Percy Deift. Statement preparation: OpenAI GPT-6 Codex assistant, generation 11 October 2026; source-matching and notation editing by the assistant, no independent human mathematical verification. The consulted arXiv HTML version states CC BY-SA 4.0; preserve applicable attribution and share-alike provenance. Inherited rights/provenance note: Public arXiv source TeX; arXiv reuse license NEEDS_REVIEW"}
+% SOURCE_STATEMENT: "In 1999, J. All these early examples were ``integrable'' in the sense that certain powerful algebraic tools, e.g., determinantal particle systems, the Robinson--Schensted--Knuth correspondence, Fredholm operator theory, $\\dots$, could be applied to reduce the problems at hand to analytically viable forms from which their asymptotic behavior could be deduced using standard asymptotic methods such as the Laplace method/stationary phase, or sometimes, Riemann--Hilbert/nonlinear steepest-descent methods. In a very significant and unanticipated development during 2007--2009, C. Widom analyzed ASEP (the asymmetric simple exclusion process) with step initial data, a system to which the above algebraic tools cannot be applied. Nevertheless, in an algebraic/combinatorial/analytical tour de force, they were able to show that ASEP exhibited the same asymptotic RMT behavior as the integrable models. Spohn were the first to show that $h(x,t)$ converged to the Airy 2 process, but their argument was not rigorous (see for more information on spatial correlations). A basic question is whether KPZ is in the KPZ universality class. In other words, can one show rigorously that solutions of KPZ indeed have the KPZ scaling $3:2:1$? The first difficulty here is to show that the Cauchy problem for the non-linear stochastic KPZ equation indeed has a solution. Quastel, used results from the 2008--2009 work of Tracy and Widom on ASEP to find an explicit formula for the solution of the Cole--Hopf transformed KPZ equation with so-called ``narrow wedge'' initial data. Hammond (see for the strongest and most precise statement of the KPZ universality conjecture for the KPZ equation). Again for the stochastic heat equation with narrow wedge initial data, Corwin and Hammond were able to show tightness of the suitably $3:2:1$ scaled height function $h(x,t)$ in a ``good'' sense which implied convergence for suitable subsequences to limiting processes with ``good'' properties, but they were not able to show that the limits were unique and given by the physically anticipated process. The most challenging open problem regarding the KPZ equation is to prove $3:2:1$ KPZ universality in the strong sense of Corwin, Quastel and Remenik alluded to above, for solutions of the Cauchy problem of the KPZ equation for a wide set of initial data, and to identify the limiting process. Another open problem is to analyze solutions of KPZ at more than one space-time point. Johansson computed correlations for two space-time points for the Brownian LPP problem, from which it easily follows, in particular, that Brownian LPP exhibits $3:2:1$ KPZ scaling. Also, regarding the original longest increasing subsequence problem, KPZ universality for the fluctuations has been proved so far only for the uniform distribution on the permutations: The problem for the fluctuations with more general distributions is very much open. In another direction, it remains an open, and somewhat mysterious, problem to understand how Tracy and Widom's solution of ASEP actually ``works'', and to extend their method of solution to more general initial data (however, see, and more recently,). Developing such a perturbation…"
+% Preparation and final self-audit: CONTRIBUTING.md prompts C and D; source/audit artifacts retained in the local physics_statements_2026_10_11 batch.
+% Imported from: physics_statements.tex; UnsolvedMath ID 8100003
+% !TeX program = lualatex
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 8100003; source catalogue code AMR-080-0003
+\setcounter{section}{8100002}
+\section{interacting particle systems and KPZ}\label{8100003}
+{\small UnsolvedMath ID 8100003 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}For a random growing interface with height $h(x,t)$, KPZ scaling means time, space and centered height scale in proportions $3:2:1$: $t\sim L^3$, $x\sim L^2$ and fluctuations $\sim L$. A multi-point scaling limit concerns joint distributions or a specified process topology, not just one marginal. Last-passage percolation maximizes sums of random weights over directed paths. ASEP is an exclusion process with asymmetric jump rates.
+
+\paragraph{Catalogue wording retained for traceability.}
+Prove $3:2:1$ universality for the KPZ equation for a broad specified class of initial data, including identification of the limiting process in the strong sense referred to in Deift’s Problem 3. Analyze joint solutions at multiple space-time points. Establish the corresponding scaling for last-passage percolation with general weights and fluctuations of longest increasing subsequences for non-uniform permutation laws. Explain the mechanism behind Tracy--Widom’s ASEP solution and extend it to more general initial data. Develop perturbation theory for non-solvable interacting particle models that establishes robustness of asymptotic scaling.
+\paragraph{Scope and source qualification.}Broken sentences and a truncated final question in the catalogue are replaced by a paraphrase of the full primary Problem 3. Historical descriptions of partial progress are dated 2017, and are not assertions that all these subquestions remain open today.
+\subsection{Short English statement}
+Prove full KPZ scaling and limiting processes for broad initial data, and extend solvable-model methods and perturbation theory.
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:8100003:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 8100003 (AMR-080-0003). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:8100003:2}{S2}] Percy Deift, Some Open Problems in Random Matrix Theory and the Theory of Integrable Systems. II, SIGMA 13 (2017), 016, Problem 3.
+\url{https://arxiv.org/abs/1703.04931}.
+\item[\hypertarget{source:8100003:3}{S3}] Primary full-text formulation and 2017 historical progress discussion.
+\url{https://arxiv.org/html/1703.04931v1}.
+\end{itemize}
+\label{end:8100003}
+\end{document}

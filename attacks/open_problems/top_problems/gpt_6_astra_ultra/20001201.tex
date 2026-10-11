@@ -1,0 +1,167 @@
+% RESEARCH_DRAFT_SHA256: f3c31bee0904f8488957c1d0f2665272b5e317ee42fcb60ad6653ded19bb05c5
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001201, "title": "Gaussian observed-likelihood equations and a rank-certified monotone solution", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001201", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Problem 25. Solve the maximum likelihood equations for a multivariate guassian with arbitrary missing data patterns.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Exact arbitrary-pattern scores and a structural identifiability criterion are proved, with one full flat-family solution; general positive-domain root classification and maximization remain unresolved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Gaussian missing-data equations: exact scores, identifiability, and a flat family}
+\noindent UnsolvedMath ID 20001201; AIM-COMPUTATION-0039. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a statistical model with parameter $\theta$ and observations $D$, the likelihood is $L(\theta;D)=\Pr_\theta(D)$, or the corresponding density. Maximum likelihood seeks a global maximum over the admissible parameter space. A multivariate Gaussian has mean $\mu$ and positive-definite covariance $\Sigma$. Each incomplete observation contributes the marginal Gaussian density on its observed coordinates. The maximum-likelihood equations are the stationary equations of the product of these marginal densities with respect to $\mu$ and $\Sigma$.
+\paragraph{Statement recorded in the supplied source.}
+Problem 25. Solve the maximum likelihood equations for a multivariate guassian with arbitrary missing data patterns. \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The source asks for solving the equations, not for proving that every data set has a unique finite maximizer.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+How can the maximum-likelihood equations for a Gaussian population be solved with arbitrary patterns of missing coordinates?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001201 (AIM-COMPUTATION-0039). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0039
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Problem 25. Solve the maximum likelihood equations for a multivariate guassian with arbitrary missing data patterns.
+
+\section{Attempt for arbitrary fixed observed patterns}
+Treat the patterns as fixed and use the marginal Gaussian likelihood
+specified in the definition. For observation $i$ let $E_i$ select its
+observed coordinates, $y_i$ be the observed vector,
+$r_i=y_i-E_i\mu$ and $V_i=E_i\Sigma E_i^T$.
+Rows with no observed coordinates contribute likelihood one and may be
+removed. We assume $\Sigma\succ0$, so each nonempty $V_i$ is positive
+definite. This model does not infer a missingness mechanism from data.
+
+\paragraph{Exact score equations and polynomialization.}
+Apart from constants the log likelihood is
+\[
+\ell(\mu,\Sigma)=-\tfrac12\sum_i
+ [\log\det V_i+r_i^TV_i^{-1}r_i].
+\]
+Its interior stationary equations are
+\[
+\sum_iE_i^TV_i^{-1}r_i=0,
+\qquad
+\sum_i E_i^T[V_i^{-1}r_ir_i^TV_i^{-1}-V_i^{-1}]E_i=0.
+\]
+For a complete derivation, differentiation of $r_i$ contributes
+$-E_i\,d\mu$, giving the first score after the two equal scalar
+cross terms are combined. Differentiate
+$V_i V_i^{-1}=I$ to obtain
+$d(V_i^{-1})=-V_i^{-1}(dV_i)V_i^{-1}$.
+Also $d\log\det V_i=\operatorname{tr}(V_i^{-1}dV_i)$, because the
+linear term of $\det(I+tB)$ is $t\operatorname{tr}B$ by the
+permutation expansion of the determinant. Substitute
+$dV_i=E_i(d\Sigma)E_i^T$ and cyclically move factors inside the
+trace. The result is half the trace pairing of the displayed symmetric
+matrix with $d\Sigma$. It vanishes for all symmetric perturbations
+exactly when that matrix is zero (take the perturbation equal to the
+matrix). This proves equivalence to stationarity on the open domain.
+
+Every inverse entry is its cofactor divided by $\det V_i$, by the
+adjugate identity. Consequently multiplication by
+$\prod_i(\det V_i)^2$ converts all score equations to polynomials.
+The conversion is equivalent only where all these determinants are
+nonzero, and the statistical domain additionally requires
+$\Sigma\succ0$. It therefore does not justify accepting every
+polynomial root, nor does writing a polynomial system solve it.
+
+\paragraph{Structural identifiability from population marginals.}
+For an unrestricted Gaussian, the observed-pattern population laws
+identify all of $\mu,\Sigma$ if and only if every coordinate occurs
+and every pair of distinct coordinates occurs together in some pattern.
+For sufficiency, a univariate observed marginal supplies its mean and
+variance, and a jointly observed pair supplies its covariance; these
+are all Gaussian parameters. Equality of Gaussian marginal laws implies
+equality of these moments, while equal moments in a Gaussian give
+the same density, so the argument works in both directions.
+For necessity, an unobserved coordinate's mean can be changed without
+affecting any observed marginal. If a pair $a,b$ is never observed
+together, compare zero means and
+\[
+\Sigma_\pm=I\pm\varepsilon(e_ae_b^T+e_be_a^T),\qquad
+0<\varepsilon<1.
+\]
+The two affected eigenvalues are $1\pm\varepsilon$, and all others
+are one, so both covariances are positive definite. Every observed
+principal submatrix is the same for the two choices, because none
+contains both $a,b$. The observed laws agree although the covariance
+parameters differ. This proves necessity without a genericity assumption.
+It concerns population identifiability, not the number of finite-data
+stationary points or existence of a maximum.
+
+\paragraph{A solved flat example and the failure of universal uniqueness.}
+In dimension two, suppose there are two observations of coordinate one
+alone, with values $-1,+1$, and two of coordinate two alone, also
+$-1,+1$. There is no joint observation. The likelihood splits into two
+univariate Gaussian likelihoods. For either variable, writing its mean
+as $u$ and variance as $v>0$, its log likelihood up to constants is
+$-\log v-(1+u^2)/v$. For fixed $v$ this is uniquely maximized at
+$u=0$; at $u=0$ its derivative in $v$ is $(1-v)/v^2$, positive before
+one and negative afterward. Thus the means must be zero and both
+variances one at a global maximum. The cross covariance is absent from
+the likelihood, and positive definiteness allows exactly
+\[
+\mu=(0,0),\qquad
+\Sigma=\begin{pmatrix}1&c\\c&1\end{pmatrix},\quad -1<c<1.
+\]
+Every member is a global maximum and satisfies the score equations.
+This entire family is found analytically, not by numerical iterations.
+
+\section{Attempted route and remaining gap}
+Clearing denominators supplies a finite algebraic system, but root
+classification, positivity filtering, singular boundaries and global
+comparison remain. The example shows that treating an arbitrary pattern
+as a system with isolated roots is already false. Even complete
+population pair coverage does not itself prove unique finite-data
+maximization. The primary AIM Problem 25 was inspected; it asks to
+solve the equations and does not promise uniqueness. The audit checks
+symmetric covariance differentiation, identifiability versus sample
+rank, and denominator-zero artifacts. No numerical fit, Groebner basis,
+or formal proof checker was used. These established score calculations
+and a special flat family do not solve all arbitrary-pattern systems;
+no original universal solution is claimed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Exact arbitrary-pattern scores and a structural identifiability criterion are proved, with one full flat-family solution; general positive-domain root classification and maximization remain unresolved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Computational Algebraic Statistics, prepared by Seth Sullivant, version 27 March 2004; the original numbered source question and its adjacent scope were inspected on 11 October 2026. \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Exact arbitrary-pattern scores and a structural identifiability criterion are proved, with one full flat-family solution; general positive-domain root classification and maximization remain unresolved.
+\end{document}

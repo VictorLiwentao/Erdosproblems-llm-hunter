@@ -1,0 +1,148 @@
+% RESEARCH_DRAFT_SHA256: 7265a089aba1eadeadcb52f1a5981b0cb2cae7d45638d1781fd6642220c04960
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30003997, "title": "Hardness of Path-Cost Arborescence Optimization", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003997", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and adversarial mathematical review of the written argument; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Hardness of Path-Cost Arborescence Optimization; full original NP-hardness target, with all source qualifications retained.", "scope": "The original NP-hardness target is fully covered. The reduction uses outward arborescences as in the retained r-to-v path statement and only nonnegative binary costs. It does not claim a new hardness theorem or characterize approximation ratios. The classical satisfiability theorem is the sole external complexity dependency.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch012 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: solved
+% FULL_SOLUTION_SCOPE: {"target": "Hardness of Path-Cost Arborescence Optimization; full original NP-hardness target, with all source qualifications retained.", "result": "A satisfiability reduction for destination-dependent path costs; the displayed reduction makes the target optimum zero exactly for satisfiable formulas.", "coverage": "Polynomial-size instances using only nonnegative integer costs prove NP-hardness of the original class with real cost vectors. Every introduced nonroot vertex is spanned and every cost contribution is accounted for.", "dependencies": "Cook--Levin NP-completeness of Boolean formula satisfiability, explicitly recorded in Karp author introduction to the consulted reprint; normal-form conversion and graph reduction proved here.", "human_verification": "None; generating-model audit and stated exact finite checks only at initial submission.", "unverified": "No independent human or formal proof verification. The Cook--Levin proof was not rederived; its classical theorem statement was checked in the consulted source.", "novelty": "No novelty claimed. Primary problem and Karp reprint consulted; exhaustive literature search not performed."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30003997; source catalogue code OWR-16633-014
+\section{Hardness of Path-Cost Arborescence Optimization}\label{30003997}
+{\small UnsolvedMath ID 30003997 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+$P^v$ is the unique directed path from the root to $v$ in the arborescence, and $c^v(P^v)$ sums its arc costs under the destination-specific vector $c^v$.
+
+Polynomial time means a number of elementary steps bounded by a polynomial in the encoded input length. A decision problem is in $\mathrm{NP}$ if yes-instances have polynomial-length certificates verifiable in polynomial time; NP-hardness is under polynomial-time reductions.
+
+An arborescence rooted at $r$ is a directed spanning tree with a unique directed path from $r$ to every other vertex; reversing all arcs gives the inward-rooted convention. The source question fixes the orientation convention.
+\paragraph{Statement recorded in the supplied source.}
+Given a directed graph $D=(V,A)$, a root $r\in V$, and a cost vector $c^v$ for every $v\neq r$, prove that it is NP-hard to find an arborescence $T$ minimizing
+
+$$\sum_{v\in V\setminus\{r\}}c^v(P^v),$$
+
+where $P^v$ is the path from $r$ to $v$ in $T$. \href{https://doi.org/10.4171/owr/2018/50}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Prove hardness of minimizing all root-to-vertex path costs when each destination has its own cost vector.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30003997 (OWR-16633-014). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2019), Oberwolfach Reports, DOI 10.4171/owr/2018/50, pp. 2969--3023
+\url{https://doi.org/10.4171/owr/2018/50}.
+\item[S3] Oberwolfach Report 50/2018
+\url{https://ems.press/content/serial-article-files/46772}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30003997 and source code OWR-16633-014 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30003997}
+
+\section{Literature and context check}
+The primary report, pp. 3014--3015, asks for NP-hardness with real cost vectors and does not impose nonnegative-cost restrictions. The proof below uses only nonnegative integers, hence falls within that original scope. The single external complexity theorem used is the Cook--Levin theorem: Boolean formula satisfiability is NP-complete under polynomial-time many-one reductions. Karp's author-written introduction to the consulted reprint explicitly records this theorem and attributes it to Cook's 1971 paper. The original Cook paper was not retrieved; no claim of checking its proof is made. The reduction to the needed bounded-clause form and every graph-gadget assertion are proved here. No exhaustive novelty search was performed, and this proof is not claimed new.
+\section{Research attempt: A satisfiability reduction for destination-dependent path costs}
+\paragraph{Starting problem and normal form.}
+Use Boolean formula satisfiability, with variables and binary AND, OR and unary NOT gates. This is the standard NP-complete decision problem just identified. It can be transformed in polynomial time to a conjunction of nonempty clauses of at most three literals while preserving satisfiability. Introduce a new variable $z$ for each gate with input variables $a,b$. For an AND gate use
+\[
+(\neg z\vee a)\wedge(\neg z\vee b)\wedge(z\vee\neg a\vee\neg b).
+\]
+If $z=1$, the first two clauses force $a=b=1$; if $z=0$, the last clause forbids $a=b=1$. Thus these clauses are equivalent to $z=a\wedge b$. For OR use
+\[
+(z\vee\neg a)\wedge(z\vee\neg b)\wedge(\neg z\vee a\vee b).
+\]
+If $z=0$, the first two force $a=b=0$; if $z=1$, the last requires at least one input to be one. For NOT use $(\neg z\vee\neg a)\wedge(z\vee a)$, which says exactly that $z$ and $a$ differ. Add the unit clause requiring the output variable to be one. Assigning the gates their actual values extends every satisfying original assignment to the clause system; conversely the clauses force all gate values, so every satisfying clause assignment satisfies the original formula. The number of new variables and clauses is linear in the formula size.
+Delete tautological clauses and repeated literals without changing satisfiability. Each retained clause contains at most one sign of each variable and is nonempty. A detected empty clause can be mapped to a fixed negative target instance; an empty conjunction to a fixed positive one. These trivial cases do not affect hardness. Write the remaining variables as $x_1,\ldots,x_k$ and clauses as $C_1,\ldots,C_m$.
+\paragraph{The directed graph and its costs.}
+Create a root $r$; for each variable create vertices $t_i,f_i,v_i$; and create a clause vertex $q_j$ for each clause. Add arcs
+\[
+r\to t_i,\quad r\to f_i,\quad t_i\to v_i,\quad f_i\to v_i,
+\quad v_i\to q_j\ \text{when variable }x_i\text{ occurs in }C_j.
+\]
+The graph is acyclic, with four layers: root, truth selectors, variable vertices, and clauses. Every nonroot vertex is reachable because clauses are nonempty. An outward spanning arborescence must use both root-selector arcs for every variable, must choose exactly one of $t_i\to v_i,f_i\to v_i$, and must choose exactly one incoming variable arc for each clause. Conversely any such choices give an arborescence: every nonroot vertex has one parent, and following parents strictly decreases the layer until it reaches $r$. This proves reachability and excludes cycles.
+
+Give every non-clause destination the identically zero cost vector. For destination $q_j$, give cost zero to all arcs except that a selector arc into $v_i$ has cost one exactly when its chosen truth value falsifies the literal of $x_i$ in $C_j$. A positive literal therefore makes $f_i\to v_i$ cost one and $t_i\to v_i$ cost zero; a negative literal reverses those costs. For variables absent from $C_j$, both are zero. These are destination-specific vectors with entries in $\{0,1\}$.
+
+Read an assignment from a tree by $x_i=1$ when its parent arc is $t_i\to v_i$, and $x_i=0$ otherwise. If clause $q_j$ chooses parent $v_i$, its unique root path is $r\to t_i\to v_i\to q_j$ or the corresponding path through $f_i$. Its cost under $c^{q_j}$ is exactly one if that literal is false and zero if it is true; the other two arcs have zero cost. Since the available clause parents are precisely its variables, the minimum possible clause cost for a fixed assignment is zero when the clause is satisfied and one when it is not. Choices at distinct clause vertices are independent and never affect any variable parent. Consequently
+\[
+\min_T\sum_{v\ne r}c^v(P^v)
+=\min_{\text{assignments}}\#\{\text{unsatisfied clauses}\}.
+\]
+In particular the optimum is zero if and only if the formula is satisfiable. The graph has $1+3k+m$ vertices and $4k$ plus the number of variable-clause incidences many arcs. Even explicitly listing a cost for every destination and arc takes polynomial space and time. Thus an exact optimizer for the original problem would decide satisfiability in polynomial time. This proves NP-hardness, already on these layered acyclic graphs with nonnegative binary costs.
+
+\section{Verification and adversarial audit}
+The audit checked that all selector vertices must be spanned, not chosen as optional vertices; the assignment is encoded only by the unique parent of each variable vertex. No clause can select a variable absent from itself. Every root-to-clause path has exactly one cost-bearing selector arc under that clause's own vector. Tautological clauses and duplicate literals are explicitly removed, and the normal-form conversion preserves satisfiability in both directions. The problem asks for an optimization hardness proof, so hardness of distinguishing optimum zero suffices. Finite checks support but do not replace the proof.
+\paragraph{Audit corrections.} The starting NP-completeness theorem is explicitly identified as an external classical dependency; no guessed theorem number or unchecked novelty claim is used. Every gadget and orientation implication is proved. Completion is measured against the full original hardness target.
+\paragraph{External computation.} Executed \texttt{check\_arborescence\_reduction.py} under Python 3.14.2. For every ordered one- or two-clause formula over two variables, with each variable absent, positive, or negative in a nonempty clause, the script checked all 72 formulas. It enumerated 5696 undirected spanning trees in total and compared exact directed and root-dependent optima with the minimum unsatisfied-clause count. All equalities passed. This is finite falsification testing, not a general proof or a novelty test.
+\section{Scope and remaining gaps}
+The original NP-hardness target is fully covered. The reduction uses outward arborescences as in the retained r-to-v path statement and only nonnegative binary costs. It does not claim a new hardness theorem or characterize approximation ratios. The classical satisfiability theorem is the sole external complexity dependency.
+\section{Full-solution scope declaration}
+The original target is an NP-hardness proof for the stated optimization problem.
+The reduction above maps a Boolean formula to a polynomial-size instance with
+optimum zero exactly when the formula is satisfiable, and therefore covers the
+entire requested hardness claim. Hardness of the restricted nonnegative-integer
+instances implies hardness when arbitrary real cost vectors are permitted. Every
+gadget vertex is mandatory, and both directions of the objective correspondence
+are proved. The sole external complexity dependency is Cook--Levin NP-completeness
+of Boolean formula satisfiability, whose statement was checked in Karp's author
+introduction; its proof was not rederived. The normal-form reduction and all graph
+claims are proved in the manuscript. No independent human or formal proof checking
+occurred. No novelty claim is made and no exhaustive novelty search was performed.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 100\%}
+The complete polynomial-time reduction establishes the original NP-hardness target.
+This estimate concerns target coverage, not novelty or independent verification.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46772} (consulted 2026-10-11). 
+\item \url{https://www.cs.umd.edu/~gasarch/BLOGPAPERS/Karp.pdf} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and adversarial mathematical review of the written argument; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+\textbf{Solved: the original NP-hardness target is proved.} This is a fully written
+reduction with an explicit classical complexity dependency, without a novelty claim
+or independent human or formal verification.
+\end{document}

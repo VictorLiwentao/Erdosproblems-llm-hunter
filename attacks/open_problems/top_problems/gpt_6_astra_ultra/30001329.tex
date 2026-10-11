@@ -1,0 +1,96 @@
+% TOP_PROBLEM: {"id": 30001329, "title": "Stability of Atomic Ground-State Quantum Numbers", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The quantum numbers obtained theoretically refer to the electron numbers and ion sequences analyzed in the source. This is not a warrant to assert constancy for every N with an unspecified starting eigenspace. Crossings and changes in multiplicity are precisely what the required uniform continuation must rule out."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001329", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Prove that the large-charge predictions for atomic ground-state spin, angular momentum, and multiplicity remain valid all the way down to neutrality.", "scope": "Proves a finite-dimensional symmetry-protected gap continuation criterion, including constancy of multiplicity for an irreducible ground cluster.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the Δ−2||V|| gap, projection intertwiners, irreducibility requirement and the unbounded atomic perturbation limitation. Model self-audit only; no independent human proof checking. Coordinator checked the finite-dimensional gap persistence, local spectral-projection intertwiners and irreducibility argument preventing internal splitting. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked the Δ−2||V|| gap, projection intertwiners, irreducibility requirement and the unbounded atomic perturbation limitation. Retained unresolved status and zero original-target progress; No uniform Coulomb spectral-gap/perturbation bound down to neutrality is established."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001329; source catalogue code OWR-4083-002
+\setcounter{section}{30001328}
+\section{Stability of Atomic Ground-State Quantum Numbers}\label{30001329}
+{\small UnsolvedMath ID 30001329 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} For nuclear charge $Z>0$ and $N\ge1$ electrons, the source uses the nonrelativistic atomic Hamiltonian in atomic units,
+\[
+H_{N,Z}=\sum_{i=1}^N\left(-\tfrac12\Delta_{x_i}-\frac{Z}{|x_i|}\right)+
+\sum_{1\le i<j\le N}\frac1{|x_i-x_j|},
+\]
+on antisymmetric wavefunctions in $L^2((\mathbb R^3\times\{\uparrow,\downarrow\})^N)$. The nucleus is fixed in the Born--Oppenheimer approximation. Total orbital angular momentum, total spin, and parity commute with this Hamiltonian. Their labels on symmetry eigenspaces are $L,S,p$, with eigenvalues $L(L+1)$ and $S(S+1)$ for the squared angular-momentum operators. The isoelectronic parameter $N$ remains fixed while $Z$ decreases from the large-charge regime to $N$, the neutral value. Ground-state dimension is the multiplicity of the bottom eigenvalue; the source compares its large-Z symmetry labels with those of neutral atoms.
+
+\paragraph{Source scope and qualifications.} The quantum numbers obtained theoretically refer to the electron numbers and ion sequences analyzed in the source. This is not a warrant to assert constancy for every N with an unspecified starting eigenspace. Crossings and changes in multiplicity are precisely what the required uniform continuation must rule out.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+Prove that the angular-momentum and spin quantum numbers and the ground-state dimensions obtained theoretically for fixed electron number $N$ do not change as the nuclear charge $Z$ decreases to the neutral-atom value $Z=N$.
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The cited large-charge results verify the predicted quantum numbers asymptotically and compare well with neutral atoms, but the requested proof uniform down to Z=N is explicitly left open. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Prove that the large-charge predictions for atomic ground-state spin, angular momentum, and multiplicity remain valid all the way down to neutrality.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proves a finite-dimensional symmetry-protected gap continuation criterion, including constancy of multiplicity for an irreducible ground cluster.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A finite-dimensional gap criterion.} Let a compact symmetry group act unitarily on a finite-dimensional space, and let $H_0$ commute with it. Assume its ground eigenspace is a single irreducible representation, separated from the rest by gap $\Delta>0$. For a symmetry-preserving self-adjoint perturbation $V$ with $\|V\|<\Delta/2$, the eigenvalue variational characterization gives shifts of at most $\|V\|$ along $H_s=H_0+sV$, $0\leq s\leq1$. Hence the original ground cluster stays isolated with gap at least $\Delta-2\|V\|$.
+
+\paragraph{Why the representation is unchanged.} Its spectral projections $P_s$ vary continuously: integrate $(z-H_s)^{-1}$ over a contour enclosing the isolated cluster locally in $s$, and use the resolvent identity. For nearby parameters, $\|P_s-P_t\|<1$, so $P_t$ restricted to $\operatorname{ran}P_s$ is injective and, by equal finite rank, bijective. It intertwines the group action. Chaining these local isomorphisms shows the ground cluster carries the same irreducible representation throughout. Any self-adjoint operator commuting with an irreducible representation is scalar, since each eigenspace would otherwise be a nontrivial invariant subspace. Thus the cluster cannot split internally and remains the ground multiplet with unchanged labels and dimension.
+
+\paragraph{The atomic obstruction.} This argument identifies the needed protection against level crossings, but the actual Coulomb perturbation under changing $Z$ is unbounded and no uniform gap estimate down to $Z=N$ has been proved here. Large-$Z$ labels alone supply neither bound. The irreducibility hypothesis also matters if an initial ground space is a sum of symmetry types. Extending a certified isolated-multiplet continuation across the full source ion sequence is the first remaining gap.
+
+\paragraph{Verification and adversarial audit.}
+Checked the Δ−2||V|| gap, projection intertwiners, irreducibility requirement and the unbounded atomic perturbation limitation. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked the Δ−2||V|| gap, projection intertwiners, irreducibility requirement and the unbounded atomic perturbation limitation. Retained unresolved status and zero original-target progress; No uniform Coulomb spectral-gap/perturbation bound down to neutrality is established.
+
+Coordinator checked the finite-dimensional gap persistence, local spectral-projection intertwiners and irreducibility argument preventing internal splitting. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. No uniform Coulomb spectral-gap/perturbation bound down to neutrality is established.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. No uniform Coulomb spectral-gap/perturbation bound down to neutrality is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001329:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001329 (OWR-4083-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001329:2}{S2}] Mathematics of Complex Quantum Systems (2009), Oberwolfach Reports, DOI 10.4171/owr/2009/40, pp. 2235--2270; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2009/40}.
+\item[\hypertarget{source:30001329:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 17--18, printed pages 2251--2252.
+\url{https://ems.press/content/serial-article-files/46241}.
+\item[\hypertarget{source:30001329:4}{S4}] Friesecke-Goddard periodic-table analysis; reference in the saved dated catalogue literature review.
+\url{https://doi.org/10.1137/080729050}.
+\end{itemize}
+\label{end:30001329}
+\end{document}

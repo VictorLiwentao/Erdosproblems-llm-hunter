@@ -1,0 +1,68 @@
+% TOP_PROBLEM: {"id": 7800012, "title": "Optimal Flux for the Quarter-Filled Band", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "7800012", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "For noninteracting electrons filling the lowest quarter of a periodic square-lattice band, does one quarter of a flux quantum through every elementary square minimize the total energy?", "scope": "Derived a phase-independent lower bound on even bipartite tori and a necessary current equation for gapped minima. No global quarter-flux minimization is established.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the hopping trace, eigenvalue-pair count, equality conditions, phase-derivative sign, gap requirement and nonbipartite torus boundary. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked trace T squared, the Cauchy-Schwarz constant/equality conditions and the phase derivative sign. Even torus and spectral-gap restrictions are retained. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked the hopping trace, eigenvalue-pair count, equality conditions, phase-derivative sign, gap requirement and nonbipartite torus boundary. Scope remains limited: Prove a comparison attaining or improving the lower bound specifically at uniform pi/2 flux for every allowed torus and twist."}
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Mathematical question.} #1}
+\begin{document}
+% UnsolvedMath ID 7800012; source catalogue code AMR-077-0012
+\setcounter{section}{7800011}
+\section{Optimal Flux for the Quarter-Filled Band}\label{7800012}
+{\small\sffamily UnsolvedMath ID 7800012 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$, and $\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$ denote the integers, rationals, reals and complex numbers. Any other conventions are specified locally.
+
+
+Let $\Lambda$ be a finite periodic square lattice with $N=|\Lambda|$ divisible by four. Give each oriented nearest-neighbour bond a phase $\theta_{xy}\in\mathbb R/2\pi\mathbb Z$ with $\theta_{yx}=-\theta_{xy}$. The Hermitian hopping matrix has $T_{xy}=e^{i\theta_{xy}}$ on these bonds and zero otherwise. Write its eigenvalues as $\lambda_1\le\cdots\le\lambda_N$ and define the quarter-filled energy $E(\theta)=\sum_{j=1}^{N/4}\lambda_j$. For each elementary square, its flux $\Phi_p$ is the sum of the phases along a consistently oriented boundary, modulo $2\pi$; bond phases also allow global twists around the torus.
+\paragraph{Statement recorded in the supplied source.}
+Is the minimum of $E(\theta)$ over all bond phases attained by a configuration with $\Phi_p=\pi/2$ on every elementary square? The optimization retains all allowed global twists as part of the bond-phase data. \sref{7800012}{2}
+\subsection{Short English statement}
+For noninteracting electrons filling the lowest quarter of a periodic square-lattice band, does one quarter of a flux quantum through every elementary square minimize the total energy?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derived a phase-independent lower bound on even bipartite tori and a necessary current equation for gapped minima. No global quarter-flux minimization is established.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{A spectral bound with explicit scope.}Restrict this test to an even-by-even periodic square lattice with distinct nearest neighbours, so that the graph is bipartite and every vertex has degree four. Let \(U\) equal \(+1\) on one sublattice and \(-1\) on the other. Then \(UTU=-T\), independently of phases and global twists. Eigenvalues therefore occur as \(\pm s_j\), \(s_j\ge0\), \(1\le j\le N/2\). Since \((T^2)_{xx}=4\),
+\[\sum_{j=1}^{N/2}s_j^2=2N,\qquad
+E=-\sum_{j=1}^{N/4}s_j^{\downarrow}\ge-\sqrt{(N/4)2N}=-N/\sqrt2 .\]
+Here the downward arrow orders the nonnegative eigenvalues decreasingly. The inequality follows by Cauchy--Schwarz and by bounding a partial sum of squares by the full sum. Equality would require all selected \(s_j\) to equal \(2\sqrt2\), and all remaining \(s_j\) to vanish; this strong flat-band condition is not established for the proposed flux.
+\paragraph{Trying a local optimality route.}If there is a spectral gap after \(\lambda_{N/4}\), let \(P\) be the projection onto the lowest quarter. Perturb the phase on a single edge \(x\to y\) by \(h\). Differentiating the finite-dimensional eigenvalue sum, or the trace of its separated spectral block, gives
+\[\frac{dE}{dh}\bigg|_{0}=iP_{yx}e^{i\theta_{xy}}-iP_{xy}e^{-i\theta_{xy}}=-2\operatorname{Im}(P_{yx}e^{i\theta_{xy}}).\]
+Thus a differentiable minimum has zero bond current on every independently varied edge. Gauge variations produce dependent equations, but the necessity remains valid for each edge. At a crossing, differentiability can fail; this test cannot be used without a gap.
+\paragraph{Obstruction.}Neither this trace bound nor current cancellation compares all flux arrangements with uniform \(\pi/2\). In particular an energy lower bound need not be attained, and stationarity need not imply minimality. Odd torus circumferences can also destroy the bipartition despite \(4\mid N\), so the displayed bound has deliberately narrower scope than the original lattice class. Global twists have not been fixed or discarded. The required flux minimization remains open in this attempt.
+
+\paragraph{Verification and adversarial audit.}
+Checked the hopping trace, eigenvalue-pair count, equality conditions, phase-derivative sign, gap requirement and nonbipartite torus boundary. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked the hopping trace, eigenvalue-pair count, equality conditions, phase-derivative sign, gap requirement and nonbipartite torus boundary. Scope remains limited: Prove a comparison attaining or improving the lower bound specifically at uniform pi/2 flux for every allowed torus and twist.
+
+Coordinator checked trace T squared, the Cauchy-Schwarz constant/equality conditions and the phase derivative sign. Even torus and spectral-gap restrictions are retained. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Prove a comparison attaining or improving the lower bound specifically at uniform pi/2 flux for every allowed torus and twist.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{description}
+\item[\hypertarget{source:7800012:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 7800012 (AMR-077-0012). CC BY 4.0. \url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:7800012:2}{S2}] Elliott H. Lieb, Optimal Flux for the Quarter-Filled Band (15 September 1998), Embedded technical statement beginning Consider a large square lattice. \url{https://web.math.princeton.edu/~aizenman/OpenProblems_MathPhys/9802.OptFlux.html}.
+\end{description}
+\label{end:7800012}
+\end{document}

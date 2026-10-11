@@ -1,0 +1,100 @@
+% TOP_PROBLEM: {"id": 30001118, "title": "Nonconvex Gradient Gibbs States and Free Energy", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The report discusses perturbations of a Gaussian potential and a low-temperature RG breakthrough. The question asks what can be proved more broadly; it does not assert universal uniqueness or strict convexity for every nonconvex interaction."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001118", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Develop a general theory of free energy and Gibbs states for nonconvex gradient interactions.", "scope": "Proves strict stress-pressure convexity and product-specification uniqueness for a one-dimensional independent-bond quartic nonconvex model.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked quartic tail domination, positive variance and conditional-law uniqueness; kept stress and fixed-tilt ensembles distinct. Model self-audit only; no independent human proof checking. Coordinator checked differentiation of the quartic integral and the finite conditional-law argument for uniqueness in the specified independent-bond stress ensemble. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked quartic tail domination, positive variance and conditional-law uniqueness; kept stress and fixed-tilt ensembles distinct. Retained unresolved status and zero original-target progress; Higher-dimensional curl constraints and fixed-tilt thermodynamic limits are not controlled."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001118; source catalogue code OWR-2493-005
+\setcounter{section}{30001117}
+\section{Nonconvex Gradient Gibbs States and Free Energy}\label{30001118}
+{\small UnsolvedMath ID 30001118 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} A height field is $\phi:\mathbb Z^d\to\mathbb R$ and its gradient variables are $\eta_i(x)=\phi(x+e_i)-\phi(x)$. A gradient Gibbs state is a probability measure on these variables satisfying the local Gibbs conditional distributions. Boundary tilt $u\in\mathbb R^d$ controls the mean gradient. The free energy, or surface tension, is the appropriately normalized limit of $-\beta^{-1}\log Z_\Lambda(u)$. Nonconvex interactions have potentials whose Hessian need not be positive, so standard uniformly convex uniqueness and fluctuation arguments need not apply.
+
+\paragraph{Source scope and qualifications.} The report discusses perturbations of a Gaussian potential and a low-temperature RG breakthrough. The question asks what can be proved more broadly; it does not assert universal uniqueness or strict convexity for every nonconvex interaction.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+For gradient fields and Gibbs models with non-convex interactions between microscopic particles, what can be proved about the free energy and the Gibbs states?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: Low-temperature renormalization-group methods give first results for free energy and Gibbs states with non-convex interactions, while the general non-convex theory requested in the report remains open. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Develop a general theory of free energy and Gibbs states for nonconvex gradient interactions.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proves strict stress-pressure convexity and product-specification uniqueness for a one-dimensional independent-bond quartic nonconvex model.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{An independent-bond nonconvex subcase.} In one spatial dimension take an open chain with independent gradient variables $\eta_j$ and potential $V(s)=(s^2-1)^2$. In a stress ensemble of parameter $h\in\mathbb R$,
+\[
+ z(h)=\int_{\mathbb R}e^{-\beta V(s)+hs}ds,\qquad p(h)=\beta^{-1}\log z(h).
+\]
+All derivatives in $h$ can be taken under the integral on compact $h$-intervals, because the quartic negative tail dominates any polynomial and any bounded linear tilt. Direct differentiation gives
+\[
+ p'(h)=\beta^{-1}\mathbb E_h\eta,\qquad
+ p''(h)=\beta^{-1}\operatorname{Var}_h(\eta)>0.
+\]
+Strictness holds because the density is positive on every interval and cannot be concentrated at a single value. Thus a nonconvex microscopic potential can yield strictly convex pressure in this exactly decoupled gradient ensemble.
+
+\paragraph{A unique local specification in this setting.} The product measure with the displayed one-bond density has the Gibbs property. Conversely, if every finite set of bond variables has this product conditional law given its complement, integrating that conditional law gives the same finite-dimensional product marginals; hence the infinite gradient measure is that product measure. This elementary uniqueness uses the open one-dimensional bond representation and the chosen stress ensemble.
+
+\paragraph{Why higher dimensions differ.} In dimensions at least two, gradients satisfy plaquette constraints, so they cannot be assigned independently. Fixed-tilt boundary ensembles also require a constrained limit not proved by the finite-stress calculation. The source asks broadly about free energy and Gibbs states, including those interacting constraints. Controlling them without uniform convexity is the first missing step; no universal uniqueness claim for nonconvex gradient models is made.
+
+\paragraph{Verification and adversarial audit.}
+Checked quartic tail domination, positive variance and conditional-law uniqueness; kept stress and fixed-tilt ensembles distinct. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked quartic tail domination, positive variance and conditional-law uniqueness; kept stress and fixed-tilt ensembles distinct. Retained unresolved status and zero original-target progress; Higher-dimensional curl constraints and fixed-tilt thermodynamic limits are not controlled.
+
+Coordinator checked differentiation of the quartic integral and the finite conditional-law argument for uniqueness in the specified independent-bond stress ensemble. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Higher-dimensional curl constraints and fixed-tilt thermodynamic limits are not controlled.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Higher-dimensional curl constraints and fixed-tilt thermodynamic limits are not controlled.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001118:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001118 (OWR-2493-005). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001118:2}{S2}] Interplay of Analysis and Probability in Physics (2008), Oberwolfach Reports, DOI 10.4171/owr/2008/55, pp. 3065--3138; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2008/55}.
+\item[\hypertarget{source:30001118:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF page 44.
+\url{https://ems.press/content/serial-article-files/46198}.
+\item[\hypertarget{source:30001118:4}{S4}] non-convex gradient models; reference in the saved dated catalogue literature review.
+\url{https://www.mis.mpg.de/events/event/strict-convexity-of-the-surface-tension-of-gradient-models-with-non-convex-interactions}.
+\end{itemize}
+\label{end:30001118}
+\end{document}

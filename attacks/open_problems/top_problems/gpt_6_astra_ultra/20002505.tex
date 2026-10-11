@@ -1,0 +1,85 @@
+% TOP_PROBLEM: {"id": 20002505, "title": "Holomorphic anomaly, fibrations, and the BPS multiple-cover transform", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The final elliptic/K3 question is restored from source Problem 1.3. Canonical record 20002503 is its elliptic-fibration subquestion. This is a research programme, not a theorem about an unspecified pushforward. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002505", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Understand holomorphic anomaly equations and BPS counting for fibered Calabi–Yau threefolds.", "scope": "Derived genus-zero multiple-cover Mobius inversion and a concrete failure of automatic integrality. Actual elliptic/K3 anomaly integration and geometric BPS counts remain unresolved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked divisor weights k^{-3}, inversion cancellation, degree-two integrality counterexample and genus/degree restrictions. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the finite-divisor multiple-cover inversion and explicit rational integrality obstruction. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked divisor weights k^{-3}, inversion cancellation, degree-two integrality counterexample and genus/degree restrictions. Scope remains limited: Prove that a specified geometric amplitude obeys the chosen cover expansion and compatible fiber-pushforward equations."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002505; source catalogue code AIM-PHYSICS-0013
+\setcounter{section}{20002504}
+\section{Holomorphic anomaly, fibrations, and the BPS multiple-cover transform}\label{20002505}
+{\small UnsolvedMath ID 20002505 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}A fibered Calabi--Yau threefold is a Calabi--Yau space with a specified fibration, for example elliptic-curve or K3 generic fiber. Holomorphic anomaly equations govern anti-holomorphic dependence of topological-string amplitudes. BPS counting organizes curve-counting information into proposed integer invariants, with conventions for genus and multiple covers. Comparing equations before and after fiber integration requires specifying these conventions.
+
+\paragraph{Catalogue wording retained for traceability.}
+Investigate holomorphic anomaly equations in fibered Calabi--Yau threefolds and BPS counting. In particular, determine whether the equations integrate over elliptic fibrations or K3 fibers.
+\paragraph{Scope and source qualification.}The final elliptic/K3 question is restored from source Problem 1.3. Canonical record 20002503 is its elliptic-fibration subquestion. This is a research programme, not a theorem about an unspecified pushforward. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Understand holomorphic anomaly equations and BPS counting for fibered Calabi–Yau threefolds.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derived genus-zero multiple-cover Mobius inversion and a concrete failure of automatic integrality. Actual elliptic/K3 anomaly integration and geometric BPS counts remain unresolved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{An elementary multiple-cover inversion.}Fix one effective degree variable \(Q\) and postulate a genus-zero multiple-cover series
+\[F(Q)=\sum_{d\ge1}n_d\sum_{k\ge1}\frac{Q^{kd}}{k^3}=\sum_{m\ge1}A_mQ^m.
+\]
+This is a formal identity: each coefficient has finitely many divisor contributions, so no analytic convergence is needed. Coefficient comparison gives \(m^3A_m=\sum_{d\mid m}d^3n_d\). Let \(\mu(k)\) be the arithmetic Mobius function, characterized by \(\sum_{k\mid n}\mu(k)=1\) for \(n=1\) and zero otherwise. Summing the last identity with these coefficients yields
+\[n_m=\sum_{k\mid m}\frac{\mu(k)}{k^3}A_{m/k}.
+\]
+The proof exchanges finite divisor sums; the inner Mobius sum cancels every proper divisor contribution. For instance \(n_1=A_1\) and \(n_2=A_2-A_1/8\).
+\paragraph{A concrete integrality obstruction.}Integer coefficients \(A_m\) alone do not imply integer \(n_m\). Taking \(A_1=1\) and \(A_2=0\) forces \(n_2=-1/8\). Conversely integer BPS inputs naturally produce rational cover coefficients. Thus integrality is extra enumerative structure, not a formal consequence of changing generating-function variables.
+\paragraph{Full scope remaining.}No actual Calabi--Yau invariants are computed here and the postulated cover convention is explicitly limited to genus zero and one degree variable. Holomorphic anomaly equations, higher-genus cover factors, elliptic and K3 fiber integration, geometric integrality and boundary ambiguities all remain unproved. The first gap is relating a rigorously defined geometric amplitude to the cover expansion and to a specified pushforward. This known formal inversion is a consistency tool, not a solution of the fibered anomaly/BPS programme.
+
+\paragraph{Verification and adversarial audit.}
+Checked divisor weights k\textasciicircum{}\{-3\}, inversion cancellation, degree-two integrality counterexample and genus/degree restrictions. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked divisor weights k\textasciicircum{}\{-3\}, inversion cancellation, degree-two integrality counterexample and genus/degree restrictions. Scope remains limited: Prove that a specified geometric amplitude obeys the chosen cover expansion and compatible fiber-pushforward equations.
+
+Coordinator checked the finite-divisor multiple-cover inversion and explicit rational integrality obstruction. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Prove that a specified geometric amplitude obeys the chosen cover expansion and compatible fiber-pushforward equations.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002505:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002505 (AIM-PHYSICS-0013). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002505:2}{S2}] American Institute of Mathematics, Gromov-Witten invariants and number theory, source item 1.3.
+\url{http://aimpl.org/gromwitnumthry/1/}.
+\end{itemize}
+\label{end:20002505}
+\end{document}

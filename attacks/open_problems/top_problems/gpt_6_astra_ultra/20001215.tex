@@ -1,0 +1,92 @@
+% RESEARCH_DRAFT_SHA256: ed2e454ac6788316ab5bd885253f9bfefa23d098fac64319eb042342474cfa89
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001215, "title": "One observable mode can lift to infinitely many hidden-parameter maxima", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001215", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Explicit positive-dimensional maximum fiber in a binary latent model.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch005/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 20001215; source catalogue code AIM-COMPUTATION-0053
+\section{One observable mode can lift to infinitely many hidden-parameter maxima}\label{20001215}
+{\small UnsolvedMath ID 20001215 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a statistical model with parameter $\theta$ and observations $D$, the likelihood is $L(\theta;D)=\Pr_\theta(D)$, or the corresponding density. Maximum likelihood seeks a global maximum over the admissible parameter space. A graphical model specifies a family of joint distributions through a graph and its associated conditional-independence constraints. Hidden variables are summed or integrated out to obtain the joint distribution on observed variables. Likelihood equations may be considered algebraically outside the admissible probability region. A statistically admissible real solution must give nonnegative probabilities and satisfy normalization; a mode must additionally be a local maximum on the admissible domain.
+\paragraph{Statement recorded in the supplied source.}
+Question 39 (Sturmfels). In a graphical model with hidden variables how many (nonneg-ative) real modes might exist in solutions to the likelihood equations? \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The question is model dependent; no particular graph, state cardinalities, or sample is fixed.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+How many statistically admissible real likelihood modes can a graphical model with hidden variables have?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001215 (AIM-COMPUTATION-0053). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0053
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001215 and source code AIM-COMPUTATION-0053 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001215}
+
+
+\section{Research attempt}
+\subsection{Literature and scope}
+Question 39 does not fix a hidden graph, state sizes or what counts as a mode. I attempted to count isolated parameter maxima in the smallest binary latent model and found an entire maximum fiber. This familiar nonidentifiability example does not answer the general counting problem.
+\begin{proposition}
+Let a hidden Bernoulli variable have probability $\lambda\in(0,1)$, and let the observable success probabilities in its two states be $a,b\in(0,1)$. For observed counts $u,v>0$, all interior likelihood critical points form the two-dimensional surface
+\[
+\lambda a+(1-\lambda)b=\widehat q:=u/(u+v).
+\]
+They are global maxima, none is a strict parameter maximum, and the fitted observable distribution is unique.
+\end{proposition}
+\begin{proof}
+The observable success probability is $q=\lambda a+(1-\lambda)b$ and the log likelihood is $\ell(q)=u\log q+v\log(1-q)$. Its derivative is $(u-(u+v)q)/(q(1-q))$, which vanishes exactly at $\widehat q$ and changes from positive to negative there. Since $\partial q/\partial a=\lambda>0$, any interior parameter critical point must satisfy $q=\widehat q$; conversely that equality makes all parameter derivatives zero and maximizes the likelihood.
+
+The equation can be solved as $b=(\widehat q-\lambda a)/(1-\lambda)$. Around $a=b=\widehat q$, small independent variations of $(\lambda,a)$ remain admissible, giving a smooth two-dimensional surface. At a critical point the parameter Hessian is $\ell''(\widehat q)\nabla q\nabla q^{\mathsf T}$, because the term $\ell'(\widehat q)\nabla^2q$ vanishes. Here $\ell''<0$ and $\nabla q\ne0$, so its rank is one and its two tangent directions are flat. Every point lies on a nonconstant curve of equal likelihood and cannot be a strict maximum. A finite latent-label permutation quotient still leaves infinitely many parameter points.
+\end{proof}
+\subsection{Verification and remaining gaps}
+For $\widehat q=2/5$, $(\lambda,a,b)=(1/3,1/5,1/2)$ gives the required probability exactly, and is not merely the equal-component case. The attempted conversion of ``number of modes'' into a finite count of parameter roots is invalid without a convention for nonisolated maxima and observational equivalence. Counts for other graphs or for observable local maxima remain unaddressed.
+
+\section{References and source attribution}
+The original question is credited to the AIM workshop list prepared by Seth Sullivant (2004), \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}. The source question and catalogue attribution are reproduced above. This list was accessed on 11 October 2026; it is historical evidence of the question, not a certification of present open status.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch005/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

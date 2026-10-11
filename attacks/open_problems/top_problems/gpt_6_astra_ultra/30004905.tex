@@ -1,0 +1,152 @@
+% RESEARCH_DRAFT_SHA256: a2f68451e0aabd249b87d281523f482066cb2908697b3e79be625d13ffaa5e9a
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004905, "title": "Half-Integral Extreme Points for Feedback Vertex Set", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004905", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "For every extreme point $x^*$ of the standard feedback-vertex-set relaxation, must some vertex $v$ satisfy $x^*(v)\\geq\\tfrac12$?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The literal forest exception and two failed fractional counterexamples are proved; the intended nontrivial cyclic strong-density extreme-point question is not resolved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Feedback vertex set: the exact density relaxation and two misleading fractional examples}
+\noindent UnsolvedMath ID 30004905; OWR-8415356-016. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A feedback vertex set is a set of graph vertices whose removal leaves no cycles. A fractional relaxation replaces selected/unselected decisions by nonnegative numerical variables and valid linear constraints. An extreme point cannot be written as a proper convex combination of two other feasible points.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The source-specific strong-density relaxation and nontrivial-instance assumptions are omitted; the claim is not asserted for arbitrary cycle-covering relaxations.
+
+Source-record limitation: The primary source uses a particular strengthened density relaxation, not an unambiguous generic standard FVS relaxation. As written, the universal supplied assertion also includes forests, where the zero vector is an extreme feasible solution and has no coordinate at least one half. Required nontrivial-instance or preprocessing assumptions were not recovered.
+\paragraph{Statement recorded in the supplied source.}
+For every extreme point $x^*$ of the standard feedback-vertex-set relaxation, must some vertex $v$ satisfy $x^*(v)\geq\tfrac12$? \href{https://doi.org/10.4171/owr/2021/53}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Ask whether the stated feedback-vertex-set relaxation always has a coordinate at least one half.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004905 (OWR-8415356-016). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/53, pp. 2893--2954
+\url{https://doi.org/10.4171/owr/2021/53}.
+\item[S3] Polyhedral aspects of feedback vertex set
+\url{https://chekuri.cs.illinois.edu/papers/fvs-polyhedral-mpa.pdf}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+For every extreme point $x^*$ of the standard feedback-vertex-set relaxation, must some vertex $v$ satisfy $x^*(v)\geq\tfrac12$?
+
+\section{The source LP and the nontrivial-instance gap}
+The primary source uses the specific relaxation
+\[
+\sum_{v\in S}(d_S(v)-1)x_v\ge|E(S)|-|S|+1
+\quad\text{for }S\subseteq V\text{ with }E(S)\ne\varnothing,
+\qquad x_v\ge0,
+\]
+where $d_S(v)$ is degree in the induced subgraph. It is
+not merely the relaxation with one unit-cover constraint per cycle.
+As the preserved definition already warns, an unqualified assertion
+about every graph includes forests. We document that boundary issue
+but do not present it as resolving the intended iterative-rounding
+question on a nontrivial cyclic instance.
+
+\paragraph{The literal forest boundary case.}
+If $G$ is a forest, every induced subgraph is a forest,
+so for nonempty $S$ one has $|E(S)|\le|S|-1$.
+This follows by summing the tree edge-count identity over its
+components; isolated vertices only reduce the number of edges.
+Therefore the right side of every displayed constraint is at most
+zero, and $x=0$ is feasible. It is extreme: if zero were
+a convex combination with coefficients strictly between zero and
+one of two nonnegative feasible vectors, every coordinate of both
+would have to be zero. It has no coordinate at least one half.
+Thus a literal universal statement needs a stopping or nontriviality
+condition. Removing forest instances is natural for the intended
+algorithm, but is an additional hypothesis, not a proved solution
+of the source's cyclic-instance goal.
+
+\paragraph{A false counterexample obtained from the weaker cycle LP.}
+On $K_4$, the vector $x_v=1/3$ satisfies every cycle-cover
+constraint $\sum_{v\in C}x_v\ge1$, since every cycle
+has three or four vertices. Its four triangle constraints are tight.
+They uniquely determine the vector: subtracting any two equations
+shows that the omitted coordinates are equal, then each triangle
+sum gives $x_v=1/3$. Thus it is an extreme point of the
+cycle-cover LP. More explicitly, in any convex decomposition into
+feasible vectors, each tight triangle constraint must be tight at
+both endpoints, so uniqueness forces the endpoints to coincide.
+
+It is not feasible for the source relaxation. With $S=V(K_4)$,
+each coefficient $d_S(v)-1$ equals two, giving left side
+$8/3$, while the right side is $6-4+1=3$.
+Therefore this standard cycle-LP fractional example cannot disprove
+the stated half-coordinate property of the stronger LP.
+
+\paragraph{A symmetric feasible candidate is not extreme either.}
+For $K_n$, $n\ge3$, set $x_v=(n-1)/(2n)<1/2$.
+For a subset of size $s\ge2$, its density inequality is
+\[
+(s-2)\sum_{v\in S}x_v\ge(s-1)(s-2)/2.
+\]
+At $s=2$ both sides are zero. At $s\ge3$, it holds
+because $(n-1)/(2n)\ge(s-1)/(2s)$ when $s\le n$;
+after multiplying by $2ns$, this is $s\le n$.
+The full-set inequality is tight, while proper subsets with
+$s\ge3$ are strict. All nonnegativity constraints are strict.
+Perturb one coordinate by $+\eta$ and another by $-\eta$.
+The full-set equality is preserved, and choosing $\eta>0$
+smaller than the finitely many positive slacks divided by the
+corresponding nonzero coefficient changes, and smaller than the
+coordinate value, keeps both perturbations feasible. The $s=2$
+constraints are identically zero and are unaffected. Thus the
+uniform vector is the midpoint of two distinct feasible vectors
+and is not extreme. Feasibility with every coordinate below one
+half does not itself contradict the source's extreme-point statement.
+
+\section{Audit and remaining question}
+The primary LP on printed page 2944 was inspected. The audit
+kept the strengthened density constraints, distinguished the existence
+of a large coordinate from full half-integrality, and checked the
+forest boundary separately. No LP enumeration or solver run was
+performed. These arguments reject two proposed cyclic counterexamples
+and expose a missing nontriviality convention. They neither prove
+nor disprove the intended strong-density extreme-point property for
+the appropriately preprocessed cyclic problem, which remains unresolved
+in this attempt.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The literal forest exception and two failed fractional counterexamples are proved; the intended nontrivial cyclic strong-density extreme-point question is not resolved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 53/2021, Combinatorial Optimization, original question and surrounding discussion read from the primary PDF text on 11 October 2026. Historical statements are not a current-status survey. \url{https://ems.press/content/serial-article-files/46931}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The literal forest exception and two failed fractional counterexamples are proved; the intended nontrivial cyclic strong-density extreme-point question is not resolved.
+\end{document}

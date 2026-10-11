@@ -1,0 +1,95 @@
+% TOP_PROBLEM: {"id": 30003435, "title": "Infinite-Dimensional K-Moment Problems in Quantum Field Theory", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "This is a general programme. No fixed configuration space or subset $K$ is given in the extracted sentence, so neither a universal finite-dimensional criterion nor a guessed topology is substituted for the intended family of moment problems."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003435", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Develop criteria for existence, uniqueness and support of infinite-dimensional moment measures relevant to fields and stochastic processes.", "scope": "Explicit positive cylinder functional with no representing probability measure on l2; tests a support criterion, not the general existence/determinacy programme.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked consistency under added coordinates, positivity on all cylinder polynomials nonnegative on l2, and the countable probability-one intersection contradiction. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked consistency of the finite sign marginals, positivity on l2-nonnegative cylinder polynomials, and the countable full-measure intersection contradiction. This is a support countercheck, not a field-space moment theorem. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked consistency under added coordinates, positivity on all cylinder polynomials nonnegative on l2, and the countable probability-one intersection contradiction. The remaining gap is: Identify and prove topology-sensitive tightness/support hypotheses for the actual field configuration space. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30003435; source catalogue code OWR-15219-003
+\setcounter{section}{30003434}
+\section{Infinite-Dimensional K-Moment Problems in Quantum Field Theory}\label{30003435}
+{\small UnsolvedMath ID 30003435 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+A moment functional assigns values to polynomial observables on an infinite-dimensional configuration space. For a specified subset $K$, a representing measure is a positive measure $\mu$ supported in $K$ such that $L(p)=\int_K p\,d\mu$ for the allowed polynomials $p$. Existence asks whether such a measure exists; determinacy asks whether it is unique; support criteria determine which moment or positivity conditions force concentration on $K$. Topology, cylinder-polynomial class and measure notion matter in infinite dimensions.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Develop existence, determinacy, and support criteria for representing measures in infinite-dimensional $K$-moment problems arising in quantum field theory and stochastic analysis.
+
+\paragraph{Source scope and qualification.}
+This is a general programme. No fixed configuration space or subset $K$ is given in the extracted sentence, so neither a universal finite-dimensional criterion nor a guessed topology is substituted for the intended family of moment problems.
+\subsection{Short English statement}
+Develop criteria for existence, uniqueness and support of infinite-dimensional moment measures relevant to fields and stochastic processes.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Explicit positive cylinder functional with no representing probability measure on l2; tests a support criterion, not the general existence/determinacy programme.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30003435. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{Cylinder positivity versus support.} The qualification in [S2] leaves the configuration topology open. I test the concrete choice \(K=\ell^2(\mathbb N;\mathbb R)\), with coordinate polynomials, rather than claim a criterion for all field spaces. For a polynomial \(p\) depending on its first \(N\) coordinates put
+\[
+ L(p)=2^{-N}\sum_{\epsilon\in\{-1,1\}^N}p(\epsilon).
+\]
+Adding unused coordinates duplicates summands and leaves this value unchanged, so this defines one normalized functional on all cylinder polynomials. It is positive on squares and indeed on every polynomial pointwise nonnegative on \(K\): every finite sign vector extends to a point of \(K\) by adding zeros. Thus even positivity on all such nonnegative cylinder polynomials holds.
+\paragraph{Obstruction.} Suppose a countably additive probability measure \(\mu\) on \(K\), with measurable coordinates, represented \(L\). For each \(n\),
+\[
+ \int_K(x_n^2-1)^2\,d\mu=L((x_n^2-1)^2)=0.
+\]
+Nonnegativity forces \(x_n^2=1\) almost surely. The intersection of these countably many probability-one sets still has measure one, but is empty in \(\ell^2\), since then \(\sum_nx_n^2=\infty\). This contradiction needs neither a moment-determinacy theorem nor an infinite product-measure construction.
+\paragraph{Audit and gap.} Finite-dimensional marginals are legitimate compactly supported measures and mutually consistent. The failure is specifically concentration on the proposed infinite-dimensional configuration space; it is not failure of those marginals. This elementary countercheck rules out deriving the requested support theorem from cylinder positivity alone. No existence/determinacy/support criterion for the source's unspecified field spaces is proved, and no novelty claim is made.
+
+\paragraph{Verification and adversarial audit.}
+Checked consistency under added coordinates, positivity on all cylinder polynomials nonnegative on l2, and the countable probability-one intersection contradiction. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked consistency under added coordinates, positivity on all cylinder polynomials nonnegative on l2, and the countable probability-one intersection contradiction. The remaining gap is: Identify and prove topology-sensitive tightness/support hypotheses for the actual field configuration space. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked consistency of the finite sign marginals, positivity on l2-nonnegative cylinder polynomials, and the countable full-measure intersection contradiction. This is a support countercheck, not a field-space moment theorem. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Identify and prove topology-sensitive tightness/support hypotheses for the actual field configuration space.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30003435:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30003435 (OWR-15219-003). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30003435:2}{S2}] Real Algebraic Geometry With a View Toward Moment Problems and Optimization (2017), Oberwolfach Reports, DOI 10.4171/owr/2017/14, pp. 771--862. Primary report accessed 2026-10-11; relevant PDF pages 13, 14, 15, 16.
+\url{https://doi.org/10.4171/owr/2017/14}.
+\item[\hypertarget{source:30003435:3}{S3}] Infusino--Kuna--Rota, infinite-dimensional moment problem (catalogue-listed context; not independently consulted in this preparation).
+\url{https://doi.org/10.1016/j.jfa.2014.06.012}.
+\item[\hypertarget{source:30003435:4}{S4}] Infusino--Kuhlmann, open questions in infinite-dimensional moments (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/1610.01659}.
+\end{itemize}
+\label{end:30003435}
+\end{document}

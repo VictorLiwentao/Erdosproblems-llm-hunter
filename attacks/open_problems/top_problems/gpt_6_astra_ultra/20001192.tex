@@ -1,0 +1,145 @@
+% RESEARCH_DRAFT_SHA256: 42985e16becfad332da84ab11934c006c9ca9f3a47fcfcbe5e54cda834c19012
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001192, "title": "Holonomic Bayesian normalizers with certified posterior moments", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001192", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 16. Computing normalization constants and posterior distributions for continuous random variables involves the computation of integrals involving rational and transcendental funtions. Can algebraic techniques be used to give exact expressions for these integrals or help give approximations for them? 7", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Certified exact and approximate formulas are proved for compact polynomially weighted exponentials; the source supplies no universal integral class and this does not resolve its broad methodological request.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{A compact Bayesian normalizer: exact recurrence and certified approximation}
+\noindent UnsolvedMath ID 20001192; AIM-COMPUTATION-0030. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For an unnormalized density $g(\theta)$, its normalizing constant is $Z=\int g(\theta)\,d\theta$ over the specified domain, when this integral exists. Bayes' formula normalizes the product of a prior density and likelihood. The source asks for algebraic methods for exact expressions and approximations of the resulting integrals.
+\paragraph{Statement recorded in the supplied source.}
+Question 16. Computing normalization constants and posterior distributions for continuous random variables involves the computation of integrals involving rational and transcendental funtions. Can algebraic techniques be used to give exact expressions for these integrals or help give approximations for them? 7 \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+No universal exact symbolic form or particular approximation guarantee is stipulated in the source.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can algebra help compute integrals needed to normalize continuous probability models and their posterior distributions?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001192 (AIM-COMPUTATION-0030). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0030
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 16. Computing normalization constants and posterior distributions for continuous random variables involves the computation of integrals involving rational and transcendental funtions. Can algebraic techniques be used to give exact expressions for these integrals or help give approximations for them? 7
+
+\section{A precise integral family for the attempt}
+The source asks broadly about rational and transcendental integrals and
+specifies neither a model family nor an accuracy criterion. We investigate
+one compact exponential family rather than declare an algorithm for all
+such expressions. Let $w(x)=\sum_{j=0}^d c_jx^j$ be a rational-coefficient
+polynomial, nonnegative on $[0,1]$, with
+$M_0=\int_0^1w(x)\,dx>0$. For a specified real $t$, define
+\[
+I_k(t)=\int_0^1x^k e^{tx}\,dx,\qquad
+Z(t)=\int_0^1w(x)e^{tx}\,dx,
+\]
+and the posterior density $w(x)e^{tx}/Z(t)$. These hypotheses include
+integer-parameter beta polynomial weights, but do not include arbitrary
+noncompact or singular priors.
+
+\paragraph{Exact expressions with a removable singularity.}
+Direct integration gives $I_0(t)=(e^t-1)/t$ for $t\ne0$.
+Integration by parts, using $d(e^{tx})=te^{tx}dx$, gives
+\[
+ t I_k(t)=e^t-k I_{k-1}(t)\qquad(k\ge1,\ t\ne0).
+\]
+At $t=0$ direct integration gives $I_k(0)=1/(k+1)$.
+Thus finite recurrence computes every integral and
+$Z(t)=\sum_{j=0}^d c_jI_j(t)$ exactly in the field generated by
+$t$ and $e^t$, with the stated special values at zero. The same applies
+to the numerator of any polynomial posterior moment. The recurrence's
+subtractions near zero do not themselves supply numerical stability;
+that is the first gap in an attempted ``exact expression implies a good
+approximation'' inference.
+
+\paragraph{A separate error certificate.}
+Write
+$M_k=\int_0^1x^kw(x)\,dx=\sum_{j=0}^d c_j/(k+j+1)$, exactly rational.
+For a nonnegative integer $N$ use
+\[
+ Z_N(t)=\sum_{k=0}^N\frac{t^k}{k!}M_k.
+\]
+Taylor's integral remainder for $e^u$ has absolute value at most
+$e^{\max(u,0)}|u|^{N+1}/(N+1)!$. One can verify this directly from
+$e^u-\sum_{k=0}^Nu^k/k!=u^{N+1}\int_0^1(1-s)^Ne^{su}ds/N!$,
+obtained by $N+1$ successive integrations by parts. With $u=tx$,
+nonnegativity of $w$ and $0\le x\le1$ give the rigorous bound
+\[
+ |Z-Z_N|\le\delta_N:=
+ \frac{e^{\max(t,0)}|t|^{N+1}}{(N+1)!}M_{N+1}.
+\]
+Also $Z\ge e^{\min(t,0)}M_0>0$. Thus the denominator is controlled
+independently of cancellation. For the posterior moment numerator
+$A=\int_0^1x^r w(x)e^{tx}dx$, $r\ge0$, replace $M_k$ by $M_{k+r}$
+to obtain $A_N$ and a corresponding bound $\eta_N$.
+Whenever $z_-=Z_N-\delta_N>0$, the quotient certificate is
+\[
+\left|\frac A Z-\frac{A_N}{Z_N}\right|
+\le \frac{\eta_N}{z_-}
+ +\frac{|A_N|\delta_N}{z_-|Z_N|}.
+\]
+Indeed, split the difference as $(A-A_N)/Z+
+A_N(Z_N-Z)/(ZZ_N)$ and apply the two interval bounds.
+For fixed $t$, $M_k\le M_0$, and the factorial bound tends to zero:
+the ratio of successive $|t|^{N+1}/(N+1)!$ terms is eventually at most
+$1/2$. Therefore $Z_N\to Z>0$ and eventually $z_->0$.
+This proves convergence and a usable certificate for this family,
+including $t=0$ where all remainder terms vanish.
+
+\section{Why the general request is still open in this attempt}
+Termwise moment expansion cannot simply be exported to unbounded domains.
+Even integrability can fail: $\int_{\mathbb R}e^x dx$ diverges because
+$\int_0^R e^x dx=e^R-1\to\infty$. For a proper noncompact posterior,
+one would still need a tail bound and a justified interchange of series
+and integration; neither follows from the phrase rational and
+transcendental functions. The primary AIM Question 16 was inspected.
+The audit checked compactness, nonnegative weights despite signed
+coefficients, removable singularities, and division by a certified
+positive number. No numerical experiment or symbolic package was run.
+These elementary recurrence and error bounds are known-type special-case
+methods, with no assertion of a universal integration result or novelty.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Certified exact and approximate formulas are proved for compact polynomially weighted exponentials; the source supplies no universal integral class and this does not resolve its broad methodological request.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Computational Algebraic Statistics, prepared by Seth Sullivant, version 27 March 2004; the original numbered source question and its adjacent scope were inspected on 11 October 2026. \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Certified exact and approximate formulas are proved for compact polynomially weighted exponentials; the source supplies no universal integral class and this does not resolve its broad methodological request.
+\end{document}

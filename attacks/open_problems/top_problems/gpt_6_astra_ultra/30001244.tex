@@ -1,0 +1,127 @@
+% RESEARCH_DRAFT_SHA256: 425a501917f67df7dedeed2ddbc53cd0ef9b34730464efe1dfd068cafbf3db62
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30001244, "title": "Independence and Density Thresholds for Cuckoo Hashing", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001244", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written mathematical review at the declared scope; no independent human verification. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Independence and Density Thresholds for Cuckoo Hashing; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Hall witnesses and a low-load random bound; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch018 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30001244; source catalogue code OWR-3473-001
+\section{Independence and Density Thresholds for Cuckoo Hashing}\label{30001244}
+{\small UnsolvedMath ID 30001244 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Cuckoo hashing assigns each stored key to one of its hash locations, with at most one key per location. The load is the ratio of keys to locations; $k$-wise independent hash values are jointly uniform for any $k$ distinct keys.
+\paragraph{Statement recorded in the supplied source.}
+How much universal independence suffices to guarantee that cuckoo hashing works? For the one-table generalization with $d$ hash functions, what is the exact threshold load $n/m$ even when the hash functions are fully random? \href{https://doi.org/10.4171/owr/2009/23}{[S2]}
+\paragraph{Scope qualification.}
+The independence question and load-threshold question are separate. The supplied assessment reports a solution to the fully random threshold question while retaining unresolved hash-family issues; that dated assessment does not turn both questions into unresolved claims.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Determine how much hash independence is sufficient and find the fully random load threshold for multi-choice cuckoo hashing.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30001244 (OWR-3473-001). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorics and Probability (2009), Oberwolfach Reports, DOI 10.4171/owr/2009/23, pp. 1225--1302
+\url{https://doi.org/10.4171/owr/2009/23}.
+\item[S3] Fountoulakis-Panagiotou sharp cuckoo thresholds
+\url{https://arxiv.org/abs/0910.5147}.
+\item[S4] Dietzfelbinger-Schellbach on universal hash classes
+\url{https://doi.org/10.1137/1.9781611973068.87}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30001244 and source code OWR-3473-001 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30001244}
+
+\section{Literature and context check}
+The primary report's cuckoo-hashing discussion explicitly separates the independence problem from the fully random one-table threshold. It reports failures of weak-independence families. The preserved catalogue also notes subsequent work on the fully random threshold; this attempt does not certify an exact present threshold. It studies placement existence, which is weaker than a time bound for a particular insertion heuristic.
+\section{Research attempt: Hall witnesses and a low-load random bound}
+
+\paragraph{An exact obstruction to placement}
+Make a bipartite graph with one vertex for each key and one for each table location, joining a key to all its allowed hash locations. A placement is a matching covering the keys. Such a matching exists exactly when every key subset $U$ has at least $|U|$ neighboring locations. Necessity follows because matched locations are distinct. For sufficiency take a maximum matching. If a key is unmatched, explore alternating paths beginning at it, traversing unmatched edges toward locations and matched edges back toward keys. A reached unmatched location would give an augmenting path, whose edge-status reversal increases the matching. Thus every reached location is matched to a reached key other than the initial key. Every neighbor of a reached key is reached: its matched neighbor, if any, was already on its path, and the other edges are explored. The reached key set therefore has fewer neighboring locations than keys, a contradiction. This proves the criterion.
+
+\paragraph{A fully random sufficient load, with constants}
+Let $n$ keys each have $d$ independently uniform choices from $m$ locations, with replacement and independently across keys. Assume $n\leq m$. A Hall obstruction of $r$ keys has neighbors in some set of $r-1$ locations (enlarge the set if necessary). Its probability for fixed keys and locations is $((r-1)/m)^{dr}$. Consequently
+\[
+ \Pr(\text{no placement})\leq\sum_{r=2}^n
+ {n\choose r}{m\choose r-1}\left(\frac{r-1}{m}\right)^{dr}.
+ \tag{1}
+\]
+There is no $r=1$ obstruction since a key has at least one choice. The binomial estimate ${v\choose k}\leq(ev/k)^k$ follows from ${v\choose k}\leq v^k/k!$ and $\log(k!)\geq\int_1^k\log t\,dt\geq k\log k-k$. Since $em/(r-1)\geq1$, each summand in (1) is at most
+\[
+ \left[e^2\frac nr\left(\frac{r-1}{m}\right)^{d-1}\right]^r
+ \leq\left[e^2\frac nm\left(\frac rm\right)^{d-2}\right]^r.
+\]
+Fix $d\geq3$ and a constant $c<e^{-2/(d-1)}$, and assume $n/m\leq c$. Put $q=e^2c^{d-1}<1$. For $r\leq\sqrt m$ the bracket is at most $a_m=e^2c\,m^{-(d-2)/2}$, so these terms sum to at most $a_m^2/(1-a_m)$ once $a_m<1$. For $r>\sqrt m$ it is at most $q$, so the remaining sum is at most $q^{\lfloor\sqrt m\rfloor}/(1-q)$. Both tend to zero. Hence this explicit, non-sharp low-load range permits placement with probability tending to one. No exact threshold is extracted from this loose union bound.
+
+\paragraph{The independence gap in the same proof}
+If entire $d$-choice vectors are only $k$-wise independent across keys, the fixed-witness probability in (1) is justified only for $r\leq k$. Large obstructions remain uncontrolled; reusing the same exponent for them would be an invalid inference. Merely one-wise uniform vectors certainly do not suffice: choose one random vector of $d$ independent uniform locations and give that identical vector to every key. Each key has exactly the advertised marginal distribution, but all keys together have at most $d$ distinct possible locations. Placement is impossible whenever $n>d$, even at small load if $m$ is large. This construction addresses one-wise independence only, not the source's harder higher-independence question.
+
+\section{Verification and adversarial audit}
+The matching proof covers repeated hash choices by treating neighbors as a set. The probability calculation uses fully independent key-choice vectors and independent entries within each vector. The asymptotic bound states $d\geq3$ explicitly; the displayed simplification does not give the desired decay at $d=2$. The one-wise example can use $n\leq m$ and hence is not merely a table-overcapacity example.
+\paragraph{Audit corrections.} Separated existence of a placement from successful fast insertion; stated the probability model and did not substitute a low-load sufficient condition for an exact threshold.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The exact load threshold, sufficient universal-independence order, and insertion-algorithm running time are not established here. The Hall route yields a concrete weak sufficient random load and pinpoints exactly which large witnesses cannot be controlled from a fixed independence order.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46223} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+The parent Codex GPT-6 model has reviewed the written mathematical arguments at their declared scopes. This is model-assisted review, not independent human verification.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

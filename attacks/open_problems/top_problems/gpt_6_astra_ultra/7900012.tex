@@ -1,0 +1,84 @@
+% TOP_PROBLEM: {"id": 7900012, "title": "First-Principles Molecular Configurations", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The question does not pick one approximation scheme or completion theorem. The definitions explain the programme and do not restrict it silently to the Born--Oppenheimer approximation."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "7900012", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Justify mathematically the first-principles methods used to predict molecular shapes.", "scope": "Proved localization near minima for an assumed effective nuclear potential with explicit coercivity and ground-state hypotheses. The effective surface is not derived from the full molecular Hamiltonian.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked h scaling, nonnegative kinetic energy, exterior gap, multiple minima, rigid-motion degeneracy and explicit assumptions of the selected approximation. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the square-root-scale trial function and potential-energy localization bound, with effective-surface and ground-state assumptions explicit. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked h scaling, nonnegative kinetic energy, exterior gap, multiple minima, rigid-motion degeneracy and explicit assumptions of the selected approximation. Scope remains limited: Control the electron-nucleus reduction error and electronic spectral gaps strongly enough to justify the assumed potential and shape localization."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 7900012; source catalogue code AMR-078-0012
+\setcounter{section}{7900011}
+\section{First-Principles Molecular Configurations}\label{7900012}
+{\small UnsolvedMath ID 7900012 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}A molecular configuration specifies the nuclear positions, usually modulo rigid motions and permutation of identical nuclei. In a first-principles quantum model, electronic and nuclear degrees of freedom interact through a many-body Hamiltonian. Effective energy surfaces and their minimizing configurations underlie common prediction methods. A justification must specify the Hamiltonian, approximation, parameter regime and relationship between predicted and exact configurations.
+
+\paragraph{Catalogue wording retained for traceability.}
+Give a mathematically rigorous justification of the techniques used to determine molecular configurations from first principles.
+\paragraph{Scope and source qualification.}The question does not pick one approximation scheme or completion theorem. The definitions explain the programme and do not restrict it silently to the Born--Oppenheimer approximation.
+\subsection{Short English statement}
+Justify mathematically the first-principles methods used to predict molecular shapes.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved localization near minima for an assumed effective nuclear potential with explicit coercivity and ground-state hypotheses. The effective surface is not derived from the full molecular Hamiltonian.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{A controlled effective-surface calculation.}Choose, only for this benchmark, an effective nuclear Hamiltonian \(K_h=-h^2\Delta+U(R)\) on \(L^2(\mathbb R^d)\), \(h>0\), with \(U\ge0\) smooth, a nondegenerate minimum \(U(0)=0\), and a positive lower bound \(c_\delta\) on \(|R|\ge\delta\) for each fixed \(\delta>0\). Assume the operator has a normalized ground state \(\psi_h\). For a fixed smooth normalized compactly supported \(g\), use \(g_h(R)=h^{-d/4}g(R/\sqrt h)\). Its kinetic energy is \(h\int|\nabla g|^2\). Taylor's formula near the minimum bounds its potential energy by \(Ch\int |y|^2|g(y)|^2dy\), once \(h\) is small. Consequently \(\inf\sigma(K_h)\le C_1h\), with \(C_1\) independent of small \(h\), and
+\[\int_{|R|\ge\delta}|\psi_h(R)|^2dR\le C_1h/c_\delta.
+\]
+The final bound follows by dropping the nonnegative kinetic energy and using the lower bound on \(U\).
+\paragraph{Degeneracy test.}If the zero set of \(U\) consists of several minima, the same argument only localizes the probability near their union. Symmetry can force a ground state to distribute its mass equally between symmetry-related wells, so a single preferred configuration does not follow. Rigid rotations and translations in molecular problems also produce continuous families of equivalent configurations; coercivity must be stated on an appropriate quotient or after fixing those freedoms.
+\paragraph{Missing first-principles step.}The calculation assumes the effective surface and its spectral separation from other electronic states. It does not derive that surface from the full electron-nucleus Hamiltonian or estimate the error in the adiabatic reduction. Conical intersections, dissociation, identical nuclei and the relation between a quantum probability distribution and a molecular shape remain outside its hypotheses. Deriving an effective Hamiltonian with an error smaller than the configuration-localization scale is the first missing step. This known semiclassical estimate is only a test of one approximation scheme, not a replacement for the broader source programme.
+
+\paragraph{Verification and adversarial audit.}
+Checked h scaling, nonnegative kinetic energy, exterior gap, multiple minima, rigid-motion degeneracy and explicit assumptions of the selected approximation. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked h scaling, nonnegative kinetic energy, exterior gap, multiple minima, rigid-motion degeneracy and explicit assumptions of the selected approximation. Scope remains limited: Control the electron-nucleus reduction error and electronic spectral gaps strongly enough to justify the assumed potential and shape localization.
+
+Coordinator checked the square-root-scale trial function and potential-energy localization bound, with effective-surface and ground-state assumptions explicit. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Control the electron-nucleus reduction error and electronic spectral gaps strongly enough to justify the assumed potential and shape localization.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:7900012:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 7900012 (AMR-078-0012). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:7900012:2}{S2}] Barry Simon, Schrödinger operators in the twenty-first century, Mathematical Physics 2000, pp. 283–288, original Problem 12.
+\url{https://web.ma.utexas.edu/mp_arc-bin/mpa?yn=00-78}.
+\item[\hypertarget{source:7900012:3}{S3}] Wikipedia contributors, Simon problems, pinned revision 1335881350, The 2000 list. Existing catalogue wording adapted; CC BY-SA 4.0.
+\url{https://en.wikipedia.org/w/index.php?title=Simon_problems&oldid=1335881350#The_2000_list}.
+\end{itemize}
+\label{end:7900012}
+\end{document}

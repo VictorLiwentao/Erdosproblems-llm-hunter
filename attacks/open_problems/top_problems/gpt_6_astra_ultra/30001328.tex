@@ -1,0 +1,104 @@
+% TOP_PROBLEM: {"id": 30001328, "title": "Mathematical Classification of Atomic Chemical Groups", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The source proposes equality of total L,S,p ground-state quantum numbers as a candidate equivalence relation but notes that it need not separate every chemical group. Choosing it is part of the investigation, not a completed derivation of the periodic table. Classification, assigning atoms, and obtaining a simple structural description are all retained."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001328", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Derive atomic groups and a simple, rigorous picture of electronic configurations from the many-electron Schrödinger model.", "scope": "Derives the one-electron ground symmetry and shows the same labels coexist with different radial scales.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked square-completion sign, normalization range Z>0, equality equation, two spin states and radial scaling. Model self-audit only; no independent human proof checking. Coordinator checked the hydrogenic square completion, equality condition and spin multiplicity, with no many-electron classification inferred. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked square-completion sign, normalization range Z>0, equality equation, two spin states and radial scaling. Retained unresolved status and zero original-target progress; Many-electron ground multiplets and a justified relation between their labels and chemical groups are not determined."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001328; source catalogue code OWR-4083-001
+\setcounter{section}{30001327}
+\section{Mathematical Classification of Atomic Chemical Groups}\label{30001328}
+{\small UnsolvedMath ID 30001328 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} For nuclear charge $Z>0$ and $N\ge1$ electrons, the source uses the nonrelativistic atomic Hamiltonian in atomic units,
+\[
+H_{N,Z}=\sum_{i=1}^N\left(-\tfrac12\Delta_{x_i}-\frac{Z}{|x_i|}\right)+
+\sum_{1\le i<j\le N}\frac1{|x_i-x_j|},
+\]
+on antisymmetric wavefunctions in $L^2((\mathbb R^3\times\{\uparrow,\downarrow\})^N)$. The nucleus is fixed in the Born--Oppenheimer approximation. Total orbital angular momentum, total spin, and parity commute with this Hamiltonian. Their labels on symmetry eigenspaces are $L,S,p$, with eigenvalues $L(L+1)$ and $S(S+1)$ for the squared angular-momentum operators.
+
+\paragraph{Source scope and qualifications.} The source proposes equality of total L,S,p ground-state quantum numbers as a candidate equivalence relation but notes that it need not separate every chemical group. Choosing it is part of the investigation, not a completed derivation of the periodic table. Classification, assigning atoms, and obtaining a simple structural description are all retained.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+For atoms described by the many-electron Schrödinger equation, determine mathematically meaningful equivalence classes corresponding to chemical groups, determine which atom belongs to which group, and obtain a rigorous electronic-structure description with the simplicity of hydrogen orbital configurations.
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The passage asks for a rigorous general classification of atomic groups and electronic configurations; large-charge asymptotics answer only restricted ion-sequence cases, not the full question. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Derive atomic groups and a simple, rigorous picture of electronic configurations from the many-electron Schrödinger model.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derives the one-electron ground symmetry and shows the same labels coexist with different radial scales.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Hydrogenic symmetry labels from a square completion.} For one electron let $r=|x|$ and work initially with smooth compactly supported scalar wavefunctions away from zero. Integration by parts using $\operatorname{div}(x/r)=2/r$ gives
+\[
+ \langle\psi,(-\tfrac12\Delta-Z/r)\psi\rangle
+ +\tfrac{Z^2}{2}\|\psi\|^2
+ =\tfrac12\int|\nabla\psi+Z(x/r)\psi|^2dx\geq0.
+\]
+Approximation extends the identity to the natural form domain. Equality is attained by $\psi(x)=Ce^{-Zr}$, which is square integrable for $Z>0$. Conversely the first-order equality equation forces $e^{Zr}\psi$ to have zero gradient and hence to be constant on connected $\mathbb R^3\setminus\{0\}$. Thus the spatial ground eigenspace is one-dimensional, radial and even.
+
+\paragraph{The proposed equivalence labels in this subcase.} Including the two spin components gives total labels $L=0,S=1/2,p=+1$ and ground multiplicity two for every one-electron ion, regardless of $Z$. These labels determine the symmetry representation but discard the radial scale: the normalized density has characteristic radius proportional to $1/Z$, as follows by the substitution $y=Zx$. Thus even exact labels do not encode all quantitative electronic structure.
+
+\paragraph{Why the full classification is missing.} The calculation reconstructs the hydrogenic baseline mentioned in the source. It does not assign many-electron neutral atoms to chemical groups or justify that equality of $(L,S,p)$ matches those groups. Electron repulsion and antisymmetrization for $N>1$ prevent the scalar square completion from identifying the ground multiplet. The first gap is a rigorous many-electron ground-state classification with enough information to test the proposed equivalence relation, followed by a simple configuration description.
+
+\paragraph{Verification and adversarial audit.}
+Checked square-completion sign, normalization range Z>0, equality equation, two spin states and radial scaling. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked square-completion sign, normalization range Z>0, equality equation, two spin states and radial scaling. Retained unresolved status and zero original-target progress; Many-electron ground multiplets and a justified relation between their labels and chemical groups are not determined.
+
+Coordinator checked the hydrogenic square completion, equality condition and spin multiplicity, with no many-electron classification inferred. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Many-electron ground multiplets and a justified relation between their labels and chemical groups are not determined.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Many-electron ground multiplets and a justified relation between their labels and chemical groups are not determined.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001328:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001328 (OWR-4083-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001328:2}{S2}] Mathematics of Complex Quantum Systems (2009), Oberwolfach Reports, DOI 10.4171/owr/2009/40, pp. 2235--2270; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2009/40}.
+\item[\hypertarget{source:30001328:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 16--18, printed pages 2250--2252.
+\url{https://ems.press/content/serial-article-files/46241}.
+\item[\hypertarget{source:30001328:4}{S4}] Friesecke-Goddard large-charge analysis; reference in the saved dated catalogue literature review.
+\url{https://doi.org/10.1137/080729050}.
+\item[\hypertarget{source:30001328:5}{S5}] highly charged ion states; reference in the saved dated catalogue literature review.
+\url{https://doi.org/10.1103/PhysRevA.81.032516}.
+\end{itemize}
+\label{end:30001328}
+\end{document}

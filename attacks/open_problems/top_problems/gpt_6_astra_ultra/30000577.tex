@@ -1,0 +1,98 @@
+% TOP_PROBLEM: {"id": 30000577, "title": "Mechanisms Producing Equatorial Superrotation", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The report gives a mechanism and sufficient conditions in a canonical balanced model. It does not provide universal necessary-and-sufficient conditions for all planets or all atmospheric regimes, and that broader claim is not substituted for the stated request."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000577", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Identify which large-scale heating and smaller-scale momentum transfers produce eastward equatorial winds.", "scope": "Solves the equatorial mean-flow response to the source flux in a reduced damped balance and checks momentum redistribution.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked flux derivative, zero amplitudes, drag-free limit, initial westward flow and zero integrated forcing. Model self-audit only; no independent human proof checking. Coordinator checked the derivative of the imposed flux, the forced scalar ODE solution and cancellation of the integrated force. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked flux derivative, zero amplitudes, drag-free limit, initial westward flow and zero integrated forcing. Retained unresolved status and zero original-target progress; The full coupled angular-momentum budget and a justified heating/eddy closure are missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30000577; source catalogue code OWR-1325-001
+\setcounter{section}{30000576}
+\section{Mechanisms Producing Equatorial Superrotation}\label{30000577}
+{\small UnsolvedMath ID 30000577 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} Equatorial superrotation is an eastward equatorial mean flow with axial angular momentum exceeding the local solid-body reference. Planetary-scale heating forces the large-scale atmospheric circulation; upscale momentum flux transfers momentum from finer-scale fluctuations to the mean flow. In the report's balanced first-baroclinic calculation, heating amplitude $S$ and momentum-flux amplitude $F$ produce a near-equatorial meridional momentum flux proportional to $-ySF e^{-y^2}$.
+
+\paragraph{Source scope and qualifications.} The report gives a mechanism and sufficient conditions in a canonical balanced model. It does not provide universal necessary-and-sufficient conditions for all planets or all atmospheric regimes, and that broader claim is not substituted for the stated request.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+What features of planetary-scale heating and upscale momentum flux are necessary to create equatorial superrotation?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: Planetary-scale heating and Rossby-wave momentum transport are established mechanisms for equatorial superrotation, but a complete necessary-and-sufficient characterization across planetary regimes remains open. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Identify which large-scale heating and smaller-scale momentum transfers produce eastward equatorial winds.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Solves the equatorial mean-flow response to the source flux in a reduced damped balance and checks momentum redistribution.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{The source flux in a damped mean-flow balance.} Take the reported near-equatorial flux $F_m(y)=-C SF\,y e^{-y^2}$ with $C>0$, heating amplitude $S$ and upscale-flux amplitude $F$. In the deliberately reduced balance $\partial_tU=-\partial_yF_m-rU$, where $r>0$ is linear drag, differentiation gives
+\[
+ -\partial_yF_m=C SF(1-2y^2)e^{-y^2},\qquad
+ U(0,t)=e^{-rt}U(0,0)+\frac{CSF}{r}(1-e^{-rt}).
+\]
+For zero initial equatorial flow, the sign is exactly the sign of $SF$ for every $t>0$. The forcing converges momentum toward the equator for $SF>0$ and is westward outside $|y|>1/\sqrt2$ in this nondimensional coordinate. Its integral over the entire real line is zero because $F_m$ decays at both ends: the mechanism redistributes momentum rather than creating net zonal momentum in this model.
+
+\paragraph{Counterchecks.} If either amplitude is zero, the model produces no equatorial acceleration. If $r=0$, the correct limit is $U(0,t)=U(0,0)+CSFt$, not a finite steady state. A westward initial flow can stay westward for a finite time despite $SF>0$, so positive forcing and existing superrotation are distinct assertions.
+
+\paragraph{Full-source obstruction.} The sign test is sufficient only within the chosen closed balance. Mean meridional transport, vertical fluxes and other torques can alter it, and deriving $S,F,C$ from the coupled atmospheric equations is not done. Hence $SF>0$ is not established as a universal necessary feature of planetary heating or superrotation. The first gap is a controlled derivation and closure of the full angular-momentum budget for the regime in question.
+
+\paragraph{Verification and adversarial audit.}
+Checked flux derivative, zero amplitudes, drag-free limit, initial westward flow and zero integrated forcing. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked flux derivative, zero amplitudes, drag-free limit, initial westward flow and zero integrated forcing. Retained unresolved status and zero original-target progress; The full coupled angular-momentum budget and a justified heating/eddy closure are missing.
+
+Coordinator checked the derivative of the imposed flux, the forced scalar ODE solution and cancellation of the integrated force. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. The full coupled angular-momentum budget and a justified heating/eddy closure are missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. The full coupled angular-momentum budget and a justified heating/eddy closure are missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30000577:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30000577 (OWR-1325-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30000577:2}{S2}] Mathematical Theory and Modelling in Atmosphere-Ocean Science (2006), Oberwolfach Reports, DOI 10.4171/owr/2006/39, pp. 2307--2398; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2006/39}.
+\item[\hypertarget{source:30000577:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 16--17, printed pages 2322--2323.
+\url{https://ems.press/content/serial-article-files/46068}.
+\item[\hypertarget{source:30000577:4}{S4}] planetary-scale heating and momentum flux; reference in the saved dated catalogue literature review.
+\url{https://journals.ametsoc.org/view/journals/atsc/64/5/jas3908.1.xml}.
+\item[\hypertarget{source:30000577:5}{S5}] review of superrotation mechanisms; reference in the saved dated catalogue literature review.
+\url{https://link.springer.com/article/10.1007/s11214-020-00703-9}.
+\end{itemize}
+\label{end:30000577}
+\end{document}

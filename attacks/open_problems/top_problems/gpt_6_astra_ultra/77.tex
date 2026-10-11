@@ -1,0 +1,117 @@
+% RESEARCH_DRAFT_SHA256: d539794f7fae8a097c8ed3d722779a974358e8c59ee012d7ee5a929df0d8f12a
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 77, "title": "Occam's Razor in Many Dimensions", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "77", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Finite-alphabet adaptive randomized sensing lower bound, together with an exact real linear encoding that defeats a precision-free measurement-count inference; entropy scope clarified.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch001/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 77; source catalogue code DARPA-007
+\section{Occam's Razor in Many Dimensions}\label{77}
+{\small UnsolvedMath ID 77 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A sensing model maps an unknown signal $x$ to measurements, for example $y=Ax+e$ for a specified operator $A$ and noise $e$. Sensing complexity measures resources such as measurement count, communicated bits or computation needed to meet a specified reconstruction guarantee. For a finite probability distribution $p$, entropy is $H(p)=-\sum_i p_i\log p_i$, with $0\log0=0$. Entropy maximization optimizes this quantity subject to stated constraints. Lower bounds must quantify a signal class, observation model, error and admissible algorithms.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+This is DARPA Mathematical Challenge Seven. The source supplies no fixed signal class, measurement or noise model, entropy constraints or numerical lower-bound target. The linear sensing example explains a possible model without replacing the agenda. The catalogue-linked mirror returned HTTP 404 during this preparation; its full original solicitation was not reverified. The supplied catalogue extract and historical attribution are documented with that access limitation.
+\paragraph{Statement recorded in the supplied source.}
+Find lower bounds for sensing complexity as data collection grows, addressing entropy maximization. \href{https://web.math.utk.edu/~vasili/refs/darpa07.MathChallenges.html}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+Find mathematical limits on how much sensing and data are necessary, including links to entropy-based methods.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 77 (DARPA-007). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] DARPA DSO, Broad Agency Announcement 07-68, Mathematical Challenges (2007), challenge identified above; the catalogue-linked University of Tennessee mirror.
+\url{https://web.math.utk.edu/~vasili/refs/darpa07.MathChallenges.html}.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. The supplied catalogue credits: DARPA. Permanent source ID 77 and code DARPA-007 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:77}
+
+
+\section{Research attempt}
+The source leaves the sensing model, error, signal class and entropy constraints unspecified. This attempt tests a precision-free measurement-count lower bound. It first proves a finite-alphabet lower bound allowing adaptive sensing and algorithmic randomness, then gives a single real measurement that defeats the same count when precision is unrestricted. This identifies a necessary modeling distinction, not a new universal sensing theorem.
+
+Let $\mathcal X$ be $M\ge1$ signals in a metric space, with pairwise distances strictly greater than $2\varepsilon$, where $\varepsilon\ge0$. An algorithm makes at most $m\ge0$ adaptive queries. Each answer has at most $B\ge2$ possible symbols; subsequent queries may depend on previous answers and private random bits independent of the signal. There is no external measurement noise in this model. Reconstruction succeeds when its distance from the input is at most $\varepsilon$.
+
+\begin{proposition}
+For a uniformly random input in $\mathcal X$, every such algorithm has success probability at most $B^m/M$. Consequently success at least $1-\delta$, for $0\le\delta<1$, requires
+\[
+ m\log_2B\ge\log_2 M+\log_2(1-\delta). \tag{3}
+\]
+\end{proposition}
+\begin{proof}
+Fix all internal randomness. Pad runs ending early with dummy answers, so every transcript has length $m$. There are at most $B^m$ transcripts. Once a transcript is fixed its reconstruction is fixed. That reconstruction cannot be within $\varepsilon$ of two distinct signals, since the triangle inequality would put their distance at most $2\varepsilon$. Hence at most $B^m$ input signals can be reconstructed successfully for this fixed seed. Uniform input yields success at most $B^m/M$. Averaging over the independent random seed preserves the bound, including any random reconstruction choices. Taking logarithms of $1-\delta\le B^m/M$ proves (3).
+\end{proof}
+
+For the class of binary vectors with exactly $k$ ones among $n$ coordinates, $1\le k\le n$, exact recovery has $M=\binom nk$. If $B=2^b$, $b\ge1$, zero-error recovery therefore requires $mb\ge\log_2\binom nk$. Also
+\[
+ \binom nk=\prod_{j=0}^{k-1}\frac{n-j}{k-j}\ge(n/k)^k,
+\]
+because each factor is at least $n/k$. Thus $mb\ge k\log_2(n/k)$, with the expected trivial bound when $k=n$; the $k=0$ singleton is trivial as well. This is a standard counting argument, not a claimed new sensing lower bound.
+
+\paragraph{Why the unqualified extension fails.}
+On all binary vectors, the single exact real linear observation
+\[
+ y=\sum_{i=1}^n2^{i-1}x_i
+\]
+is injective. If two binary strings differ, let $j$ be their largest differing index. The difference contributed by coordinate $j$ has absolute value $2^{j-1}$, whereas all earlier coordinates together have absolute value at most $2^{j-1}-1$, so the observations differ. Reading binary digits recovers the signal. This observation carries $n$ bits and uses exponentially large dynamic range; it has no uniform $b$-bit alphabet. Consequently removing the answer-capacity assumption from (3) is invalid, even though the map is linear and all signals are discrete and sparse when restricted to a fixed weight.
+
+\paragraph{Entropy maximization does not specify a sensor.}
+For any distribution $p$ on an $M$-point set, concavity of $\log$ gives
+\[
+ H_2(p)=\sum_{p_i>0}p_i\log_2(1/p_i)
+ \le\log_2\left(\sum_{p_i>0}p_i/p_i\right)
+ \le\log_2M.
+\]
+Equality for $M>1$ requires full support and equal probabilities, so the uniform law attains the maximum. In (3), this uniform law supplies a hard average case through counting. Maximizing entropy alone does not constrain the number of symbols an exact real-valued sensor can transmit and cannot repair the failed precision-free conclusion.
+
+\section{Literature and context}
+The original DARPA mirror could not be accessed during the current check. Shannon's primary paper \emph{A Mathematical Theory of Communication} was opened from the Harvard-hosted PDF on 11 October 2026 for entropy and finite-alphabet context. No Shannon coding theorem is used as an external dependency. The finite decision-tree argument and binary encoding above are elementary known principles; no novelty or improved established lower bound is asserted.
+
+\section{Verification and remaining gaps}
+The script enumerated every binary vector for $1\le n\le12$ and found exactly $2^n$ distinct observations under the displayed single-measurement map. The self-audit conditioned on all algorithmic randomness before counting transcripts, retained a strict packing separation, and separated number of measurements from number of communicated bits. Robust noisy sensing, arbitrary real-valued signal classes, constrained measurement operators and a computationally efficient entropy-maximization procedure remain unspecified or untreated. The original research agenda therefore remains unresolved by this attempt.
+
+\section{References}
+Original S1--S2 above. C. E. Shannon, \emph{A Mathematical Theory of Communication} (1948), primary-paper PDF, \url{https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf}, opened 11 October 2026. The packing, transcript-count and entropy estimates used here are proved above.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch001/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

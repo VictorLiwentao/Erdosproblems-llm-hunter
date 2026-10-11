@@ -1,0 +1,138 @@
+% RESEARCH_DRAFT_SHA256: 7ebb4211cd3d8e9797a97c6840d1e65b078e0fb911011fd540a9e9d57b63ef6d
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001326, "title": "Hidden Goppa presentations versus public-code decoding", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001326", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Given a parity-check matrix $H$, find the hidden Goppa code in $H$. How quickly can we decode $H$, assuming Goppa decoder for $H$ exists?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Equivalent presentations and public bounded-distance uniqueness do not recover hidden Goppa structure or evaluate a promised efficient decoder from H alone.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Hidden Goppa data: an affine presentation ambiguity and canonical bounded decoding}
+\noindent UnsolvedMath ID 20001326; AIM-CRYPTOGRAPHY-0013. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A parity-check matrix H defines the linear code $C=\{v:Hv=0\}$. A Goppa presentation describes a code by its locator set and Goppa polynomial, possibly hidden by coordinate changes. Recovering such a presentation is different from decoding a received word using only a public matrix.
+\paragraph{Statement recorded in the supplied source.}
+Given a parity-check matrix $H$, find the hidden Goppa code in $H$. How quickly can we decode $H$, assuming Goppa decoder for $H$ exists? \href{http://aimpl.org/quantumalg/1/}{[S2]}
+\paragraph{Scope qualification.}
+The source does not fix the error radius or the equivalences allowed between hidden presentations.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+How quickly can hidden Goppa structure be recovered, or a public code decoded when a Goppa decoder is known to exist?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001326 (AIM-CRYPTOGRAPHY-0013). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-CRYPTOGRAPHY-0013
+\url{http://aimpl.org/quantumalg/1/}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Given a parity-check matrix $H$, find the hidden Goppa code in $H$. How quickly can we decode $H$, assuming Goppa decoder for $H$ exists?
+
+\section{Attempt and results}
+We distinguish the public code, a hidden presentation, and a requested decoder.
+The source fixes neither a decoding radius nor equivalence of presentations.
+The following calculations test a presentation-recovery route and an exhaustive
+public decoding baseline, without claiming a new Goppa attack.
+
+\paragraph{An explicit family of equivalent presentations.}
+Let $K$ be a finite extension of $\mathbb F_q$, let
+$L=(\alpha_1,\ldots,\alpha_n)$ have distinct entries in $K$, and let
+$g\in K[z]$ be monic of degree $d\ge1$ with $g(\alpha_i)\ne0$.
+Define the Goppa code here by
+\[
+\Gamma_q(L,g)=\left\{c\in\mathbb F_q^n:
+\sum_i\frac{c_i}{z-\alpha_i}=0\pmod g\right\}.
+\]
+Inverses exist modulo $g$ because none of its roots is a locator.
+Let $D(z)=\prod_i(z-\alpha_i)$ and
+$F_c(z)=\sum_i c_i\prod_{j\ne i}(z-\alpha_j)$.
+Since $D$ is invertible modulo $g$, membership is equivalent to $g\mid F_c$.
+For any $a\in K^*$ and $b\in K$, set
+$\alpha'_i=a\alpha_i+b$ and
+$g'(z)=a^d g((z-b)/a)$, which is again monic and avoids the new locators.
+The corresponding numerator satisfies
+$F'_c(z)=a^{n-1}F_c((z-b)/a)$.
+Substitution is an invertible change of polynomial variable and all scalar
+factors are nonzero, so $g'\mid F'_c$ if and only if $g\mid F_c$.
+Thus these aligned, coordinate-preserving presentations define exactly the
+same code. Distinct parameter tuples in this family can therefore produce
+the same public code; recovering the planted tuple verbatim is not an
+intrinsically identifiable task without a normalization or equivalence rule.
+The calculation does not say that every equivalent presentation arises this way.
+
+\paragraph{Unique bounded decoding is a property of the public code.}
+For any linear code $C=\ker H\subseteq\mathbb F_q^n$ and integer $t\ge0$,
+two errors $e,e'$ of Hamming weight at most $t$ with the same syndrome have
+$e-e'\in C$ and weight at most $2t$. Hence if every nonzero codeword has
+weight greater than $2t$, there is at most one such error per syndrome.
+Conversely, a nonzero $c\in C$ of weight at most $2t$ can have its support
+partitioned into sets $A,B$ of sizes at most $t$. Set $e=c$ on $A$ and zero
+elsewhere, and $e'=-c$ on $B$ and zero elsewhere. Then $e-e'=c$, so these
+distinct errors have the same syndrome. This proves the exact equivalence
+between uniform uniqueness up to radius $t$ and minimum distance greater
+than $2t$, with the zero code having infinite minimum distance.
+The partial map assigning the unique small error, where one exists, is thus
+determined by $H,t$ alone, independently of which hidden presentation supplies
+an efficient method of evaluating it.
+
+\paragraph{A complete but exponential baseline and its first missing step.}
+Enumerate supports of size $j\le\min(t,n)$ and all nonzero values on each.
+There are
+$\sum_{j=0}^{\min(t,n)}\binom nj(q-1)^j$ candidates; test $He=s$ for each.
+This finds a small error or certifies none by exhaustion. It is polynomial
+for fixed $t$ and fixed $q$, but not an efficient arbitrary-radius algorithm.
+Given any aligned Goppa presentation and a correct decoder promised for that
+presentation and radius, applying that decoder to the corresponding code
+solves the public decoding problem. The missing implication is obtaining such
+a presentation or decoder from the mere promise of its existence. The affine
+ambiguity additionally shows why demanding one designated secret tuple is
+stronger than producing any valid aligned trapdoor.
+
+\section{Context, adversarial audit, and gap}
+The original question was read in the official quantum workshop report,
+printed page 3. The audit checked monicity and locator avoidance after the
+affine change, base-field codeword coefficients, the sign in the converse
+distance argument, and zero-code/t=0 boundaries. No Goppa distance theorem
+or efficient hidden-structure recovery is asserted without proof. The standard
+Goppa formula above defines the precise interpretation used for this auxiliary
+test; the source's broader unspecified radius remains unchanged. No numerical
+computation was performed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Equivalent presentations and public bounded-distance uniqueness do not recover hidden Goppa structure or evaluate a promised efficient decoder from H alone.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item AIM, Quantum algorithms for analysis of public-key crypto, official workshop summary, printed page 3; original coding and Grover questions inspected directly on 11 October 2026. \url{https://aimath.org/pastworkshops/quantumalgrep.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Equivalent presentations and public bounded-distance uniqueness do not recover hidden Goppa structure or evaluate a promised efficient decoder from H alone.
+\end{document}

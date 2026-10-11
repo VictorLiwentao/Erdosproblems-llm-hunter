@@ -1,0 +1,85 @@
+% TOP_PROBLEM: {"id": 30004807, "title": "Weak Bianchi Identities Across Timelike Singularities", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The cited work proves the weak twice-contracted second Bianchi identity for a restricted static spherically symmetric class. Its extension to all admissible timelike singularities is the remaining conjecture. Integrability and the treatment of the singular locus are part of the question; the classical pointwise identity alone does not justify this weak formula."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004807", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Decide whether the distributional conservation identity survives the stated class of timelike negative-mass zero-area singularities.", "scope": "Derived the exact excision boundary-flux criterion and a distributional-divergence diagnostic; no proof or counterexample for all negative-mass ZAS spacetimes.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked boundary orientation is used consistently through the outward normal, compact test support, and the 4 pi singular-flux example without treating it as a ZAS metric. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the excision boundary identity and Euclidean delta-divergence diagnostic, with the actual geometric flux estimate left unproved. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked boundary orientation is used consistently through the outward normal, compact test support, and the 4 pi singular-flux example without treating it as a ZAS metric. The remaining gap is: Deduce tensor integrability and vanishing tube flux from the actual nonsymmetric regular-ZAS hypotheses. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30004807; source catalogue code OWR-8415343-010
+\setcounter{section}{30004806}
+\section{Weak Bianchi Identities Across Timelike Singularities}\label{30004807}
+{\small UnsolvedMath ID 30004807 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+The Einstein tensor is $G_{\mu\nu}=R_{\mu\nu}-\tfrac12R g_{\mu\nu}$, where $R_{\mu\nu}$ and $R$ are Ricci and scalar curvature. The derivative $\nabla$ and volume measure $dV_g$ are those of $g$. A weak identity means that the integral against every compactly supported smooth test vector field is well-defined and vanishes. ZAS denotes a zero-area singularity, with regularity and mass defined as in the report's Bray--Jauregui convention.
+
+\paragraph{Catalogue wording retained for traceability.}
+Does the weak contracted second Bianchi identity $\int_M(R_{\mu\nu}-\tfrac12R g_{\mu\nu})\nabla^\mu\psi^\nu\,dV_g=0$ hold for every spacetime whose timelike singularity restricts on spacelike slices to a regular zero-area singularity with negative ZAS mass in the sense of Bray and Jauregui, and for every compactly supported vector field $\psi$?
+
+\paragraph{Scope and source qualification.}The cited work proves the weak twice-contracted second Bianchi identity for a restricted static spherically symmetric class. Its extension to all admissible timelike singularities is the remaining conjecture. Integrability and the treatment of the singular locus are part of the question; the classical pointwise identity alone does not justify this weak formula.
+\subsection{Short English statement}
+Decide whether the distributional conservation identity survives the stated class of timelike negative-mass zero-area singularities.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derived the exact excision boundary-flux criterion and a distributional-divergence diagnostic; no proof or counterexample for all negative-mass ZAS spacetimes.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30004807. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{Excision identifies the missing boundary term.} Remove a radius-\(\varepsilon\) tube around a timelike singular locus and call the regular remainder \(M_\varepsilon\). Assume the smooth Einstein tensor is divergence free there and the test field \(\psi\) has compact support. Integration by parts gives
+\[
+ \int_{M_\varepsilon}G_{\mu\nu}\nabla^\mu\psi^\nu\,dV_g
+ =\int_{\partial M_\varepsilon}G_{\mu\nu}n^\mu\psi^\nu\,dS_g.
+\]
+Thus local integrability of the interior integrand and vanishing of the boundary flux are sufficient for the desired weak identity. For instance, a bound \(\int_{\partial M_\varepsilon}|G(n,\cdot)|dS_g\to0\), in a fixed controlled frame over the compact test support, would suffice.
+\paragraph{Why pointwise conservation does not settle it.} The elementary Euclidean vector field \(F=x/|x|^3\) has divergence zero off the origin but flux \(4\pi\) through every centered sphere. For a smooth test \(\varphi\), its small-sphere flux tends to \(4\pi\varphi(0)\), so distributionally \(\operatorname{div}F=4\pi\delta_0\). A persistent singular flux can therefore survive excision despite the smooth identity everywhere else.
+\paragraph{Scope audit.} This vector field is not a Lorentz metric with a negative-mass regular ZAS, and it is not a counterexample to the source conjecture. The first gap is deriving the necessary integrability and flux decay from the precise Bray--Jauregui slice hypotheses for all admissible timelike singularities. The reported static spherical result does not automatically furnish those estimates in the nonsymmetric class.
+
+\paragraph{Verification and adversarial audit.}
+Checked boundary orientation is used consistently through the outward normal, compact test support, and the 4 pi singular-flux example without treating it as a ZAS metric. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked boundary orientation is used consistently through the outward normal, compact test support, and the 4 pi singular-flux example without treating it as a ZAS metric. The remaining gap is: Deduce tensor integrability and vanishing tube flux from the actual nonsymmetric regular-ZAS hypotheses. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the excision boundary identity and Euclidean delta-divergence diagnostic, with the actual geometric flux estimate left unproved. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Deduce tensor integrability and vanishing tube flux from the actual nonsymmetric regular-ZAS hypotheses.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30004807:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30004807 (OWR-8415343-010). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30004807:2}{S2}] Mathematical Aspects of General Relativity (2021), Oberwolfach Reports, DOI 10.4171/owr/2021/40, pp. 2157--2267. Original report and mathematical context.
+\url{https://doi.org/10.4171/owr/2021/40}.
+\end{itemize}
+\label{end:30004807}
+\end{document}

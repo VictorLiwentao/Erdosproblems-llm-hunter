@@ -1,0 +1,85 @@
+% TOP_PROBLEM: {"id": 20002499, "title": "The sharp Laptev-Safronov threshold and a Lorentz-stable tube obstruction", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The title names only the first subproblem. All four source items are retained, and the OCR exponent and Schatten-norm subscripts are repaired against page 4 of the primary PDF. The source deliberately leaves nice symbol and not too close quantitative assumptions informal; this document does not invent a uniform theorem or assert the historical conjecture is currently true. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002499", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Determine sharp complex Schrödinger eigenvalue bounds, a trace-class endpoint, semiclassical resolvent growth, and pseudomodes for discontinuous potentials.", "scope": "Checked the forced scaling exponent and disproved a bare numerical implication from all higher-power summability to endpoint summability. None of the four bundled operator problems is solved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked unitary dilation, potential integral scaling, p>d/2 requirement, harmonic sequence and its non-realizability caveat; retained all four source items. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the dilation exponent and the endpoint sequence comparison, without treating the abstract sequence as an operator counterexample. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked unitary dilation, potential integral scaling, p>d/2 requirement, harmonic sequence and its non-realizability caveat; retained all four source items. Scope remains limited: Establish operator-specific resolvent and endpoint estimates, rather than dimensional scaling or unstructured sequence comparisons."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002499; source catalogue code AIM-PHYSICS-0007
+\setcounter{section}{20002498}
+\section{The sharp Laptev-Safronov threshold and a Lorentz-stable tube obstruction}\label{20002499}
+{\small UnsolvedMath ID 20002499 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}For a closed operator, $\sigma_d$ denotes isolated eigenvalues of finite algebraic multiplicity and the resolvent is $(P-z)^{-1}$ where defined. Schatten norm $\|K\|_p$ is the $\ell^p$ norm of singular values; $p=1$ is trace class. Weyl quantization is the symmetric pseudodifferential quantization of a symbol with semiclassical parameter $h$. A pseudomode has unit norm and small residual, which need not identify a true eigenvalue.
+
+\paragraph{Catalogue wording retained for traceability.}
+The canonical catalogue record bundles source items 7.1--10.1.
+\begin{enumerate}
+\item For $-\Delta+V$ on $\mathbb R^d$ with complex potential, find the largest applicable $p>d/2$ for a uniform bound placing all non-real eigenvalues in the disk of radius $D(\int|V|^p)^{1/(p-d/2)}$. Also determine behavior of embedded self-adjoint eigenvalues under non-self-adjoint perturbations. The source formulates the Laptev--Safronov proposal $|\lambda|^\gamma\le D_{\gamma,d}\int|V|^{\gamma+d/2}$, for every $d\in\mathbb N$ and $0<\gamma\le d/2$, and records then-known cases $d=1,\gamma=1/2$ and $d\ge2,0<\gamma\le1/2$.
+\item For bounded self-adjoint $A$ and trace-class $K$, assume that for each $\varepsilon>0$, $\sum_{\lambda\in\sigma_d(A+K)}\operatorname{dist}(\lambda,\sigma(A))^{1+\varepsilon}\le C(\varepsilon)\|K\|_{1+\varepsilon}^{1+\varepsilon}$. Does a uniform endpoint estimate $\sum_{\lambda\in\sigma_d(A+K)}\operatorname{dist}(\lambda,\sigma(A))\le C\|K\|_1$ follow?
+\item For appropriate semiclassical Weyl operators $P=p^w(x,hD)$ on $\mathbb R^n$, with $\operatorname{Re}p\ge0$, is the upper resolvent growth $O(1)\exp(O(1)h^{-n})$ sharp, especially for $n\ge2$, for spectral parameters in a bounded complex neighborhood away from the spectrum? The source contrasts superpolynomial or analytic $\exp(c/h)$ pseudomode lower bounds.
+\item Adapt the semiclassical pseudomode construction for smooth Schrödinger potentials to discontinuous potentials, beyond the particular complex Heaviside model mentioned in the source.
+\end{enumerate}
+\paragraph{Scope and source qualification.}The title names only the first subproblem. All four source items are retained, and the OCR exponent and Schatten-norm subscripts are repaired against page 4 of the primary PDF. The source deliberately leaves nice symbol and not too close quantitative assumptions informal; this document does not invent a uniform theorem or assert the historical conjecture is currently true. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Determine sharp complex Schrödinger eigenvalue bounds, a trace-class endpoint, semiclassical resolvent growth, and pseudomodes for discontinuous potentials.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Checked the forced scaling exponent and disproved a bare numerical implication from all higher-power summability to endpoint summability. None of the four bundled operator problems is solved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{Scaling of the eigenvalue-bound subproblem.}For a potential \(V\) and dilation factor \(a>0\), let \(V_a(x)=a^2V(ax)\). Unitary dilation transforms \(-\Delta+V_a\) into \(a^2(-\Delta+V)\), so an eigenvalue \(\lambda\) becomes \(a^2\lambda\), while \(\int|V_a|^p=a^{2p-d}\int|V|^p\). A homogeneous bound \(|\lambda|\le C(\int|V|^p)^\alpha\) can therefore be dilation invariant only if \(2=\alpha(2p-d)\), namely \(\alpha=(p-d/2)^{-1}\). This checks the proposed exponent but supplies no admissible upper range for \(p\).
+\paragraph{An endpoint inference that cannot use sequence bounds alone.}The numerical sequence \(a_j=1/j\) satisfies \(\sum_ja_j^{1+\varepsilon}<\infty\) for every \(\varepsilon>0\), whereas \(\sum_ja_j=\infty\). Integral comparison proves both assertions. Thus finiteness of all higher-power distance sums does not alone imply the trace-class endpoint. The constants as \(\varepsilon\downarrow0\), and the relation to an actual operator perturbation, are indispensable. This sequence is not claimed to be realizable by the operators in the question and is therefore not a counterexample to that endpoint conjecture.
+\paragraph{Full scope remaining.}A sharp complex-potential range, embedded eigenvalue behavior, the actual trace-class endpoint, sharp \(h^{-d}\)-exponential resolvent growth and discontinuous-potential pseudomodes all remain unproved. The first obstruction in the first route is a resolvent estimate of the correct scaling; in the second it is uniform endpoint control using operator structure. Neither scaling nor the abstract sequence test settles the bundled source record, and no historical conjecture is asserted current without a literature audit.
+
+\paragraph{Verification and adversarial audit.}
+Checked unitary dilation, potential integral scaling, p>d/2 requirement, harmonic sequence and its non-realizability caveat; retained all four source items. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked unitary dilation, potential integral scaling, p>d/2 requirement, harmonic sequence and its non-realizability caveat; retained all four source items. Scope remains limited: Establish operator-specific resolvent and endpoint estimates, rather than dimensional scaling or unstructured sequence comparisons.
+
+Coordinator checked the dilation exponent and the endpoint sequence comparison, without treating the abstract sequence as an operator counterexample. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Establish operator-specific resolvent and endpoint estimates, rather than dimensional scaling or unstructured sequence comparisons.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002499:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002499 (AIM-PHYSICS-0007). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002499:2}{S2}] American Institute of Mathematics, Mathematical aspects of physics with non-self-adjoint operators; workshop 8–12 June 2015, Problems 7.1–10.1.
+\url{https://aimath.org/pastworkshops/nonselfadjointproblems.pdf}.
+\end{itemize}
+\label{end:20002499}
+\end{document}

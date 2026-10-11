@@ -1,0 +1,129 @@
+% RESEARCH_DRAFT_SHA256: 63e4fbb54a9d3b7e389123d9962e64a0022e19251983ae643a32f32aa1b33cb9
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001334, "title": "Spectral laws for Gaussian multiple-shift states", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001334", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and written mathematical review at the declared scope; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Spectral laws for Gaussian multiple-shift states; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Coherent Gaussian shift labels and exact one-state discrimination; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch015 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 20001334; source catalogue code AIM-CRYPTOGRAPHY-0021
+\section{Spectral laws for Gaussian multiple-shift states}\label{20001334}
+{\small UnsolvedMath ID 20001334 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A hidden-shift instance consists of functions $f_0,f_1$ on a group $G$ related by $f_1(x)=f_0(xs)$ for an unknown shift $s$, with the additive version $f_1(x)=f_0(x+s)$ for abelian groups. The task is to recover a compatible shift from the stipulated function access. Multiple compatible shifts form a set S of translations relating the same pair of functions. Known relations among them, such as an arithmetic progression, give structure beyond an isolated shift. Kuperberg's method is a quantum sieve for hidden-shift state information.
+\paragraph{Statement recorded in the supplied source.}
+How does Kuperberg's algorithm behave under multiple hidden shifts (with known relations between shifts, e.g. arithmetic progression) with Gaussians, using the work of Ivanyos, Prakash, and Santha?, \href{http://aimpl.org/quantumalg/4/}{[S2]}
+\paragraph{Scope qualification.}
+The source does not define which states or weights are Gaussian or choose their width; no runtime theorem for a specific Gaussian model is asserted.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+How does Kuperberg's hidden-shift algorithm behave when there are several related shifts and Gaussian structure?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001334 (AIM-CRYPTOGRAPHY-0021). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-CRYPTOGRAPHY-0021
+\url{http://aimpl.org/quantumalg/4/}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001334 and source code AIM-CRYPTOGRAPHY-0021 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001334}
+
+\section{Literature and context check}
+The original AIM URL was attempted on 2026-10-11, but the web fetch timed out and a direct retrieval failed at DNS resolution. Its supplied extract is preserved above; fresh access to that page is not claimed. The actual Ivanyos--Prakash--Santha ESA 2018 abstract defines Hidden Multiple Shift using one unknown $s$ and the oracle $f_s(x,h)=f(x-hs)$ for several known labels $h$, with injective $f$. This differs from the preserved catalogue-added definition of several compatible translations of the same pair. The latter set, when nonempty in an abelian group, is a coset of the period subgroup: if $s$ is one solution, another $t$ is a solution exactly when $t-s$ is a period. In particular two solutions differing by $d$ force all translates by the subgroup generated by $d$. That interpretation is not substituted for the cited multiple-oracle model. The source does not fix what is Gaussian, so the following Gaussian-amplitude model is expressly auxiliary.
+\section{Research attempt: Coherent Gaussian shift labels and exact one-state discrimination}
+Take $G=\mathbb Z/N\mathbb Z$, injective $f$, and coherent access to $f(x-hs)$ for every label $h\in G$. Choose known amplitudes $a_h\geq0$ with $\sum_ha_h^2=1$. Query on
+\[
+ {1\over\sqrt N}\sum_{x,h}a_h|h,x,f(x-hs)\rangle.
+\]
+Upon measuring $f(y)$, injectivity leaves $\sum_ha_h|h,y+hs\rangle$. Fourier transforming and measuring the $x$ register gives a uniform $k\in G$ and the pure label state
+\[
+ |v_{s,k}\rangle=\sum_ha_he^{2\pi i khs/N}|h\rangle.       \tag{1}
+\]
+Uniformity follows because label basis vectors are orthogonal and $\sum a_h^2=1$. Conditional on a known $k$ relatively prime to $N$ and a uniform prior on $s$, the exact optimum probability of identifying $s$ from one state (1) is
+\[
+ P_{\rm opt}={1\over N}\left(\sum_ha_h\right)^2.          \tag{2}
+\]
+Here is both an upper bound and an attaining measurement. For any POVM $M_s\geq0$, $\sum_sM_s=I$, positivity of its two-by-two principal minors gives $|(M_s)_{hj}|\leq\sqrt{(M_s)_{hh}(M_s)_{jj}}$. Expanding the quadratic form, its success probability is at most
+\[
+ {1\over N}\sum_{h,j}a_ha_j\sum_s\sqrt{(M_s)_{hh}(M_s)_{jj}}
+ \leq{1\over N}\sum_{h,j}a_ha_j,
+\]
+where Cauchy--Schwarz uses $\sum_s(M_s)_{hh}=1$. For attainment, the vectors
+$|w_s\rangle=N^{-1/2}\sum_he^{2\pi i khs/N}|h\rangle$ form an orthonormal basis: the geometric sum of a nontrivial character is zero because $k$ is invertible modulo $N$. Measuring in this basis yields $|\langle w_s,v_{s,k}\rangle|^2=(\sum_ha_h)^2/N$ for every $s$.
+
+One finite Gaussian choice is $a_h=Z^{-1/2}\exp(-d(h,0)^2/(4\sigma^2))$, where $d(h,0)=\min\{h,N-h\}$ for $0\leq h<N$, $\sigma>0$, and $Z=\sum_h\exp(-d(h,0)^2/(2\sigma^2))$. Formula (2) then becomes the explicit finite sum
+\[
+ {\left(\sum_he^{-d(h,0)^2/(4\sigma^2)}\right)^2
+  \over N\sum_he^{-d(h,0)^2/(2\sigma^2)}}.                  \tag{3}
+\]
+As $\sigma\downarrow0$, only $h=0$ survives and (3) tends to $1/N$; as $\sigma\to\infty$, all amplitudes become $1/\sqrt N$ and it tends to one. More generally, support on at most $r$ labels gives $P_{\rm opt}\leq r/N$ by Cauchy--Schwarz. These are direct finite-state statements, not an asymptotic sieve analysis.
+
+Two failed extensions are explicit. If $k=0$, all states (1) coincide and success is only $1/N$, so the invertibility condition in (2) is essential. If the coherent label register is instead measured and only the classical outcome $h$ retained, its law is $a_h^2$, independent of $s$; the phase has disappeared. A classical random choice of a Gaussian label cannot be credited with the information in the coherent Gaussian state.
+\section{Verification and adversarial audit}
+The upper bound in (2) permits arbitrary measurements, while the stated Fourier measurement attains it for every nonnegative amplitude vector when $k$ is a unit. The one-label and uniform-label cases check both extremes. Formula (3) concerns a finite circular distance and is not claimed to be the unique meaning of a Gaussian in the workshop question. State preparation cost is not assumed free in a cryptanalytic runtime.
+\paragraph{Audit corrections.} The checked primary paper's several labeled shifted copies were distinguished from several compatible shifts for one function pair. A specific Gaussian amplitude model and the necessary nonzero/invertible Fourier frequency were stated instead of inferred from the title.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+No analysis of a complete Kuperberg sieve, label preparation complexity, Gaussian truncation on infinite groups, or the cited multi-dimensional multiple-shift algorithm is obtained. The exact one-state calculation and the coherent/classical distinction are auxiliary known-style Fourier analysis, not a resolution of the original broad question.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2018.66} (consulted 2026-10-11). 
+\item \url{https://arxiv.org/abs/quant-ph/0302112} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and written mathematical review at the declared scope; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

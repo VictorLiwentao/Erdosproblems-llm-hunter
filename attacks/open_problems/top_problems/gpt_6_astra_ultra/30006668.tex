@@ -1,0 +1,101 @@
+% RESEARCH_DRAFT_SHA256: 52fad581953c592134047b99e81bc199219d078983111a61bc0f003d9b2a2fb5
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30006668, "title": "Extremal Top-$m$ Representability of Output Projection Matrices", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006668", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Complete moment-curve strict top-m construction and a one-dimensional obstruction under explicit auxiliary conventions.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch011/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 30006668; source catalogue code OWR-14299916-006
+\section{Extremal Top-$m$ Representability of Output Projection Matrices}\label{30006668}
+{\small UnsolvedMath ID 30006668 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+For $z\in\mathbb R^N$, $\operatorname{softmax}(z)_i=e^{z_i}/\sum_j e^{z_j}$. Its probability ranking agrees with the ranking of logits. An output projection sends an embedding $x$ to the token-score vector $Ax$.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The supplied statement does not specify strict ordering or tie-breaking, and allows the trivial full-vocabulary set if $m=N$ is permitted. Any restriction $m<N$ or strict separation from remaining tokens must come from the source, not be silently imposed.
+
+Source-record limitation: The literal largest-m target allows m=N, which is trivial, while the tie/strict-ranking convention and intended nontrivial range are absent; the precise extremal target is not recoverable from this cleaned extraction.
+\paragraph{Statement recorded in the supplied source.}
+For a vocabulary of $N$ tokens and embedding dimension $d$, what is the largest $m$ for which there exists an output projection matrix $A\in\mathbb R^{N\times d}$ such that, for every set of $m$ tokens, some embedding $x\in\mathbb R^d$ makes those tokens the $m$ most probable under $\operatorname{softmax}(Ax)$? \href{https://doi.org/10.4171/owr/2026/11}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Determine how large every representable most-likely token subset can be for a chosen output projection.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30006668 (OWR-14299916-006). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Modern and Emerging Phenomena in Machine Learning (2026), Oberwolfach Reports, DOI 10.4171/owr/2026/11, pp. 683--736
+\url{https://doi.org/10.4171/owr/2026/11}.
+\item[S3] Basri--Jacobs, The Softmax Bottleneck
+\url{https://openreview.net/forum?id=DgJqQk6y19}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30006668 and code OWR-14299916-006 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30006668}
+
+\section{Research attempt}
+\subsection{Literature, source context and scope}
+The full catalogue body, including qualifications and historical source status, is preserved above. The original workshop report was inspected in the locally cached publisher PDF text. This attempt distinguishes the source question from any explicitly restricted model introduced below. Repeated records retain their own source IDs and do not become independent conjectures. Elementary results and attributed literature results are not claimed as new original-target progress.
+
+\subsection{Literal scope and a strict-separation route}
+The catalogue explicitly notes that its literal largest-$m$ wording admits $m=N$, which imposes no exclusion of other tokens. With that reading every matrix works for the full set, so the wording cannot express the intended nontrivial extremal question. We retain the qualification rather than declare the research problem solved. For a useful auxiliary route, we explicitly require $1\le m<N$ and strict separation of the selected tokens from the rest; this is an additional model choice, not an amendment to the source.
+\begin{proposition}
+For every $N>m\ge1$ and $d\ge2m$, there is an $N\times d$ matrix whose logits strictly rank every prescribed $m$-element subset above its complement.
+\end{proposition}
+\begin{proof}
+Choose distinct real numbers $t_1,\ldots,t_N$, and let row $i$ be $(t_i,t_i^2,\ldots,t_i^{2m})$, followed by zero coordinates if necessary. For a desired subset $S$, expand
+\[
+ p_S(t)=-\prod_{i\in S}(t-t_i)^2=c_0+c_1t+\cdots+c_{2m}t^{2m}.
+\]
+Use embedding $x=(c_1,\ldots,c_{2m},0,\ldots,0)$. The $i$th logit is $p_S(t_i)-c_0$. It equals $-c_0$ for $i\in S$ and is strictly smaller for every $i\notin S$. Softmax preserves strict logit inequalities because the exponential is strictly increasing and all probabilities share the same positive denominator.
+\end{proof}
+This familiar polynomial-separation construction assigns equal selected logits; it does not prescribe arbitrary probabilities within the selected set. Negating an embedding reverses selected-versus-complement ranking, so the property is symmetric between $m$ and $N-m$. This is another reason an unqualified largest-$m$ parameter needs care.
+The one-dimensional route has a sharp elementary limitation: with scalar rows, positive $x$ can give at most one strictly separated top-$m$ set and negative $x$ at most one. Zero $x$ gives no strict separation. For $N\ge3$ and $1\le m<N$, there are at least three subsets, so no $d=1$ matrix has the all-subsets property. Allowing all ties would change this conclusion.
+\subsection{Verification and remaining gaps}
+For $N=5,m=2,d=4$ and $t_i=i$, the ten polynomials were expanded with exact integer arithmetic and all selected/unselected score gaps checked. No matching upper bound in general dimension, probability-prescription theorem or repaired unique interpretation of the original extremal target is supplied.
+
+\section{References and source attribution}
+The primary Oberwolfach workshop report, \url{https://doi.org/10.4171/owr/2026/11}, was inspected on 11 October 2026. Relevant source passages: 2026/11 pp. 706--708, output-projection top-subset question. Catalogue and contributor attribution remain in the original Sources section. Mathematical arguments labeled as this attempt are proved above; cited external results remain attributed to their authors and are not independently reproved or claimed as our discoveries.
+
+\url{https://openreview.net/forum?id=DgJqQk6y19}. The supplied Basri--Jacobs OpenReview URL was attempted but returned a browser-verification page, so its full paper was not inspected through that endpoint. Context and the quoted agenda were instead checked in the accessible primary Oberwolfach contribution; no additional theorem from an inaccessible paper is assumed.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch011/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

@@ -1,0 +1,131 @@
+% RESEARCH_DRAFT_SHA256: 5a4e788cdcb75446e374de2242ac07bac7db238907254fc7ab79a77bafc3c830
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001183, "title": "Zero patterns, facial sets, and exact support repair in chordal models", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001183", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 7. What conditions on the structures of zeros in a table of counts will guarantee that the maximum likelihood estimates do not exist? In this setting, a maximum likelihood estimate is required to have all strictly positive probabilities. 5\n\nAs Alessandro Rinaldo, later pointed out in his talk, this is equivalent to giving a combinatorial description of the facets of the cone of all feasible margins. This polyhedral cone is obtained by taking of the positive hull of the columns of the matrices AG which appear in the working questions on graphical models by Chris Meek and Serkan Ho¸ sten.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. No combinatorial classification of the marginal-cone faces for the full family of graphical models is obtained; the proved face certificate and two-model example are auxiliary known facts.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Zero patterns and likelihood faces: a separation certificate and a model-dependence obstruction}
+\noindent UnsolvedMath ID 20001183; AIM-COMPUTATION-0021. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a statistical model with parameter $\theta$ and observations $D$, the likelihood is $L(\theta;D)=\Pr_\theta(D)$, or the corresponding density. Maximum likelihood seeks a global maximum over the admissible parameter space. A zero pattern lists cells with zero observed counts. In the source convention an MLE must assign strictly positive probabilities, so a boundary fit is not an existing MLE. For a model matrix $A$, the feasible-margin cone is the nonnegative span of its columns; its facets are supporting faces of codimension one.
+\paragraph{Statement recorded in the supplied source.}
+Question 7. What conditions on the structures of zeros in a table of counts will guarantee that the maximum likelihood estimates do not exist? In this setting, a maximum likelihood estimate is required to have all strictly positive probabilities. 5
+
+As Alessandro Rinaldo, later pointed out in his talk, this is equivalent to giving a combinatorial description of the facets of the cone of all feasible margins. This polyhedral cone is obtained by taking of the positive hull of the columns of the matrices AG which appear in the working questions on graphical models by Chris Meek and Serkan Ho¸ sten. \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The strict-positivity convention in the source is retained; an extended boundary MLE is a different notion.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Which patterns of zero counts prevent a strictly positive maximum-likelihood fit in a categorical model?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001183 (AIM-COMPUTATION-0021). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0021
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 7. What conditions on the structures of zeros in a table of counts will guarantee that the maximum likelihood estimates do not exist? In this setting, a maximum likelihood estimate is required to have all strictly positive probabilities. 5
+
+As Alessandro Rinaldo, later pointed out in his talk, this is equivalent to giving a combinatorial description of the facets of the cone of all feasible margins. This polyhedral cone is obtained by taking of the positive hull of the columns of the matrices AG which appear in the working questions on graphical models by Chris Meek and Serkan Ho¸ sten.
+
+\section{Attempt and results}
+Fix a finite multinomial log-linear family
+$p_j(\theta)=\exp(\theta\cdot a_j)/\sum_l\exp(\theta\cdot a_l)$,
+where $a_1,\ldots,a_m$ are specified real statistic columns. There are
+counts $n_j\ge0$ with total $N>0$. A finite parameter gives strictly
+positive probabilities, as required by the source. Parameter directions
+constant on all columns do not change the distribution.
+
+\paragraph{A zero-pattern certificate of nonexistence.}
+Suppose a vector $h$ and number $c$ satisfy $h\cdot a_j\le c$ for every
+cell, with a strict inequality for at least one cell, and every observed
+cell ($n_j>0$) satisfies equality. The log likelihood, up to a count-only
+constant, is
+$\ell(\theta)=\theta\cdot\sum n_ja_j-N\log\sum e^{\theta\cdot a_j}$.
+Along $\theta+th$ its derivative is
+\[
+N\left(c-\sum_jp_j(\theta+th)h\cdot a_j\right)>0
+\]
+for every finite $t$, because each cell has positive fitted probability
+and at least one inequality is strict. Consequently no finite parameter
+maximizes the likelihood. This proves directly that observed support
+contained in a proper exposed face obstructs an ordinary positive MLE.
+It is a certificate one can check for any stated model matrix; it is not
+a combinatorial enumeration of all faces of all graphical models.
+
+\paragraph{Attempted simplification to a condition on zero count alone.}
+Consider the $2$ by $2$ count table
+$\left(\begin{smallmatrix}1&0\\0&1\end{smallmatrix}\right)$.
+Under the independence family $p_{ij}=r_i c_j$, its likelihood is
+$r_0r_1c_0c_1$. For positive margins summing to one,
+$r_0r_1\le1/4$ and $c_0c_1\le1/4$, with equality uniquely at equal
+margins. Thus the positive uniform table is the unique maximizing
+distribution despite two zero observed cells.
+In the saturated positive model the likelihood is $p_{00}p_{11}$.
+Because the other two probabilities are strictly positive,
+$p_{00}+p_{11}<1$, so $p_{00}p_{11}<1/4$. Taking the two unobserved
+probabilities to zero equally approaches $1/4$. The supremum is not
+attained in the strictly positive model. The same zero pattern therefore
+has opposite MLE-existence answers in two different models.
+
+\paragraph{The remaining combinatorial task.}
+An attempt to classify obstruction patterns using only the number or
+locations of observed zeros, without the statistic matrix, cannot work
+by that example. For a fixed graph, the useful next step would enumerate
+which supports fit in proper faces of its specific marginal cone. The
+separation derivative alone merely provides an abstract certificate and
+does not furnish that requested combinatorial facet description. Structural
+zeros change the admissible columns and require a separate model, rather
+than treating forbidden cells as additional sampling zeros.
+
+\section{Context and adversarial audit}
+The primary AIM question explicitly mentions strict positivity and the
+marginal-cone interpretation; both were checked. The elementary likelihood
+arguments here are known mechanisms, not a new classification. The audit
+checked $N>0$, all finite parameters, strictness of the direction derivative,
+and ordinary versus extended boundary MLEs. No numerical computation or
+formal theorem proving was performed. No chordal-only repair formula from
+the expanded catalogue title is silently claimed for arbitrary models.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. No combinatorial classification of the marginal-cone faces for the full family of graphical models is obtained; the proved face certificate and two-model example are auxiliary known facts.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Computational Algebraic Statistics, prepared by Seth Sullivant, version 27 March 2004; the original numbered source question and its adjacent scope were inspected on 11 October 2026. \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} No combinatorial classification of the marginal-cone faces for the full family of graphical models is obtained; the proved face certificate and two-model example are auxiliary known facts.
+\end{document}

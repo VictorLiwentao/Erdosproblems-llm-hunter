@@ -1,0 +1,197 @@
+% RESEARCH_DRAFT_SHA256: ae9b7fefc8962170f9babb5ba676fb6794332d3a3f80f451f3e4ddbb12fe09c1
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30001099, "title": "Capacity-Preserving Conversion to Unsplittable Flows", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001099", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, separate mathematical audit and independent exact graph enumeration. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Given a single-source network with capacities $u$, costs $c$, source $s$, sinks $t_i$, and demands $d_i$ satisfying the no-bottleneck condition $d_{\\max}\\leq u_e$, does every splittable flow $x$ satisfying the demands admit an unsplittable flow $y$ satisfying the same demands such that $y_e\\leq x_e+d_{\\max}$ for every edge $e$ and $c(y)\\leq c(x)$?", "scope": "The explicit nine-arc instance has dmax=15, capacities max(x_e,15), feasible fractional cost 58, and every routing within all additive bounds has cost at least 60. Therefore the universal assertion is false. No novelty claimed. This is a complete elementary rederivation of the published Rybin counterexample as formalized by Ramos, Hulak, and de Queiroz, with an explicit capacity extension to meet the catalogue no-bottleneck condition.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B self-audit, exact integer computation, and separate root Codex GPT-6 mathematical review; no independent human verification or local theorem-prover run.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: solved
+% FULL_SOLUTION_SCOPE: {"target": "For every single-source network and feasible splittable flow x with dmax<=u_e, find an unsplittable flow with y_e<=x_e+dmax on every edge and c(y)<=c(x).", "result": "The explicit nine-arc instance has dmax=15, capacities max(x_e,15), feasible fractional cost 58, and every routing within all additive bounds has cost at least 60. Therefore the universal assertion is false.", "coverage": "The instance satisfies all catalogue hypotheses, including no bottleneck, and all source-to-terminal paths are classified. The proof excludes every unsplittable routing, including under non-strict congestion inequalities; one finite instance suffices to negate the universal claim.", "dependencies": "All needed graph, feasibility, capacity, load and cost arguments are proved in this manuscript. Numeric instance and prior-result attribution come from the published July2026 AFP counterexample; no unproved external theorem is needed for the contradiction.", "human_verification": "No human mathematical authorship or independent human check of this manuscript. Dispatched gpt-6-astra derived and audited the reproof; root Codex GPT-6 separately reviewed the graph and ran its own exact enumeration.", "unverified": "Isabelle was not executed here, and no exhaustive literature/novelty survey was performed. The external AFP formalization is attributed separately and is not claimed to certify this new manuscript.", "novelty": "No novelty claimed. This is a complete elementary rederivation of the published Rybin counterexample as formalized by Ramos, Hulak, and de Queiroz, with an explicit capacity extension to meet the catalogue no-bottleneck condition."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{A complete rederivation of the published cost-preserving flow counterexample}
+\noindent UnsolvedMath ID 30001099; OWR-2489-003. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript gives a complete negative answer to the recorded universal assertion by rederiving the published counterexample, with every original hypothesis checked. No novelty is claimed.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A splittable flow may route one demand along several paths; an unsplittable flow routes its entire demand on one path. $d_{\max}=\max_i d_i$, $x_e,y_e$ are edge loads, and $c(x)=\sum_e c_e x_e$.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+Source-record limitation: Resolved by a formally verified counterexample published July 2026: Archive of Formal Proofs, Dinitz_Garg_Goemans_Counterexample, https://isa-afp.org/entries/Dinitz_Garg_Goemans_Counterexample.html. The cost-preserving x+dmax target is refuted.
+
+The historical source snapshot still labels this record open. A July 2026 formally verified counterexample refutes its cost-preserving rounding assertion; this record preserves the source wording and is not presented as an unresolved conjecture.
+\paragraph{Statement recorded in the supplied source.}
+Given a single-source network with capacities $u$, costs $c$, source $s$, sinks $t_i$, and demands $d_i$ satisfying the no-bottleneck condition $d_{\max}\leq u_e$, does every splittable flow $x$ satisfying the demands admit an unsplittable flow $y$ satisfying the same demands such that $y_e\leq x_e+d_{\max}$ for every edge $e$ and $c(y)\leq c(x)$? \href{https://doi.org/10.4171/owr/2008/51}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Round a single-source flow to one path per demand while preserving cost and allowing only the stated additive edge-load increase.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30001099 (OWR-2489-003). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2009), Oberwolfach Reports, DOI 10.4171/owr/2008/51, pp. 2875--2942
+\url{https://doi.org/10.4171/owr/2008/51}.
+\item[S3] current single-source flow results
+\url{https://doi.org/10.1007/s10107-026-02365-x}.
+\item[S4] Salazar--Skutella
+\url{https://doi.org/10.1016/S0167637709000133}.
+\item[S5] Archive of Formal Proofs, Dinitz\_Garg\_Goemans\_Counterexample, July 2026
+\url{https://isa-afp.org/entries/Dinitz_Garg_Goemans_Counterexample.html}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Given a single-source network with capacities $u$, costs $c$, source $s$, sinks $t_i$, and demands $d_i$ satisfying the no-bottleneck condition $d_{\max}\leq u_e$, does every splittable flow $x$ satisfying the demands admit an unsplittable flow $y$ satisfying the same demands such that $y_e\leq x_e+d_{\max}$ for every edge $e$ and $c(y)\leq c(x)$?
+
+\section{Known result and scope}
+The answer to the recorded universal assertion is negative. The preserved
+definition already identifies the July 2026 counterexample. The primary AFP
+entry credits the finite example to Dmitry Rybin and its Isabelle formalization
+to Arthur Freitas Ramos, David Barros Hulak, and Ruy Jose Guerra Barretto de
+Queiroz. We reproduce a self-contained elementary proof below, with capacities
+enlarged to satisfy the catalogue's explicit no-bottleneck hypothesis.
+This is a rederivation of a published result, not a newly solved open problem.
+The external Isabelle development was read; Isabelle was not run in this task.
+
+\section{Explicit instance and complete proof}
+Take vertices $s,u,v,w,t_1,t_2,t_3$ and exactly the following nine directed
+arcs. The rows give cost per unit, the fractional load to be constructed,
+and our capacity, respectively:
+\[
+\begin{array}{c|rrrrrrrrr}
+e&st_1&st_2&su&uv&ut_3&vt_1&vw&wt_2&wt_3\\\hline
+c_e&2&3&0&0&2&0&0&0&0\\
+x_e&10&6&24&14&10&5&9&4&5\\
+u_e&15&15&24&15&15&15&15&15&15
+\end{array}
+\]
+The demands at $t_1,t_2,t_3$ are $(15,10,15)$, so $d_{\max}=15$.
+This graph is acyclic; all arcs go forward through the displayed junction
+chain or into terminal sinks. Each terminal has exactly two source paths:
+\[
+\begin{array}{c|l|l|c|c}
+ i& P_i\text{ (paid)}&Q_i\text{ (free)}&\text{load on }P_i&\text{load on }Q_i\\\hline
+1&s,t_1&s,u,v,t_1&10&5\\
+2&s,t_2&s,u,v,w,t_2&6&4\\
+3&s,u,t_3&s,u,v,w,t_3&10&5
+\end{array}
+\]
+To check completeness, a path to $t_1$ must enter either from $s$ or $v$;
+reaching $v$ requires $s,u,v$. A path to $t_2$ enters from $s$ or $w$;
+reaching $w$ requires $s,u,v,w$. A path to $t_3$ enters from $u$ or $w$,
+with those same uniquely determined prefixes. Terminal vertices have no
+outgoing edges, so no other route or detour is possible.
+
+The path amounts in each row sum to its demand. Summing the amounts through
+arcs gives the stated vector $x$: in particular $x_{su}=5+4+10+5=24$,
+$x_{uv}=5+4+5=14$, and $x_{vw}=4+5=9$; the remaining six arcs have their
+individual route amounts. All loads are nonnegative and at most the listed
+capacities. Also every capacity is at least 15, verifying the no-bottleneck
+condition on every edge, including the edges carrying small fractional loads.
+The cost is
+\[
+c(x)=2\cdot10+3\cdot6+2\cdot10=58.
+\]
+
+Any unsplittable routing chooses either $P_i$ or $Q_i$ for each $i$.
+Routing a full demand on any $P_i$ costs exactly 30: the three products are
+$15\cdot2$, $10\cdot3$, and $15\cdot2$. Each $Q_i$ costs zero.
+Suppose a routing satisfies $y_e\le x_e+15$ on all arcs.
+It cannot choose $Q_1,Q_2$ simultaneously: those two demands together
+with demand 3 (whose two routes both use $su$) give
+$y_{su}=15+10+15=40>24+15=39$.
+It cannot choose $Q_1,Q_3$ simultaneously, because then
+$y_{uv}\ge15+15=30>14+15=29$.
+It cannot choose $Q_2,Q_3$ simultaneously, because then
+$y_{vw}=10+15=25>9+15=24$.
+Thus at most one of the three demands can use a free route, and at least
+two must use paid routes. Every routing satisfying all the additive bounds
+therefore has
+\[
+c(y)\ge60>58=c(x).
+\]
+This contradicts cost preservation and proves that the requested $y$ does
+not exist. The proof covers non-strict congestion inequalities exactly as
+printed, and would also rule out a stricter inequality or an additional
+requirement $y\le u$.
+
+\paragraph{Why the capacity adjustment preserves the counterexample.}
+The AFP's displayed capacities equal its fractional loads, some below 15.
+Our capacities are $u_e=\max\{x_e,15\}$. Changing them introduces no new
+arc or path, leaves the feasible fractional flow and its cost unchanged,
+and meets $d_{\max}\le u_e$. The required target bound still uses the
+original $x_e+15$, not $u_e+15$. Consequently the same three strict
+violations above apply. Replacing the target by $u_e+15$ at this step
+would be an invalid weakening; no such replacement is made.
+
+\section{Attempted rounding route and adversarial audit}
+Independently choosing the two paths according to the displayed fractional
+proportions preserves expected edge loads and expected cost 58, but may
+violate the additive bounds. The complete inequality above proves a stronger
+obstruction: no probability distribution supported entirely on bound-feasible
+unsplittable routings can have expected cost 58, since every such routing
+costs at least 60. Thus trying to preserve those expectations by a correlated
+rounding supported only on admissible routings cannot work on this instance.
+This explains exactly where an expectation-based proof of the old conjecture
+must fail, rather than merely reporting an unsuccessful rounding experiment.
+
+An exact Python checker reconstructs every source-to-terminal path directly
+from the nine-arc graph, verifies that there are exactly two per terminal,
+computes all fractional loads and the enlarged capacities, and enumerates
+all $2^3=8$ unsplittable routings. Their minimum cost under the additive
+bounds is 60. The saved program and JSON use integer arithmetic only.
+The root Codex GPT-6 agent independently checked the same primary graph,
+the three inequalities, the capacity adjustment, and a separate DFS/enumeration
+program. This is model-assisted mathematical review, not human or formal
+verification of this manuscript. The published AFP formalization is an
+external work credited above; its existence is not an assertion that our
+new file was checked by Isabelle.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration, format review, a separate mathematical audit, and independent exact graph enumeration. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\section{Full-solution scope declaration}
+The original universal cost-preserving additive-congestion target has a complete
+negative answer: the explicit instance satisfies every hypothesis and excludes
+every possible unsplittable routing. All mathematical dependencies needed for
+that disproof are proved above, including the no-bottleneck capacity adjustment.
+The numerical example and original result are attributed to the published
+counterexample; no novelty is claimed. There was no human mathematical
+contribution or independent human check of this submission. The dispatched
+model performed the rederivation and audit, and the root Codex GPT-6 model
+separately checked the graph and ran an independent exact program. Isabelle
+was not run here, and neither exhaustive novelty review nor formal certification
+of this new manuscript is asserted.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 100\%}
+The entire recorded universal assertion is refuted. This percentage measures target coverage, not novelty: the proof is a rederivation of the existing published counterexample. There is no mathematical gap in this negative answer to the recorded assertion; no novelty is claimed and no new Isabelle run or independent human proof check occurred.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Salazar--Skutella contribution, Oberwolfach Report 51/2008, printed pp.2888--2889; original cost/congestion conjecture and no-bottleneck context read from cached primary text. \url{https://ems.press/content/serial-article-files/46195}.
+\item Released AFP entry dated 22 July 2026, publication attribution and formal-result description inspected on 11 October 2026. \url{https://isa-afp.org/entries/Dinitz_Garg_Goemans_Counterexample.html}.
+\item AFP proof document, numbered pp.4--8 graph/route/demand/cost/flow definitions and pp.11--14 obstruction; these full relevant definitions and arguments read. No Isabelle execution in this task. \url{https://isa-afp.org/browser_info/current/AFP/Dinitz_Garg_Goemans_Counterexample/document.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Solved negatively by a complete rederivation of the published counterexample.} There is no mathematical gap in this negative answer to the recorded assertion; no novelty is claimed and no new Isabelle run or independent human proof check occurred.
+\end{document}

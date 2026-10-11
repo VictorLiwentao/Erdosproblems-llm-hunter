@@ -1,0 +1,76 @@
+% TOP_PROBLEM: {"id": 30006092, "title": "Query Complexity and Achievable Functions in Multivariable Quantum Signal Processing", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006092", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Find query lower bounds under the allowed extra resources, and identify a simple numerically useful subclass of achievable multivariable functions.", "scope": "Proved Laurent-degree query lower bounds with finite ancillas and adaptive measurements in an explicitly specified phase-oracle model.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked induction through signal-independent operations, branch probabilities, the factor of two, Fourier orthogonality and the failure of the conclusion for normalized postselection. Model self-audit only; no independent human mathematical verification.  No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked induction through signal-independent operations, branch probabilities, the factor of two, Fourier orthogonality and the failure of the conclusion for normalized postselection. First remaining gap: Obtain source-oracle-specific synthesis and stable numerical factorization for a useful achievable subclass, and handle distinct resources such as postselection. The inherited source status is preserved; original-target completion remains zero. Additional GPT-6 Astra reviewer (ultra reasoning): Inducted over the explicitly specified phase-oracle queries: each query shifts a Laurent exponent by at most one coordinate unit, and signal-independent interleaving preserves the l1-degree bound T. Checked unnormalized adaptive-branch amplitudes and the frequency-difference bound 2T after squaring and summing accepting probabilities. Checked that (1+cos(K theta))/2 has nonzero Fourier coefficient 1/4 at frequency K and therefore requires 2T>=K in this oracle model. Confirmed the distinction between exact amplitude and probability targets, the postselected normalization caveat, and the absence of a synthesis/conditioning claim for the second source task."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30006092; source catalogue code OWR-14298801-003
+\setcounter{section}{30006091}
+\section{Query Complexity and Achievable Functions in Multivariable Quantum Signal Processing}\label{30006092}
+{\small UnsolvedMath ID 30006092 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+Quantum signal processing synthesizes functions through products of signal-dependent unitaries and controlled transformations. Multivariable processing uses several signal oracles. Query complexity counts oracle calls; ancillary space and intermediate measurements are distinct computational resources. Achievability depends on which oracle operations are allowed.
+
+\paragraph{Catalogue wording retained for traceability.}
+For multivariable quantum signal processing, lower-bound the query complexity required to realize a prescribed function class when ancillary space, intermediate measurements, or different oracle types are allowed. Identify a nontrivial, simply described subclass of achievable functions with improved numerical properties.
+\subsection{Short English statement}
+Find query lower bounds under the allowed extra resources, and identify a simple numerically useful subclass of achievable multivariable functions.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved Laurent-degree query lower bounds with finite ancillas and adaptive measurements in an explicitly specified phase-oracle model.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30006092. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{A degree bound for a specified oracle model.} Let the signal variables be \(z_j=e^{i\theta_j}\), and assume one query has matrix entries among constants and \(z_j^{\pm1}\) for one chosen \(j\). A circuit uses \(T\) such queries, arbitrary finite ancillary space and signal-independent interleaving matrices. Induction on queries shows that every output amplitude is a Laurent polynomial whose exponent vectors \(\nu\in\mathbb Z^d\) satisfy \(\|\nu\|_1\leq T\): constant matrices take linear combinations, and each oracle shifts an exponent by at most one coordinate unit.
+\paragraph{Measurements and lower bounds.} For an adaptive circuit with a worst-case total of \(T\) queries, each unnormalized branch amplitude satisfies the same bound. Summing squared amplitudes over accepting branches gives an acceptance probability with Fourier support in \(\|\nu\|_1\leq2T\). Thus an exact probability \((1+\cos(K\theta_1))/2\), \(K\geq1\), requires \(2T\geq K\). To see that a nonzero higher Fourier coefficient cannot disappear, integrate the function against \(e^{-iK\theta_1}\); orthogonality kills every lower-frequency term. An exact amplitude \(z_1^K\) requires \(T\geq K\).
+\paragraph{Resource and approximation limits.} Conditioning on a successful branch divides by its probability and can yield rational functions, so the polynomial conclusion is not claimed for arbitrary postselected normalized outputs. Different oracle encodings change the allowed exponent increments. The source also asks for a nontrivial simply described achievable subclass with improved numerical properties; polynomial degree necessity proves neither synthesis nor conditioning. Establishing an oracle-specific sufficiency theorem and stable factorization is the first missing step beyond this standard query-polynomial test.
+
+\paragraph{Verification and adversarial audit.}
+Checked induction through signal-independent operations, branch probabilities, the factor of two, Fourier orthogonality and the failure of the conclusion for normalized postselection. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked induction through signal-independent operations, branch probabilities, the factor of two, Fourier orthogonality and the failure of the conclusion for normalized postselection. First remaining gap: Obtain source-oracle-specific synthesis and stable numerical factorization for a useful achievable subclass, and handle distinct resources such as postselection. The inherited source status is preserved; original-target completion remains zero. Additional GPT-6 Astra reviewer (ultra reasoning): Inducted over the explicitly specified phase-oracle queries: each query shifts a Laurent exponent by at most one coordinate unit, and signal-independent interleaving preserves the l1-degree bound T. Checked unnormalized adaptive-branch amplitudes and the frequency-difference bound 2T after squaring and summing accepting probabilities. Checked that (1+cos(K theta))/2 has nonzero Fourier coefficient 1/4 at frequency K and therefore requires 2T>=K in this oracle model. Confirmed the distinction between exact amplitude and probability targets, the postselected normalization caveat, and the absence of a synthesis/conditioning claim for the second source task.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Obtain source-oracle-specific synthesis and stable numerical factorization for a useful achievable subclass, and handle distinct resources such as postselection.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30006092:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30006092 (OWR-14298801-003). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30006092:2}{S2}] Arbeitsgemeinschaft: Quantum Signal Processing and Nonlinear Fourier Analysis (2024), Oberwolfach Reports, DOI 10.4171/owr/2024/46, pp. 2671--2750. Original report and mathematical context. Incorporated report material remains under the source CC BY-SA 4.0 terms unless otherwise noted.
+\url{https://doi.org/10.4171/owr/2024/46}.
+\end{itemize}
+\label{end:30006092}
+\end{document}

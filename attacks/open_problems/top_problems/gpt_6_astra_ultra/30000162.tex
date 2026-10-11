@@ -1,0 +1,156 @@
+% RESEARCH_DRAFT_SHA256: 45adf23ca2bb3af5e2b0bdd94335e17b826d2dae2b2dba57b6e4f461f67080dc
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000162, "title": "Recognition and Eutaxy Testing of Bacher Matrices", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000162", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and mathematical suggestion of the orthogonal-eigenvector cutoff estimate; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Recognition and Eutaxy Testing of Bacher Matrices; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Finite recognition by an explicit lattice cutoff; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch015 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30000162; source catalogue code OWR-782-003
+\section{Recognition and Eutaxy Testing of Bacher Matrices}\label{30000162}
+{\small UnsolvedMath ID 30000162 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a positive-definite form $Q(x)=x^TAx$ on $\mathbb R^n$, $S(Q)$ contains the nonzero integer vectors minimizing $Q$. A form is well rounded when $S(Q)$ spans $\mathbb R^n$. With the minimum fixed, the cell $C_S$ consists of forms having precisely $S$ as their minimal-vector set; classes are taken up to integral invertible changes of basis. Its Bacher matrix is $\sum_{x\in S}xx^T$. Weak eutaxy means $A^{-1}=\sum_{x\in S}\lambda_xxx^T$ for real coefficients $\lambda_x$, while eutaxy requires strictly positive coefficients.
+\paragraph{Statement recorded in the supplied source.}
+Given an integral matrix $A$, decide whether it is the Bacher matrix of an equivalence class of forms and construct an associated class when one exists. Also give a fast algorithm that decides from a Bacher matrix whether its equivalence class contains a weakly eutactic form. \href{https://doi.org/10.4171/owr/2005/01}{[S2]}
+\paragraph{Scope qualification.}
+These definitions are the original report\textquotesingle s fixed-minimum, well-rounded conventions. The source does not quantify the requested fast running time.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Recognize matrices encoding these quadratic-form cells, reconstruct a cell class, and test whether it contains a weakly eutactic form.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000162 (OWR-782-003). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Gitter und Anwendungen (2005), Oberwolfach Reports, DOI 10.4171/owr/2005/01, pp. 5--67
+\url{https://doi.org/10.4171/owr/2005/01}.
+\item[S3] primary OWR paper text
+\url{https://ems.press/content/serial-article-files/45975?nt=1}.
+\item[S4] Original Oberwolfach Report 1/2005, Jacques Martinet with Anne-Marie Berge, pp. 24--25
+\url{https://ems.press/content/serial-article-files/45975}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30000162 and source code OWR-782-003 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30000162}
+
+\section{Literature and context check}
+The primary report, printed pages 24--25, fixes the minimum and restricts to well-rounded forms. Its three questions ask for recognition, construction, and a fast weak-eutaxy test. The following supplies a finite recognition/construction procedure in these conventions, with no useful running-time bound and no novelty claim. It also checks one weak-eutaxy special case. This does not answer the combined algorithmic target, and no general fast test is obtained. The report's assertions about uniqueness of weakly eutactic forms are context only; the proof below does not use them.
+\section{Research attempt: Finite recognition by an explicit lattice cutoff}
+
+\paragraph{A finite list of possible minimal sets}
+Write the input matrix as $B$, reserving $Q$ for a symmetric form matrix. Reject $B$ unless it is symmetric positive definite and entrywise even. These are necessary because a spanning antipodal set gives
+\[
+ B=2\sum_{v\in T}vv^T,
+\]
+where $T$ contains one vector from each antipodal pair. Every minimal integer vector is primitive: if $v=ku$ with integer $|k|\geq2$, then $Q[u]=Q[v]/k^2<Q[v]$. Moreover $2v_i^2\leq B_{ii}$. Thus enumerate the finite primitive integer vectors satisfying these coordinate bounds and choose the representative whose first nonzero coordinate is positive. Enumerate all subsets $T$ of this list, retaining exactly those with $2\sum_{v\in T}vv^T=B$. Their sets $S=T\cup(-T)$ span because $B$ is positive definite. The empty or nonspanning cases have therefore already been rejected. All matrix tests can be performed with rational arithmetic; for example exact symmetric elimination tests positivity.
+
+\paragraph{An explicit finite substitute for all lattice inequalities}
+Fix one candidate $S$ and choose $n$ independent vectors $v_1,\ldots,v_n$ from it. Let $V$ have these columns and put
+\[
+ L=n\lVert V^{-1}\rVert_F^2,\qquad
+ K\in\mathbb N,\quad K^2\geq16n\max(1,L),\qquad
+ \delta=\frac1{4K^{2n}}.
+\]
+Choose an integer $R$ with
+\[
+ R\geq2K^n,\qquad R\geq2\max_{v\in S}\lVert v\rVert_2.
+\]
+Consider the finite linear system in the symmetric entries of $Q$:
+\[
+ Q[v]=1\ (v\in S),\qquad
+ Q[w]>1\quad(w\in\mathbb Z^n\setminus S, 0<\lVert w\rVert_2\leq R).
+ \tag{1}
+\]
+We prove that (1) is equivalent to positive definiteness with precisely $S$ as the set of minimum-one vectors. Necessity is immediate. For sufficiency, initially do not assume $Q$ is positive definite.
+
+All nonzero $v_i\pm v_j$ lie in the tested ball, and their quadratic values are at least one. Hence $C=V^TQV$ has diagonal entries one and $|C_{ij}|\leq1/2$ for $i\ne j$, since $Q[v_i\pm v_j]=2\pm2C_{ij}$. For every real $z$,
+\[
+ |z^TCz|\leq\left(\sum_i|z_i|\right)^2\leq n\lVert z\rVert_2^2.
+\]
+It follows, by substituting $z=V^{-1}u$, that $|u^TQu|\leq L\lVert u\rVert_2^2$. In particular the absolute values of all eigenvalues of $Q$ are at most $L$.
+
+Suppose the least eigenvalue $\lambda$ were less than $\delta$, and let $v$ be a corresponding unit eigenvector. Partition $[0,1)^n$ into $K^n$ half-open cubes of side $1/K$. Two of the $K^n+1$ fractional-part vectors of $jv$, $0\leq j\leq K^n$, lie in the same cube. Subtraction gives an integer $1\leq q\leq K^n$ and $w\in\mathbb Z^n$ with $w=qv+e$ and
+\[
+ \lVert e\rVert_2\leq\sqrt n/K\leq1/4.
+\]
+Thus $w\ne0$ and $\lVert w\rVert_2\leq K^n+1/4\leq R$. Decompose $e=(v\cdot e)v+e_\perp$. Orthogonality to an eigenvector removes the cross term, including when $\lambda$ is negative:
+\[
+ Q[w]=\lambda(q+v\cdot e)^2+Q[e_\perp]
+ \leq\delta(K^n+1/4)^2+Ln/K^2
+ \leq\frac{25}{64}+\frac1{16}<1.
+\]
+Here $K^n\geq1$ gives $(1+1/(4K^n))^2/4\leq25/64$. This contradicts the tested inequality, also if $w\in S$, where equality to one was required. Consequently $Q\succeq\delta I$. Finally every untested integer vector has norm greater than $R\geq2K^n$, and therefore $Q[w]\geq\delta\lVert w\rVert_2^2>1$. This proves sufficiency and rules out a hidden boundary at infinity.
+
+\paragraph{Deciding and constructing a form}
+System (1) has rational coefficients with both equalities and strict inequalities. It can be decided and, if feasible, solved over the rationals by finite elimination. To see this without assuming a strict-feasibility oracle, replace equalities by two non-strict inequalities. On eliminating a variable, its inequalities give finitely many lower and upper bounds. Require every lower bound to be at most every upper bound, using a strict comparison whenever either original bound was strict. Bounds independent of that variable are retained. If one side has no bounds there is no pair constraint. These comparisons are again rational linear inequalities, after multiplication by the fixed positive denominators coming from the eliminated coefficients. Repetition ends with comparisons between constants. Back substitution chooses a rational between the finite rational endpoints; a closed singleton is allowed, an excluded endpoint is not, and an unbounded side permits a sufficiently large rational. This proves correctness and rational constructibility of the finite procedure. It terminates for each candidate $S$, and supplies $Q$ and the cell description by its exact minimal set whenever recognition succeeds. It does not need the report's separate theorem that a Bacher matrix characterizes an equivalence class.
+
+\paragraph{A weak-eutaxy boundary case}
+For $B=2I_n$, the coordinate budgets imply every coordinate occurs with value $\pm1$ in exactly one representative vector. If a vector used distinct coordinates $i,j$, it would contribute a nonzero $ij$ entry with no other representative able to cancel it. Thus $S=\{\pm e_i\}$. The form $Q=I_n$ has exactly this minimum set, and is eutactic with coefficients $1/2$ for all $2n$ vectors. It is the only weakly eutactic form in this cell: the condition $Q^{-1}\in\operatorname{span}\{e_ie_i^T\}$ forces $Q^{-1}$, and hence $Q$, diagonal; its prescribed diagonal values are one. This small exact case does not test general cells efficiently.
+
+\section{Verification and adversarial audit}
+The cutoff argument explicitly permits negative least eigenvalues before establishing positivity; an orthogonal decomposition avoids an unjustified sign-sensitive cross-term estimate. Integer vectors on the cutoff sphere are included, and the remaining vectors satisfy a strict inequality. Antipodal pairing, primitiveness, positive definiteness of the input, and strict inequalities excluding additional minimum vectors are all essential. For $n=1$ the same argument remains valid; the only well-rounded minimum set is $\{\pm1\}$ and the input is $B=(2)$. No complexity estimate polynomial in the input length follows from enumerating subsets, the radius $R$, or strict linear elimination.
+\paragraph{Audit corrections.} Separated finite decidability from the requested fast test; included nonpositive candidate forms in the cutoff audit and credited the parent model's mathematical correction.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+Finite recognition and reconstruction in the stated fixed-minimum conventions are proved above as a known-style exhaustive route; this contribution makes no literature-priority claim. The fast weak-eutaxy part, running-time improvements, and a general practical implementation remain unresolved. The aggregate original question is not marked solved. The parent Codex GPT-6 mathematical audit suggested the orthogonal-eigenvector decomposition used in the cutoff proof, which was checked and incorporated by gpt-6-astra.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/45975} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and the mathematical cutoff-proof suggestion expressly credited above; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

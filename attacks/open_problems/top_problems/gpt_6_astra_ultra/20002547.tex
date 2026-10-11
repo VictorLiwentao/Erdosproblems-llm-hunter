@@ -1,0 +1,85 @@
+% TOP_PROBLEM: {"id": 20002547, "title": "Constant normalized area in the three-body problem", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The PDF fraction is repaired. The source does not exclude zero area or relative equilibria; imposing those exclusions would strengthen the request. Its zero-angular-momentum remark is source context requiring scope care. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002547", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Find planar or spatial three-body periodic solutions with constant triangle-area-to-inertia ratio.", "scope": "Constructed explicit equilateral periodic solutions for all positive masses with constant Delta/I and noted zero-area relative equilibria. Nonrelative solutions/classification and Euler-meridian motions remain unresolved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked arbitrary masses, center-of-mass acceleration, inertia identity, area ratio, planar embedding and the source allowing relative equilibria/zero area. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked equilateral force balance for unequal masses, the center-of-mass inertia identity and the area/inertia ratio. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked arbitrary masses, center-of-mass acceleration, inertia identity, area ratio, planar embedding and the source allowing relative equilibria/zero area. Scope remains limited: Analyze reduced shape dynamics under the normalized-area or meridian constraint and enforce full periodic reconstruction."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002547; source catalogue code AIM-PHYSICS-0055
+\setcounter{section}{20002546}
+\section{Constant normalized area in the three-body problem}\label{20002547}
+{\small UnsolvedMath ID 20002547 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}In the Newtonian $n$-body problem, positions $q_i\in\mathbb R^d$ and masses $m_i>0$ obey $m_i\ddot q_i=\nabla_{q_i}U$, where $U(q)=\sum_{i<j}m_im_j/|q_i-q_j|$ and the gravitational constant is normalized to one. Here $T=\tfrac12\sum_i m_i|\dot q_i|^2$, $E=T-U$, and a collision has $q_i=q_j$. The center of mass can be fixed at zero; moment of inertia is $I=\sum_i m_i|q_i|^2$. For three positions, triangle area is $\Delta=\tfrac12|(q_2-q_1)\wedge(q_3-q_1)|$, with cross-product norm in space. The ratio $\Delta/I$ is invariant under uniform positive scaling. Periodic here concerns the full positions, not merely a periodic shape or homothetic collapse. On the reduced three-body shape sphere, Euler configurations are the collinear central configurations. The meridian in the related source question is a curve on that sphere; its dynamical realizations must be specified.
+
+\paragraph{Catalogue wording retained for traceability.}
+Find periodic solutions of the planar or spatial three-body problem for which $\Delta/I$ is constant, where $\Delta$ is triangle area and $I$ the moment of inertia. Also determine which motions have shapes on a meridian through the Euler configurations, as asked in the source remarks.
+\paragraph{Scope and source qualification.}The PDF fraction is repaired. The source does not exclude zero area or relative equilibria; imposing those exclusions would strengthen the request. Its zero-angular-momentum remark is source context requiring scope care. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Find planar or spatial three-body periodic solutions with constant triangle-area-to-inertia ratio.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Constructed explicit equilateral periodic solutions for all positive masses with constant Delta/I and noted zero-area relative equilibria. Nonrelative solutions/classification and Euler-meridian motions remain unresolved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{Explicit constant-ratio periodic motions.}Take any positive three masses with total \(M\), and an equilateral triangle of side \(a>0\), centered at its mass center. Its acceleration at vertex i is
+\[\sum_{j\ne i}m_j(q_j-q_i)/a^3=-Mq_i/a^3.
+\]
+Thus rigid rotation at \(\omega^2=M/a^3\) is an exact planar periodic solution. The identity \(MI=\sum_{i<j}m_im_j|q_i-q_j|^2\) gives \(I=a^2S/M\), where \(S=\sum_{i<j}m_im_j\). Since the triangle area is \(\Delta=\sqrt3a^2/4\),
+\[\Delta/I=\sqrt3 M/(4S),
+\]
+constant in time. The same orbit embedded in a spatial plane is a spatial solution. This is an allowed family because the source does not exclude relative equilibria.
+\paragraph{Boundary case and limits.}A collinear circular central-configuration solution has \(\Delta/I=0\), also constant; the statement does not exclude zero area. Constant normalized area is weaker than fixed shape for general motions, because many triangle shapes can share the same ratio. The displayed positive example therefore gives no classification of all constant-ratio periodic solutions, and does not produce a nonrelative family.
+\paragraph{The bundled meridian question.}A fixed shape is a single point on the shape sphere, whereas a nonconstant motion along a specified Euler meridian is a different constraint. No such meridian dynamics is determined here. The first missing step is deriving and solving the reduced shape equations under the area/meridian constraints with full periodic reconstruction. The elementary rotating family is a known benchmark, not a full answer to both source clauses.
+
+\paragraph{Verification and adversarial audit.}
+Checked arbitrary masses, center-of-mass acceleration, inertia identity, area ratio, planar embedding and the source allowing relative equilibria/zero area. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked arbitrary masses, center-of-mass acceleration, inertia identity, area ratio, planar embedding and the source allowing relative equilibria/zero area. Scope remains limited: Analyze reduced shape dynamics under the normalized-area or meridian constraint and enforce full periodic reconstruction.
+
+Coordinator checked equilateral force balance for unequal masses, the center-of-mass inertia identity and the area/inertia ratio. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Analyze reduced shape dynamics under the normalized-area or meridian constraint and enforce full periodic reconstruction.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002547:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002547 (AIM-PHYSICS-0055). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002547:2}{S2}] American Institute of Mathematics, Variational Methods in Celestial Mechanics; notes by Kuo-Chang Chen, version 22 June 2003, source item 18.
+\url{https://aimath.org/WWN/varcelest/varcelest.pdf}.
+\end{itemize}
+\label{end:20002547}
+\end{document}

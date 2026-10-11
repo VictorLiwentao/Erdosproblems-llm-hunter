@@ -1,0 +1,147 @@
+% RESEARCH_DRAFT_SHA256: b20060854f6739fd79bd35fdcb5817752d72ddebea40c7399b5e303a1a3f9e06
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000064, "title": "Output-Polynomial Enumeration of Bicriteria Spanning Trees", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000064", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "For bicriteria minimum spanning trees, can all Pareto-optimal solutions be enumerated in time polynomial in the number of solutions?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Exact frontier families disprove exhaustive-tree and supported-only enumeration as general output-polynomial strategies; no complete frontier generator is constructed.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Bicriteria enumeration: exponential output versus exponential wasted search}
+\noindent UnsolvedMath ID 30000064; OWR-730-014. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Output-polynomial time is polynomial in the input length plus the total encoded output length. A Pareto-optimal tree is distinct from its cost pair: different trees may have the same pair.
+
+In a bicriteria minimization problem each feasible solution has two costs. A cost pair is Pareto-optimal if no feasible pair is no larger in both coordinates and strictly smaller in one.
+
+A spanning tree of a connected finite graph is an acyclic connected subgraph containing every vertex. Its cost is the sum of its edge costs.
+\paragraph{Statement recorded in the supplied source.}
+For bicriteria minimum spanning trees, can all Pareto-optimal solutions be enumerated in time polynomial in the number of solutions? \href{https://doi.org/10.4171/owr/2004/28}{[S2]}
+\paragraph{Scope qualification.}
+The source phrase polynomial in the number of solutions is retained; input reading and output encoding are also relevant. Whether repeated cost pairs count once is not specified in the supplied question.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Enumerate all undominated spanning-tree solutions efficiently relative to the size of the output.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000064 (OWR-730-014). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Approximation Algorithms for NP-Hard Problems (2005), Oberwolfach Reports, DOI 10.4171/owr/2004/28, pp. 1461--1540
+\url{https://doi.org/10.4171/owr/2004/28}.
+\item[S3] computing efficient biobjective spanning trees
+\url{https://doi.org/10.1016/j.cor.2006.02.023}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+For bicriteria minimum spanning trees, can all Pareto-optimal solutions be enumerated in time polynomial in the number of solutions?
+
+\section{Output conventions and attempted enumeration}
+The report asks for time polynomial in the number of Pareto-optimal
+solutions. We use the usual input-plus-output interpretation and
+distinguish trees from distinct cost pairs. Two explicit simple-graph
+families show why large output is legitimate but exhaustive tree
+search is not an output-polynomial argument.
+
+\paragraph{A linear-size family with exponentially many distinct pairs.}
+Build a chain of $k$ triangles, consecutive triangles meeting only
+at one articulation vertex. In triangle $i$, for $0\le i<k$,
+give the three edges two-coordinate costs
+\[
+(1,1+2^i),\qquad(1+2^i,1),\qquad(1,1).
+\]
+A spanning tree must select exactly two edges in each triangle.
+Indeed all three would form a cycle, while at most one disconnects
+a vertex or separates its two articulation endpoints; other blocks
+cannot bypass it because the block-incidence structure is a chain.
+Conversely choosing any two in every triangle gives a connected
+acyclic graph by repeatedly attaching a tree at a single shared
+vertex. Thus there are $3^k$ trees.
+
+The two choices containing the $(1,1)$ edge have block totals
+$(2,2+2^i)$ and $(2+2^i,2)$. The third has
+$(2+2^i,2+2^i)$ and is strictly dominated in at least one
+coordinate by either of those choices. Replacing this third choice
+within its block preserves a tree and strictly improves a coordinate
+without worsening the other. No Pareto tree uses it. The remaining
+$2^k$ trees have distinct pairs
+\[
+\bigl(2k+s,\ 2k+(2^k-1)-s\bigr),\qquad0\le s<2^k,
+\]
+because binary expansion identifies the selected powers of two.
+All pairs have the same coordinate sum and are distinct, so none
+dominates another. They are exactly the Pareto frontier. The graph
+has $2k+1$ vertices and $3k$ edges; the total encoding length
+of the powers is $O(k^2)$. Exponential output is therefore possible
+even for distinct pairs, and is permitted by an output-sensitive bound.
+
+\paragraph{The same search space can have a single answer.}
+On the same chain give two edges of each triangle cost pair
+$(1,1)$ and its third edge pair $(2,2)$. The unique tree using
+only the cheaper two edges in every triangle has pair $(2k,2k)$.
+Every other tree uses a more expensive edge in at least one block,
+increasing both total coordinates, and is dominated by that tree.
+Thus there is exactly one Pareto tree and one Pareto pair, yet an
+algorithm that first lists all spanning trees examines $3^k$ objects.
+Its time is exponential in $k$, whereas input and output have
+polynomial length in $k$. Exhaustive enumeration followed by pruning
+therefore fails the desired complexity guarantee on this family.
+
+\paragraph{Weighted-sum enumeration also misses some answers.}
+For a single triangle with edge pairs $(6,0),(2,2),(0,6)$,
+the tree pairs are $(8,2),(6,6),(2,8)$, all undominated.
+For $(6,6)$ to minimize the second coordinate plus $\lambda$
+times the first requires both $\lambda\ge2$ and $\lambda\le1/2$,
+by comparison with the two endpoint pairs. No nonnegative multiplier
+does this. Hence enumerating supported optima by scalarized MST calls
+does not enumerate the entire frontier either. This hand computation
+is independent of the distinction between repeated and distinct pairs.
+
+\section{Audit and missing algorithm}
+The second bicriteria question on printed page 1533 was inspected.
+The audit kept positive-cost exponential-output examples separate from
+the zero-coordinate scalarization example, and checked all local tree
+choices and all dominance directions. None of the examples disproves
+an output-polynomial algorithm. They rule out two specific proposed
+routes without a further pruning or frontier-generation mechanism.
+No computational enumeration was run and no new general complexity
+classification is asserted. Repeated-pair conventions would need to be
+fixed in a final algorithm, but neither convention repairs these routes.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Exact frontier families disprove exhaustive-tree and supported-only enumeration as general output-polynomial strategies; no complete frontier generator is constructed.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 28/2004, Approximation Algorithms for NP-Hard Problems, original question and surrounding discussion read from the cached primary PDF text on 11 October 2026. Historical statements are not a current-status survey. \url{https://doi.org/10.4171/owr/2004/28}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Exact frontier families disprove exhaustive-tree and supported-only enumeration as general output-polynomial strategies; no complete frontier generator is constructed.
+\end{document}

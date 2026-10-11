@@ -1,0 +1,100 @@
+% TOP_PROBLEM: {"id": 30000226, "title": "Relationship Between Two-Species Condensates", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The source proves ensemble and single-site condensation facts under assumptions on its weights. The remaining relation of two condensates includes their locations and coupled mass fluctuations; the brief source does not prescribe one particular statistic or a universal rate function."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000226", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "When both species condense in a two-species zero-range process, determine rigorously how their condensates are related.", "scope": "Exact independent-species canonical calculation gives location coincidence probability 1/L and independence of mass fluctuations, conditional on condensation for the interpretation.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked finite sums, independent randomized tie-breaking, L=1, and that condensation was hypothesized rather than proved. Model self-audit only; no independent human proof checking. Coordinator checked the conditional partition factorization and the use of independent random tie breaking for uniform maximum locations. No condensation theorem is inferred from that identity. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked finite sums, independent randomized tie-breaking, L=1, and that condensation was hypothesized rather than proved. Retained unresolved status and zero original-target progress; Coupled canonical weights prevent factorization; their competing co-located and separated condensate costs are not controlled."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30000226; source catalogue code OWR-827-001
+\setcounter{section}{30000225}
+\section{Relationship Between Two-Species Condensates}\label{30000226}
+{\small UnsolvedMath ID 30000226 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} The source concerns a two-species zero-range particle process, not Bose condensation. On $L$ sites, $\eta_i(x)\in\mathbb N_0$ is the occupation of species $i=1,2$ and $\sum_x\eta_i(x)=N_i$ is conserved. A zero-range jump rate depends on the occupations at the departure site. In the thermodynamic limit $N_i/L\to\rho_i$, a condensate is an occupation of order $L$ on a set of sites of vanishing volume fraction, containing the excess mass above the critical background density. The report's stationary canonical ensemble and weight assumptions determine which density pairs have one or two condensed species.
+
+\paragraph{Source scope and qualifications.} The source proves ensemble and single-site condensation facts under assumptions on its weights. The remaining relation of two condensates includes their locations and coupled mass fluctuations; the brief source does not prescribe one particular statistic or a universal rate function.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+When both particle species have condensates, give a rigorous analysis of the relation between the two condensates.
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: Equivalence of ensembles and single-site condensation are proved under substantial assumptions, but the relation between two condensates of two species is still identified as an open rigorous problem. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+When both species condense in a two-species zero-range process, determine rigorously how their condensates are related.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Exact independent-species canonical calculation gives location coincidence probability 1/L and independence of mass fluctuations, conditional on condensation for the interpretation.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A genuinely decoupled canonical subcase.} Suppose the two-species stationary one-site weight factorizes as $w(n_1,n_2)=w_1(n_1)w_2(n_2)$, with positive weights and finite canonical partition functions. For configurations with fixed totals $N_1,N_2$, summing the product weight gives
+\[
+ Z_{L,N_1,N_2}=Z^{(1)}_{L,N_1}Z^{(2)}_{L,N_2},\qquad
+ \pi_{L,N_1,N_2}=\pi^{(1)}_{L,N_1}\otimes\pi^{(2)}_{L,N_2}.
+\]
+This follows by separating the two independent constrained finite sums; it does not require a thermodynamic limit.
+
+\paragraph{Locations and fluctuations.} Let $J_i$ be the location of the largest occupation of species $i$, resolving ties with independent uniform randomness among maximizers. Site permutation invariance gives $\Pr(J_i=x)=1/L$. The factorization and independent tie rules imply
+\[
+ \Pr(J_1=J_2)=\sum_{x=1}^L\Pr(J_1=x)\Pr(J_2=x)=1/L.
+\]
+Thus, if both species have a single macroscopic condensate with probability tending to one, their locations asymptotically differ in this subcase. For any centered functions $F$ and $G$ of the separate species, $\mathbb E[F G]=0$ exactly. In particular any separately normalized condensate-mass fluctuations are independent for every finite $L$, and any joint distributional limit with marginal limits remains their product, as follows by factoring expectations of bounded continuous product test functions.
+
+\paragraph{Failure of extension.} At $L=1$ the collision probability is one, consistent with the formula. Deterministic tie-breaking would destroy uniformity, so its omission would be an error. No condensation theorem is asserted here: its occurrence was an explicit hypothesis when interpreting maxima as condensates. For coupled $w(n_1,n_2)$ the partition function no longer factors, and the first unresolved step is to compare the weights of co-located and separated macroscopic occupations. This is the relation requested in the full interacting problem.
+
+\paragraph{Verification and adversarial audit.}
+Checked finite sums, independent randomized tie-breaking, L=1, and that condensation was hypothesized rather than proved. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked finite sums, independent randomized tie-breaking, L=1, and that condensation was hypothesized rather than proved. Retained unresolved status and zero original-target progress; Coupled canonical weights prevent factorization; their competing co-located and separated condensate costs are not controlled.
+
+Coordinator checked the conditional partition factorization and the use of independent random tie breaking for uniform maximum locations. No condensation theorem is inferred from that identity. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Coupled canonical weights prevent factorization; their competing co-located and separated condensate costs are not controlled.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Coupled canonical weights prevent factorization; their competing co-located and separated condensate costs are not controlled.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30000226:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30000226 (OWR-827-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30000226:2}{S2}] Mini-Workshop: Particle Systems with Several Conservation Laws: Fluctuations and Hydrodynamic Limit (2005), Oberwolfach Reports, DOI 10.4171/owr/2005/22, pp. 1199--1230; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2005/22}.
+\item[\hypertarget{source:30000226:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF page 21, printed page 1219.
+\url{https://ems.press/content/serial-article-files/45996}.
+\item[\hypertarget{source:30000226:4}{S4}] Grosskinsky, two-species zero-range invariant measures; reference in the saved dated catalogue literature review.
+\url{https://doi.org/10.1016/j.spa.2007.09.006}.
+\end{itemize}
+\label{end:30000226}
+\end{document}

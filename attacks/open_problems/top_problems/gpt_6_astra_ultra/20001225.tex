@@ -1,0 +1,90 @@
+% RESEARCH_DRAFT_SHA256: f45d0ff9d2c9811e51f998891b007275efdc5fa7e5faf6214f13e68007c6e632
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001225, "title": "Markov-basis complexity depends on representation", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001225", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Spanning-tree classification for the total-count-only model and explicit nonuniqueness.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch005/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 20001225; source catalogue code AIM-COMPUTATION-0063
+\section{Markov-basis complexity depends on representation}\label{20001225}
+{\small UnsolvedMath ID 20001225 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For an integer matrix $A$, the fiber at $b$ is $\mathcal F_b=\{x\in\mathbb Z_{\ge0}^d:Ax=b\}$. A Markov basis is a finite set of integer moves $u$ with $Au=0$ such that steps $x\mapsto x\pm u$ staying nonnegative connect every nonempty fiber. A hierarchical model is encoded by its interaction structure and variable-level sets. Computing or sampling a Markov basis requires a representation of the moves; explicitly listing all moves has an output-length cost. Symmetry classes identify moves under permutations preserving the model.
+\paragraph{Statement recorded in the supplied source.}
+Question 48 (Meek). Is there a polynomial time algorithm for describing the Markov basis of an arbitrary hierarchical model? Can you randomly choose elements from the Markov basis in polynomial time? Sullivant: Is the number of symmetry classes a polynomial in the size of the problem? \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The source does not choose explicit output, an implicit description, or a sampling distribution. These representation choices affect the meaning of polynomial time.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can a Markov basis for any hierarchical model be described or sampled efficiently, perhaps by using symmetry?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001225 (AIM-COMPUTATION-0063). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0063
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001225 and source code AIM-COMPUTATION-0063 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001225}
+
+
+\section{Research attempt}
+\subsection{Literature and scope}
+Question 48 asks for polynomial-time description and sampling of ``the'' Markov basis without fixing a representation or distribution. I tested uniqueness already for the total-count-only hierarchical model $A=(1,\ldots,1)$. Its elementary classification makes the ambiguity explicit; it is not a complexity lower bound for arbitrary models.
+\begin{proposition}
+Up to signs, the inclusion-minimal Markov bases for $A=(1,\ldots,1)$ on $d\ge2$ cells are exactly the moves $e_i-e_j$ associated with edges of spanning trees on the $d$ cell labels. There are at least $2^{d-2}$ distinct such bases.
+\end{proposition}
+\begin{proof}
+The fiber of total count one consists of $e_1,\ldots,e_d$. Any move usable between two of these tables is, up to sign, $e_i-e_j$. Therefore the graph of degree-one moves in any Markov basis must be connected; higher-degree moves cannot help connect this fiber. A connected finite graph contains a spanning tree: repeatedly delete one edge from a cycle until no cycle remains, preserving connectivity.
+
+Tree moves connect every total-count fiber. Given tables $x,y$, choose a cell with excess count and a cell with deficient count. Move one token along the unique tree path between them. Each intermediate vertex first receives that token before passing it on, so no count becomes negative. The endpoint discrepancy decreases; repeat until the tables agree. Thus every Markov basis contains a tree subset that itself is a Markov basis. Inclusion minimality forces equality. Conversely deleting a tree edge disconnects the total-one fiber, so every tree basis is minimal.
+
+For the stated lower bound, keep edge $\{1,2\}$ and, independently for each $i=3,\ldots,d$, attach $i$ to either 1 or 2. Each choice is a different connected acyclic graph, giving $2^{d-2}$ distinct bases.
+\end{proof}
+\subsection{Verification and remaining gaps}
+The explicit attachment construction gives 64 bases when $d=8$. Each has only $d-1$ moves, and a path or star basis is easy to output, so exponentially many choices does not establish computational hardness. Sampling a move from a selected basis, sampling a minimal basis, and sampling all candidate moves are different tasks. The proof does not answer polynomial-time generation for arbitrary hierarchical models or bound their symmetry orbits. It identifies the first missing specification in the attempted uniqueness-based algorithm.
+
+\section{References and source attribution}
+The original question is credited to the AIM workshop list prepared by Seth Sullivant (2004), \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}. The source question and catalogue attribution are reproduced above. This list was accessed on 11 October 2026; it is historical evidence of the question, not a certification of present open status.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch005/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

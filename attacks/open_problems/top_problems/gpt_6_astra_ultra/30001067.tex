@@ -1,0 +1,159 @@
+% RESEARCH_DRAFT_SHA256: 42b9e47dc038485a8888f09a8a9ec750e70b761947a828a0529ec60b6269e8e8
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30001067, "title": "Rotational Matching Complexity for Planar Point Sets", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001067", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and overlapping support-polygon and collinear sorting suggestions. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Let $A_1,\\ldots,A_n$ and $B_1,\\ldots,B_n$ be $2n$ points in the plane, and define $$f(\\theta)=\\min_{\\pi}\\sum_i\\|A_i-R(\\theta)B_{\\pi(i)}\\|^2,$$ where $R(\\theta)$ is rotation about the origin. How many intervals of $\\theta$ can have a constant optimal permutation, and is this number polynomially bounded? How many local minima can $f$ have, and is there a polynomial-time algorithm for finding the best rotation?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The support-polygon reduction leaves a factorial vertex/candidate set; the polynomial interval and optimization argument requires one collinear point set and does not cover general planar data.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Rotational matching through its support polygon: an exact reduction with a size gap}
+\noindent UnsolvedMath ID 30001067; OWR-2090-020. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+$R(\theta)$ is the planar rotation matrix and $\pi$ runs over all permutations of $\{1,\ldots,n\}$. The cost is the total squared Euclidean discrepancy after rotation and matching.
+
+Polynomial time means a number of elementary steps bounded by a polynomial in the encoded input length. A decision problem is in $\mathrm{NP}$ if yes-instances have polynomial-length certificates verifiable in polynomial time; NP-hardness is under polynomial-time reductions.
+
+In the LOCAL model vertices communicate synchronously along graph edges; messages and local computation are unrestricted and complexity is the number of rounds. After $t$ rounds a vertex can depend only on its radius-$t$ neighborhood and any supplied identifiers or randomness.
+\paragraph{Statement recorded in the supplied source.}
+Let $A_1,\ldots,A_n$ and $B_1,\ldots,B_n$ be $2n$ points in the plane, and define $$f(\theta)=\min_{\pi}\sum_i\|A_i-R(\theta)B_{\pi(i)}\|^2,$$ where $R(\theta)$ is rotation about the origin. How many intervals of $\theta$ can have a constant optimal permutation, and is this number polynomially bounded? How many local minima can $f$ have, and is there a polynomial-time algorithm for finding the best rotation? \href{https://doi.org/10.4171/owr/2008/44}{[S2]}
+\paragraph{Scope qualification.}
+At ties more than one permutation may be optimal; the supplied question does not specify tie-breaking or generic-position assumptions.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Bound how often optimal planar matchings change with rotation, count local optima, and efficiently find the best rotation.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30001067 (OWR-2090-020). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Discrete Geometry (2009), Oberwolfach Reports, DOI 10.4171/owr/2008/44, pp. 2477--2556
+\url{https://doi.org/10.4171/owr/2008/44}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Let $A_1,\ldots,A_n$ and $B_1,\ldots,B_n$ be $2n$ points in the plane, and define $$f(\theta)=\min_{\pi}\sum_i\|A_i-R(\theta)B_{\pi(i)}\|^2,$$ where $R(\theta)$ is rotation about the origin. How many intervals of $\theta$ can have a constant optimal permutation, and is this number polynomially bounded? How many local minima can $f$ have, and is there a polynomial-time algorithm for finding the best rotation?
+
+\section{Attempt and exact reduction}
+Write $J(x,y)=(-y,x)$, so $R(\theta)=I\cos\theta+J\sin\theta$.
+For each permutation $\pi$ define
+\[
+u_\pi=\sum_i A_i\cdot B_{\pi(i)},\qquad
+v_\pi=\sum_i A_i\cdot J B_{\pi(i)},\qquad z_\pi=(u_\pi,v_\pi),
+\]
+and $C=\sum_i\|A_i\|^2+\sum_j\|B_j\|^2$. Direct expansion gives
+\[
+f(\theta)=C-2\max_\pi z_\pi\cdot(\cos\theta,\sin\theta).
+\]
+The factor two is retained; the source's informal expansion suppresses a
+constant factor. Put $P=\operatorname{conv}\{z_\pi\}$.
+A linear functional has the same maximum on this hull and its generating
+points, by the defining convex-combination inequality. Thus $f$ is determined
+by the planar support function of $P$.
+For every vector $z$, Cauchy--Schwarz gives
+$\max_\theta z\cdot(\cos\theta,\sin\theta)=\|z\|$, with equality
+at its direction if nonzero and everywhere if zero. Interchanging two maxima
+(one over a finite set) therefore yields
+\[
+\min_\theta f(\theta)=C-2\max_\pi\sqrt{u_\pi^2+v_\pi^2}.
+\]
+Enumerating permutations and evaluating this formula is an exact finite
+algorithm, but it still has $n!$ candidates. Linear optimization over $P$
+for a supplied direction, which is an assignment problem, does not by itself
+bound the number of vertices or solve this convex maximization in polynomial time.
+
+\paragraph{What can be said about intervals and local minima without a size bound.}
+After merging identical $z_\pi$, a full-dimensional polygon with $h$ vertices
+has $h$ open intervals of directions on which a particular vertex is uniquely
+exposed. To see this, the normal directions selecting vertex $z$ satisfy
+$(z-w)\cdot u\ge0$ for all $w\in P$. They form its convex normal cone;
+in the plane, for a polygon vertex the cone is the closed angular interval
+between its two incident outward edge normals. The interior exposes only
+that vertex; the finitely many boundary directions expose edges. These cones
+cover all directions since every linear functional attains a maximum. For
+a segment there are two open half-circle intervals and two exceptional
+perpendicular directions; for a singleton all directions have the same value.
+Hence the number of these canonical open intervals is at most $n!$.
+Several permutations can yield the same vector and tie throughout an interval;
+an arbitrary oscillating tie choice would have no intrinsic interval count.
+This is why the canonical cost-vector convention is made explicit.
+
+If $\theta_0$ is a local minimum of $f$, every active branch
+$g_\pi(\theta)=C-2z_\pi\cdot(\cos\theta,\sin\theta)$ is also locally
+minimized there: $g_\pi\ge f\ge f(\theta_0)=g_\pi(\theta_0)$ nearby.
+A nonconstant branch has precisely one local minimum per circle, at the
+direction of $z_\pi$. A strict local minimum cannot have an active constant
+branch, since that would force $f$ both at most and at least the same constant
+nearby. Therefore there are at most $n!$ strict local minima, among the
+nonzero candidate directions. Nonstrict local minima can instead be infinite:
+if every $A_i=0$, $f$ is constant. This elementary degeneracy does not settle
+the source's substantive generic-case counting question.
+
+\paragraph{Polynomial interval bound when one point set is collinear.}
+Suppose $A_i=c+a_i e$ for fixed unit vector $e$. The term
+$c\cdot R(\theta)\sum_jB_j$ is independent of the permutation.
+The remaining score is $\sum_i a_i t_{\pi(i)}(\theta)$, where
+$t_j(\theta)=e\cdot R(\theta)B_j$. Sort the $a_i$ increasingly.
+If $a_i\le a_j$ but the assigned values satisfy $t_{\pi(i)}>t_{\pi(j)}$,
+swapping their assignments changes the score by
+$(a_j-a_i)(t_{\pi(i)}-t_{\pi(j)})\ge0$.
+Repeatedly removing inversions proves that matching the two sorted lists is
+optimal. For distinct $B_j,B_l$, the difference $t_j-t_l$ is a nonzero
+sinusoid and vanishes at two angles per full circle; coincident points have
+an identical projection and may be tied consistently. Thus all projection
+orders are fixed between at most $2\binom n2$ event angles. On each such
+interval the selected optimal permutation and its sinusoidal score are fixed.
+The best value on its closed interval is attained at an endpoint or at its
+stationary minimizing direction, so finitely checking these candidates solves
+this restricted problem. Sorting events and recomputing a sorted matching
+on each interval gives, conservatively, $O(n^3\log n)$ real-arithmetic
+operations, including all endpoint/branch checks. Algebraic event-direction
+comparisons and square roots are charged in this real-arithmetic model;
+no general bit-complexity theorem is inferred.
+
+\section{Adversarial audit and gap}
+The support-polygon and collinear routes were developed here and independently
+suggested by the root Codex GPT-6 agent; that overlapping mathematical
+contribution is acknowledged. The audit retained duplicate-vector ties,
+constant functions, the factor two, and the factorial enumeration cost.
+No general polynomial hull-size bound, strict-minimum bound of polynomial
+order, or polynomial-time best-rotation algorithm is proved. The source's
+empirical quadratic count was read but not reproduced or used as proof.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration, format review, and overlapping support-polygon and collinear sorting suggestions. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The support-polygon reduction leaves a factorial vertex/candidate set; the polynomial interval and optimization argument requires one collinear point set and does not cover general planar data.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 44/2008: Wagner on PL embeddability, printed pp.2505--2507; Rote/Zikan least-squares rotation questions, pp.2546--2547. Item-specific primary passages read on 11 October 2026; publisher landing page also checked. \url{https://ems.press/content/serial-article-files/46191}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The support-polygon reduction leaves a factorial vertex/candidate set; the polynomial interval and optimization argument requires one collinear point set and does not cover general planar data.
+\end{document}

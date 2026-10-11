@@ -1,0 +1,85 @@
+% TOP_PROBLEM: {"id": 30005863, "title": "Vacuum Failure of the Third Law of Black-Hole Thermodynamics", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The source distinguishes apparent and event horizons; the statement does not require that a single local horizon abruptly change its Kerr parameter. Contextual duplicate 30005862 is excluded."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005863", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Construct gravitational-wave collapse that first produces a subextremal apparent horizon and later an exactly extremal Kerr event horizon.", "scope": "Tested finite Kerr parameter changes and exhibited why a curve reaching extremality does not supply a vacuum collapse spacetime.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the quadratic finite-change term, the endpoint parameter curve and the distinction between local apparent and global event horizons. Model self-audit only; no independent human mathematical verification. Coordinator checked the finite extremality-deficit increment and the distinction between a parameter path and a vacuum evolution. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked the quadratic finite-change term, the endpoint parameter curve and the distinction between local apparent and global event horizons. First remaining gap: Construct vacuum constraint-compatible collapse data and prove its global event-horizon geometry and exact extremal final parameters. The inherited source status is preserved; original-target completion remains zero."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30005863; source catalogue code OWR-14298170-020
+\setcounter{section}{30005862}
+\section{Vacuum Failure of the Third Law of Black-Hole Thermodynamics}\label{30005863}
+{\small UnsolvedMath ID 30005863 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+In units $G=c=1$, a Kerr black hole has mass $M$ and angular momentum $J$, with rotation parameter $a=J/M$. Subextremal means $|a|<M$ and extremal means $|a|=M$. An apparent horizon is defined on a spatial slice by trapped-surface geometry; an event horizon is defined globally by visibility from future null infinity. Vacuum means $\operatorname{Ric}(g)=0$.
+
+\paragraph{Catalogue wording retained for traceability.}
+Construct a vacuum spacetime in which gravitational waves collapse to form a subextremal Kerr apparent horizon and the spacetime later forms an exactly extremal Kerr event horizon.
+
+\paragraph{Scope and source qualification.}The source distinguishes apparent and event horizons; the statement does not require that a single local horizon abruptly change its Kerr parameter. Contextual duplicate 30005862 is excluded.
+\subsection{Short English statement}
+Construct gravitational-wave collapse that first produces a subextremal apparent horizon and later an exactly extremal Kerr event horizon.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Tested finite Kerr parameter changes and exhibited why a curve reaching extremality does not supply a vacuum collapse spacetime.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30005863. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{Extremality as a parameter test.} For positive Kerr mass and nonnegative angular momentum define the deficit \(D=M^2-J\). Subextremality means \(D>0\); extremality means \(D=0\). A finite change satisfying the illustrative relation \(\delta J=2M\delta M\) gives
+\[
+ D_{\rm final}=D_{\rm initial}+2M\delta M+(\delta M)^2-\delta J
+ =D_{\rm initial}+(\delta M)^2.
+\]
+Thus saturating this linear relation is insufficient to reach the nonlinear extremal surface from positive deficit. The relation is an algebraic test, not a vacuum gravitational-wave flux law.
+\paragraph{Conversely, a parameter curve is too easy.} The curve \(M(t)=1\), \(J(t)=1-(1-t)^2\), \(0\leq t\leq1\), stays subextremal before reaching extremality at finite parameter time. It satisfies the parameter inequality but does not define a spacetime metric or solve the vacuum constraints. Substituting variable parameters into the stationary Kerr metric is not justified by the stationary solution family.
+\paragraph{First geometric gap.} A solution of [S2] requires vacuum initial or characteristic data whose development has the specified subextremal apparent horizon and a later exactly extremal event horizon. The first unresolved step is satisfying the vacuum equations and matching/constraint conditions while achieving the required final mass and angular momentum. The event horizon is global and cannot be located by the local deficit calculation; the earlier apparent horizon is a different object. Neither impossibility nor the requested collapse construction follows from these elementary parameter tests.
+
+\paragraph{Verification and adversarial audit.}
+Checked the quadratic finite-change term, the endpoint parameter curve and the distinction between local apparent and global event horizons. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked the quadratic finite-change term, the endpoint parameter curve and the distinction between local apparent and global event horizons. First remaining gap: Construct vacuum constraint-compatible collapse data and prove its global event-horizon geometry and exact extremal final parameters. The inherited source status is preserved; original-target completion remains zero.
+
+Coordinator checked the finite extremality-deficit increment and the distinction between a parameter path and a vacuum evolution. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Construct vacuum constraint-compatible collapse data and prove its global event-horizon geometry and exact extremal final parameters.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30005863:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30005863 (OWR-14298170-020). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30005863:2}{S2}] Analysis, Geometry and Topology of Positive Scalar Curvature Metrics (2024), Oberwolfach Reports, DOI 10.4171/owr/2024/9, pp. 483--566. Original report and mathematical context. Incorporated report material remains under the source CC BY-SA 4.0 terms unless otherwise noted.
+\url{https://doi.org/10.4171/owr/2024/9}.
+\end{itemize}
+\label{end:30005863}
+\end{document}

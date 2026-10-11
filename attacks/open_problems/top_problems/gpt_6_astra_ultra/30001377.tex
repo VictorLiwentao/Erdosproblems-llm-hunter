@@ -1,0 +1,137 @@
+% RESEARCH_DRAFT_SHA256: e9816a52851adda1f52e5464740ca8d81c4136cb6385b801567c191006742029
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30001377, "title": "Sensitivity Growth Under Boolean Conjunctions", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001377", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written mathematical review at the declared scope; no independent human verification. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Sensitivity Growth Under Boolean Conjunctions; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A sharp logarithmic coordinate-function case; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch018 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30001377; source catalogue code OWR-4135-008
+\section{Sensitivity Growth Under Boolean Conjunctions}\label{30001377}
+{\small UnsolvedMath ID 30001377 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+The sensitivity of $f$ at $x$ is the number of coordinate flips changing $f(x)$. A conjunction outputs one exactly when every selected Boolean function outputs one.
+
+A Boolean function maps $\{0,1\}^n$ to $\{0,1\}$. A Boolean circuit is an acyclic network of logical gates; a formula is a circuit with no sharing of intermediate gate outputs. Size and depth measure its number of gates and longest gate path.
+\paragraph{Statement recorded in the supplied source.}
+If Boolean functions $f_1,\ldots,f_n$ have average maximal sensitivity $O((\log n)^d)$, and each $g_i$ is the conjunction of a subset of the $f_j$, must the average maximal sensitivity of the $g_i$ be $O((\log n)^{d+1})$? \href{https://doi.org/10.4171/owr/2009/52}{[S2]}
+\paragraph{Scope qualification.}
+The averaging measure and the precise average maximal sensitivity functional must be taken from the report; ordinary average sensitivity is not substituted.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Determine whether taking the stated conjunctions increases average maximum sensitivity by at most one logarithmic factor.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30001377 (OWR-4135-008). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Complexity Theory (2010), Oberwolfach Reports, DOI 10.4171/owr/2009/52, pp. 2787--2850
+\url{https://doi.org/10.4171/owr/2009/52}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30001377 and source code OWR-4135-008 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30001377}
+
+\section{Literature and context check}
+The primary Rossman report on printed page 2825 defines average maximal sensitivity as $\mathbb E_x\max_j\operatorname{sens}(f_j,x)$ under uniform Boolean inputs. This differs from both maximum sensitivity and the average of the individual average sensitivities. The attempt uses this exact functional. It proves the conjectured logarithmic growth for coordinate functions and shows that a logarithmic loss is necessary in that subclass; the general function family remains untreated.
+\section{Research attempt: A sharp logarithmic coordinate-function case}
+
+\paragraph{A general pointwise bound and its limitation}
+Write $A(x)=\max_j\operatorname{sens}(f_j,x)$. If $g=\bigwedge_{j\in S}f_j$ and $g(x)=0$, choose any $j\in S$ with $f_j(x)=0$. Every flip changing $g$ to one changes that particular $f_j$, so $\operatorname{sens}(g,x)\leq A(x)$. If $g(x)=1$, a flip changing $g$ must change at least one selected function, giving
+\[
+ \operatorname{sens}(g,x)\leq\sum_{j\in S}\operatorname{sens}(f_j,x)\leq |S|A(x).
+\]
+Empty conjunctions are constant and have sensitivity zero. Thus conjunction width at most $w\geq1$ gives $\operatorname{ams}(g_1,\ldots,g_n)\leq w\operatorname{ams}(f_1,\ldots,f_n)$. The source allows width as large as $n$; this bound does not prove the requested logarithmic loss.
+
+\paragraph{An upper bound for all conjunctions of input coordinates}
+Take $f_j(x)=x_j$ on $\{0,1\}^n$, so $A(x)=1$. Each output is a conjunction on some coordinate subset of size $w_i$. If its value is zero, its sensitivity is at most one. If its value is one, its sensitivity is exactly $w_i$, and that event has probability $2^{-w_i}$. Let $Z(x)=\max_i\operatorname{sens}(g_i,x)$. For every integer $k\geq2$,
+\[
+ \Pr(Z\geq k)\leq\sum_{i:w_i\geq k}2^{-w_i}\leq n2^{-k}.
+\]
+Using the identity $\mathbb EZ=\sum_{k=1}^n\Pr(Z\geq k)$ and splitting at $K=\lceil\log_2n\rceil+1$ gives
+\[
+ \operatorname{ams}(g_1,\ldots,g_n)
+ \leq K+\sum_{k=K+1}^{\infty}n2^{-k}
+ =K+n2^{-K}\leq\lceil\log_2n\rceil+\tfrac32.
+\]
+The same inequality holds at $n=1$ directly. The essential extra fact is the exact probability of an all-one conjunction of independent coordinate bits, not a bound supplied by average sensitivity alone.
+
+\paragraph{A matching order lower bound}
+Let $w\geq1$, $m=2^w$, and $n=mw$. Partition the $n$ input coordinates into $m$ disjoint blocks of size $w$. Use the $m$ block conjunctions among the $n$ outputs, repeating any of them if necessary to reach exactly $n$ outputs. The input functions remain all coordinate functions and have average maximal sensitivity one. If at least one block is all ones, some output has sensitivity $w$. Independence of the blocks gives
+\[
+ \operatorname{ams}(g_1,\ldots,g_n)
+ \geq w\bigl(1-(1-2^{-w})^{2^w}\bigr)
+ \geq(1-e^{-1})w.
+\]
+The last inequality follows from $1-u\leq e^{-u}$. Since $\log_2n=w+\log_2w$, this is order $\log n$ along the displayed infinite family. Thus one cannot improve the source's proposed extra logarithm to a uniform constant even in the coordinate subclass.
+
+\paragraph{The unresolved inference}
+For arbitrary $f_j$, an output of conjunction width $w$ need not have probability $2^{-w}$ of being one, and its selected functions may be strongly dependent. The proof of the logarithmic upper bound cannot replace that probability by a product of marginal probabilities. The general pointwise bound above leaves a factor $n$, and the source's hypothesis only controls the expectation of $A(x)$. Obtaining an appropriate joint tail or charging inequality from that hypothesis is the first missing step of this route.
+
+\section{Verification and adversarial audit}
+The maximum is inside the expectation throughout. The lower-bound family uses exactly $n$ input functions and at most $n$ distinct conjunctions, with repetition making the output count exact. Its rare-event probabilities are justified by disjoint coordinate blocks; that independence is not transferred to arbitrary Boolean functions. Both values of a conjunction and the empty conjunction are covered in the pointwise argument.
+\paragraph{Audit corrections.} Used the source's exact functional and distinguished independent coordinates from arbitrary correlated function outputs.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The result is a proved sharp-order special case and a failed generalization route, not the full average-maximal-sensitivity conjecture for arbitrary functions. No new circuit lower bound or switching-lemma replacement is claimed.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46253} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+The parent Codex GPT-6 model has reviewed the written mathematical arguments at their declared scopes. This is model-assisted review, not independent human verification.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

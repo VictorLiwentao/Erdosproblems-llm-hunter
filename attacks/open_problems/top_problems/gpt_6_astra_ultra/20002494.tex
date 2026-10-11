@@ -1,0 +1,87 @@
+% TOP_PROBLEM: {"id": 20002494, "title": "Complex Bohr-Sommerfeld action and a stability obstruction", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The source leaves the analytic symbol’s global assumptions and admissible cycles unspecified. The Hermitian rule is explanatory context, not an assertion that an unchanged real-action formula holds for arbitrary non-Hermitian operators. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002494", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Find a complex Bohr--Sommerfeld eigenvalue rule and relate it to the Hermitian rule.", "scope": "Derived an exact complex-action quantization rule on a periodic first-order characteristic graph and its Hermitian specialization, with an exponential stability warning. General cycles and Maslov/connection data remain unresolved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked eigenfunction sign, action integer condition, absence of turning points, real specialization and similarity conditioning. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the exact first-order monodromy quantization and exponential condition number for the imaginary-potential slice. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked eigenfunction sign, action integer condition, absence of turning points, real specialization and similarity conditioning. Scope remains limited: Construct globally valid complex cycles and connection formulas with remainders controlled against nonnormal spectral sensitivity."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002494; source catalogue code AIM-PHYSICS-0002
+\setcounter{section}{20002493}
+\section{Complex Bohr-Sommerfeld action and a stability obstruction}\label{20002494}
+{\small UnsolvedMath ID 20002494 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}Let $a$ be the analytic symbol on a two-dimensional phase space specified in the source, $h>0$ the semiclassical parameter and $a^w(x,hD)$ its Weyl quantization. For a self-adjoint one-degree-of-freedom Hamiltonian, the classical action around an energy curve underlies Bohr--Sommerfeld quantization, with a Maslov correction. For a complex symbol the corresponding cycles and actions may be complex.
+
+\paragraph{Catalogue wording retained for traceability.}
+Bohr-Sommerfeld
+
+Is there a Bohr-Sommerfeld quantization rule for $a^w(x,hD)$? Is there a link to the usual Bohr-Sommerfeld rule for Hermitian operators?
+\paragraph{Scope and source qualification.}The source leaves the analytic symbol’s global assumptions and admissible cycles unspecified. The Hermitian rule is explanatory context, not an assertion that an unchanged real-action formula holds for arbitrary non-Hermitian operators. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Find a complex Bohr--Sommerfeld eigenvalue rule and relate it to the Hermitian rule.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derived an exact complex-action quantization rule on a periodic first-order characteristic graph and its Hermitian specialization, with an exponential stability warning. General cycles and Maslov/connection data remain unresolved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{An exact complex-action rule in a restricted model.}Let \(P_h=hD+q(x)\) on the circle of length \(2\pi\), with complex analytic periodic \(q\). The first-order equation gives
+\[u(x)=u(0)\exp\left(\frac{i}{h}\int_0^x(z-q(s))ds\right).
+\]
+Hence a nonzero periodic solution exists exactly when
+\[I(z):=\int_0^{2\pi}(z-q(x))dx=2\pi hk,\qquad k\in\mathbb Z.
+\]
+The integral \(I\) is the action \(\int\xi\,dx\) on the complex characteristic graph \(\xi=z-q(x)\). It follows that \(z_k=hk+\bar q\). If \(q\) is real, the eigenvalues are real and the same formula is the ordinary periodic first-order action quantization; there is no turning point and therefore no half-integer correction in this model.
+\paragraph{The stability obstruction.}Let \(q=iv\) with real nonconstant \(v\). As in the direct ODE, conjugation by \(e^{\phi/h}\), \(\phi'=v-\bar v\), reduces the operator to its mean, but the similarity norm product is \(e^{\operatorname{osc}\phi/h}\). An operator error of algebraic size in \(h\) can become exponentially large under that conjugation. Therefore deriving an approximate action equation is not enough: the remainder must be controlled in a norm appropriate to the nonnormal realization before zeros of a quantization expression certify eigenvalues.
+\paragraph{Gap.}For general symbols, selecting complex cycles, treating turning points and connection coefficients, and matching global boundary conditions are still unproved. The relationship to Hermitian Maslov corrections outside this no-turning-point example is also missing. The source deliberately leaves global hypotheses open; no universal rule is asserted from this exact first-order benchmark.
+
+\paragraph{Verification and adversarial audit.}
+Checked eigenfunction sign, action integer condition, absence of turning points, real specialization and similarity conditioning. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked eigenfunction sign, action integer condition, absence of turning points, real specialization and similarity conditioning. Scope remains limited: Construct globally valid complex cycles and connection formulas with remainders controlled against nonnormal spectral sensitivity.
+
+Coordinator checked the exact first-order monodromy quantization and exponential condition number for the imaginary-potential slice. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Construct globally valid complex cycles and connection formulas with remainders controlled against nonnormal spectral sensitivity.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002494:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002494 (AIM-PHYSICS-0002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002494:2}{S2}] American Institute of Mathematics, Non-Hermitian quantum mechanics and symplectic geometry, source item 1.2.
+\url{http://aimpl.org/nhquantumsymp/1/}.
+\end{itemize}
+\label{end:20002494}
+\end{document}

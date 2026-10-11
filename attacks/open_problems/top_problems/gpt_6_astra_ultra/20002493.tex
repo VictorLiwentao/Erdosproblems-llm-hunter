@@ -1,0 +1,85 @@
+% TOP_PROBLEM: {"id": 20002493, "title": "When semiclassical spectra follow curves—and when they fill area", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The original says appropriate phase space without fixing global domains, symbol classes or a topology/rate of clustering. A universal assertion for every analytic symbol and realization would add hypotheses or quantifiers absent from the source. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002493", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Determine whether semiclassical eigenvalues of analytic non-Hermitian operators lie near curves in the complex plane.", "scope": "Solved a periodic first-order analytic model whose spectrum lies on a line despite a two-dimensional symbol image, and computed its exponentially ill-conditioned similarity. No general curve-clustering theorem.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked ODE sign, periodic quantization, exact similarity, spectrum completeness in the circle model and exponential condition number. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the periodic first-order solution, exact eigenvalue condition and exponential similarity norm, including the corrected solution notation. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked ODE sign, periodic quantization, exact similarity, spectrum completeness in the circle model and exponential condition number. Scope remains limited: Specify global operator hypotheses and control complex characteristic geometry beyond the exactly reducible first-order circle model."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002493; source catalogue code AIM-PHYSICS-0001
+\setcounter{section}{20002492}
+\section{When semiclassical spectra follow curves—and when they fill area}\label{20002493}
+{\small UnsolvedMath ID 20002493 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}The source takes an analytic symbol $a(x,\xi)$ on an appropriate two-dimensional phase space, and studies its semiclassical Weyl quantization as $h\downarrow0$. Locally, on a one-dimensional configuration space, $(a^w(x,hD)u)(x)=(2\pi h)^{-1}\int e^{i(x-y)\xi/h}a((x+y)/2,\xi)u(y)\,dy\,d\xi$. Here $D=-i\partial_x$. For a complex symbol the operator need not be self-adjoint and its eigenvalues need not be real.
+
+\paragraph{Catalogue wording retained for traceability.}
+Eigenvalues and Curves
+
+Do the eigenvalues of $a^w(x,hD)$ lie on or cluster around curves in the complex plane $\mathbb{C}$?
+\paragraph{Scope and source qualification.}The original says appropriate phase space without fixing global domains, symbol classes or a topology/rate of clustering. A universal assertion for every analytic symbol and realization would add hypotheses or quantifiers absent from the source. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Determine whether semiclassical eigenvalues of analytic non-Hermitian operators lie near curves in the complex plane.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Solved a periodic first-order analytic model whose spectrum lies on a line despite a two-dimensional symbol image, and computed its exponentially ill-conditioned similarity. No general curve-clustering theorem.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{A one-degree-of-freedom circle model.}On periodic functions on \([0,2\pi]\), consider \(P_h=hD+iv(x)\), where \(D=-i\partial_x\) and \(v\) is real analytic and periodic. The eigenvalue equation is
+\[u'(x)=h^{-1}(v(x)+iz)u(x),\quad
+u(x)=\exp\left(h^{-1}\int_0^xv(s)ds+izx/h\right).
+\]
+Here the displayed \(u\) denotes the solution with initial value one. Periodicity requires \(\exp(2\pi\bar v/h+2\pi iz/h)=1\), with \(\bar v=(2\pi)^{-1}\int v\). Thus all eigenvalues are exactly \(z_k=hk+i\bar v\), \(k\in\mathbb Z\). The first-order scalar ODE also shows that there are no other eigenvalues. They lie on a horizontal line although the symbol \(\xi+iv(x)\) can take values in a two-dimensional strip.
+\paragraph{Similarity and sensitivity.}Define \(\phi(x)=\int_0^x(v(s)-\bar v)ds\), a periodic function. Multiplication \(S_hf=e^{\phi/h}f\) gives \(S_h^{-1}P_hS_h=hD+i\bar v\). For each fixed \(h\) this is a bounded invertible similarity, but \(\|S_h\|\|S_h^{-1}\|=e^{(\max\phi-\min\phi)/h}\). Thus exact curve localization can coexist with exponential sensitivity; a bounded-condition-number comparison cannot be assumed in the semiclassical limit.
+\paragraph{First gap.}The computation uses a first-order symbol on a circle and a globally solvable scalar ODE. It neither proves universal curve clustering for arbitrary analytic symbols nor supplies an area-filling counterexample within the source's unspecified admissible global setting. Establishing the relevant phase-space, domain and spectral assumptions is necessary before a general localization statement can be tested. The supplied machine-generated title is not used as proof of the broader result.
+
+\paragraph{Verification and adversarial audit.}
+Checked ODE sign, periodic quantization, exact similarity, spectrum completeness in the circle model and exponential condition number. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked ODE sign, periodic quantization, exact similarity, spectrum completeness in the circle model and exponential condition number. Scope remains limited: Specify global operator hypotheses and control complex characteristic geometry beyond the exactly reducible first-order circle model.
+
+Coordinator checked the periodic first-order solution, exact eigenvalue condition and exponential similarity norm, including the corrected solution notation. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Specify global operator hypotheses and control complex characteristic geometry beyond the exactly reducible first-order circle model.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002493:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002493 (AIM-PHYSICS-0001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002493:2}{S2}] American Institute of Mathematics, Non-Hermitian quantum mechanics and symplectic geometry, source item 1.1.
+\url{http://aimpl.org/nhquantumsymp/1/}.
+\end{itemize}
+\label{end:20002493}
+\end{document}

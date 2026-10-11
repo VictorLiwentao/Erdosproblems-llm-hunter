@@ -1,0 +1,95 @@
+% TOP_PROBLEM: {"id": 30002921, "title": "Local Well-Posedness of Lovelock Equations", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The spacetime dimension, coupling constants, branch and data regime are not fixed by the extracted sentence. They must be specified in a theorem; local well-posedness on one branch cannot be presented as a result for all Lovelock data."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002921", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Establish a locally well-posed initial-value theory for Lovelock gravitational equations.", "scope": "Computes a real-speed Jordan system with unbounded Sobolev amplification, testing an insufficient hyperbolicity criterion.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked Fourier exponential, Hs normalization and n*t growth; no Lovelock realization of the toy Jordan block asserted. Model self-audit only; no independent human proof checking. Coordinator checked the Jordan Fourier evolution and the unbounded same-Sobolev-space amplification of normalized data. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked Fourier exponential, Hs normalization and n*t growth; no Lovelock realization of the toy Jordan block asserted. Retained unresolved status and zero original-target progress; The actual gauge-fixed Lovelock symbol, uniform symmetrizer and constraint-compatible local energy theory are missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30002921; source catalogue code OWR-13854-006
+\setcounter{section}{30002920}
+\section{Local Well-Posedness of Lovelock Equations}\label{30002921}
+{\small UnsolvedMath ID 30002921 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+Lovelock gravity uses Euler--Lagrange equations from a sum of dimensionally extended curvature densities; they remain second order in the metric despite involving higher powers of curvature. A local Cauchy theory consists of existence, uniqueness up to the relevant diffeomorphism gauge and continuous dependence for constraint-compatible initial data in specified function spaces. Hyperbolicity and the admissible branch of the equations are essential to such a theory.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Can one establish local existence and uniqueness of solutions, together with continuous dependence on initial data, for the Lovelock-theory equations?
+
+\paragraph{Source scope and qualification.}
+The spacetime dimension, coupling constants, branch and data regime are not fixed by the extracted sentence. They must be specified in a theorem; local well-posedness on one branch cannot be presented as a result for all Lovelock data.
+\subsection{Short English statement}
+Establish a locally well-posed initial-value theory for Lovelock gravitational equations.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Computes a real-speed Jordan system with unbounded Sobolev amplification, testing an insufficient hyperbolicity criterion.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Real characteristic speeds are insufficient.} A gauge-fixed second-order gravitational system requires a suitable first-order hyperbolic reduction. Consider the constant-coefficient test system on a circle $\partial_tu=A\partial_xu$ with $A=\left(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\right)$. Its only characteristic speed is real, equal to one, but it has a Jordan block. Fourier mode $n$ evolves by
+\[
+ \widehat u_n(t)=e^{int}\begin{pmatrix}1&int\\0&1\end{pmatrix}\widehat u_n(0).
+\]
+Taking initial data only in the second component and normalized to unit $H^s$ norm gives evolved $H^s$ norm at least $|n|t$ for any fixed $t>0$. Thus no bounded solution map $H^s\to H^s$ exists at that time.
+
+\paragraph{The missing uniform diagonalization.} This calculation proves that reality of roots of a principal characteristic polynomial does not alone supply well-posedness. One needs a uniformly controlled symmetrizer or equivalent diagonalization, along with gauge and constraint propagation. If those structures degenerate on a branch, higher derivatives can be amplified even when characteristic speeds remain real.
+
+\paragraph{Lovelock scope.} The Jordan system is not identified with any particular Lovelock background, so it is not a counterexample to a correctly restricted local theorem. The source leaves dimension, couplings and branch unspecified. The first gap is deriving the actual gauge-fixed principal symbol and a uniform energy estimate in a stated admissible data regime, then propagating constraints and obtaining existence/uniqueness/continuous dependence. A theorem on a weak-coupling branch would need to retain that restriction rather than claim all Lovelock data.
+
+\paragraph{Verification and adversarial audit.}
+Checked Fourier exponential, Hs normalization and n*t growth; no Lovelock realization of the toy Jordan block asserted. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked Fourier exponential, Hs normalization and n*t growth; no Lovelock realization of the toy Jordan block asserted. Retained unresolved status and zero original-target progress; The actual gauge-fixed Lovelock symbol, uniform symmetrizer and constraint-compatible local energy theory are missing.
+
+Coordinator checked the Jordan Fourier evolution and the unbounded same-Sobolev-space amplification of normalized data. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. The actual gauge-fixed Lovelock symbol, uniform symmetrizer and constraint-compatible local energy theory are missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. The actual gauge-fixed Lovelock symbol, uniform symmetrizer and constraint-compatible local energy theory are missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30002921:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30002921 (OWR-13854-006). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30002921:2}{S2}] Mathematical Aspects of General Relativity (2015), Oberwolfach Reports, DOI 10.4171/owr/2015/33, pp. 1867--1935. Primary report accessed 2026-10-11; relevant PDF pages 38.
+\url{https://doi.org/10.4171/owr/2015/33}.
+\item[\hypertarget{source:30002921:3}{S3}] Papallo--Reall, local well-posedness of Lovelock theories (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/1705.04370}.
+\item[\hypertarget{source:30002921:4}{S4}] Kovacs--Reall, well-posed Lovelock formulation (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/2003.08398}.
+\end{itemize}
+\label{end:30002921}
+\end{document}

@@ -1,0 +1,93 @@
+% TOP_PROBLEM: {"id": 30000397, "title": "Orthotropic Extensions of Anisotropic Creep-Damage Models", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "All three modeling tasks remain part of the question. The short extract does not give one universal constitutive family, experiment, error metric, or parameter range, so this is a research program rather than a quantified theorem for arbitrary materials."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000397", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Extend anisotropic creep-damage models to orthotropic materials, accelerating creep, and practical parameter identification.", "scope": "Analyzes an explicit orthotropic viscous/damage ansatz and demonstrates its finite-time acceleration and parameter-identifiability limitations.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked symmetry restrictions, positive viscous power, integrated damage law and p=0 endpoint, and separated viscous dissipation from full damage thermodynamics. Model self-audit only; no independent human proof checking. Coordinator checked positive quadratic dissipation, orthotropic sign symmetries, the damage ODE integration and the compliance/damage identifiability limitation. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked symmetry restrictions, positive viscous power, integrated damage law and p=0 endpoint, and separated viscous dissipation from full damage thermodynamics. Retained unresolved status and zero original-target progress; The source-specific damage energy, constitutive extension and experimentally justified identification protocol remain absent."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30000397; source catalogue code OWR-1186-001
+\setcounter{section}{30000396}
+\section{Orthotropic Extensions of Anisotropic Creep-Damage Models}\label{30000397}
+{\small UnsolvedMath ID 30000397 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} A constitutive law relates stress, strain, temperature, and internal damage variables in a continuum. Transverse isotropy means rotational symmetry about one material axis; orthotropy has three mutually orthogonal symmetry axes. Creep is time-dependent deformation under sustained loading. The secondary regime has an approximately steady creep rate, while tertiary creep accelerates toward failure. Identification means estimating the constitutive parameters from measurements or prescribed experiments.
+
+\paragraph{Source scope and qualifications.} All three modeling tasks remain part of the question. The short extract does not give one universal constitutive family, experiment, error metric, or parameter range, so this is a research program rather than a quantified theorem for arbitrary materials.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+For continuum-mechanics models of creep damage, how can transversally isotropic material behavior be extended to the orthotropic case; how can secondary anisotropic equations be extended to the tertiary creep regime; and how should the identification procedures be realized?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The report lists three research questions on anisotropic constitutive laws and identification procedures. They are presented as open extensions, with no cited result resolving all three. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Extend anisotropic creep-damage models to orthotropic materials, accelerating creep, and practical parameter identification.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Analyzes an explicit orthotropic viscous/damage ansatz and demonstrates its finite-time acceleration and parameter-identifiability limitations.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A thermodynamically admissible toy extension.} In material axes let the six stress coordinates be $s\in\mathbb R^6$, with shear coordinates scaled so that $s\cdot\dot e$ is mechanical power. Choose a symmetric positive-definite compliance matrix $A$ invariant under sign reversals of the three material axes, and set $\Psi(s,D)=s^TAs/[2(1-D)]$ for $0\leq D<1$. The flow $\dot e=\partial_s\Psi=As/(1-D)$ has nonnegative dissipation $s\cdot\dot e=s^TAs/(1-D)$. Axis symmetry allows an arbitrary symmetric $3\times3$ normal block and three independent positive shear entries; it forces normal-shear and distinct shear couplings to vanish. This follows by changing one axis sign and requiring each matrix coefficient to retain its sign.
+
+\paragraph{Tertiary acceleration and identification failure.} Prescribe the additional toy damage law $\dot D=k(1-D)^{-p}$ with $k>0,p\geq0$ and initial damage $D_0<1$. Integration gives
+\[
+ (1-D(t))^{p+1}=(1-D_0)^{p+1}-(p+1)kt.
+\]
+At constant nonzero stress the strain rate diverges as the right side approaches zero. This creates accelerating creep, but the law is an ansatz without experimental validation. At fixed $D$, observing $\dot e$ under six independent stress vectors determines $A/(1-D)$, whereas one uniaxial experiment only determines a single column. Without independently measuring $D$, the scaling of $A$ and $1-D$ is not separately identifiable.
+
+\paragraph{Full-scope gap.} The construction illustrates orthotropic symmetry, a tertiary mechanism and a concrete identifiability obstruction, but does not extend the report's particular constitutive equations or account for their damage tensor and experiments. Choosing and validating that structure, including energy accounting for damage itself, is the first missing step. Positive viscous dissipation alone does not prove a complete thermodynamic damage model.
+
+\paragraph{Verification and adversarial audit.}
+Checked symmetry restrictions, positive viscous power, integrated damage law and p=0 endpoint, and separated viscous dissipation from full damage thermodynamics. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked symmetry restrictions, positive viscous power, integrated damage law and p=0 endpoint, and separated viscous dissipation from full damage thermodynamics. Retained unresolved status and zero original-target progress; The source-specific damage energy, constitutive extension and experimentally justified identification protocol remain absent.
+
+Coordinator checked positive quadratic dissipation, orthotropic sign symmetries, the damage ODE integration and the compliance/damage identifiability limitation. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. The source-specific damage energy, constitutive extension and experimentally justified identification protocol remain absent.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. The source-specific damage energy, constitutive extension and experimentally justified identification protocol remain absent.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30000397:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30000397 (OWR-1186-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30000397:2}{S2}] Mechanics of Materials (2006), Oberwolfach Reports, DOI 10.4171/owr/2006/04, pp. 187--252; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2006/04}.
+\item[\hypertarget{source:30000397:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF source context inspected in report 1186.
+\url{https://ems.press/content/serial-article-files/46034}.
+\end{itemize}
+\label{end:30000397}
+\end{document}

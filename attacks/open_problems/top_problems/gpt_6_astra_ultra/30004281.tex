@@ -1,0 +1,95 @@
+% TOP_PROBLEM: {"id": 30004281, "title": "Small-Weight Quantum Operations on Lattice Conformal Nets", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "Primary Problem 9 (PDF page 30, printed page 3082) asks for small positive real weights $w>1$. The catalogue adds arbitrarily small, which can be read as weights approaching $1$; that stronger quantifier was not verified in the primary source. The original small-weight construction question is preserved as source context, and the inherited stronger wording is explicitly not endorsed as a recovered theorem target. The nontriviality and actual weight convention exclude the vacuous identity operation."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004281", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Find conformal-net quantum operations with the stated quadratic composition law and weights arbitrarily close to one.", "scope": "Solved the quadratic law for two-point Markov maps at every w greater than one, then proved they fail the essential extremality requirement.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked eigenvalues, the quadratic polynomial, state preservation and a strict convex decomposition; preserved the source versus catalogue weight-quantifier discrepancy. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked both eigenvalues, the quadratic relation and failure of extremality for every allowed weight in the proposed family. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked eigenvalues, the quadratic polynomial, state preservation and a strict convex decomposition; preserved the source versus catalogue weight-quantifier discrepancy. The remaining gap is: Construct extreme, nontrivial conformal-net quantum operations satisfying the law and source locality/adjoint conditions at small weights. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30004281; source catalogue code OWR-17292-005
+\setcounter{section}{30004280}
+\section{Small-Weight Quantum Operations on Lattice Conformal Nets}\label{30004281}
+{\small UnsolvedMath ID 30004281 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+For the source vacuum state $\omega$, a quantum operation is a compatible family $\phi_I$ of extreme normal unital completely positive, $\omega$-preserving maps on $\mathcal A(I)$, preserving local conformal symmetry and admitting a Markov adjoint in the same class. Composition is map composition. A nontrivial two-element hypergroup has an element $\phi\ne\operatorname{id}$ satisfying the displayed quadratic law, and $w$ is its hypergroup weight, not an arbitrary scalar attached to the identity map.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+For a lattice conformal net or a strongly local vertex-operator-algebra net $\mathcal A$, find $\phi\in\operatorname{QuOp}(\mathcal A)$ satisfying $$\phi\circ\phi=w^{-1}\operatorname{id}+(1-w^{-1})\phi$$ for arbitrarily small real $w>1$.
+
+\paragraph{Source scope and qualification.}
+Primary Problem 9 (PDF page 30, printed page 3082) asks for small positive real weights $w>1$. The catalogue adds arbitrarily small, which can be read as weights approaching $1$; that stronger quantifier was not verified in the primary source. The original small-weight construction question is preserved as source context, and the inherited stronger wording is explicitly not endorsed as a recovered theorem target. The nontriviality and actual weight convention exclude the vacuous identity operation.
+\subsection{Short English statement}
+Find conformal-net quantum operations with the stated quadratic composition law and weights arbitrarily close to one.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Solved the quadratic law for two-point Markov maps at every w greater than one, then proved they fail the essential extremality requirement.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30004281. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{An apparent small-weight solution that fails extremality.} On the commutative two-point algebra let \(X\) interchange the two points and put \(\phi=aI+(1-a)X\), where
+\[
+ a=\frac{1-w^{-1}}2,\qquad w>1.
+\]
+This is a unital positive (hence here completely positive) map preserving the uniform state, and is self-adjoint for that state's inner product. Its eigenvalues on constants and mean-zero functions are \(1\) and \(2a-1=-1/w\). Both roots satisfy \(t^2=w^{-1}+(1-w^{-1})t\), so
+\[
+ \phi^2=w^{-1}I+(1-w^{-1})\phi.
+\]
+There is no difficulty making \(w\downarrow1\) in this family.
+\paragraph{The decisive audit.} For every \(w>1\), one has \(0<a<1/2\). Thus \(\phi\) is a nontrivial convex combination of the distinct state-preserving maps \(I\) and \(X\), and is not extreme. At the endpoint \(w=1\) it becomes the involution \(X\), but that endpoint is excluded. It therefore does not belong to the source class of extreme conformal quantum operations, and a conformal-net realization was never supplied.
+\paragraph{Scope qualification.} The catalogue's arbitrarily-close-to-one quantifier is stronger than the recovered source's small-positive-weight wording; neither version is established by this false candidate. The first gap is producing the quadratic law with extremality, local conformal compatibility and the required Markov adjoint simultaneously. The calculation pinpoints why the law alone permits many irrelevant examples.
+
+\paragraph{Verification and adversarial audit.}
+Checked eigenvalues, the quadratic polynomial, state preservation and a strict convex decomposition; preserved the source versus catalogue weight-quantifier discrepancy. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked eigenvalues, the quadratic polynomial, state preservation and a strict convex decomposition; preserved the source versus catalogue weight-quantifier discrepancy. The remaining gap is: Construct extreme, nontrivial conformal-net quantum operations satisfying the law and source locality/adjoint conditions at small weights. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked both eigenvalues, the quadratic relation and failure of extremality for every allowed weight in the proposed family. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Construct extreme, nontrivial conformal-net quantum operations satisfying the law and source locality/adjoint conditions at small weights.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30004281:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30004281 (OWR-17292-005). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30004281:2}{S2}] Subfactors and Applications (2019), Oberwolfach Reports, DOI 10.4171/owr/2019/49, pp. 3053--3140. Primary report accessed 2026-10-11; relevant PDF pages 29, 30.
+\url{https://doi.org/10.4171/owr/2019/49}.
+\item[\hypertarget{source:30004281:3}{S3}] Bischoff, generalized orbifold construction for conformal nets (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/1608.00253}.
+\item[\hypertarget{source:30004281:4}{S4}] Osborne et al., numerical evidence for a Haagerup CFT (catalogue-listed context; not independently consulted in this preparation).
+\url{https://authors.library.caltech.edu/records/mgvpx-37124}.
+\end{itemize}
+\label{end:30004281}
+\end{document}

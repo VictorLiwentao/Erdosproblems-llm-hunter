@@ -1,0 +1,129 @@
+% RESEARCH_DRAFT_SHA256: e7217821b33c567b45ad8f92a2a5abe64ee0d28652043b7b6f1fee2c8bb9c278
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 2800303, "title": "10 Lectures and 42 Open Problems — Open Problem 3.3", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "2800303", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Let ${G=(V,E,W)}$ be a graph and ${k}$ a positive integer, is the following true? $\\rho_G(k) \\leq \\mathrm{polylog}(k) \\sqrt{\\lambda_k}. \\ \\ \\ \\ \\ (2)$", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. No general exact-k rounding proof is supplied; the recent source reports a solution but was consulted at abstract level only.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Exact-k expansion: boundary calculations and failure of an index substitution}
+\noindent UnsolvedMath ID 2800303; AMR-027-0303. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+For an undirected graph with nonnegative symmetric edge weights $W$, write $d_v=\sum_uW_{vu}$ and $D=\operatorname{diag}(d_v)$. In the positive-degree convention, the normalized Laplacian is $L=I-D^{-1/2}WD^{-1/2}$, with eigenvalues $\lambda_1\leq\cdots\leq\lambda_{|V|}$. For a positive-volume subset $S$, let $\phi(S)=w(S,V\setminus S)/\sum_{v\in S}d_v$. The $k$-way expansion $\rho_G(k)$ is the minimum of $\max_i\phi(S_i)$ over $k$ disjoint nonempty vertex sets. A polylogarithmic factor is bounded by a fixed power of $\log(k+1)$, up to an absolute constant.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The formula needs the spectral range $1\leq k\leq|V|$ and the source convention for zero-degree vertices. The supplied partially solved label is retained. Yunpeng Li's arXiv:2609.35369v2 abstract, revised 5 October 2026 and inspected on 11 October 2026, claims $\rho_G(k)\leq C\sqrt{\lambda_k\log(k+1)}$, which would answer the displayed question. This is a reported literature claim; its proof has not been independently verified here.
+\paragraph{Statement recorded in the supplied source.}
+Let ${G=(V,E,W)}$ be a graph and ${k}$ a positive integer, is the following true? $\rho_G(k) \leq \mathrm{polylog}(k) \sqrt{\lambda_k}. \ \ \ \ \ (2)$ \href{https://afonsobandeira.wordpress.com/2015/10/05/10l42pcheeger/}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+Relate the expansion of exactly k disjoint vertex sets to the kth normalized-Laplacian eigenvalue, with only polylogarithmic loss.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 2800303 (AMR-027-0303). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AMR Open Problem Lists, source linked by catalogue record AMR-027-0303.
+\url{https://afonsobandeira.wordpress.com/2015/10/05/10l42pcheeger/}.
+\item[S3] Yunpeng Li, A sharp higher-order Cheeger inequality, arXiv:2609.35369v2 (5 October 2026). Abstract inspected; proof not independently verified.
+\url{https://arxiv.org/abs/2609.35369v2}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Let ${G=(V,E,W)}$ be a graph and ${k}$ a positive integer, is the following true? $\rho_G(k) \leq \mathrm{polylog}(k) \sqrt{\lambda_k}. \ \ \ \ \ (2)$
+
+\section{Attempt and results}
+We use finite undirected graphs with nonnegative weights and strictly positive
+degrees, as in the preserved definition. Sets are disjoint, nonempty and need
+not cover the graph. The question concerns every $1\le k\le n$ with a constant
+independent of $G,n,k$.
+
+\paragraph{The zero-eigenvalue case.}
+If $G$ has at least $k$ connected components, choose $k$ whole components.
+Each has positive volume and zero boundary, whence $\rho_G(k)=0$.
+Conversely, the identity
+\[
+f^TLf=\sum_{\{u,v\}}W_{uv}
+\left(\frac{f_u}{\sqrt{d_u}}-\frac{f_v}{\sqrt{d_v}}\right)^2
+\]
+shows that a kernel vector has $f_u/\sqrt{d_u}$ constant on each connected
+component. One constant per component is free. Thus the multiplicity of zero
+is the number of components, and $\lambda_k=0$ implies this exact easy case.
+Loops, if permitted, make zero contributions to the displayed energy; connectivity
+uses edges of positive weight between distinct vertices.
+
+\paragraph{Complete graphs give a uniform boundary check.}
+For the loopless complete graph $K_n$, $n\ge2$, a set of size $t$ has
+$\phi(S)=(n-t)/(n-1)$. In any $k$ disjoint nonempty sets, the smallest size is
+at most $\lfloor n/k\rfloor$, so
+\[
+\rho_{K_n}(k)\ge\frac{n-\lfloor n/k\rfloor}{n-1}.
+\]
+A partition into $k$ parts whose sizes differ by at most one attains equality.
+Since $L=\frac{n}{n-1}I-\frac1{n-1}J$, its eigenvalues are zero and
+$n/(n-1)$ with multiplicity $n-1$. Therefore $k=1$ gives zero on both sides,
+and $k\ge2$ satisfies $\rho_{K_n}(k)\le1\le\sqrt{\lambda_k}$.
+This verifies a family but supplies no bound for general graphs.
+
+\paragraph{A failed route through $\lambda_{2k}$.}
+The lecture notes distinguish bounds with index $k$ from bounds with index
+$2k$. An attempt to transfer the latter by a universal estimate
+$\lambda_{2k}\le C(\log(k+1))^a\lambda_k$ fails even for a union of $k$
+disjoint unit-weight edges. Its normalized Laplacian is block diagonal with
+blocks $\left(\begin{smallmatrix}1&-1\\-1&1\end{smallmatrix}\right)$.
+There are $k$ zeros and $k$ eigenvalues two. Thus $\lambda_k=0$ and
+$\lambda_{2k}=2$. The target is nonetheless true for this example because
+$\rho_G(k)=0$. This is a counterexample to the proposed intermediate estimate,
+not to the original Cheeger question.
+
+\section{Context, audit, and remaining scope}
+The primary abstract of Yunpeng Li, arXiv:2609.35369v2, revised 5 October 2026,
+was accessed on 11 October 2026. It reports
+$\rho_G(k)\le C\sqrt{\lambda_k\log(k+1)}$ for finite weighted positive-degree
+graphs, with exactly $k$ sets. This would cover the displayed target under
+those conventions. Its full proof was not inspected or independently checked
+in this attempt, and it is not presented as a theorem proved here.
+The source-catalogue partial status remains provenance, distinct from that claim.
+The present calculations are known elementary tests, not new progress on the
+general inequality. The audit rejected an index replacement, checked $k=1,n$
+and zero eigenvalues, and retained the positive-degree convention.
+No numerical computation or formal proof checking was performed for this record.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. No general exact-k rounding proof is supplied; the recent source reports a solution but was consulted at abstract level only.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Bandeira, lecture notes (2016), Section 3.6 and Open Problem 3.3; formulation and spectral indices inspected. \url{https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf}.
+\item Yunpeng Li, A sharp higher-order Cheeger inequality, version 2 (5 October 2026); abstract inspected, full proof not checked. \url{https://arxiv.org/abs/2609.35369v2}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} No general exact-k rounding proof is supplied; the recent source reports a solution but was consulted at abstract level only.
+\end{document}

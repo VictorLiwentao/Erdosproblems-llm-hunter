@@ -1,0 +1,90 @@
+% TOP_PROBLEM: {"id": 30003916, "title": "Reverse Burnett Problem for Einstein–Vlasov Limits", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The convergence gauge, local existence region and source regularity conditions are indispensable. The requested high-frequency family must solve the vacuum equations, not merely reproduce the effective stress tensor in a formal expansion."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003916", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Can every indicated Einstein--massless-Vlasov spacetime be approximated by high-frequency vacuum Einstein geometries?", "scope": "Computed the precise quadratic defect of a small-amplitude high-frequency scalar phase, illustrating the target convergence mechanism without constructing vacuum metrics.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Proved the oscillatory weak limit by integration by parts, checked strong amplitude convergence, derivative bounds and the single-null-direction limitation. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the oscillatory derivative product and test-function integration by parts. The scalar calculation is distinguished from constructing vacuum Einstein metrics. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Proved the oscillatory weak limit by integration by parts, checked strong amplitude convergence, derivative bounds and the single-null-direction limitation. The remaining gap is: Solve the actual vacuum Einstein constraints and evolution with prescribed Vlasov effective stress and controlled high-frequency errors. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30003916; source catalogue code OWR-16411-009
+\setcounter{section}{30003915}
+\section{Reverse Burnett Problem for Einstein–Vlasov Limits}\label{30003916}
+{\small UnsolvedMath ID 30003916 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+A massless Vlasov field is a distribution on the null particle phase space transported along null geodesics; its momentum moments give the stress tensor sourcing Einstein\textquotesingle s equations. The reverse Burnett problem asks whether this effective matter can arise from oscillatory vacuum geometry. Strong $L^2_{\mathrm{loc}}$ convergence of metrics is convergence on every compact coordinate region in square integral; an $L^2_{\mathrm{loc}}$ bound on first derivatives permits oscillations that survive quadratically in the weak limit.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Given a solution $g_0$ of the Einstein equations coupled to a massless Vlasov field, can one construct vacuum Einstein metrics $g_\lambda$ converging to $g_0$ in a high-frequency weak limit with $g_\lambda\to g_0$ strongly in $L^2_{\mathrm{loc}}$ and $\partial g_\lambda$ bounded in $L^2_{\mathrm{loc}}$?
+
+\paragraph{Source scope and qualification.}
+The convergence gauge, local existence region and source regularity conditions are indispensable. The requested high-frequency family must solve the vacuum equations, not merely reproduce the effective stress tensor in a formal expansion.
+\subsection{Short English statement}
+Can every indicated Einstein--massless-Vlasov spacetime be approximated by high-frequency vacuum Einstein geometries?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Computed the precise quadratic defect of a small-amplitude high-frequency scalar phase, illustrating the target convergence mechanism without constructing vacuum metrics.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30003916. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{A single-phase weak-limit calculation.} In a fixed coordinate region let \(k\ne0\) be a constant covector and \(A\) a smooth compactly supported real function. Define \(u_\varepsilon(x)=\varepsilon A(x)\cos(k\cdot x/\varepsilon)\). Then \(u_\varepsilon\to0\) strongly in local \(L^2\), while
+\[
+ \partial_\mu u_\varepsilon=-A k_\mu\sin(k\cdot x/\varepsilon)+O(\varepsilon),\qquad
+ \partial_\mu u_\varepsilon\partial_\nu u_\varepsilon\rightharpoonup\tfrac12 A^2k_\mu k_\nu.
+\]
+To justify the limit against a compact smooth test, use \(\sin^2s=(1-\cos2s)/2\); integrate the oscillatory term by parts in any direction with nonzero component of \(k\). The resulting integral is \(O(\varepsilon)\). The derivative error is uniformly \(O(\varepsilon)\) on the support.
+\paragraph{Stress and missing geometry.} If \(k\) is null for a constant Lorentz metric, the limiting tensor has zero trace and a single null direction, as a null-dust contribution should. Finite sums with nonresonant distinct phases can create sums of such tensors, but this scalar calculation supplies no transverse gravitational polarization, Einstein constraints or nonlinear error correction. A general massless Vlasov distribution may require a continuum of directions, not one phase.
+\paragraph{Audit.} Strong metric convergence plus bounded derivatives is therefore compatible with a nonzero quadratic effective stress, but compatibility is far weaker than a vacuum realization. The first gap is solving the gauge-fixed vacuum Einstein equations with this prescribed leading oscillatory stress and uniform error control. No exact vacuum metric family, arbitrary-source realization or gauge-independent convergence is proved.
+
+\paragraph{Verification and adversarial audit.}
+Proved the oscillatory weak limit by integration by parts, checked strong amplitude convergence, derivative bounds and the single-null-direction limitation. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Proved the oscillatory weak limit by integration by parts, checked strong amplitude convergence, derivative bounds and the single-null-direction limitation. The remaining gap is: Solve the actual vacuum Einstein constraints and evolution with prescribed Vlasov effective stress and controlled high-frequency errors. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the oscillatory derivative product and test-function integration by parts. The scalar calculation is distinguished from constructing vacuum Einstein metrics. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Solve the actual vacuum Einstein constraints and evolution with prescribed Vlasov effective stress and controlled high-frequency errors.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30003916:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30003916 (OWR-16411-009). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30003916:2}{S2}] Mathematical General Relativity (2018), Oberwolfach Reports, DOI 10.4171/owr/2018/36, pp. 2157--2251. Primary report accessed 2026-10-11; relevant PDF pages 58.
+\url{https://doi.org/10.4171/owr/2018/36}.
+\item[\hypertarget{source:30003916:3}{S3}] Huneau--Luk 2024 (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/2404.07659}.
+\end{itemize}
+\label{end:30003916}
+\end{document}

@@ -1,0 +1,123 @@
+% RESEARCH_DRAFT_SHA256: c66a26d1faf63112388f2243958581d552888a56f30fdf1e8b79293d77a525d1
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001339, "title": "Finite resource bounds for random spherical covering", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001339", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and written mathematical review at the declared scope; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Finite resource bounds for random spherical covering; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A finite net certificate and explicit random-sampling bounds; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch015 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 20001339; source catalogue code AIM-CRYPTOGRAPHY-0026
+\section{Finite resource bounds for random spherical covering}\label{20001339}
+{\small UnsolvedMath ID 20001339 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For unit vectors u,v, their angular distance is $\arccos\langle u,v\rangle$. A finite set C covers $S^{n-1}$ at angle $\alpha$ when every unit vector has angular distance at most $\alpha$ from some member of C. The available points are independent uniform sphere samples, and the selected cover must use a subsequence of them.
+\paragraph{Statement recorded in the supplied source.}
+Parameters: $n \geq 2$ and $\alpha > 0$. Given independent uniformly random $x_1, x_2, \dots\in S^{n-1} = \{v \in \mathbb R^n : \|v\|_2 = 1\}$, how quickly can we find a subsequence that covers $S^{n-1}$? (Here, ``covers" means that every point of $S^{n-1}$ is within angle $\alpha$ of a point in the subsequence.) For example, consider the case when $n = 1000$ and $\alpha = 75^\circ$. \href{http://aimpl.org/quantumalg/6/}{[S2]}
+\paragraph{Scope qualification.}
+The source asks for speed without choosing sample complexity versus computational cost, or an expected-time versus high-probability guarantee.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+How quickly can random points on a sphere provide a cover by angular neighborhoods of a given size?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001339 (AIM-CRYPTOGRAPHY-0026). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-CRYPTOGRAPHY-0026
+\url{http://aimpl.org/quantumalg/6/}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001339 and source code AIM-CRYPTOGRAPHY-0026 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001339}
+
+\section{Literature and context check}
+Fresh retrieval of the original AIM quantum-algorithm problem pages failed (web timeout and direct network/DNS failure; an escalated retry of the related chapter-four page also failed certificate validation). The supplied original extract remains the source text; successful fresh access to those pages is not claimed. The source asks for speed without fixing sample cost, verification cost, or desired failure probability. The following argument chooses a high-probability finite-sample guarantee and separately prices a net-based certificate. It is an elementary covering argument, not a claim of an optimal sphere-covering algorithm.
+\section{Research attempt: A finite net certificate and explicit random-sampling bounds}
+If $\alpha\geq\pi$, one point covers the sphere. Hence assume $0<\alpha<\pi$ and choose $0<\delta<\alpha$. Put $\varepsilon=2\sin(\delta/2)$. There is a finite angular $\delta$-net of size
+\[
+ M\leq(1+2/\varepsilon)^n.                          \tag{1}
+\]
+To prove this, take points greedily whose Euclidean distances exceed $\varepsilon$. Open Euclidean balls of radius $\varepsilon/2$ around them are disjoint and lie inside the ball of radius $1+\varepsilon/2$. Comparing $n$-dimensional volumes bounds their number by (1), so the greedy process must stop. Maximality makes every sphere point Euclidean distance at most $\varepsilon$ from a selected point. For unit vectors, $\|u-v\|=2\sin(\angle(u,v)/2)$, giving the angular net property.
+
+For $0<\beta<\pi$, let $q_n(\beta)$ be the fraction of sphere area in an angular cap of radius $\beta$. Polar coordinates about its center give
+\[
+ q_n(\beta)={\int_0^\beta\sin^{n-2}\theta\,d\theta
+                    \over\int_0^\pi\sin^{n-2}\theta\,d\theta}.       \tag{2}
+\]
+The area element has the factor $\sin^{n-2}\theta$ because each latitude is a sphere scaled by $\sin\theta$ in $n-2$ tangent directions; the remaining polar direction has unit length. For $n=2$ the same formula is $\beta/\pi$, including the two arcs.
+
+Set $\beta=\alpha-\delta$. A fixed net point is missed by all $m$ independent samples with probability $(1-q_n(\beta))^m\leq e^{-m q_n(\beta)}$. A union bound and the angular triangle inequality show that the samples cover the whole sphere at angle $\alpha$ with failure probability at most $M e^{-m q_n(\beta)}$. Thus
+\[
+ m\geq{n\log(1+2/\varepsilon)+\log(1/\eta)\over q_n(\alpha-\delta)}  \tag{3}
+\]
+is sufficient for failure probability at most $\eta\in(0,1)$. The angular triangle inequality can be checked directly: decompose $u,v$ around a unit $z$; Cauchy--Schwarz gives $u\cdot v\geq\cos(a+b)$ when $a=\angle(u,z)$, $b=\angle(z,v)$ and $a+b\leq\pi$, while larger sums are trivial.
+
+If a specified net is available, scan the samples and retain one witness within angle $\beta$ for each net point. Once all have a witness, their union is a certifiably covering subsequence of at most $M$ samples. Checking all pairs costs $O(mMn)$ scalar arithmetic operations in a real-arithmetic model. Bound (1) is an existence bound, not a free algorithm for computing an optimal net. A completely explicit larger net is available: take all nonzero vectors on the grid of spacing $h=\varepsilon/(2\sqrt n)$ with coordinate indices $|z_i|\leq\lceil1/h\rceil$, and normalize them. Rounding any sphere point to this grid gives a nonzero vector $y$ with distance at most $\varepsilon/4$; normalizing changes the distance by at most another $\varepsilon/4$, so this is also an angular $\delta$-net. Its size is at most $(4\sqrt n/\varepsilon+3)^n$. Using this larger count in the union bound yields an explicit, potentially enormous certificate algorithm.
+
+There is also a necessary cardinality bound for every cover, independent of randomness: $k$ caps have total area at most $k q_n(\alpha)$, so $k\geq1/q_n(\alpha)$. This need not match (3). For a fully elementary lower estimate on its denominator when $0<\beta\leq\pi/2$ and $0<h_0<\beta$,
+\[
+ q_n(\beta)\geq {h_0\over\pi}\sin^{n-2}(\beta-h_0),        \tag{4}
+\]
+by restricting the numerator integral to $[\beta-h_0,\beta]$ and bounding the denominator by $\pi$.
+\section{Verification and adversarial audit}
+The cases $\alpha\geq\pi$ and $n=2$ were separated. Every selected witness is an actual input sample. A real-arithmetic certificate is not asserted to have a uniform finite-bit complexity when comparisons are arbitrarily close to the angular threshold. Equations (1)--(4) distinguish sample cardinality, selection, and net construction.
+\paragraph{Audit corrections.} An existential small net was not silently assumed to be supplied for free. The selected cover is a subsequence, and illustrative floating-point evaluations do not replace the exact integral or elementary lower bound.
+\paragraph{External computation.} Python 3.14.2 with SciPy evaluated the displayed cap integral using the equivalent incomplete-beta formula for illustration: for $n=1000$, caps of $74$ and $75$ degrees gave approximately $3.2685\cdot10^{-19}$ and $4.3753\cdot10^{-17}$. With $\delta=1$ degree, $\eta=0.01$, and $h_0=1/1000$, the logarithm to base ten of the sufficient expression using (1) and (4) was about $24.4228$. These are floating-point summaries, not certified rounded integer guarantees; (3) and (4) give the exact bounds.
+\section{Scope and remaining gaps}
+The bounds are finite but not optimal, and no competitive algorithm for the sample-1000-dimensional instance is established. The exponential-size net certificate is an explicit route with a quantified cost, not an efficient solution hidden behind a coverage assertion.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. No additional source page was successfully retrieved for
+this attempt; the retrieval limitation is stated in Literature and context check.
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and written mathematical review at the declared scope; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

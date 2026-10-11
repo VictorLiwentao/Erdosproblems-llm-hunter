@@ -1,0 +1,84 @@
+% TOP_PROBLEM: {"id": 20002513, "title": "Mirror-quintic periods, modular-type structures, and a conifold obstruction", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The Picard–Fuchs equation identifies the series without claiming a classical modular uniformization. The source asks about nonholomorphic forms and other automorphic objects as well as the distinguished period; all are retained. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002513", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Determine modular or automorphic structures for the mirror-quintic period series and the other Picard–Fuchs solutions.", "scope": "Verified the mirror-quintic differential equation, unique holomorphic germ and exact convergence radius. No modular or automorphic realization of the full period system is constructed.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked factorial recurrence, n=0 freedom, ratio limit and analytic differentiation domain; distinguished a rational ODE from automorphy. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the factorial recurrence, unique holomorphic germ and exact convergence radius of the displayed Picard-Fuchs series. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked factorial recurrence, n=0 freedom, ratio limit and analytic differentiation domain; distinguished a rational ODE from automorphy. Scope remains limited: Identify the global monodromy and a compatible automorphic domain/group realization for all independent periods."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002513; source catalogue code AIM-PHYSICS-0021
+\setcounter{section}{20002512}
+\section{Mirror-quintic periods, modular-type structures, and a conifold obstruction}\label{20002513}
+{\small UnsolvedMath ID 20002513 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}The distinguished series is $\varpi_0(z)=\sum_{n\ge0}(5n)!/(n!)^5\,z^n$. With $\theta=z\,d/dz$, it satisfies the mirror-quintic Picard--Fuchs operator $\theta^4-5z(5\theta+1)(5\theta+2)(5\theta+3)(5\theta+4)$. Other independent solutions describe additional periods, possibly with logarithmic behavior. Modular or automorphic behavior requires a group, domain and transformation law.
+
+\paragraph{Catalogue wording retained for traceability.}
+Is $\sum \frac{(5n)!}{(n!)^5}z^n$ related to (non-holomorphic) forms? Is it related to automorphic objects?
+Do other solutions to the Picard-Fuchs equation have modular properties?
+\paragraph{Scope and source qualification.}The Picard–Fuchs equation identifies the series without claiming a classical modular uniformization. The source asks about nonholomorphic forms and other automorphic objects as well as the distinguished period; all are retained. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Determine modular or automorphic structures for the mirror-quintic period series and the other Picard–Fuchs solutions.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Verified the mirror-quintic differential equation, unique holomorphic germ and exact convergence radius. No modular or automorphic realization of the full period system is constructed.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{A direct Picard--Fuchs verification.}Put \(a_n=(5n)!/(n!)^5\), \(a_0=1\), and \(\theta=z\,d/dz\). For \(n\ge1\), factorial cancellation gives
+\[n^4a_n=5(5n-4)(5n-3)(5n-2)(5n-1)a_{n-1}.
+\]
+Comparing coefficients proves that \(f(z)=\sum a_nz^n\) solves \([\theta^4-5z(5\theta+1)(5\theta+2)(5\theta+3)(5\theta+4)]f=0\). Conversely this recurrence uniquely determines a holomorphic power-series solution from its constant coefficient; thus all holomorphic solutions at zero are multiples of \(f\).
+The ratio \(a_{n+1}/a_n\to5^5\), so the convergence radius is exactly \(5^{-5}\) by the ratio test. For \(|z|\) below that radius the differentiated series converge normally, justifying the operator calculation analytically as well as formally.
+\paragraph{A limitation of recognizing a differential equation.}The operator is fourth order, while only one holomorphic solution is obtained at zero. Additional local solutions can have logarithms; no claim that they are single-valued modular forms follows. A differential equation with rational coefficients alone does not provide an arithmetic group, an automorphy factor or a modular coordinate. In particular its monodromy representation and a proposed group action must be related by a separate construction.
+\paragraph{First gap.}No modular, nonholomorphic or more general automorphic object has been identified whose pullback is this period vector. Determining the global monodromy and compatible period-domain transformation law is missing, including the other independent solutions explicitly requested in the source. This recurrence calculation is a known analytic verification, not a proof or disproof of the broad automorphic connection.
+
+\paragraph{Verification and adversarial audit.}
+Checked factorial recurrence, n=0 freedom, ratio limit and analytic differentiation domain; distinguished a rational ODE from automorphy. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked factorial recurrence, n=0 freedom, ratio limit and analytic differentiation domain; distinguished a rational ODE from automorphy. Scope remains limited: Identify the global monodromy and a compatible automorphic domain/group realization for all independent periods.
+
+Coordinator checked the factorial recurrence, unique holomorphic germ and exact convergence radius of the displayed Picard-Fuchs series. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Identify the global monodromy and a compatible automorphic domain/group realization for all independent periods.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002513:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002513 (AIM-PHYSICS-0021). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002513:2}{S2}] American Institute of Mathematics, Gromov-Witten invariants and number theory, source item 4.4.
+\url{http://aimpl.org/gromwitnumthry/4/}.
+\end{itemize}
+\label{end:20002513}
+\end{document}

@@ -1,0 +1,153 @@
+% RESEARCH_DRAFT_SHA256: a93299d20496da34a634d35a37e7ff3bef7082264aff8e45bb919ea1a60f9971
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004902, "title": "Near-Optimal Algorithms for Mixed-Integer Convex Optimization", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004902", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Can mixed-integer convex optimization be solved with running time matching its information-complexity bound up to lower-order factors?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. One-dimensional convex integer search is exact, but fiber-oracle construction and multidimensional direction/cut computation remain uncontrolled; coordinatewise search has an explicit convex counterexample.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Mixed-integer convex search: exact one-dimensional bisection and a coordinate trap}
+\noindent UnsolvedMath ID 30004902; OWR-8415356-009. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Mixed-integer convex optimization minimizes a convex function over a convex feasible set intersected with $\mathbb Z^n\times\mathbb R^d$. In an oracle model, information complexity counts oracle answers needed to obtain the specified additive accuracy, while running time includes the work between queries. The source uses bounded feasible regions, Lipschitz objective control, and a strict-feasibility parameter to state its bounds, with first-order and separation access.
+\paragraph{Statement recorded in the supplied source.}
+Can mixed-integer convex optimization be solved with running time matching its information-complexity bound up to lower-order factors? \href{https://doi.org/10.4171/owr/2021/53}{[S2]}
+\paragraph{Scope qualification.}
+This is the comparison in the source's parameterized oracle setting; it is not a claim about arbitrary unencoded convex functions. The radius, Lipschitz constant, feasibility margin, accuracy, and oracle costs must remain specified when giving a quantitative running-time bound.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Find mixed-integer convex algorithms whose total computation approaches the oracle-information bounds.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004902 (OWR-8415356-009). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/53, pp. 2893--2954
+\url{https://doi.org/10.4171/owr/2021/53}.
+\item[S3] Combinatorial Optimization, Oberwolfach Reports 53/2021, primary report PDF
+\url{https://ems.press/content/serial-article-files/46931}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Can mixed-integer convex optimization be solved with running time matching its information-complexity bound up to lower-order factors?
+
+\section{The proposed extension of one-dimensional search}
+The source distinguishes oracle queries from all computation and
+specifies radius, Lipschitz control, fiber feasibility and accuracy.
+We study an elementary one-integer-variable algorithm and then test
+extending it by coordinatewise minimization. The resulting obstruction
+satisfies convexity and has a simple feasible region; it is not a
+lower bound on all methods using general lattice directions or cuts.
+
+\paragraph{Exact discrete convex minimization in one dimension.}
+Let $g$ be a finite convex real function on $[a,b]$, where
+$a<b$ are integers, and suppose exact function-value queries and
+comparisons are available. Put $\delta_k=g(k+1)-g(k)$ for
+$a\le k<b$. Convexity at the midpoint $k+1$ gives
+$2g(k+1)\le g(k)+g(k+2)$, hence
+$\delta_k\le\delta_{k+1}$. Binary search therefore finds
+the first $k$ with $\delta_k\ge0$ using
+$O(\log(b-a+1))$ comparisons, each using two value queries.
+If there is no such index, $g$ strictly decreases at every
+integer step and $b$ is a minimizer. Otherwise all earlier
+differences are negative and all later ones nonnegative, so this
+first $k$ minimizes $g$ on the integer interval. Plateaus and
+endpoint minima are included; a one-point interval is immediate.
+The index arithmetic uses $O(\log(|a|+|b|+2))$ bits,
+so has polynomial cost in the endpoint binary lengths. The statement
+counts exact oracle access, not a bound on the cost of supplying
+or comparing arbitrary real oracle answers.
+
+\paragraph{Partial minimization is convex but not automatically cheap.}
+For a convex feasible set $C\subseteq\mathbb R^{n+d}$ and
+convex $f$, define $\phi(x)=\inf\{f(x,y):(x,y)\in C\}$,
+with value $+\infty$ for an empty fiber. Where the infima are
+finite, $\phi$ is convex. Indeed take points in two fibers with
+values within $\eta>0$ of their infima. Their convex combination
+is feasible by convexity of $C$, and convexity of $f$ bounds
+its value by the same combination of the two values. Taking the
+infimum in the intermediate fiber and then letting $\eta$ tend
+to zero proves the inequality. If an infimum is $-\infty$,
+the same argument uses arbitrarily low fiber values with the
+appropriate extended-value qualifications. For the bounded promised
+optimization setting the finite case is the relevant one.
+This calculation does not give an inexpensive evaluation oracle for
+$\phi$, or certify all empty fibers. Those operations would require
+their own algorithms and error budgets.
+
+\paragraph{Coordinatewise integer optimality is insufficient.}
+Fix $0<\gamma<1$ and minimize
+\[
+f(x_1,x_2,y)=(x_1-x_2)^2-\gamma(x_1+x_2)+y^2
+\]
+on $C=[0,1]^2\times[-1,1]$, with the first two coordinates
+integer and the last continuous. This is convex: a squared linear
+form and a square are convex by
+$(\theta u+(1-\theta)v)^2\le\theta u^2+(1-\theta)v^2$,
+whose difference is $\theta(1-\theta)(u-v)^2\ge0$;
+the remaining term is linear. On each integer fiber the best
+$y$ is zero. The four resulting values are
+\[
+f(0,0,0)=0,\quad f(1,0,0)=f(0,1,0)=1-\gamma>0,
+\quad f(1,1,0)=-2\gamma<0.
+\]
+Thus $(0,0,0)$ is a strict optimum against either individual
+integer-coordinate change and against all continuous changes, but
+is not a global mixed-integer optimum. The diagonal move improves it.
+The region is contained in the radius-one infinity-norm box; every
+optimal integer fiber contains a continuous interval of radius one;
+and $y\mapsto y^2$ is Lipschitz with constant two on that
+interval, since $|y^2-z^2|=|y-z||y+z|\le2|y-z|$.
+Hence the example is compatible with the corresponding basic source
+promises rather than exploiting a missing feasibility margin.
+
+\section{Audit and computational gap}
+The primary oracle model and comparison of query and algorithmic
+complexity on printed pages 2939--2941 were inspected. The one-dimensional
+binary search attains logarithmic query count in its stated special
+model, but independent coordinate searches do not extend its correctness.
+Computing sufficient directions or effective integer-valid cuts with
+the desired total cost is precisely missing. We do not replace the
+source bound by grid enumeration, which can depend polynomially on
+the numerical radius rather than its logarithm. No numerical oracle
+experiment or performance benchmark was run, and no general matching
+running-time bound is established.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. One-dimensional convex integer search is exact, but fiber-oracle construction and multidimensional direction/cut computation remain uncontrolled; coordinatewise search has an explicit convex counterexample.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 53/2021, Combinatorial Optimization, original question and surrounding discussion read from the primary PDF text on 11 October 2026. Historical statements are not a current-status survey. \url{https://ems.press/content/serial-article-files/46931}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} One-dimensional convex integer search is exact, but fiber-oracle construction and multidimensional direction/cut computation remain uncontrolled; coordinatewise search has an explicit convex counterexample.
+\end{document}

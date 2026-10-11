@@ -1,0 +1,157 @@
+% RESEARCH_DRAFT_SHA256: fdb415809c4d0c254d34aead7aadc355e6999713ab6051916b769d4bb7055542
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004900, "title": "Extension Complexity of Inscribed Fixed-Dimensional Polytopes", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004900", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "For every fixed $d\\geq2$, does every $d$-dimensional polytope with $n$ vertices on a common sphere have extension complexity $O(\\sqrt n)$?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The exact nonnegative-factorization route is proved, but the common-sphere hypothesis has not yielded a sufficiently small nonnegative factorization or another worst-case extension.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Inscribed extensions: slack factorization and why small ordinary rank does not suffice}
+\noindent UnsolvedMath ID 30004900; OWR-8415356-006. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+An inscribed polytope has all its vertices on one Euclidean sphere. An extension of $P$ is a polyhedron $Q$ together with an affine map projecting $Q$ onto $P$. Extension complexity is the minimum number of inequalities in any such description of $Q$; equations do not count as inequalities. The dimension $d$ is fixed and the constant in $O(\sqrt n)$ may depend on $d$.
+\paragraph{Statement recorded in the supplied source.}
+For every fixed $d\geq2$, does every $d$-dimensional polytope with $n$ vertices on a common sphere have extension complexity $O(\sqrt n)$? \href{https://doi.org/10.4171/owr/2021/53}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Bound how many inequalities are needed in a higher-dimensional description of an inscribed polytope.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004900 (OWR-8415356-006). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/53, pp. 2893--2954
+\url{https://doi.org/10.4171/owr/2021/53}.
+\item[S3] Combinatorial Optimization, Oberwolfach Reports 53/2021, primary report PDF
+\url{https://ems.press/content/serial-article-files/46931}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+For every fixed $d\geq2$, does every $d$-dimensional polytope with $n$ vertices on a common sphere have extension complexity $O(\sqrt n)$?
+
+\section{Attempt through slack matrices}
+The primary report asks for every fixed dimension and every inscribed
+polytope, rather than only a random inscribed polytope. We examine
+whether the low algebraic rank of its slack matrix proves a short
+extension. The construction below identifies the extra positivity
+condition needed and gives a complete obstruction to omitting it.
+
+\paragraph{A nonnegative factorization gives an extension.}
+Let $P=\operatorname{conv}\{v_1,\ldots,v_n\}
+=\{x:Ax\le b\}$ be a full-dimensional polytope and put
+$S_{ij}=b_i-a_i^Tv_j$. Suppose $S=TU$, where both factors
+are entrywise nonnegative and $T$ has $q$ columns. Define
+\[
+Q=\{(x,y):Ax+Ty=b,\ y\in\mathbb R^q_{\ge0}\}.
+\]
+Every projected point of $Q$ satisfies $Ax\le b$, since
+$Ty\ge0$, and is therefore in $P$. Conversely each vertex
+$v_j$ lifts with $y=U_{*,j}$ because $Av_j+TU_{*,j}=b$.
+Convex combinations of these lifts give every point of $P$.
+Thus the projection is exactly $P$, using only $q$ inequalities
+besides equations. Finding a nonnegative factorization of inner size
+$O(\sqrt n)$ would therefore supply the desired bound.
+
+Ordinary rank is much easier: writing rows $(b_i,-a_i^T)$
+and columns $(1,v_j)^T$ shows $\operatorname{rank}S\le d+1$.
+Those factors need not be nonnegative. Discarding that requirement
+invalidates the implication $Ty\ge0$, so the same formula no
+longer proves a valid extension.
+
+\paragraph{A complete general lower bound showing the distinction.}
+The one-vertex case has the trivial bound $1\le2^q$. For $n\ge2$,
+any extension of a polytope with $n$ vertices described by $q$
+inequalities has $n\le2^q$. Here equations may be present and
+the extension may be unbounded. To prove the claim, for each
+vertex $v$ choose an objective on $P$ uniquely maximized at
+$v$. Such an objective exists directly: the compact convex hull
+of the other vertices does not contain $v$; let $z$ be its
+closest point to $v$. Differentiating squared distance along the
+segment from $z$ to any other point $u$ of that hull gives
+$(v-z)\cdot(u-z)\le0$. Hence the vector $v-z$ strictly
+separates $v$ from that hull. Pulling this objective back to the
+extension gives a nonempty exposed face $F_v$ projecting to $v$.
+Different vertices give different faces.
+
+Every nonempty face of a polyhedron is determined by which of its
+$q$ defining inequalities hold identically as equalities. For a
+direct verification in the present exposed-face case, choose a point
+$x$ in the face at which exactly those common equalities are tight.
+If every inequality is identically tight, choose any point of the
+nonempty face. Otherwise obtain such a point by averaging, for each inequality not
+identically tight, a face point with positive slack. If $y$ in
+the polyhedron satisfies all the common equalities, then for sufficiently
+small $t>0$ the point $z=x+t(x-y)$ is feasible: common
+equalities are preserved and each remaining positive slack at $x$
+allows a small perturbation. Since $x$ is a strict convex
+combination of $y,z$, and the defining linear objective is maximal
+at $x$, both $y,z$ maximize it too. Thus $y$ lies in the
+face, proving the characterization. There are at most $2^q$
+subsets of inequalities, which proves $n\le2^q$ and
+$q\ge\log_2 n$.
+
+Regular $n$-gons have all vertices on a circle and ordinary
+slack rank at most three, yet this bound makes their extension
+complexities unbounded as $n$ grows. Consequently small ordinary
+rank, even with the inscribed hypothesis, does not imply an
+extension with that many inequalities. This does not refute an
+$O(\sqrt n)$ extension, which is much larger than the lower
+bound just proved.
+
+\paragraph{The missing step and a baseline construction.}
+Every $n$-vertex polytope has an $n$-inequality extension using
+$\lambda_j\ge0$, $\sum_j\lambda_j=1$ and
+$x=\sum_j\lambda_jv_j$, by the definition of convex hull.
+The source's random-polytope and planar results do not turn this
+into a worst-case fixed-dimensional bound by themselves. The route
+above requires a nonnegative factorization exploiting the common
+sphere or another explicit construction with the desired size;
+neither is supplied here.
+
+\section{Audit}
+The primary discussion on printed pages 2928--2929 was inspected.
+The audit allows unbounded extensions and uncounted equations in
+the face argument, and distinguishes ordinary factorization from
+nonnegative factorization. The reported planar theorem is source
+context, not a theorem independently proved in this attempt.
+No factorization search or polytope computation was performed and
+no current-status or novelty claim is made.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The exact nonnegative-factorization route is proved, but the common-sphere hypothesis has not yielded a sufficiently small nonnegative factorization or another worst-case extension.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 53/2021, Combinatorial Optimization, original question and surrounding discussion read from the primary PDF text on 11 October 2026. Historical statements are not a current-status survey. \url{https://ems.press/content/serial-article-files/46931}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The exact nonnegative-factorization route is proved, but the common-sphere hypothesis has not yielded a sufficiently small nonnegative factorization or another worst-case extension.
+\end{document}

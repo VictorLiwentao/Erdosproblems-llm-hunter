@@ -1,0 +1,95 @@
+% RESEARCH_DRAFT_SHA256: 796c2de514f48f822c3c89120e2488594f1e6f917e92fee72fbc2003ac801df3
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20002109, "title": "What an authenticity check can and cannot certify", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002109", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Base-rate calculation for the evidential meaning of hypothetical authorship flags.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch008/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 20002109; source catalogue code AIM-INFRASTRUCTURE-0009
+\section{What an authenticity check can and cannot certify}\label{20002109}
+{\small UnsolvedMath ID 20002109 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+Response authenticity concerns whether the submitted work was produced by the claimed learner under the allowed conditions. Verification of a final answer's mathematical correctness is distinct from evidence about its authorship. A self-assessing task lets its output be checked against the task requirements.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+No threat model, allowed assistance, evidence source, or authorship decision rule is defined. The supplied catalogue marks this record partially solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+10. How to ensure the student provided the answer? "Authenticity"
+
+- Some answers are self-assessing (i.e. "does this work") \href{http://aimath.org/pastworkshops/oerassessmentproblems.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The source asks how to establish who produced an assessment response.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20002109 (AIM-INFRASTRUCTURE-0009). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-INFRASTRUCTURE-0009.
+\url{http://aimath.org/pastworkshops/oerassessmentproblems.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 20002109 and code AIM-INFRASTRUCTURE-0009 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:20002109}
+
+\section{Research attempt}
+\subsection{Literature, source context and scope}
+The primary AIM notes describe a brainstorming session. The original excerpt and all catalogue qualifications remain above. They do not specify a mathematical theorem or a complete empirical study. The formal model below is an explicitly limited research route introduced for this attempt, not a reconstruction of a missing original conjecture. The supplied catalogue's earlier research summary was inspected as context; its named framework is not adopted as an established solution. The elementary result below is not claimed novel, and no educational effectiveness data were collected.
+
+\subsection{Attempt: interpreting an authenticity flag}
+I tested whether a detector with apparently favorable sensitivity establishes authorship when a submission is flagged. Let $U$ indicate unauthorized production under a separately declared rule, with prevalence $\pi$. Suppose the flag $F$ has sensitivity $s=P(F\mid U)$ and false-positive rate $f=P(F\mid U^c)$. These are hypothetical population calibration quantities, not measurements of an actual detector or student.
+\begin{proposition}
+Provided $P(F)>0$, the unauthorized fraction among flagged submissions is
+\[
+P(U\mid F)=\frac{\pi s}{\pi s+(1-\pi)f}.
+\]
+For any fixed $s>0$ and $f>0$, it tends to zero as $\pi\to0$, regardless of the sensitivity's size.
+\end{proposition}
+\begin{proof}
+The flagged-and-unauthorized mass is $P(U\cap F)=\pi s$. The flagged-and-authorized mass is $(1-\pi)f$. Their sum is $P(F)$ because the two cases partition all flagged submissions. Dividing the first mass by their sum gives the formula. With fixed positive $f$, the numerator tends to zero and denominator to $f$ as $\pi\to0$, proving the limit.
+\end{proof}
+\subsection{Verification and remaining gaps}
+At $\pi=1/100$, $s=9/10$ and $f=1/20$, the positive predictive value is $2/13$, approximately $15.38\%$. Thus most flags would concern authorized submissions in this hypothetical population. Sensitivity alone cannot support the inference that a particular flag establishes unauthorized authorship. The calculation also does not establish the needed prevalence or calibration, and a correct self-assessing artifact does not supply them. No actual authorship determination or complete authenticity protocol is claimed; assistance rules, evidence and empirical calibration remain missing from the source agenda.
+
+\section{References and source attribution}
+American Institute of Mathematics, workshop discussion notes on open educational resources and assessment, \url{https://aimath.org/pastworkshops/oerassessmentproblems.pdf}. The 16-page primary PDF was opened on 11 October 2026 and its numbered brainstorming item was checked against the supplied record. The source supports the provenance and agenda, not the additional modeling assumptions or an empirical educational conclusion. Catalogue and contributor attribution are retained in the reproduced Sources section. The worked mathematics is proved here without reliance on an unverified external theorem.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch008/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

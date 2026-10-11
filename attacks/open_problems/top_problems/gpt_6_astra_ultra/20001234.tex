@@ -1,0 +1,101 @@
+% RESEARCH_DRAFT_SHA256: 7e2e4d7b8b22235002918a56a16cef9218ddf058b101fa1ed565af3494b85ad9
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001234, "title": "Explicit Gaussian MLE for monotone block missingness", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001234", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Continuum of observationally identical Gaussian covariance completions for overlapping pair patterns.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch005/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 20001234; source catalogue code AIM-COMPUTATION-0072
+\section{Explicit Gaussian MLE for monotone block missingness}\label{20001234}
+{\small UnsolvedMath ID 20001234 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a statistical model with parameter $\theta$ and observations $D$, the likelihood is $L(\theta;D)=\Pr_\theta(D)$, or the corresponding density. Maximum likelihood seeks a global maximum over the admissible parameter space. Each observation from a Gaussian population may reveal a different subset of coordinates. Its contribution to the observed likelihood is the Gaussian marginal on that subset, with the same underlying mean vector and covariance matrix. A block structure groups coordinates with related missingness patterns.
+\paragraph{Statement recorded in the supplied source.}
+Problem 57. Gaussian missing data problem. Consider a continuous Gaussian population and a random sample of size n but only some of the characteristics of each individual are observed. Estimate the mean and covariance matrix. Fienberg: First approach the problem using a block structure. Steele: Look at a sequence of regressions as a sequence of polynomials. Can you solve the structure explicitly? \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The source also proposes block and regression approaches; no missing-at-random assumption or universal existence and uniqueness guarantee is silently added.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can the mean and covariance of a Gaussian population be estimated explicitly when different observations have different missing coordinates?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001234 (AIM-COMPUTATION-0072). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0072
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001234 and source code AIM-COMPUTATION-0072 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001234}
+
+
+\section{Research attempt}
+\subsection{Literature and scope}
+Problem 57 asks for mean and covariance estimation under arbitrary Gaussian missingness. I tested whether collecting overlapping pairs necessarily determines the full covariance. Even with the mean and variances known, pair patterns $12$ and $23$ leave a continuum of observationally identical covariance completions.
+\begin{proposition}
+Fix $|a|,|b|<1$. For centered three-dimensional Gaussian distributions with unit variances and covariance
+\[
+\Sigma(c)=\begin{pmatrix}1&a&c\\a&1&b\\c&b&1\end{pmatrix},
+\]
+the positive-definite completions are precisely
+\[
+|c-ab|<\sqrt{(1-a^2)(1-b^2)}.
+\]
+Every such completion induces the same law for any fixed independent collection of observations of pairs $12$ and $23$ only.
+\end{proposition}
+\begin{proof}
+For a quadratic form in coordinates $(u,v,w)$, complete the square in $v$:
+\[
+(u,v,w)\Sigma(c)(u,v,w)^{\mathsf T}
+=(v+au+bw)^2+(1-a^2)u^2+2(c-ab)uw+(1-b^2)w^2.
+\]
+The remaining two-dimensional form is positive definite exactly when its positive first diagonal coefficient and its determinant are positive; completing its square once more proves this criterion. Its determinant is $(1-a^2)(1-b^2)-(c-ab)^2$, giving the interval. The pair covariance matrices $\left(\begin{smallmatrix}1&a\\a&1\end{smallmatrix}\right)$ and $\left(\begin{smallmatrix}1&b\\b&1\end{smallmatrix}\right)$ do not involve $c$. Gaussian marginals depend only on these mean and covariance entries, so each observed-pair density, and their independent product, is identical for all allowed $c$.
+\end{proof}
+\subsection{Verification and failed route}
+At $a=b=0$ every $c\in(-1,1)$ is a positive-definite completion with identical observed pair laws. At $a=1/2,b=1/3$ the interval is centered at $1/6$ with squared radius $2/3$. Exact rational arithmetic verifies these endpoints' formula. Thus even exact population pair distributions cannot identify the missing covariance; more samples of the same patterns cannot repair this.
+\subsection{Original-scope comparison and remaining gaps}
+If the identifiable observed parameters have a fitted optimum inside this family, the likelihood is constant across the whole compatible interval. This obstruction does not preclude set-valued estimates, regularization or additional structural assumptions. It neither estimates unknown means in general nor solves all missingness patterns. It is a standard completion calculation, not new progress on the full source problem.
+
+\section{References and source attribution}
+The original question is credited to the AIM workshop list prepared by Seth Sullivant (2004), \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}. The source question and catalogue attribution are reproduced above. This list was accessed on 11 October 2026; it is historical evidence of the question, not a certification of present open status.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch005/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

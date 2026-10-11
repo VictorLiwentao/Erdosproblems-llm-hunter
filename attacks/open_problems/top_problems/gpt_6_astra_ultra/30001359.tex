@@ -1,0 +1,100 @@
+% TOP_PROBLEM: {"id": 30001359, "title": "Nonlinear Stability of the Full Kerr Family", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The primary formulation also requires a nonempty black-hole region and sufficiently fast asymptotic approach in the exterior. Smallness norm and decay topology are intentionally rough in the report. The ordinary subextremal stability target should not silently be enlarged to extremal horizons, where different phenomena occur, nor reduced to small angular momentum alone."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001359", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Show that small perturbations of rotating black holes keep a complete exterior and settle to another Kerr black hole.", "scope": "Calculates surface-gravity degeneration and its consequences for a conditional energy-absorption strategy across the subextremal family.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked Kerr root algebra, positivity and extremal limit, exact integrating factor and the difference between fixed-parameter and uniform stability. Model self-audit only; no independent human proof checking. Coordinator checked the surface-gravity simplification and conditional integrating-factor/absorption bounds as extremality is approached. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked Kerr root algebra, positivity and extremal limit, exact integrating factor and the difference between fixed-parameter and uniform stability. Retained unresolved status and zero original-target progress; The actual nonlinear Einstein estimates and all global exterior/asymptotic conclusions remain missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001359; source catalogue code OWR-4129-001
+\setcounter{section}{30001358}
+\section{Nonlinear Stability of the Full Kerr Family}\label{30001359}
+{\small UnsolvedMath ID 30001359 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} An asymptotically flat vacuum initial data set $(\Sigma,\bar g,K)$ satisfies the Einstein constraints and has maximal globally hyperbolic development $(M,g)$ with $\operatorname{Ric}(g)=0$. The Kerr family describes rotating vacuum black holes by mass $m>0$ and specific angular momentum $a$; its subextremal black-hole range is $|a|<m$. Future null infinity $\mathcal I^+$ is the ideal endpoint boundary of outgoing null rays, and $J^-(\mathcal I^+)$ is its causal past. Completeness of $\mathcal I^+$ is the future-completeness condition in the report's asymptotically flat formulation.
+
+\paragraph{Source scope and qualifications.} The primary formulation also requires a nonempty black-hole region and sufficiently fast asymptotic approach in the exterior. Smallness norm and decay topology are intentionally rough in the report. The ordinary subextremal stability target should not silently be enlarged to extremal horizons, where different phenomena occur, nor reduced to small angular momentum alone.
+
+\paragraph{Full source formulation.} The report additionally requires $M\setminus J^-(\mathcal I^+)\ne\varnothing$ and that the metric on the exterior approach a final Kerr metric at a sufficiently fast rate. Those conditions are part of the intended nonlinear stability target.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+Do sufficiently small perturbations of Kerr initial data for the vacuum Einstein equations have maximal developments with complete future null infinity whose exterior asymptotically approaches another Kerr solution?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: Nonlinear stability of Kerr has been proved for sufficiently small angular momentum, but the extracted statement concerns the full Kerr family and the general subextremal range remains unresolved. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Show that small perturbations of rotating black holes keep a complete exterior and settle to another Kerr black hole.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Calculates surface-gravity degeneration and its consequences for a conditional energy-absorption strategy across the subextremal family.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A near-extremal coercivity check.} For Kerr parameters $m>0$, $|a|<m$, write $r_\pm=m\pm\sqrt{m^2-a^2}$. The surface-gravity coefficient is
+\[
+ \kappa=\frac{r_+-r_-}{2(r_+^2+a^2)}
+ =\frac{\sqrt{m^2-a^2}}{2m(m+\sqrt{m^2-a^2})}.
+\]
+The second identity uses $r_+^2+a^2=2mr_+$. Thus $\kappa>0$ for each subextremal member but tends to zero as $|a|\uparrow m$.
+
+\paragraph{What a redshift-type inequality would yield.} If a nonnegative perturbation energy obeyed $E'(t)+\kappa E(t)\leq F(t)$, multiplying by $e^{\kappa t}$ and integrating would give $E(t)\leq e^{-\kappa t}E(0)+\int_0^te^{-\kappa(t-s)}F(s)ds$. For constant forcing $F=f$, the resulting steady bound is $f/\kappa$, which is not uniform near extremality. If a nonlinear error is estimated only by $F(t)\leq C\epsilon E(t)$, absorption requires $C\epsilon<\kappa$. The allowed perturbation size can therefore shrink as the background approaches extremality.
+
+\paragraph{Exact limitation.} No Einstein perturbation estimate of that form is proved here; it is an explicit audit of the dependence such an estimate would have. The source only asks stability at every fixed subextremal parameter, so loss of uniformity does not disprove it. Establishing the actual nonlinear exterior estimates, suitable parameter-dependent smallness, complete null infinity, a nonempty black-hole region and sufficiently fast convergence to final Kerr all remain unproved. Extremal stability is not silently included.
+
+\paragraph{Verification and adversarial audit.}
+Checked Kerr root algebra, positivity and extremal limit, exact integrating factor and the difference between fixed-parameter and uniform stability. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked Kerr root algebra, positivity and extremal limit, exact integrating factor and the difference between fixed-parameter and uniform stability. Retained unresolved status and zero original-target progress; The actual nonlinear Einstein estimates and all global exterior/asymptotic conclusions remain missing.
+
+Coordinator checked the surface-gravity simplification and conditional integrating-factor/absorption bounds as extremality is approached. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. The actual nonlinear Einstein estimates and all global exterior/asymptotic conclusions remain missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. The actual nonlinear Einstein estimates and all global exterior/asymptotic conclusions remain missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001359:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001359 (OWR-4129-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001359:2}{S2}] Mathematical Aspects of General Relativity (2009), Oberwolfach Reports, DOI 10.4171/owr/2009/46, pp. 2585--2646; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2009/46}.
+\item[\hypertarget{source:30001359:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF page 5, printed page 2589.
+\url{https://ems.press/content/serial-article-files/46246}.
+\item[\hypertarget{source:30001359:4}{S4}] Klainerman--Szeftel, Kerr stability; reference in the saved dated catalogue literature review.
+\url{https://arxiv.org/abs/2104.11857}.
+\item[\hypertarget{source:30001359:5}{S5}] Giorgi--Klainerman--Szeftel, nonlinear estimates; reference in the saved dated catalogue literature review.
+\url{https://arxiv.org/abs/2205.14808}.
+\end{itemize}
+\label{end:30001359}
+\end{document}

@@ -1,0 +1,135 @@
+% RESEARCH_DRAFT_SHA256: ec983b533fb74bc1bc2555c5b6344daefe10bea674c38a609702ff7ad5a88ced
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001321, "title": "A one-round action barrier and leave-one-out multiparty key routing", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001321", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Methods of key establishment from group theory\n\nGenerally speaking the field does not seem to offer methods of key establishment. It remains open to construct standard key exchange protocols as well as more complicated multi-party variants.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The algebraically correct interactive procedure lacks a stated hard platform, full-transcript secrecy reduction, and authentication, so the requested secure key establishment remains unresolved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Multiparty action agreement and the missing secrecy argument}
+\noindent UnsolvedMath ID 20001321; AIM-CRYPTOGRAPHY-0008. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A key-establishment protocol lets designated participants derive a common key while restricting an adversary's information about it. Group actions or group-theoretic operations can supply public computations with secret inputs. The source asks for both two-party key exchange and multiparty constructions.
+\paragraph{Statement recorded in the supplied source.}
+Methods of key establishment from group theory
+
+Generally speaking the field does not seem to offer methods of key establishment. It remains open to construct standard key exchange protocols as well as more complicated multi-party variants. \href{http://aimpl.org/postquantgroup/2/}{[S2]}
+\paragraph{Scope qualification.}
+The source does not fix a group family, security assumption, adversary model, or communication-round target.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can computational problems in groups provide ordinary and multiparty key-exchange protocols?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001321 (AIM-CRYPTOGRAPHY-0008). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-CRYPTOGRAPHY-0008
+\url{http://aimpl.org/postquantgroup/2/}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Methods of key establishment from group theory
+
+Generally speaking the field does not seem to offer methods of key establishment. It remains open to construct standard key exchange protocols as well as more complicated multi-party variants.
+
+\section{Attempt and results}
+The source requests key establishment without a selected platform or threat
+model. We construct an algebraically correct interactive agreement procedure,
+then show why agreement and the formal action law are insufficient for secrecy.
+This is not a secure key-exchange construction.
+
+\paragraph{A leave-one-out action procedure.}
+Let an abelian group $A$ act on $X$, fix $x\in X$, and let $n\ge2$ parties
+hold $a_1,\ldots,a_n\in A$. For each index $i$, start a token at $x$ and
+pass it, in a fixed public order, through every party except $i$.
+When party $j$ receives that token, it replaces $u$ by $a_j\cdot u$.
+Induction on the visited parties shows that the resulting token is
+\[
+u_i=\left(\sum_{j\ne i}a_j\right)\cdot x.
+\]
+Party $i$ then applies its own action, obtaining the common point
+$K=(\sum_j a_j)\cdot x$. This proves agreement for honest participants
+using only associativity of the action and commutativity of $A$.
+For this straightforward schedule, constructing the $n$ tokens uses
+$n(n-1)$ action evaluations, and their final private updates use $n$ more,
+for $n^2$ total. This count includes operations often hidden in initialization;
+no claim of optimal rounds, messages, or evaluations is made.
+
+\paragraph{A restricted one-round expression barrier.}
+Consider a party $i$ that knows $a_i$ and public points $x_j=a_j\cdot x$.
+Allow point expressions built only by starting from $x$ or one public $x_j$
+and repeatedly applying actions of group elements computable from $a_i$
+and public constants. No operation combines two points, extracts a transporter,
+or inspects their encodings. Structural induction on the expression gives
+\[
+u=b(a_i)\cdot x\quad\hbox{or}\quad
+u=(b(a_i)+a_j)\cdot x
+\]
+for some single $j$: applying another local group element only changes $b$.
+For $n\ge3$ this cannot uniformly equal $(\sum_l a_l)\cdot x$ on a regular
+translation action, because there is a foreign index $l\ne i,j$ absent from
+the expression. Changing only $a_l$ changes the target but leaves the
+expression unchanged. Taking $A=\mathbb Z/3\mathbb Z$ makes this a finite
+explicit counterexample to a uniform identity in this grammar.
+This is a syntactic restriction on a straight-line interface, not an
+impossibility theorem for all one-round protocols, representation-dependent
+algorithms, pairings, or other extra structure.
+
+\paragraph{The proposed secrecy inference fails in a concrete platform.}
+Let $A=X=\mathbb Z/q\mathbb Z$ act by addition on canonical residues and
+let $x=0$. Every public point $a_j\cdot x$ reveals $a_j$ outright, and
+an observer computes $K=\sum_j a_j$ from the public data. The same action
+identities and agreement proof hold, but no secrecy follows. More generally,
+even a hardness assumption for recovering one transporter does not by itself
+bound an adversary seeing all intermediate leave-one-out tokens; a reduction
+would have to simulate that entire public transcript and recover the right
+challenge relation from an adversary's success. No such reduction is supplied.
+The procedure also gives no authentication against replacement of tokens.
+
+\section{Context, adversarial audit, and gap}
+The official workshop description was checked; AIMPL text is preserved from
+the snapshot after retrieval failure. The audit counted final private actions,
+restricted the grammar claim to its declared operations, and separated
+correctness from secrecy and authentication. The source does not impose a
+one-round restriction, so failure of that route cannot resolve its broader
+construction question. No protocol implementation or security experiment was
+run, and no real cryptographic parameters are recommended.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The algebraically correct interactive procedure lacks a stated hard platform, full-transcript secrecy reduction, and authentication, so the requested secure key establishment remains unresolved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Official AIM workshop description, Post-quantum group-based cryptography, 29 April--3 May 2024; provenance and scope inspected on 11 October 2026. AIMPL pages failed retrieval, so the exact problem wording remains supplied-snapshot material. \url{https://aimath.org/workshops/upcoming/postquantgroup/}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The algebraically correct interactive procedure lacks a stated hard platform, full-transcript secrecy reduction, and authentication, so the requested secure key establishment remains unresolved.
+\end{document}
