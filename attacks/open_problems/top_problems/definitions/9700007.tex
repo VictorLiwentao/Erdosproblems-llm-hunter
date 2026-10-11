@@ -1,0 +1,39 @@
+% TOP_PROBLEM: {"id": 9700007, "title": "Constant-factor online scheduling of subadditive batches", "category_id": 19, "category": {"id": 19, "name": "probability", "display_name": "Probability", "description": "Problems involving probability theory, stochastic processes, and random structures.", "slug": "probability", "order_index": 19, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: null
+% ENTRY_KIND: statement_only
+% Imported from: batch13.tex; UnsolvedMath ID 9700007
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded mathematical question.}#1}
+\begin{document}
+% UnsolvedMath ID 9700007; source catalogue code AMR-096-0007
+\setcounter{section}{9700006}
+\section{Constant-factor online scheduling of subadditive batches}\label{9700007}
+{\small\sffamily UnsolvedMath ID 9700007 · Probability}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$, and $\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$ denote the integers, rationals, reals and complex numbers. Any other conventions are specified locally.
+
+
+Tasks arrive at the event times of a rate-one Poisson process, with independent types uniform on $[0,1]$. A finite batch $B$ is processed by one server in a deterministic time $S(B)>0$. For disjoint nonempty batches $A,B$, assume
+\[0<S(A)<S(A\cup B)<S(A)+S(B).\]
+After a batch finishes, an online scheduler selects a subset of the tasks currently waiting to form the next batch, using only information available at that time. A task of type $a$ accumulates cost at rate $c(a)\ge0$ from its arrival until its batch finishes. Let $W$ be the long-run average total cost per unit time of a policy, and $W_*$ its infimum over online policies. Consider data with $0<W_*<\infty$, so the ratio below is defined; when $W_*=0$ the corresponding comparison is $W\le C W_*$.
+\paragraph{Statement recorded in the supplied source.}
+Is there an explicit online scheduling algorithm, allowed to depend on $S$ and $c$, and an absolute constant $C<\infty$, such that $W/W_*<C$ for every pair $S,c$ with finite positive optimum? \sref{9700007}{2}
+\subsection{Short English statement}
+Can one online batching rule achieve a universal constant factor of the best online waiting-cost performance?
+\subsection{Sources}
+\begin{description}
+\item[\hypertarget{source:9700007:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, \emph{UnsolvedMath: A Curated Collection of Open Mathematics Problems}, record 9700007 (AMR-096-0007). CC BY 4.0. \url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:9700007:2}{S2}] David J. Aldous, \emph{Bacon and eggs: task scheduling into batches}, March 2009, Model bullet list and displayed Problem. \url{https://www.stat.berkeley.edu/~aldous/Research/OP/bacon.html}.
+\end{description}
+\label{end:9700007}
+\end{document}

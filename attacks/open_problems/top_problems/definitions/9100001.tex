@@ -1,0 +1,50 @@
+% TOP_PROBLEM: {"id": 9100001, "title": "Odd-prime-power periodicity conjecture", "category_id": 3, "category": {"id": 3, "name": "graph_theory", "display_name": "Graph Theory", "description": "Problems involving graphs, networks, and their properties.", "slug": "graph-theory", "order_index": 3, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: null
+% ENTRY_KIND: statement_only
+% Imported from: batch09.tex; UnsolvedMath ID 9100001
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Mathematical question.}#1}
+\hypersetup{pdftitle={UnsolvedMath Problem 9100001}}
+\begin{document}
+% UnsolvedMath ID 9100001; source catalogue code AMR-090-0001
+\setcounter{section}{9100000}
+\section{Odd-prime-power periodicity conjecture}\label{9100001}
+{\small\sffamily UnsolvedMath ID 9100001 · Graph Theory}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$, and $\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$ denote the integers, rationals, reals and complex numbers. Any other conventions are specified locally.
+
+
+Define the Euler up/down numbers $E_n$ for integers $n\ge0$ by
+\[
+\sum_{n\ge0} E_n\frac{z^n}{n!}=\sec z+\tan z.
+\]
+For $q\in\mathbb N$ this sequence modulo $q$ is eventually periodic. Its minimal preperiod is
+\[
+s(q)=\min\{s\in\mathbb Z_{\ge0}:\exists d\in\mathbb N\ \forall n\ge s,\ E_{n+d}\equiv E_n\pmod q\},
+\]
+and its minimal eventual period is
+\[
+d(q)=\min\{d\in\mathbb N:\forall n\ge s(q),\ E_{n+d}\equiv E_n\pmod q\}.
+\]
+The prime-level periods are $d(p)=p-1$ for $p\equiv1\pmod4$ and $d(p)=2(p-1)$ for $p\equiv3\pmod4$.\par\textit{Historical context.} These are the two parts of Ramassamy's original conjecture. A 2026 paper reports a proof of the period formula and the counterexample $s(5^5)=4<5$ to the preperiod formula. \sref{9100001}{3}
+\paragraph{Statement recorded in the supplied source.}
+For every odd prime $p$, does $s(p^k)=k$ hold for every integer $k\ge1$, and does $d(p^k)=p^{k-1}d(p)$ hold for every integer $k\ge2$? \sref{9100001}{2}
+\subsection{Short English statement}
+Determine the exact starting point and period of the Euler-number sequence modulo every odd prime power; the original two predictions are recorded with their later source context.
+\subsection{Sources}
+\begin{description}
+\item[\hypertarget{source:9100001:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 9100001 (AMR-090-0001). CC BY 4.0. \url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:9100001:2}{S2}] Sanjay Ramassamy, \emph{Modular periodicity of the Euler numbers and a sequence by Arnold}, Arnold Mathematical Journal (2018) \S\S1--2, Conjecture 1, pp. 1--3. \url{https://amj.math.stonybrook.edu/html-articles/Files-2015-2024/18-79/index.html}.
+\item[\hypertarget{source:9100001:3}{S3}] Berke G\"ule\c{c}, \emph{Modular periodicity of the Euler up/down numbers at odd prime powers}, arXiv:2608.27058v2 (2026) Theorems 5.9 and 6.4. \url{https://arxiv.org/pdf/2608.27058}.
+\end{description}
+\label{end:9100001}
+\end{document}

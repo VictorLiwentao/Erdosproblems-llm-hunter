@@ -1,0 +1,43 @@
+% TOP_PROBLEM: {"id": 8800033, "title": "Fast construction of five-term geometric progressions for NFS", "category_id": 3, "category": {"id": 3, "name": "graph_theory", "display_name": "Graph Theory", "description": "Problems involving graphs, networks, and their properties.", "slug": "graph-theory", "order_index": 3, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: null
+% ENTRY_KIND: statement_only
+% Imported from: batch06.tex; UnsolvedMath ID 8800033
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Mathematical question.}#1}
+\begin{document}
+% UnsolvedMath ID 8800033; source catalogue code AMR-087-0033
+\setcounter{section}{8800032}
+\section{Fast construction of five-term geometric progressions for NFS}\label{8800033}
+{\small\sffamily UnsolvedMath ID 8800033 · Graph Theory}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$, and $\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$ denote the integers, rationals, reals and complex numbers. Any other conventions are specified locally.
+
+
+A five-term geometric progression modulo an integer $N>1$ is an integer tuple $(r_0,\ldots,r_4)$ with a ratio $s\in\mathbb Z/N\mathbb Z$ such that $r_j\equiv r_0s^j\pmod N$ for $0\le j\le4$. A rational linear recurrence of order at most two means a relation $a r_{j+2}+b r_{j+1}+c r_j=0$ for $j=0,1,2$, for rational $a,b,c$ not all zero. The source's usable progression also has $r_0$ invertible modulo $N$, so the ratio $r_1/r_0$ is defined.
+\paragraph{Statement recorded in the supplied source.}
+Find a practical method, for large $N$, to construct such progressions with
+\[
+\max_{0\le j\le4}|r_j|=O(N^{2/3})
+\]
+which satisfy no rational linear recurrence of order at most two. Use the associated two-dimensional orthogonal lattice to obtain two coprime cubic polynomials in $\mathbb Z[X]$ with a common root modulo $N$ and coefficients of the targeted order $O(N^{1/6})$. The cubic-size prediction in the slides is a typical-size goal, rather than an established worst-case guarantee. \sref{8800033}{2}
+
+\subsection{Short English statement}
+Efficiently find short five-term modular geometric progressions that avoid low-order rational recurrences and yield small coprime cubic polynomials for the number field sieve.
+\subsection{Sources}
+\begin{description}
+\item[\hypertarget{source:8800033:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 8800033 (AMR-087-0033). CC BY 4.0. \url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:8800033:2}{S2}] Peter L. Montgomery, \emph{Searching for Higher-Degree Polynomials for the General Number Field Sieve}, IPAM Number Theory and Cryptography: Open Problems workshop (9--13 October 2006), slides headed ``Five-term GP → Two Cubics and ``Desire a five-term GP mod N. \url{https://helper.ipam.ucla.edu/publications/SCWS1/SCWS1_6223.ppt}.
+\end{description}
+\label{end:8800033}
+\end{document}
