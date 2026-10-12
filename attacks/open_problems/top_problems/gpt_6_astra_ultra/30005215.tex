@@ -1,0 +1,195 @@
+% RESEARCH_DRAFT_SHA256: 89933f479cc9716d47855815762cbe3b51e63f5b61d54aea9e53c012c4035601
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30005215, "title": "Norm Estimation from Asymmetric Black-Box Linear Operators", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005215", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Norm Estimation from Asymmetric Black-Box Linear Operators; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Low-memory random search, Ritz improvement, and missing upper certificates; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch024 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30005215; source catalogue code OWR-11101919-002
+\section{Norm Estimation from Asymmetric Black-Box Linear Operators}\label{30005215}
+{\small UnsolvedMath ID 30005215 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a linear map $A$ between finite-dimensional inner-product spaces, $A^*$ is its adjoint and $\lVert A\rVert=\sup_{\lVert x\rVert_2=1}\lVert Ax\rVert_2$ is the induced operator norm. A black-box query evaluates the supplied map on a chosen vector without exposing its matrix. The first access model supplies $A$ but not $A^*$. In the second, $A$ and $V$ have the same domain and codomain and only evaluations of $A$ and $V^*$ are supplied. Convergence means estimates approach the requested norm as the iteration or query budget grows.
+\paragraph{Statement recorded in the supplied source.}
+Given black-box access to $x\mapsto Ax$ but not to $A^*$, can $\lVert A\rVert$ be estimated by a provably convergent low-memory method? Likewise, can $\lVert A-V\rVert$ be estimated using only black boxes for $A$ and $V^*$? \href{https://doi.org/10.4171/owr/2022/38}{[S2]}
+\paragraph{Scope qualification.}
+Low memory is relative to the operator dimensions and the numerical representation in the cited report. No unavailable adjoint or full matrix storage is assumed.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Estimate operator norms with a convergent method despite access to only one direction of the relevant linear operators.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30005215 (OWR-11101919-002). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Mathematical Imaging and Surface Processing (2023), Oberwolfach Reports, DOI 10.4171/owr/2022/38, pp. 2195--2266
+\url{https://doi.org/10.4171/owr/2022/38}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30005215 and source code OWR-11101919-002 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30005215}
+
+\section{Literature and context check}
+
+I read Lorenz's ``Adjoint mismatch'' contribution on pages 2250--2252 of the
+primary report. It writes the random-direction gradient estimate and explicitly
+leaves convergence of the proposed projected stochastic ascent open. It also
+gives the bilinear characterization for the mismatch norm. Below I prove
+convergence of different elementary finite-dimensional procedures using the same
+permitted black boxes. They do not prove convergence of that proposed update,
+nor a useful dimension-independent running time or a certified stopping rule.
+
+\section{Research attempt: Low-memory random search, Ritz improvement, and missing upper certificates}
+
+\paragraph{A finite-dimensional random-plane route using only $A$.}
+Let $A:\mathbb R^n\to\mathbb R^m$ with $m,n\geq1$, use Euclidean norms,
+and assume exact oracle products. Maintain a unit vector $v$ and its image
+$Av$. At step $j$, sample an independent uniform unit vector $x_j$ and query
+$Ax_j$. Maximize $\|Aw\|^2$ over unit vectors in
+$\operatorname{span}\{v,x_j\}$ and replace $v$ by a maximizer.
+If the vectors are dependent this is a one-dimensional problem. Otherwise
+orthonormalize them, carrying out the same linear combinations on their two
+known images, and maximize the resulting symmetric $2\times2$ Gram matrix
+Rayleigh quotient. The eigenvalues are the two roots of its quadratic
+characteristic polynomial; an associated unit eigenvector gives the required
+linear combination. This uses a constant number of input/output vectors,
+$O(n+m)$ real-number memory, and no adjoint oracle or stored matrix.
+
+Let $R_j=\|Av_j\|^2$. The old vector and the new random direction are both
+candidates, so
+\[
+ R_j\geq R_{j-1},\qquad R_j\geq\|Ax_j\|^2,\qquad R_j\leq\|A\|^2.
+\]
+For each $\varepsilon>0$, continuity and existence of a maximizing unit vector
+imply that the set $\{x:\|Ax\|^2>\|A\|^2-\varepsilon\}$ contains a
+nonempty relatively open part of the sphere, and hence has uniform probability
+$p_\varepsilon>0$. To see positivity directly, generate the uniform direction
+by normalizing a standard Gaussian vector: an open ball about a nonzero
+representative has positive Gaussian density and maps into a sufficiently small
+spherical neighborhood. Independence gives
+\[
+ \Pr\{R_j\leq\|A\|^2-\varepsilon\}\leq(1-p_\varepsilon)^j.
+\]
+The event that the nondecreasing sequence never exceeds that threshold has
+probability zero by taking $j\to\infty$. Intersecting these probability-one
+statements for $\varepsilon=1,1/2,1/3,\ldots$ proves
+$R_j\to\|A\|^2$ almost surely. In fact keeping only the largest observed
+$\|Ax_j\|$ also converges; the Ritz step adds monotonic local improvement.
+This elementary proof is a convergence statement, not a practical rate theorem:
+$p_\varepsilon$ may be very small.
+
+\paragraph{The mismatch uses a scalar observable.}
+Let $V$ have the same dimensions, with only $V^*$ accessible. For independently
+sampled uniform unit vectors $u_j\in\mathbb R^m$, $v_j\in\mathbb R^n$,
+compute
+\[
+ z_j=\left|u_j^TAv_j-(V^*u_j)^Tv_j\right|,
+ \qquad L_j=\max_{1\leq i\leq j}z_i.
+\]
+This needs one product with each available oracle and a constant number of
+vectors. Put $B=A-V$. By Cauchy--Schwarz, $|u^TBv|\leq\|B\|$.
+Conversely choose a maximizing unit $v$ and, if $Bv\ne0$, take
+$u=Bv/\|Bv\|$; if $B=0$ the equality is immediate.
+Thus the supremum of the scalar observable is exactly $\|B\|$.
+The same compactness, continuity, positive-open-set probability and independence
+argument proves $L_j\uparrow\|A-V\|$ almost surely. Neither $A^*$ nor $V$
+is applied in this procedure.
+
+\paragraph{Why a convergent lower estimate is not a step-size certificate.}
+For a deterministic method making $T<n$ forward queries, follow its transcript
+when $A=0$. Let the query span be $W$; choose a unit vector $w\perp W$ and a
+unit output vector $u$. For any $K>0$, the operator
+$A_K=Kuw^T$ gives zero on every query. By induction the adaptive transcript is
+identical to the zero-operator transcript, yet $\|A_K\|=K$.
+Thus no finite upper bound valid for all operators can follow from that transcript.
+The same obstruction applies with the $V^*$ oracle identically zero.
+This is a worst-case deterministic query obstruction, not a randomized lower
+bound proved by choosing an operator after seeing private randomness.
+In particular, substituting a lower estimate for $\|A\|$ in a convergence
+step-size restriction can choose a step that is too large.
+
+\section{Verification and adversarial audit}
+
+The random-plane proof works for $n=1$ (the sphere has two points) and for $A=0$.
+The mismatch proof handles $B=0$ before division. Memory means real arithmetic
+storage for a constant number of full vectors, not constant bit storage; numerical
+roundoff, infinite-dimensional Hilbert spaces, and computable stopping accuracy
+are outside the proven statement. The transcript argument fixes a deterministic
+algorithm first and assumes strictly fewer than $n$ forward queries.
+
+\paragraph{Audit corrections.} Did not substitute the randomized search or Ritz update for the specific
+source stochastic-gradient iteration. Distinguished lower convergence from an
+upper norm certificate and kept the adversarial query bound deterministic.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+
+For finite exact Euclidean black boxes, the displayed alternative procedures do
+converge with low vector memory, answering that limited literal existence aspect.
+The report also concerns numerical implementation, step-size-safe norm estimates
+and convergence of its particular projected stochastic gradient method. No
+convergence proof for that update, useful general rate, certified finite stopping
+criterion, or infinite-dimensional numerical theorem has been obtained. These
+scope limits prevent claiming the whole source research direction solved.
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46975} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

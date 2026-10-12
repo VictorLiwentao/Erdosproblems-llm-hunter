@@ -1,0 +1,206 @@
+% RESEARCH_DRAFT_SHA256: f37f4b790150a6373c42171bfd1f3b716635df188d011c37de925bb0d6c108eb
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004927, "title": "Convergence and Effective Rates of Unwinding Series", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004927", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "What can be rigorously established about convergence of the unwinding series, and can one obtain effective convergence rates for sufficiently regular functions $F$?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The proof gives known-style H² and compact-interior convergence with explicit norm/radius hypotheses. It does not establish general boundary pointwise or uniform rates, effective zero-factor computation, or all unspecified regularity/norm regimes in the source.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Unwinding series: a Hardy-space projection proof and the remaining boundary-rate question}
+\noindent UnsolvedMath ID 30004927; OWR-8415360-005. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a holomorphic function $F$ on the unit disk, write $F=B_0G_0$, extracting a Blaschke factor $B_0$ for its zeros. Iteratively factor $G_j-G_j(0)=B_{j+1}G_{j+1}$. The resulting unwinding expansion is formally $F=\sum_{j\geq0}G_j(0)B_0\cdots B_j$, with remainder obtained from the unfixed final $G_j$. Blaschke factors are inner factors associated with zeros in the disk.
+\paragraph{Statement recorded in the supplied source.}
+What can be rigorously established about convergence of the unwinding series, and can one obtain effective convergence rates for sufficiently regular functions $F$? \href{https://doi.org/10.4171/owr/2021/55}{[S2]}
+\paragraph{Scope qualification.}
+The regularity class, convergence norm, and zero-factor conventions must be specified in a theorem. They are deliberately not fixed by the supplied research question.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Prove convergence and quantitative approximation rates for the iterative zero-factor expansion.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004927 (OWR-8415360-005). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Applied Harmonic Analysis and Data Science (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/55, pp. 3007--3066
+\url{https://doi.org/10.4171/owr/2021/55}.
+\item[S3] Applied Harmonic Analysis and Data Science, Oberwolfach Reports 55/2021, primary report PDF
+\url{https://ems.press/content/serial-article-files/46933}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+What can be rigorously established about convergence of the unwinding series, and can one obtain effective convergence rates for sufficiently regular functions $F$?
+
+\section{Source norm and convention choices}
+The primary contribution, printed pages3020--3022, starts with
+functions holomorphic near the closed unit disk, describes
+Blaschke zero extraction, and asks about convergence and rates
+without fixing the convergence norm. We give a complete
+known-style $H^2$ projection argument and effective bounds with
+explicit regularity constants. The 2023 primary abstract on
+reproducing-kernel expansions already reports norm convergence
+results in this direction; no novelty is claimed. Boundary
+pointwise or uniform convergence is not inferred from an $H^2$
+calculation.
+
+\section{Finite-step identities and orthogonality}
+Let $F$ be holomorphic in a neighbourhood of the closed unit
+disk. If it is identically zero the expansion terminates
+immediately. Otherwise extract all its finitely many zeros in
+the open disk, including multiplicities, into a finite Blaschke
+product $B_0$ and put $F=B_0G_0$. At each nonterminal step
+set $c_j=G_j(0)$ and factor
+\[
+ G_j-c_j=B_{j+1}G_{j+1},
+\]
+where $B_{j+1}$ extracts all zeros in the disk. In particular
+$B_{j+1}(0)=0$. If $G_j-c_j$ is identically zero, stop and
+set all later remainders zero. Unimodular factor conventions
+may change coefficients and factors but not these identities.
+All finite-step quotients are holomorphic near the closed disk:
+the divisions at the extracted zeros are removable.
+
+Use $H^2=\{\sum_{k\ge0}a_kz^k:\sum_k|a_k|^2<\infty\}$
+with the coefficient inner product. Multiplication by a finite
+Blaschke product is an isometry. For polynomials this follows
+from the boundary integral norm and $|B(e^{it})|=1$; for all
+$H^2$ functions use polynomial density and extend the isometry
+by completion. The extension agrees with analytic multiplication,
+since point evaluation is bounded by
+$|h(z)|\le\|h\|_{H^2}/\sqrt{1-|z|^2}$, directly from
+Cauchy--Schwarz applied to the power series.
+
+Write $\psi_j=B_0\cdots B_j$. Iterating the recursion gives
+\[
+ F=\sum_{j=0}^N c_j\psi_j+R_N,
+ \qquad R_N=\psi_{N+1}G_{N+1}.
+\]
+For $j\le N$ and arbitrary $h\in H^2$, cancellation of the
+common inner factor in the inner product gives
+\[
+ \langle\psi_j,\psi_{N+1}h\rangle
+ =\langle1,(B_{j+1}\cdots B_{N+1})h\rangle=0,
+\]
+because the analytic function on the right vanishes at zero.
+Complex-conjugate inner-product conventions yield the same zero.
+Thus the partial sum is orthogonal to the closed subspace
+$K_N=\psi_{N+1}H^2$. This subspace is closed because it is the
+range of an isometry from a complete space. Since $R_N\in K_N$,
+the identity proves that $R_N$ is exactly the orthogonal
+projection of $F$ onto $K_N$, without an unproved completeness
+claim about the functions $\psi_j$.
+
+\section{A quantitative comparison with Taylor tails}
+Each $B_j$, $j\ge1$, has a zero at zero, so
+$K_N\subseteq z^{N+1}H^2$. If $F(z)=\sum_{k\ge0}a_kz^k$
+and $T_NF=\sum_{k=0}^Na_kz^k$, every element of $K_N$ is
+orthogonal to $T_NF$. Consequently
+\[
+ \|R_N\|_{H^2}^2=\langle F,R_N\rangle
+ =\langle F-T_NF,R_N\rangle
+ \le\|F-T_NF\|_{H^2}\|R_N\|_{H^2},
+\]
+where taking absolute values gives the same inequality under
+either inner-product convention. Dividing when the remainder
+is nonzero gives the explicit estimate
+\[
+ \|R_N\|_{H^2}\le
+ \left(\sum_{k>N}|a_k|^2\right)^{1/2}.
+\]
+The right side tends to zero. This proves $H^2$ convergence
+for the stated analytic-neighbourhood class, and in any more
+general $H^2$ setting where the displayed inner factorizations
+and recursions exist. Such existence is not proved here for
+arbitrary boundary-singular functions.
+
+Two effective rates follow. If
+$\sum_{k\ge0}(1+k)^{2s}|a_k|^2\le C_s^2$ for $s>0$,
+then $\|R_N\|_{H^2}\le C_s(N+2)^{-s}$ by bounding each
+tail weight below by $(N+2)^{2s}$. If $F$ is holomorphic on
+a neighbourhood of $|z|\le R$ with $R>1$ and
+$\sup_{|z|=R}|F(z)|\le M$, Cauchy's coefficient formula gives
+$|a_k|\le MR^{-k}$. Summing the geometric series yields
+\[
+ \|R_N\|_{H^2}\le
+ \frac{M R^{-(N+1)}}{\sqrt{1-R^{-2}}}.
+\]
+Both the radius and the bound $M$ are needed for this effective
+estimate; their existence alone is not an algorithm to compute
+them from arbitrary data.
+
+There is also a compact-interior estimate independent of such
+extra regularity. Since $R_N=z^{N+1}h_N$ with
+$\|h_N\|_{H^2}=\|R_N\|_{H^2}\le\|F\|_{H^2}$, for
+$|z|\le r<1$,
+\[
+ |R_N(z)|\le\frac{r^{N+1}}{\sqrt{1-r^2}}\|F\|_{H^2}.
+\]
+This proves uniform convergence on every smaller closed disk.
+
+\section{Why this route does not prove a boundary-uniform rate}
+The implication from small $H^2$ norm to small supremum on the
+unit circle is false. For any integer $L\ge1$, the polynomial
+\[
+ h_L(z)=L^{-1}\sum_{j=0}^{L-1}z^j
+\]
+has $H^2$ norm $L^{-1/2}$ but $h_L(1)=1$.
+Multiplying by arbitrarily high powers of $z$ preserves both
+facts and can enforce any desired order of vanishing at zero.
+These polynomials are not claimed to be actual unwinding
+remainders for one fixed function; they show that the norm
+and zero-order estimates used above cannot alone imply the
+boundary supremum conclusion. Additional control of the
+remainders, their factors, or a stronger norm would be needed.
+
+\section{Audit and status}
+The audit checked the indexing of the remainder, termination at
+a constant quotient, closedness of the inner-multiplier range,
+and the zero at every subsequent step. In particular, mere
+bounded residual energy was not used to infer strong convergence;
+the orthogonal-projection identity supplies the missing step.
+No root-finding algorithm, pointwise boundary theorem, numerical
+experiment, or theorem prover is claimed. The complete scoped
+norm result is known material rederived for this attempt; the
+source's broader unspecified convergence/rate agenda is not
+claimed resolved.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The proof gives known-style H² and compact-interior convergence with explicit norm/radius hypotheses. It does not establish general boundary pointwise or uniform rates, effective zero-factor computation, or all unspecified regularity/norm regimes in the source.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item OWR55/2021, Applied Harmonic Analysis and Data Science; complete relevant primary passages read in cached report, with printed pages identified in the manuscript. \url{https://ems.press/content/serial-article-files/46933}.
+\item Mashreghi and Verreault, Nonlinear expansions in reproducing kernel Hilbert spaces; primary abstract inspected for existing norm-convergence context, not used as an external proof dependency. \url{https://arxiv.org/abs/2310.01269}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The proof gives known-style H² and compact-interior convergence with explicit norm/radius hypotheses. It does not establish general boundary pointwise or uniform rates, effective zero-factor computation, or all unspecified regularity/norm regimes in the source.
+\end{document}

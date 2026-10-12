@@ -1,0 +1,189 @@
+% RESEARCH_DRAFT_SHA256: 110a092219c857de8bb5e6bdc779f4f3605fbe0cbe584215b948190734f1a962
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004928, "title": "Phase Retrieval from Gabor and Wavelet Magnitudes", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004928", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "What uniqueness and stability guarantees hold for recovering $f\\in H$ from magnitude measurements $(|\\langle f,\\phi_\\lambda\\rangle|)_{\\lambda\\in\\Lambda}$, particularly for Gabor or wavelet frames?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The finite real criterion, compact-window ambiguity and global infinite-frame instability do not characterize the source Gabor/wavelet signal, window and sampling regimes or their local stability.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Phase retrieval: exact finite criteria and two obstructions to uniform guarantees}
+\noindent UnsolvedMath ID 30004928; OWR-8415360-006. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A frame $(\phi_\lambda)_{\lambda\in\Lambda}$ in a Hilbert space $H$ satisfies $A\|f\|^2\leq\sum_\lambda|\langle f,\phi_\lambda\rangle|^2\leq B\|f\|^2$ for constants $0<A\leq B<\infty$. Magnitudes cannot distinguish $f$ from $cf$ for $|c|=1$, so uniqueness is understood modulo this global phase. Stability bounds reconstruction error in this quotient by measurement error. Gabor systems use translations and modulations of a window; wavelet systems use translations and dilations.
+\paragraph{Statement recorded in the supplied source.}
+What uniqueness and stability guarantees hold for recovering $f\in H$ from magnitude measurements $(|\langle f,\phi_\lambda\rangle|)_{\lambda\in\Lambda}$, particularly for Gabor or wavelet frames? \href{https://doi.org/10.4171/owr/2021/55}{[S2]}
+\paragraph{Scope qualification.}
+The frame, signal class, measurement norm, and local or uniform form of stability are parameters of the question; no universal stable inverse for every frame is asserted.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Determine when time-frequency or wavelet magnitude data uniquely and stably determine a signal up to global phase.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004928 (OWR-8415360-006). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Applied Harmonic Analysis and Data Science (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/55, pp. 3007--3066
+\url{https://doi.org/10.4171/owr/2021/55}.
+\item[S3] Applied Harmonic Analysis and Data Science, Oberwolfach Reports 55/2021, primary report PDF
+\url{https://ems.press/content/serial-article-files/46933}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+What uniqueness and stability guarantees hold for recovering $f\in H$ from magnitude measurements $(|\langle f,\phi_\lambda\rangle|)_{\lambda\in\Lambda}$, particularly for Gabor or wavelet frames?
+
+\section{The source's parameter-dependent question}
+The primary report, printed pages3025--3027, distinguishes signal
+spaces, windows, sampling sets, uniqueness modulo phase, and
+stability. It already reports both positive results on restricted
+signal classes and nonuniqueness for sampled Gaussian Gabor
+measurements on all of $L^2$. We do not replace those choices
+by a universal assertion about frames. We attempt an elementary
+span criterion and a global stability argument, then identify
+the limitations through explicit examples.
+
+\section{A complete finite real criterion}
+For a finite family $\phi_1,\ldots,\phi_M\in\mathbb R^d$,
+phase retrieval up to sign holds exactly when, for every subset
+$I\subseteq\{1,\ldots,M\}$, either its vectors or the vectors
+in its complement span $\mathbb R^d$.
+If both spans are proper, choose nonzero $u$ perpendicular to
+the first and nonzero $v$ perpendicular to the second. Then
+$f=u+v$ and $g=u-v$ have equal measurement magnitudes:
+on the first subset only the $v$ term contributes, with opposite
+signs, and on the complement only the $u$ term contributes.
+They are not equal up to sign, since either equality would force
+$u=0$ or $v=0$. Thus the condition is necessary.
+Conversely if $f,g$ have equal real magnitudes, then for every
+index
+\[
+ \langle f-g,\phi_i\rangle\langle f+g,\phi_i\rangle=0.
+\]
+Take $I$ to consist of those indices where the first factor is
+zero. On its complement the second is zero. The spanning
+condition forces $f-g=0$ or $f+g=0$, proving sufficiency.
+
+This real argument fails for complex phases. For instance
+$e_1,e_2,e_1+e_2$ have the real spanning property in dimension
+two, but complex vectors $(1,i)$ and $(1,-i)$ have the same
+three magnitudes and are not global phase multiples: the first
+coordinate would force the multiplier to be one. The factorization
+into two real linear factors is exactly the step that fails.
+
+\section{A continuous Gabor frame with explicit nonuniqueness}
+Take a nonzero bounded window $g$ supported in $[-R,R]$,
+$R>0$, and two unit signals $u,v$ with compact supports
+separated by more than $2R$. No translate of the window
+intersects both supports. Thus for every time-frequency point,
+at most one of $V_gu,V_gv$ is nonzero, and
+\[
+ |V_g(u+v)(x,\omega)|=|V_g(u-v)(x,\omega)|.
+\]
+The signals are orthogonal by their disjoint supports. For
+any $|c|=1$,
+\[
+ \|(u+v)-c(u-v)\|_2^2
+ =|1-c|^2+|1+c|^2=4,
+\]
+so they are not phase-equivalent.
+
+This remains a frame example, not just an arbitrary deficient
+measurement system. With
+$V_gf(x,\omega)=\int f(t)\overline{g(t-x)}e^{-2\pi i\omega t}\,dt$,
+Plancherel in $\omega$ and Tonelli give
+\[
+ \int_{\mathbb R^2}|V_gf(x,\omega)|^2\,dx\,d\omega
+ =\int_{\mathbb R}|f(t)|^2
+       \left(\int_{\mathbb R}|g(t-x)|^2dx\right)dt
+ =\|g\|_2^2\|f\|_2^2.
+\]
+The product $f(t)g(t-x)$ is in $L^2$ for each $x$ by
+boundedness of $g$, justifying Plancherel; the equality extends
+with the usual Fourier $L^2$ interpretation. Hence the continuous
+Gabor system is a tight frame for linear measurements even
+though its magnitudes fail uniqueness. This does not address
+noncompact Gaussian windows or the source's bandlimited classes.
+
+\section{No uniform Lipschitz inverse for a countable infinite frame}
+Let $H$ be an infinite-dimensional real or complex Hilbert space
+and $(\phi_j)_{j\ge1}$ a frame with finite upper bound. We show
+that no dimension-free positive lower Lipschitz bound for the
+magnitude map holds on all unit vectors modulo phase.
+Fix a unit vector $u$ and $\eta>0$. Its analysis coefficients
+are square-summable, so a finite set $I$ satisfies
+\[
+ \sum_{j\notin I}|\langle u,\phi_j\rangle|^2<\eta^2.
+\]
+Choose a unit $v$ orthogonal to $u$ and all $\phi_j$ with
+$j\in I$; this is possible because their span is finite-dimensional
+and $H$ is infinite-dimensional. Set $f=u+v,g=u-v$.
+They have quotient distance two by the preceding orthogonality
+calculation. For complex numbers $a,b$, the reverse triangle
+inequality applied after cancelling either term gives
+\[
+ \bigl||a+b|-|a-b|\bigr|\le2\min(|a|,|b|).
+\]
+The measurement difference is zero on $I$ and at most
+$2|\langle u,\phi_j\rangle|$ off $I$. Therefore
+\[
+ \left\|\bigl(|\langle f,\phi_j\rangle|
+ -|\langle g,\phi_j\rangle|\bigr)_j\right\|_{\ell_2}<2\eta.
+\]
+Dividing $f,g$ by $\sqrt2$ makes them unit vectors, with
+quotient distance $\sqrt2$ and measurement distance below
+$\sqrt2\eta$. Since $\eta$ is arbitrary, there is no uniform
+positive lower Lipschitz constant. The argument allows the
+frame to be phase-retrieving: lack of a uniform stable inverse
+does not by itself imply a pair with exactly equal magnitudes.
+
+\section{Audit and remaining target}
+The audit checked real versus complex scalar identities,
+continuous versus countable measurement norms, the window
+support separation, the nonzero quotient distance, and the
+finite-span orthogonal choice in infinite dimension. Plancherel
+and Tonelli are the standard foundational Fourier/measure
+identities used in the displayed frame computation. No local
+stability theorem or characterization for a particular sampled
+Gabor or wavelet frame is obtained. The source's full family
+of uniqueness and stability questions remains unresolved by
+these known-style auxiliary results. No numerical experiment
+or theorem prover was used.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The finite real criterion, compact-window ambiguity and global infinite-frame instability do not characterize the source Gabor/wavelet signal, window and sampling regimes or their local stability.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item OWR55/2021, Applied Harmonic Analysis and Data Science; complete relevant primary passages read in cached report, with printed pages identified in the manuscript. \url{https://ems.press/content/serial-article-files/46933}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The finite real criterion, compact-window ambiguity and global infinite-frame instability do not characterize the source Gabor/wavelet signal, window and sampling regimes or their local stability.
+\end{document}

@@ -1,0 +1,188 @@
+% RESEARCH_DRAFT_SHA256: 09ee865d0645d1cba7f118c123ce876943e1dbdf88ed77930ccdc8d27c020e40
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004931, "title": "Optimal Neural-Network Depth for Sparse Recovery", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004931", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "For exact recovery of $s$-sparse vectors by ReLU networks, is the known depth bound $\\lceil\\log_2s+2\\rceil$ optimal?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The complete source-known one-layer lower bound stops because a two-layer odd part need not be linear. No logarithmic depth lower bound or shallower exact sparse-recovery construction is obtained.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Sparse recovery depth: a complete one-layer lower bound and why it stops at two layers}
+\noindent UnsolvedMath ID 30004931; OWR-8415360-010. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Let $\Sigma_s=\{x\in\mathbb R^n:|\operatorname{supp}(x)|\leq s\}$ and let $A\in\mathbb R^{m\times n}$ satisfy $\ker A\cap\Sigma_{2s}=\{0\}$, so the measurements distinguish all $s$-sparse vectors. A ReLU network uses the activation $t\mapsto\max(0,t)$; exact recovery means $N(Ax)=x$ for every $x\in\Sigma_s$. The source distinguishes hidden layers from the final linear output layer and allows arbitrary width.
+\paragraph{Statement recorded in the supplied source.}
+For exact recovery of $s$-sparse vectors by ReLU networks, is the known depth bound $\lceil\log_2s+2\rceil$ optimal? \href{https://doi.org/10.4171/owr/2021/55}{[S2]}
+\paragraph{Scope qualification.}
+The sparse-recovery source uses underdetermined measurements and the injectivity condition above; its exact-recovery depth theorem assumes $s\geq2$. The stated bound concerns exact recovery, while its two-hidden-layer result concerns arbitrary-precision approximation. Layer-count conventions must remain explicit; the displayed bound is interpreted according to the source's hidden-layer convention.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Determine the smallest number of hidden layers required for exact recovery of every sparse vector from the given linear measurements.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004931 (OWR-8415360-010). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Applied Harmonic Analysis and Data Science (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/55, pp. 3007--3066
+\url{https://doi.org/10.4171/owr/2021/55}.
+\item[S3] Applied Harmonic Analysis and Data Science, Oberwolfach Reports 55/2021, primary report PDF
+\url{https://ems.press/content/serial-article-files/46933}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+For exact recovery of $s$-sparse vectors by ReLU networks, is the known depth bound $\lceil\log_2s+2\rceil$ optimal?
+
+\section{The precise source distinction}
+The primary report, printed pages3053--3055, distinguishes exact
+recovery of all sparse vectors from arbitrary-precision relative
+approximation on that unbounded set. Its exact theorem for
+$s\ge2$ uses $\lceil\log_2s\rceil+2$ hidden layers and leaves
+optimality open. We rederive its known one-hidden-layer lower
+bound from the odd part at infinity, then test whether that
+mechanism can give the requested logarithmic depth lower bound.
+It cannot be extended in the same way even to two hidden layers.
+
+\section{Complete lower bound for one hidden layer}
+Let $A\in\mathbb R^{m\times n}$ with $m\le n$, and let
+\[
+ f(y)=W\sigma(Vy+b)+c,
+\]
+where $\sigma$ is coordinatewise ReLU and the hidden width is
+arbitrary but finite. Set
+\[
+ E=\sup_{x\in\Sigma_1\setminus\{0\}}
+ \frac{\|x-f(Ax)\|_2}{\|x\|_2}.
+\]
+If $E$ is infinite the claimed bound is immediate. Otherwise,
+for every fixed $y$ the positive homogeneity and continuity of
+ReLU imply
+\[
+ f_\infty(y):=\lim_{t\to\infty}f(ty)/t=W\sigma(Vy).
+\]
+The coordinate identity $\sigma(z)-\sigma(-z)=z$ gives
+$f_\infty(y)-f_\infty(-y)=WVy$. Apply the relative-error
+promise to $x=te_i$ and $x=-te_i$, divide by $t$ and pass
+to the limit. Taking the average of the two resulting error
+vectors yields
+\[
+ \left\|e_i-\tfrac12WVAe_i\right\|_2\le E
+ \quad(1\le i\le n).
+\]
+Put $B=\tfrac12WVA$, whose rank is at most $m$. Then
+$\|I-B\|_{\rm F}^2\le nE^2$. On the other hand choose an
+orthonormal basis beginning with a basis of $\ker B$. The
+Frobenius squared norm is the sum of $\|(I-B)v\|^2$ on any
+orthonormal basis, by expansion of the trace. Each basis vector
+in $\ker B$ contributes one, so
+\[
+ nE^2\ge\|I-B\|_{\rm F}^2\ge n-\operatorname{rank}B\ge n-m.
+\]
+Thus $E\ge\sqrt{1-m/n}$, for biased as well as unbiased
+one-hidden-layer networks. When $m<n$, exact recovery is
+impossible even for sparsity one. This proof is a rederivation
+of the source's known lower bound, not a new depth theorem.
+
+\section{The attempted extension fails at the odd-part step}
+A two-hidden-layer homogeneous ReLU network already need not
+have a linear odd part. On $\mathbb R^2$ define
+\[
+ h(y)=\max(0,y_1,y_2).
+\]
+Its first layer computes $a=\sigma(y_1)$ and $b=\sigma(y_2)$;
+its second computes $\sigma(a-b)$ and $\sigma(b)$; summing
+these outputs gives $h$, so it is a network with two hidden
+layers and no biases. For $q(y)=h(y)-h(-y)$,
+\[
+ q(1,0)=1,\qquad q(0,1)=1,\qquad q(1,1)=1.
+\]
+The last value is not the sum of the first two, so $q$ is
+not linear. Consequently no rank-$m$ matrix $B$ follows from
+the one-layer argument for this architecture. This explicit
+failure does not prove two layers suffice for exact sparse
+recovery; it identifies the first invalid step in the attempted
+higher-depth lower bound.
+
+\section{Injectivity and stability do not settle representation depth}
+The measurement promise
+$\ker A\cap\Sigma_{2s}=\{0\}$ is equivalent to injectivity
+on $\Sigma_s$. One direction follows because the difference
+of two $s$-sparse vectors is $2s$-sparse. For the converse,
+partition the support of a nonzero $2s$-sparse kernel vector
+into two sets of size at most $s$, and write it as the difference
+of two $s$-sparse vectors, yielding a collision.
+Under this promise define
+\[
+ \alpha=\min_{|T|\le\min(2s,n),\,T\ne\varnothing}
+          \min_{\|z\|_2=1}\|A_Tz\|_2>0.
+\]
+Each submatrix has trivial kernel, so its continuous norm on
+the compact unit sphere has positive minimum; finitely many
+supports preserve positivity. Therefore the inverse on the
+union of sparse measurement images is Lipschitz:
+\[
+ \|x-x'\|_2\le\alpha^{-1}\|Ax-Ax'\|_2
+ \quad(x,x'\in\Sigma_s).
+\]
+This proves stability of the abstract inverse, but gives no
+specified ReLU depth for an extension to the ambient space.
+Likewise, an approximation theorem with a different network
+for every accuracy does not imply that any one finite network
+realizes the limiting inverse exactly.
+
+An additional shortcut based only on counting linear regions
+cannot give a depth lower bound when width is unbounded.
+With $w$ hyperplanes in $m$ dimensions the number of regions
+is at most $\sum_{j=0}^m\binom wj$: adding one hyperplane
+splits at most the number of regions cut out on that hyperplane
+by its predecessors, proving the bound inductively using
+Pascal's identity. The bound grows without limit with $w$ for
+$m\ge1$. Hence comparing a fixed finite number of required
+pieces to that count cannot force additional depth. This does
+not assert that any prescribed piecewise-linear map is realizable
+by one hidden layer; the odd-part obstruction shows otherwise.
+
+\section{Audit and remaining gap}
+The audit checked the signs in the recession limit, arbitrary
+biases, the rank/Frobenius lower bound, noncompact sparse input
+scales, and the explicit two-layer counterexample. The source's
+logarithmic exact-depth upper bound is not proved optimal or
+improved here. No computation or theorem prover was used.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The complete source-known one-layer lower bound stops because a two-layer odd part need not be linear. No logarithmic depth lower bound or shallower exact sparse-recovery construction is obtained.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item OWR55/2021, Applied Harmonic Analysis and Data Science; complete primary passages on computability pp.3030–3032, sparse recovery pp.3053–3055, and stochastic recurrent learning pp.3055–3057 were read in the cached report; each manuscript uses its identified contribution. \url{https://ems.press/content/serial-article-files/46933}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The complete source-known one-layer lower bound stops because a two-layer odd part need not be linear. No logarithmic depth lower bound or shallower exact sparse-recovery construction is obtained.
+\end{document}

@@ -1,0 +1,192 @@
+% RESEARCH_DRAFT_SHA256: 0910eaa0c92df00feffe06781f2a63b4804a22bfc24bf2cdea35c90debad8e8f
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30005022, "title": "Open Problems in Local Graph Complexity", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005022", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Open Problems in Local Graph Complexity; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A tree boundary case for factors of IID and a finite-radius defect bound; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch024 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30005022; source catalogue code OWR-9790359-003
+\section{Open Problems in Local Graph Complexity}\label{30005022}
+{\small UnsolvedMath ID 30005022 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+In the LOCAL model vertices communicate synchronously along graph edges; messages and local computation are unrestricted and complexity is the number of rounds. After $t$ rounds a vertex can depend only on its radius-$t$ neighborhood and any supplied identifiers or randomness.
+
+A graph matching is a set of edges with pairwise disjoint endpoints, and it is perfect when every vertex is incident to one chosen edge. A weighted matching objective sums the chosen edge weights, unless an ordered objective is specified.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+Source-record limitation: Broad research agenda spanning several computational and descriptive models; no single specified mathematical target or parameterized guarantee.
+\paragraph{Statement recorded in the supplied source.}
+Classify finitary-factor-of-independent-and-identically-distributed complexity; characterize derandomization on graph classes; determine the limits of Borel and continuous Lovász Local Lemmas; construct finitary-factor-of-independent-and-identically-distributed perfect matchings on trees; decide when Borel unfriendly colorings exist; develop a general complexity theory of local graph problems; and transfer techniques among distributed, finitary, and descriptive settings. \href{https://doi.org/10.4171/owr/2022/8}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+The source asks about open Problems in Local Graph Complexity.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30005022 (OWR-9790359-003). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Mini-Workshop: Descriptive Combinatorics, LOCAL Algorithms and Random Processes (2023), Oberwolfach Reports, DOI 10.4171/owr/2022/8, pp. 429--455
+\url{https://doi.org/10.4171/owr/2022/8}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30005022 and code OWR-9790359-003 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30005022}
+
+\section{Literature and context check}
+
+I read the report's broad problem-session directions on pages 438--439 and its
+separation of distributed, Borel and finitary-factor models. The source is a
+research agenda, not a theorem that every tree must have a factor perfect
+matching. The auxiliary tree below is the bi-infinite path, of degree two;
+its obstruction must not be applied to the often intended higher-degree
+regular trees without further argument.
+
+\section{Research attempt: A tree boundary case for factors of IID and a finite-radius defect bound}
+
+\paragraph{A product-shift fact with a direct proof.}
+On $\Omega=\{0,1\}^{\mathbb Z}$ with independent fair-coordinate product
+measure $\mu$, let $T$ be the coordinate shift. The map $T^2$ is ergodic.
+Here is the needed proof. Events determined by finitely many coordinates become
+independent of their $T^{2j}$ translates once the coordinate sets are disjoint.
+Every measurable event can be approximated in measure by such events: the
+class of approximable events contains finite-coordinate events, is closed under
+complements, and is closed under countable unions by first taking a finite union
+whose difference in measure from the full union is small. This proves the
+claim for the sigma algebra they generate, and null-set completion does not
+change it. Approximating two events and using
+$\mu(E\mathbin\triangle F)$ to bound the error in an intersection proves
+$\mu(E\cap T^{-2j}E)\to\mu(E)^2$.
+If $E$ is $T^2$-invariant up to null sets, the left side equals $\mu(E)$;
+hence $\mu(E)\in\{0,1\}$.
+
+\paragraph{No factor-of-IID perfect matching on the bi-infinite path.}
+Index path vertices by $\mathbb Z$. A shift-equivariant measurable rule from
+IID vertex labels to a perfect matching would produce indicators $X_i$ of
+whether edge $\{i,i+1\}$ is selected. Perfect matching requires
+\[
+ X_{i-1}+X_i=1\quad\hbox{for every }i.
+\]
+It follows that $X_{i+2}=X_i$ and $X_{i+1}=1-X_i$.
+As functions of the IID labels, $X_0$ is thus invariant under the squared
+shift; the proved ergodicity forces $X_0$ to be almost surely a constant zero
+or one. Shift equivariance gives the same constant for $X_1$, contradicting
+$X_0+X_1=1$. The argument works for any nontrivial IID product labels by the
+same finite-coordinate independence proof, not just binary labels.
+It rules out even measurable factors here, so in particular it rules out
+finitary factors. There are nevertheless two ordinary perfect matchings,
+obtained by choosing one of the two alternating edge sets.
+
+\paragraph{Quantifying the obstruction for a bounded-radius local rule.}
+Suppose an edge indicator $X_i$ depends only on IID labels at vertices
+$i-r,\ldots,i+1+r$, with a fixed integer $r\geq0$, by a shift-equivariant
+rule. Let
+$d=\Pr\{X_{i-1}+X_i\ne1\}$, independent of $i$.
+Set $L=2r+3$, which is odd. The label sets determining $X_0$ and $X_L$
+are disjoint, so they are independent with the same Bernoulli parameter $p$.
+Consequently
+\[
+ \Pr\{X_0=X_L\}=p^2+(1-p)^2\geq\frac12.
+\]
+If none of the $L$ constraints $X_{j-1}+X_j=1$, $1\leq j\leq L$,
+fails, alternation along the odd number $L$ of steps gives $X_L=1-X_0$.
+Thus the equality event implies at least one failed constraint. A union bound
+proves
+\[
+ d\geq\frac1{2L}=\frac1{4r+6}.
+\]
+If the rule always outputs a partial matching, failures are precisely unmatched
+vertices; otherwise the bound counts both unmatched and double-matched
+vertices. The distinction prevents treating an arbitrary edge-label rule as a
+valid partial matching.
+
+\paragraph{What this rules out and what it leaves.}
+Adding ever more IID information at a fixed radius cannot drive the defect
+probability below the displayed bound. Allowing an unbounded random coding
+radius is not controlled by that numeric estimate, but an exact measurable
+perfect matching remains impossible on this particular tree by the preceding
+invariance argument. This provides a concrete model boundary, not a solution
+of the higher-degree tree, unfriendly-coloring, local-lemma or derandomization
+questions grouped in the source.
+
+\section{Verification and adversarial audit}
+
+The separation distance $L=2r+3$ is both odd and large enough to make the two
+label windows disjoint. The union bound has exactly $L$ intermediate vertex
+constraints. The no-factor proof uses equivariance and measurability, while the
+finite-radius bound needs independence of disjoint IID windows. Ordinary
+choice-based alternating matchings are not claimed to be factors.
+
+\paragraph{Audit corrections.} Specified the degree-two tree and counted invalid double-matchings as
+defects when the rule is not assumed to output a partial matching. Kept the
+finite-radius quantitative statement separate from the exact measurable-factor
+obstruction.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+
+This addresses only a declared degree-two boundary and one bounded-radius
+approximation model. It does not classify finitary complexity, settle perfect
+matchings on higher-degree trees, or answer the other independent directions
+in the broad source agenda. The product-shift proof is shared with 30005027
+and is not presented as a separate new discovery.
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46944} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

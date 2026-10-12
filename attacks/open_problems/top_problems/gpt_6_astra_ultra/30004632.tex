@@ -1,0 +1,210 @@
+% RESEARCH_DRAFT_SHA256: 2c3cec6ad04b495df2d8462b5fde2b67eeadf2cd488cfba674ebfc63bbfe6860
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004632, "title": "Global Optimality of Domain-Decomposition Transport Algorithms", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004632", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "For the limiting iterates of a domain-decomposition algorithm for optimal transport, what sufficient conditions on the cost function and transport data guarantee convergence to a globally optimal transport plan?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. No source-level conditions ensuring global optimality of the fine-partition limit dynamics are proved. The finite positive-limit certificate assumes convergence and positivity and does not supply a uniform spatial/time-limit argument.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Domain decomposition: positive finite limits, a three-cycle trap, and the missing uniform limit}
+\noindent UnsolvedMath ID 30004632; OWR-4990379-002. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A transport plan couples two probability measures; a transport map $T$ pushes one measure to another, meaning $T_\#\mu(B)=\mu(T^{-1}(B))$. Optimal transport minimizes the expected specified cost among admissible couplings.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+Source-record limitation: Global convergence depends on the particular domain-decomposition update, overlap, scheduling, and regularization. The supplied question does not identify the algorithm or these defining choices, so it cannot support a faithful convergence statement from the record alone.
+\paragraph{Statement recorded in the supplied source.}
+For the limiting iterates of a domain-decomposition algorithm for optimal transport, what sufficient conditions on the cost function and transport data guarantee convergence to a globally optimal transport plan? \href{https://doi.org/10.4171/owr/2021/10}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+The source asks about global Optimality of Domain-Decomposition Transport Algorithms.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004632 (OWR-4990379-002). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Applications of Optimal Transportation in the Natural Sciences (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/10, pp. 507--587
+\url{https://doi.org/10.4171/owr/2021/10}.
+\item[S3] Medina--Schmitzer--Bonafini, asymptotic analysis
+\url{https://doi.org/10.1007/s00211-023-01347-x}.
+\item[S4] Bonafini--Schmitzer, entropic domain decomposition
+\url{https://arxiv.org/abs/2001.10986}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+For the limiting iterates of a domain-decomposition algorithm for optimal transport, what sufficient conditions on the cost function and transport data guarantee convergence to a globally optimal transport plan?
+
+\section{Source scope and attempted route}
+The primary report, printed pages 515--517, already distinguishes
+convergence for fixed positive entropic regularization from the open
+question about the limiting dynamics as the partition cells shrink.
+The 2023 primary article's abstract and Sections 1.2, 4 (Remark 8),
+5, and 6 confirm that this distinction is material: the limiting
+system can have stationary nonoptimal map couplings. We do not
+claim that arbitrary stationary solutions are algorithmically selected.
+Our attempted route is to glue local first-order conditions into a
+global dual certificate and then pass to the fine-partition limit.
+The finite gluing step works under positivity; the second step does
+not follow. Here are complete auxiliary proofs and an explicit
+obstruction, not a new theorem about the source's limit dynamics.
+
+\section{A finite positive-limit certificate}
+Let $r_i,s_j>0$ be row and column masses with equal total, let all
+$c_{ij}$ be finite, and fix $\varepsilon>0$. On nonnegative matrices
+with these margins minimize
+\[
+ F(P)=\sum_{ij}c_{ij}P_{ij}
+ +\varepsilon\sum_{ij}P_{ij}\left(\log\frac{P_{ij}}{r_i s_j}-1\right),
+ \qquad 0\log0=0.
+\]
+The omitted normalization terms in relative entropy are constant on
+this feasible set. Suppose $P$ is strictly positive and, for every
+edge $ii'$ of a connected graph on the rows, it minimizes $F$ among
+plans changing only those two rows. Then $P$ is the unique global
+minimizer.
+
+To prove this, write
+\[
+ g_{ij}=c_{ij}+\varepsilon\log(P_{ij}/(r_i s_j)).
+\]
+For every pair of columns $j,j'$ the matrix supported on the four
+corners $(i,j),(i',j'),(i,j'),(i',j)$ with respective entries
+$1,1,-1,-1$ preserves all margins. Strict positivity makes both
+signs of a sufficiently small step feasible. Differentiating at
+zero therefore gives
+\[
+ g_{ij}-g_{ij'}=g_{i'j}-g_{i'j'}.
+\]
+Fix a reference column and propagate this equality along row-graph
+paths. It gives $g_{ij}=u_i+v_j$ for suitable real numbers $u_i,v_j$.
+For $p>0,q\ge0$, strict convexity of $t\log t-t$, proved by its
+second derivative $1/t>0$ on $t>0$ and continuity at zero, gives
+its tangent inequality, strict when $q\ne p$. Consequently every
+other feasible $Q$ satisfies
+\[
+ F(Q)\ge F(P)+\sum_{ij}(u_i+v_j)(Q_{ij}-P_{ij})=F(P),
+\]
+with strict inequality unless $Q=P$. The last equality uses both
+margins. A single row or column is covered as well: the feasible
+plan is then determined by the margins.
+
+There is a corresponding conditional convergence statement. Suppose
+exact two-row updates visit every edge of this finite connected
+graph infinitely often, and the entire sequence of plans converges
+to a strictly positive $P_*$. Then $P_*$ satisfies the four-corner
+stationarity equations and hence is globally optimal. Indeed, if
+one such directional derivative at $P_*$ were nonzero, choose its
+negative sign and a fixed small step producing a strict decrease
+$\delta>0$. By continuity this same step remains feasible and
+improves the objective by at least $\delta/2$ at all sufficiently
+late visits to that row edge. Exact minimization improves at least
+as much. But convergence of plans and continuity of $F$ imply that
+successive objective values converge to the same limit, a
+contradiction. We have assumed full-sequence convergence and
+positivity, not proved them from a continuum limit hypothesis.
+
+For clarity, the finite global minimizer itself is positive.
+The feasible set is compact and nonempty (a positive product plan,
+normalized by total mass if needed, is feasible), so a minimizer
+exists. If it has a zero entry, mix it with that positive product
+plan with weight $t$. At formerly positive entries the objective
+change is $O(t)$; the finite cost contribution is $O(t)$; at all
+formerly zero entries the entropy contribution is
+$\varepsilon A t\log t+O(t)$ with $A>0$. For small positive $t$
+this is negative. This contradicts minimality. This fact alone
+says nothing about uniform positivity as dimensions or
+$\varepsilon$ vary.
+
+\section{Failure of the unregularized extension}
+Take three unit row and column margins and cost matrix
+\[
+ C=\begin{pmatrix}1&0&3\\3&1&0\\0&3&1\end{pmatrix}.
+\]
+The identity plan has cost $3$. If just two rows may change, the
+third row fixes one column completely and the remaining two rows
+have their $2$ by $2$ identity margins. Every feasible subplan is
+\[
+ \begin{pmatrix}1-t&t\\t&1-t\end{pmatrix},\qquad 0\le t\le1,
+\]
+in the corresponding two columns. Its cost on these rows is
+$2(1-t)+3t=2+t$, so the identity is the unique optimum for every
+possible two-row update. Nevertheless the plan with entries
+$P_{12}=P_{23}=P_{31}=1$ has cost zero, which is globally minimal
+because all costs are nonnegative. Dividing masses and costs by
+three gives the probability-measure version. Thus even a complete
+row-interaction graph does not make unregularized two-row fixed
+points globally optimal. The missing feasible reverse directions
+at zero entries invalidate the positive-matrix derivative proof.
+This finite example is not claimed to be a counterexample to an
+unstated geometric assumption in the source.
+
+\section{The precise remaining limit gap}
+Even a correct finite-scale convergence theorem cannot justify
+interchanging the spatial and long-time limits. As a scalar
+illustration, $a_N(t)=\exp(-t/N)$ satisfies
+\[
+ \lim_{N\to\infty}\lim_{t\to\infty}a_N(t)=0,
+ \qquad
+ \lim_{t\to\infty}\lim_{N\to\infty}a_N(t)=1.
+\]
+Both identities follow directly from the exponential formula.
+This is a diagnostic example, not an asserted transport trajectory.
+A sufficient uniform estimate of the form
+$\sup_N\Delta_N(t)\le h(t)\to0$, together with appropriate objective
+and trajectory convergence, would close that exchange; no such
+estimate is derived from the source's cost/data hypotheses here.
+The finite proof also loses any force when limiting masses vanish,
+regularization vanishes, or local cells collapse without a uniform
+certificate controlling all feasible transport directions.
+
+\section{Adversarial audit and status}
+The audit checked both signs of every derivative perturbation,
+normalization of non-probability margins, strict convexity at the
+zero boundary, the exact two-row feasible polytope in the trap,
+and the quantifiers in the convergence argument. Neither a
+stationary solution of a limiting PDE nor convergence at each
+fixed resolution has been promoted to an algorithmically selected
+globally optimal limit. No computation or theorem prover was used.
+The actual fine-partition sufficient conditions remain unresolved.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. No source-level conditions ensuring global optimality of the fine-partition limit dynamics are proved. The finite positive-limit certificate assumes convergence and positivity and does not supply a uniform spatial/time-limit argument.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Schmitzer, Domain decomposition for entropic optimal transport, OWR 10/2021, pp.515–517; full primary source passage read from cached text. \url{https://doi.org/10.4171/OWR/2021/10}.
+\item Bonafini and Schmitzer, Domain decomposition for entropy regularized optimal transport; primary abstract consulted for context. \url{https://arxiv.org/abs/2001.10986}.
+\item Bonafini, Medina and Schmitzer, Asymptotic analysis of domain decomposition for optimal transport (2023); primary abstract, Sections1.2,4 Remark8,5,6 inspected. No external convergence theorem is a dependency of the auxiliary proofs. \url{https://link.springer.com/article/10.1007/s00211-023-01347-x}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} No source-level conditions ensuring global optimality of the fine-partition limit dynamics are proved. The finite positive-limit certificate assumes convergence and positivity and does not supply a uniform spatial/time-limit argument.
+\end{document}

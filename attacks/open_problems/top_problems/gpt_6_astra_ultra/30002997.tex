@@ -1,0 +1,180 @@
+% RESEARCH_DRAFT_SHA256: ae828a9f3c5adc727b2f3a4057883410274b04e36fd21865bfa73d52a273680a
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30002997, "title": "Limits of False Discovery Control in Interactive Analysis", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002997", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Can the computational and query-complexity limitations on procedures that prevent false discovery in interactive data analysis be removed?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The elementary private mechanism has explicit linear query-dependent noise, and the replacement proof gives only a signed-mean bound. It does not establish the required general high-probability transfer or remove computational barriers.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Interactive false-discovery control: privacy composition and a signed-mean gap}
+\noindent UnsolvedMath ID 30002997; OWR-13949-004. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A statistical query is an expectation $\mathbb E_{x\sim P}[q(x)]$ for a bounded function $q$. Adaptive queries may depend on earlier answers, so accuracy must account for the dependence between the sample and the selected queries.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The baseline limitations, false-discovery criterion, and admissible procedures require the cited report.
+
+Source-record limitation: The false-discovery criterion, baseline limitations, and admissible interactive procedures are not specified.
+\paragraph{Statement recorded in the supplied source.}
+Can the computational and query-complexity limitations on procedures that prevent false discovery in interactive data analysis be removed? \href{https://doi.org/10.4171/owr/2015/54}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Remove the stated computational and query limitations on controlling false discoveries during interactive analysis.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30002997 (OWR-13949-004). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Complexity Theory (2016), Oberwolfach Reports, DOI 10.4171/owr/2015/54, pp. 3049--3099
+\url{https://doi.org/10.4171/owr/2015/54}.
+\item[S3] Reusable holdout
+\url{https://doi.org/10.1126/science.aaa9375}.
+\item[S4] Adaptive data analysis
+\url{https://arxiv.org/abs/1506.02629}.
+\item[S5] Computational lower bound
+\url{https://arxiv.org/abs/1408.1655}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Can the computational and query-complexity limitations on procedures that prevent false discovery in interactive data analysis be removed?
+
+\section{The source limitations and the attempted route}
+Ullman's report, printed pages 3067--3068, describes both computational
+and information-theoretic restrictions on general adaptive statistical
+queries. Its phrase about removing limitations is followed by negative
+results; it is not an assertion that privacy abolishes all limitations.
+The original lower-bound paper's abstract gives an earlier parameter
+regime than the later workshop summary. We do not equate those rates
+or claim to reprove either advanced lower bound.
+We attempt the source's privacy route using elementary composition,
+derive exactly what a replacement-sample argument gives, and locate
+the missing high-probability inference.
+
+\section{A complete adaptive Laplace composition calculation}
+Fix $k\ge1$, $\varepsilon>0$, a sample of size $n\ge1$, and predicates
+$\phi_i:X\to\{-1,1\}$ selected from past released answers. The analyst
+has randomness independent of the sample. At each step release
+\[
+a_i=\frac1n\sum_{x\in S}\phi_i(x)+Z_i,
+\qquad Z_i\text{ independent with density }
+\frac1{2b}e^{-|z|/b},\quad b=\frac{2k}{n\varepsilon}.
+\]
+For neighboring samples differing in one entry, a fixed predicate's
+empirical means differ by at most $2/n$. Conditional on a fixed earlier
+answer history and the analyst's seed, the chosen predicate is the
+same on both samples. The conditional density ratio at any next answer
+is at most $\exp(2/(nb))=\exp(\varepsilon/k)$, by the triangle
+inequality for absolute values. Multiplication of the $k$ conditional
+density ratios gives a joint ratio at most $e^\varepsilon$.
+Integrating over any transcript event and then the independent analyst
+seed proves pure $\varepsilon$-differential privacy of the transcript.
+Any selected query computed from that transcript is also private,
+because the probability of an event about it is the probability of its
+preimage event for the transcript (extra independent randomness can be
+integrated in the same way).
+
+Direct integration gives $\Pr(|Z_i|>u)=e^{-u/b}$ for $u\ge0$.
+The union bound proves simultaneous empirical accuracy
+\[
+\max_{i\le k}|a_i-\phi_i(S)|
+\le\frac{2k}{n\varepsilon}\log\frac{k}{\eta}
+\quad\text{with probability at least }1-\eta,
+\qquad 0<\eta<1.
+\]
+The displayed noise scale already grows linearly with $k$; elementary
+pure-privacy composition alone does not remove query dependence.
+
+\section{What replacement stability actually proves}
+Let a pure $\varepsilon$-private algorithm output a random function
+$q:X\to[0,1]$. Take $S=(X_1,\ldots,X_n)$ with independent draws from
+$P$, and replace $X_i$ by an independent $X_i'$ to get $S^{(i)}$.
+For fixed neighboring datasets and fixed $x$, privacy for the events
+$\{q:q(x)>t\}$, integrated over $0\le t\le1$, gives
+\[
+\mathbb E_{q\mid S}q(x)
+\le e^\varepsilon\mathbb E_{q\mid S^{(i)}}q(x).
+\]
+Set $x=X_i$ and average all data. The output from $S^{(i)}$ is
+independent of $X_i$, and $S^{(i)}$ has the same distribution as $S$.
+Consequently, writing $A=\mathbb E q(S)$ and
+$B=\mathbb E q(P)$, we get $A\le e^\varepsilon B$ after averaging
+over $i$. Applying the reversed neighboring-dataset inequality likewise
+gives $B\le e^\varepsilon A$.
+Since $0\le A,B\le1$,
+\[
+|\mathbb E[q(S)-q(P)]|\le e^\varepsilon-1.
+\]
+For predicates taking values $\{-1,1\}$, translate by
+$q=(\phi+1)/2$ to obtain twice this bound.
+This is a bound on the absolute value of a signed expectation. It is
+not a bound on the expectation of the absolute gap.
+
+\section{An exact obstruction to the tempting Markov step}
+Let $P$ be uniform on a finite domain of size $N>n$, and let $A(S)$ be
+the support of the sample. A deliberately nonprivate algorithm tosses
+a fair independent coin and outputs either $q=\mathbf1_{A(S)}$ or
+$q=1-\mathbf1_{A(S)}$. The empirical-minus-population gap is respectively
+\[
+1-|A(S)|/N\quad\text{or}\quad-(1-|A(S)|/N).
+\]
+Its signed expectation is exactly zero, even conditional on $S$, while
+its absolute value is at least $1-n/N$ with probability one.
+Therefore the signed-mean estimate alone cannot be fed into Markov's
+inequality to establish high-probability generalization: Markov requires
+a nonnegative variable and its expectation. This example does not
+contradict a correct differential-privacy generalization theorem, since
+the example is not private. It refutes the proposed inference from the
+single numerical signed-mean bound, which discards essential information.
+
+\section{Model-assisted audit and remaining scope}
+The audit checked adaptive conditional densities, independent analyst
+coins, the replacement sample's independence, and the location of the
+absolute-value signs. The published privacy transfer theorem needs a
+stronger argument than the one just attempted; it is not derived by
+combining empirical noise accuracy with this signed expectation.
+These are known elementary mechanisms and illustrative obstructions,
+not novel lower bounds. No numerical experiment or theorem prover was
+used. We neither remove the source's computational limitations nor prove
+its full high-probability query tradeoff, and we do not confuse population
+query accuracy with an unspecified multiple-testing FDR convention.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The elementary private mechanism has explicit linear query-dependent noise, and the replacement proof gives only a signed-mean bound. It does not establish the required general high-probability transfer or remove computational barriers.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Complexity Theory, OWR 54/2015; the original relevant passages were inspected in the cached primary report, including their surrounding model qualifications. \url{https://doi.org/10.4171/owr/2015/54}.
+\item Hardt and Ullman, Preventing False Discovery in Interactive Data Analysis is Hard (2014); primary abstract inspected, full lower-bound proof not audited. \url{https://arxiv.org/abs/1408.1655}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The elementary private mechanism has explicit linear query-dependent noise, and the replacement proof gives only a signed-mean bound. It does not establish the required general high-probability transfer or remove computational barriers.
+\end{document}

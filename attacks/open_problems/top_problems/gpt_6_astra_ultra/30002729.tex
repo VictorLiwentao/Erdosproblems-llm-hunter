@@ -1,0 +1,138 @@
+% RESEARCH_DRAFT_SHA256: 02a35f2866c7554b29c1809c39c49c203ee3b65be4a2627c3ecd29c95680e53c
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30002729, "title": "Additive Integrality Gap for Ring Loading", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002729", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "For every instance of the ring-loading problem, let $L$ be the optimum unsplittable load, let $L^*$ be the optimum splittable load, and let $D$ be the maximum demand. Is $L\\leq L^*+11D/10$?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. No universal 11D/10 additive bound or violating optimum instance is obtained; the counterexample concerns only common-threshold rounding.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Ring loading: an exact antipodal family and failure of common-threshold rounding}
+\noindent UnsolvedMath ID 30002729; OWR-13353-017. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Ring loading routes demands between pairs of vertices around a cycle. Splittable routing may divide a demand between the two cycle paths; unsplittable routing chooses one. Load is the maximum total demand traversing an edge.
+
+A relaxation contains the integral feasible solutions. For a nonnegative minimization objective, its integrality gap is the supremum of the ratio between the integral optimum and the relaxation optimum over the specified instances.
+\paragraph{Statement recorded in the supplied source.}
+For every instance of the ring-loading problem, let $L$ be the optimum unsplittable load, let $L^*$ be the optimum splittable load, and let $D$ be the maximum demand. Is $L\leq L^*+11D/10$? \href{https://doi.org/10.4171/owr/2014/51}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Determine whether integral ring routing is always within the stated additive maximum-demand amount of fractional routing.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30002729 (OWR-13353-017). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2015), Oberwolfach Reports, DOI 10.4171/owr/2014/51, pp. 2873--2932
+\url{https://doi.org/10.4171/owr/2014/51}.
+\item[S3] Skutella, a note on ring loading
+\url{https://doi.org/10.1137/14099588X}.
+\item[S4] Däubel, improved ring-loading bounds
+\url{https://arxiv.org/abs/1904.02119}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+For every instance of the ring-loading problem, let $L$ be the optimum unsplittable load, let $L^*$ be the optimum splittable load, and let $D$ be the maximum demand. Is $L\leq L^*+11D/10$?
+
+\section{Attempt and exact family}
+We try to round a fractional routing by one shared uniform threshold: a demand
+whose clockwise fraction is $p_i$ chooses clockwise precisely when $\theta<p_i$.
+This preserves each edge load in expectation. An expectation alone need not
+supply one outcome with small maximum load; the following family quantifies
+the failure even when the fractional routing is optimal.
+
+Take a simple cycle with vertices $0,\ldots,2m-1$, $m\ge2$, and a unit demand
+between $i$ and $i+m$ for each $0\le i<m$. Clockwise paths have exactly $m$
+edges, as do their complements. Every routing, split or unsplit, therefore
+has sum of edge loads $m^2$, so maximum load is at least $m/2$.
+Splitting every demand equally gives load $m/2$ on every edge: each demand
+contributes $1/2$ to each edge. Thus $L^*=m/2$ and $D=1$.
+
+All clockwise paths contain the edge $\{m-1,m\}$, and all counterclockwise
+paths contain $\{2m-1,0\}$. With $p_i=1/2$ for every demand, a common threshold
+chooses one of these two unanimous routings, each with maximum load $m$.
+Its additive error is $m/2$, unbounded relative to $D$. Nevertheless every
+edge retains its correct expected load. This is a rounding-rule counterexample,
+not a counterexample to the original $11D/10$ conjecture.
+
+\paragraph{The exact integral optimum.}
+For this family,
+\[
+L=\begin{cases}(m+1)/2,&m\text{ odd},\\m/2+1,&m\text{ even}.\end{cases}
+\]
+For odd $m$, integrality of loads and the average bound give
+$L\ge\lceil m/2\rceil$. For even $m$, equality with the average would require
+all edge loads to equal $m/2$. At each vertex there is exactly one demand
+endpoint; crossing that vertex changes the load by $+1$ or $-1$ in an
+unsplit routing. Hence constant loads are impossible and $L\ge m/2+1$.
+
+For the upper bound choose clockwise and counterclockwise directions
+alternately, starting clockwise at demand zero. Write $\sigma_i=+1$ for
+clockwise and $-1$ otherwise, $C=\lfloor m/2\rfloor$, and
+$S_j=\sum_{i=0}^{j-1}\sigma_i$, $1\le j\le m$.
+The edge immediately before vertex zero has load $C$. The first half of the
+cycle has loads $C+S_j$. Here $S_j=1$ for odd $j$ and zero for even $j$.
+For every edge, its antipodal edge is used by precisely the complementary
+set of demands, since each route is a semicircle. Its load is therefore
+$m-(C+S_j)$. If $m$ is odd, these loads are the two integers
+$(m-1)/2,(m+1)/2$. If $m$ is even they lie between $m/2-1$ and $m/2+1$.
+This proves the stated upper bounds and the formula. The genuine optimum
+has gap only $1/2$ or $1$, so it satisfies the conjectured $11/10$ bound.
+
+\section{Context, audit, and unresolved step}
+Skutella's original report, printed pages 2916--2917, distinguishes rounding
+an arbitrary split routing from comparing the two optimum objective values.
+That distinction is preserved here. The later Daubel abstract,
+arXiv:1904.02119v2, reports the stronger upper bound $13D/10$; the preserved
+catalogue discussion mentioning only $19D/14$ is therefore not used as a
+complete current survey. Neither that proof nor the general $11D/10$ target
+is proved in this manuscript.
+
+The exact script \texttt{combinatorial\_checks.py} enumerated all $2^m$
+unsplit routings for each $m=2,\ldots,10$ and verified the formula and the
+common-threshold load; the all-$m$ argument is independent of those checks.
+The adversarial audit checked the even-$m$ strict-average argument, clockwise
+path indexing, and the antipodal complement identity. The failed proof step
+is replacing control of each expected edge load by simultaneous control of
+the maximum. A new correlated rounding construction with a universal additive
+bound is still required. No original-target progress or novelty is claimed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. No universal 11D/10 additive bound or violating optimum instance is obtained; the counterexample concerns only common-threshold rounding.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 51/2014, Combinatorial Optimization; relevant original passages read in the cached primary report on 11 October 2026. \url{https://doi.org/10.4171/owr/2014/51}.
+\item K. Daubel, An Improved Upper Bound for the Ring Loading Problem (2019), version 2; primary abstract inspected, proof of the reported 13D/10 bound not rederived. \url{https://arxiv.org/abs/1904.02119v2}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} No universal 11D/10 additive bound or violating optimum instance is obtained; the counterexample concerns only common-threshold rounding.
+\end{document}

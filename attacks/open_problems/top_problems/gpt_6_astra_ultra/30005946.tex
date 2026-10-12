@@ -1,0 +1,104 @@
+% RESEARCH_DRAFT_SHA256: 76e2a4617b304e7217c04b5b1e4c29c63ccc17b02e91eed59d8e0b284241ff0f
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30005946, "title": "Optimal Noiseless Rates for Max-Average-Margin Classifiers", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005946", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, completed written mathematical proof review, independent reproduction of the finite checks, and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Explicit noiseless Gaussian counterexample to a literal linear average-margin objective on the l1 ball; no claim against unspecified regularized estimator.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch026/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 30005946; source catalogue code OWR-14298377-001
+\section{Optimal Noiseless Rates for Max-Average-Margin Classifiers}\label{30005946}
+{\small UnsolvedMath ID 30005946 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A margin is the signed classifier score on a labeled observation. A max-average-margin objective maximizes the specified average margin subject to its regularization constraints; noiseless recovery refers to the source\textquotesingle s zero-label-noise model.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The $\ell_p$ margin normalization, regularization, data distribution, and recovery-risk metric are not specified in the supplied statement.
+
+Source-record limitation: The margin functional, regularization, data model, and recovery-risk definition are absent.
+\paragraph{Statement recorded in the supplied source.}
+Why can max-$\ell_p$ margins with $p>1$ improve noiseless recovery, and can the regularized max-average-margin estimator achieve the optimal $O(1/n)$ rate rather than $O(1/\sqrt n)$? \href{https://doi.org/10.4171/owr/2024/30}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Explain the larger-margin advantage and determine whether the stated classifier can attain the faster recovery rate.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30005946 (OWR-14298377-001). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Statistics and Learning Theory in the Era of Artificial Intelligence (2024), Oberwolfach Reports, DOI 10.4171/owr/2024/30, pp. 1677--1718
+\url{https://doi.org/10.4171/owr/2024/30}.
+\item[S3] Tight bounds for maximum l1-margin classifiers
+\url{https://arxiv.org/abs/2212.03783}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30005946 and code OWR-14298377-001 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30005946}
+
+\section{Research attempt}
+\subsection{Literature, source context and scope}
+The full original catalogue body and source qualifications are preserved above. The relevant primary workshop passages were read in the cached publisher report. Historical claims and subsequent attributed results are distinguished from the mathematical work below. A restricted example, standard lemma or known theorem is not counted as new progress on the entire original target. Missing assumptions and repeated or rhetorical extracts are not silently turned into different solved problems.
+
+The primary passage specifies an $\ell_1$ constraint for the proposed average-margin route, but does not give the full regularized objective, tuning or data assumptions. The cited Stojanovic--Donhauser--Yang abstract concerns maximum minimum margin, which is a different objective. Its rates are attributed context. The following attempt tests the most literal linear average-margin objective; it does not identify that objective with the unspecified regularized estimator.
+\subsection{A checked failure of the unregularized linear-average route}
+Let $X\sim N(0,I_2)$, $Y=\operatorname{sign}(X_1+X_2)$, and take $n\ge1$ independent training samples. Put $M=n^{-1}\sum_iY_iX_i$, and maximize $M\cdot w$ over $\|w\|_1\le1$. Predict $\operatorname{sign}(w\cdot X)$ on fresh data.
+\begin{proposition}
+Almost surely the unique optimizer is a signed coordinate vector. Its population classification error is at least $1/4$ for every $n$. As $n$ tends to infinity the expected error tends to $1/4$.
+\end{proposition}
+\begin{proof}
+Writing $U=(X_1+X_2)/\sqrt2$ and $V=(X_1-X_2)/\sqrt2$ gives independent standard normals. The coordinates of $YX$ in this rotated basis are $|U|$ and $\operatorname{sign}(U)V$. The latter is a standard normal independent of $|U|$. Consequently $M_1+M_2>0$ almost surely, while $M_1-M_2$ is a nondegenerate centered normal. Thus $|M_1|=|M_2|$, equivalent to one of those two sums being zero, has probability zero.
+
+For unequal absolute coordinates, $M\cdot w\le\max_j|M_j|\|w\|_1$ has equality uniquely at $w=\operatorname{sign}(M_j)e_j$ for the maximizing $j$. The angle between $e_j$ and $(1,1)/\sqrt2$ is $\pi/4$, and that for $-e_j$ is $3\pi/4$. A rotationally invariant planar Gaussian has a uniform angular coordinate; two homogeneous half-space signs disagree on wedges of total angular length twice the angle. Their disagreement probability is therefore the angle divided by $\pi$. The risk is respectively $1/4$ or $3/4$.
+
+Finally $EM_1=EM_2=1/\sqrt\pi>0$. Each coordinate sample mean has variance $O(1/n)$, so Chebyshev's inequality implies both are positive with probability tending to one. On that event the selected axis has risk $1/4$; risks are bounded by one, proving convergence of their expectations.
+\end{proof}
+\subsection{Why this does not settle the stated rate question}
+The failed inference is that an $\ell_1$ bound on a linear empirical average automatically yields a consistent sparse classifier. Here the true separator is already two-sparse and the objective selects a coordinate axis. A loss transformation, additional constraint or other regularization may prevent this failure; none is specified in the extract. This is an obstruction to the literal route, not a counterexample to a fully specified estimator from the source and not an explanation of all $p>1$ behavior.
+\section{Verification and remaining gaps}
+The finite check verifies the four axis risks geometrically and sample optimizer inequalities. Establishing an $O(1/n)$ rate requires the intended objective, tuning, distribution and sparsity scaling, then a new analysis. Those remain open within this attempt.
+
+\section{References and source attribution}
+Primary workshop report: \url{https://doi.org/10.4171/owr/2024/30}. Relevant passages read: OWR 2024/30, printed pages 1687--1688, Fanny Yang.
+
+\url{https://arxiv.org/abs/2212.03783}. Read primary abstract identifying maximum l1 minimum-margin estimator and attributed rates; not full proof verification.
+
+All retrievals were checked on 11 October 2026. Original question attribution remains in the preserved Sources section. External theorems are attributed and not claimed as new discoveries or fully verified merely by citation.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch, read and reviewed the written mathematical arguments, independently reran the finite checks, and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch026/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

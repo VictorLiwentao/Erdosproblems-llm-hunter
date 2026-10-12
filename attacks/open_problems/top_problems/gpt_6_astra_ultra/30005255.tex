@@ -1,0 +1,195 @@
+% RESEARCH_DRAFT_SHA256: ec6d9ff64fc72ed6cff0a7a94cee43cf783a8f42c36175bc2ff056c8ca567e9f
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30005255, "title": "Cancellation-Sensitive Norms for Two-Layer Networks", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005255", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Cancellation-Sensitive Norms for Two-Layer Networks; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Balanced rescaling, finite atomic cancellation, and a gradient obstruction; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch024 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30005255; source catalogue code OWR-11695855-008
+\section{Cancellation-Sensitive Norms for Two-Layer Networks}\label{30005255}
+{\small UnsolvedMath ID 30005255 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a scalar-output two-layer network, write $f_{a,V}(x)=\sum_{j=1}^m a_j\sigma(v_j^Tx)$ with rows $v_j^T$ of $V$, using the activation and any biases of the source model. Parameter norms measure the coefficient vector $a$ and first-layer matrix $V$. The product $\lVert a\rVert\lVert V\rVert$ is distinguished from an additive squared-parameter penalty. Cancellation means different signed hidden-unit contributions partially offset in the represented function, although their separate parameter sizes can be large. A test-error bound concerns expected loss on the source population distribution.
+\paragraph{Statement recorded in the supplied source.}
+For a two-layer network with weights $(a,V)$, when can the squared parameter norm be replaced by the tighter product $\lVert a\rVert\lVert V\rVert$, and is there a still tighter cancellation-sensitive expression usable in gradient-descent and test-error bounds? \href{https://doi.org/10.4171/owr/2022/46}{[S2]}
+\paragraph{Scope qualification.}
+Vector and matrix norms, the activation, and the baseline squared norm follow the source; no universal numerical inequality between unmatched norm conventions is asserted.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Can two-layer-network training and prediction bounds use a smaller norm that captures the scale product and cancellations between hidden units?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30005255 (OWR-11695855-008). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Mini-Workshop: Mathematical Foundations of Robust and Generalizable Learning (2023), Oberwolfach Reports, DOI 10.4171/owr/2022/46, pp. 2659--2686
+\url{https://doi.org/10.4171/owr/2022/46}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30005255 and source code OWR-11695855-008 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30005255}
+
+\section{Literature and context check}
+
+I read the norm question on page 2682 of the primary report. It explicitly asks
+about both gradient behavior and test error, so a smaller numerical quantity
+alone does not settle it. The calculations below use bias-free ReLU, Euclidean
+output weights and the Frobenius first-layer norm. Those choices are stated
+assumptions of this auxiliary route, not an assertion about every unspecified
+norm or activation in the source.
+
+\section{Research attempt: Balanced rescaling, finite atomic cancellation, and a gradient obstruction}
+
+\paragraph{What positive homogeneity proves exactly.}
+Let $f(x)=\sum_j a_j\sigma(v_j^Tx)$, $\sigma(t)=\max(t,0)$.
+For any $c>0$, replacing $(a,V)$ by $(a/c,cV)$ preserves $f$.
+Consequently
+\[
+ \inf_{c>0}\frac12(c^{-2}\|a\|_2^2+c^2\|V\|_F^2)
+ =\|a\|_2\|V\|_F.
+\]
+For positive norms, subtracting the right side leaves half the square
+$(\|a\|_2/c-c\|V\|_F)^2$, with equality at
+$c^2=\|a\|_2/\|V\|_F$. If either norm is zero, the infimum is zero by a
+limit and the function is zero, although the infimum need not be attained by a
+finite $c$. Allowing separate positive rescalings for each neuron gives instead
+\[
+ \inf_{c_j>0}\frac12\sum_j(a_j^2/c_j^2+c_j^2\|v_j\|_2^2)
+ =\sum_j |a_j|\|v_j\|_2
+ \leq\|a\|_2\|V\|_F,
+\]
+where the last inequality follows by expanding the nonnegative square norm
+in the Cauchy--Schwarz inequality.
+
+\paragraph{Cancellation within a specified finite dictionary.}
+Drop zero rows and write $v_j=r_j u_j$, with $r_j>0$ and $\|u_j\|=1$.
+For each distinct direction $u$, combine coefficients
+$c_u=\sum_{j:u_j=u}a_jr_j$. This preserves the function and gives the
+cancellation-sensitive quantity
+\[
+ B=\sum_u|c_u|\leq\sum_j|a_j|r_j.
+\]
+Since ReLU is one-Lipschitz and vanishes at zero,
+$|f(x)|\leq B\|x\|$ and $|f(x)-f(y)|\leq B\|x-y\|$.
+For a fixed dictionary of $K\geq1$ unit directions and sample points
+$\|x_i\|\leq R$, $1\leq i\leq N$, the exact empirical signed-sum supremum
+for the coefficient ball is
+\[
+ \mathbb E_\epsilon\sup_{\|c\|_1\leq B}
+  \frac1N\sum_i\epsilon_i\sum_{j=1}^Kc_j\sigma(u_j^Tx_i)
+ =B\,\mathbb E_\epsilon\max_j\left|\frac1N\sum_i
+   \epsilon_i\sigma(u_j^Tx_i)\right|
+ \leq BR\sqrt{\frac{2\log(2K)}N}.
+\]
+Here $\epsilon_i$ are independent uniform signs and $N\geq1$.
+For completeness, $\mathbb E e^{t\epsilon z}=\cosh(tz)\leq e^{t^2z^2/2}$:
+the series inequality follows from $(2r)!\geq2^r r!$ term by term.
+Each signed average consequently has moment generating function at most
+$e^{t^2R^2/(2N)}$. Bound the exponential of the maximum over its $2K$ signed
+versions by their sum, take logarithms and Jensen's inequality, and minimize
+$\log(2K)/t+tR^2/(2N)$ over $t>0$; $R=0$ is immediate.
+This is a proved empirical process bound for a fixed finite dictionary, not an
+unproved population test-error bound for adaptively learned directions.
+
+\paragraph{Why cancellation alone cannot replace parameter information in GD.}
+Use a single input $x=1$, target $1$, and two active neurons with
+$a_1=K,a_2=-K,v_1=v_2=1$, where $K>0$.
+The represented function is identically zero, so its combined coefficient norm
+$B$ is zero. For loss $\frac12(f(1)-1)^2$, one gradient step of size
+$\eta>0$ gives
+\[
+ a_1^+=K+\eta,\quad a_2^+=-K+\eta,
+ \qquad v_1^+=1+\eta K,\quad v_2^+=1-\eta K.
+\]
+If $\eta K<1$, both neurons remain active and direct multiplication yields
+$f^+(1)=2\eta(1+K^2)$.
+Equivalently its infinitesimal change at this parameterization is
+$2(1+K^2)$, unbounded while the initial represented function and cancellation
+norm are fixed at zero. Thus a gradient-step or parameter-sensitivity estimate
+based only on that function norm cannot hold uniformly for ordinary Euclidean
+parameter gradient descent. A function-complexity quantity and the metric of
+parameter optimization encode different information.
+
+\section{Verification and adversarial audit}
+
+Zero rows and zero norms are treated before normalization. Rescalings are
+positive, as ReLU is not homogeneous for negative scaling. The dictionary
+bound fixes its directions before the Rademacher signs and does not exchange
+an adaptively chosen infinite dictionary with a finite $K$. The GD example
+states $\eta K<1$ so all derivatives and output calculations stay in a single
+smooth activation region.
+
+\paragraph{Audit corrections.} Distinguished the global product rescaling from per-neuron variation and
+from cancellation. Did not promote the empirical signed-sum bound to a general
+risk theorem; the explicit GD counterexample limits the proposed substitution.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+
+The exact rescaling identities and finite-dictionary bound support restricted
+uses of a cancellation quantity. They do not prove that one quantity can replace
+the source parameter norm simultaneously in arbitrary GD and population-risk
+theorems. The displayed gradient obstruction identifies an additional metric or
+parameterization assumption that such a theorem would require.
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46984} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

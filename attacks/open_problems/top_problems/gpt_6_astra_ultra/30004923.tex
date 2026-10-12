@@ -1,0 +1,180 @@
+% RESEARCH_DRAFT_SHA256: ebcb6a6b356c53afa917facbd48189c6af49f72feac71550ed0bbb42b0d60a3f
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004923, "title": "Good Locally Testable Quantum Codes and Linear-Rate PCPs", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004923", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Construct asymptotically good, locally testable quantum LDPC codes, and construct probabilistically checkable proofs of linear rate.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The doubled CSS construction has distance at most2 whenever it has positive logical dimension; the simple linear proof verifier has vanishing soundness gap. Neither simultaneous construction target is achieved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Good quantum local testing: failure of a doubled CSS lift and of a linear clause proof}
+\noindent UnsolvedMath ID 30004923; OWR-8415359-011. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A quantum LDPC code is specified by commuting checks of bounded weight, with each qubit participating in only boundedly many checks. An asymptotically good family has encoded dimension corresponding to a linear number of logical qubits and minimum distance linear in the number of physical qubits. Local testability requires bounded-size local checks to detect distance from the code with a quantitative soundness guarantee. A probabilistically checkable proof is verified using a bounded number of random proof queries; linear rate asks for proof length linear in the relevant input or witness scale.
+\paragraph{Statement recorded in the supplied source.}
+Construct asymptotically good, locally testable quantum LDPC codes, and construct probabilistically checkable proofs of linear rate. \href{https://doi.org/10.4171/owr/2021/54}{[S2]}
+\paragraph{Scope qualification.}
+The soundness notion for quantum distance and the size parameter for linear-rate PCPs must follow the chosen source model. The supplied sentence states a construction agenda without numerical constants or a particular verifier specification.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Construct quantum codes with simultaneous rate, distance, and local testing guarantees, and proof systems with linear proof length.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004923 (OWR-8415359-011). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Complexity Theory (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/54, pp. 2955--3005
+\url{https://doi.org/10.4171/owr/2021/54}.
+\item[S3] Complexity Theory, Oberwolfach Reports 54/2021, primary report PDF
+\url{https://ems.press/content/serial-article-files/46932}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Construct asymptotically good, locally testable quantum LDPC codes, and construct probabilistically checkable proofs of linear rate.
+
+\section{The two construction targets}
+The source, printed pages2990--2991, distinguishes good quantum
+LDPC codes from locally testable classical codes, then asks for
+good locally testable quantum codes and linear-rate PCPs.
+The Panteleev--Kalachev primary abstract was checked: its quantum
+goodness and classical local-testability claims are distinct.
+Neither is silently substituted for the simultaneous quantum
+requirements. We attempt two elementary constructions and give
+complete obstructions. The original construction agenda remains
+unresolved by them.
+
+\section{Why copying a classical check matrix is not enough}
+For a binary matrix $H$ of rank $r$ with $N$ columns, CSS
+commutation requires $H_XH_Z^T=0$ over $\mathbb F_2$.
+Indeed a tensor product $X^u$ and $Z^v$ commute with sign
+$(-1)^{u\cdot v}$, because the one-qubit $X,Z$ anticommute
+exactly at coordinates where both exponents are one.
+Taking $H_X=H_Z=H$ does not ensure this: rows
+$(1,1,0)$ and $(0,1,1)$ have dot product one.
+
+A tempting repair is
+\[
+ H_X=H_Z=[H\ H].
+\]
+Now $H_XH_Z^T=HH^T+HH^T=0$, row weights double and
+column degrees remain those of $H$. Each matrix has rank $r$.
+The $X$- and $Z$-type generator families jointly have $2r$
+independent commuting generators: a relation with zero Pauli
+support requires the two binary exponent sums to vanish
+separately. Their group does not contain $-I$, since the
+commutation condition removes signs when reordering generators
+and the independent chosen generators have no nontrivial zero
+support relation. Averaging the group gives a projector of
+trace $2^{2N-2r}$, because all nonidentity Paulis are traceless.
+Thus the code encodes $2N-2r$ qubits on $2N$ physical qubits.
+It preserves a positive rate when $r/N$ is bounded below one.
+
+However, whenever $r<N$ its quantum distance is at most two.
+Since the row space of $H$ is proper, some standard basis
+vector $e_i$ does not belong to it. The Pauli $X$ supported
+on the two copies of coordinate $i$ has binary support
+$(e_i,e_i)$ and weight two. It commutes with every $Z$ check,
+as $He_i+He_i=0$, and with every $X$ check. It is not in the
+stabilizer group: a pure-$X$ stabilizer has support $(u,u)$
+with $u$ in the row space of $H$, whereas $e_i$ is outside.
+A product involving $Z$ generators can be pure $X$ only when
+its total $Z$ support vanishes, in which case it contributes
+no new $X$ support. This is a nontrivial logical Pauli of weight
+two. The attempted commutation repair therefore destroys the
+required linear distance even before local testability is considered.
+
+\section{Bounded check weight is not a soundness proof}
+For an explicit classical diagnostic, take the binary repetition
+code on an even cycle of length $N\ge4$, checked by adjacent
+parities $x_i+x_{i+1}$. Every check has weight two and every
+bit appears in two checks. A word equal to one on a consecutive
+half-cycle and zero elsewhere violates exactly two checks.
+Its distance from either constant codeword is $N/2$.
+Uniformly sampling one check rejects with probability $2/N$,
+while the normalized distance from the code is $1/2$.
+Any inequality of the form rejection probability at least
+$\alpha$ times normalized distance therefore has
+$\alpha\le4/N$. Bounded locality and degree alone do not
+establish constant local-testability soundness. This example
+has low rate and is not a counterexample to the existence of
+good locally testable codes.
+
+\section{A linear-size proof whose constant-query gap vanishes}
+For the PCP side, storing a Boolean assignment gives linear
+proof length, and querying one clause has bounded query cost.
+But soundness is not automatic. On variables $x_1,\ldots,x_n$
+consider the $n+1$ clauses
+\[
+ x_1,\quad \neg x_i\vee x_{i+1}\ (1\le i<n),\quad \neg x_n.
+\]
+The formula is unsatisfiable: the first clause and all implications
+force every variable true, contradicting the last clause.
+Nevertheless deleting any one clause makes it satisfiable.
+Deleting the first allows all zeros; deleting the last allows
+all ones; deleting the implication at $i$ allows ones through
+$i$ followed by zeros. These assignments violate exactly the
+corresponding deleted clause.
+
+For any distribution on the clauses, some clause has selection
+probability at most $1/(n+1)$. Use the assignment violating
+only that clause. The verifier that samples and checks one
+clause then accepts this proof of an unsatisfiable instance
+with probability at least $1-1/(n+1)$, even though it reads
+at most two proof bits. Thus choosing a clever distribution
+for the same one-clause verifier does not fix the gap. With
+$q$ independent clause samples, the same proof is rejected
+with probability at most $q/(n+1)$ by the union bound.
+A bounded-query constant-gap PCP needs a different encoding
+or checking mechanism; proof length and locality alone are
+not enough.
+
+\section{Audit and remaining requirements}
+The audit checked CSS signs, independent generator ranks, the
+weight-two logical operator modulo stabilizers, the distinction
+between locality and testability, and all clause-deletion
+assignments. Neither the cycle nor the simple clause verifier
+is promoted to a general impossibility theorem. No construction
+with all quantum parameters, or with all PCP parameters, is
+obtained. No computation or theorem prover was used. Source
+partially-solved metadata is preserved, while this failed attempt
+claims zero progress on the simultaneous original requirements.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The doubled CSS construction has distance at most2 whenever it has positive logical dimension; the simple linear proof verifier has vanishing soundness gap. Neither simultaneous construction target is achieved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item OWR54/2021 primary report; relevant complete contributions inspected from cached text, with printed pages specified in the manuscript. Historical known results are not treated as new contributions. \url{https://ems.press/content/serial-article-files/46932}.
+\item Panteleev and Kalachev, Asymptotically Good Quantum and Locally Testable Classical LDPC Codes; primary abstract inspected to distinguish the two established guarantees, not a proof dependency. \url{https://arxiv.org/abs/2111.03654}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The doubled CSS construction has distance at most2 whenever it has positive logical dimension; the simple linear proof verifier has vanishing soundness gap. Neither simultaneous construction target is achieved.
+\end{document}

@@ -24,8 +24,8 @@ var siteStats = {
     "total_problems": 5581,
     "ranked_total": 5481,
     "mo_total": 100,
-    "with_attacks": 2614,
-    "ranked_with_attacks": 2521,
+    "with_attacks": 2800,
+    "ranked_with_attacks": 2707,
     "models": [
       "OpenAI",
       "gpt 6 astra pro",

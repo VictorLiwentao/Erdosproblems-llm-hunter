@@ -1,0 +1,125 @@
+% RESEARCH_DRAFT_SHA256: a2af147ca3a31306f4a70ca605c37debb9d2e7a8b95e752c7105fba8a5c8f7f2
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30006403, "title": "Zero Submatrices in Sparse Low-Rank Matrices", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006403", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Material mathematical contribution from root Codex GPT-6: the row-threshold basis argument, exact rank-one case and identity-matrix obstruction to the threshold route. Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Zero Submatrices in Sparse Low-Rank Matrices; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Row-threshold rank argument and its density barrier; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch027 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30006403; source catalogue code OWR-14299518-027
+\section{Zero Submatrices in Sparse Low-Rank Matrices}\label{30006403}
+{\small UnsolvedMath ID 30006403 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Rank is column-space dimension. An all-zero square submatrix chooses equally many rows and columns with every selected entry zero. The hidden constant in the displayed exponent is intended to be absolute or as specified in the source.
+
+The rank of a matrix is the dimension of its column space. Matrix completion reconstructs a low-rank matrix from a subset of its entries; matrix sensing reconstructs it from specified linear measurements. Tensor decomposition represents a multiway array as a sum of simple outer products.
+\paragraph{Statement recorded in the supplied source.}
+Let $M$ be an $n\times n$ real matrix of rank $r$ with at most $\varepsilon n^2$ nonzero entries, where $0<\varepsilon<1/2$. Must $M$ contain an all-zero square submatrix of size at least $n\exp\!\left(-O(\sqrt{\varepsilon r})\right)$? \href{https://doi.org/10.4171/owr/2025/42}{[S2]}
+\paragraph{Scope qualification.}
+The integer rounding and uniform constant conventions of the lower bound are not specified in the short source statement.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Find a large completely zero square inside every sparse real matrix of the stated rank.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30006403 (OWR-14299518-027). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorics, Probability and Computing (2026), Oberwolfach Reports, DOI 10.4171/owr/2025/42, pp. 2243--2322
+\url{https://doi.org/10.4171/owr/2025/42}.
+\item[S3] Disjoint pairs in set systems and combinatorics of low rank matrices
+\url{https://arxiv.org/abs/2411.13510}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30006403 and source code OWR-14299518-027 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30006403}
+
+\section{Literature and context check}
+Conjecture 5 on printed pp. 2308--2309 of the primary report asks for a zero submatrix with independently chosen row and column sets, not necessarily consecutive or identical. The source target has the scale $n\exp(-O(\sqrt{\varepsilon r}))$. The elementary restricted-range and rank-one calculations below are auxiliary and are not asserted to be novel.
+\section{Research attempt: Row-threshold rank argument and its density barrier}
+
+Let $M$ be $n\times n$, $n\geq1$, of real rank at most $r$, with at most $\varepsilon n^2$ nonzero entries. If $r=0$, the whole matrix is zero. Otherwise put $s=\sqrt{\varepsilon r}$ and $\theta=\sqrt{\varepsilon/r}$. For $\varepsilon=0$ the conclusion is again immediate; suppose it is positive. Call a row good if it contains at most $\theta n$ nonzeros. The number of bad rows is at most $\varepsilon n^2/(\theta n)=sn$, so at least $n(1-s)$ rows are good. Choose a basis of the span of the good rows from among these rows. There are at most $r$ basis rows, and the union of their supports has size at most $r\theta n=sn$. Every good row, being a linear combination of the basis rows, vanishes outside this union. Thus there is a zero rectangle with both dimensions at least $n(1-s)$, and it contains a zero square of at least that side length when $s<1$.
+
+For $0\leq s\leq1/2$, integration gives
+\[
+-\log(1-s)=\int_0^s\frac{dt}{1-t}\leq2s,
+\]
+so this proves a square of side at least $ne^{-2\sqrt{\varepsilon r}}$ in the restricted regime $\varepsilon r\leq1/4$. Cardinalities are integers: a lower real bound for each cardinality gives at least its ceiling.
+
+\paragraph{Exact rank-one calculation.}
+If $M=uv^{\mathsf T}\ne0$, let $a,b$ be the sizes of the supports of $u,v$. Its number of nonzeros is $ab$. A zero Cartesian square $I\times J$ must have either $I$ disjoint from $\operatorname{supp}u$ or $J$ disjoint from $\operatorname{supp}v$, because otherwise a nonzero product occurs. The largest possible side is therefore
+\[
+\max(n-a,n-b)=n-\min(a,b)\geq n-\sqrt{ab}\geq n(1-\sqrt\varepsilon).
+\]
+Each of the two alternatives is attained by taking all available zero rows or all available zero columns and a column or row set of equal size. For balanced integral support sizes this bound is sharp.
+
+\paragraph{Attempted iteration and exact obstruction.}
+The threshold proof uses only the union of the supports of a row basis. Once $\varepsilon r\geq1$, it permits that union to fill every column, and the estimate becomes vacuous. For $M=I_n$, $n\geq3$, one has $r=n$, $\varepsilon=1/n<1/2$ and $s=1$: every basis of the row space has full union of supports. Yet $I\times J$ is zero precisely when $I\cap J=\varnothing$, so the largest zero square has side $\lfloor n/2\rfloor$. Thus loss of information occurs in the basis-support union, not in the conjecture. To iterate this argument one would need a restriction that reduces rank or density in a controlled ratio while retaining many rows and columns. Merely selecting the good rows proves no such improvement.
+\section{Verification and adversarial audit}
+The proof treats the zero matrix, zero density, and rank-one support degeneracy explicitly. The identity-matrix example was checked from its diagonal support. It is a counterexample to the sufficiency of this threshold estimate, not to the original exponential bound. The chosen row and column sets are independent, as in the source.
+\paragraph{Audit corrections.} Kept the small-product restriction visible; did not apply $1-s\geq e^{-2s}$ outside $[0,1/2]$. Distinguished support-union failure from failure of the conjecture.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+No lower bound of the required scale is proved for general $\varepsilon r$. The small-product estimate and exact rank-one analysis leave the main rank/density regime unresolved.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/52246} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking.
+\paragraph{Material model collaboration.} Root Codex GPT-6 supplied the row-threshold basis argument, exact rank-one case and identity-matrix obstruction to the threshold route. The gpt-6-astra author inspected and reworked these arguments; this is model-assisted mathematical work, not independent human verification.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

@@ -1,0 +1,216 @@
+% RESEARCH_DRAFT_SHA256: 77666c2f4a72646e2a36690fc8e27a9a828418e1921ee09ef180a05cba9f945c
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004932, "title": "Stochasticity and Sample Complexity in Neural Networks", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004932", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "How does stochasticity affect neural-network performance, and how much data is needed to achieve small estimation error with high probability?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The calculations cover fixed linear stochastic dynamics and fixed finite predictor families. They do not resolve nonlinear recurrent training stability or architecture-dependent estimation rates for the broad source question.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Stochastic recurrent networks: exact smoothing and the two sources of sampling variance}
+\noindent UnsolvedMath ID 30004932; OWR-8415360-011. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+For observations sampled from a distribution, estimation error measures distance from the population target under a stated loss. High-probability guarantees specify a confidence parameter; stochasticity can come from observations, optimization, or the model itself.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The loss, architecture, randomness source, and desired error/confidence are not specified.
+
+Source-record limitation: Neural-network performance and estimation error are not specified by a model, loss, or distribution.
+\paragraph{Statement recorded in the supplied source.}
+How does stochasticity affect neural-network performance, and how much data is needed to achieve small estimation error with high probability? \href{https://doi.org/10.4171/owr/2021/55}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Study random effects and the data requirement for neural-network estimation.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004932 (OWR-8415360-011). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Applied Harmonic Analysis and Data Science (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/55, pp. 3007--3066
+\url{https://doi.org/10.4171/owr/2021/55}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+How does stochasticity affect neural-network performance, and how much data is needed to achieve small estimation error with high probability?
+
+\section{The source model rather than an unspecified network}
+The primary report, printed pages3055--3057, gives the linear
+stochastic recurrent model
+$dY_t=(-Y_t+WY_t+u(x_t))dt+\Sigma dB_t$ and a final
+hyperplane classifier. It already describes agnostic PAC
+results and heuristic noise-induced robustness, while proposing
+nonlinear extensions. We analyze this explicit linear model,
+then distinguish repeated internal-noise simulation from new
+training data. The calculations are known elementary mechanisms,
+not a new bound for the entire unspecified architecture class.
+
+\section{Distribution of the linear recurrent state}
+Fix $T>0$, deterministic matrices $W,\Sigma$, deterministic
+integrable input forcing $b_t=u(x_t)$, and $Y_0=0$.
+Put $M=W-I$. The unique solution is
+\[
+ Y_T=\int_0^T e^{M(T-s)}b_s\,ds
+       +\int_0^T e^{M(T-s)}\Sigma\,dB_s.
+\]
+Multiplying by the deterministic integrating factor $e^{-Mt}$
+and integrating verifies the SDE; the difference of any two
+solutions with the same Brownian path solves the zero-initial
+linear ODE and is zero. The stochastic integral has mean zero
+and covariance
+\[
+ C_T=\int_0^T e^{M(T-s)}\Sigma\Sigma^T e^{M^T(T-s)}\,ds.
+\]
+To see the distribution directly, approximate the deterministic
+integrand by step matrices. Its integral is then a sum of
+independent centered Gaussian increments, with covariance the
+corresponding matrix Riemann sum. The sums converge in mean
+square by the defining isometry of the Brownian stochastic
+integral; their characteristic functions converge to that of
+a centered Gaussian with the displayed covariance. The
+covariance is finite on a finite interval for constant matrices.
+Thus $Y_T$ is Gaussian with deterministic mean
+$m_T=\int_0^T e^{M(T-s)}b_sds$ and covariance $C_T$.
+
+For a fixed classifier score $v^TY_T+a$, let
+$\mu=v^Tm_T+a$ and $\sigma^2=v^TC_Tv$. If $\sigma>0$,
+its probability of a positive output is
+\[
+ p(\mu)=\Phi(\mu/\sigma),\qquad
+ |p(\mu)-p(\nu)|\le\frac{|\mu-\nu|}{\sqrt{2\pi}\sigma},
+\]
+by integrating the standard Gaussian density, which is at most
+$1/\sqrt{2\pi}$. Thus injected noise smooths the prediction
+probability as a function of the mean score. If the desired
+label is positive and $\mu>0$, however, its error probability
+is $\Phi(-\mu/\sigma)$, increasing with $\sigma$ because
+its derivative is
+$\varphi(\mu/\sigma)\mu/\sigma^2>0$. Smoother prediction
+probabilities do not imply more accurate predictions on a fixed
+positive-margin example. If $\sigma=0$, the score is
+deterministic and this smoothing bound does not apply.
+
+For example, in one dimension with $M=-\beta$, $\beta>0$,
+$\Sigma=\tau$ and constant forcing $b$, direct integration gives
+\[
+ m_T=b(1-e^{-\beta T})/\beta,\qquad
+ C_T=\tau^2(1-e^{-2\beta T})/(2\beta).
+\]
+These formulas make both the saturation of noise variance and
+the accuracy/sensitivity tradeoff explicit. They do not prove
+that gradient descent in nonlinear recurrent networks becomes
+stable under noise.
+
+\section{New examples and repeated network noise are different}
+Let $Z_1,\ldots,Z_N$ be independent training or validation
+examples from a fixed distribution. For each example run a
+fixed randomized predictor $K$ times using mutually independent
+internal seeds $\omega_{ik}$, also independent of the examples.
+For its bounded loss $L(Z,\omega)\in[0,1]$ define
+\[
+ r(Z)=\mathbb E_\omega L(Z,\omega),\quad
+ \widehat R=\frac1{NK}\sum_{i,k}L(Z_i,\omega_{ik}),\quad
+ R=\mathbb E r(Z).
+\]
+Then the exact variance decomposition is
+\[
+ \operatorname{Var}(\widehat R)
+ =\frac{\operatorname{Var}(r(Z))}{N}
+ +\frac{\mathbb E\operatorname{Var}_\omega(L(Z,\omega)\mid Z)}{NK}.
+\]
+Conditional on all examples, the losses are independent across
+seeds and examples, giving the second term as the expectation
+of the conditional variance. The conditional mean is
+$N^{-1}\sum_i r(Z_i)$, whose variance is the first term.
+Expanding
+$\widehat R-R=(\widehat R-\mathbb E[\widehat R\mid Z_1,\ldots,Z_N])
+ +(\mathbb E[\widehat R\mid Z_1,\ldots,Z_N]-R)$
+and observing that the cross term has expectation zero proves
+the variance identity without an independence shortcut.
+Markov's inequality on the squared error therefore gives
+\[
+ \Pr\{|\widehat R-R|\ge\eta\}
+ \le\frac{\operatorname{Var}(r(Z))/N+
+       \mathbb E\operatorname{Var}_\omega(L\mid Z)/(NK)}{\eta^2}.
+\]
+Increasing $K$ only reduces internal simulation variance; the
+between-example term remains. If $L$ is deterministic given
+$Z$ and varies across examples, taking arbitrarily many noise
+replications does not change the estimator at all.
+
+\section{A finite-candidate high-probability bound}
+For $H$ predictors fixed independently of a fresh sample, average
+the $K$ bounded losses for each example first. For each predictor
+these $N$ example-level averages are independent and lie in
+$[0,1]$, with expectation its population risk. For any such
+bounded variable $V$, the second derivative of
+$\log\mathbb E e^{tV}$ is its variance under a tilted law,
+which is at most $1/4$ because
+$\operatorname{Var}V\le\mathbb E(V-1/2)^2\le1/4$.
+Integrating twice gives
+$\mathbb E e^{t(V-\mathbb EV)}\le e^{t^2/8}$.
+Markov's inequality with $t=4\eta$ gives each mean's upper
+tail at most $e^{-2N\eta^2}$, and $-t$ gives the lower tail.
+Union over $H$ candidates yields
+\[
+ \Pr\{\max_{j\le H}|\widehat R_j-R_j|>\eta\}
+ \le2H e^{-2N\eta^2}.
+\]
+Thus $N\ge\log(2H/\delta)/(2\eta^2)$ suffices, and
+selecting the smallest empirical risk gives true risk at most
+the best candidate risk plus $2\eta$, by applying the bounds
+to the selected and best predictors. This is a finite-candidate
+validation guarantee. It does not bound a continuum of tuned
+recurrent matrices or allow candidates chosen adaptively from
+the same validation observations without additional analysis.
+
+\section{Audit and the failed universal inference}
+The audit checked deterministic versus stochastic inputs,
+possible covariance degeneracy, the direction of the Gaussian
+noise derivative, and the shared example within repeated noise
+runs. The attempted inference that more internal stochasticity
+universally improves both robustness and accuracy is false even
+in the scalar model; the inference that $NK$ repeated losses
+are independent population examples is also false. No general
+nonlinear recurrent-network training or sample-complexity theorem
+is obtained. No numerical simulation or theorem prover was used,
+and the source's existing learning guarantees remain attributed
+context rather than a claimed new result.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The calculations cover fixed linear stochastic dynamics and fixed finite predictor families. They do not resolve nonlinear recurrent training stability or architecture-dependent estimation rates for the broad source question.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item OWR55/2021, Applied Harmonic Analysis and Data Science; complete primary passages on computability pp.3030–3032, sparse recovery pp.3053–3055, and stochastic recurrent learning pp.3055–3057 were read in the cached report; each manuscript uses its identified contribution. \url{https://ems.press/content/serial-article-files/46933}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The calculations cover fixed linear stochastic dynamics and fixed finite predictor families. They do not resolve nonlinear recurrent training stability or architecture-dependent estimation rates for the broad source question.
+\end{document}

@@ -1,0 +1,202 @@
+% RESEARCH_DRAFT_SHA256: d6d866a485d99c2fc03240087d9920f8d0a4c9bd18f4e9c6378544d25549e824
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004921, "title": "Canonical Paths Versus Spectral Independence", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004921", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Establish a general relationship between the canonical-path method and spectral independence, with applications to approximate counting and sampling such as sampling perfect matchings in nonbipartite graphs.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The transfer requires near-linear path congestion uniformly over all pinnings. No method establishing that hypothesis or resolving the nonbipartite matching application is obtained; an unconditional polynomial congestion bound is insufficient.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Canonical paths and influences: a conditional transfer and the rare-pinning obstruction}
+\noindent UnsolvedMath ID 30004921; OWR-8415359-009. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+The canonical-path method assigns a path through Markov-chain transitions to every pair of states and bounds congestion relative to stationary edge capacities, thereby controlling mixing. For a distribution on fixed-size subsets, an influence matrix has entries $\Psi(i,j)=\Pr(j\in S\mid i\in S)-\Pr(j\in S)$ on feasible coordinates. Spectral independence bounds the relevant largest eigenvalue uniformly under admissible pinnings or conditionings. Sampling perfect matchings uses a distribution over edge subsets that form perfect matchings.
+\paragraph{Statement recorded in the supplied source.}
+Establish a general relationship between the canonical-path method and spectral independence, with applications to approximate counting and sampling such as sampling perfect matchings in nonbipartite graphs. \href{https://doi.org/10.4171/owr/2021/54}{[S2]}
+\paragraph{Scope qualification.}
+The source's precise influence normalization and treatment of pinned coordinates govern its spectral parameter. The question seeks a relationship between methods, not an assertion that all matching measures or chains satisfy spectral independence.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Relate flow-based mixing proofs to spectral bounds on conditional influences, including applications beyond bipartite matchings.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004921 (OWR-8415359-009). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Complexity Theory (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/54, pp. 2955--3005
+\url{https://doi.org/10.4171/owr/2021/54}.
+\item[S3] Complexity Theory, Oberwolfach Reports 54/2021, primary report PDF
+\url{https://ems.press/content/serial-article-files/46932}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Establish a general relationship between the canonical-path method and spectral independence, with applications to approximate counting and sampling such as sampling perfect matchings in nonbipartite graphs.
+
+\section{Attempted connection and normalization}
+The primary question, printed page2977, asks for a relationship
+between canonical paths and spectral independence useful for
+sampling, especially nonbipartite perfect matchings. We try the
+direct path-congestion-to-Poincare-to-covariance route. It gives
+a complete conditional bound below, but requires good path
+bounds after every pinning. An explicit example shows why an
+unconditional polynomial path bound does not supply that premise.
+The results are elementary transfer mechanisms, not a claimed
+new solution of the source application.
+
+\section{A fully proved conditional transfer}
+Let $\pi$ be a probability law of positive mass on each state
+of a finite family of $k$-element subsets of a ground set, with $k\ge1$.
+Discard coordinates with zero inclusion probability and put
+$p_i=\Pr(i\in S)>0$. Write $I_i=\boldsymbol{1}_{i\in S}$,
+$D=\operatorname{diag}(p_i)$, and
+\[
+ \Psi(i,j)=\Pr(j\in S\mid i\in S)-p_j.
+\]
+Then $D\Psi=\operatorname{Cov}(I)$, so $\Psi$ is similar to
+$D^{-1/2}\operatorname{Cov}(I)D^{-1/2}$, a symmetric PSD matrix.
+This fixes exactly the source's inclusion-probability normalization.
+
+If there is only one supported state, all indicators are constant,
+the covariance and influence matrices are zero, and no congestion
+parameter is needed. In the remaining case there are at least two
+states. Let $P$ be the down-up chain: remove a uniform element of $S$
+and resample a containing $k$-set conditionally on the remaining
+set. It is reversible, because for neighbouring $S,T$ sharing
+a $(k-1)$-set $R$, its edge flow is
+$\pi(S)\pi(T)/(k\sum_{U\supset R}\pi(U))$, symmetric in $S,T$.
+Suppose the chain is connected. For each ordered pair of states
+$s,t$ choose a path $\gamma_{st}$ through positive-probability
+transitions, with the empty path for $s=t$. Put
+\[
+ \rho=\max_{e=(u,v):P(u,v)>0,\ u\ne v}
+ \frac{\sum_{s,t:e\in\gamma_{st}}\pi(s)\pi(t)|\gamma_{st}|}
+ {\pi(u)P(u,v)}.
+\]
+Choose paths without repeated directed edges. Telescoping along
+a path and Cauchy--Schwarz give
+\[
+ \operatorname{Var}_\pi f
+ =\tfrac12\sum_{s,t}\pi(s)\pi(t)(f(s)-f(t))^2
+ \le\rho\,\mathcal E_P(f,f),
+\]
+where $\mathcal E_P=\tfrac12\sum_{u,v}\pi(u)P(u,v)
+(f(u)-f(v))^2$. Indeed the coefficient of each directed edge's
+squared difference in the telescoped sum is its displayed
+load, at most $\rho\pi(u)P(u,v)$.
+
+For $f(S)=\sum_i a_iI_i(S)$, a down-up update removes some
+$i$ and adds some $j$, possibly the same. Its squared change
+is at most $2a_i^2+2a_j^2$. At stationarity the removed element
+has law $p_i/k$; the added element has the same law by the
+symmetry of the joint deletion/resampling construction. Hence
+\[
+ \mathcal E_P(f,f)\le\frac2k\sum_i p_i a_i^2.
+\]
+Set $a_i=v_i/\sqrt{p_i}$ and use the covariance identity to get
+\[
+ \lambda_{\max}(\Psi)\le2\rho/k.
+\]
+Apply the same proof after any positive-probability pinning,
+removing its fixed coordinates. If every remaining $k'$-set
+conditional chain has path parameter at most $Ck'$, then every
+conditional influence norm is at most $2C$. The cases with
+no remaining random coordinates have zero influence and need
+no path argument. This is an exact sufficient transfer; its
+strong conditional hypothesis is part of the theorem.
+
+\section{A rare pinning can destroy connectivity}
+We now show why one unconditional path bound is insufficient.
+For $k\ge2$, let a state be $(Z,X_1,\ldots,X_k)$ with binary
+coordinates. Put $\delta=2^{-2k}$ and give each state with
+$Z=0$ mass $w=(1-\delta)2^{-k}$. With $Z=1$ allow only
+$X=0^k$ and $X=1^k$, each of mass $v=\delta/2$.
+Then $v\le w$. Represent each binary assignment as the
+$(k+1)$-element set choosing one outcome from each of $k+1$
+coordinate pairs. Its down-up walk is exactly the random-scan
+single-coordinate heat-bath chain.
+
+For unconditional canonical paths, first move a $Z=1$ start
+to its $Z=0$ copy, then flip disagreeing $X$ coordinates in
+increasing order in the $Z=0$ layer, then move to a $Z=1$
+endpoint if needed. Delete vacuous moves; equal endpoints use
+the empty path. The length is at most $k+2$.
+Every directed cube edge in the $Z=0$ layer has flow
+$w/(2(k+1))$. Mapping each endpoint to its cube copy gives
+projected mass at most $w+v\le2w$ at each cube vertex.
+For a fixed oriented edge in the coordinate-order paths,
+there are $2^{k-1}$ ordered cube endpoint pairs using it:
+earlier starting bits and later target bits are free, while
+all other bits are fixed by the edge. Thus the weighted pair
+mass is at most
+$4w^2 2^{k-1}\le2w$. Its length-weighted congestion ratio
+is at most $4(k+1)(k+2)$.
+
+A bridge between a rare state and its cube copy has flow
+$wv/((k+1)(w+v))\ge v/(2(k+1))$. In either orientation
+only paths whose corresponding endpoint is that rare state
+use it, with pair mass at most $v$. Its ratio is therefore
+at most $2(k+1)(k+2)$. We have proved
+$\rho\le4(k+1)(k+2)$ for the unconditional chain, and hence
+a polynomial Poincare bound by the earlier complete proof.
+
+But pinning $Z=1$ leaves only two equally likely assignments,
+$0^k$ and $1^k$. The single-coordinate chain is disconnected
+for $k\ge2$. On the $2k$ outcome coordinates the influence
+matrix, ordered by the two groups, is
+\[
+ \Psi=\tfrac12\begin{pmatrix}J_k&-J_k\\-J_k&J_k\end{pmatrix}.
+\]
+It sends $(\boldsymbol{1},-\boldsymbol{1})$ to $k$ times
+that vector and vanishes on its orthogonal complement, so
+its largest eigenvalue is $k$. Thus a polynomial unconditional
+canonical-path proof does not give a constant uniform spectral
+independence bound after pinnings.
+
+\section{Audit and missing application}
+The audit checked source normalization, reversibility, both
+removed/added marginals, directed-edge factors of two, and the
+rare-state bridge capacities. The example does not disprove a
+more refined relationship that controls all conditional chains;
+it identifies exactly why unconditional mixing alone is too weak.
+No conditional near-linear congestion construction for the source
+nonbipartite matching application is provided. No computation or
+theorem prover was used, and no novelty claim is made.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The transfer requires near-linear path congestion uniformly over all pinnings. No method establishing that hypothesis or resolving the nonbipartite matching application is obtained; an unconditional polynomial congestion bound is insufficient.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item OWR54/2021 primary report; relevant complete contributions inspected from cached text, with printed pages specified in the manuscript. Historical known results are not treated as new contributions. \url{https://ems.press/content/serial-article-files/46932}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The transfer requires near-linear path congestion uniformly over all pinnings. No method establishing that hypothesis or resolving the nonbipartite matching application is obtained; an unconditional polynomial congestion bound is insufficient.
+\end{document}

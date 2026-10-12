@@ -1,0 +1,159 @@
+% RESEARCH_DRAFT_SHA256: ae58c665a691065ee882949e86094c7ebfc6e5a41a2f12506f4da0fe3d543d05
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30002966, "title": "Core Points of Transitive Permutation Groups", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002966", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "For every transitive permutation group that is not $2$-homogeneous, are there infinitely many core points up to integral translations of the fixed space? Equivalently, does the conjecture hold in the remaining case of primitive permutation groups with rational invariant subspaces?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The construction proves an explicit already-covered cyclic case; it does not settle the remaining primitive rational-invariant groups or the universal conjecture.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Core points: an explicit cyclic unit construction and its rational-scalar barrier}
+\noindent UnsolvedMath ID 30002966; OWR-13941-006. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A permutation group is transitive if it sends any coordinate position to any other, and two-homogeneous if it is transitive on unordered pairs. A core point is an integer vector whose orbit polytope contains no integer points beyond its orbit. The fixed space consists of vectors fixed by every group element.
+\paragraph{Statement recorded in the supplied source.}
+For every transitive permutation group that is not $2$-homogeneous, are there infinitely many core points up to integral translations of the fixed space? Equivalently, does the conjecture hold in the remaining case of primitive permutation groups with rational invariant subspaces? \href{https://doi.org/10.4171/owr/2015/46}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Find infinitely many translation classes of core points for the specified transitive permutation groups.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30002966 (OWR-13941-006). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Mixed-integer Nonlinear Optimization: A Hatchery for Modern Mathematics (2016), Oberwolfach Reports, DOI 10.4171/owr/2015/46, pp. 2701--2766
+\url{https://doi.org/10.4171/owr/2015/46}.
+\item[S3] Herr--Rehn--Schürmann, Core Points and Normalizer Equivalence
+\url{https://doi.org/10.1007/s10107-017-1173-0}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+For every transitive permutation group that is not $2$-homogeneous, are there infinitely many core points up to integral translations of the fixed space? Equivalently, does the conjecture hold in the remaining case of primitive permutation groups with rational invariant subspaces?
+
+\section{An invariant-lattice route}
+The report, printed pages 2750--2751, already distinguishes established
+infinite families from the remaining primitive rational-invariant case.
+We try to generate core points by lattice automorphisms commuting with the
+group, and give both an exact working example and a precise limit on extending
+that method. No inference from this example to every group is made.
+
+Let $G\le S_n$ and let $T\in\mathrm{GL}_n(\mathbb Z)$ commute with every
+$g\in G$. If $z$ is a core point, then so is $Tz$. Indeed,
+$\operatorname{conv}(GTz)=T\operatorname{conv}(Gz)$.
+Both $T$ and $T^{-1}$ map integer vectors to integer vectors, so its lattice
+points are exactly $T(Gz)=G(Tz)$. Iteration preserves core points.
+For a transitive group, $e_0$ is a core point because its orbit is all unit
+vectors and their convex hull is
+$\{x\ge0:\sum_i x_i=1\}$, whose only integer points are those unit vectors.
+
+\section{A fully explicit infinite family for C5}
+Use coordinates $0,\ldots,4$ and let $P$ cyclically permute them. Define
+\[
+T=(I+P)^4-3(I+P+P^2+P^3+P^4)
+=-2I+P+3P^2+P^3-2P^4.
+\]
+This is an integer matrix commuting with $P$, with every column sum one.
+Let $\zeta=\exp(2\pi i/5)$. The cyclic Fourier vectors diagonalize $P$:
+substitution in the cyclic shift shows their eigenvalues are the five roots
+$\zeta^r$, and their independence follows by orthogonality of geometric sums.
+The eigenvalue of $T$ at $r=0$ is $16-15=1$, while those at $r=1,\ldots,4$
+are $(1+\zeta^r)^4$. Since
+$\prod_{r=1}^4(x-\zeta^r)=1+x+x^2+x^3+x^4$, evaluating at $x=-1$ gives
+$\prod_{r=1}^4(1+\zeta^r)=1$. Hence $\det T=1$.
+The adjugate formula now shows that $T^{-1}$ has integer entries.
+It follows from the preceding invariant-lattice argument that
+\[
+z_k=T^k e_0\qquad(k=0,1,2,\ldots)
+\]
+are all core points for $C_5=\langle P\rangle$.
+
+They give infinitely many classes under the translations in the question.
+Their coordinate sums are all one. The fixed vectors of a cyclic transitive
+action have all coordinates equal, so an integral fixed-space translation
+is $a\mathbf1$, $a\in\mathbb Z$, and changes the sum by $5a$.
+Two sum-one vectors can be equivalent only when they are equal.
+On a unit Fourier vector for $r=1$, the projection of $e_0$ has magnitude
+$1/\sqrt5$, and the eigenvalue of $T$ has magnitude
+$|1+\zeta|^4=(2\cos(\pi/5))^4>1$. Thus
+$\|T^ke_0\|\ge(2\cos(\pi/5))^{4k}/\sqrt5$ is unbounded, and in fact
+that projection magnitude strictly increases with $k$. All $z_k$ are distinct.
+
+The group is transitive and not 2-homogeneous: cyclic shifts preserve whether
+an unordered pair has cyclic distance one or two. It is primitive because a
+nontrivial invariant block partition of a transitive action has equally sized
+blocks, whose size divides the prime number five. This example nevertheless
+belongs to the already studied irrational-invariant mechanism, not the
+remaining source case. For example, its real two-dimensional Fourier plane
+has trace $2\cos(2\pi/5)$ for $P$; this number is irrational since it is a
+root of $x^2+x-1=0$, as follows by grouping the geometric sum of fifth roots.
+A rational invariant plane would give a rational matrix for the restriction
+and thus rational trace, so this Fourier plane is not rational.
+
+\section{Why the same unit-power argument can stop}
+Consider the additional structural hypothesis that every rational matrix
+commuting with a group acts as a rational scalar on each member of a fixed
+direct-sum decomposition of $\mathbb Q^n$ into $s$ invariant subspaces.
+This is an explicit conditional hypothesis, not a claim about all groups with
+rational invariant subspaces. Any commuting unimodular integer matrix $T$
+then has scalar eigenvalues $a_1,\ldots,a_s\in\mathbb Q$.
+Each is an integer, because it is a rational root of the monic integer
+characteristic polynomial of $T$: writing a root in lowest terms in the
+monic equation shows its denominator divides one. Applying the same argument
+to the integer inverse $T^{-1}$ shows $1/a_i$ is also an integer.
+Hence $a_i=\pm1$. There are at most $2^s$ choices of such a scalar operator,
+and every such $T$ satisfies $T^2=I$. Powers of these commuting scalar
+operators therefore cannot generate an infinite core-point family.
+
+Thus the working construction does not automatically solve the rational
+case. Even where this conditional barrier applies, it is a barrier only to
+this lattice-automorphism route; core points may arise by other constructions.
+It does not contradict the conjecture.
+
+\section{Adversarial audit and scope}
+The source conjecture and its remaining case were read directly. The local
+exact script \texttt{algebra\_checks.py} verifies the displayed integer
+circulant determinant and column sums and records the first eight $z_k$;
+it is a corroborating finite check, not a substitute for the all-$k$ proof.
+The audit checked integral inverse, exact fixed-space translations, and the
+irrational Fourier-plane qualification. The source already reports infinite
+families in such cases, and no novelty or remaining-case progress is claimed.
+No independent human verification or theorem prover was used.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The construction proves an explicit already-covered cyclic case; it does not settle the remaining primitive rational-invariant groups or the universal conjecture.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 46/2015; the relevant original question and surrounding mathematical discussion were read in the cached primary report on 11 October 2026. \url{https://doi.org/10.4171/owr/2015/46}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The construction proves an explicit already-covered cyclic case; it does not settle the remaining primitive rational-invariant groups or the universal conjecture.
+\end{document}

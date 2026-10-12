@@ -1,0 +1,101 @@
+% RESEARCH_DRAFT_SHA256: 44dd8331280e2dc6e02c6a263d8f0819640e84024bc25c6dc80c4a7399b237ea
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30005866, "title": "Online Model Selection for Nonparametric Classes", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005866", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 additionally read and reviewed all written mathematical arguments in this completed batch. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Complete finite bandit lower bound for selecting among singleton reward models, despite zero regret when the correct model is known.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification. Codex GPT-6 written mathematical review completed; this model review is not independent human verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch025/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 30005866; source catalogue code OWR-14298363-006
+\section{Online Model Selection for Nonparametric Classes}\label{30005866}
+{\small UnsolvedMath ID 30005866 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+In an online decision problem, an algorithm selects an action at each of $T$ rounds and receives the feedback allowed by the source model. Regret compares its cumulative expected loss with the appropriate best comparator's cumulative loss. Model selection chooses adaptively among $M$ candidate function classes, seeking performance close to that of the best appropriate class without knowing its index. A nonparametric class is not restricted to a fixed-dimensional linear parameterization; its complexity still influences learning difficulty.
+\paragraph{Statement recorded in the supplied source.}
+For which nonparametric model classes is online model selection possible with regret of order $\log M$? \href{https://doi.org/10.4171/owr/2024/24}{[S2]}
+\paragraph{Scope qualification.}
+In the primary report pp. 1352--1353, logarithmic dependence concerns the number of models M, while regret also depends on the time horizon and class difficulty. The supplied phrase regret of order $\log M$ is retained as source shorthand, not a claim of horizon-independent total regret. Feedback and comparator are those of the bandit model discussed there.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+For which nonparametric classes can online learning select among candidate models with only logarithmic dependence on their number?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30005866 (OWR-14298363-006). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Game-theoretic Statistical Inference: Optional Sampling, Universal Inference, and Multiple Testing Based on E-values (2024), Oberwolfach Reports, DOI 10.4171/owr/2024/24, pp. 1339--1386
+\url{https://doi.org/10.4171/owr/2024/24}.
+\item[S3] Kassraie--Emmenegger--Krause--Pacchiano linear-bandit model selection
+\url{https://papers.nips.cc/paper/2023/hash/5e11d23b18261d1b76d14da7a285fd0c-Abstract-Conference.html}.
+\item[S4] Banerjee--Ghosh--Chowdhury--Gopalan rich-action exploration
+\url{https://proceedings.mlr.press/v206/banerjee23b.html}.
+\item[S5] Game-theoretic Statistical Inference, Oberwolfach Report 24/2024, pp. 1352--1353.
+\url{https://ems.press/content/serial-article-files/49473}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30005866 and source code OWR-14298363-006 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30005866}
+
+\section{Research attempt}
+\subsection{Literature, source context and scope}
+The full original catalogue body and source qualifications are preserved above. The relevant primary workshop passages were read in the cached publisher report. Historical claims and subsequent attributed results are distinguished from the mathematical work below. A restricted example, standard lemma or known theorem is not counted as new progress on the entire original target. Missing assumptions and repeated or rhetorical extracts are not silently turned into different solved problems.
+
+\subsection{Testing logarithmic model overhead under bandit feedback}
+The source's logarithmic dependence on the number of linear models holds under a specified scenario and motivates a question about other model classes. We test an unrestricted extension when only the selected action's reward is observed. There are $M\ge2$ actions and $M$ singleton models. Model $j$ contains the deterministic reward function $r_j(a)=\mathbf1_{a=j}$. A learner told the correct model has zero regret by always selecting $j$; a model-selection learner knows this list but not $j$.
+\begin{proposition}
+For every possibly randomized learner and every integer $1\le T\le M$, there is a model $j$ for which its expected regret after $T$ rounds is at least
+\[
+T-\frac{T(T+1)}{2M}.
+\]
+\end{proposition}
+\begin{proof}
+First fix the learner's random seed and take the hidden index $J$ uniformly from $[M]$. Consider the sequence of its actions if all observed rewards were zero. By time $t$, this sequence has queried at most $t$ distinct indices. A first positive observation by that time occurs exactly when $J$ is among these queried indices: until that first observation, the actual history equals the zero history. Consequently its probability is at most $t/M$. A reward of one at round $t$ requires such a first hit by time $t$, so the expected total reward is at most $\sum_{t=1}^Tt/M=T(T+1)/(2M)$. The optimal action earns $T$. Averaging over the learner's seed preserves the bound; averaging over $J$ implies at least one fixed index has expected regret at least this average.
+\end{proof}
+For $M=2T$ the bound is $(3T-1)/4$. Thus an unrestricted model-selection overhead $C\sqrt{T\log M}$, with a universal constant $C$ and zero base-model regret here, is impossible for large $T$. Full-information exponential weighting cannot simply be transplanted: the learner does not observe the losses of the unqueried models. The exact missing step is an unbiased, sufficiently controlled comparison of those models without the necessary exploration cost.
+\subsection{Verification and remaining gaps}
+The uniform-hidden-index experiment was enumerated for small $M,T$ using the optimal search-until-hit strategy, which attains the reward bound by querying distinct actions and then exploiting. The proof applies to every strategy, not just this computation. This example changes neither the source's structured linear assumptions nor its theorem; it only rejects a universal extension to arbitrary listed reward models with no additional complexity or observability term. Conditions permitting logarithmic dependence for useful nonparametric classes remain to be established.
+
+\section{References and source attribution}
+Primary workshop report: \url{https://doi.org/10.4171/owr/2024/24}. Relevant passages read: 2024/24 pp.1352--1353, online linear-model selection and nonparametric/exploration directions.
+
+All retrievals were checked on 11 October 2026. Original question attribution remains in the preserved Sources section. External theorems are attributed and not claimed as new discoveries or fully verified merely by citation.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch, read and reviewed its written mathematical arguments, and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch025/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

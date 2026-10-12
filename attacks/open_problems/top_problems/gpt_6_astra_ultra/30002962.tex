@@ -1,0 +1,177 @@
+% RESEARCH_DRAFT_SHA256: bd23a55b4a453c01600f277c80258e25e3c655da3a7c660b755fd5b851fd05ad
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30002962, "title": "Convexification and Complexity in Mixed-Integer Optimization", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002962", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Are the intermediate SOS sets $\\Sigma^k_{n,d}=\\{p:\\exists q\\in\\mathbb{R}[x]^k,\\ q\\text{ is SOS and }pq\\text{ is SOS}\\}$ convex? What is the complexity of selecting $s_i\\in S_i$ such that $0\\in\\operatorname{conv}\\{s_0,\\ldots,s_d\\}$? What are the complexities of finding a separating Chvátal–Gomory inequality and of integer quadratic optimization in dimension $3$? What practical rules govern combined SDP and RLT cuts? What practical algorithm solves evaluation-oracle mixed-integer optimization? Is the convex hull of a polyhedron minus finitely many polyhedra polyhedral? Which convex mixed-integer classes admit exact convexification?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Several literal or restricted components are clarified, but the intended SOS, selection, cutting-plane, quadratic, practical-oracle, and general convexification bundle remains unresolved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Convexification bundle: closure matters and unrestricted oracle search is exhaustive}
+\noindent UnsolvedMath ID 30002962; OWR-13941-002. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A separating inequality holds for the target integer hull and is violated by a specified outside point. A Chvatal-Gomory cut rounds an appropriate rational combination of linear constraints to an integer-valid bound; RLT forms valid products of bounded constraints.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The supplied notation $q\in\mathbb R[x]^k$ and $q$ is SOS is ambiguous, and several practical targets lack quantitative criteria. The bundle is retained verbatim, without silently selecting one subproblem or defining the omitted SOS hierarchy.
+
+Source-record limitation: The SOS denominator hierarchy is malformed: its notation is not defined, and zero multipliers make the written condition trivial without the omitted nontriviality restriction.
+\paragraph{Statement recorded in the supplied source.}
+Are the intermediate SOS sets $\Sigma^k_{n,d}=\{p:\exists q\in\mathbb{R}[x]^k,\ q\text{ is SOS and }pq\text{ is SOS}\}$ convex? What is the complexity of selecting $s_i\in S_i$ such that $0\in\operatorname{conv}\{s_0,\ldots,s_d\}$? What are the complexities of finding a separating Chvátal–Gomory inequality and of integer quadratic optimization in dimension $3$? What practical rules govern combined SDP and RLT cuts? What practical algorithm solves evaluation-oracle mixed-integer optimization? Is the convex hull of a polyhedron minus finitely many polyhedra polyhedral? Which convex mixed-integer classes admit exact convexification? \href{https://doi.org/10.4171/owr/2015/46}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Resolve all the stated convexification, selection, cutting-plane, and oracle-optimization questions.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30002962 (OWR-13941-002). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Mixed-integer Nonlinear Optimization: A Hatchery for Modern Mathematics (2016), Oberwolfach Reports, DOI 10.4171/owr/2015/46, pp. 2701--2766
+\url{https://doi.org/10.4171/owr/2015/46}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Are the intermediate SOS sets $\Sigma^k_{n,d}=\{p:\exists q\in\mathbb{R}[x]^k,\ q\text{ is SOS and }pq\text{ is SOS}\}$ convex? What is the complexity of selecting $s_i\in S_i$ such that $0\in\operatorname{conv}\{s_0,\ldots,s_d\}$? What are the complexities of finding a separating Chvátal–Gomory inequality and of integer quadratic optimization in dimension $3$? What practical rules govern combined SDP and RLT cuts? What practical algorithm solves evaluation-oracle mixed-integer optimization? Is the convex hull of a polyhedron minus finitely many polyhedra polyhedral? Which convex mixed-integer classes admit exact convexification?
+
+\section{Scope recovered from the report}
+The workshop list, printed page 2708, gives distinct SOS, colorful selection,
+cutting-plane, oracle, and convexification questions. In particular the colorful
+selection source assumes $0\in\operatorname{conv}S_i$ for every finite color
+class, a promise omitted from the shortened catalogue. The SOS expression
+omits a nonzero multiplier condition: if zero is permitted, $q=0$ makes both
+$q$ and $pq$ sums of squares for every $p$. That literal observation cannot
+answer the intended denominator hierarchy. We attempt the precisely stated
+polyhedral set-difference component and then test the unrestricted oracle model.
+
+\section{Ordinary convex hull need not be a closed polyhedron}
+With the usual convention that a polyhedron is a finite intersection of closed
+affine half-spaces, take $P=[0,1]\subset\mathbb R$ and remove the polyhedron
+$Q=\{0\}$. Then $P\setminus Q=(0,1]$ is already convex and is not closed,
+so its convex hull is not a polyhedron. A finite intersection of closed sets
+is closed, proving the last implication. This is a counterexample to that
+literal component, not a resolution of all the other questions in the bundle.
+It also shows why replacing the convex hull by the closed convex hull would
+change the statement.
+
+\paragraph{The closed-hull version, with proof.}
+For any polyhedron $P$ minus finitely many polyhedra $Q_1,\ldots,Q_r$,
+the closed convex hull is polyhedral (possibly empty). Write each $Q_i$ by
+finitely many weak linear inequalities. A point outside $Q_i$ violates at
+least one of them strictly. Distributing these finite choices expresses
+$P\setminus\bigcup_iQ_i$ as a finite union of cells, each given by weak
+linear inequalities for $P$ and selected strict linear inequalities.
+If one $Q_i$ is the whole space the difference is empty; discard empty cells.
+For a nonempty cell, its closure is obtained by changing its strict inequalities
+to weak ones. One inclusion follows by continuity. For the other, let $p$
+be a fixed point satisfying all strict inequalities and let $x$ satisfy their
+weak versions together with the constraints of $P$. For $0<t\le1$,
+$(1-t)x+tp$ satisfies all required strict inequalities and approaches $x$.
+Thus the closure of each nonempty cell is a polyhedron $R_i$.
+
+It remains to prove that the closed convex hull of a finite union of nonempty
+polyhedra is polyhedral. Write $R_i=\{x:A_ix\le b_i\}$ and introduce
+\[
+\lambda_i\ge0,\quad \sum_i\lambda_i=1,\quad
+A_i v_i\le\lambda_i b_i,\quad x=\sum_i v_i.
+\]
+The projection $H$ is a polyhedron. Indeed, eliminating a variable from a
+finite weak linear system preserves that form: constraints with positive and
+negative coefficients yield finitely many comparisons of its lower and upper
+bounds; constraints with zero coefficient remain; if only one sign is present,
+a sufficiently large value in the appropriate direction meets those bounds.
+Repeated elimination proves the projection assertion and hence closedness.
+Every convex combination of points in the $R_i$ has this lift, so its closure
+is contained in $H$.
+
+Conversely take a feasible lift and choose any $p_i\in R_i$. For $\eta>0$,
+replace
+\[
+\lambda_i\quad\hbox{by}\quad
+\lambda_i^\eta=\frac{\lambda_i+\eta}{1+r'\eta},\qquad
+v_i\quad\hbox{by}\quad
+v_i^\eta=\frac{v_i+\eta p_i}{1+r'\eta},
+\]
+where $r'$ is the number of remaining nonempty polyhedra.
+All new weights are positive and sum to one, and
+$A_i v_i^\eta\le\lambda_i^\eta b_i$.
+Thus $v_i^\eta/\lambda_i^\eta\in R_i$, and
+$x^\eta=\sum_i v_i^\eta$ is a convex combination approaching $x$.
+This proves $H$ is exactly the closed convex hull. Finally, replacing the
+finite cells by their closures does not change their closed convex hull:
+each closure is contained in any closed convex set containing the cells,
+and the reverse containment is immediate. The stated closed-hull result follows.
+
+\section{An exact oracle-model obstruction}
+Let the feasible integer set be $\{0,\ldots,N-1\}$, encoded by binary bounds,
+and impose no structure on an evaluation-oracle objective $f$.
+A deterministic algorithm that computes the exact minimum value must query
+all $N$ points in the worst case. Run it against the all-zero function.
+If it stops without querying $a$, change only $f(a)$ to $-1$.
+The query transcript and output are identical, but the minimum value changes
+from zero to $-1$. Hence one of the two outputs must be wrong.
+This also shows exponential dependence on the bit length $\log N$ can be
+unavoidable for this unrestricted model.
+
+For finding a minimizer with randomization, consider the family $f_a$ with
+unique minimum $-1$ at $a$ and zero elsewhere, with $a$ uniform.
+For a deterministic procedure making at most $q$ queries, follow its all-zero
+transcript. It discovers the marked point only for the at most $q$ indices
+queried on that transcript; if discovery never occurs, its final output
+can be the right answer for at most one further index. Its success averaged
+over $a$ is at most $(q+1)/N$. Averaging this inequality over random seeds
+proves the same bound for every randomized procedure, and therefore some
+input has success no greater than this average. A uniform success guarantee
+of $2/3$ requires $q\ge2N/3-1$.
+This argument assumes neither convexity nor Lipschitz control; it is not a
+lower bound for promised convex oracle problems. Such promises are precisely
+what the broad practical question would need to add.
+
+\section{Adversarial audit and gaps}
+The audit kept ordinary and closed convex hulls separate, removed empty cells
+before taking closures, and handled unbounded polyhedra by an explicit limiting
+argument. For oracle search it retained the zero-transcript argument under
+adaptivity and did not use a seed-dependent adversary as a randomized lower
+bound. These known mechanisms settle restricted literal components only.
+They do not decide the intended SOS hierarchy, colorful-selection complexity,
+Chvatal--Gomory separation, three-dimensional integer quadratic optimization,
+practical SDP--RLT design, or every exact mixed-integer convexification class.
+No computation or theorem prover was used.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Several literal or restricted components are clarified, but the intended SOS, selection, cutting-plane, quadratic, practical-oracle, and general convexification bundle remains unresolved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 46/2015, open-problem session pp. 2707--2708 and the pooling discussion pp. 2715--2716; exact passages inspected in the primary report. \url{https://doi.org/10.4171/owr/2015/46}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Several literal or restricted components are clarified, but the intended SOS, selection, cutting-plane, quadratic, practical-oracle, and general convexification bundle remains unresolved.
+\end{document}

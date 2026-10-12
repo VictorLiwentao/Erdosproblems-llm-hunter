@@ -1,0 +1,207 @@
+% RESEARCH_DRAFT_SHA256: ff9fdc66f52138d9891e2ae143ee743ef1e599c7dc661a03b3cc1052ba4e4cff
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30005679, "title": "Duality and Convergence Rates in Lasserre Hierarchies", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005679", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Duality and Convergence Rates in Lasserre Hierarchies; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A finite-support exact hierarchy and obstructions to measure convergence; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch024 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30005679; source catalogue code OWR-14297745-001
+\section{Duality and Convergence Rates in Lasserre Hierarchies}\label{30005679}
+{\small UnsolvedMath ID 30005679 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a polynomial optimization instance $\inf_{x\in K}f(x)$ with $K=\{x:g_j(x)\geq0\}$, a representing measure $\mu$ has moments $y_\alpha=\int_K x^\alpha\,d\mu(x)$. Moment relaxations retain finitely many moments and require moment and localizing matrices to be positive semidefinite. Their SOS duals seek certificates of the form $f-\gamma=\sigma_0+\sum_j\sigma_jg_j$, with sum-of-squares polynomials and bounded degrees. The generalized moment problem also permits the source linear measure constraints. Strong duality means equality of the primal and dual optimal values under the appropriate attainment conventions. Convergence of moments to an optimal measure and convergence rates of relaxation values are separate targets.
+\paragraph{Statement recorded in the supplied source.}
+For Lasserre's hierarchy, when does strong duality hold, do the moment relaxations converge to an optimal measure, and what is their convergence rate? \href{https://doi.org/10.4171/owr/2023/35}{[S2]}
+\paragraph{Scope qualification.}
+Compactness, Archimedean certificates and constraint qualifications are hypotheses to be investigated, not silently imposed. Multiple optimal measures can prevent a full moment sequence from converging to one measure without an additional selection rule.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Identify when moment and SOS bounds have no duality gap, when optimizing moments converge to an optimal measure, and how fast the bounds converge.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30005679 (OWR-14297745-001). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Mixed-integer Nonlinear Optimization: A Hatchery for Modern Mathematics (2024), Oberwolfach Reports, DOI 10.4171/owr/2023/35, pp. 1953--2016
+\url{https://doi.org/10.4171/owr/2023/35}.
+\item[S3] Tacchi
+\url{https://arxiv.org/abs/2011.08139}.
+\item[S4] Josz-Henrion
+\url{https://arxiv.org/abs/1405.7334}.
+\item[S5] Kirschner-de Klerk
+\url{https://doi.org/10.1007/s11590-022-01851-3}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30005679 and source code OWR-14297745-001 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30005679}
+
+\section{Literature and context check}
+
+I read the primary discussion of moment--SOS relaxations on pages 1972--1973.
+It states Archimedean assumptions in its positive results and distinguishes
+polynomial optimization from the general moment problem. The following exact
+finite-support calculation is an auxiliary case with explicit degree bounds.
+The counterexamples concern conclusions without the extra hypotheses and do
+not purport to refute the source's conditional convergence theorems.
+
+\section{Research attempt: A finite-support exact hierarchy and obstructions to measure convergence}
+
+\paragraph{An exact finite-support moment relaxation.}
+Let $K=\{t_1,\ldots,t_s\}\subset\mathbb R$ consist of distinct points,
+$s\geq1$, and let $h(t)=\prod_i(t-t_i)$.
+For a polynomial objective $f$ of degree at most $d\geq0$, choose an integer
+\[
+ r\geq\max\{s-1,\lceil s/2\rceil,\lceil d/2\rceil\}.
+\]
+Consider a linear functional $L$ on polynomials of degree at most $2r$
+satisfying $L(1)=1$, $L(q^2)\geq0$ for all $\deg q\leq r$, and
+$L(hq)=0$ whenever $\deg(hq)\leq2r$.
+These are the moment PSD and truncated equality-ideal constraints.
+Define the Lagrange polynomials
+\[
+ \ell_i(t)=\prod_{j\ne i}\frac{t-t_j}{t_i-t_j},
+ \qquad \ell_i(t_j)=\mathbf1_{i=j}.
+\]
+They have degree at most $s-1\leq r$.
+The polynomial $\ell_i^2-\ell_i$ vanishes at every $t_j$, so is divisible
+by $h$, by successive applications of the factor theorem for distinct roots.
+Its degree is at most $2s-2\leq2r$. Thus
+$w_i=L(\ell_i)=L(\ell_i^2)\geq0$.
+The identity $\sum_i\ell_i=1$ follows because both sides have degree at
+most $s-1$ and agree at $s$ distinct points; their difference must be zero,
+again by the factor theorem. Hence $\sum_iw_i=1$.
+For every $p$ of degree at most $2r$,
+$p-\sum_i p(t_i)\ell_i$ is divisible by $h$ and has degree at most $2r$,
+so
+\[
+ L(p)=\sum_iw_i p(t_i).
+\]
+Every feasible truncated moment functional is therefore exactly a probability
+measure on $K$ at this level. Conversely any such measure satisfies the
+constraints. Minimizing $L(f)$ gives $\min_i f(t_i)$.
+
+\paragraph{A matching explicit dual certificate.}
+Put $f_*=\min_i f(t_i)$ and $c_i=f(t_i)-f_*\geq0$.
+Then
+\[
+ f-f_*=\sum_i c_i\ell_i^2+hq
+\]
+for a polynomial $q$, because the difference vanishes at every root of $h$.
+The SOS terms have degree at most $2s-2\leq2r$ and the whole difference
+has degree at most $\max(d,2s-2)\leq2r$, so the equality term is allowed
+as well. Each $c_i\ell_i^2$ is a square after multiplying $\ell_i$ by
+$\sqrt{c_i}$. This is a real certificate; rational square coefficients are not
+claimed for arbitrary real input data.
+The point mass at a minimizing $t_i$ is a primal feasible solution of value
+$f_*$, and the certificate is a dual feasible solution of the same value.
+Weak duality follows by applying $L$ to any SOS-plus-ideal representation.
+Thus there is no duality gap in this explicitly stated hierarchy, with finite
+convergence at the displayed degree and no Slater argument required.
+
+\paragraph{Optimal values do not force a chosen sequence of measures to converge.}
+Take $K=\{-1,1\}$ and $f=0$. Both $\delta_{-1}$ and $\delta_1$ are
+optimal probability measures at every sufficiently large level, and their
+moment sequences are feasible at every level. Choosing them alternately
+produces first moments $-1,1,-1,1,\ldots$, so neither the first moments nor
+the corresponding measures converge weakly. The objective values are all
+exactly zero. This disproves convergence of \emph{every selected optimizer
+sequence} without a uniqueness or selection condition; it does not disprove
+subsequence convergence on a compact set.
+
+Without compactness or tightness, even a limiting optimal measure can be absent.
+On the closed semialgebraic set
+$K=\{(x,y)\in\mathbb R^2:xy=1\}$, minimize $f(x,y)=x^2$ over probability
+measures. Point masses at $(1/j,j)$ have objective $1/j^2\to0$ and are
+feasible at every degree. But $x^2>0$ everywhere on $K$, so its integral under
+any probability measure on $K$ is strictly positive (or infinite): the sets
+$\{x^2\geq1/k\}$ cover $K$, and at least one has positive measure.
+No optimal probability measure attaining zero exists. These point masses also
+escape every bounded set, so there is no weakly convergent probability
+subsequence: any candidate probability limit gives positive mass to some compact
+ball, whereas continuous bounded bump functions on that ball eventually have
+integral zero under the sequence.
+
+\section{Verification and adversarial audit}
+
+The degree choice ensures the equality constraint $h=0$ is actually present,
+including the singleton case $s=1$. All uses of polynomial divisibility retain
+the $2r$ degree bound. The alternating example is compact but has nonunique
+optimizers; the escaping example is unbounded and has no attained optimum.
+They are kept separate from the positive finite-support result and from the
+source's Archimedean hypotheses.
+
+\paragraph{Audit corrections.} Stated the truncated equality ideal and every degree bound; separated
+real from rational SOS coefficients. Avoided turning value convergence into
+unconditional convergence of arbitrary optimizer measures, and kept escape of
+mass outside the compact-source regime.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+
+The manuscript proves exact finite convergence and strong duality only for an
+explicit univariate finite set with its defining equality polynomial. It does
+not derive general hierarchy convergence rates or strong duality for arbitrary
+moment problems. The examples specify why convergence of values, subsequences,
+and entire selected optimizer sequences require different hypotheses.
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/47484} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

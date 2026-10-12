@@ -1,0 +1,214 @@
+% RESEARCH_DRAFT_SHA256: 9f74365139843140535e08becbd188248ddeb817ffa1a9e904e76aa7b9055a88
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004868, "title": "Quantum Complexity of High-Precision Matrix Scaling", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004868", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Can a quantum algorithm improve the $\\widetilde O(m^{3/2})$ high-precision running time for general matrix scaling while retaining polylogarithmic dependence on $1/\\varepsilon$? For a dense nonnegative $n\\times n$ matrix whose entries sum to at most $1$, what is the quantum query complexity of approximating its row-sum vector to $\\ell_1$ error $\\varepsilon$?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The elementary search and extreme-precision bounds do not close the row-sum precision gap stated in the source. No improved general high-precision scaling runtime with polylogarithmic precision is obtained.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Quantum row sums: elementary query bounds and a scaling-precision obstruction}
+\noindent UnsolvedMath ID 30004868; OWR-8415352-010. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+Matrix scaling seeks diagonal matrices $D_1,D_2$ with positive diagonal entries such that $D_1AD_2$ has prescribed row and column marginals, up to the requested $\ell_1$ error. Here $m$ denotes the number of nonzero input entries. For the dense query question, $A\in\mathbb R_{\geq0}^{n\times n}$ satisfies $\sum_{i,j}A_{ij}\leq1$, its row-sum vector is $r_i=\sum_jA_{ij}$, and the required estimate satisfies $\|\widehat r-r\|_1\leq\varepsilon$. The notation $\widetilde O$ suppresses logarithmic factors.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+Quantum query complexity depends on how entries can be accessed, while running time also includes output and arithmetic costs. The supplied question does not spell out its entry oracle or output representation; these are source-model choices that must be stated in an answer.
+
+Source-record limitation: The quantum matrix-entry oracle and output representation are absent; these determine both the scaling runtime and row-sum query-complexity targets.
+\paragraph{Statement recorded in the supplied source.}
+Can a quantum algorithm improve the $\widetilde O(m^{3/2})$ high-precision running time for general matrix scaling while retaining polylogarithmic dependence on $1/\varepsilon$? For a dense nonnegative $n\times n$ matrix whose entries sum to at most $1$, what is the quantum query complexity of approximating its row-sum vector to $\ell_1$ error $\varepsilon$? \href{https://doi.org/10.4171/owr/2021/49}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Improve high-accuracy quantum matrix scaling and determine the cost of estimating all row sums.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004868 (OWR-8415352-010). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Geometry and Optimization in Quantum Information (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/49, pp. 2665--2720
+\url{https://doi.org/10.4171/owr/2021/49}.
+\item[S3] Gribling--Nieuwboer, quantum matrix-scaling bounds
+\url{https://drops.dagstuhl.de/storage/00lipics/lipics-vol219-stacs2022/LIPIcs.STACS.2022.35/LIPIcs.STACS.2022.35.pdf}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Can a quantum algorithm improve the $\widetilde O(m^{3/2})$ high-precision running time for general matrix scaling while retaining polylogarithmic dependence on $1/\varepsilon$? For a dense nonnegative $n\times n$ matrix whose entries sum to at most $1$, what is the quantum query complexity of approximating its row-sum vector to $\ell_1$ error $\varepsilon$?
+
+\section{Recovered oracle and the two separate targets}
+The primary report, printed pages 2711--2713, specifies quantum
+binary entry-oracle access and classical diagonal scaling factors;
+it already states nontrivial precision-dependent upper and lower
+bounds. Its two final questions concern improved high-precision
+matrix scaling and the remaining gap for estimating all row sums.
+The related STACS2022 primary abstract was inspected for context,
+not used as a substitute for proving a new bound. We use a
+finite binary entry representation and require a classical output
+vector $\widehat r$ with $\|\widehat r-r\|_1\le\epsilon$ with
+probability at least $2/3$. Dense here refers to the $n$ by $n$
+entry-address space; entries may be zero as the source permits.
+The following known-style elementary bounds are weaker than the
+source's strongest bounds and count as no original-target progress.
+
+\section{A complete constant-error search lower bound}
+There are $N=n^2$ entry addresses. Restrict inputs to the zero
+matrix and matrices with a single entry equal to one. All have
+total mass at most one. If $\epsilon<1/2$, a successful row-sum
+estimate distinguishes these two cases by testing whether
+$\sum_i\widehat r_i>1/2$: on success that sum differs from the
+true total by at most $\epsilon$. A binary entry query on this
+family is exactly a query to a string that is zero everywhere
+or has one marked address.
+
+For completeness, here is a hybrid proof of an $\Omega(\sqrt N)$
+quantum query bound. Purify the algorithm's random choices and
+defer its measurements into ancillas; this adds no input queries
+and preserves its output probabilities. Let $p_t(z)$ be the
+probability weight on address $z$ just before query $t$ in its
+all-zero run. Let $d_z$ be the Euclidean distance between final
+pure states on the zero input and the input marked at $z$.
+Changing that query oracle changes any state by norm at most
+twice the norm of its component at address $z$. A telescoping
+hybrid, using the zero-input prefix and the marked-input suffix
+at the differing query, and preservation of norms by all later
+unitaries, therefore gives
+\[
+ d_z\le2\sum_{t=1}^T\sqrt{p_t(z)},\qquad
+ \sum_z d_z^2\le4T\sum_{t,z}p_t(z)=4T^2.
+\]
+The second inequality is Cauchy--Schwarz, and each query state's
+address weights sum to one. The success promise makes the
+acceptance probability for the nonzero case differ by at least
+$1/3$ on each marked input. For unit vectors $u,v$ and a
+measurement effect $0\preceq E\preceq I$,
+\[
+ |\langle u,Eu\rangle-\langle v,Ev\rangle|
+ \le|\langle u-v,Eu\rangle|+|\langle v,E(u-v)\rangle|
+ \le2\|u-v\|.
+\]
+Hence $d_z\ge1/6$ for every $z$, giving
+$T\ge\sqrt N/12=n/12$. The constants are not optimized.
+This is not the stronger constant-precision lower bound already
+reported in the source.
+
+\section{Exact precision saturation from parity}
+There is a second elementary regime with a matching trivial
+upper bound. Let every entry be $A_{ij}=b_{ij}/N$ for arbitrary
+bits $b_{ij}$. If $\epsilon<1/(2N)$, rounding
+$N\sum_i\widehat r_i$ recovers the integer Hamming weight
+$\sum_{ij}b_{ij}$ on every successful run, and hence its parity.
+The entry oracle on this family can be simulated with one bit
+query. In the binary XOR response register let $w$ be the known
+nonzero word encoding $1/N$, with zero encoded by the zero word.
+Choose an input-independent invertible linear change of response
+bits sending $w$ to the first basis vector. Apply that change,
+query the input bit into the first response bit, and undo the
+change. The net response update is exactly XOR by $b_{ij}w$.
+A different fixed zero encoding can first be removed by a known
+XOR, with no input queries.
+
+A $T$-query quantum bit algorithm has acceptance probability
+that, on Boolean inputs, is a multilinear polynomial of degree
+at most $2T$. To prove this directly, each computational-basis
+amplitude starts independent of the bits. A bit query replaces
+an amplitude by $(1-b_z)$ times one preceding amplitude plus
+$b_z$ times the amplitude with the response bit flipped, raising
+its polynomial degree by at most one. Input-independent unitaries
+only form linear combinations. After $T$ queries amplitudes have
+degree at most $T$, and summing squared moduli for an output
+measurement gives degree at most $2T$. Replacing $b_z^k$ by
+$b_z$ makes the polynomial multilinear without increasing degree.
+Ancillas or deferred measurements do not change the argument.
+
+Use signs $z_i\in\{-1,1\}$ and let
+$\chi(z)=\prod_{i=1}^N z_i$. If a parity algorithm succeeds
+with probability at least $2/3$ on every input, its acceptance
+polynomial $p$ can be labelled so that
+$\chi(z)(2p(z)-1)\ge1/3$. But every polynomial of degree less
+than $N$ has zero uniform correlation with $\chi$: each of its
+multilinear monomials misses a sign coordinate, whose independent
+mean is zero. Thus $2T\ge N$. Querying all $N$ entries and
+summing them gives an exact row vector, so this restricted
+high-precision regime has query complexity $\Theta(n^2)$.
+This is a rederivation of an elementary saturation regime, not
+an improvement of the source's precision tradeoffs. Exact
+arithmetic/output costs are separate from query counts. At the
+other endpoint $\epsilon\ge1$, the zero output always suffices.
+
+\section{Why an additive row estimate does not finish scaling}
+Suppose current positive row sums are $s_i$, target row masses
+are $r_i\ge0$ with total one, and estimates satisfy
+$|\widehat s_i-s_i|\le\delta s_i$ for $0<\delta<1$.
+Rescaling row $i$ by $r_i/\widehat s_i$ leaves true row sum
+$r_i s_i/\widehat s_i$ and therefore total row error at most
+\[
+ \sum_i r_i\frac{|s_i-\widehat s_i|}{\widehat s_i}
+ \le\frac{\delta}{1-\delta}.
+\]
+This proves a relative-error one-step guarantee. Pure additive
+$\ell_1$ accuracy does not imply it. For $0<\eta<1$, take
+\[
+ A=\operatorname{diag}(\eta^2,1-\eta^2),\quad
+ \widehat s=(\eta,1-\eta^2),\quad r=(1/2,1/2).
+\]
+The row estimate has $\ell_1$ error $\eta-\eta^2\le\eta$,
+yet its prescribed row rescaling gives true row sums
+$(\eta/2,1/2)$ and error $(1-\eta)/2$, which stays near
+one half as $\eta\downarrow0$. The input matrix is positive
+on its diagonal and is exactly scalable to these target
+marginals; the problem here is the approximate update, not
+scalability. The estimates are allowed to be nonnormalized, as
+in the row-sum query task. Normalizing is an extra operation
+whose guarantee would require its own analysis.
+
+\section{Audit and remaining target}
+The attempt to turn a fast additive row-sum primitive directly
+into high-precision scaling fails at small current row masses
+and also leaves iteration and column-error control unproved.
+The audit checked success events after summing possibly signed
+estimates, the strict rounding threshold, the quantum hybrid's
+use of zero-input prefixes, the parity degree argument, and the
+difference between query counts and runtime. Row-sum lower
+bounds have not been asserted automatically for the distinct
+scaling problem. No computational experiment or theorem prover
+was used. Neither source-level open tradeoff is resolved here.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The elementary search and extreme-precision bounds do not close the row-sum precision gap stated in the source. No improved general high-precision scaling runtime with polylogarithmic precision is obtained.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item OWR49/2021, Geometry and Optimization in Quantum Information; primary source passages read from cached report, with precise pages identified in each manuscript. \url{https://doi.org/10.4171/owr/2021/49}.
+\item Gribling and Nieuwboer, Improved Quantum Lower and Upper Bounds for Matrix Scaling, STACS2022; primary abstract inspected. The auxiliary query proofs are self-contained and do not invoke its theorems. \url{https://drops.dagstuhl.de/storage/00lipics/lipics-vol219-stacs2022/LIPIcs.STACS.2022.35/LIPIcs.STACS.2022.35.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The elementary search and extreme-precision bounds do not close the row-sum precision gap stated in the source. No improved general high-precision scaling runtime with polylogarithmic precision is obtained.
+\end{document}

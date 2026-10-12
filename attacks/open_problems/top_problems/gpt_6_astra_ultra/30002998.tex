@@ -1,0 +1,180 @@
+% RESEARCH_DRAFT_SHA256: ebfc3cef6bd21a0bc00a1ac847e8f2800a8d1f6833e544b9c9a45430e9629c7f
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30002998, "title": "Refutation Lower Bounds for Random k-SAT Instances", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002998", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Does a random $k$-SAT instance with, for example, $m=n^{0.4k}$ clauses lack a polynomial-size refutation with high probability?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. No lower bound for general polynomial refutations in the intended fixed-k regime is obtained. The complete-cube search excludes only one certificate family, and the growing-k counterexample diagnoses missing quantifiers rather than resolving the intended conjecture.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Random k-SAT refutation: satisfiability, small certificates, and parameter scope}
+\noindent UnsolvedMath ID 30002998; OWR-13949-005. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A random $k$-SAT model specifies the sampling distribution of clauses on $n$ variables. A polynomial-size refutation is a contradiction derivation whose encoded size is polynomial in the formula length.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The proof system, random-clause distribution, and parameter range of $k$ are not specified in the short question.
+
+Source-record limitation: The proof system needed to give polynomial-size refutation its mathematical meaning is absent.
+\paragraph{Statement recorded in the supplied source.}
+Does a random $k$-SAT instance with, for example, $m=n^{0.4k}$ clauses lack a polynomial-size refutation with high probability? \href{https://doi.org/10.4171/owr/2015/54}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Prove that the stated random formulas typically require large refutations.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30002998 (OWR-13949-005). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Complexity Theory (2016), Oberwolfach Reports, DOI 10.4171/owr/2015/54, pp. 3049--3099
+\url{https://doi.org/10.4171/owr/2015/54}.
+\item[S3] Oberwolfach complexity report
+\url{https://ems.press/content/serial-article-files/46601}.
+\item[S4] Sum-of-squares lower bounds
+\url{https://arxiv.org/abs/1701.04521}.
+\item[S5] Random CSP refutation survey
+\url{https://www.cs.cmu.edu/~srallen/papers/csp-refutation.pdf}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Does a random $k$-SAT instance with, for example, $m=n^{0.4k}$ clauses lack a polynomial-size refutation with high probability?
+
+\section{Which assertion is being attempted}
+The report, printed pages 3074--3075, explicitly separates efficient
+refutation algorithms from the stronger possibility of short
+nondeterministic certificates. The extracted question omits a proof
+system and the range of $k$. For the following auxiliary results define
+the usual model: independently draw $m=\lceil n^{0.4k}\rceil$ clauses
+with replacement, choosing a $k$-element variable set uniformly and each
+of its $2^k$ sign patterns uniformly. Variables within a clause are
+distinct, and $1\le k\le n$.
+We first take fixed $k\ge3$, then deliberately examine a different
+growing-$k$ boundary to show why the missing quantifier matters.
+
+\section{Unsatisfiability follows from a first moment, not proof hardness}
+For each fixed truth assignment, a random clause is falsified with
+probability $2^{-k}$, independently between clause draws. If $Z$ is the
+number of satisfying assignments, linearity of expectation gives
+\[
+\mathbb E Z=2^n(1-2^{-k})^m
+\le\exp(n\log2-m2^{-k}).
+\]
+The inequality $1-u\le e^{-u}$ follows, for example, from the
+nonnegative derivative of $e^{-u}-(1-u)$ on $u\ge0$.
+For fixed $k\ge3$ we have $0.4k>1$, so the exponent tends to minus
+infinity. Since $Z$ is a nonnegative integer,
+$\Pr(Z\ge1)\le\mathbb EZ\to0$. This completely proves
+unsatisfiability with high probability in the stated auxiliary model.
+It gives no lower bound at all on the size of a proof of that fact.
+
+\section{A concrete short-refutation search usually fails}
+One very small contradiction consists of all $2^k$ possible sign clauses
+on a single $k$-element variable set. Put
+$C=2^k\binom nk$, the number of possible clauses. For a specified
+variable set, if every one of its sign clauses appears then there are
+distinct draw positions witnessing them. A union bound over these
+positions bounds its probability by $(m)_{2^k}/C^{2^k}\le(m/C)^{2^k}$.
+Thus the expected number of such complete cubes is at most
+\[
+\binom nk\left(\frac{m}{2^k\binom nk}\right)^{2^k}
+=O_k\!\left(n^{\,k-0.6k2^k}\right)=o(1).
+\]
+For fixed $k$, $\binom nk$ is bounded above and below by positive
+$k$-dependent multiples of $n^k$, and $m=O_k(n^{0.4k})$, justifying
+the estimate. Markov's inequality shows that this particular short
+certificate is absent with high probability. The attempted extension
+``therefore every polynomial certificate is absent'' has no basis:
+other refutations may combine clauses on many overlapping variable sets
+and need not contain this cube. Neither the first moment nor this
+certificate-specific calculation controls such proofs.
+
+\section{If k may equal n, polynomial refutations do occur}
+Now take $k=n$. There are $2^n$ possible clauses and each occurs with
+probability $2^{-n}$ at a draw. By a union bound,
+\[
+\Pr(\text{some clause missing})
+\le 2^n(1-2^{-n})^m
+\le\exp(n\log2-m/2^n)\longrightarrow0,
+\]
+because $m=\lceil n^{0.4n}\rceil$ and
+$\log(m/2^n)=0.4n\log n-n\log2\to\infty$ faster than $\log n$.
+When all clauses occur, pair clauses with the same first $n-1$ literals
+and opposite last literal and resolve that last variable. This produces
+every sign clause on the first $n-1$ variables. Repeat until the empty
+clause appears. There are
+$2^{n-1}+2^{n-2}+\cdots+1=2^n-1$ resolution inferences, each involving
+at most $n$ literals. Including the selected input clauses and their
+input indices uses $O(2^n(n+\log m))$ symbols/bits up to the ordinary
+variable-encoding factor. This is polynomial in the explicit input
+length, which is at least $m$, since eventually $2^n\le m$ and
+$n+\log m$ is itself polynomial in $m$.
+
+This is a full counterexample to an unrestricted claim simultaneously
+covering all growing $k\le n$ under this sampling convention. It does
+not refute the intended fixed- or slowly growing-$k$ conjecture; the
+source does not supply the quantifier needed to identify the two.
+It illustrates that polynomial means polynomial in encoded formula
+length, not necessarily in the number of variables alone.
+
+\section{The proof-system gap remains substantial}
+If ``no polynomial-size refutation'' ranges over all polynomial-time
+verifiable sound certificate systems, a general proof would entail a
+major complexity separation. Indeed if $NP=coNP$, the language UNSAT
+belongs to NP, so there is one polynomial-time verifier and a polynomial
+bound on certificate length for every unsatisfiable formula. In the
+fixed-$k\ge3$ model just proved unsatisfiable with high probability,
+that system supplies polynomial certificates with high probability.
+This is incompatible with a universal lower bound over such systems.
+The implication uses the definition of NP and makes no claim that
+$NP=coNP$ holds. Restricting to resolution or sum of squares is a
+different target and must be stated explicitly.
+
+\section{Model-assisted audit and remaining scope}
+The primary sum-of-squares paper's abstract describes lower bounds for
+that relaxation framework; its full proof was not audited or promoted
+to an arbitrary-proof-system bound. The audit checked replacement
+sampling, distinct literals, the fixed-$k$ asymptotic estimate, encoded
+input length, and the exponentially many clauses when $k=n$.
+All calculations here are elementary diagnostics with no novelty claim.
+No random experiment or theorem prover was used. The source's intended
+short-refutation conjecture in its hard parameter regime remains unresolved.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. No lower bound for general polynomial refutations in the intended fixed-k regime is obtained. The complete-cube search excludes only one certificate family, and the growing-k counterexample diagnoses missing quantifiers rather than resolving the intended conjecture.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Complexity Theory, OWR 54/2015; the original relevant passages were inspected in the cached primary report, including their surrounding model qualifications. \url{https://doi.org/10.4171/owr/2015/54}.
+\item Kothari, Mori, O’Donnell and Witmer, Sum of squares lower bounds for refuting any CSP (2017); primary abstract inspected, full SOS proof not audited. \url{https://arxiv.org/abs/1701.04521}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} No lower bound for general polynomial refutations in the intended fixed-k regime is obtained. The complete-cube search excludes only one certificate family, and the growing-k counterexample diagnoses missing quantifiers rather than resolving the intended conjecture.
+\end{document}

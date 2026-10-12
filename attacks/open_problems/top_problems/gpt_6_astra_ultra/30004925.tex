@@ -1,0 +1,167 @@
+% RESEARCH_DRAFT_SHA256: 2f44dfb4535e692884c0724fb1e9959e89f38be9b3c8278e1fd9c4b4bbc39b5b
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004925, "title": "Size-Efficient Circuits Resilient to Short-Circuit Errors", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004925", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Given a Boolean circuit $C$, can one construct a circuit $C'$ of comparable size that computes the same function even when an adversary replaces the output of some gates by one of their inputs?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Replication with a trusted voter does not address faults in aggregation or the source pathwise budget. The displayed attacks defeat that elementary route and padding, not all resilient compilations; no improved size theorem is obtained.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Short-circuit resilience: path budgets and the failure of replication with an unprotected voter}
+\noindent UnsolvedMath ID 30004925; OWR-8415359-015. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+In a short-circuit fault, a Boolean gate outputs one of its input values instead of its intended output. A fault-tolerant construction must specify which gates or paths the adversary may corrupt and how circuit-size overhead is measured.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The primary report already gives a quasipolynomial-size construction under a bounded-fraction path-fault model; the cleaned record does not state a definite remaining overhead improvement or its fault threshold. It is retained as a source formulation, not asserted as a fresh unresolved existence claim.
+
+Source-record limitation: The primary source already proves a quasipolynomial-size resilience result; the cleaned question does not state a definite remaining size improvement or fault threshold.
+\paragraph{Statement recorded in the supplied source.}
+Given a Boolean circuit $C$, can one construct a circuit $C'$ of comparable size that computes the same function even when an adversary replaces the output of some gates by one of their inputs? \href{https://doi.org/10.4171/owr/2021/54}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Ask for comparable-size protection of Boolean computations against the specified fault type.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004925 (OWR-8415359-015). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Complexity Theory (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/54, pp. 2955--3005
+\url{https://doi.org/10.4171/owr/2021/54}.
+\item[S3] Efremenko et al., Circuits Resilient to Short-Circuit Errors
+\url{https://par.nsf.gov/servlets/purl/10359538}.
+\item[S4] STOC 2022 publication
+\url{https://doi.org/10.1145/3519935.3520007}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Given a Boolean circuit $C$, can one construct a circuit $C'$ of comparable size that computes the same function even when an adversary replaces the output of some gates by one of their inputs?
+
+\section{What is already supplied by the source}
+The primary report, printed page2996, states an existing
+quasipolynomial-size construction for general circuits and a
+near-linear construction for formulas, tolerating a $1/51$
+fraction of short-circuited gates on every root-to-leaf path.
+The cleaned question does not select a stronger remaining size
+bound. We preserve that ambiguity and attempt the elementary
+replication-and-voting route under the actual path fault model.
+The construction fails, as the exact examples below show.
+No improved compilation theorem is claimed.
+
+\section{What replication proves with a trusted voter}
+Run three disjoint copies of a Boolean circuit and feed their
+outputs $a,b,c$ to the majority function
+\[
+ M(a,b,c)=(a\wedge b)\vee\bigl((a\wedge c)\vee(b\wedge c)\bigr).
+\]
+If at most one copy outputs an incorrect bit and the voter is
+fault-free, the other two equal the correct bit, and the displayed
+formula returns it. For correct bit one their conjunction is
+one; for correct bit zero every pair has at least one zero.
+This proves the familiar conditional replication guarantee, with
+three copies and five voter gates. It says nothing about faults
+inside the voter or a pathwise corruption allowance.
+
+\section{A complete short-circuit attack on that route}
+Take the original circuit to be the single gate $x\wedge y$
+and evaluate at $(x,y)=(0,1)$, whose correct output is zero.
+Short-circuit the first copy to its $y$ input. Then the three
+copy outputs are $(a,b,c)=(1,0,0)$. Short-circuit the voter's
+left gate $a\wedge b$ to its $a$ input, making that gate output
+one. Finally short-circuit the outermost voter OR gate to that
+left input. The whole circuit now outputs one, incorrectly.
+There are exactly three short-circuited gates. The right
+subtree's outputs do not affect the attacked output.
+
+The unpadded construction may have paths too short for even one
+fault under the source's fraction rule; therefore this example
+alone is not an attack satisfying that rule. To test the natural
+attempt to cure this by harmless depth padding, append at least
+153 identity gates $z\mapsto z\wedge z$ in series after the
+voter. Every root-to-leaf path now contains at least153 gates
+and at most the three corrupted gates. Thus every path's fault
+fraction is at most $3/153=1/51$, while the uncorrupted padding
+passes the erroneous one unchanged. This is an admissible
+counterexample to replication followed by such padding, not a
+counterexample to the source's more sophisticated construction.
+
+More generally, arbitrary identity padding does not create
+resilience. For any finite AND/OR core with $s$ gates and a
+chosen input leaf, short-circuit every gate along a core
+output-to-leaf path towards that leaf, starting at the bottom.
+Induction along the path makes the core output equal that leaf.
+If an assignment makes this leaf differ from the intended
+function value, the core is corrupted. Appending $51s$ identity
+gates makes the at-most-$s$ faults a fraction at most $1/51$
+on every full path, including paths meeting only part of the
+corrupted path. The identity gates neither change the function
+nor repair the chosen wrong value. This argument applies when
+such a disagreeing leaf/assignment exists; it is not asserted
+for constant functions or arbitrary gate bases without that
+explicit condition.
+
+\section{Why a global fault fraction is a different promise}
+Consider the balanced AND tree on $N=2^h$ inputs. It has
+$N-1$ gates and depth $h$. Choose an input assignment with at
+least one zero and one one, and choose a leaf carrying one.
+Short-circuit the $h$ ancestor gates towards this leaf. A
+bottom-up induction makes every selected ancestor output one,
+so the output is one instead of the correct zero. The fraction
+of all gates corrupted is only $h/(N-1)$, which tends to zero.
+But the chosen path has all its gates corrupted, so this attack
+does not satisfy the bounded-fraction-per-path promise.
+It demonstrates why a global gate-fraction guarantee cannot
+be substituted for the source's pathwise guarantee in either
+direction of a proof.
+
+\section{Audit and unresolved compilation gap}
+The audit checked the fault type at every gate, the majority
+formula, both bit values in the trusted-voter lemma, the minimum
+padded path length, and the difference between an example
+attacking one compiler and a lower bound for all compilers.
+The route fails at fault-tolerant aggregation and at the way
+padding changes the allowed adversarial budget. The source's
+existing result is not re-proved here, and a comparable-size
+improvement for arbitrary circuits is not obtained. No numerical
+experiment or theorem prover was used; the external paper link
+was attempted but failed to fetch, so all cited source content
+comes from the actually inspected original report.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Replication with a trusted voter does not address faults in aggregation or the source pathwise budget. The displayed attacks defeat that elementary route and padding, not all resilient compilations; no improved size theorem is obtained.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item OWR54/2021 primary report; relevant complete contributions inspected from cached text, with printed pages specified in the manuscript. Historical known results are not treated as new contributions. \url{https://ems.press/content/serial-article-files/46932}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Replication with a trusted voter does not address faults in aggregation or the source pathwise budget. The displayed attacks defeat that elementary route and padding, not all resilient compilations; no improved size theorem is obtained.
+\end{document}

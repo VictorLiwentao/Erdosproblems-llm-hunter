@@ -1,0 +1,124 @@
+% RESEARCH_DRAFT_SHA256: 4d025c25a8de5601dfbd9c1657c68fa93ce173ea26db7e0ed152d3fefda85a8b
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30006437, "title": "Formal Verification of AI-Generated Mathematical Proofs", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006437", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Formal Verification of AI-Generated Mathematical Proofs; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A checked certificate model and the statement-translation gap; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch027 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30006437; source catalogue code OWR-14299525-001
+\section{Formal Verification of AI-Generated Mathematical Proofs}\label{30006437}
+{\small UnsolvedMath ID 30006437 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A formal proof assistant checks expressions and inference steps against an explicit type theory or logic. Autoformalization translates mathematical text into that formal language; successful type checking alone does not establish that the translation expresses the intended prose assertion.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The source requests a verification workflow. No formal input language, completeness, semantic-preservation criterion, or complexity target is supplied.
+
+Source-record limitation: This is proof-verification workflow design, without a formal completeness, soundness, or complexity target.
+\paragraph{Statement recorded in the supplied source.}
+Develop a reliable workflow that translates AI-generated mathematical arguments into Lean, checks every inferential detail, and diagnoses gaps rather than accepting persuasive but invalid prose. Determine how much of this verification and repair process can itself be automated. \href{https://doi.org/10.4171/owr/2025/43}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Automate rigorous translation and checking of AI-generated mathematical arguments.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30006437 (OWR-14299525-001). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] MATRIX-MFO Tandem Workshop: Machine Learning and AI for Mathematics (2026), Oberwolfach Reports, DOI 10.4171/owr/2025/43, pp. 2323--2350
+\url{https://doi.org/10.4171/owr/2025/43}.
+\item[S3] LeanDojo
+\url{https://arxiv.org/abs/2306.15626}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30006437 and code OWR-14299525-001 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30006437}
+
+\section{Literature and context check}
+The primary report, printed pp. 2331--2332, asks for checking natural-language and generated arguments in formal systems. The official Lean axioms chapter was consulted for its distinction between a foundational system and added axioms. No Lean executable, library build, or autoformalizer was run here. The finite resolution checker below is an explicit auxiliary model for separating generation, validation, and semantic translation.
+\section{Research attempt: A checked certificate model and the statement-translation gap}
+
+Represent a propositional clause as a finite set of signed variables. A resolution certificate lists input clauses, then lines of the form: previous clauses $C,D$, pivot $p\in C$ with $\neg p\in D$, and claimed new clause
+\[
+R=(C\setminus\{p\})\cup(D\setminus\{\neg p\}).
+\]
+A checker verifies those memberships, the exact set equality, and that indices point to earlier lines. If the final clause is empty, it accepts an unsatisfiability certificate. Soundness is elementary: an assignment satisfying both parents but falsifying every literal of $R$ would have to make $p$ true to satisfy $C$ and false to satisfy $D$, a contradiction. Induction over the ordered lines proves that every model of the input satisfies every derived clause. Since no assignment satisfies the empty clause, acceptance proves unsatisfiability of precisely those input clauses.
+
+For example, start with
+\[
+p\vee q,\quad\neg p\vee q,\quad p\vee\neg q,\quad\neg p\vee\neg q.
+\]
+Resolving the first two on $p$ yields $q$, the last two on $p$ yields $\neg q$, and resolving those on $q$ yields the empty clause. A checker using variable bitsets checks a certificate of $L$ lines on $n$ variables with $O(Ln)$ clause-bitset work, plus the costs of parsing and accessing the line indices; this is not a claim that index costs disappear in total bit complexity. Its running time depends on the supplied certificate length; this is not a bound on how quickly a generator finds it.
+
+\paragraph{Where checked generation still fails to certify the requested theorem.}
+The checker proves a statement only about its exact formal input. Translation can alter that input's meaning without producing an invalid proof. For instance, the natural-number statement $\exists m\,\forall n\;(m>n)$ is false, by taking $n=m$. The statement $\forall n\,\exists m\;(m>n)$ is true, witnessed by $m=n+1$. A generator that reverses these quantifiers can supply a correct proof of the second while failing the first task completely. Kernel acceptance cannot infer that the English quantifiers were translated correctly.
+
+Similarly, if a purported formal proof permits an extra assumption equal to the desired conclusion, the conclusion follows trivially from that assumption. Soundness is conditional on the accepted assumptions, not evidence that they were intended. In a finite dependency DAG, all transitive leaf assumptions can be collected by graph traversal: mark each visited node and visit each predecessor once, yielding $O(V+E)$ work. Comparing these leaves to a specified permitted set detects an unauthorized imported assumption in this model. This does not solve natural-language alignment, foundational soundness, or the handling of all features of a real proof assistant; it identifies concrete obligations beyond a successful proof check.
+\section{Verification and adversarial audit}
+The standalone Python check verifies the seven-clause derivation, rejects a deliberately corrupted pivot, and checks all four truth assignments of the input formula. The mathematical induction proves soundness for arbitrary accepted finite certificates in this model. The quantifier example has an explicit witness and counter-witness. No claim of Lean verification is made.
+\paragraph{Audit corrections.} Separated certificate validity from statement alignment and admissible assumptions. The auxiliary checker is not represented as a Lean run or proof of Lean's kernel soundness.
+\paragraph{External computation.} Ran check_resolution.py under Python 3.14.2: valid certificate accepted, invalid pivot rejected, all four truth assignments checked.
+\section{Scope and remaining gaps}
+No reliable general translation system, diagnosis system, or research-scale automation is built. The source's broad workflow remains unresolved; the checker model isolates a provable verification stage and exact ways that stage can validate the wrong task.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/52253} (consulted 2026-10-11). 
+\item \url{https://lean-lang.org/theorem_proving_in_lean4/Axioms-and-Computation/} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

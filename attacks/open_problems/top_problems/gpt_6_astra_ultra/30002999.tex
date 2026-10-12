@@ -1,0 +1,166 @@
+% RESEARCH_DRAFT_SHA256: a38b2337df7eb913c58c8d8897c952e4256661ee20b95efbf1141f1f3ce7b3b5
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30002999, "title": "Randomized Communication Complexity of Distributed Triangle Detection", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002999", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "What is the randomized communication complexity of detecting a triangle when each graph vertex is assigned to a player who receives all incident edges, so each edge is known to its two endpoint players?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The manuscript proves a baseline blackboard upper bound and two explicit failed routes, not matching randomized communication bounds. The source does not fix the topology and total-bit versus round convention.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Vertex-owned triangle detection: aggregation collapse and sampling costs}
+\noindent UnsolvedMath ID 30002999; OWR-13949-006. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A triangle is three distinct vertices with all three joining edges. In the described vertex-partition model each participant knows incident edges, so an edge has two informed endpoint participants.
+
+Communication complexity measures the number of transmitted bits needed for parties holding separate inputs to compute a joint function. Randomized protocols allow random choices, with their error probability specified by the model.
+
+In the LOCAL model vertices communicate synchronously along graph edges; messages and local computation are unrestricted and complexity is the number of rounds. After $t$ rounds a vertex can depend only on its radius-$t$ neighborhood and any supplied identifiers or randomness.
+\paragraph{Statement recorded in the supplied source.}
+What is the randomized communication complexity of detecting a triangle when each graph vertex is assigned to a player who receives all incident edges, so each edge is known to its two endpoint players? \href{https://doi.org/10.4171/owr/2015/54}{[S2]}
+\paragraph{Scope qualification.}
+The communication topology, public/shared randomness, and success probability are not specified.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Determine how much randomized communication is needed to detect a triangle when each participant sees one vertex' s edges.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30002999 (OWR-13949-006). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Complexity Theory (2016), Oberwolfach Reports, DOI 10.4171/owr/2015/54, pp. 3049--3099
+\url{https://doi.org/10.4171/owr/2015/54}.
+\item[S3] Distributed triangle detection lower bounds
+\url{https://arxiv.org/abs/2504.01802}.
+\item[S4] FOCS 2025 version
+\url{https://doi.org/10.1109/FOCS63196.2025.00040}.
+\item[S5] Distributed triangle detection algorithms
+\url{https://arxiv.org/abs/1807.06624}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+What is the randomized communication complexity of detecting a triangle when each graph vertex is assigned to a player who receives all incident edges, so each edge is known to its two endpoint players?
+
+\section{Source communication model}
+Oshman's report, printed pages 3078--3080, discusses both point-to-point
+and shared-blackboard communication before asking the vertex-owned
+triangle question. We retain that distinction. Each labeled vertex
+knows its incident edges in a finite simple undirected graph.
+The elementary upper bounds below are for a shared blackboard with
+total transmitted bits charged once. They are not round bounds for
+CONGEST or LOCAL. The cited 2025 primary abstract concerns CONGEST
+rounds and therefore cannot simply be substituted for the unspecified
+total-communication target in the catalogue.
+
+\section{A baseline protocol and the exact failure of two-party grouping}
+In fixed vertex order, vertex $i$ writes the bits for all pairs
+$\{i,j\}$ with $j>i$. The blackboard then contains the whole graph
+using exactly $\binom n2$ edge bits, without an extra sender label
+because the schedule is fixed. Every player can enumerate vertex triples
+and decide triangle existence. This deterministic protocol has no error.
+
+For a lower-bound attempt, partition the vertices into two sets $A,B$
+and give Alice all incident-edge inputs of vertices in $A$, and Bob all
+those in $B$. Each now knows every edge touching their own set; in
+particular, both know every crossing edge. Every triangle has at least
+two vertices in one of the two sets. If it has two in $A$, all its
+three edges touch $A$, so Alice can recognize it from her view. The
+analogous assertion holds for Bob and $B$.
+Alice locally tests whether a triangle has at least two vertices in
+$A$ and sends one bit; Bob does the corresponding test for $B$ and
+sends one bit. The OR of these two bits is exactly the answer.
+Empty parts cause no difficulty. Thus this aggregated two-party
+problem has a deterministic two-bit protocol for every partition.
+
+This proves the obstruction behind a direct cut-based communication
+reduction: that aggregation hands each party enough overlapping edge
+information to destroy triangle hardness. It does not give a two-bit
+protocol to the original $n$ separate players, who do not individually
+possess the aggregated views. The duplication of crossing-edge knowledge
+is essential and cannot be replaced silently by an edge-disjoint input model.
+
+\section{A public-random wedge-sampling attempt}
+Let $d_v$ be each degree and let
+$W=\sum_v\binom{d_v}{2}$. Vertices first broadcast their degrees, using
+$O(n\log(n+1))$ bits. If $W=0$ there is no triangle. Otherwise public
+randomness chooses a vertex with probability $\binom{d_v}{2}/W$ and
+an index uniformly among its unordered neighbor pairs. That vertex
+broadcasts the two selected neighbor labels, using $O(\log(n+1))$
+bits; one designated endpoint broadcasts whether their edge exists.
+The selected object is a uniformly random wedge, meaning an unordered
+pair of incident edges with its center specified.
+
+If the graph has $T$ triangles, exactly $3T$ wedges are closed. Indeed
+each triangle contributes one centered wedge at each of its three
+vertices, and every closed wedge determines its triangle uniquely.
+Thus each independent trial detects a triangle with probability $3T/W$.
+There are no false positives. After $t$ trials the failure probability
+is $(1-3T/W)^t\le\exp(-3Tt/W)$; the same elementary inequality
+$1-u\le e^{-u}$ proves the bound. Subject to a lower bound on $T/W$
+this is a useful protocol, but no such bound is in the source question.
+
+In fact take the disjoint union of a complete bipartite graph $K_{a,b}$
+and a triangle, with $a,b\ge1$. The bipartite component has no triangle
+because every three vertices include two in the same independent part.
+It has
+\[
+a\binom b2+b\binom a2=\frac{ab(a+b-2)}2
+\]
+wedges. The triangle adds three, so $T=1$ and
+$W=ab(a+b-2)/2+3$. For balanced $a,b$ growing with total vertex count,
+$W$ is of order $n^3$. By the union bound, $t$ trials have success
+probability at most $3t/W$, so success at least $2/3$ requires
+$t\ge2W/9$. Uniform wedge sampling therefore needs cubic many
+trials on this family and does not improve the quadratic full-graph
+communication bound. This is a failure of this sampler, not a randomized
+communication lower bound against arbitrary protocols.
+
+\section{Model-assisted audit and remaining scope}
+The audit checked the two informed endpoints per edge, sender scheduling,
+zero wedges, triangle-free components, and the distinction between
+sampling complexity and general protocol complexity. The 2025 paper's
+abstract reports a round lower bound and describes the limitation of
+two-party reductions; its full information-theoretic proof was not
+audited here. The calculations above are standard elementary arguments,
+not claimed new. No graph enumeration or theorem prover was used.
+Matching randomized bit-complexity bounds in a fully specified original
+communication model remain unproved.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The manuscript proves a baseline blackboard upper bound and two explicit failed routes, not matching randomized communication bounds. The source does not fix the topology and total-bit versus round convention.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Complexity Theory, OWR 54/2015; the original relevant passages were inspected in the cached primary report, including their surrounding model qualifications. \url{https://doi.org/10.4171/owr/2015/54}.
+\item Assadi and Sundaresan, Distributed Triangle Detection is Hard in Few Rounds (2025); primary abstract and its explicit CONGEST model inspected, full proof not audited. \url{https://arxiv.org/abs/2504.01802}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The manuscript proves a baseline blackboard upper bound and two explicit failed routes, not matching randomized communication bounds. The source does not fix the topology and total-bit versus round convention.
+\end{document}

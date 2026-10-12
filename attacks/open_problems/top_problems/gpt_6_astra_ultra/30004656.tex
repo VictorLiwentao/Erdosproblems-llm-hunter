@@ -1,0 +1,201 @@
+% RESEARCH_DRAFT_SHA256: b2933fbe7ec92a89a9fb0817ac4a97f38fbf7fb2119c1d30fec226ab9c22135c
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004656, "title": "Robustness-Driven Overparameterization in Two-Layer Neural Networks", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004656", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Does interpolation by a two-layer neural network with few parameters necessarily force the represented function to have a large Lipschitz constant, thereby making overparameterization necessary for robustness?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The random-input, arbitrary-width, all-Lipschitz-activation lower bound is not proved. The affine calculation and unrestricted Lipschitz extension do not control nonlinear network width.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Robust interpolation: recovered random-data scope and the limitation of geometry-only bounds}
+\noindent UnsolvedMath ID 30004656; OWR-4990384-001. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+For scalar output, a two-layer network has the form $f(x)=b_0+\sum_{j=1}^m a_j\sigma(w_j^{\mathsf T}x+b_j)$ for a chosen activation $\sigma$. Interpolation of data $(x_i,y_i)$ means $f(x_i)=y_i$ for every $i$. On a specified domain $D$, with specified input and output norms, $\operatorname{Lip}(f)=\sup_{x,y\in D,\,x\ne y}\|f(x)-f(y)\|/\|x-y\|$. A bound $\operatorname{Lip}(f)\le L$ controls output changes by $L$ times the input perturbation; any robustness conclusion must state these norms and the dataset assumptions.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+Source-record limitation: The primary Bubeck--Li--Nagaraj result concerns most datasets and a neuron-count regime. The supplied question changes this to a universal assertion for interpolation with few parameters, omitting essential dataset conditions; constant labels give an immediate constant-function counterexample. The missing hypotheses are not supplied by the source extraction.
+\paragraph{Statement recorded in the supplied source.}
+Does interpolation by a two-layer neural network with few parameters necessarily force the represented function to have a large Lipschitz constant, thereby making overparameterization necessary for robustness? \href{https://doi.org/10.4171/owr/2021/15}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Ask whether fitting the training labels with a small two-layer network forces strong sensitivity to input perturbations.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004656 (OWR-4990384-001). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Mathematical Foundations of Machine Learning (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/15, pp. 853--894
+\url{https://doi.org/10.4171/owr/2021/15}.
+\item[S3] Bubeck--Li--Nagaraj, law of robustness
+\url{https://arxiv.org/abs/2009.14444}.
+\item[S4] Wu--Sahai, law beyond isoperimetry
+\url{https://arxiv.org/abs/2202.11592}.
+\item[S5] Shmalo, arbitrary weights
+\url{https://arxiv.org/abs/2607.07778}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Does interpolation by a two-layer neural network with few parameters necessarily force the represented function to have a large Lipschitz constant, thereby making overparameterization necessary for robustness?
+
+\section{Recovering the primary quantifiers}
+The report's short abstract points to Bubeck--Li--Nagaraj. Their
+primary paper, Conjecture 1, concerns random spherical or normalized
+Gaussian inputs, independent random sign labels, and the number
+$k$ of hidden neurons. It asks for a high-probability lower bound
+of order $\sqrt{n/k}$ on the sphere Lipschitz constant for
+interpolating networks with a Lipschitz activation. Thus neither
+arbitrary deterministic labels nor total parameter count can be
+substituted without justification. The original catalogue wording
+is preserved above, including its own warning about this scope.
+The July 2026 Shmalo primary abstract claims a result for continuous
+piecewise-linear activations with a logarithmic loss and arbitrary
+weights; that abstract was checked, but its proof was not audited
+here. It is not treated as a proof of the exact all-activation
+formulation. Our attempt studies whether interpolation geometry
+or a linear-algebra reduction can yield the desired width dependence.
+
+\section{The exact geometry-only obstruction}
+For distinct sample points $x_i$ and real labels $y_i$, put
+\[
+ L_0=\max_{i\ne j}\frac{|y_i-y_j|}{\|x_i-x_j\|}
+\]
+when there are at least two points, and set $L_0=0$ for one point.
+Every interpolant on a domain containing the samples has Lipschitz
+constant at least $L_0$, by its definition. This lower bound is
+best possible among unrestricted real-valued functions on the
+ambient Euclidean space: define
+\[
+ g(x)=\min_i\{y_i+L_0\|x-x_i\|\}.
+\]
+Each expression is $L_0$-Lipschitz by the triangle inequality.
+For any $x,z$, take an index minimizing at $z$ to get
+$g(x)\le g(z)+L_0\|x-z\|$; swap $x,z$ for the reverse inequality.
+At $x_j$ the $j$th expression equals $y_j$ and all others are at
+least $y_j$ by the definition of $L_0$. Thus $g(x_j)=y_j$ and its
+Lipschitz constant is exactly $L_0$ when $L_0>0$.
+In particular, pairwise distances at least one and sign labels
+imply $L_0\le2$, regardless of $n$. A lower bound growing with
+$n/k$ therefore needs the network architecture; sample separation
+alone cannot prove it. The construction supplies no bound on the
+number of hidden neurons representing $g$.
+
+\section{A full restricted lower bound with orthogonal data}
+Here is the linear-algebra route in a setting where it closes.
+Let $n\le d$, take $x_i=e_i$, and let $y_i\in\{-1,1\}$. Among
+all affine functions $f(x)=w\cdot x+b$ interpolating these data,
+the smallest Lipschitz constant on the unit sphere is
+\[
+ L_{\rm aff}=\left(n-\frac{S^2}{n}\right)^{1/2},
+ \qquad S=\sum_{i=1}^n y_i.
+\]
+Indeed, interpolation forces $w_i=y_i-b$ for $i\le n$.
+Coordinates beyond $n$ can only increase the norm, and
+\[
+ \sum_{i=1}^n(y_i-b)^2
+ =n-S^2/n+n(b-S/n)^2.
+\]
+Choose $b=S/n$ and all remaining coordinates zero to attain the
+minimum. The sphere Lipschitz constant of an affine function is
+$\|w\|$: Cauchy--Schwarz gives the upper bound, and the antipodal
+points $w/\|w\|,-w/\|w\|$ give equality when $w\ne0$.
+The zero case is immediate, also covering $d=1$.
+
+For independent uniform sign labels,
+\[
+ \Pr\{|S|>n/2\}\le2e^{-n/8}.
+\]
+For completeness, $\mathbb E e^{\lambda S}=(\cosh\lambda)^n$.
+The function $h(\lambda)=\log\cosh\lambda$ has $h(0)=h'(0)=0$
+and $h''(\lambda)\le1$, so $h(\lambda)\le\lambda^2/2$.
+Markov's inequality gives
+$\Pr(S>n/2)\le\exp(-\lambda n/2+n\lambda^2/2)$;
+choose $\lambda=1/2$ and apply the same argument to $-S$.
+Hence, outside that exceptional event,
+$L_{\rm aff}\ge\sqrt{3n/4}$. This is a random-label theorem
+for a deterministic orthogonal design and affine functions,
+not the full generic-input, arbitrary-width assertion.
+
+More generally, if $X$ has rows $x_i$ and an affine interpolant
+exists, then
+\[
+ \|w\|\ge\frac{\min_b\|y-b\boldsymbol{1}\|}{\|X\|_{\rm op}}
+\]
+provided $\|X\|_{\rm op}>0$. This follows from
+$Xw=y-b\boldsymbol{1}$ and the definition of the operator norm.
+For nonlinear two-layer networks the equation has no single vector
+$w$ representing the entire function, so this step does not extend
+by replacing $w$ with the collection of hidden weights.
+
+\section{Two failed shortcuts, checked explicitly}
+An arbitrary-data version cannot hold: the constant function one
+is represented by one ReLU neuron with zero input weight and bias
+one, fits any number of samples labelled one, and has Lipschitz
+constant zero. Even nonconstant low-Lipschitz affine labels admit
+two ReLU units, since
+$\max(t,0)-\max(-t,0)=t$. These examples do not contradict the
+primary random-label high-probability statement.
+
+Nor does a lower bound on a weight-norm upper estimate imply a
+lower bound on the realized function. In one dimension and for
+any $M>0$,
+\[
+ M\max(x,0)-M\max(x,0)+\max(x,0)=\max(x,0).
+\]
+The usual sum-of-absolute-weight estimate is $2M+1$ while the
+actual global Lipschitz constant is one. Cancellation makes the
+reverse inference invalid. Eliminating this exact redundant pair
+does not prove that arbitrary networks possess a controlled
+minimal representation; that would be an additional theorem.
+
+\section{Audit and remaining gap}
+The adversarial audit separated neuron count from parameter count,
+sphere from whole-space Lipschitz constants, a random-label
+orthogonal design from random spherical inputs, and an upper
+norm estimate from the function's actual Lipschitz constant.
+The exact extension formula shows why the attempted geometry-only
+argument cannot supply the width factor. The affine argument
+cannot handle general hidden activations. No numerical experiments
+or theorem prover were used. These known elementary mechanisms
+are not credited as original-target progress, and no current-status
+claim stronger than the inspected primary abstracts is made.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The random-input, arbitrary-width, all-Lipschitz-activation lower bound is not proved. The affine calculation and unrestricted Lipschitz extension do not control nonlinear network width.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Bubeck, A law of robustness for two-layers neural networks, OWR15/2021 p.862; primary abstract inspected in cached report. \url{https://doi.org/10.4171/OWR/2021/15}.
+\item Bubeck, Li and Nagaraj, A law of robustness for two-layers neural networks, v2; Introduction and Sections2–3.2 inspected for exact scope and known context. \url{https://arxiv.org/pdf/2009.14444}.
+\item Shmalo, A law of robustness for two-layer neural networks with arbitrary weights (July2026); primary abstract consulted only, not a dependency or full proof audit. \url{https://arxiv.org/abs/2607.07778}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The random-input, arbitrary-width, all-Lipschitz-activation lower bound is not proved. The affine calculation and unrestricted Lipschitz extension do not control nonlinear network width.
+\end{document}

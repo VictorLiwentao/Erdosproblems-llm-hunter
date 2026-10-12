@@ -1,0 +1,185 @@
+% RESEARCH_DRAFT_SHA256: 262fa90fb03959c13f262cf6dd8793b6081617d66cb0a22f4c26f573fc9b60db
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30005020, "title": "LOCAL Coloring Complexity and Constant-Round Decidability on Trees", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005020", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "LOCAL Coloring Complexity and Constant-Round Decidability on Trees; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "An explicit oriented-path color reduction and its scope limits; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch024 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30005020; source catalogue code OWR-9790359-001
+\section{LOCAL Coloring Complexity and Constant-Round Decidability on Trees}\label{30005020}
+{\small UnsolvedMath ID 30005020 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+In the LOCAL model an $n$-vertex graph has distinct vertex identifiers and synchronous communication along edges; messages and local computation are unrestricted. Round complexity counts communication rounds. A proper $q$-coloring assigns colors in $\{1,\ldots,q\}$ so adjacent vertices differ, and $\Delta$ is maximum degree. A locally checkable labeling (LCL) problem has finite input/output alphabets and a fixed-radius predicate deciding whether each labeled neighborhood is legal. Constant-round means a bound independent of $n$; decidability takes the finite description of the LCL as input.
+\paragraph{Statement recorded in the supplied source.}
+Determine the LOCAL complexity of $(\Delta+1)$-coloring. Also decide whether an arbitrary locally checkable labeling problem on trees admits a constant-round algorithm. \href{https://doi.org/10.4171/owr/2022/8}{[S2]}
+\paragraph{Scope qualification.}
+The deterministic or randomized complexity, degree regime and identifier convention are those of the cited report; they are not interchangeable. The two questions are retained together as in the supplied record.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Determine the distributed cost of using one more color than the maximum degree, and decide which locally checkable problems on trees have bounded-round solutions.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30005020 (OWR-9790359-001). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Mini-Workshop: Descriptive Combinatorics, LOCAL Algorithms and Random Processes (2023), Oberwolfach Reports, DOI 10.4171/owr/2022/8, pp. 429--455
+\url{https://doi.org/10.4171/owr/2022/8}.
+\item[S3] Chang--Pettie--Suomela, LCL complexity on trees
+\url{https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.DISC.2020.18}.
+\item[S4] 2025 distributed (\textbackslash{}Delta+1)-coloring bounds
+\url{https://drops.dagstuhl.de/storage/00lipics/lipics-vol361-opodis2025/LIPIcs.OPODIS.2025.23/LIPIcs.OPODIS.2025.23.pdf}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30005020 and source code OWR-9790359-001 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30005020}
+
+\section{Literature and context check}
+
+I read the report's LOCAL discussion on pages 436--437. It already describes
+the Cole--Vishkin path color-reduction route and separates it from the general
+$(\Delta+1)$ question and the constant-round LCL decision problem.
+The calculation below re-derives that known restricted route with its endpoint
+and palette details. It does not claim that the report's historical complexity
+status certifies the status of either question today.
+
+\section{Research attempt: An explicit oriented-path color reduction and its scope limits}
+
+\paragraph{One-round reduction with an actual correctness proof.}
+Consider a finite consistently oriented path, with each noninitial vertex knowing
+which neighbor is its predecessor. Suppose it has a proper coloring in
+$\{0,\ldots,K-1\}$, $K\geq2$. Encode colors in $b=\lceil\log_2K\rceil$
+bits. Each noninitial vertex compares its color to its predecessor's, finds
+the least differing bit index $i$, and outputs the pair $(i,s)$, where $s$
+is its own bit at that index. The initial vertex outputs one special symbol.
+All this uses one communication round and at most $2b+1$ colors.
+For adjacent noninitial vertices $u,v$, with $u$ preceding $v$, if their
+indices differ then the pairs differ. If their indices agree at $i$, the bit
+of $v$ differs from that of $u$ by the defining comparison for $v$; again the
+pairs differ. An edge incident to the initial vertex has the special symbol
+at only that endpoint. Thus the reduction preserves a proper coloring.
+
+Starting with distinct identifiers in a palette of size $K$, iterate the
+recurrence $K^+=2\lceil\log_2K\rceil+1$ until a fixed constant palette
+is reached. This takes $O(\log^*K)$ rounds. One elementary justification is
+that $K^+\leq3\log_2K+1$ for $K\geq2$, and, for all sufficiently large
+$K$, two consecutive reductions give at most $\log_2K$: writing
+$z=\log_2K$, the second result is at most
+$3\log_2(3z+1)+1\leq z$ for all $z\geq32$.
+The last inequality holds at $32$ and its right-minus-left derivative is
+$1-9/((3z+1)\log2)>0$ thereafter.
+Below the resulting fixed cutoff, the finite number of colors is a constant.
+
+\paragraph{Eliminating the remaining colors.}
+First relabel the final constant palette bijectively as $\{1,\ldots,C\}$.
+For each color $c>3$, in descending order, all vertices of color $c$
+simultaneously choose the least color in $\{1,2,3\}$ absent from their at most
+two neighbors. They can do so after one round of exchanging current colors.
+A choice exists because there are at most two forbidden colors. No two updated
+vertices are adjacent, since the old coloring was proper. Their new colors
+differ from those of every unchanged neighbor, so the coloring remains proper.
+After a constant number of such rounds only three colors remain.
+For identifiers bounded by $n^C$ with fixed $C$, this is an
+$O(\log^*n)$ deterministic algorithm on this oriented-path subclass.
+The path with one vertex can be colored directly; no differing-bit comparison
+is attempted when no edge exists.
+
+\paragraph{Why this is not the two original answers.}
+The predecessor rule presumes a consistent orientation supplied as input.
+It does not construct one in constant time on arbitrary trees, nor account
+for degree dependence when $\Delta$ grows. Even on paths, zero rounds cannot
+always suffice for three colors in the model where a vertex initially knows
+only its own identifier and local degree/ports: choose more than three
+possible identifiers for an interior vertex. Two receive the same output by
+the pigeonhole principle. Place them at adjacent interior positions of a path
+of at least four vertices, with identical local port conventions and unused
+distinct identifiers elsewhere. Those adjacent outputs coincide.
+This is only a zero-round obstruction, not the full $\Omega(\log^*n)$ lower
+bound stated in the literature.
+Finally, an algorithm for one coloring task gives no decision procedure taking
+an arbitrary LCL description. Searching for algorithms of increasing radius
+would at best be a positive search if each radius admitted a finite justified
+search space; it would still require a proved stopping bound on negative
+instances. No such bound is supplied by the palette recurrence.
+
+\section{Verification and adversarial audit}
+
+The initial vertex gets its own color, so the least-bit operation is always
+applied to distinct colors. The two-round logarithmic estimate states a fixed
+large cutoff; the later color elimination is valid for any finite constant
+palette. The zero-round adversary uses equal local types and an identifier
+universe with more than three choices. No degree-uniform bound or LCL
+negative-instance stopping theorem is inferred.
+
+\paragraph{Audit corrections.} Stated the supplied path orientation and identifier bound, treated the
+initial vertex separately, and kept the finite-palette construction distinct from
+a decision procedure for all LCL descriptions.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+
+This is a fully worked known path-coloring algorithm and an explicit analysis of
+the two steps that do not generalize to the bundled original target. General
+LOCAL $(\Delta+1)$ complexity and arbitrary-tree LCL constant-round
+decidability are not resolved by this manuscript.
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46944} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

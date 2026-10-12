@@ -1,0 +1,191 @@
+% RESEARCH_DRAFT_SHA256: 882e5182c9a1c8f68cc522c9ceabb4cfd235938941e1c1d62056e9bcc43c8219
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004930, "title": "Computable Ground Truths for Learning Problems", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004930", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "When is the ground truth of a learning task a computable function, and how does that relate to approximation by computable neural networks?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The constructive equivalence uses an explicitly supplied computable modulus and evaluation representation. The source does not specify a target class or task, and non-effective approximation existence alone cannot answer it.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Computable targets and networks: effective uniform approximation versus non-effective existence}
+\noindent UnsolvedMath ID 30004930; OWR-8415360-009. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A real-valued function is computable only relative to an effective input/output representation: arbitrarily accurate outputs must be producible from appropriately represented inputs. A computable neural network similarly needs effectively given weights and activations.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The ground-truth function, sampling representation, and approximation class are not fixed. This direction overlaps source record 30004929.
+
+Source-record limitation: The supplied assessment flags an underspecified computable-ground-truth question, also contained in retained ID 30004929.
+
+Related catalogue records: \href{https://mehmetmars7.github.io/Erdosproblems-llm-hunter/problem.html?type=open_problems&id=30004929}{30004929}. Separate source IDs are preserved for their provenance.
+\paragraph{Statement recorded in the supplied source.}
+When is the ground truth of a learning task a computable function, and how does that relate to approximation by computable neural networks? \href{https://doi.org/10.4171/owr/2021/55}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Understand when a learning target and its network approximations are computable.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004930 (OWR-8415360-009). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Applied Harmonic Analysis and Data Science (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/55, pp. 3007--3066
+\url{https://doi.org/10.4171/owr/2021/55}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+When is the ground truth of a learning task a computable function, and how does that relate to approximation by computable neural networks?
+
+\section{Scope and the attempted equivalence}
+The source discussion, printed pages3030--3032, already connects
+computability from point samples with network approximation and
+asks how to choose meaningful computable ground truths. This
+record overlaps sourceID30004929, but here we focus on the
+quantifier order and effective convergence rather than sampling
+noise. We use rational-name representations of real inputs and
+rational-weight finite ReLU networks. We prove a restricted
+constructive equivalence and show why neither individual
+approximation existence nor a computable convergent sequence
+without a rate suffices.
+
+\section{Effective uniform networks imply a computable target}
+Suppose an algorithm given $k$ returns a rational-weight ReLU
+network $N_k$ with
+$\|N_k-f\|_{\infty,[0,1]}\le2^{-k}$.
+Each such finite network can be evaluated effectively on a real
+input supplied by rational approximations. Explicitly, the
+activation is $1$-Lipschitz, and each rational affine layer has
+a rational Lipschitz upper bound in the maximum norm equal
+to the largest absolute row sum of its matrix. Their product
+is a computable upper bound $L_k$ for the network. Obtain a
+rational input $q$ with $|q-x|\le2^{-j}$, choose $j$ so
+$L_k2^{-j}$ is below a prescribed rational tolerance, and
+evaluate the rational network at $q$ exactly. If $L_k=0$,
+no input refinement is necessary. This computes $N_k(x)$
+to arbitrary accuracy.
+
+To compute $f(x)$ within $2^{-n}$, choose $k=n+2$ and
+evaluate $N_k(x)$ to accuracy $2^{-n-2}$. The triangle
+inequality gives total error at most $2^{-n-1}<2^{-n}$.
+Thus a uniformly generated approximation family with a known
+error rate makes the target computable in this representation.
+
+\section{A converse with explicit effective continuity data}
+Assume evaluations of $f$ at dyadic rationals can be computed
+to arbitrary rational accuracy, and a computable modulus
+$m(k)$ is supplied such that
+\[
+ |x-y|\le2^{-m(k)}\quad\Longrightarrow\quad
+ |f(x)-f(y)|\le2^{-k}
+\]
+for $x,y\in[0,1]$. To produce an approximation at requested
+precision $2^{-n}$, take the dyadic grid of mesh
+$2^{-m(n+2)}$ and approximate each function value rationally
+to error at most $2^{-n-2}$. Linear interpolation of these
+rational samples has error at most $2^{-n-1}$: each endpoint
+value differs from $f(x)$ by at most $2^{-n-2}$ before
+sampling noise, and the interpolant is a convex combination.
+The interpolant is a rational-weight ReLU network: if its
+successive interval slopes are $s_j$ at knots $t_j$, write
+\[
+ N(x)=N(0)+s_0x+\sum_{j\ge1}(s_j-s_{j-1})\max(x-t_j,0),
+\]
+with a finite sum over interior knots. Slopes telescope and
+values agree at the first knot, proving exact representation.
+All operations and sample precisions are effective, so this
+is a uniform algorithm producing the promised family. The
+modulus and evaluation assumptions are explicit; no general
+inference of them from finite samples is claimed.
+
+\section{Non-effective approximants can exist for a noncomputable target}
+Let $K\subseteq\mathbb N_{\ge1}$ be the noncomputable
+halting set in a fixed effective program enumeration and put
+\[
+ \alpha=\sum_{e\in K}4^{-e}.
+\]
+Then $\alpha$ is not computable. Indeed, if its value were
+computable, decide membership in increasing order of $e$.
+After subtracting the already determined contributions before
+$e$ and multiplying by $4^e$, the result lies in $[0,1/3]$
+if $e\notin K$ and in $[1,4/3]$ if $e\in K$, because
+$\sum_{j>e}4^{e-j}=1/3$. Approximate $\alpha$ within
+$4^{-e}/6$ and compare the scaled remainder to $2/3$.
+The two possible approximate ranges remain separated, so this
+procedure would decide $K$, a contradiction.
+
+The constant function $f(x)=\alpha$ is therefore noncomputable,
+but for every $\epsilon>0$ there exists a rational constant
+$q$ within $\epsilon$ of $\alpha$. The one-bias network
+$x\mapsto q$ is a computable network with that uniform error.
+Thus the bare statement that arbitrarily accurate computable
+networks exist does not imply a computable target. It is the
+uniform effective selection with a certified rate that matters.
+
+There is even a computable sequence of such networks converging
+uniformly without any computable convergence rate. Let
+\[
+ q_s=\sum_{\substack{1\le e\le s\\
+                 \text{program }e\text{ halts within }s\text{ steps}}}4^{-e}.
+\]
+Each rational $q_s$ is effectively obtained by finitely many
+bounded simulations; the sequence is monotone and bounded.
+It converges to $\alpha$: for any tolerance, first bound the
+geometric tail by choosing finitely many indices, then wait
+until all halting programs among those indices have appeared.
+The latter waiting time exists but need not be computably
+bounded. If a computable function $S(n)$ guaranteed
+$|q_s-\alpha|\le2^{-n}$ for all $s\ge S(n)$, computing
+$q_{S(n)}$ would compute $\alpha$, contradicting the preceding
+proof. Therefore uniform convergence of an effectively generated
+network sequence, without an effective rate, is insufficient.
+
+\section{Audit and remaining source question}
+The audit distinguished three claims: existence for each accuracy,
+uniformly generated approximants, and an effective accuracy
+schedule. It checked the base-four digit gap, the geometric tail,
+and the network evaluation bound. The use of a noncomputable
+halting set is the standard computability obstruction; the target
+is constant and continuous, so discontinuity is not responsible.
+These results clarify a source qualification, but do not identify
+a ground truth or function class for the unspecified learning
+task. No experiment or theorem prover was used. The overlapping
+source records retain their separate identities, and this attempt
+claims no novel general characterization.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The constructive equivalence uses an explicitly supplied computable modulus and evaluation representation. The source does not specify a target class or task, and non-effective approximation existence alone cannot answer it.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item OWR55/2021, Applied Harmonic Analysis and Data Science; complete primary passages on computability pp.3030–3032, sparse recovery pp.3053–3055, and stochastic recurrent learning pp.3055–3057 were read in the cached report; each manuscript uses its identified contribution. \url{https://ems.press/content/serial-article-files/46933}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The constructive equivalence uses an explicitly supplied computable modulus and evaluation representation. The source does not specify a target class or task, and non-effective approximation existence alone cannot answer it.
+\end{document}

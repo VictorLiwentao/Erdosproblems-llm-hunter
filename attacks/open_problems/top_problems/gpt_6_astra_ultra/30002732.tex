@@ -1,0 +1,164 @@
+% RESEARCH_DRAFT_SHA256: 5feb732dbafda71219232691404d285e6b13ef68872991ffefa9a316a86970e5
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30002732, "title": "Compact Constant-Gap Relaxations for Capacitated Facility Location", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002732", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Does there exist a polynomial-size linear-programming relaxation for the capacitated facility location problem whose integrality gap is bounded by a constant?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. An exact exponential-size formulation and restricted-size cases are established, but no polynomial-size constant-gap relaxation for unrestricted facility count or extension-complexity obstruction is obtained.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Compact facility-location formulations: exact enumeration and the missing compression}
+\noindent UnsolvedMath ID 30002732; OWR-13353-021. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Capacitated facility location opens facilities and assigns clients while respecting capacities and minimizing opening and connection costs. Polynomial size means that the number of encoded variables and inequalities is polynomial in instance size.
+
+A relaxation contains the integral feasible solutions. For a nonnegative minimization objective, its integrality gap is the supremum of the ratio between the integral optimum and the relaxation optimum over the specified instances.
+
+A linear program optimizes $c^Tx$ over a polyhedron $\{x:Ax\leq b\}$. In the simplex method a pivot moves between adjacent basic feasible solutions; a pivot rule chooses the next such move.
+\paragraph{Statement recorded in the supplied source.}
+Does there exist a polynomial-size linear-programming relaxation for the capacitated facility location problem whose integrality gap is bounded by a constant? \href{https://doi.org/10.4171/owr/2014/51}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Find a compact linear relaxation that approximates every capacitated facility-location instance within a constant factor.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30002732 (OWR-13353-021). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2015), Oberwolfach Reports, DOI 10.4171/owr/2014/51, pp. 2873--2932
+\url{https://doi.org/10.4171/owr/2014/51}.
+\item[S3] Kao, MFN integrality gap
+\url{https://doi.org/10.1137/1.9781611977554.ch40}.
+\item[S4] lower bounds for compact formulations
+\url{https://arxiv.org/abs/1312.1819}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Does there exist a polynomial-size linear-programming relaxation for the capacitated facility location problem whose integrality gap is bounded by a constant?
+
+\section{Attempt to encode all opening choices}
+We retain the source's metric capacitated problem with unit clients, integer
+capacities, and at most one opening per facility. Let $m$ be the number of
+facilities and $n\ge1$ the number of clients. Replace each capacity $U_i$ by
+$\min(U_i,n)$; no feasible assignment or optimum changes.
+For a fixed opened subset $S$, consider the assignment polytope
+\[
+P_S=\left\{z\ge0:\ \sum_{i\in S}z_{ij}=1\ (j=1,\ldots,n),\quad
+\sum_j z_{ij}\le U_i\ (i\in S)\right\}.
+\]
+It is nonempty exactly when $\sum_{i\in S}U_i\ge n$: necessity follows by
+summing, and sufficiency follows by assigning successive clients to successive
+available slots. Thus feasibility of the opened subset itself is elementary;
+connection costs are still tied to the facility locations.
+
+\paragraph{Complete assignment integrality proof.}
+Every point of $P_S$ is a convex combination of integral assignments.
+Add one dummy client row with entries
+$r_i=U_i-\sum_j z_{ij}$. In the resulting nonnegative matrix, each facility
+column sums to the integer $U_i$, each real client row sums to one, and the
+dummy row sums to the integer $\sum_iU_i-n$.
+If any entry is nonintegral, form the bipartite graph of nonintegral entries
+between rows and columns. At every incident vertex, there must be at least
+two such entries: an integer row or column sum cannot have just one
+nonintegral summand. A finite graph with minimum degree at least two contains
+a cycle (extend a nonbacktracking walk until a vertex repeats); bipartiteness
+makes its length even. Add an alternating increment $t,-t$ along this cycle.
+Both signs are feasible for sufficiently small $t>0$, preserving all margins.
+In each direction increase $t$ until an entry hits its adjacent integer,
+without crossing any integer on the cycle. The original matrix is a strict
+convex combination of these two endpoints, and each endpoint has fewer
+nonintegral entries. Recurse on each endpoint. The depth is bounded by the
+number of entries, so this is a finite convex decomposition into integral
+nonnegative matrices. Deleting the dummy row yields integral assignments;
+a real row with sum one has exactly one entry one. This proves the assertion
+without appealing to an external matching integrality theorem.
+
+\paragraph{An exact extended formulation.}
+For each capacity-feasible subset $S$ introduce $\lambda_S\ge0$ and variables
+$z^S_{ij}\ge0$ for $i\in S$, with
+\[
+\sum_S\lambda_S=1,\quad
+\sum_{i\in S}z^S_{ij}=\lambda_S,\quad
+\sum_j z^S_{ij}\le U_i\lambda_S,\quad
+ y_i=\sum_{S\ni i}\lambda_S,\quad x_{ij}=\sum_{S\ni i}z^S_{ij}.
+\]
+If $\lambda_S=0$, nonnegativity and the client equalities force $z^S=0$.
+Otherwise $z^S/\lambda_S\in P_S$ and has the integral decomposition just
+proved. Hence every projected $(x,y)$ is a convex combination of feasible
+integral facility-location solutions with exactly the opened sets $S$.
+Conversely, an integral solution is represented by putting its subset's
+$\lambda$ equal to one; convex combinations remain feasible.
+This proves equality with the integral convex hull, including facilities
+opened but unused. Minimizing the usual linear cost over this formulation
+has gap one, because a convex combination's cost is the same combination
+of integral costs and cannot be smaller than their minimum.
+
+\section{The precise missing step}
+This construction uses $O(2^m mn)$ variables and inequalities. It is polynomial
+for fixed $m$, and also for $m\le C\log_2 n$ with fixed $C$, but not for
+unrestricted $m$. Binary coefficient sizes remain polynomial: $U_i\le n$
+and all other coefficients are zero or one. The source asks for a polynomial
+bound in the unrestricted instance size; our subset enumeration does not
+supply it.
+
+An attempted compression retaining only each subset's total capacity loses
+the connection objective even in the smallest metric instance. On the real
+line place one client at $\varepsilon$, facility $a$ at zero and facility
+$b$ at $R>2\varepsilon$, with unit capacities and zero opening costs.
+The sets $\{a\}$ and $\{b\}$ have the same total capacity, but their optimal
+connection costs are $\varepsilon$ and $R-\varepsilon$ respectively.
+Their ratio is unbounded as $R/\varepsilon$ grows. Thus this proposed
+capacity-only state cannot substitute for the subset while preserving its
+cost information. This does not rule out more sophisticated extended variables.
+
+\section{Source check and adversarial audit}
+The OWR question explicitly distinguishes exponentially many constraints
+from a polynomial-size formulation. The inspected Kolliopoulos--Moysoglou
+abstract, arXiv:1312.1819, restricts its lower bound to the natural facility-
+location encoding; it does not establish a lower bound for all extensions.
+Its full proof is not used here. The known-style disjunctive construction
+above is provided with a complete elementary proof and no novelty claim.
+The audit checked zero multipliers, empty infeasible subsets, unused openings,
+capacity truncation, and finite termination of the convex decomposition.
+No numerical or formal proof checking was performed for this record.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. An exact exponential-size formulation and restricted-size cases are established, but no polynomial-size constant-gap relaxation for unrestricted facility count or extension-complexity obstruction is obtained.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 51/2014, Svensson, LP-based algorithms for capacitated facility location, printed pp. 2919--2921; original questions and scope read. \url{https://doi.org/10.4171/owr/2014/51}.
+\item An, Singh and Svensson, LP-Based Algorithms for Capacitated Facility Location, arXiv:1407.3263v2; introduction and Section 2, especially Definition 2.1 and the partial-assignment network, inspected. The general approximation proof is not independently checked here. \url{https://arxiv.org/html/1407.3263}.
+\item Kolliopoulos and Moysoglou, Exponential lower bounds on the size of approximate formulations in the natural encoding for Capacitated Facility Location (2013); abstract and natural-encoding restriction inspected, proof not rederived. \url{https://arxiv.org/abs/1312.1819}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} An exact exponential-size formulation and restricted-size cases are established, but no polynomial-size constant-gap relaxation for unrestricted facility count or extension-complexity obstruction is obtained.
+\end{document}

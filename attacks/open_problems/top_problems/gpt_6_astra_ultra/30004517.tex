@@ -1,0 +1,215 @@
+% RESEARCH_DRAFT_SHA256: bd0295346dcadb05c93d3f7528f268c31111f80d0e94f399d643d02591067b66
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004517, "title": "Minimum Crossing Realizations of Spatial Polygon Angle Sequences", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004517", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Given a realizable angle sequence for a polygon in $\\mathbb{R}^3$, can an efficient algorithm compute the minimum number of crossings among its generic realizations?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Zero crossings are constructed for total turn 2pi, and prescribed generic double-crossing patterns have an explicit real-algebraic encoding. Efficient feasibility, general pattern selection, and the full source genericity convention remain unresolved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Spatial angle sequences: a zero-crossing regime and algebraic feasibility}
+\noindent UnsolvedMath ID 30004517; OWR-1703876-011. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A spatial polygon is a closed polygonal chain in $\mathbb R^3$ with positive edge lengths. Its unsigned turning angles are the angles between consecutive oriented edge directions, in $(0,\pi)$. An angle sequence is realizable if such a polygon exists. In the cited work, crossing counts refer to self-intersections of the polygonal chain, with generic realizations excluding coincident vertices, overlaps, and degenerate intersections; they are not crossings of an arbitrary planar projection.
+\paragraph{Statement recorded in the supplied source.}
+Given a realizable angle sequence for a polygon in $\mathbb{R}^3$, can an efficient algorithm compute the minimum number of crossings among its generic realizations? \href{https://doi.org/10.4171/owr/2020/30}{[S2]}
+\paragraph{Scope qualification.}
+The relevant convention is the unsigned turning-angle convention of the cited polygon paper. ``Crossings'' here does not ask for the knot-theoretic crossing number. The source does not prescribe a bit model for real-valued angles.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Find a spatial polygon with the prescribed angles and as few self-intersections as possible.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004517 (OWR-1703876-011). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Discrete Geometry (2021), Oberwolfach Reports, DOI 10.4171/owr/2020/30, pp. 1469--1528
+\url{https://doi.org/10.4171/owr/2020/30}.
+\item[S3] A. Efrat, R. Fulek, S. Kobourov and C. D. Tóth, Polygons with Prescribed Angles in 2D and 3D, arXiv:2008.10192
+\url{https://arxiv.org/abs/2008.10192}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Given a realizable angle sequence for a polygon in $\mathbb{R}^3$, can an efficient algorithm compute the minimum number of crossings among its generic realizations?
+
+\section{Source convention and the attempted route}
+The original report, printed pages 1512--1514, asks about actual
+self-intersections in space, not crossings of a planar projection or
+the crossing number of a knot. The primary polygon paper's introduction
+and concluding section were inspected as well; its authors are Efrat,
+Fulek, Kobourov and T\'oth, as correctly recorded in the preserved
+definition, despite different names in the supplied row's link labels.
+Angles are unsigned turns $\alpha_i\in(0,\pi)$.
+We give a complete construction when their sum is $2\pi$, then encode
+the general fixed-crossing-pattern search and identify the missing
+efficient feasibility step. No general perturbation of vertices is
+assumed to preserve all angles.
+
+\section{A complete convex construction when the total turn is two pi}
+Suppose $\sum_{i=0}^{n-1}\alpha_i=2\pi$, with all
+$0<\alpha_i<\pi$. Choose unit outward normals
+$v_i=(\cos\theta_i,\sin\theta_i)$ in cyclic order such that the
+angle from $v_{i-1}$ to $v_i$ is $\alpha_i$; cumulative sums of
+the angles construct them. Let $L_i$ be the line $v_i\cdot x=1$.
+The intersection $p_i=L_{i-1}\cap L_i$ is
+\[
+p_i=\frac{1}{\cos(\alpha_i/2)}
+ \left(\cos\frac{\theta_{i-1}+\theta_i}{2},
+       \sin\frac{\theta_{i-1}+\theta_i}{2}\right),
+\]
+with angles lifted cyclically for the last pair. This formula is verified
+by taking its dot product with each adjacent normal.
+
+Every other normal lies outside the open circular arc of length
+$\alpha_i<\pi$ between those adjacent normals. Its circular distance
+from the midpoint is therefore at least $\alpha_i/2$, so its dot
+product with $p_i$ is at most one. Thus all $p_i$ belong to the
+convex intersection $K=\{x:v_j\cdot x\le1\text{ for all }j\}$.
+Equality holds only for the two adjacent normals, since other distinct
+normals have strictly larger circular distance from that midpoint.
+
+On $L_i$, orient the unit tangent by rotating $v_i$ counterclockwise
+through $\pi/2$. In this tangent coordinate, $p_i$ and $p_{i+1}$
+are respectively $-\tan(\alpha_i/2)$ and
+$\tan(\alpha_{i+1}/2)$ relative to the tangency point $v_i$.
+Hence the edge from $p_i$ to $p_{i+1}$ has positive length
+$\tan(\alpha_i/2)+\tan(\alpha_{i+1}/2)$ and the prescribed cyclic
+tangent direction. No two nonadjacent edges meet: a point on an edge
+lies on its supporting line, and the endpoints of every nonadjacent
+edge satisfy that line's inequality strictly, hence so does their
+entire connecting segment. Similarly the vertices are distinct.
+The angle between successive tangent directions is precisely
+$\alpha_i$. Therefore the constructed polygon is simple and realizes
+the sequence in the plane, and hence in $\mathbb R^3$.
+Its crossing count is zero, which is minimal because crossing counts
+are nonnegative. The construction uses $O(n)$ real arithmetic and
+trigonometric evaluations; this is not a bit-complexity statement for
+arbitrary real angles.
+
+\section{Encoding a specified crossing pattern exactly}
+For general angles, suppose additionally that the input supplies exact
+algebraic values $c_i=\cos\alpha_i\in(-1,1)$ with isolating data.
+This explicit representation is an auxiliary computational assumption.
+Introduce vertices $p_i\in\mathbb R^3$, positive lengths $l_i$, and
+unit edge directions $u_i$, with cyclic indices, and impose
+\[
+l_i>0,\quad u_i\cdot u_i=1,\quad
+p_{i+1}-p_i=l_i u_i,\quad u_{i-1}\cdot u_i=c_i,
+\quad \|p_i-p_j\|^2>0\ (i\ne j).
+\]
+These polynomial equations and inequalities exactly impose closed
+positive-length edges, the angles in $(0,\pi)$, and distinct vertices.
+Fix a set $E$ of nonadjacent unordered edge pairs designated as crossings.
+For each pair in $E$, require parameters $s,t\in(0,1)$ with
+\[
+p_i+s(p_{i+1}-p_i)=p_j+t(p_{j+1}-p_j),
+\quad\|(p_{i+1}-p_i)\mathbin{\times}(p_{j+1}-p_j)\|^2>0.
+\]
+Thus their interiors meet and the two lines are not parallel, so the
+intersection is one proper pairwise crossing. For every nonadjacent
+pair outside $E$, enforce strict separation of their closed segments
+by a plane: introduce $w\in\mathbb R^3,h\in\mathbb R$ satisfying
+\[
+w\cdot p_i,w\cdot p_{i+1}<h,
+\qquad w\cdot p_j,w\cdot p_{j+1}>h.
+\]
+Here the comma notation means both indicated inequalities. Add the
+same strict-separation certificate between each vertex and every
+nonincident closed edge. Finally require crossing locations for
+distinct pairs in $E$ to be distinct, by a strictly positive squared
+distance. This last condition specifies the usual ordinary-double-
+crossing generic subcase explicitly; it excludes multiple crossings
+at one point rather than silently choosing how to count them.
+
+\paragraph{Proof of the separation encoding.}
+Disjoint compact segments have closest points $a,b$ with $a\ne b$.
+Minimization over a segment gives
+$(a-b)\cdot(x-a)\ge0$ for every point $x$ on the first segment
+and $(b-a)\cdot(y-b)\ge0$ on the second, by differentiating squared
+distance along those line segments. Taking $w=b-a$ gives
+$w\cdot x\le w\cdot a<w\cdot b\le w\cdot y$.
+Choose $h$ strictly between the middle values to get the desired
+inequalities. Conversely those inequalities are preserved under convex
+combinations, so the segments cannot share a point. The same argument
+works for a point and a segment. This proves that no genuine disjoint
+configuration is lost by the introduced separation witnesses.
+
+The entire system is existential and polynomial over the given
+algebraic coefficients, and is feasible exactly when that prescribed
+ordinary-double-crossing pattern has a realization. Necessity follows
+by the geometric constructions of the witnesses; sufficiency follows
+by reading the equations as the constructed polygon and the pairwise
+separation/crossing alternatives. Adjacent edges already meet only
+at their common vertex because their angle is strictly between zero
+and $\pi$. A nonadjacent straight edge pair can cross at most once.
+
+\section{Why this is not yet the requested efficient algorithm}
+One can list the at most $n(n-3)/2$ nonadjacent pairs and all candidate
+sets $E$ in increasing size. The feasibility encoding is explicit,
+but the list has exponential size in general, and an existential
+real-algebraic feasibility solver is not supplied with a polynomial
+runtime bound here. Even counting polynomially many variables and
+constraints for a fixed $E$ does not imply polynomial-time feasibility.
+We establish the exact encoding, not a new quantifier-elimination
+theorem or a polynomial algorithm. Also the source's generic convention
+must be checked if it permits coincident crossing locations; the
+encoding above explicitly handles ordinary double crossings.
+
+The tempting alternative of perturbing every spatial polygon to remove
+all crossings has another gap: unconstrained perturbations change the
+dot products $u_{i-1}\cdot u_i$. The source paper itself discusses
+angle data forcing planar self-intersections. No proof is supplied
+that the angle-constrained realization space admits the required
+perturbation. The zero-crossing construction above uses the extra
+total-turn equality and cannot be extended by dropping that hypothesis.
+
+\section{Model-assisted audit and remaining scope}
+The audit checked normal indexing, positivity of every edge length,
+strict versus weak segment separation, vertex-edge incidences, and
+the representation of the angles. The primary paper's concluding
+conjecture uses $n\ge4$, whereas the workshop summary prints $n\ge3$;
+the triangle endpoint cannot be used to claim a negative solution to
+this minimum-crossing algorithm question. These are elementary
+restricted constructions and an encoding, with no novelty claim.
+No numerical experiment or theorem prover was used. The general
+efficient minimum-crossing algorithm remains unresolved.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Zero crossings are constructed for total turn 2pi, and prescribed generic double-crossing patterns have an explicit real-algebraic encoding. Efficient feasibility, general pattern selection, and the full source genericity convention remain unresolved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Tóth, Polygons with Prescribed Angles, OWR 30/2020, pp. 1512--1514; source definitions, theorems and open question read in the cached primary report. \url{https://doi.org/10.4171/owr/2020/30}.
+\item Efrat, Fulek, Kobourov and Tóth, Polygons with Prescribed Angles in 2D and 3D, version 2 (2020); primary introduction, genericity definition and concluding open problem/conjecture inspected. Full general construction proofs not audited. \url{https://arxiv.org/pdf/2008.10192}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Zero crossings are constructed for total turn 2pi, and prescribed generic double-crossing patterns have an explicit real-algebraic encoding. Efficient feasibility, general pattern selection, and the full source genericity convention remain unresolved.
+\end{document}

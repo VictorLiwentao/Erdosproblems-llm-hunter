@@ -1,0 +1,165 @@
+% RESEARCH_DRAFT_SHA256: cd9849e3ab323375839e85e4539ca0ea0396c4b1771459cf0528d046aebe8ade
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30002845, "title": "Constructive Selection for Bessel Sequences", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002845", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Let $\\{u_j\\}_{j\\in J}\\subset\\mathbb{C}^n$ be a finite Bessel sequence with bound $1$ and $\\lVert u_j\\rVert^2\\leq\\varepsilon$. Given scalars $t_j\\in[0,1]$, design a constructive algorithm that finds $J^\\prime\\subset J$ satisfying $\\left\\lVert\\sum_{j\\in J^\\prime}u_ju_j^*-\\sum_{j\\in J}t_ju_ju_j^*\\right\\rVert=O(\\varepsilon^{1/8})$.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. A general dimension-independent constructive O(epsilon^(1/8)) algorithm is not obtained; the proved algorithms cover a trace regime and the commuting case.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Constructive Bessel selection: conditional expectations and the commuting case}
+\noindent UnsolvedMath ID 30002845; OWR-13674-015. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A Bessel sequence with bound one satisfies $\sum_j|\langle x,u_j\rangle|^2\leq\lVert x\rVert^2$ for every $x$. $u_j^*$ is conjugate transpose, $u_ju_j^*$ is a rank-one positive-semidefinite matrix, and the matrix norm is operator norm.
+\paragraph{Statement recorded in the supplied source.}
+Let $\{u_j\}_{j\in J}\subset\mathbb{C}^n$ be a finite Bessel sequence with bound $1$ and $\lVert u_j\rVert^2\leq\varepsilon$. Given scalars $t_j\in[0,1]$, design a constructive algorithm that finds $J^\prime\subset J$ satisfying $\left\lVert\sum_{j\in J^\prime}u_ju_j^*-\sum_{j\in J}t_ju_ju_j^*\right\rVert=O(\varepsilon^{1/8})$. \href{https://doi.org/10.4171/owr/2015/17}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Construct a subset approximating the specified weighted sum of small rank-one matrices.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30002845 (OWR-13674-015). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Arbeitsgemeinschaft: The Kadison-Singer Conjecture (2016), Oberwolfach Reports, DOI 10.4171/owr/2015/17, pp. 927--969
+\url{https://doi.org/10.4171/owr/2015/17}.
+\item[S3] AIM Beyond Kadison--Singer workshop problems
+\url{https://www.aimath.org/pastworkshops/beyondks.html}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Let $\{u_j\}_{j\in J}\subset\mathbb{C}^n$ be a finite Bessel sequence with bound $1$ and $\lVert u_j\rVert^2\leq\varepsilon$. Given scalars $t_j\in[0,1]$, design a constructive algorithm that finds $J^\prime\subset J$ satisfying $\left\lVert\sum_{j\in J^\prime}u_ju_j^*-\sum_{j\in J}t_ju_ju_j^*\right\rVert=O(\varepsilon^{1/8})$.
+
+\section{Source scope and input convention}
+Iverson's report, printed pages 957--959, asks for a constructive method after
+stating a dimension-independent existence theorem. A search through all subsets,
+conditional on that unproved existence theorem, would not explain an efficient
+constructive mechanism. We analyze two explicit algorithms in exact arithmetic.
+For bit complexity, the input vectors' real and imaginary parts and the weights
+are assumed rational; arbitrary real inputs need an oracle or representation.
+Put $A_j=u_ju_j^*$, $S=\sum_jA_j\preceq I$, and
+$T=\sum_jt_jA_j$. Zero vectors may be discarded.
+
+\section{A deterministic second-moment algorithm}
+Let $X_j$ be independent Bernoulli variables of means $t_j$. For
+$D=\sum_j(X_j-t_j)A_j$, expanding the squared Frobenius norm and using
+zero means and independence gives
+\[
+\mathbb E\|D\|_F^2=\sum_j t_j(1-t_j)\operatorname{tr}(A_j^2)
+\le\frac{\varepsilon}{4}\operatorname{tr}S\le\frac{\varepsilon n}{4}.
+\]
+Here $A_j^2=\|u_j\|^2A_j$, and $0\le t_j(1-t_j)\le1/4$.
+The trace bound follows from $S\preceq I$ by evaluating on an orthonormal
+basis and summing. Also $\|D\|\le\|D\|_F$: for an orthonormal eigenbasis
+of the Hermitian matrix, the largest absolute eigenvalue is bounded by the
+square root of the sum of their squares.
+
+Derandomize explicitly. After some choices have been fixed, let
+$D_0=\sum_{j\text{ fixed}}(X_j-t_j)A_j$. The conditional expectation is
+\[
+\|D_0\|_F^2+\sum_{j\text{ unfixed}}t_j(1-t_j)\operatorname{tr}(A_j^2).
+\]
+For the next index compute the two values obtained by choosing zero or one.
+Their weighted average, with weights $1-t_j,t_j$, is the current value,
+by expansion of the square. Choose the smaller; when $t_j=0$ or one choose
+that deterministic outcome. Each step cannot increase the conditional
+expectation. At the end this proves the constructive bound
+\[
+\left\|\sum_{j\in J'}A_j-T\right\|
+\le\frac12\sqrt{\varepsilon\operatorname{tr}S}
+\le\frac12\sqrt{\varepsilon n}.
+\]
+Maintaining the dense $D_0$ and its inner products uses $O(|J|n^2)$ arithmetic
+operations after forming the rank-one matrices. All decisions are rational
+comparisons for rational complex data; sums and products of the given entries
+have polynomial bit length in their explicit total encoding. No eigenvalue
+approximation is needed for this certificate.
+This meets an $\varepsilon^{1/8}$ error bound whenever
+$\operatorname{tr}S\le4\varepsilon^{-3/4}$, but does not cover arbitrary
+trace or dimension.
+
+\paragraph{The exact limitation of this potential.}
+Take $k$ copies of $e_i/\sqrt k$ in each coordinate $i=1,\ldots,n$, with
+$t_j=1/2$ and $\varepsilon=1/k$. Then $S=I$ and every equality in the
+second-moment bound holds:
+$\mathbb E\|D\|_F^2=n/(4k)$.
+Consequently a proof that controls operator error only through this initial
+Frobenius expectation retains a dimension factor. This is not a lower bound
+on attainable error: when $k$ is even, choosing half the copies in every
+coordinate gives zero error. The failed inference is treating the trace bound
+as though it were dimension independent.
+
+\section{A stronger complete algorithm for commuting rank-one matrices}
+Suppose additionally that all $A_j$ commute. Two nonzero rank-one matrices
+$uu^*,vv^*$ either have $u^*v=0$, or, if they commute and $u^*v\ne0$,
+their nonzero products have both range $\operatorname{span}(u)$ and range
+$\operatorname{span}(v)$; these ranges must coincide. Hence the vectors
+partition into parallel classes along mutually orthogonal lines. Choose a
+unit direction $q_\ell$ for each class. Within that class write
+$A_j=a_j q_\ell q_\ell^*$, $a_j=\|u_j\|^2\le\varepsilon$, and set
+$b_\ell=\sum t_j a_j$.
+
+In any fixed ordering of the class, successive prefix sums start at zero
+and end at $\sum a_j\ge b_\ell$. If the target is an endpoint take it;
+otherwise choose the nearer of the two adjacent prefix sums bracketing
+$b_\ell$. Their distance is at most $\varepsilon$, so the error is at most
+$\varepsilon/2$. Make this choice independently in each class and take the
+union of the selected prefixes. The error operator is diagonal in the
+orthogonal directions $q_\ell$, zero on their orthogonal complement, and
+therefore has norm at most $\varepsilon/2$.
+One can detect the classes by exact parallelism and orthogonality tests and
+use the weights $\|u_j\|^2$ directly, without normalizing directions
+numerically. A simple pairwise implementation is polynomial.
+For $0<\varepsilon\le1$, the error is at most
+$\varepsilon^{1/8}/2$. For $\varepsilon\ge1$, even the empty subset has
+error $\|T\|\le1\le\varepsilon^{1/8}$, since $0\preceq T\preceq S\preceq I$.
+If $\varepsilon=0$, every vector is zero and the conclusion is exact.
+
+\section{Model-assisted audit and remaining scope}
+The original theorem and question were read directly in the primary report.
+The full Kadison--Singer or Akemann--Weaver existence proof is not reproduced
+or claimed verified here. The algorithms above are standard elementary
+mechanisms given with full proofs and no novelty claim. The audit checked
+$t_j=0,1$, zero vectors, the trace factor, and the distinction between a tight
+second moment and an actual selection lower bound. The commuting argument
+uses an extra hypothesis and cannot be silently applied to general rank-one
+matrices. No numerical experiment or theorem prover was used.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. A general dimension-independent constructive O(epsilon^(1/8)) algorithm is not obtained; the proved algorithms cover a trace regime and the commuting case.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Iverson, Dithering frame vectors with Kadison-Singer, OWR 17/2015, pp. 957--959; Theorem 2 and constructive question inspected in the cached primary source. \url{https://doi.org/10.4171/owr/2015/17}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} A general dimension-independent constructive O(epsilon^(1/8)) algorithm is not obtained; the proved algorithms cover a trace regime and the commuting case.
+\end{document}

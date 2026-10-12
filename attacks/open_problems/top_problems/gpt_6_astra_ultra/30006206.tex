@@ -1,0 +1,133 @@
+% RESEARCH_DRAFT_SHA256: 70c94149e957cd67886170ac6c6fe66760ba1907969ae7ce73e91a1901ec1cec
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30006206, "title": "Complexity-Bounded Computation of Maximum Destabilizing Subgroups", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006206", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Complexity-Bounded Computation of Maximum Destabilizing Subgroups; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "An exact finite-weight torus algorithm; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch027 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30006206; source catalogue code OWR-14299088-008
+\section{Complexity-Bounded Computation of Maximum Destabilizing Subgroups}\label{30006206}
+{\small UnsolvedMath ID 30006206 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Let $G\subseteq\operatorname{GL}_n(\mathbb C)$ be reductive and closed under conjugate transpose, with a compatible rational representation $\pi$ on a Hermitian space $V$ and $v\ne0$. Set $K=G\cap U(n)$ and $M=G\cap\{x=x^\dagger>0\}\cong K\backslash G$, with metric $\langle U,W\rangle_x=\operatorname{tr}(x^{-1}Ux^{-1}W)$. The Kempf-Ness objective is $f_v(x)=\log\langle\pi(x)v,v\rangle$. Instability means $0\in\overline{\pi(G)v}$. For a unit tangent $H$ at $I$, define $f_v^\infty(H)=\lim_{t\to\infty}(f_v(e^{tH})-f_v(I))/t$. Maximum destabilization minimizes this slope; the associated real one-parameter flow is $e^{tH}$, destabilizing when $\pi(e^{tH})v\to0$. Gradient flow uses $\dot x=-\nabla f_v(x)$ in this metric, with its direction limit taken at infinity.
+\paragraph{Statement recorded in the supplied source.}
+Construct an algorithm that computes the maximum destabilizing one-parameter subgroup represented by the limiting direction of the relevant gradient flow, and prove explicit complexity bounds for the algorithm. \href{https://doi.org/10.4171/owr/2025/9}{[S2]}
+\paragraph{Scope qualification.}
+The primary convergence theorem identifies the limit but does not give the requested algorithmic bound. Representation encoding, arithmetic versus bit cost, and exact versus approximate output must be specified; this is the source\textquotesingle s real one-parameter-flow setting.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Compute the maximum destabilizing direction associated with the cited gradient flow and prove quantitative complexity bounds.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30006206 (OWR-14299088-008). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] MFO-RIMS Tandem Workshop: Optimization, Theoretical Computer Science and Algebraic Geometry: Convexity and Beyond (2025), Oberwolfach Reports, DOI 10.4171/owr/2025/9, pp. 405--450
+\url{https://doi.org/10.4171/owr/2025/9}.
+\item[S3] Hirai--Sakabe
+\url{https://doi.org/10.1287/moor.2025.0939}.
+\item[S4] Hirai and Sakabe, primary paper, sections 2 and 4.1, DOI 10.1287/moor.2025.0939
+\url{https://pubsonline.informs.org/doi/full/10.1287/moor.2025.0939}.
+\item[S5] Hirai and Sakabe, preprint arXiv:2404.09746
+\url{https://arxiv.org/abs/2404.09746}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30006206 and source code OWR-14299088-008 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30006206}
+
+\section{Literature and context check}
+The primary report, printed pp. 429--430, proves a convergence statement at infinity and asks for quantitative computation of the maximal destabilizing direction. The argument below concerns only an explicitly given diagonal torus representation. It supplies a finite exact algorithm in that model, without importing a complexity guarantee for the source's general noncommutative group.
+\section{Research attempt: An exact finite-weight torus algorithm}
+
+Use logarithmic coordinates $z\in\mathbb R^s$ for positive real points of a diagonal torus, with Euclidean metric in these coordinates. Suppose the representation is specified by rational weight vectors $w_1,\ldots,w_m\in\mathbb Q^s$ active on the nonzero coordinates of $v$, with $c_j=|v_j|^2>0$. Then
+\[
+f(z)=\log\sum_{j=1}^m c_j e^{w_j\cdot z}.
+\]
+For a unit direction $h$, let $a=\max_j w_j\cdot h$. The sum at $th$ is at most $(\sum c_j)e^{ta}$ and at least $c_{j_*}e^{ta}$ for a maximizing index. Dividing logarithms by $t$ proves $f^\infty(h)=a$.
+
+Let $C=\operatorname{conv}\{w_j\}$ and let $p\in C$ minimize $\|p\|_2$. Existence follows from compactness; uniqueness follows from strict convexity of squared norm. For any $w\in C$, differentiating squared norm along the segment $p+t(w-p)$ at $t=0$ yields
+\[
+p\cdot(w-p)\geq0.
+\]
+If $p\ne0$, the direction $h_*=-p/\|p\|$ therefore satisfies $\max_j w_j\cdot h_*\leq-\|p\|$. Conversely every unit $h$ has $\max_j w_j\cdot h\geq p\cdot h\geq-\|p\|$. Hence the minimum slope is exactly $-\|p\|$, attained at $h_*$. All active representation coordinates decay exponentially along this direction. If $p=0$, every $z$ has some $w_j\cdot z\geq0$, so the norm of the transformed vector is at least $\min_j|v_j|>0$; there is no sequence of torus elements sending it to zero. Thus instability in this model is exactly $0\notin C$.
+
+\paragraph{Finite exact computation.}
+Enumerate all affinely independent subsets of the active weights of size at most $s+1$. For each subset, compute the closest point $p_S$ to zero in its affine hull using rational linear algebra: with one vertex $u_0$ and independent difference columns $D$, solve
+\[
+(D^{\mathsf T}D)t=-D^{\mathsf T}u_0,\qquad p_S=u_0+Dt.
+\]
+Keep it if its barycentric coordinates in the subset are nonnegative and every weight satisfies $w_j\cdot p_S\geq\|p_S\|^2$. These inequalities imply minimality over all of $C$, since for $x\in C$,
+\[
+\|x\|^2=\|p_S\|^2+2p_S\cdot(x-p_S)+\|x-p_S\|^2\geq\|p_S\|^2.
+\]
+At least one enumerated subset succeeds. To prove this, express $p$ as a convex combination with minimal support. That support is affinely independent: an affine dependence permits moving its positive coefficients along a dependence until one becomes zero, preserving the point and contradicting minimality. It has size at most $s+1$. Projection inequalities for each support vertex are equalities, because their positive weighted sum is $p\cdot(p-p)=0$. Thus $p$ is orthogonal to every difference in its affine hull, exactly the computed closest point.
+
+For rational inputs of total bit length $L$, each linear solve and inequality comparison has bit cost polynomial in $s,m,L$: denominators can be cleared, and determinant expansion bounds the bit lengths of all minors by a polynomial in these parameters. There are at most $\sum_{j=1}^{s+1}\binom mj$ subsets. This is an explicit finite bound, polynomial in $m,L$ for fixed $s$, but not a polynomial bound uniform in $s$. The rational vector $-p$ exactly specifies the optimal ray; the unit vector includes the algebraic normalization $\sqrt{p\cdot p}$, so an exact output need not have rational unit coordinates.
+\section{Verification and adversarial audit}
+Zero active weights, $p=0$, and singleton weight sets are included. The projection proof establishes both the slope optimum and actual decay of every active coordinate. The finite subset enumeration is justified by eliminating affine dependence, not an unproved assumption about a small support. Complexity uses an explicit finite list of weights and rational bit encoding.
+\paragraph{Audit corrections.} Separated an exact rational ray from a possibly irrational unit vector and stated the dependence on torus dimension in the enumeration bound.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The general reductive-group representation, its encoding, and effective convergence of the noncommutative gradient trajectory are untouched. The exact torus ray computation is a restricted convex-hull result, not the requested general complexity theorem.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/51353} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

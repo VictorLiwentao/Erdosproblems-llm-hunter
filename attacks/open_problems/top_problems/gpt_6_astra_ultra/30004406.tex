@@ -1,0 +1,205 @@
+% RESEARCH_DRAFT_SHA256: a77fb92cf2ac1ad9ac24bc70b516634f922eb221d27f48126749c17cf26142b6
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004406, "title": "Recognition of Virtually Special Hyperbolic Three-Manifolds", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004406", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Find an algorithm that, given a triangulated hyperbolic $3$-manifold $M$, decides whether $M$ is homotopy equivalent to a special cube complex; equivalently, decide whether $\\pi_1(M)$ embeds in a right-angled Artin group.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Only a sound finite verifier and a restricted positive collapse certificate are established. Completeness for all positive manifolds, a negative certificate, and a terminating general recognition algorithm remain absent.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Special cubulations: finite certificates and the unbounded search gap}
+\noindent UnsolvedMath ID 30004406; OWR-17471-013. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A cube complex is built by gluing Euclidean cubes along faces; nonpositive curvature is expressed by the flag condition on vertex links. A special cube complex has embedded, two-sided hyperplanes without the self-intersection, self-osculation, and inter-osculation pathologies excluded in the standard definition. For a finite graph $\Gamma$, its right-angled Artin group is $A_\Gamma=\langle v\in V(\Gamma)\mid uv=vu\text{ for }uv\in E(\Gamma)\rangle$. The input triangulation gives a finite description of $M$.
+\paragraph{Statement recorded in the supplied source.}
+Find an algorithm that, given a triangulated hyperbolic $3$-manifold $M$, decides whether $M$ is homotopy equivalent to a special cube complex; equivalently, decide whether $\pi_1(M)$ embeds in a right-angled Artin group. \href{https://doi.org/10.4171/owr/2020/8}{[S2]}
+\paragraph{Scope qualification.}
+The question concerns being homotopy equivalent to a special cube complex itself. Its title's word ``virtually'' would instead allow passage to a finite cover. The asserted reformulation by embedding into a right-angled Artin group is retained from the supplied question and is not independently proved here.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Decide whether the given hyperbolic three-manifold has the special cube-complex structure described by the source.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004406 (OWR-17471-013). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Low-dimensional Topology (2021), Oberwolfach Reports, DOI 10.4171/owr/2020/8, pp. 465--516
+\url{https://doi.org/10.4171/owr/2020/8}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Find an algorithm that, given a triangulated hyperbolic $3$-manifold $M$, decides whether $M$ is homotopy equivalent to a special cube complex; equivalently, decide whether $\pi_1(M)$ embeds in a right-angled Artin group.
+
+\section{The original recognition question}
+Futer's report, printed pages 493--495, distinguishes a special finite
+cover from a special cubulation of the given manifold itself. Its
+Problem 5 asks for the latter recognition algorithm. The title's
+word ``virtually'' cannot be used to answer that different question
+by invoking virtual specialness. The report also distinguishes one
+specific Dehn cubulation from other, unrelated cubulations of the
+same homotopy type. The primary paper abstract on alternating links
+describes explicit covers; that result supplies neither the requested
+decision procedure nor a bound on all candidate cubulations.
+We attempt a finite-certificate search and identify its missing
+completeness and negative-termination steps.
+
+\section{Checking an explicitly supplied cubical candidate}
+Suppose a finite cube complex $X$ is given by its cells and face maps,
+together with finite compatible subdivisions where needed below.
+For this auxiliary verifier use the strong convention excluding both
+direct and indirect self-osculation; this suffices for ordinary
+specialness, but is not asserted to include every conventionally
+special candidate. There are finitely many corner and midcube
+incidences, so the following tests terminate.
+
+At each vertex form its finite link: its vertices are edge germs and
+its simplices are corners of incident cubes. First check that this
+is a simplicial complex. Enumerate its finite vertex subsets and test
+the flag condition: whenever every pair in a subset is joined by an
+edge, that subset must be a simplex. This tests precisely the
+combinatorial nonpositive-curvature condition in the problem definition;
+the enumeration need not be efficient in dimension.
+
+Join opposite edge directions across every square, producing the
+equivalence classes dual to hyperplanes. Build the corresponding
+hyperplane complexes from the midcubes and their specified gluings.
+Cut each ambient cube at its midplanes and subdivide compatibly;
+one can supply explicitly the resulting simplicial maps from the
+hyperplane complexes to the subdivided $X$. Verify every incidence
+in these finite data. To test whether one such simplicial map is an
+embedding, test injectivity on its vertices. Necessity is immediate.
+For sufficiency, each simplex then maps affinely injectively to the
+simplex spanned by its distinct image vertices. Two image simplices
+intersect in the face spanned by their common image vertices, and
+vertex injectivity makes this exactly their common domain face.
+Thus the entire map is injective; continuity and compactness of its
+finite domain make it an embedding into the Hausdorff complex $X$.
+
+For an embedded hyperplane, each local midcube has two normal sides.
+Record whether a gluing preserves or reverses their signs. Assign
+one local sign, propagate it over the finite adjacency data, and reject
+if a loop forces both signs at a location. A consistent assignment
+chooses the normal sides globally and gives a product two-sided
+neighborhood; conversely such a neighborhood induces a consistent
+assignment. This is the usual finite sign-consistency test for
+two-sidedness, with lower-dimensional incidences included in the
+supplied local gluing data.
+
+Finally enumerate pairs of distinct incident edge germs at each vertex.
+If they are dual to the same hyperplane and do not bound a square
+corner, reject self-osculation under the stated strong convention.
+For two different hyperplanes record whether they cross in any cube;
+if so, reject a pair of their germs that meets at a vertex without a
+square corner. This is exactly the forbidden inter-osculation pattern.
+Every event being tested is a hyperplane, cube, or edge-germ incidence
+in the given finite complex; the tests therefore check the declared
+conditions exhaustively. This verifies a particular candidate, not
+its relation to the input manifold and not existence of another candidate.
+
+\section{A completely checkable sufficient homotopy certificate}
+An additional finite certificate can relate a candidate to the input:
+give a triangulation $T$ obtained by explicitly listed simplicial
+subdivisions of the input triangulation, identify a subcomplex $K$
+with a specified triangulation of $X$, and give elementary collapse
+steps taking $T$ onto $K$. All subdivision, isomorphism, and free-face
+conditions are finite incidence checks. Here an elementary collapse
+removes a maximal simplex $\sigma$ and a codimension-one face $\tau$
+contained in no other maximal simplex.
+
+For completeness, the collapse is a strong deformation retraction.
+Label the vertex opposite $\tau$ by 0 and the other vertices by
+$1,\ldots,d$. For barycentric coordinates
+$(\lambda_0,\ldots,\lambda_d)$ on $\sigma$, let
+$m=\min_{1\le i\le d}\lambda_i$. The homotopy
+\[
+\lambda_0(t)=\lambda_0+d t m,\qquad
+\lambda_i(t)=\lambda_i-tm\quad(1\le i\le d),\qquad 0\le t\le1
+\]
+preserves nonnegativity and the sum one. At $t=1$ some coordinate
+$\lambda_i$, $i\ge1$, is zero, so the image lies in a face other
+than the removed facet. All those remaining faces have $m=0$ and
+are fixed throughout. The freeness condition means that the interior
+of the removed facet touches no other simplex; the formula therefore
+glues to the identity on the rest of the complex. It is continuous
+because the minimum of finitely many continuous coordinates is
+continuous. This proves the claimed retraction, including $d=1$.
+Composing the finitely many retractions gives $|T|\simeq|K|=|X|$.
+Since a verified subdivision does not alter the underlying space,
+the input manifold is homotopy equivalent to the verified special
+complex $X$.
+
+This gives a sound positive certificate of the source property for
+inputs admitting such a collapse description. It is not asserted
+that every homotopy equivalence to a special cube complex admits
+this particular certificate without additional expansions or constructions.
+
+\section{The actual failure of the proposed exhaustive algorithm}
+One can enumerate all finite candidate descriptions and finite
+certificates above by increasing description length and run their
+finite tests. The search halts with a justified yes whenever one
+of these certificates occurs. It does not give a justified no at
+any finite cutoff: a failure at size $N$ rules out only the finite
+list checked, not a certificate of size $N+1$ or a different kind
+of homotopy equivalence. We have supplied neither a computable bound
+on necessary certificate size nor a theorem that all positive
+instances have this restricted collapse certificate. These are
+separate gaps, not merely implementation details.
+
+Likewise, checking finitely many proposed images of group generators
+and verifying the defining relators proves only that a homomorphism
+is well defined. It does not prove injectivity. For example sending
+all generators to the identity satisfies every relator of every
+presentation but kills every nontrivial element. A bounded search
+for kernel words cannot conclude that the kernel is trivial just
+because it finds none below its cutoff. The source's asserted RAAG
+reformulation does not eliminate this missing certificate argument.
+
+\section{Model-assisted audit and remaining scope}
+The audit checked the original versus virtual property, finite
+incidence conventions, the explicit collapse homotopy, and the two
+different ways a candidate search can be incomplete. The finite
+verifiers are standard elementary constructions, not a new general
+recognition algorithm. No finite-cover computation, normal-surface
+enumeration, or theorem prover was executed. The source's proposed
+normal-surface route still needs a certificate of the right wall
+structure and a termination bound; neither is proved here.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Only a sound finite verifier and a restricted positive collapse certificate are established. Completeness for all positive manifolds, a negative certificate, and a terminating general recognition algorithm remain absent.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Futer, Special covers of alternating links, OWR 8/2020, pp. 493--495; full relevant discussion and Problem 5 inspected in the cached primary report. \url{https://doi.org/10.4171/owr/2020/8}.
+\item Bering IV and Futer, Explicit special covers of alternating links; primary abstract inspected, cover theorem proof not audited or used as a decision procedure. \url{https://arxiv.org/abs/1909.12266}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Only a sound finite verifier and a restricted positive collapse certificate are established. Completeness for all positive manifolds, a negative certificate, and a terminating general recognition algorithm remain absent.
+\end{document}

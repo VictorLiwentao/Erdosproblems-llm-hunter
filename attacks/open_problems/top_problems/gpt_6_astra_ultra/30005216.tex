@@ -1,0 +1,193 @@
+% RESEARCH_DRAFT_SHA256: abaa6acb5bc8727623de90622fcd9ce5e49018de6ac4ddb51e52ae2f7003d7e9
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30005216, "title": "Universal Approximation by One-Lipschitz Spline Networks", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005216", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Universal Approximation by One-Lipschitz Spline Networks; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Lipschitz interpolation and the architecture-realization obstruction; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch024 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30005216; source catalogue code OWR-11101919-003
+\section{Universal Approximation by One-Lipschitz Spline Networks}\label{30005216}
+{\small UnsolvedMath ID 30005216 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A map $f$ is one-Lipschitz for specified input/output norms if $\lVert f(x)-f(y)\rVert\leq\lVert x-y\rVert$ for all $x,y$. A spline activation is continuous and piecewise affine; a scalar one-Lipschitz spline has every affine slope in $[-1,1]$. The source architecture uses learnable activations with at least three linear regions and constrained affine-layer weights. Universality means every target in the intended one-Lipschitz class can be approximated arbitrarily accurately in the source approximation topology; on a fixed compact domain, uniform accuracy is $\sup_x\lVert f(x)-g(x)\rVert<\varepsilon$. Depth counts successive layers and width counts units in a layer.
+\paragraph{Statement recorded in the supplied source.}
+Are weight-constrained neural networks with learnable one-Lipschitz spline activations universal approximators of one-Lipschitz functions? Does universality extend to vector-valued targets, and what depth-width structures are optimal? \href{https://doi.org/10.4171/owr/2022/38}{[S2]}
+\paragraph{Scope qualification.}
+The weight constraints and norms are essential architectural data supplied by the cited spline-network paper; the question does not refer to arbitrary unconstrained neural networks. Compact-domain uniform accuracy above explains a standard approximation convention rather than imposing a new global-domain theorem.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Can the specified Lipschitz-constrained spline networks approximate every one-Lipschitz target, including vector outputs, and how much depth or width is necessary?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30005216 (OWR-11101919-003). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Mathematical Imaging and Surface Processing (2023), Oberwolfach Reports, DOI 10.4171/owr/2022/38, pp. 2195--2266
+\url{https://doi.org/10.4171/owr/2022/38}.
+\item[S3] Neumayer--Goujon--Bohra--Unser, deep splines
+\url{https://doi.org/10.1137/22M1504573}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30005216 and source code OWR-11101919-003 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30005216}
+
+\section{Literature and context check}
+
+I read Neumayer's primary contribution on pages 2257--2258, which explicitly
+imposes induced $p$-norm constraints on every weight matrix and componentwise
+one-Lipschitz activations. Its discussion distinguishes expressiveness relative
+to other constrained activations from full universality, and scalar from vector
+outputs. The cited SIAM DOI retrieval failed in the web tool; no claim of reading
+that paper is made. The following constructive approximation route is checked
+at the function level, followed by the exact points where a network conclusion
+would require more proof.
+
+\section{Research attempt: Lipschitz interpolation and the architecture-realization obstruction}
+
+\paragraph{A scalar interpolation route that preserves the Lipschitz constant.}
+For a one-Lipschitz $f:[a,b]\to\mathbb R$, $a<b$, choose a mesh of maximum
+gap $h>0$ and let $s$ be its piecewise linear interpolant. Every affine slope
+is a secant slope of $f$ and lies in $[-1,1]$. For a point $x$ between mesh
+endpoints $u<v$, writing $x=(1-t)u+tv$ gives
+\[
+ |s(x)-f(x)|\leq(1-t)|f(u)-f(x)|+t|f(v)-f(x)|
+ \leq2t(1-t)(v-u)\leq h/2.
+\]
+Extending the first and last affine pieces beyond the interval preserves the
+one-Lipschitz property. A width-one network with identity weight and a single
+learnable spline having all these knots represents $s$ exactly.
+This observation allows an unbounded number of regions in that activation;
+it does not bound the depth or width when every activation is restricted to
+three regions, nor settle multivariate universality.
+
+\paragraph{A multivariate envelope is an approximation, before any architecture.}
+Let $K\subset\mathbb R^d$ be nonempty and compact in the $\ell_\infty$ norm, and let
+$x_1,\ldots,x_N$ be an $h$-net in $K$: every point is within distance $h$ of
+some $x_i$. Such a finite net exists by compactness.
+For a one-Lipschitz scalar $f$ define
+\[
+ g(x)=\min_{1\leq i\leq N}\{f(x_i)+\|x-x_i\|_\infty\}.
+\]
+Each term is one-Lipschitz by the triangle inequality. If $i$ minimizes at $y$,
+then $g(x)-g(y)\leq\|x-y\|_\infty$; interchange $x,y$ for the opposite
+inequality. Therefore $g$ is one-Lipschitz. Also $f(x)\leq g(x)$ by the
+Lipschitz inequalities at each $x_i$, and a nearest net point gives
+$g(x)\leq f(x)+2h$ for $x\in K$.
+Since $\|x-x_i\|_\infty$ is the maximum of the $2d$ affine functions
+$\pm(x_j-x_{ij})$, this is a finite expression using affine functions, minima
+and maxima. It is consequently a continuous piecewise affine function: the
+finitely many comparisons partition space into regions on each of which the
+selected affine formula is fixed.
+
+\paragraph{The unproved step in converting that envelope to the source class.}
+A conventional circuit can duplicate its input into $N$ branches for the $N$
+cones. For Euclidean operator norms that duplication map
+$x\mapsto(x,\ldots,x)$ has norm $\sqrt N$, since the squared output norm is
+$N\|x\|^2$. It violates the source's layer bound when $N>1$.
+Normalizing it changes every branch's scale and cannot simply be undone by a
+later weight of norm greater than one. Under $\ell_\infty$ the same duplication
+is harmless, but one must still implement the min/max operations using the
+specified componentwise activations and constrained matrices. The existence of
+a one-Lipschitz piecewise affine function does not itself provide that implementation.
+
+\paragraph{Coordinatewise approximation does not settle vector universality.}
+A sufficient condition for $F=(f_1,\ldots,f_m)$ to be Euclidean one-Lipschitz
+is $\sum_j L_j^2\leq1$, where $L_j$ is a global Lipschitz constant of $f_j$:
+sum the squared component inequalities. But this condition is not necessary.
+The identity $F:[-1,1]^2\to\mathbb R^2$ is one-Lipschitz, while each of its
+two coordinate functions has optimal global constant one.
+If an attempted construction enforces $L_j\leq1/\sqrt2$ separately, then for
+its first coordinate $g_1$,
+\[
+ |g_1(1,0)-g_1(-1,0)|\leq\sqrt2.
+\]
+Uniform component error at most $\varepsilon$ from the identity would require
+$2-2\varepsilon\leq\sqrt2$, hence
+$\varepsilon\geq1-1/\sqrt2$. Thus this particular safe coordinatewise
+normalization cannot approximate a legitimate vector target arbitrarily well.
+It is a counterexample to the construction strategy, not to the original network
+class, which can represent the identity directly.
+
+\section{Verification and adversarial audit}
+
+All interpolation error estimates are uniform on the stated compact domain.
+The multivariate envelope uses $\ell_\infty$ consistently; no implicit equivalence
+of its constant with the Euclidean one is asserted. The vector obstruction
+compares values at two specified inputs and expressly allows the original class
+to represent the same target by another architecture. The single-activation
+construction states its growing knot budget.
+
+\paragraph{Audit corrections.} Kept the spline-region budget and the chosen norms explicit. Removed the
+invalid inference from coordinatewise Lipschitz bounds to vector universality,
+and recorded the failed SIAM retrieval rather than citing an unread paper.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+
+The scalar interpolation and envelope are known-style constructive approximation
+facts. The missing step is a realization of general multivariate envelopes under
+the exact layer and activation constraints, followed by a joint vector-valued
+construction and optimal depth-width bounds. No such realization or architecture
+lower bound is proved here, so the bundled original question remains unresolved.
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46975} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

@@ -1,0 +1,183 @@
+% RESEARCH_DRAFT_SHA256: 2c19bb4a1e00b4a6a15403d302e480ca21b97f3d6845d69d3a61a9bb9a9ab59b
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004929, "title": "Computable Neural-Network Approximation from Noisy Samples", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004929", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "For a learning problem specified from point samples, is its ground-truth map computable; are the neural networks supplied by approximation theorems computable; and is there an algorithm that maps noisy samples to such a neural-network approximation?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. A computable finite-sample construction is proved under a known modulus and bounded noise only. Without such shared information, finite samples do not determine uniform approximation even for individually computable rational piecewise-linear targets.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Noisy point samples: an explicit constructive regime and an indistinguishability barrier}
+\noindent UnsolvedMath ID 30004929; OWR-8415360-008. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+Computability of a real-valued map depends on effective encodings of its inputs and outputs. A noisy-sample algorithm must specify its data representation, noise bounds, and the norm and tolerance of the approximation it returns.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+No ground-truth map, approximation class, noise model, or specific approximation theorem is identified in the supplied record.
+
+Source-record limitation: The source raises computability questions but does not identify a ground-truth map, function class, sampling representation, noise model, or approximation theorem. Even with its stated Turing and worst-case uniform-norm context, the supplied record has no specified computational problem whose decidability can be assessed faithfully.
+\paragraph{Statement recorded in the supplied source.}
+For a learning problem specified from point samples, is its ground-truth map computable; are the neural networks supplied by approximation theorems computable; and is there an algorithm that maps noisy samples to such a neural-network approximation? \href{https://doi.org/10.4171/owr/2021/55}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Study computability of learning targets, approximating networks, and algorithms that fit them to samples.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004929 (OWR-8415360-008). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Applied Harmonic Analysis and Data Science (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/55, pp. 3007--3066
+\url{https://doi.org/10.4171/owr/2021/55}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+For a learning problem specified from point samples, is its ground-truth map computable; are the neural networks supplied by approximation theorems computable; and is there an algorithm that maps noisy samples to such a neural-network approximation?
+
+\section{Recovered source setting}
+The primary report, printed pages3030--3032, uses Turing
+computability and worst-case uniform error on $[0,1]$, and
+already discusses an equivalence between an appropriate
+point-sample computability notion and computable network
+approximations. Its proposed learning classes and noise models
+remain unspecified. We attempt an explicit sample-to-network
+algorithm under a known modulus, then show exactly why the
+same procedure cannot be promised for every individually
+computable continuous target with no uniform information.
+
+\section{A fully constructive Lipschitz and bounded-noise theorem}
+Suppose $f:[0,1]\to\mathbb R$ is $L$-Lipschitz, with a known
+rational $L\ge0$. On a uniform rational grid
+$t_j=j/M$, $0\le j\le M$, suppose rational observations satisfy
+$|y_j-f(t_j)|\le\delta$. Let $N$ be their linear interpolant.
+If $x=(1-u)t_j+ut_{j+1}$, then
+\[
+ |N(x)-f(x)|\le\delta+
+ (1-u)|f(t_j)-f(x)|+u|f(t_{j+1})-f(x)|
+ \le\delta+2u(1-u)L/M\le\delta+L/(2M).
+\]
+All inequalities are uniform in $x$. Write
+$s_j=M(y_{j+1}-y_j)$. The interpolant has the exact rational
+ReLU realization
+\[
+ N(x)=y_0+s_0x+\sum_{j=1}^{M-1}(s_j-s_{j-1})\max(x-t_j,0).
+\]
+The slopes telescope on each grid interval, its initial value
+is $y_0$, and continuity gives equality at every endpoint.
+On $[0,1]$ the linear term is $s_0\max(x,0)$, so this is
+one hidden layer of at most $M$ neurons and a rational output
+bias. It is computable from the finite rational observations.
+For $L>0$, choosing $M\ge L/\epsilon$ and
+$\delta\le\epsilon/2$ gives error at most $\epsilon$.
+For $L=0$, a single noisy constant sample suffices with error
+at most $\delta$. A dyadic grid can be chosen by rounding $M$
+up to a power of two without changing the proof.
+
+The same argument works with a known effective uniform modulus
+$\omega$: replace $L/(2M)$ by $\omega(1/M)$, using that
+both endpoints are within $1/M$ of $x$. This statement
+requires a supplied usable modulus and a noise bound; it does
+not infer them from the observations.
+
+\section{A finite adaptive sampling algorithm cannot cover all targets}
+Fix a deterministic algorithm promised to terminate from exact
+point queries to any computable continuous function and return
+uniform error less than $1/2$. Run it on the zero function.
+It makes finitely many queries and returns some network $N$.
+There is an open interval avoiding every queried point. Choose
+rational endpoints strictly inside it and a rational midpoint,
+and define a triangular tent of height one supported on that
+interval, zero elsewhere. This function $g$ is continuous,
+computable, piecewise linear with rational data, and Lipschitz
+with a finite constant, though no common constant was supplied
+to the algorithm. It gives the same zero answer at every
+queried point. Induction over adaptive queries therefore gives
+the same transcript and output $N$.
+At the tent peak, $f=0$ and $g=1$, so
+\[
+ \max\{\|N-f\|_\infty,\|N-g\|_\infty\}\ge1/2.
+\]
+This contradicts the promised strict error. The argument is a
+worst-case deterministic exact-query obstruction; it does not
+cover a randomized statistical learner under an additional
+distribution or a class with a known shared modulus. The
+counterexample is itself exactly represented by a small rational
+ReLU network, so representation existence is not the missing step.
+
+\section{An irreducible bounded-noise ambiguity}
+If the supplied error bound is $\delta>0$, the two constant
+targets $f_+=\delta$ and $f_-=-\delta$ are both consistent
+with every observation being zero, at every possible query.
+For any output value $z$,
+$\max(|z-\delta|,|z+\delta|)\ge\delta$ by the triangle
+inequality. Thus no algorithm can guarantee uniform error
+strictly smaller than $\delta$ in this adversarial bounded-noise
+model, regardless of the number of samples. If computable
+targets and rational observations are required, choose rational
+$\delta>0$; this already proves the obstruction.
+
+\section{The ground-truth continuity issue}
+Exact classification can introduce an additional obstruction.
+On $[0,1]$ let $f(0)=0$ and $f(x)=1$ for $x>0$.
+No continuous ReLU network approximates it uniformly with
+error less than $1/2$: continuity at zero would force its
+values near zero to approach its value at zero, whereas the
+two error requirements place them on opposite sides of
+$1/2$ with a fixed positive gap.
+A margin restriction changes the task. On the domain
+$[-1,-\gamma]\cup[\gamma,1]$, $0<\gamma\le1$, the network
+\[
+ N_\gamma(x)=\frac{\max(x+\gamma,0)-\max(x-\gamma,0)}{2\gamma}
+\]
+returns exactly zero on the negative component and one on
+the positive component. Its Lipschitz constant is $1/(2\gamma)$,
+by its three explicit affine pieces. Thus even this basic
+classification comparison depends on the input-domain promise.
+
+\section{Audit and unresolved original scope}
+The audit checked grid endpoint interpolation, rational
+computability, adaptive transcript preservation, the strict
+$1/2$ threshold, and the bounded-noise rather than random-noise
+assumption. The source's existing abstract framework is not
+claimed new. A general noisy-sample algorithm without a fixed
+function class, representation and noise model is not established.
+No computation or theorem prover was used; the original broad
+record remains unresolved.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. A computable finite-sample construction is proved under a known modulus and bounded noise only. Without such shared information, finite samples do not determine uniform approximation even for individually computable rational piecewise-linear targets.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item OWR55/2021, Applied Harmonic Analysis and Data Science; complete primary passages on computability pp.3030–3032, sparse recovery pp.3053–3055, and stochastic recurrent learning pp.3055–3057 were read in the cached report; each manuscript uses its identified contribution. \url{https://ems.press/content/serial-article-files/46933}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} A computable finite-sample construction is proved under a known modulus and bounded noise only. Without such shared information, finite samples do not determine uniform approximation even for individually computable rational piecewise-linear targets.
+\end{document}

@@ -1,0 +1,236 @@
+% RESEARCH_DRAFT_SHA256: 52482d92a001f4de5abc47975db8627da26c993856df40302d2166107d31fb97
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30005118, "title": "Efficient Recognition of Cyclic Sumsets", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005118", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and the material integer-to-cyclic reduction suggestion; exact serving revision not exposed. Codex GPT-6 completed written mathematical review of the reduction and source scope. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Efficient Recognition of Cyclic Sumsets; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Complete NP-completeness classification of the entire original cyclic recognition question in both source-note encodings; polynomial algorithm iff P=NP, with explicit external integer hardness dependency and no novelty claim.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch024 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: solved
+% FULL_SOLUTION_SCOPE: {"target": "Entire cyclic sumset recognition problem for sparse binary residue lists and explicit membership arrays, as in the original scope note.", "result": "NP-complete under either encoding, even for odd moduli. A polynomial-time algorithm exists if and only if P=NP.", "coverage": "All input sets and moduli covered by NP membership; polynomial reductions include empty sets, odd integer minima, no-wrap proof and dense encoding size. No weakening of original question or source metadata.", "dependencies": "External integer NP-completeness Theorem1.2 of Abboud, Fischer, Safier and Wallheimer, arxiv2410.18661v2, including polynomial-interval reduction size. Its gadget proof is not independently re-proved here.", "novelty": "No novelty asserted. Root Codex GPT-6 supplied the elementary cyclic reduction; Astra independently inspected and wrote it.", "human_verification": "None. Codex GPT-6 written proof review and Astra self-audit only.", "unverified": "No proof of P not equal NP; no independent verification of the external integer gadgets; no exhaustive priority search."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30005118; source catalogue code OWR-10252930-031
+\section{Efficient Recognition of Cyclic Sumsets}\label{30005118}
+{\small UnsolvedMath ID 30005118 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+The cyclic group $\mathbb Z/n\mathbb Z$ uses addition modulo $n$. For a subset $A$, its sumset is $A+A=\{a+a':a,a'\in A\}$; summands need not be distinct. The decision input consists of $n$ and an encoding of $B\subseteq\mathbb Z/n\mathbb Z$. A positive instance has a subset $A$ whose sumset equals $B$ exactly, rather than merely containing it.
+\paragraph{Statement recorded in the supplied source.}
+Given $B\subseteq\mathbb Z/n\mathbb Z$, is there an efficient algorithm that decides whether some $A\subseteq\mathbb Z/n\mathbb Z$ satisfies $B=A+A$? \href{https://doi.org/10.4171/owr/2022/22}{[S2]}
+\paragraph{Scope qualification.}
+The complexity depends on the source encoding of $B$ and $n$; explicit membership arrays and sparse binary-encoded lists have different input lengths. No encoding-independent polynomial-time claim is inserted.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Can one efficiently recognize which subsets of a finite cyclic group are sums of a subset with itself?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30005118 (OWR-10252930-031). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorics, Probability and Computing (2023), Oberwolfach Reports, DOI 10.4171/owr/2022/22, pp. 1165--1237
+\url{https://doi.org/10.4171/owr/2022/22}.
+\item[S3] official OWR report
+\url{https://publications.mfo.de/bitstream/handle/mfo/3964/OWR_2022_22.pdf?isAllowed=y&sequence=4}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30005118 and source code OWR-10252930-031 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30005118}
+
+\section{Literature and context check}
+
+I read Problem 15, attributed to Alon and Granville and presented by Marcelo Campos,
+on printed page 1228 of the primary report. It asks exactly the cyclic recognition
+question preserved above. The sumset-counting talk on pages 1174--1175 is a different
+passage and is not the location of this problem.
+I also consulted the introduction, Theorem 1.2 and the accompanying reduction-size
+paragraph of Abboud, Fischer, Safier and Wallheimer, \emph{Recognizing Sumsets is
+NP-Complete}, arXiv:2410.18661v2. Their theorem states NP-completeness over the
+integers; the accompanying paragraph gives a reduction from 3-SAT with $N$
+variables and clauses to a set contained in an interval of size $O(N^4)$.
+That integer hardness theorem is an explicitly external dependency: its positioning
+and masking gadgets are not re-proved or independently verified here.
+The elementary reduction below was suggested by the root Codex GPT-6 agent and
+then independently inspected, written out and adversarially checked by this
+OpenAI gpt-6-astra agent. No novelty claim is made.
+
+\section{Research attempt: Integer-to-cyclic recognition reduction with encoding control}
+
+\paragraph{Decision problems and encodings.}
+Let $q\geq1$ be an integer and let $B\subseteq\mathbb Z/q\mathbb Z$.
+The question is whether $B=A+A$ for some subset $A$, with addition modulo $q$.
+Consider either (i) $q$ in binary and the distinct canonical residues of $B$ in a
+binary list, or (ii) a membership array of length $q$. We prove NP-completeness
+under either encoding, using the stated external integer theorem. Thus a
+polynomial-time decision algorithm exists if and only if $\mathrm P=\mathrm{NP}$.
+This conclusion does not assert an unconditional separation of those classes.
+
+\paragraph{Membership in NP.}
+The empty input set has the empty root. For a nonempty root choose $a_0\in A$.
+The injection $a\mapsto a+a_0$ maps $A$ into $B$, so $|A|\leq |B|$.
+A witness list therefore uses $O(|B|\log(q+1))$ bits. Computing all at most
+$|B|^2$ pair sums, reducing modulo $q$, removing repetitions and comparing with
+$B$ verifies the witness in polynomial time in either specified input length.
+This also covers $q=1$; there is no hidden demand for a witness of size $q$ under
+sparse encoding.
+
+\paragraph{Normalization of integer instances.}
+Given a finite nonempty set $S\subseteq\mathbb Z$, put $s_0=\min S$.
+If $S=C+C$, then $s_0=2\min C$. Thus odd $s_0$ implies a NO instance.
+For even $s_0$ define $B=S-s_0$ and $M=\max B$. Then
+\[
+ S=C+C\quad\Longleftrightarrow\quad
+ B=(C-s_0/2)+(C-s_0/2).
+\]
+Conversely any integer root $D$ of $B$ yields the root $D+s_0/2$ of $S$.
+Here $0\in B\subseteq[0,M]\cap\mathbb Z$ and $M\geq0$.
+An empty $S$ is mapped to a fixed YES instance, for example $(q,B)=(3,\varnothing)$.
+An odd minimum is mapped to the fixed NO instance $(3,\{0,1\})$.
+To verify the latter, a root has at most two elements by the injection just proved.
+A singleton has a singleton sumset. For two distinct residues $a,b$ modulo $3$,
+the three sums $2a,a+b,2b$ are distinct: equality of either adjacent pair implies
+$a=b$, and $2a=2b$ does also because $2$ is invertible modulo $3$.
+Hence its sumset has three elements.
+
+\paragraph{The no-wrap lemma.}
+For a normalized input set use the odd modulus
+\[
+ q=2M+3.
+\]
+We claim that $B$ has an integer sumset root if and only if it has a root modulo
+$q$. The forward implication follows just by reducing an integer equality
+modulo $q$; distinct elements of $B\subseteq[0,M]$ remain distinct.
+For the reverse implication suppose $B=A+A$ modulo $q$. Because $0\in B$,
+choose $a,b\in A$ with $a+b=0$ modulo $q$.
+Let $r,s\in[0,q-1]$ be the canonical residues of $2a,2b$. Both belong to $B$,
+so $0\leq r,s\leq M$. Moreover $r+s=0$ modulo $q$ and
+$0\leq r+s\leq2M<q$. Therefore $r=s=0$.
+Since $q$ is odd, multiplication by $2$ is injective, and $a=b=0$ modulo $q$.
+We have proved $0\in A$. It follows that every canonical representative of $A$
+is in $B$, using $a=0+a\in A+A$. All representatives of $A$ thus lie in
+$[0,M]$. Their ordinary pair sums lie in $[0,2M]\subset[0,q-1]$, so none wraps
+modulo $q$. The modular equality is consequently the ordinary integer equality
+$A+A=B$. This proves both directions.
+
+\paragraph{Polynomial encoding bounds.}
+Subtracting $s_0$ and forming $q=2M+3$ increases the binary length of each
+integer by at most an additive constant relative to the largest input magnitude.
+The number of elements of $B$ is $|S|$ and the exceptional instances have
+constant size. The map is thus a polynomial-time many-one reduction for sparse
+binary lists. For membership arrays, arbitrary huge binary integer inputs would
+not give a polynomial-size output array. Instead compose directly with the
+external 3-SAT reduction whose integer interval has size $O(N^4)$.
+After normalization $M=O(N^4)$ and hence $q=O(N^4)$, so the whole membership
+array can be produced in polynomial time. The same theorem consequently proves
+NP-hardness for both encodings. Together with membership in NP this establishes
+the claimed classification, even with hardness restricted to odd $q$.
+
+\paragraph{An exact algorithm and the failed shortcut.}
+For completeness there is an elementary exponential search with candidate set
+\[
+ H=\{a\in\mathbb Z/q\mathbb Z:2a\in B\}.
+\]
+Every root lies in $H$, since every self-sum must belong to $B$.
+For each $b\in B$, the congruence $2a=b\pmod q$ has at most two solutions,
+computable by the Euclidean algorithm (one for odd $q$). Thus $|H|\leq2|B|$.
+Enumerating subsets of $H$ and checking pair sums is a finite exact algorithm.
+The necessary condition $A\subseteq H$ does not itself identify the root, and
+checking $H+H=B$ is not a correct recognition algorithm: for $q=7$ and
+$B=\{0,1,2\}$ the root $A=\{0,1\}$ works, but $H=\{0,1,4\}$ contains
+$4$ and $H+H$ contains $4\notin B$.
+The hardness classification concerns arbitrary inputs, not the termination of
+this exponential algorithm or the possibility of useful special-case algorithms.
+
+\section{Verification and adversarial audit}
+
+The reverse implication was checked at its two essential points: $0\in B$ alone
+does not imply $0\in A$ in a general cyclic group, and an arbitrarily large
+modulus alone does not prevent a modular root from having large representatives.
+The doubled-residue argument proves both claims using oddness and $2M<q$.
+For example the use of oddness cannot simply be erased: modulo $2$, the set
+$A=\{1\}$ has $A+A=\{0\}$ without containing $0$.
+The cases $S=\varnothing$, $M=0$, odd negative minima, $q=1$ in the verification
+problem, singleton roots and sparse witness size were separated explicitly.
+The dense encoding proof uses the external polynomial-interval theorem, not
+an unjustified expansion of arbitrary binary integers into an array.
+
+\paragraph{Audit corrections.} The source location was corrected from the separate Campos counting talk to
+Problem 15 on page 1228. Oddness, empty inputs, negative-minimum normalization,
+and polynomial array size were added explicitly. The false maximal-candidate-set
+recognition shortcut was falsified by the displayed modulo-$7$ example.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+
+The argument supplies the usual complexity-theoretic classification of the entire
+cyclic recognition question for both explicit encodings identified in the preserved
+scope note. It depends on the cited integer NP-completeness theorem and on the
+standard definitions of polynomial-time reduction and NP-completeness. It neither
+proves $\mathrm P\ne\mathrm{NP}$ nor settles fine-grained, average-case, or special
+input-family questions that the original statement did not ask.
+\paragraph{Full original-target declaration.}
+The entire original decision question is classified for both stated encodings,
+without restricting the input sets, weakening the requested decision, or replacing
+cyclic groups by a different family. The elementary reduction and both encoding
+arguments are fully proved here. The integer hardness theorem is a cited external
+dependency. The parent Codex GPT-6 agent has reviewed the complete written
+reduction and approved this full scope. No claim of an unconditional
+$\mathrm P\ne\mathrm{NP}$ theorem or new mathematical priority is made.
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 100\%}
+The proof gives the complete NP-completeness classification for both specified
+encodings of the original recognition problem. Completion measures original-target
+coverage, not novelty or independent verification.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46961} (consulted 2026-10-11). 
+\item \url{https://arxiv.org/html/2410.18661v2} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+Codex GPT-6 completed written mathematical review of the full reduction and scope; this is model-assisted review, not independent human proof checking.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review and suggested the material integer-to-cyclic reduction; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Solved as a complete complexity classification, conditional on the explicitly cited
+known integer NP-completeness theorem. A polynomial algorithm exists exactly if
+$\mathrm P=\mathrm{NP}$. No unconditional separation, novelty, or independently
+verified proof of the external integer gadgets is asserted. The historical catalogue
+source status remains unchanged.
+\end{document}

@@ -1,0 +1,198 @@
+% RESEARCH_DRAFT_SHA256: 24c89d89d34e28e94bb44dfebb0db659192172c69d7d0bb1cba418c461653617
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30005108, "title": "Enumeration and Typical Structure of $k$-SAT Functions", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005108", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Enumeration and Typical Structure of $k$-SAT Functions; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Collision-free unate lower bound and failure of formula counting; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch024 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30005108; source catalogue code OWR-10252930-018
+\section{Enumeration and Typical Structure of $k$-SAT Functions}\label{30005108}
+{\small UnsolvedMath ID 30005108 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A Boolean function maps $\{0,1\}^n$ to $\{0,1\}$. A $k$-SAT function is represented by a conjunction of clauses of width at most $k$, each clause a disjunction of literals $x_i$ or $\neg x_i$; distinct formulas computing the same function count once. Uniformly choosing a function means choosing from this finite set of distinct functions. A function is unate if complementing an appropriate subset of input coordinates makes it monotone in every coordinate. As $n\to\infty$, $o(1)$ tends to zero.
+\paragraph{Statement recorded in the supplied source.}
+How many $k$-SAT functions on $n$ Boolean variables are there, and what does a typical such function look like? In particular, for fixed $k\geq 2$, is a $1-o(1)$ fraction of all such functions unate? \href{https://doi.org/10.4171/owr/2022/22}{[S2]}
+\paragraph{Scope qualification.}
+Here functions, not syntactic formulas, are counted. The asymptotic question fixes the clause width before letting the number of variables grow.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Count distinct bounded-clause-width Boolean functions and determine whether almost all are monotone after suitable input-coordinate flips.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30005108 (OWR-10252930-018). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorics, Probability and Computing (2023), Oberwolfach Reports, DOI 10.4171/owr/2022/22, pp. 1165--1237
+\url{https://doi.org/10.4171/owr/2022/22}.
+\item[S3] Dong, Mani, and Zhao, Enumerating k-SAT functions
+\url{https://arxiv.org/abs/2107.09233}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30005108 and source code OWR-10252930-018 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30005108}
+
+\section{Literature and context check}
+
+I read the primary 2022 report's talk on pages 1222--1224 and the later 2023
+report's talk on pages 49--50. The latter explicitly states the full fixed-$k$
+theorem and distinguishes the still-discussed growing-width and sparse-formula
+directions. I also read the abstracts of Dong--Mani--Zhao,
+arXiv:2107.09233, and Balogh--Dong--Lidick\'y--Mani--Zhao,
+arXiv:2209.04894v2. The second announces resolution of the fixed-$k$ unateness
+conjecture. These source results are context, not newly proved here; their
+container and extremal-hypergraph arguments were not independently re-derived.
+In particular the original partially-solved catalogue label is historical metadata,
+not a reason to describe the fixed-width conjecture as currently open.
+
+\section{Research attempt: Collision-free unate lower bound and failure of formula counting}
+
+\paragraph{A formula family that can be counted without collisions.}
+Use the source's equivalent DNF formulation. For $1\leq k\leq n$ and a family
+$\mathcal H\subseteq\binom{[n]}k$, define
+\[
+ f_{\mathcal H}(x)=\bigvee_{S\in\mathcal H}\ \bigwedge_{i\in S}x_i.
+\]
+The empty disjunction is zero. On the input $1_T$ with exactly $k$ ones,
+$f_{\mathcal H}(1_T)=1$ if and only if $T\in\mathcal H$, because a $k$-set
+$S$ is contained in the $k$-set $T$ only when $S=T$.
+Thus these $2^{\binom nk}$ formulas represent distinct functions. Every clause
+is indispensable: $1_S$ is a private satisfying input for its own clause.
+A variable $i$ is essential exactly when some $S\in\mathcal H$ contains it.
+Indeed $1_S$ and $1_{S\setminus\{i\}}$ distinguish its two values; if no clause
+contains $i$, independence is immediate.
+With each possible clause independently included with probability $1/2$, the
+probability that a specified variable is absent is
+$2^{-\binom{n-1}{k-1}}$. A union bound shows that at least
+\[
+ \left(1-n2^{-\binom{n-1}{k-1}}\right)2^{\binom nk}
+\]
+functions in this family depend on all variables, whenever the displayed lower
+bound is positive. Each has $2^n$ different input-coordinate sign orientations,
+and the resulting functions over all such families are distinct. To prove this,
+a function monotone in both directions in a coordinate must be independent of
+that coordinate: with all other inputs fixed, its two values satisfy both
+opposite inequalities. An essential coordinate therefore has a unique monotonic
+direction. Equality of two oriented functions forces their orientations to agree,
+after which the $k$-weight evaluations identify $\mathcal H$.
+Consequently the total number $N(n,k)$ of source functions satisfies
+\[
+ N(n,k)\geq
+ \left(1-n2^{-\binom{n-1}{k-1}}\right)2^{\binom nk+n}.
+\]
+Complementing the output gives the corresponding CNF count if that convention
+is preferred. This is a lower bound for a specifically constructed subclass;
+it does not count all possible prime implicants of a general unate function.
+
+\paragraph{The missing upper bound cannot be obtained by counting syntax.}
+For fixed $k\geq2$, the error $n2^{-\binom{n-1}{k-1}}$ tends to zero, so the
+lower bound has the expected $2^{\binom nk+n}$ scale. The naive syntax bound,
+however, chooses arbitrary subsets of the $2^k\binom nk$ consistent signed
+$k$-clauses and gives only $N(n,k)\leq2^{2^k\binom nk}$.
+It is much too large to prove typical unateness.
+The obstruction is concrete even for $k=2$:
+\[
+ (x_1\wedge x_2)\vee(x_1\wedge\neg x_2)=x_1.
+\]
+Adding any clauses of the form $x_1\wedge x_j$ or $x_1\wedge\neg x_j$ leaves
+this function unchanged. Even testing whether syntax is minimal requires logical
+implication rather than just absence of repeated clauses: for $k=2$,
+\[
+ (x_1x_2)\vee(\neg x_1x_3)\vee(x_2x_3)
+ =(x_1x_2)\vee(\neg x_1x_3),
+\]
+where juxtaposition means conjunction. If $x_2x_3=1$, one of the first two
+clauses is true according to the value of $x_1$, proving the redundancy.
+This identity identifies the first gap in an attempted independent-clause upper
+bound: private witnesses, overlaps and logical implication must be controlled,
+not merely the number of available clauses. The lower-bound argument does not
+provide that control and does not re-prove the known fixed-$k$ theorem.
+
+\section{Verification and adversarial audit}
+
+The injectivity check uses inputs of weight exactly $k$, which is why every
+chosen clause must use $k$ distinct variables. Essentiality is checked by an
+explicit pair of inputs; orientation multiplicity is asserted only for essential
+functions. At $k=1$ the union-bound error does not vanish, and at $k=n$ the essentiality
+probability is exactly $1/2$, rather than tending to one, so neither endpoint is used in the fixed
+$k\geq2$, $n\to\infty$ conclusion. The two Boolean identities were checked
+by splitting on $x_1$ or $x_2$, not by assuming distinct formulas are distinct
+functions.
+
+\paragraph{Audit corrections.} Kept functions separate from formulas, restricted the orientation factor to
+functions with all variables essential, and corrected the current context using
+the later primary report. No upper bound for all unate functions is inferred
+from the uniform-positive-clause subclass.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+
+This independently proves the elementary lower-count route and identifies its
+upper-count obstruction. The source's fixed-width target has a known published
+answer, accurately recorded in Literature; this manuscript does not supply a
+complete proof of that theorem or claim new progress. The full argument needed
+to establish that almost all functions are unate is not reproduced.
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46961} (consulted 2026-10-11). 
+\item \url{https://ems.press/content/serial-article-files/46994} (consulted 2026-10-11). 
+\item \url{https://arxiv.org/abs/2107.09233} (consulted 2026-10-11). 
+\item \url{https://arxiv.org/abs/2209.04894} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

@@ -1,0 +1,208 @@
+% RESEARCH_DRAFT_SHA256: eae92bbbc2bee3b1a5ddf10d0423c22b3dc64d09d486cbe24201193af19bbe2f
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004926, "title": "Rank Dependence of Sample Complexity in Matrix Sensing", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004926", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Is the quadratic dependence of matrix-sensing sample complexity $m$ on the rank $r_\\star$ necessary, or is it an artifact of the proof?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Linear-rank necessary counts and a pivot-patch reconstruction do not establish the Gaussian small-random-initialization gradient-descent guarantee. Later spectral/scaled initialization results are not silently identified with that target.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Matrix sensing: linear-rank information counts do not analyze small-initialization gradient descent}
+\noindent UnsolvedMath ID 30004926; OWR-8415360-004. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+In the source's positive-semidefinite matrix-sensing setting, a rank-$r_\star$ target $X_\star$ is observed through $m$ linear matrix measurements. The factorized least-squares method fits $UU^{\mathsf T}$ to these observations by gradient descent from a small random initialization. Sample complexity is the number $m$ of measurements required for the stated recovery guarantee; the question concerns its dependence on $r_\star$.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+This concerns the particular factorized gradient-descent analysis and its measurement assumptions in the report. It is not a universal lower-bound assertion for every matrix-sensing method or every measurement ensemble.
+
+Source-record limitation: The measurement ensemble, precise recovery guarantee, and baseline sample bound whose rank dependence is to be improved are not supplied.
+\paragraph{Statement recorded in the supplied source.}
+Is the quadratic dependence of matrix-sensing sample complexity $m$ on the rank $r_\star$ necessary, or is it an artifact of the proof? \href{https://doi.org/10.4171/owr/2021/55}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Determine whether the squared dependence on target rank in the analyzed sensing guarantee reflects a real requirement.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004926 (OWR-8415360-004). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Applied Harmonic Analysis and Data Science (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/55, pp. 3007--3066
+\url{https://doi.org/10.4171/owr/2021/55}.
+\item[S3] Stöger--Zhu, breaking the quadratic rank barrier
+\url{https://arxiv.org/abs/2408.13276}.
+\item[S4] Li--Huang, optimal sampling for scaled gradient descent
+\url{https://arxiv.org/abs/2604.00060}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Is the quadratic dependence of matrix-sensing sample complexity $m$ on the rank $r_\star$ necessary, or is it an artifact of the proof?
+
+\section{The source algorithm and later context}
+The primary report, printed pages3017--3018, concerns Gaussian
+matrix measurements and factorized gradient descent from a small
+Gaussian initialization, including overparameterized factors.
+The question concerns the rank dependence in that analysis.
+A later Stoger--Zhu primary abstract reports linear rank dependence
+with spectral initialization, and the March2026 Li--Huang abstract
+reports improved sampling for scaled gradient descent. Those
+abstracts were inspected, not their complete proofs; their
+initialization or algorithm cannot be silently substituted for
+the original one. We attempt an information-counting argument,
+then check what it fails to say about the original dynamics.
+
+\section{An elementary linear-rank necessary scale}
+Let $\mathcal A$ be a linear map from symmetric $n$ by $n$
+matrices to $\mathbb R^m$, required to distinguish every pair of
+rank-$r$ PSD matrices, where $1\le r\le n$. First restrict
+matrices to a fixed $r$-dimensional coordinate subspace. If
+$m<r(r+1)/2$, linear algebra gives a nonzero symmetric $r$ by
+$r$ matrix $H$ in the kernel of that restriction. For small
+enough $t>0$, both $I_r+tH$ and $I_r-tH$ are positive definite:
+$x^T(I_r\pm tH)x\ge(1-t\|H\|_{\rm op})\|x\|^2>0$.
+Embedding them into the fixed subspace gives two distinct
+rank-$r$ PSD matrices with equal measurements. Thus
+$m\ge r(r+1)/2$ is necessary.
+
+A second bound is $m\ge r(n-r)$. If it fails, there is a
+nonzero $(n-r)$ by $r$ matrix $Z$ such that
+\[
+ \mathcal A\begin{pmatrix}0&Z^T\\Z&0\end{pmatrix}=0.
+\]
+But the distinct matrices
+\[
+ X_\pm=\begin{pmatrix}I_r&\pm Z^T\\\pm Z&ZZ^T\end{pmatrix}
+ =\begin{pmatrix}I_r\\\pm Z\end{pmatrix}
+  \begin{pmatrix}I_r&\pm Z^T\end{pmatrix}
+\]
+are both PSD of rank $r$, and their difference is twice the
+kernel matrix. Therefore every such injective measurement map
+obeys
+\[
+ m\ge\max\{r(n-r),r(r+1)/2\}\ge nr/3.
+\]
+For the last bound, if $r\le2n/3$ use $n-r\ge n/3$;
+otherwise use $(r+1)/2\ge n/3$. This is an information-theoretic
+necessary scale, not a sample guarantee for any random ensemble.
+
+\section{An explicit linear-rank recovery patch}
+Suppose a rank-$r$ PSD target has block form
+\[
+ X=\begin{pmatrix}B&C^T\\C&D\end{pmatrix},\qquad B\succ0,
+ \quad B\in\mathbb R^{r\times r}.
+\]
+Measure every entry of symmetric $B$ and every entry of $C$.
+This uses
+$r(r+1)/2+(n-r)r=nr-r(r-1)/2$ scalar linear measurements.
+They determine the whole matrix by
+\[
+ D=CB^{-1}C^T.
+\]
+To prove the identity, multiplication on the left and right by
+invertible block triangular matrices gives a congruence from
+$X$ to $\operatorname{diag}(B,D-CB^{-1}C^T)$. Congruence
+preserves PSD and rank. Since $B$ already has rank $r$ and
+$X$ has rank $r$, the second block has rank zero and is zero.
+This is a complete recovery algorithm on the specified patch.
+
+The patch assumption cannot be dropped. If $r<n$, a nonzero
+PSD matrix supported in the unmeasured lower-right block has
+$B=C=0$ and is invisible to all these measurements. Also,
+$B^{-1}$ can be ill-conditioned, so the noiseless identity
+supplies no uniform stability bound. The construction shows
+why a universal information-theoretic demand of order $nr^2$
+cannot be inferred just from a count of target parameters;
+it is not Gaussian sensing or the source gradient algorithm.
+
+\section{A dynamics check even with full observations}
+With full Frobenius observations the loss is
+$\tfrac14\|UU^T-X_*\|_{\rm F}^2$ and its gradient is
+$(UU^T-X_*)U$, as expansion of the directional derivative
+and the trace cyclic identity show. For diagonal
+$X_*=\operatorname{diag}(\lambda_1,\ldots,\lambda_n)$,
+$\lambda_i\ge0$, and $U_0=\alpha I_n$, the iterate stays
+diagonal and each diagonal entry satisfies
+\[
+ v_{t+1}=v_t\{1+\mu(\lambda-v_t^2)\}.
+\]
+If $\lambda>0$, $0<\alpha\le\sqrt\lambda$, and
+$0<\mu\lambda\le1/2$, this scalar iteration increases to
+$\sqrt\lambda$. Indeed its map has derivative
+$1+\mu\lambda-3\mu v^2\ge1-2\mu\lambda\ge0$ on
+$[0,\sqrt\lambda]$, fixes the upper endpoint, and exceeds
+$v$ below it. Monotone bounded iterates converge, and their
+positive limit solves $\lambda-v^2=0$.
+For $\lambda=0$ and $0<\mu\alpha^2<1$, the iterates remain
+positive and decrease. Moreover
+\[
+ \frac1{v_{t+1}^2}
+ =\frac1{v_t^2}(1-\mu v_t^2)^{-2}
+ \ge\frac1{v_t^2}+2\mu,
+ \qquad v_t^2\le(\alpha^{-2}+2\mu t)^{-1},
+\]
+using $(1-z)^{-2}\ge1+2z$ for $0\le z<1$, obtained by
+multiplying by $(1-z)^2$ and simplifying or differentiating.
+Thus the zero-target coordinates converge to zero as well.
+
+Even this favourable example retains initialization dependence.
+For $\lambda>0$, always
+$v_t\le\alpha(1+\mu\lambda)^t$ along the positive iteration.
+Reaching $v_t\ge\sqrt\lambda/2$ therefore requires
+\[
+ t\ge\frac{\log(\sqrt\lambda/(2\alpha))}{\log(1+\mu\lambda)}
+\]
+when the numerator is positive. At exactly $\alpha=0$ the
+iterate is stationary forever. These calculations do not model
+Gaussian random shapes, but they show why an information count
+alone cannot replace trajectory and initialization analysis.
+
+\section{Audit and remaining gap}
+The audit checked the ranks and positivity of both kernel
+witnesses, the missing-pivot counterexample, the scalar step-size
+conditions, and the difference between spectral, scaled and small
+random initialization. The attempted information route establishes
+no Gaussian concentration bound along adaptive iterates and no
+rank-linear recovery theorem for the original algorithm. No
+experiment or theorem prover was used. Known later abstract
+claims are context, while this manuscript's original-target
+completion remains zero.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Linear-rank necessary counts and a pivot-patch reconstruction do not establish the Gaussian small-random-initialization gradient-descent guarantee. Later spectral/scaled initialization results are not silently identified with that target.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item OWR55/2021, Applied Harmonic Analysis and Data Science; complete relevant primary passages read in cached report, with printed pages identified in the manuscript. \url{https://ems.press/content/serial-article-files/46933}.
+\item Stoger and Zhu, Non-convex matrix sensing: Breaking the quadratic rank barrier; current primary abstract inspected, specifying spectral initialization. \url{https://arxiv.org/abs/2408.13276}.
+\item Li and Huang, Scaled Gradient Descent for Ill-Conditioned Low-Rank Matrix Recovery with Optimal Sampling Complexity; March2026 primary abstract inspected, specifying scaled gradient descent. \url{https://arxiv.org/abs/2604.00060}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Linear-rank necessary counts and a pivot-patch reconstruction do not establish the Gaussian small-random-initialization gradient-descent guarantee. Later spectral/scaled initialization results are not silently identified with that target.
+\end{document}

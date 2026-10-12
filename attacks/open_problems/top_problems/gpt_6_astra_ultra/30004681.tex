@@ -1,0 +1,191 @@
+% RESEARCH_DRAFT_SHA256: 2c48b9041115057cbca1a05390d61a60551726f09e4693389e4c7f97e35228a0
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004681, "title": "Comparative Advantages of Physics-Based and Machine-Learned Models", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004681", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Is a physics-based model always advantageous when the underlying system obeys physical laws, and which modelling or controller-design problems can be solved better with machine learning?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The source does not specify a common task class, knowledge/noise model, loss or budget. The complete scalar comparison does not supply a general benchmark theory or a neural-network advantage theorem.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Physical and learned control: an exact comparison with specified information and loss}
+\noindent UnsolvedMath ID 30004681; OWR-7155444-001. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A physics-based model uses specified governing equations, while a learned model fits its prediction or control rule from data. A comparison requires a common loss, data access, and computational budget.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The source gives a comparison direction without a mathematical advantage criterion or quantified problem class.
+
+Source-record limitation: A broad comparison of physical and learned models lacks a mathematical criterion or quantified class.
+\paragraph{Statement recorded in the supplied source.}
+Is a physics-based model always advantageous when the underlying system obeys physical laws, and which modelling or controller-design problems can be solved better with machine learning? \href{https://doi.org/10.4171/owr/2021/23}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Identify when learned models or controllers outperform physical modeling approaches.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004681 (OWR-7155444-001). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Mini-Workshop: Analysis of Data-driven Optimal Control (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/23, pp. 1209--1257
+\url{https://doi.org/10.4171/owr/2021/23}.
+\item[S3] Physics-informed machine learning for modeling and control
+\url{https://arxiv.org/abs/2306.13867}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Is a physics-based model always advantageous when the underlying system obeys physical laws, and which modelling or controller-design problems can be solved better with machine learning?
+
+\section{The original comparison and this attempted formalization}
+The original workshop discussion, printed page 1211, asks which
+modelling and controller-design tasks machine learning handles
+better and calls for a benchmark library. It does not specify a
+loss, information budget, noise class, or permitted physical-model
+error. Consequently there is no universal numerical comparison to
+prove. We attempt a common-loss comparison on a fully specified
+one-step dynamical system. Its exact bias/variance calculation
+shows which missing assumptions change the answer; it is not a
+replacement solution of the broad source agenda.
+
+\section{Exact scalar control calculation}
+Fix $\lambda>0$ and the physical law
+\[
+ x_+=a x+u,\qquad J_a(x,u)=(a x+u)^2+\lambda u^2.
+\]
+Completing the square gives
+\[
+ J_a(x,u)=\frac{\lambda a^2x^2}{1+\lambda}
+ +(1+\lambda)\left(u+\frac{a x}{1+\lambda}\right)^2.
+\]
+Thus, when the parameter $a$ is known exactly, the unique optimal
+action is $u_a=-a x/(1+\lambda)$. A plug-in model using $b$
+incurs exactly the regret
+\[
+ J_a(x,u_b)-J_a(x,u_a)=\frac{x^2(a-b)^2}{1+\lambda}.
+\]
+This identity includes the equilibrium $x=0$, where every plug-in
+action is zero and the regret vanishes. It provides a common
+criterion for the following comparison, evaluated at $x=1$.
+
+Suppose $N\ge1$ independent reset experiments start at $x=1$,
+apply $u=0$, and return $Y_i=a+\eta_i$, where
+$\mathbb E\eta_i=0$, $\mathbb E\eta_i^2=\sigma^2<\infty$.
+Use $\widehat a=N^{-1}\sum_iY_i$. Independence gives
+$\mathbb E(\widehat a-a)^2=\sigma^2/N=:v$. A nominal physical
+parameter $a_0$ instead has squared error $b^2=(a-a_0)^2$.
+Therefore the expected regrets are respectively
+\[
+ \frac{v}{1+\lambda},\qquad \frac{b^2}{1+\lambda}.
+\]
+The data estimate is better exactly when $v<b^2$, worse when
+$v>b^2$, and tied when they are equal. This is an estimation
+comparison, not evidence that a particular neural-network
+architecture outperforms traditional system identification.
+If the true parameter is supplied, the physical controller has
+zero regret and no method can improve on it for this loss.
+
+\section{A hybrid and its information requirement}
+For a fixed real $w$ consider
+$\widetilde a=w\widehat a+(1-w)a_0$. Its mean squared error is
+\[
+ w^2v+(1-w)^2b^2.
+\]
+The cross term vanishes because $\widehat a-a$ is centered.
+When $b^2+v>0$, completing the square yields its optimum at
+$w_*=b^2/(b^2+v)$ with value $b^2v/(b^2+v)$. When both
+are zero every choice has zero error. The oracle weight uses
+unknown $b^2$ and cannot be advertised as an implementable
+advantage without extra information.
+
+If instead a certified parameter-error bound $|a-a_0|\le B$
+is supplied and $v$ is known, the worst-case risk among these
+fixed-weight rules is
+$w^2v+(1-w)^2B^2$. Indeed the coefficient of $b^2$ is
+nonnegative and the endpoints attain the bound. Its minimizing
+weight is $B^2/(B^2+v)$ when the denominator is positive,
+and its worst-case regret is
+\[
+ \frac{B^2v}{(B^2+v)(1+\lambda)}.
+\]
+This is a complete minimax statement only within the displayed
+family of fixed linear shrinkage estimators. It does not assert
+minimax optimality among every data-dependent controller.
+
+\section{Failure of learning without informative experiments}
+The successful comparison used excitation at $x=1$. Suppose
+all available experiments instead reset to $x=0$. Use a common
+parameter-independent noise law in the two parameter cases below,
+and an algorithmic random seed independent of the parameter.
+Even if actions are selected adaptively, observations $Y_i=u_i+\eta_i$ have a
+joint distribution independent of $a$: induction on observations
+and the controller's random seed proves this transcript claim.
+Consider two possible laws $a=A$ and $a=-A$, with $A>0$, and a
+subsequent control task at $x=1$. Any learned action $U$ has the
+same law in the two cases. The average of its two expected
+regrets is
+\[
+ \frac12\mathbb E\left[(1+\lambda)
+ \left(U+\frac{A}{1+\lambda}\right)^2
+ +(1+\lambda)\left(U-\frac{A}{1+\lambda}\right)^2\right]
+ =(1+\lambda)\mathbb E U^2+\frac{A^2}{1+\lambda}
+ \ge\frac{A^2}{1+\lambda}.
+\]
+Infinite second moment only makes the conclusion stronger.
+Thus at least one physical law has regret at least this amount,
+regardless of the number of uninformative observations or the
+expressiveness of the learning algorithm. The constant action
+zero attains this minimax value for the two-point parameter class.
+This lower bound is restricted to the specified experiment
+protocol; allowing nonzero state excitation changes it.
+
+\section{Audit, attempted inference, and remaining scope}
+The attempted inference that the mere existence of a physical law
+favours either modelling method fails because exact knowledge,
+misspecification, observation noise, and experimental excitation
+produce different comparisons on the same system and loss.
+The calculations also show why physics and learning are not
+disjoint mathematical classes: a learned parameter can be inserted
+into the physical controller, and the hybrid uses both sources.
+The audit checked the zero-noise and zero-bias cases, the unknown
+oracle shrinkage weight, adaptive transcript independence, and the
+restriction of the minimax family. These are complete elementary
+auxiliary results, with no novelty claim, simulation, or theorem
+prover. A general source-level advantage criterion is not obtained.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The source does not specify a common task class, knowledge/noise model, loss or budget. The complete scalar comparison does not supply a general benchmark theory or a neural-network advantage theorem.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item OWR23/2021, Analysis of Data-driven Optimal Control; workshop discussion p.1211 and Kang/Gong compositional approximation discussion pp.1233–1235 inspected from the cached primary report. Historical claims are not a current-status survey. \url{https://doi.org/10.4171/owr/2021/23}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The source does not specify a common task class, knowledge/noise model, loss or budget. The complete scalar comparison does not supply a general benchmark theory or a neural-network advantage theorem.
+\end{document}

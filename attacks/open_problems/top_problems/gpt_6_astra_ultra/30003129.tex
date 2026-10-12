@@ -1,0 +1,210 @@
+% RESEARCH_DRAFT_SHA256: f9e7c363a6929d6c6ec3136a8a887986f457a177f2cdce1f7660ca0251a8e830
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30003129, "title": "Overlap Gaps and Algorithmic Hardness of Submatrix Detection", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003129", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "In the Gaussian $n\\times n$ submatrix problem, suppose near-optimal solutions above a threshold $\\alpha^*$ exhibit an overlap gap: their pairwise overlaps avoid a nonempty interval. Does this property imply that no polynomial-time algorithm can find a $k\\times k$ submatrix of average at least $(1+o(1))\\alpha\\sqrt{2\\log n/k}$ when $\\alpha>\\alpha^*$ and $k\\to\\infty$?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. A complete first-moment forbidden strip and a conditional small-step path obstruction are proved, but no argument restricts every polynomial-time algorithm to such paths. The Gaussian average-case hardness target remains unresolved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Gaussian submatrix overlaps: a first-moment barrier and the algorithmic gap}
+\noindent UnsolvedMath ID 30003129; OWR-14604-004. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+The overlap of two $k\times k$ choices measures their common rows and columns according to the source\textquotesingle s convention. An overlap gap excludes an interval of overlaps among near-optimal choices. Information-theoretic existence is different from efficient recovery.
+
+Polynomial time means a number of elementary steps bounded by a polynomial in the encoded input length. A decision problem is in $\mathrm{NP}$ if yes-instances have polynomial-length certificates verifiable in polynomial time; NP-hardness is under polynomial-time reductions.
+\paragraph{Statement recorded in the supplied source.}
+In the Gaussian $n\times n$ submatrix problem, suppose near-optimal solutions above a threshold $\alpha^*$ exhibit an overlap gap: their pairwise overlaps avoid a nonempty interval. Does this property imply that no polynomial-time algorithm can find a $k\times k$ submatrix of average at least $(1+o(1))\alpha\sqrt{2\log n/k}$ when $\alpha>\alpha^*$ and $k\to\infty$? \href{https://doi.org/10.4171/owr/2016/22}{[S2]}
+\paragraph{Scope qualification.}
+The Gaussian model, allowed scaling of $k$, stable-versus-arbitrary algorithms, and exact overlap definition are not fully specified; no implication is assumed.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Determine whether the overlap gap proves polynomial-time hardness of the stated large-average submatrix search.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30003129 (OWR-14604-004). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorics and Probability (2017), Oberwolfach Reports, DOI 10.4171/owr/2016/22, pp. 1189--1257
+\url{https://doi.org/10.4171/owr/2016/22}.
+\item[S3] Gamarnik and Li, Finding a Large Submatrix of a Gaussian Random Matrix
+\url{https://arxiv.org/abs/1602.08529}.
+\item[S4] Recent Statistical Mechanics Analysis of the Maximum-Average Submatrix Problem
+\url{https://doi.org/10.1088/1742-5468/ad1391}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+In the Gaussian $n\times n$ submatrix problem, suppose near-optimal solutions above a threshold $\alpha^*$ exhibit an overlap gap: their pairwise overlaps avoid a nonempty interval. Does this property imply that no polynomial-time algorithm can find a $k\times k$ submatrix of average at least $(1+o(1))\alpha\sqrt{2\log n/k}$ when $\alpha>\alpha^*$ and $k\to\infty$?
+
+\section{The primary two-coordinate overlap model}
+Gamarnik's report, printed pages 1211--1213, uses an $n\times n$
+matrix of independent standard Gaussian entries. A choice consists of
+$k$ rows and $k$ columns, without a principal-submatrix restriction.
+For two choices define $x$ and $y$ as their shared-row and shared-column
+counts divided by $k$. The report analyzes a two-dimensional overlap
+region; the catalogue's one-interval summary must not replace this
+geometry. Its numerical threshold is
+$\alpha_* =5\sqrt2/(3\sqrt3)$, so $\alpha_*^2=50/27$.
+We rederive a sufficient forbidden strip by a complete first moment
+and test the proposed inference from such a strip to arbitrary
+polynomial-time hardness. No novelty is claimed for this overlap mechanism.
+
+\section{A complete forbidden-strip calculation}
+Fix $\alpha>\alpha_*$, $1\le k\le n$, $n\ge2$, and call a submatrix
+good if its average is at least
+$t=\alpha\sqrt{2\log n/k}$. Its average $U$ has variance $1/k^2$.
+For two choices sharing $r$ rows and $s$ columns, their averages have
+covariance $rs/k^4=xy/k^2$, where $x=r/k,y=s/k$.
+This follows by expanding both averages: exactly $rs$ entries occur
+in both, independent distinct entries have covariance zero, and each
+shared standard Gaussian has variance one.
+
+A centered Gaussian $G$ of variance $v$ has moment-generating function
+$\mathbb E e^{\lambda G}=e^{v\lambda^2/2}$, by completing the square
+in its density integral (for $v=0$ the identity is immediate).
+Markov's inequality and the choice $\lambda=a/v$ give
+$\Pr(G\ge a)\le e^{-a^2/(2v)}$ for $a>0,v>0$.
+Applying this to the sum of the two averages yields
+\[
+\Pr(U\ge t,V\ge t)
+\le\Pr(U+V\ge2t)
+\le\exp\!\left(-\frac{k^2t^2}{1+xy}\right)
+=n^{-2\alpha^2k/(1+xy)}.
+\]
+
+The exact number of ordered pairs with these intersections is
+\[
+\binom nk^2\binom kr\binom{n-k}{k-r}
+                  \binom ks\binom{n-k}{k-s}.
+\]
+The formula chooses the first row and column sets, then shared and
+new elements of the second; impossible binomial coefficients mean zero.
+Using $\binom nk\le n^k$, $\binom kr\le2^k$, and
+$\binom{n-k}{k-r}\le n^{k-r}$ bounds it by
+$4^k n^{4k-r-s}$. Hence the expected number of good ordered pairs
+with overlaps $(x,y)$ is at most
+\[
+\exp\{k\log4+k\log n\,h(x,y)\},\qquad
+h(x,y)=4-x-y-\frac{2\alpha^2}{1+xy}.
+\]
+
+Put $\kappa=2\alpha^2-100/27>0$ and
+$\eta=\min\{1/3,\kappa/2\}$. For $u=x+y$, the elementary square
+$(x-y)^2\ge0$ gives $xy\le u^2/4$. Therefore
+\[
+(4-x-y)(1+xy)\le H(u):=(4-u)(1+u^2/4).
+\]
+On $0\le u\le2$, $H'(u)=-1+2u-3u^2/4$
+lies between $-1$ and $1/3$, as is seen by completing the square.
+Thus $|H'(u)|\le1$, and $H(2/3)=100/27$. Whenever
+$|x+y-2/3|\le\eta$ we obtain
+\[
+(4-x-y)(1+xy)\le100/27+\eta
+\le2\alpha^2-\kappa/2,
+\qquad h(x,y)\le-\kappa/4,
+\]
+where the last inequality uses $1+xy\le2$.
+Summing over the at most $(k+1)^2$ possible intersection-count pairs,
+and using Markov's inequality for their total count, bounds the
+probability of any good pair in this strip by
+\[
+(k+1)^2\exp\{k\log4-\kappa k\log n/4\}\longrightarrow0.
+\]
+The convergence holds uniformly for $1\le k\le n$: since
+$\log(k+1)\le k$, the logarithm is at most
+$k(2+\log4-\kappa\log n/4)$, which tends to minus infinity.
+This proves a forbidden overlap strip with high probability. It does
+not assert that good choices exist on both sides, or even that any
+good choice exists, in every scaling of $k$.
+
+\section{Exactly what the barrier says about a local path}
+On a realization having that forbidden strip, fix a good reference
+choice $A$. Consider a sequence of good choices in which each step
+replaces one row or one column. The overlap sum $x+y$ with $A$ changes
+by at most $1/k$ per step, because only one intersection count changes
+and it changes by at most one. If $1/k<2\eta$, such a sequence cannot
+begin with overlap sum above $2/3+\eta$ and end below $2/3-\eta$:
+at the first crossing it must either hit the forbidden interval or
+jump by more than $2\eta$. The former contradicts goodness and the
+latter contradicts the step bound.
+
+This is a rigorous obstruction for a specified small-step path that
+stays entirely above the target value. A polynomial-time algorithm
+need not produce such a path. It may inspect many low-value choices,
+make large changes, or output a good choice directly. Even a local
+method can leave the good set temporarily. The missing inference is
+a theorem forcing every allowed algorithm into the restricted path
+model; polynomial runtime alone gives no such continuity condition.
+
+\section{An easy matrix family with a genuine overlap gap}
+To make that logical gap concrete, let $n=2k$, $k\ge2$, split rows and
+columns into their first and last $k$ positions, and set entries to one
+in the two matching diagonal blocks and to $-k$ off those blocks.
+If a choice uses $a$ first-block rows and $b$ first-block columns,
+the number of off-block entries is
+$c=a(k-b)+(k-a)b$; its average is $1-(k+1)c/k^2$.
+For fixed $a$, the expression $c=ka+(k-2a)b$ is affine in
+$0\le b\le k$, so its minimum is $k\min(a,k-a)$.
+If $0<a<k$, then $c\ge k$. If $a=0$ or $k$, any choice other
+than the corresponding matching whole block also has $c\ge k$.
+Thus precisely the two matching blocks have average above $1/2$:
+they have value one and all other choices have value at most $-1/k$.
+Their pairwise overlap vectors are $(0,0)$ and $(1,1)$, with an
+unambiguous gap, yet the first matching block is found immediately
+from its labels. Entrywise perturbations of magnitude at most $1/4$
+preserve this conclusion, since any average changes by at most $1/4$.
+
+This deterministic family is not drawn from the source Gaussian law
+and does not refute its average-case conjecture. It only refutes the
+distribution-free inference that overlap separation by itself establishes
+algorithmic hardness. Under the Gaussian law, the relevant gap-to-hardness
+step still needs a further algorithmic argument.
+
+\section{Model-assisted audit and remaining scope}
+The audit checked pair counting including identical choices, covariance
+normalization, the two-coordinate separator, and the possibility of an
+empty good set. The known source transition is rederived only in the
+sufficient forbidden-strip direction, not fully characterized. The
+primary paper's abstract was also read; its full algorithmic proofs
+were not audited. No numerical simulation or theorem prover was used.
+The requested exclusion of all polynomial-time algorithms remains unproved.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. A complete first-moment forbidden strip and a conditional small-step path obstruction are proved, but no argument restricts every polynomial-time algorithm to such paths. The Gaussian average-case hardness target remains unresolved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Gamarnik, Finding a Large Submatrix of a Gaussian Random Matrix, OWR 22/2016, pp. 1211--1213; complete relevant primary passage read from the cached report. \url{https://doi.org/10.4171/owr/2016/22}.
+\item Gamarnik and Li, Finding a Large Submatrix of a Gaussian Random Matrix (2016); primary abstract inspected, full paper proof not audited. \url{https://arxiv.org/abs/1602.08529}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} A complete first-moment forbidden strip and a conditional small-step path obstruction are proved, but no argument restricts every polynomial-time algorithm to such paths. The Gaussian average-case hardness target remains unresolved.
+\end{document}
