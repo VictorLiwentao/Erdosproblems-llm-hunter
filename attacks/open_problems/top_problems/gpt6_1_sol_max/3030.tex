@@ -1,0 +1,397 @@
+% TOP_PROBLEM: {"id": 3030, "title": "inverse of an integer matrix", "category_id": 4, "category": {"id": 4, "name": "algebra", "display_name": "Algebra", "description": "Group theory, ring theory, field theory, and algebraic structures.", "slug": "algebra", "order_index": 4, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% SUBMISSION: {"kind":"research_attempt","category":"top_problems","problem_id":"3030","model":{"provider":"OpenAI","version":"GPT 6.1 Sol (gpt-6.1-sol)","reasoning":"Max","generated_on":"2026-10-12"},"other_models":"None for target-specific drafting or audit","tools":"Python 3.13.2 standard-library exact arithmetic; web browsing; read-only GitHub API; built-in standalone LaTeX compiler; repository submission validator","target":"For every 1 <= m <= n, all integer d_i >= 2 and every integer m-by-n X, characterize when M=[diag(d_i) X] has an integer (m+n)-by-m Y with MY=I_m, and decide rowwise gcd sufficiency.","scope":"Theorem 1 proves a finite necessary-and-sufficient prime-rank criterion and the maximal-minor criterion in the entire original range. Lemma 2 and Section 3 construct an inverse or obstruction. Section 4 disproves rowwise sufficiency and Corollary 3 characterizes its uniform validity for fixed D.","human_contributions":"Research directed and overseen by Wentao Li; no human mathematical edits or independent proof checking supplied.","verification":"Prompt B same-model audit; 21020 exhaustive residue cases and 500 seeded cases; exact inverse and modular-obstruction checks; no independent human verification or proof assistant.","reproducibility":"Filled mandatory Prompt A before draft and Prompt B after complete draft, preserved draft and complete corrected output, checker seed 3030 and exact outputs retained in local research/integer-right-inverse-3030-2026-10-12/; no public artifact URL yet."}
+% ATTEMPT_STATUS: solved
+% FULL_SOLUTION_SCOPE: {"target":"For every 1 <= m <= n, all integer d_i >= 2 and every integer m-by-n X, characterize when M=[diag(d_i) X] has an integer (m+n)-by-m Y with MY=I_m, and decide rowwise gcd sufficiency.","result":"Theorem 1, Lemma 2 and Section 3 give the full criterion and constructive inverse/obstruction; the labelled rowwise counterexample in Section 4 is a verified counterexample to rowwise sufficiency; Corollary 3 gives the fixed-D uniform criterion.","coverage":"All m,n with 1 <= m <= n, every d_i >= 2, arbitrary integer X including zero/negative entries, repeated diagonals, shared primes, prime powers, m=1 and m=n; both original bundled questions answered.","dependencies":"Main proof explains determinant multilinearity/Cauchy-Binet, cofactor identity, elementary Bezout and rank facts. Optional Section 5 uses Smith normal form existence over Z and the determinantal-divisor theorem, Stanley Theorems 2.1(4) and 2.4; Smith (1861) is historical provenance.","human_verification":"None supplied; same-model audit and computation only.","unverified":"All proofs, optional Smith exposition and checker lack independent human proof verification; no formalization. The matching upstream website record returned HTTP 403; original Garden source and pinned canonical definition were inspected.","novelty":"Garden, Smith original scan, Stanley author PDF, related 2024 MathOverflow answer, pinned/current repository attempts and bounded all-state PR queries checked on 2026-10-12. Established mathematics; no novelty claimed."}
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\adj}{adj}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\F}{\mathbb F}
+\title{Integer right inverses of $[D\ X]$: a finite rank criterion\\
+\large Catalogue problem 3030}
+\author{OpenAI GPT 6.1 Sol (Max reasoning)\\[0.35em]
+\small This research was conducted under the direction and oversight of Wentao Li.}
+\date{12 October 2026}
+\begin{document}
+\section*{Integer right inverses of $[D\ X]$: a finite rank criterion}
+\noindent\textbf{OpenAI GPT 6.1 Sol (Max reasoning)}\par
+This research was conducted under the direction and oversight of Wentao Li.\par
+12 October 2026
+\section*{Abstract}
+For the full recorded range $1\le m\le n$, an integer right inverse of
+$[D\ X]$ exists precisely when, for each prime $p$ dividing some $d_i$,
+the rows of $X$ indexed by $\{i:p\mid d_i\}$ are linearly independent
+over $\F_p$. We prove this criterion and construct an inverse from
+B\'ezout coefficients and adjugates. Rowwise coprimality alone fails,
+already for $m=n=2$. These are applications of established integer
+linear algebra; no mathematical novelty is claimed.
+
+
+\section{Original target and provenance}
+The recorded target, UnsolvedMath ID 3030 (OPG-50149), comes from
+Steven A. Gregory's question posted on Open Problem Garden on
+27 May 2013~\cite{garden,catalogue}. For every pair of integers
+$1\le m\le n$, every diagonal matrix
+$D=\diag(d_1,\ldots,d_m)$ with integers $d_i\ge2$, and every
+$X\in\Z^{m\times n}$, determine necessary and sufficient conditions
+for
+\[
+ M=[D\ X]\in\Z^{m\times(m+n)}
+ \quad\text{to admit}\quad
+ Y\in\Z^{(m+n)\times m},\qquad MY=I_m.
+\]
+The source also asks whether $\gcd(d_i,X_{i1},\ldots,X_{in})=1$
+for each row $i$ is sufficient. Both questions are answered below.
+The original formulation is retained: entries of $X$ may be zero or
+negative, the $d_i$ need not be distinct or coprime, and $X$ need not
+have full row rank even over $\mathbb Q$.
+
+The general criterion by maximal minors is standard, equivalently
+expressible by Smith normal form. Smith's original paper~\cite{smith}
+and Stanley's account~\cite[Theorems 2.1(4) and 2.4]{stanley} document
+the relevant theory. A related 2024 MathOverflow answer by loup blanc
+states the integer right-inverse criterion in Smith-form
+language~\cite{mo}. Our main proof supplies the determinant argument,
+specialization and inverse construction explicitly, rather than assuming
+Smith normal form. This is a complete answer to a catalogue gap using
+known mathematics, not a claim to solve a newly open research problem.
+
+The Garden page, Smith scan, Stanley author PDF, MathOverflow answers
+and dataset card were consulted on 12 October 2026. Catalogue ID and
+statement metadata were checked in the pinned repository; the complete
+upstream dataset was not examined, and its linked problem page returned
+HTTP 403. The displayed
+Garden question has no visible mathematical answer or discussion.
+At repository snapshot
+\texttt{1397a8c7f75e48a6343b0afe338390b365d344df}, no 3030 attempt
+was found; current GitHub attempt directories matched that snapshot.
+All-state PR searches for \texttt{3030}, the problem title, and
+\texttt{integer matrix} returned no matches. These bounded searches
+establish neither novelty nor the absence of unpublished work.
+
+\section{The characterization}
+Write $[k]=\{1,\ldots,k\}$ and set
+\[
+ P=\prod_{i=1}^m d_i,
+ \qquad S_p=\{i\in[m]:p\mid d_i\}.
+\]
+For row and column sets $I,J$, $X_{I,J}$ means the submatrix in
+increasing index order. Write $X_{S_p,:}$ for its indicated rows and
+all $n$ columns. Empty matrices have rank zero and determinant one;
+an empty product equals one. Gcds are nonnegative, and signs and zero
+entries are allowed in their arguments.
+
+\begin{theorem}\label{thm:criterion}
+Under all the original hypotheses, the following are equivalent:
+\begin{enumerate}
+\item $M$ has an integer right inverse.
+\item Its column lattice is $D\Z^m+X\Z^n=\Z^m$.
+\item The gcd of all $m\times m$ minors of $M$ is one; explicitly,
+\begin{equation}\label{eq:weighted}
+ \gcd_{\substack{I\subseteq[m],\ J\subseteq[n]\\|I|=|J|}}
+ \left(\left(\prod_{i\notin I}d_i\right)\det X_{I,J}\right)=1.
+\end{equation}
+\item For every prime $p\mid P$,
+\begin{equation}\label{eq:local}
+ \rank_{\F_p}(X_{S_p,:}\bmod p)=|S_p|.
+\end{equation}
+\end{enumerate}
+Thus factoring $P$ and doing finitely many Gaussian eliminations over
+prime fields decides the question. No tests modulo higher prime powers
+are required.
+\end{theorem}
+
+\begin{lemma}[Standard maximal-minor criterion, with construction]
+\label{lem:minors}
+Let $A\in\Z^{r\times q}$ with $1\le r\le q$. For each increasing
+$r$-element column set $J$, let $E_J\in\Z^{q\times r}$ have those
+standard basis columns, and let $A_J=AE_J$. Then $A$ has an integer
+right inverse if and only if $\gcd_J\det A_J=1$. Whenever integers
+$c_J$ satisfy $\sum_J c_J\det A_J=1$, one such inverse is
+\begin{equation}\label{eq:construct}
+ R=\sum_J c_J E_J\adj(A_J).
+\end{equation}
+\end{lemma}
+\begin{proof}
+If $AR=I_r$, determinant multilinearity gives Cauchy--Binet:
+\[
+ 1=\det(AR)=\sum_{|J|=r}\det(A_J)\det(R_{J,:}).
+\]
+For completeness, expand each column of $AR$ as a linear combination
+of columns of $A$. Terms with a repeated column vanish. Grouping the
+remaining terms by their increasing index set $J$, the signed sum of
+the coefficients is precisely $\det(R_{J,:})$. The displayed identity
+therefore expresses one as an integer combination of the minors.
+
+Conversely, if their gcd is one, the extended Euclidean algorithm,
+applied successively to this finite list, supplies the integers $c_J$.
+The cofactor expansion gives $A_J\adj(A_J)=\det(A_J)I_r$, including
+when $A_J$ is singular. Consequently \eqref{eq:construct} is integral
+and $AR=\sum_J c_J\det(A_J)I_r=I_r$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:criterion}]
+The columns of an integer right inverse give integer preimages of the
+standard basis of $\Z^m$. Conversely, choosing such preimages and
+putting them in columns gives an integer right inverse. This proves
+the equivalence of (1) and (2); Lemma~\ref{lem:minors} proves (1)$\iff$(3).
+To obtain \eqref{eq:weighted}, a maximal minor selects $m-r$ diagonal
+columns, indexed by $T\subseteq[m]$, and $r$ columns of $X$, indexed
+by $J$. Expansion along the diagonal columns gives
+\[
+ \pm\left(\prod_{i\in T}d_i\right)\det X_{[m]\setminus T,J}.
+\]
+Conversely, every pair $I,J$ in \eqref{eq:weighted} arises in this way
+by taking $T=[m]\setminus I$. Signs do not affect the gcd.
+
+Let $\delta$ be that gcd. The minor consisting of all diagonal columns
+is $P>0$, so $\delta>0$ and $\delta\mid P$. Thus $\delta=1$ if and
+only if no prime $p\mid P$ divides every maximal minor. Reduction
+modulo $p$ commutes with determinants, and a matrix over a field has
+row rank $m$ precisely when some maximal minor is nonzero. Hence (3)
+is equivalent to $\rank_{\F_p}(M\bmod p)=m$ for every $p\mid P$.
+
+Fix such a prime. The diagonal columns of $M\bmod p$ span exactly
+the coordinate subspace
+\[
+ W_p=\operatorname{span}_{\F_p}\{e_i:i\notin S_p\}.
+\]
+After quotienting $\F_p^m$ by $W_p$, the remaining column images are
+exactly the columns of $X_{S_p,:}\bmod p$. Therefore
+\begin{equation}\label{eq:rank}
+ \rank_{\F_p}(M\bmod p)
+   =m-|S_p|+\rank_{\F_p}(X_{S_p,:}\bmod p).
+\end{equation}
+This can also be seen by subtracting multiples of the nonzero
+diagonal columns from each $X$ column, to zero all coordinates outside
+$S_p$. Equation~\eqref{eq:rank} proves (3)$\iff$(4). A prime power
+cannot divide $\delta=1$; excluding each prime divisor already suffices.
+\end{proof}
+
+\section{Constructing a right inverse or an obstruction}
+Lemma~\ref{lem:minors} is a finite algorithm: enumerate the maximal
+minors, compute their gcd and B\'ezout coefficients, and use
+\eqref{eq:construct}. A smaller certificate follows directly from the
+prime tests. When \eqref{eq:local} holds, for each $p\mid P$ select a
+set $K_p$ of $|S_p|$ columns such that
+$\det(X_{S_p,K_p})\not\equiv0\pmod p$. Let $J_p$ select the diagonal
+columns outside $S_p$ and these columns of $X$, in their original
+order, and put $a_p=\det(M_{:,J_p})$. Then
+\[
+ a_p=\pm\left(\prod_{i\notin S_p}d_i\right)\det X_{S_p,K_p},
+ \qquad p\nmid a_p.
+\]
+It follows that $\gcd(P,(a_p)_{p\mid P})=1$: a prime divisor of this
+gcd would divide $P$ and would contradict its own selected $a_p$.
+Use these B\'ezout coefficients in \eqref{eq:construct}, including
+the diagonal minor. This requires at most one plus the number of
+distinct prime divisors of $P$ selected minors. The minor chosen for
+one prime may differ from the one chosen for another.
+
+If a prime test fails, Gaussian elimination supplies a nonzero vector
+$\lambda\in\F_p^{S_p}$ with
+$\lambda^{\mathsf T}X_{S_p,:}=0$. Extend it by zeros outside $S_p$ to
+$a\in\F_p^m$. Then $a^{\mathsf T}M=0$, while $a\ne0$; an integer
+identity $MY=I_m$ would reduce to
+$a^{\mathsf T}=a^{\mathsf T}MY=0$, a contradiction. This is a
+directly checkable failure certificate.
+
+Existence does not require any single maximal minor to be $\pm1$.
+For example, take $m=n=2$ and
+\[
+ D=\begin{pmatrix}2&0\\0&3\end{pmatrix},\quad
+ X=\begin{pmatrix}1&0\\1&0\end{pmatrix},\quad
+ M=\begin{pmatrix}2&0&1&0\\0&3&1&0\end{pmatrix}.
+\]
+In lexicographic column-set order the maximal minors are
+$6,2,0,-3,0,0$, with gcd one. Direct multiplication verifies
+\[
+ Y=\begin{pmatrix}-1&1\\-1&1\\3&-2\\0&0\end{pmatrix},
+ \qquad MY=I_2.
+\]
+
+\section{The rowwise condition}
+Necessity follows by looking at the $(i,i)$ entry of $MY$:
+\[
+ 1=d_iY_{i,i}+\sum_{j=1}^n X_{ij}Y_{m+j,i}.
+\]
+Every common divisor of the indicated row entries must divide one.
+However, rowwise coprimality only ensures that each individual row
+in $S_p$ is nonzero modulo $p$; it does not ensure their independence.
+
+An explicit counterexample meeting every original hypothesis is
+\begin{equation}\label{eq:counterexample}
+ m=n=2,\qquad D=2I_2,\qquad
+ X=\begin{pmatrix}1&0\\1&0\end{pmatrix},\qquad
+ M=\begin{pmatrix}2&0&1&0\\0&2&1&0\end{pmatrix}.
+\end{equation}
+Each row has gcd one. For any integer column
+$v=(a,b,c,e)^{\mathsf T}$,
+$Mv=(2a+c,2b+c)^{\mathsf T}$ has coordinates of the same parity.
+It cannot equal $e_1=(1,0)^{\mathsf T}$, so no right inverse exists.
+Equivalently, $S_2=\{1,2\}$ and $X_{S_2,:}$ has rank one modulo two;
+the maximal-minor gcd is two.
+
+\begin{corollary}\label{cor:rowwise}
+Fix any original diagonal matrix $D$ and any $n\ge m$. The rowwise
+condition is sufficient for every $X\in\Z^{m\times n}$ if and only
+if the $d_i$ are pairwise coprime. In particular, for $m=1$ it is
+necessary and sufficient for every $n\ge1$.
+\end{corollary}
+\begin{proof}
+Pairwise coprimality means $|S_p|\le1$ for every prime $p$. The rowwise
+condition makes this single row nonzero modulo $p$, so all the tests
+in Theorem~\ref{thm:criterion} pass. For $m=1$, this is exactly
+the ordinary B\'ezout condition.
+
+If $p$ divides two diagonal entries, choose every row of $X$ equal
+to $(1,0,\ldots,0)$. All row gcds are one, but the rows indexed by
+$S_p$ have rank one, less than $|S_p|$. This proves the converse
+for every allowed $n$. It also gives failures in every dimension
+$m\ge2$, for example with $D=2I_m$.
+\end{proof}
+Noncoprime diagonal entries do not prevent existence for particular
+$X$: taking $X=[I_m\ 0]$ always gives the inverse with zero top block
+and bottom block $\begin{pmatrix}I_m\\0\end{pmatrix}$. On the other
+hand, $X=0$ never works under $d_i\ge2$. These cases, $m=n$, singular
+$X$, and arbitrary prime powers are all covered by the same theorem.
+
+\section{Smith normal form and all inverses}
+For comparison with the established literature, $\Z$ is a principal
+ideal domain and $M$ has rational row rank $m$ because $P\ne0$.
+The standard Smith theorem gives unimodular integer matrices
+$U\in\Z^{m\times m}$ and $V\in\Z^{(m+n)\times(m+n)}$ such that
+\[
+ UMV=[\diag(s_1,\ldots,s_m)\ 0],
+ \qquad 1\le s_1\mid s_2\mid\cdots\mid s_m.
+\]
+Existence is Theorem 2.1(4) of~\cite{stanley}; Theorem 2.4 states
+that $s_1\cdots s_m$ equals the gcd of the maximal minors.
+Their hypotheses apply over $\Z$, and all $s_i$ are nonzero by the
+rank observation. Thus the criterion is precisely $s_1=\cdots=s_m=1$
+(equivalently $s_m=1$). Indeed, transforming any right inverse yields
+$[\diag(s_i)\ 0](V^{-1}YU^{-1})=I_m$, forcing $s_i=1$.
+
+When the criterion holds, the complete set of integer right inverses is
+\begin{equation}\label{eq:all}
+ Y=V\begin{pmatrix}I_m\\Z\end{pmatrix}U,
+ \qquad Z\in\Z^{n\times m}\ \text{arbitrary}.
+\end{equation}
+To verify both directions, $MY=U^{-1}[I_m\ 0]\begin{pmatrix}I_m\\Z\end{pmatrix}U
+=I_m$, and any inverse makes the top $m$ rows of $V^{-1}YU^{-1}$
+equal to $I_m$. This supplementary description uses Smith existence;
+the substantive prime criterion and adjugate construction above have
+an elementary proof independent of that theorem.
+
+\section{Verification, contributions and scope}
+OpenAI GPT 6.1 Sol (Max reasoning) generated the proof, manuscript, and
+verification code. Research directed and overseen by Wentao Li.
+Generation and review date: 12 October 2026. No other model was used
+to draft or audit this target. No independent human proof verification
+has been supplied, and no proof assistant was used.
+
+The dedicated standard-library checker
+\path{scripts/check_integer_right_inverse_3030.py} ran with
+Python 3.13.2 and seed 3030. It passed 21,020 exhaustive residue cases
+with $1\le m\le3$ and $m\le n\le3$, and 500 seeded cases with
+$1\le m\le5$, $m\le n\le m+2$, diagonal entries up to 49, and $X$
+entries from $-8$ to $8$. It compared modular ranks and maximal-minor
+gcds; exhaustive cases and 231 small seeded cases also used direct
+generation of the finite group $\prod_i\Z/d_i\Z$. It checked
+$MY=I_m$ exactly for every accepted case, for both the full-minor and
+prime-selected constructions, and checked modular left-null vectors
+for every rejected case. It also passed 2,000 comparisons of Bareiss
+and permutation determinant computations, 300 Cauchy--Binet checks,
+and 500 residue-invariance checks under $X\mapsto X+DK$.
+These finite computations support the proof, not its universal validity.
+
+Repository Prompt A was applied before drafting. Filled inputs, the
+complete pre-audit draft, the final Prompt B and its outcome, source
+checks, and exact checker output are retained in the local research
+directory \path{research/integer-right-inverse-3030-2026-10-12/} of
+the surrounding workspace. They have no public URL yet. Prompt B found no mathematical gap after checking the full target,
+the determinant proof, local-rank reduction, both constructions, the
+rowwise examples and the Smith-form transformation order. It required
+accurate source-access disclosures, the licence link, and the final
+machine-readable and completion declarations. The complete draft
+compiled successfully with the desktop compiler. Final submission and
+compilation outcomes are retained in the research notes; neither is
+independent proof verification.
+
+\paragraph{Full-target scope.}
+Theorem~\ref{thm:criterion} provides a finite necessary-and-sufficient
+test for every $1\le m\le n$, all integers $d_i\ge2$, and every
+integral $X$ of the stated size. Lemma~\ref{lem:minors} and the
+prime-selected construction recover an integer right inverse whenever
+it exists. Equation~\eqref{eq:counterexample} disproves the proposed
+rowwise sufficiency, and Corollary~\ref{cor:rowwise} identifies its
+uniform range of validity. The general determinant and Smith-form
+facts are established results, with the former proved here and the
+optional Smith exposition using the checked theorem cited above.
+No restriction on the original target remains. All proofs and the
+checker remain without independent human verification. The literature
+and repository searches support attribution to known theory; novelty
+is not claimed. The definition's source-catalogue status \texttt{open}
+is retained separately from this attempt's solved claim.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 100\%}
+The finite criterion covers every original parameter and input, and the
+rowwise proposal is disproved. No mathematical gap in the recorded
+problem remains after the same-model audit. This is a full-solution
+claim for the exact target, using established mathematics; the estimate
+measures target coverage, not proof confidence or independent checking.
+
+\paragraph{Final status.}
+\textbf{Solved (LLM claim)} for the entire recorded target. The source
+catalogue and community-review metadata remain unchanged.
+
+\begin{thebibliography}{9}
+\bibitem{garden}
+Steven A. Gregory, \emph{inverse of an integer matrix},
+Open Problem Garden, posted by lvoyster, 27 May 2013.
+\url{https://www.openproblemgarden.org/op/inverse_of_an_integer_matrix}.
+
+\bibitem{catalogue}
+ULAM.AI and the UnsolvedMath Contributors,
+\emph{UnsolvedMath: A Curated Collection of Open Mathematics Problems},
+record 3030 (OPG-50149), CC BY 4.0,
+\url{https://creativecommons.org/licenses/by/4.0/}.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+Original catalogue statement restated here; the proof and examples are
+prepared for this attempt. Canonical repository definition:
+\path{attacks/open_problems/top_problems/definitions/3030.tex}.
+
+\bibitem{smith}
+H. J. S. Smith, \emph{On systems of linear indeterminate equations and
+congruences}, Philosophical Transactions of the Royal Society of
+London \textbf{151} (1861), 293--326.
+\url{https://doi.org/10.1098/rstl.1861.0016}.
+Original scan (title and relevant integer-matrix discussion consulted):
+\url{https://upload.wikimedia.org/wikipedia/commons/5/56/On_Systems_of_Linear_Indeterminate_Equations_and_Congruences_(IA_jstor-108738).pdf}.
+
+\bibitem{stanley}
+Richard P. Stanley, \emph{Smith normal form in combinatorics},
+Journal of Combinatorial Theory, Series A \textbf{144} (2016), 476--495.
+\url{https://arxiv.org/abs/1602.00166}.
+Theorems 2.1(4) and 2.4 checked in the author PDF dated 18 April 2016:
+\url{https://math.mit.edu/~rstan/papers/snf_survey.pdf}.
+
+\bibitem{mo}
+loup blanc, answer to \emph{Right inverse of integer matrix},
+MathOverflow question 464101, 22 February 2024.
+\url{https://mathoverflow.net/questions/464101/right-inverse-of-integer-matrix}.
+The general Smith-form criterion is attributed to that answer;
+its optional numerical probability remarks are not used.
+\end{thebibliography}
+\end{document}
