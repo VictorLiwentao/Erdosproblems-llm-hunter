@@ -22,7 +22,7 @@ from build_site import (declared_attempt_status, extract_completion,
                         parse_numbered_problem_tex, parse_openai_claim,
                         validate_open_problems_catalog)
 from scripts.economics_catalog import (extract_statement, load_registry,
-                                       read_ranking_csv)
+                                       read_ranking_csv, load_economics_human_contributions)
 from scripts.import_economics import braced_argument
 
 PREFIX = 'attacks/open_problems/'
@@ -31,7 +31,8 @@ TOP_REGISTRY = 'lists/unsolvedmath/problems.json'
 ECON_REGISTRY = 'lists/economics/problems.json'
 REGISTRY_FILES = {TOP_REGISTRY, ECON_REGISTRY, 'lists/unsolvedmath/display_order.json',
                   'lists/economics/rankings.csv', 'lists/erdos_problems.csv',
-                  'lists/erdos_status.json', 'lists/mo_problems.csv'}
+                  'lists/erdos_status.json', 'lists/mo_problems.csv',
+                  'lists/economics/human_contributions.json'}
 # Three pre-policy identical CSV repetitions, retained without rewriting history.
 LEGACY_MO_DUPLICATE_COUNTS = {'339137': 2, '377545': 2, '185834': 2}
 LITERALS = {'verbatim', 'verbatim*', 'Verbatim', 'lstlisting', 'minted', 'comment'}
@@ -251,6 +252,7 @@ def load_catalogs(root):
                                    'displayOrder': json.loads((root / 'lists/unsolvedmath/display_order.json').read_text())})
     economics = load_registry(root)
     read_ranking_csv(root / 'lists/economics/rankings.csv', economics['problems'])
+    load_economics_human_contributions(root, economics['problems'])
     erdos = read_csv_records((root / 'lists/erdos_problems.csv').read_text(), 'number', 'Erdos')
     erdos.update({identifier: {} for identifier in
                  json.loads((root / 'lists/erdos_status.json').read_text())['problems']})
@@ -274,6 +276,11 @@ def validate_file(root, path, catalogs):
     active, headers = scan_tex(raw)
     body = body_tex(active, standalone=statement or category == 'economics')
     canonical = catalogs[category][identifier]
+    if category == 'economics' and folder == 'Human_Contribution':
+        entries = load_economics_human_contributions(root, catalogs['economics'].values())
+        if Path(path).name not in entries or not has_references(body):
+            raise ValueError('Human contribution needs registered provenance and references')
+        return 'human contribution (scope/contribution review required)'
     if category in {'top_problems', 'economics'}:
         key = 'TOP_PROBLEM' if category == 'top_problems' else 'ECONOMICS_PROBLEM'
         exact_build_header(headers, key)

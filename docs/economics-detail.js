@@ -264,6 +264,10 @@
         if (attempts.length) {
             attemptsSection.hidden = false;
             attemptsSection.style.display = '';
+            const heading = attemptsSection.querySelector?.('h2');
+            if (heading && attempts.some(attack => attack.entry_kind === 'human_contribution')) {
+                heading.textContent = 'Research contributions and LLM claims';
+            }
             attemptsContainer.innerHTML = attempts.map((attack, index) => {
                 const version = Number.isSafeInteger(attack.version) ? attack.version : 1;
                 const filename = problem.id + (version > 1 ? '_v' + version : '') + '.tex';
@@ -276,7 +280,8 @@
                     .replace(/data-tex-scope="0"/g, 'data-tex-scope="attempt-' + (index + 1) + '"');
                 return '<div class="attempt"><div class="attempt-header"><h3>' +
                     escapeHtml((attack.model || '').replace(/_/g, ' ')) + ' (v' + version + ')</h3>' +
-                    '<span class="status-text">' + escapeHtml(shared.getAttemptClaim(attack)) + '</span>' +
+                    '<span class="status-text">' + escapeHtml(attack.entry_kind === 'human_contribution'
+                        ? 'submitted' : shared.getAttemptClaim(attack)) + '</span>' +
                     ' <a href="#comments">comments</a>' +
                     (source ? ' <a href="' + escapeHtml(source) + '" target="_blank" rel="noopener">source</a>' : '') +
                     (safeDownload ? ' <a href="' + escapeHtml(download) + '" download="' + escapeHtml(filename) + '">Download attack TeX</a>' : '') +
