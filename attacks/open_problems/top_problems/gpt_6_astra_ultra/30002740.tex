@@ -1,0 +1,93 @@
+% TOP_PROBLEM: {"id": 30002740, "title": "Quasicrystalline Gibbs Phases in Higher Dimensions", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The quantifier over dimensions and the distinction between a translation-invariant mixture and its nonperiodic extremal components are part of the target. The state space and meaning of short range remain source-specific."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002740", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "In each dimension at least three, can a translation-invariant equilibrium state be a mixture containing nonperiodic pure phases?", "scope": "Computes the local limit of uniformly translated deterministic interfaces and shows that averaging can erase all nonperiodic components.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked cylinder-observable counts and limiting weights, orbit escape and the absence of a claimed positive-temperature Gibbs realization. Model self-audit only; no independent human proof checking. Coordinator checked the cylinder-event estimate losing the interface under uniform translation averaging. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked cylinder-observable counts and limiting weights, orbit escape and the absence of a claimed positive-temperature Gibbs realization. Retained unresolved status and zero original-target progress; An invariant Gibbs mixture retaining nonperiodic extremal components in every d≥3 is not constructed."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30002740; source catalogue code OWR-13355-004
+\setcounter{section}{30002739}
+\section{Quasicrystalline Gibbs Phases in Higher Dimensions}\label{30002740}
+{\small UnsolvedMath ID 30002740 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+A short-range lattice interaction has local or suitably decaying couplings as specified by its Gibbs specification. A translation-invariant Gibbs measure is invariant under all lattice shifts. Its extremal decomposition expresses it as a mixture of pure Gibbs phases; the pure phases in that decomposition need not individually share the mixture\textquotesingle s translation invariance. Nonperiodic here excludes invariance under any finite-index translation subgroup.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+In every dimension at least $3$, does there exist a translation-invariant Gibbs measure for a short-range interaction whose extremal decomposition contains nonperiodic Gibbs measures?
+
+\paragraph{Source scope and qualification.}
+The quantifier over dimensions and the distinction between a translation-invariant mixture and its nonperiodic extremal components are part of the target. The state space and meaning of short range remain source-specific.
+\subsection{Short English statement}
+In each dimension at least three, can a translation-invariant equilibrium state be a mixture containing nonperiodic pure phases?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Computes the local limit of uniformly translated deterministic interfaces and shows that averaging can erase all nonperiodic components.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Why averaging translated interfaces can lose them.} On $\mathbb Z^d$, define a deterministic flat-interface configuration $\sigma^{(k)}_x=-1$ for $x_d<k$ and $+1$ for $x_d\geq k$. Let $\mu_R=(2R+1)^{-1}\sum_{k=-R}^R\delta_{\sigma^{(k)}}$. For any finite observation box contained in $|x_d|\leq L$, only $2L+1$ interface positions can cross the box. Their total weight is at most $(2L+1)/(2R+1)\to0$. The remaining positions make the box uniformly plus or uniformly minus with limiting weights one half. Hence, on every cylinder observable,
+\[
+ \mu_R\longrightarrow\tfrac12\delta_{+}+\tfrac12\delta_{-}.
+\]
+The limit is translation invariant and has only periodic components, although every finite mixture was built from nonperiodic interface configurations.
+
+\paragraph{What the example rules out.} Translation averaging over a noncompact orbit does not automatically produce an invariant measure whose extremal decomposition retains nonperiodic elements. Mass in the orbit parameter can escape to infinity and leave only bulk phases. The proof extends to interface measures with uniform convergence to plus/minus local laws far from the interface, provided that convergence is explicitly assumed.
+
+\paragraph{Source scope and gap.} The deterministic delta measures are not claimed to be positive-temperature Gibbs states of an admissible finite-energy interaction. Thus this is a failure of a proposed averaging route, not a negative answer to the existence problem. One needs a tight invariant distribution of genuinely nonperiodic Gibbs phases, or a different construction, for every dimension $d\geq3$. Producing one isolated interface phase alone would not establish the requested invariant-mixture statement.
+
+\paragraph{Verification and adversarial audit.}
+Checked cylinder-observable counts and limiting weights, orbit escape and the absence of a claimed positive-temperature Gibbs realization. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked cylinder-observable counts and limiting weights, orbit escape and the absence of a claimed positive-temperature Gibbs realization. Retained unresolved status and zero original-target progress; An invariant Gibbs mixture retaining nonperiodic extremal components in every d≥3 is not constructed.
+
+Coordinator checked the cylinder-event estimate losing the interface under uniform translation averaging. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. An invariant Gibbs mixture retaining nonperiodic extremal components in every d≥3 is not constructed.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. An invariant Gibbs mixture retaining nonperiodic extremal components in every d≥3 is not constructed.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30002740:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30002740 (OWR-13355-004). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30002740:2}{S2}] Mini-Workshop: Dynamical versus Diffraction Spectra in the Theory of Quasicrystals (2014), Oberwolfach Reports, DOI 10.4171/owr/2014/53, pp. 2987--3013. Primary report accessed 2026-10-11; relevant PDF pages 9, 10.
+\url{https://doi.org/10.4171/owr/2014/53}.
+\item[\hypertarget{source:30002740:3}{S3}] Taati and Miękisz, finite-range quasicrystalline Gibbs states (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/2512.24436}.
+\end{itemize}
+\label{end:30002740}
+\end{document}

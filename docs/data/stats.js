@@ -21,16 +21,17 @@ var siteStats = {
     ]
   },
   "open_problems": {
-    "total_problems": 4277,
-    "ranked_total": 4177,
+    "total_problems": 5581,
+    "ranked_total": 5481,
     "mo_total": 100,
-    "with_attacks": 1769,
-    "ranked_with_attacks": 1676,
+    "with_attacks": 2800,
+    "ranked_with_attacks": 2707,
     "models": [
       "OpenAI",
       "gpt 6 astra pro",
       "gpt 6 astra ultra",
-      "gpt pro 5.2"
+      "gpt pro 5.2",
+      "gpt6 1 sol max"
     ]
   }
 };

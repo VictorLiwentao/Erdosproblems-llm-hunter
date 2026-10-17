@@ -1,0 +1,159 @@
+% RESEARCH_DRAFT_SHA256: 763e01a8ca9e689ac2dba962af13efbd0f0ef8e0ffaac6e931f334ab22f3937a
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004914, "title": "Deterministic Optimization of Top-$k$ Perfect-Matching Edges", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004914", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Given a weighted graph and an integer $k$, is there a deterministic polynomial-time algorithm that finds a perfect matching maximizing the total weight of its $k$ heaviest edges?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Exact extendable-subset equivalence and fixed-k bipartite enumeration do not give uniform polynomial time; a concrete minimax gap defeats the naive threshold interchange.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Top-k perfect matching: extendable subsets and a failed threshold minimax swap}
+\noindent UnsolvedMath ID 30004914; OWR-8415356-025. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A perfect matching is a set of disjoint edges covering every vertex exactly once. If its edge weights in nonincreasing order are $w_1\geq\cdots\geq w_t$, its top-$k$ objective is $\sum_{i=1}^kw_i$, with $0\leq k\leq t$. The input weights are finitely encoded, and polynomial time is measured in their binary length and the graph size.
+\paragraph{Statement recorded in the supplied source.}
+Given a weighted graph and an integer $k$, is there a deterministic polynomial-time algorithm that finds a perfect matching maximizing the total weight of its $k$ heaviest edges? \href{https://doi.org/10.4171/owr/2021/53}{[S2]}
+\paragraph{Scope qualification.}
+The question asks for a deterministic algorithm on general graphs, and does not restrict to bipartite graphs. If no perfect matching exists the algorithm must detect infeasibility.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Find a perfect matching whose $k$ heaviest edges have the largest possible total weight.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004914 (OWR-8415356-025). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/53, pp. 2893--2954
+\url{https://doi.org/10.4171/owr/2021/53}.
+\item[S3] Combinatorial Optimization, Oberwolfach Reports 53/2021, primary report PDF
+\url{https://ems.press/content/serial-article-files/46931}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Given a weighted graph and an integer $k$, is there a deterministic polynomial-time algorithm that finds a perfect matching maximizing the total weight of its $k$ heaviest edges?
+
+\section{The source graph class and the catalogue target}
+The primary passage explicitly starts with a bipartite graph, whereas
+the catalogue asks about weighted graphs generally. The identities
+and counterexample below apply to either class; the counterexample
+itself is bipartite. The explicit matching-feasibility routine used
+for the fixed-$k$ enumeration is justified for bipartite graphs.
+No unrestricted deterministic algorithm for varying $k$ is claimed.
+
+\paragraph{Exact equivalence with extendable partial matchings.}
+Suppose a graph has a perfect matching with $t$ edges and
+$0\le k\le t$. Let $\mathcal R_k$ be the $k$-edge
+sets contained in some perfect matching. Then
+\[
+\max_M\operatorname{top}_k(M)=
+\max_{R\in\mathcal R_k}\sum_{e\in R}w_e.
+\]
+For any perfect matching, its $k$ heaviest edges belong to
+$\mathcal R_k$, proving one inequality. Conversely any $R$
+in that family extends to a matching $M$, and the sum of
+the largest $k$ weights in $M$ is at least the sum on
+that particular $k$-subset, proving the other. Negative weights
+and ties cause no change to these two comparisons. For $k=0$
+both objectives are zero once feasibility is established.
+
+For fixed $k$, enumerate all $k$-subsets of edges, discard
+those sharing an endpoint, delete the endpoints of each remaining
+set and test whether the residual graph has a perfect matching.
+This is exactly the extension test: its union with $R$ is
+perfect if and only if the residual matching is perfect. In a
+bipartite graph a maximum matching is found by repeatedly augmenting
+along alternating paths. Correctness follows because the symmetric
+difference with any larger matching has an augmenting path component;
+each search and the at most $|V|/2$ augmentations have polynomial
+cost. Hence enumeration takes $|E|^{O(k)}$ time and is
+polynomial for every fixed $k$. It is not a polynomial bound
+when $k$ is part of the input, since the exponent depends on $k$.
+
+\paragraph{The threshold identity and the tempting illegal exchange.}
+For real numbers $a_1\ge\cdots\ge a_t$ and $1\le k<t$,
+\[
+\sum_{i=1}^k a_i
+=\min_{\theta\in\mathbb R}
+\left(k\theta+\sum_{i=1}^t\max\{a_i-\theta,0\}\right).
+\]
+For any $\theta$, each of the first $k$ terms is at most
+$\theta+\max\{a_i-\theta,0\}$; summing and including
+the remaining nonnegative terms gives the upper-bound direction.
+If $a_{k+1}\le\theta\le a_k$, the first $k$ positive
+parts sum to $\sum_{i\le k}(a_i-\theta)$ and all remaining
+parts vanish, proving equality. This identity for one matching
+does not allow interchanging the maximum over matchings with this
+minimum over thresholds.
+
+\paragraph{An exact bipartite minimax gap.}
+Take a six-cycle. It has exactly two perfect matchings, its two
+alternating triples: choosing the edge covering one vertex forces
+successive choices around the cycle, giving precisely these two.
+Give one triple weights $(10,0,0)$ and the other $(6,6,6)$,
+and set $k=2$. Their top-two values are ten and twelve, so
+the true optimum is twelve. For $0\le\theta\le6$ their
+threshold objectives are $10+\theta$ and $18-\theta$.
+The maximum is minimized at $\theta=4$ with value fourteen.
+For $\theta<0$ the second objective is $18-\theta>18$;
+for $6\le\theta\le10$ the first is $10+\theta\ge16$;
+and for $\theta\ge10$ both are $2\theta\ge20$.
+Consequently
+\[
+\max_M\min_\theta\Phi(M,\theta)=12
+\quad\hbox{but}\quad
+\min_\theta\max_M\Phi(M,\theta)=14.
+\]
+The inner maximization at fixed threshold is an ordinary weighted
+matching objective, but solving that family of objectives optimizes
+the displayed upper bound, not an equal reformulation of the
+original problem. This explicit gap blocks that proposed proof of
+a deterministic solution; it does not exclude other threshold-based
+algorithms with an additional argument.
+
+\section{Audit}
+The original top-$k$ passage on printed page 2948 was inspected.
+The audit corrected the source/catalogue graph-class discrepancy,
+retained binary-encoded unrestricted weights, and did not equate
+fixed-$k$ polynomial time with a uniform polynomial algorithm.
+The six-cycle calculation is exact hand enumeration of two matchings;
+no matching solver or random isolation procedure was run.
+Derandomization or another uniform deterministic optimization mechanism
+for varying $k$ remains missing in this attempt.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Exact extendable-subset equivalence and fixed-k bipartite enumeration do not give uniform polynomial time; a concrete minimax gap defeats the naive threshold interchange.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 53/2021, Combinatorial Optimization, original question and surrounding discussion read from the primary PDF text on 11 October 2026. Historical statements are not a current-status survey. \url{https://ems.press/content/serial-article-files/46931}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Exact extendable-subset equivalence and fixed-k bipartite enumeration do not give uniform polynomial time; a concrete minimax gap defeats the naive threshold interchange.
+\end{document}

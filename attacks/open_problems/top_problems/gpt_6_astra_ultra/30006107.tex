@@ -1,0 +1,95 @@
+% RESEARCH_DRAFT_SHA256: a208905340516b70a729d81691477c6259e142e5cbbc8b560c284ce72fc84f2f
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30006107, "title": "Finite Strategies in the Distance Game", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006107", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "A complete elementary d=1 strategy under the actual source rules.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch011/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 30006107; source catalogue code OWR-14298804-009
+\section{Finite Strategies in the Distance Game}\label{30006107}
+{\small UnsolvedMath ID 30006107 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A linear program optimizes $c^Tx$ over a polyhedron $\{x:Ax\leq b\}$. In the simplex method a pivot moves between adjacent basic feasible solutions; a pivot rule chooses the next such move.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+Source-record limitation: The delta-distance property and exact permitted simplex replacement moves are not defined, so neither legal play nor the required terminating strategy can be recovered from this extraction.
+\paragraph{Statement recorded in the supplied source.}
+In the $\delta$-distance game, Peter chooses a leaving vertex of a simplex in the unit ball, and Roland chooses a replacement vertex that preserves the $\delta$-distance property and crosses the opposite face; the game ends when the simplex contains the origin. Does Peter have a strategy that always terminates, and can he force termination within $\operatorname{poly}(d,\delta^{-1})$ rounds? \href{https://doi.org/10.4171/owr/2024/50}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+The source asks about finite Strategies in the Distance Game.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30006107 (OWR-14298804-009). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2025), Oberwolfach Reports, DOI 10.4171/owr/2024/50, pp. 2949--3000
+\url{https://doi.org/10.4171/owr/2024/50}.
+\item[S3] OWR report
+\url{https://oa.tib.eu/renate/bitstreams/706cca58-da6b-4d8c-a979-ebf6e92658f0/download}.
+\item[S4] Shadow simplex method
+\url{https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SOCG.2015.345}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30006107 and code OWR-14298804-009 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30006107}
+
+\section{Research attempt}
+\subsection{Literature, source context and scope}
+The full catalogue body, including qualifications and historical source status, is preserved above. The original workshop report was inspected in the locally cached publisher PDF text. This attempt distinguishes the source question from any explicitly restricted model introduced below. Repeated records retain their own source IDs and do not become independent conjectures. Elementary results and attributed literature results are not claimed as new original-target progress.
+
+\subsection{Recovered rules and one-dimensional strategy}
+The catalogue excerpt omits legal-move details. The original report supplies them: every vertex altitude of the full-dimensional simplex is at least $\delta>0$, all vertices lie in the unit ball, and a replacement crosses the affine hyperplane of the remaining face while preserving these properties. We use these source rules, without editing the preserved excerpt.
+In dimension one the simplex is an interval $[a,b]\subseteq[-1,1]$ of length at least $\delta$. If it does not contain zero, reflect signs if necessary so that $0<a<b$. Peter removes the farther endpoint $b$.
+\begin{proposition}
+For $d=1$, this strategy forces termination within $\lceil1/\delta\rceil$ rounds, whenever the initial interval does not already contain zero.
+\end{proposition}
+\begin{proof}
+A legal replacement is an endpoint $e<a$ with $a-e\ge\delta$. Such a replacement exists: $e=a-\delta$ lies in $[-1,1]$, because $0<a<b\le1$ and $\delta\le b-a<1$. If $e\le0$, the new interval contains zero. Otherwise the new positive interval is $[e,a]$, and its largest endpoint $a$ is at most $b-\delta$. Thus after $r$ nonterminating rounds its largest endpoint is at most $1-r\delta$ and is strictly positive. There cannot be $\lceil1/\delta\rceil$ nonterminating rounds. Reflection gives the same argument for negative intervals.
+\end{proof}
+This proves the expected elementary one-dimensional case, not a new general-game strategy. In higher dimensions a vertex opposite a selected face is not ordered by a single scalar endpoint, and the proof gives no rule ensuring a uniform decrease.
+\subsection{Verification and remaining gaps}
+For $\delta=1/4$, the legal sequence $[3/4,1]\to[1/2,3/4]\to[1/4,1/2]\to[0,1/4]$ terminates in three rounds. Every length is $1/4$ and every nonterminal largest endpoint drops by $1/4$. No bound for arbitrary $d$ is established.
+
+\section{References and source attribution}
+The primary Oberwolfach workshop report, \url{https://doi.org/10.4171/owr/2024/50}, was inspected on 11 October 2026. Relevant source passages: 2024/50 pp. 2989--2990, distance-game definition and questions. Catalogue and contributor attribution remain in the original Sources section. Mathematical arguments labeled as this attempt are proved above; cited external results remain attributed to their authors and are not independently reproved or claimed as our discoveries.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch011/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

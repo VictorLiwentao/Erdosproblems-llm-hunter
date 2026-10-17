@@ -1,0 +1,95 @@
+% TOP_PROBLEM: {"id": 30004243, "title": "Sharp Free Energy of the Two-Dimensional Heisenberg Ferromagnet", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The Hamiltonian normalization determines the coefficient $\\pi/24$. It must not be changed by an unreported coupling rescaling. The meaning of matching, including the range of $\\kappa$, remains the comparison asked in the report."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004243", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Prove the lower free-energy estimate needed to make the two-dimensional ferromagnet\\textquotesingle s spin-wave prediction sharp.", "scope": "Reconstructed the elementary spin-wave coefficient and showed the associated infrared density divergence; no interacting matching lower bound.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked Gaussian normalization, nonnegative series integration and the contrasting infrared integrability of free energy and density. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the two-dimensional Gaussian factors and infrared density divergence, with no interacting-spin lower bound inferred. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked Gaussian normalization, nonnegative series integration and the contrasting infrared integrability of free energy and density. The remaining gap is: Control finite-spin interactions and infrared modes in a lower free-energy estimate with the source error exponent range. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30004243; source catalogue code OWR-17137-006
+\setcounter{section}{30004242}
+\section{Sharp Free Energy of the Two-Dimensional Heisenberg Ferromagnet}\label{30004243}
+{\small UnsolvedMath ID 30004243 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+For a finite lattice region $\Lambda$, the free energy per site at inverse temperature $\beta>0$ is $-(\beta|\Lambda|)^{-1}\log\operatorname{Tr}e^{-\beta H_\Lambda}$, with the thermodynamic limit defining $f^{2d}$. The Heisenberg ferromagnet has nearest-neighbor spin-$S$ interactions favoring alignment, with the report\textquotesingle s ground-energy normalization; $S$ is an allowed positive half-integer spin. The displayed asymptotics concern large $\beta S$. A matching lower bound must recover the leading coefficient and the requested asymptotic error strength.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+For the two-dimensional quantum Heisenberg ferromagnet, the free energy obeys
+
+$$f^{2d}(\beta,S)\leq-\frac\pi{24}S^{-1}\beta^{-2}\left(1-O\bigl((\beta S)^{-\kappa}\bigr)\right)$$
+
+for every $\kappa<1/3$. Can one prove a matching lower bound?
+
+\paragraph{Source scope and qualification.}
+The Hamiltonian normalization determines the coefficient $\pi/24$. It must not be changed by an unreported coupling rescaling. The meaning of matching, including the range of $\kappa$, remains the comparison asked in the report.
+\subsection{Short English statement}
+Prove the lower free-energy estimate needed to make the two-dimensional ferromagnet\textquotesingle s spin-wave prediction sharp.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Reconstructed the elementary spin-wave coefficient and showed the associated infrared density divergence; no interacting matching lower bound.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30004243. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{Recovering the proposed spin-wave coefficient.} For independent bosons with continuum quadratic dispersion \(\varepsilon(k)=S|k|^2\) in two dimensions, the formal thermodynamic free energy density is the convergent integral
+\[
+ f_{\rm sw}=\frac1\beta\int_{\mathbb R^2}\frac{d^2k}{(2\pi)^2}\log(1-e^{-\beta S|k|^2}).
+\]
+Expand \(-\log(1-z)=\sum_{n\ge1}z^n/n\); its nonnegative terms justify integrating the negative of this expression term by term. The Gaussian integral is \(\int d^2k\,e^{-n\beta S|k|^2}=\pi/(n\beta S)\). Hence
+\[
+ f_{\rm sw}=-\frac1{4\pi S\beta^2}\sum_{n\ge1}\frac1{n^2}=-\frac\pi{24S\beta^2},
+\]
+using the elementary Euler sum \(\sum n^{-2}=\pi^2/6\).
+\paragraph{The infrared obstruction.} The same approximation has divergent particle density: for sufficiently small \(|k|\), \(e^{\beta S|k|^2}-1\le2\beta S|k|^2\), so the density integral dominates a positive constant times \(\int_0^\delta dr/r\). Free energy is integrable at the origin, while density is not. Therefore controlling spin-wave interactions by a uniform small boson density cannot follow from this free-energy computation in infinite volume.
+\paragraph{Source gap.} The calculation assumes precisely the quadratic coefficient yielding the source normalization; it proves no comparison inequality for the interacting finite-spin Hamiltonian. The first gap is a lower-bound localization/interaction estimate that handles the infrared occupations and retains the leading coefficient with the requested \(\kappa<1/3\) errors. The supplied upper bound and all spin/temperature quantifiers remain unchanged.
+
+\paragraph{Verification and adversarial audit.}
+Checked Gaussian normalization, nonnegative series integration and the contrasting infrared integrability of free energy and density. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked Gaussian normalization, nonnegative series integration and the contrasting infrared integrability of free energy and density. The remaining gap is: Control finite-spin interactions and infrared modes in a lower free-energy estimate with the source error exponent range. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the two-dimensional Gaussian factors and infrared density divergence, with no interacting-spin lower bound inferred. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Control finite-spin interactions and infrared modes in a lower free-energy estimate with the source error exponent range.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30004243:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30004243 (OWR-17137-006). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30004243:2}{S2}] Many-Body Quantum Systems (2019), Oberwolfach Reports, DOI 10.4171/owr/2019/41, pp. 2541--2603. Primary report accessed 2026-10-11; relevant PDF pages 42.
+\url{https://doi.org/10.4171/owr/2019/41}.
+\end{itemize}
+\label{end:30004243}
+\end{document}

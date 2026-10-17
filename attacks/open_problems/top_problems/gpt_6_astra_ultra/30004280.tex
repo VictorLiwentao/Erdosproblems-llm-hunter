@@ -1,0 +1,90 @@
+% TOP_PROBLEM: {"id": 30004280, "title": "Classification of Subnets of Conformal Nets", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The target is classification for a given net, not reconstruction from $\\operatorname{Rep}(\\mathcal A)$ alone. Source assumptions such as irreducibility, index and covariance must be stated in an actual characterization."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004280", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Characterize every conformal subnet using enough information to go beyond the parent net\\textquotesingle s representation category.", "scope": "Constructed compatible finite-group fixed-point local algebras and expectations under explicit action hypotheses; not a characterization of every subnet.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked algebra closure, locality, covariance and averaging idempotence; withheld automatic strong-additivity or irreducibility assertions. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the finite-group averaging idempotent, range, compatibility and local commutation, with remaining net axioms qualified. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked algebra closure, locality, covariance and averaging idempotence; withheld automatic strong-additivity or irreducibility assertions. The remaining gap is: Prove necessity and reconstruction for all admissible subnets, including analytic vacuum/covariance and non-group cases. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30004280; source catalogue code OWR-17292-003
+\setcounter{section}{30004279}
+\section{Classification of Subnets of Conformal Nets}\label{30004280}
+{\small UnsolvedMath ID 30004280 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+A subnet $\mathcal B\subseteq\mathcal A$ assigns $\mathcal B(I)\subseteq\mathcal A(I)$ compatibly with interval inclusion, covariance and the subnet axioms. The category $\operatorname{Rep}(\mathcal A)$ consists of the net\textquotesingle s specified representations or sectors with fusion structure. A necessary-and-sufficient characterization must identify exactly which data determine a subnet and recover all such inclusions; additional data can distinguish nets or inclusions with the same representation category.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Given a conformal net $\mathcal A$, characterize all subnets $\mathcal B\subseteq\mathcal A$ by necessary and sufficient conditions that include information not determined by $\operatorname{Rep}(\mathcal A)$ alone.
+
+\paragraph{Source scope and qualification.}
+The target is classification for a given net, not reconstruction from $\operatorname{Rep}(\mathcal A)$ alone. Source assumptions such as irreducibility, index and covariance must be stated in an actual characterization.
+\subsection{Short English statement}
+Characterize every conformal subnet using enough information to go beyond the parent net\textquotesingle s representation category.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Constructed compatible finite-group fixed-point local algebras and expectations under explicit action hypotheses; not a characterization of every subnet.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30004280. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{A concrete source of compatible inclusions.} Suppose a finite group \(G\) acts on a given conformal net by automorphisms \(\alpha_g\) preserving each interval algebra and commuting with its covariance. Define
+\[
+ \mathcal B(I)=\{x\in\mathcal A(I):\alpha_g(x)=x\text{ for all }g\},\qquad
+ E_I(x)=|G|^{-1}\sum_g\alpha_g(x).
+\]
+The fixed set is a star subalgebra: sums, products and adjoints of fixed elements remain fixed. Isotony follows from that of \(\mathcal A\); locality follows because its disjoint-interval subalgebras already commute. Covariance follows from the commuting action. Also \(E_I^2=E_I\), since each group product appears exactly \(|G|\) times in the double sum. Its range is precisely \(\mathcal B(I)\), and the expectations agree on nested interval algebras.
+\paragraph{What the construction retains.} The actual action \(g\mapsto\alpha_g\), including its embedding into the parent net, is extra information beyond a bare abstract representation category. Thus fixed-point constructions illustrate a non-tautological supply of candidate subnets using local inclusion data.
+\paragraph{Limits of the attempt.} Additional vacuum/representation requirements must be treated on the appropriate invariant Hilbert subspace; neither strong additivity nor irreducibility is asserted automatically. More decisively, arbitrary conformal subnets need not have been shown to be such finite-group fixed points. The first gap is a necessary characterization recovering every allowed inclusion and its analytic compatibility, not merely this sufficient family. No complete classification from group actions or from \(\operatorname{Rep}(\mathcal A)\) is claimed.
+
+\paragraph{Verification and adversarial audit.}
+Checked algebra closure, locality, covariance and averaging idempotence; withheld automatic strong-additivity or irreducibility assertions. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked algebra closure, locality, covariance and averaging idempotence; withheld automatic strong-additivity or irreducibility assertions. The remaining gap is: Prove necessity and reconstruction for all admissible subnets, including analytic vacuum/covariance and non-group cases. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the finite-group averaging idempotent, range, compatibility and local commutation, with remaining net axioms qualified. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Prove necessity and reconstruction for all admissible subnets, including analytic vacuum/covariance and non-group cases.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30004280:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30004280 (OWR-17292-003). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30004280:2}{S2}] Subfactors and Applications (2019), Oberwolfach Reports, DOI 10.4171/owr/2019/49, pp. 3053--3140. Primary report accessed 2026-10-11; relevant PDF pages 28, 29.
+\url{https://doi.org/10.4171/owr/2019/49}.
+\item[\hypertarget{source:30004280:3}{S3}] Bischoff--Del Vecchio--Giorgetti, quantum operations on conformal nets (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/2204.14105}.
+\end{itemize}
+\label{end:30004280}
+\end{document}

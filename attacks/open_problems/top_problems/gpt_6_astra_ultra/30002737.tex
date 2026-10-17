@@ -1,0 +1,89 @@
+% TOP_PROBLEM: {"id": 30002737, "title": "Absolutely Continuous Diffraction and Dynamical Spectra", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "ID 30002738 records the same implication. It is retained under its inherited identity as an explicit duplicate, not asserted to be an independent new conjecture."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002737", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Does the absence of a continuous density in a quasicrystal\\textquotesingle s diffraction force its dynamical spectral measures to have no continuous density?", "scope": "Exhibits pure-point spectrum for one observable with hidden Lebesgue dynamics and proves a cyclic-observable sufficient condition.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked rotation and independent-sign correlations, Fourier identification, spectral-projection argument and non-quasicrystal status of the toy example. Model self-audit only; no independent human proof checking. Coordinator checked the rotation and Bernoulli-shift spectral measures and the cyclic-observable projection argument. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked rotation and independent-sign correlations, Fourier identification, spectral-projection argument and non-quasicrystal status of the toy example. Retained unresolved status and zero original-target progress; The source diffraction observables have not been shown to control the entire dynamical spectral space."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30002737; source catalogue code OWR-13355-001
+\setcounter{section}{30002736}
+\section{Absolutely Continuous Diffraction and Dynamical Spectra}\label{30002737}
+{\small UnsolvedMath ID 30002737 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+For a translation-bounded structure, diffraction is the Fourier transform $\widehat\gamma$ of its autocorrelation measure $\gamma$. The translation action on the associated hull defines a unitary representation on $L^2$ of an invariant probability measure; its spectral measures constitute the dynamical spectrum. A spectral measure has no absolutely continuous component when its Lebesgue decomposition contains only pure-point and singular-continuous parts. The hull, invariant measure and observable class must be kept fixed when comparing spectra.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+If the diffraction spectrum of a quasicrystalline system has no absolutely continuous component, must the dynamical spectrum also have no absolutely continuous component?
+
+\paragraph{Source scope and qualification.}
+ID 30002738 records the same implication. It is retained under its inherited identity as an explicit duplicate, not asserted to be an independent new conjecture.
+\subsection{Short English statement}
+Does the absence of a continuous density in a quasicrystal\textquotesingle s diffraction force its dynamical spectral measures to have no continuous density?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Exhibits pure-point spectrum for one observable with hidden Lebesgue dynamics and proves a cyclic-observable sufficient condition.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{The missing observable-completeness step.} Consider the product of an irrational rotation $x\mapsto x+\alpha$ on the circle and a two-sided independent fair-sign shift $(\omega_n)_{n\in\mathbb Z}$. The observable $f(x,\omega)=e^{2\pi ix}$ has correlation $\langle f,U^nf\rangle=e^{2\pi in\alpha}$, so its spectral measure is a single atom. The observable $g(x,\omega)=\omega_0$ instead has correlation one at $n=0$ and zero otherwise, by independence and zero mean. Its spectral measure is normalized Lebesgue measure on the circle, since that measure has exactly those Fourier coefficients.
+
+\paragraph{A sufficient condition in the opposite direction.} If an observable $f$ is cyclic for a unitary $U$, meaning the span of $U^nf$ for integer $n$ is dense, and its spectral measure is supported on a Lebesgue-null Borel set $S$, then every spectral measure is supported on $S$. Indeed the spectral projection $E(S^c)$ annihilates $f$, hence all $U^nf$, and thus the whole space by boundedness and density. So $U$ has no absolutely continuous spectral component.
+
+\paragraph{Diffraction-specific gap.} The product example is an abstract dynamical system, not a quasicrystal hull whose geometric diffraction is the chosen $f$ spectrum. It shows why one cannot pass from a single observable to all of $L^2$ without completeness information. To apply the sufficient condition one must prove that the diffraction-controlled observable family generates the relevant spectral subspace, or control the hidden factor by another argument. That is the first source gap. The duplicate record 30002738 represents the same implication and is not a separate result here.
+
+\paragraph{Verification and adversarial audit.}
+Checked rotation and independent-sign correlations, Fourier identification, spectral-projection argument and non-quasicrystal status of the toy example. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked rotation and independent-sign correlations, Fourier identification, spectral-projection argument and non-quasicrystal status of the toy example. Retained unresolved status and zero original-target progress; The source diffraction observables have not been shown to control the entire dynamical spectral space.
+
+Coordinator checked the rotation and Bernoulli-shift spectral measures and the cyclic-observable projection argument. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. The source diffraction observables have not been shown to control the entire dynamical spectral space.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. The source diffraction observables have not been shown to control the entire dynamical spectral space.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30002737:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30002737 (OWR-13355-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30002737:2}{S2}] Mini-Workshop: Dynamical versus Diffraction Spectra in the Theory of Quasicrystals (2014), Oberwolfach Reports, DOI 10.4171/owr/2014/53, pp. 2987--3013. Primary report accessed 2026-10-11; relevant PDF pages 9, 10.
+\url{https://doi.org/10.4171/owr/2014/53}.
+\item[\hypertarget{source:30002737:3}{S3}] Nagai, absence of absolutely continuous diffraction (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/2011.14375}.
+\end{itemize}
+\label{end:30002737}
+\end{document}

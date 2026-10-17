@@ -1,0 +1,165 @@
+% RESEARCH_DRAFT_SHA256: ea24f7a080ee8686aa4aa548c67e3d51740d7ad90a2e1709ea2765b2f4604ef3
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 10900058, "title": "8.4 (Schleimer) — Detecting reducible Heegaard splittings", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "10900058", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "8.4 (Schleimer) — Detecting reducible Heegaard splittings; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A homological obstruction misses separating reducing curves; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch003 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 10900058; source catalogue code AMR-108-0058
+\section{8.4 (Schleimer) — Detecting reducible Heegaard splittings}\label{10900058}
+{\small UnsolvedMath ID 10900058 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a closed orientable three-manifold $M$, a Heegaard splitting is a decomposition $M=V\cup_\Sigma W$ into two handlebodies with common boundary $\Sigma=\partial V=\partial W$, a closed connected orientable surface. A handlebody is a regular neighborhood of a finite connected graph. A Heegaard diagram records finite systems of meridian curves bounding disks in $V$ and $W$; it supplies a finite combinatorial input for an algorithm.
+
+An essential simple closed curve on $\Sigma$ is one that does not bound a disk in $\Sigma$. The splitting is reducible if there exist properly embedded disks $D\subset V$ and $E\subset W$ with the same essential boundary $\partial D=\partial E=\gamma\subset\Sigma$. Such a $\gamma$ is a reducing curve. The requested algorithm must terminate on every finite input diagram, decide whether such a curve exists, and produce an encoded reducing curve whenever the answer is affirmative. No polynomial-time bound is required by the supplied question.
+\paragraph{Statement recorded in the supplied source.}
+Is there an algorithm to detect whether a Heegaard splitting is reducible and, if so, find a reducing curve? \href{https://arxiv.org/pdf/1512.04620#page=6}{[S2]}
+\paragraph{Scope qualification.}
+This is Schleimer's Problem 8.4 in the 2015 conference list. Reducibility of the displayed splitting differs from finding a reduction already visible in a chosen diagram, and differs from reducibility of the ambient three-manifold. Recent compressed-diagram algorithms detect trivial diagram reductions and stabilizations; they are not treated here as a proof of the unrestricted decision statement. The original problem and the later compressed-diagram context were inspected on 2026-10-11; a complete current status audit is not claimed. The closed orientable convention is the standard Heegaard-diagram setting used for these definitions; extensions to compression bodies or manifolds with boundary require their own input convention.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can an algorithm always decide whether the two sides of a Heegaard splitting contain disks with a common essential boundary, and find that boundary when they do?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 10900058 (AMR-108-0058). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AMR Open Problem Lists, original problem source linked by catalogue record AMR-108-0058
+\url{https://arxiv.org/pdf/1512.04620#page=6}.
+\item[S3] Howard Masur and Saul Schleimer, The Geometry of the Disk Complex, Journal of the American Mathematical Society (2013), introductory topological application; decision-problem context.
+\url{https://wrap.warwick.ac.uk/id/eprint/52126/1/WRAP_Schleimer_S0894-0347-2012-00742-5.pdf}.
+\item[S4] Henrique Ennes and Clement Maria, Compressed Data Structures for Heegaard Splitting, SoCG 2026; algorithms for trivial diagram reductions.
+\url{https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SoCG.2026.42}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 10900058 and source code AMR-108-0058 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:10900058}
+
+\section{Literature and context check}
+Problem 8.4 of the 2015 primary list was consulted and still supplies the
+precise displayed-splitting question. The supplied prior narrative saying it is
+effectively answered does not identify a verified unrestricted theorem, so it
+is not used here. The following direct test addresses why a readily computable
+linear invariant cannot alone decide the source question.
+\section{Research attempt: A homological obstruction misses separating reducing curves}
+For a genus-$g$ splitting let
+\[
+ L_V=\ker(H_1(\Sigma;\mathbb Z)\to H_1(V;\mathbb Z)),\qquad
+ L_W=\ker(H_1(\Sigma;\mathbb Z)\to H_1(W;\mathbb Z)).
+\]
+If a reducing curve $\gamma$ exists, then $[\gamma]\in L_V\cap L_W$ because
+it bounds a disk in each side. It is tempting to conclude that a zero
+intersection of these subgroups rules out reducing curves. That step fails
+because an essential separating curve can have zero homology class.
+
+Here is a concrete genus-two construction realizing the failure. Form each
+handlebody as the boundary connected sum of two solid tori. The connecting
+one-handle has a co-core disk, whose boundary $\gamma$ separates the boundary
+surface into two once-punctured tori. Glue the two handlebodies so these curves
+agree, and on each punctured-torus block take meridian systems represented by
+$a_i$ on the first side and $b_i$ on the second, where
+\[
+ H_1(\Sigma;\mathbb Z)=
+ \mathbb Z a_1\oplus\mathbb Z b_1\oplus
+ \mathbb Z a_2\oplus\mathbb Z b_2,
+ \qquad a_i\cdot b_j=\delta_{ij}.
+\]
+Such a gluing exists: the interchange of the two generators on each
+punctured-torus block is induced by a homeomorphism of that block (rotate a
+square torus model, adjusting orientation as necessary), and the boundary maps
+can be joined across the connecting annulus. The side interchange may be
+chosen orientation reversing so the resulting manifold is orientable.
+
+Each solid torus retracts onto its longitude circle and its meridian bounds a
+disk. Retraction of their boundary connected sum onto the wedge of the two
+core circles therefore gives
+\[
+ L_V=\mathbb Z a_1\oplus\mathbb Z a_2,\qquad
+ L_W=\mathbb Z b_1\oplus\mathbb Z b_2,
+ \quad L_V\cap L_W=0.
+\]
+Nevertheless the two co-core disks have common boundary $\gamma$. This curve
+is essential on $\Sigma$: either side of it is a punctured torus, rather than
+a disk. Its homology class is zero since it is the oriented boundary of either
+punctured-torus subsurface. Thus the splitting is reducible despite the zero
+intersection calculation.
+
+The failure is not merely loss of a representative: the necessary invariant
+itself vanishes on a valid witness. Conversely a common homology vector would
+not automatically construct embedded disks with the same simple boundary.
+The algorithmic route needs control of actual disk boundaries up to isotopy,
+not only their abelianized classes. Checking visible common meridian curves in
+an input diagram is a sound positive test but may miss curves not present in
+those finite systems.
+\section{Verification and adversarial audit}
+The example explicitly supplies both disks and checks essentiality of the
+common boundary. Kernel computations use the two core-circle generators, so
+there is no hidden torsion argument. Genus zero has no essential surface curve,
+consistent with the definitions. No decision algorithm or terminating negative
+certificate for arbitrary genus was constructed.
+\paragraph{Audit corrections.} Vanishing homological intersection was not promoted to irreducibility, and the explicit separating reducing curve was verified essential on the surface.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The first gap is deciding whether the two infinite sets of essential
+embedded disk boundaries intersect, including separating boundaries annihilated
+by homology, and producing a curve. The constructed splitting only refutes a
+linear-algebra decision shortcut; it does not show undecidability.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://arxiv.org/pdf/1512.04620} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved. This is a research attempt with an explicit failed route or restricted
+calculation, not a full solution, not a current-status certification, and not a claim
+that the elementary material is new. The catalogue's original source-status label
+is preserved independently of this attempt status.
+\end{document}

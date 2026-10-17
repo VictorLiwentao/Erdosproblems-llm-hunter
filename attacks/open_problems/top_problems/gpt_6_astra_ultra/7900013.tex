@@ -1,0 +1,86 @@
+% TOP_PROBLEM: {"id": 7900013, "title": "Existence of Quantum Crystals", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The existential word some is preserved. The catalogue leaves the system, treatment of nuclei and topology of the periodic limit unspecified; a statement for every material or a prescribed lattice would be stronger."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "7900013", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Prove that a suitable neutral quantum system develops a periodic crystal structure as its size tends to infinity.", "scope": "Proved that translation averaging preserves ground energy while flattening one-body density and preserving density-mode intensities. No neutral quantum crystal is constructed.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked positivity and energy of averaging, density normalization, reciprocal-mode transformation, and distinction between a prescribed lattice and an energy-selected crystal. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked translation averaging, the constant one-body density and invariant squared density mode. Energetic selection of a lattice remains unproved. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked positivity and energy of averaging, density normalization, reciprocal-mode transformation, and distinction between a prescribed lattice and an energy-selected crystal. Scope remains limited: Select a genuine neutral quantum system and prove crystalline order in a specified thermodynamic observable or symmetry-breaking limit."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 7900013; source catalogue code AMR-078-0013
+\setcounter{section}{7900012}
+\section{Existence of Quantum Crystals}\label{7900013}
+{\small UnsolvedMath ID 7900013 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}A neutral quantum system has total nuclear charge equal to the number of electrons, in the corresponding charge units. A ground state minimizes the energy of its many-body Hamiltonian. A periodic thermodynamic limit would have particle-density or other specified observables invariant under a full-rank lattice of translations. A limit must specify normalization, boundary conditions and a convergence notion.
+
+\paragraph{Catalogue wording retained for traceability.}
+Prove that, as the number of nuclei tends to infinity, the ground state of some neutral system of nuclei and electrons approaches a periodic limit, establishing the existence of crystals from quantum principles.
+\paragraph{Scope and source qualification.}The existential word some is preserved. The catalogue leaves the system, treatment of nuclei and topology of the periodic limit unspecified; a statement for every material or a prescribed lattice would be stronger.
+\subsection{Short English statement}
+Prove that a suitable neutral quantum system develops a periodic crystal structure as its size tends to infinity.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved that translation averaging preserves ground energy while flattening one-body density and preserving density-mode intensities. No neutral quantum crystal is constructed.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{A symmetry test for the meaning of crystallization.}On a finite torus of volume \(V\), suppose a neutral many-particle Hamiltonian commutes with simultaneous translations \(U_a\), and let \(\Gamma\) be any ground-state density matrix. Its translation average
+\[\overline\Gamma=V^{-1}\int U_a\Gamma U_a^*\,da\]
+is again positive, has trace one and has the same ground energy. If \(\rho_\Gamma(x)\) is the one-particle density and its total particle number is \(N\), averaging gives
+\[\rho_{\overline\Gamma}(x)=V^{-1}\int\rho_\Gamma(x-a)\,da=N/V.
+\]
+Thus finite-volume minimization alone does not force a visibly periodic nonconstant one-body density. This holds even when a particular untranslated state has pronounced density peaks.
+\paragraph{A diagnostic that survives averaging.}For a reciprocal wavevector \(k\), define the density mode \(D_k=\sum_{j=1}^N e^{ik\cdot x_j}\). Translation changes it by \(e^{ik\cdot a}\), so \(\operatorname{Tr}(\overline\Gamma D_k)=0\) at nonzero \(k\), whereas \(D_k^*D_k\) is translation invariant. For a deterministic set of positions on a lattice compatible with the torus, \(|D_k|^2=N^2\) when \(k\) belongs to its reciprocal lattice. Randomizing the common translation kills the first moment but leaves this squared amplitude unchanged. This calculation illustrates why two-point observables or a symmetry-breaking limit can retain crystalline information lost by the averaged density.
+\paragraph{First gap and scope.}No ground state of a Coulomb electron-nucleus system with such order has been constructed here. The deterministic lattice example prescribes the configuration and therefore cannot prove its energetic selection. One must choose an admissible neutral quantum system, a thermodynamic sequence and an observable/topology of periodic order, then prove that minimization enforces the required order. The source asks for some system, not all materials; this distinction does not permit inserting an external lattice that already assumes the desired structure. The symmetry calculation is an obstruction to an overly simple proof strategy, not a new crystal-existence result.
+
+\paragraph{Verification and adversarial audit.}
+Checked positivity and energy of averaging, density normalization, reciprocal-mode transformation, and distinction between a prescribed lattice and an energy-selected crystal. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked positivity and energy of averaging, density normalization, reciprocal-mode transformation, and distinction between a prescribed lattice and an energy-selected crystal. Scope remains limited: Select a genuine neutral quantum system and prove crystalline order in a specified thermodynamic observable or symmetry-breaking limit.
+
+Coordinator checked translation averaging, the constant one-body density and invariant squared density mode. Energetic selection of a lattice remains unproved. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Select a genuine neutral quantum system and prove crystalline order in a specified thermodynamic observable or symmetry-breaking limit.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:7900013:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 7900013 (AMR-078-0013). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:7900013:2}{S2}] Barry Simon, Schrödinger operators in the twenty-first century, Mathematical Physics 2000, pp. 283–288, original Problem 13.
+\url{https://web.ma.utexas.edu/mp_arc-bin/mpa?yn=00-78}.
+\item[\hypertarget{source:7900013:3}{S3}] Wikipedia contributors, Simon problems, pinned revision 1335881350, The 2000 list. Existing catalogue wording adapted; CC BY-SA 4.0.
+\url{https://en.wikipedia.org/w/index.php?title=Simon_problems&oldid=1335881350#The_2000_list}.
+\end{itemize}
+\label{end:7900013}
+\end{document}

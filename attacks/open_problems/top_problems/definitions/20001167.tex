@@ -1,0 +1,77 @@
+% SUBMISSION: {"kind": "statement_only", "category": "top_problems", "problem_id": "20001167", "proposal_type": "established", "source": "AIM Workshop Problem Lists, source linked by catalogue record AIM-COMPUTATION-0005. https://aimath.org/WWN/optimalcontrol/optimalcontrol.pdf", "status_evidence": "The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.", "status_checked_on": "2026-10-11", "duplicate_check": "Permanent source ID 20001167 and code AIM-COMPUTATION-0005 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed.", "attribution": "The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted."}
+% TOP_PROBLEM: {"id": 20001167, "title": "Nuisance-adjusted information for semiparametric MRS design", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: null
+% ENTRY_KIND: statement_only
+% Imported from: computer_science_remaining_statements.tex; UnsolvedMath ID 20001167
+% Standalone source-record documentation; no research attempts.
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+% UnsolvedMath ID 20001167; source catalogue code AIM-COMPUTATION-0005
+\setcounter{section}{20001166}
+\section{Nuisance-adjusted information for semiparametric MRS design}\label{20001167}
+{\small\sffamily UnsolvedMath ID 20001167 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+In a noisy linear mixing model, observations have the form $X=AS+\varepsilon$, with latent components $S$, mixing matrix $A$, and noise $\varepsilon$. Principal component analysis seeks directions of large variance; independent component analysis seeks statistically independent latent components under additional assumptions. A semiparametric model combines a finite-dimensional parameter of interest with an infinite-dimensional nuisance component. Cramér--Rao information bounds depend on the likelihood and how nuisance parameters are treated.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The lengthy contribution contains two different application areas, measurement noise, and design questions. It supplies no unique statistical experiment or performance target; the expanded catalogue title does not select one of those models. The supplied catalogue marks this record open; its present research status was not independently checked. Its supplied reconstruction is labelled unverified.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+The supplied catalogue marks this formulation as an unverified reconstruction; missing assumptions are not certified by the source link.
+\paragraph{Statement recorded in the supplied source.}
+A.2 Capobianco, Enrico
+
+Part 1
+
+Systems Biology: On Dimensionality Reduction and Feature Se-lection in Genomics (work carried out at Boston University, Biomedical Engineering Department) Gene networks offer a wealth of data; this is mainly due to the genomic dimensionality rather than the samples, as the latter usually come from measurements obtained under only a few experimental conditions or time points. It is therefore a challenging task to design suitable statistical models and to develop effective reverse engineering algorithms. Network inference and reverse engineering deal basically with an inverse problem that is stimulating a great deal of biomedical research in systems biology: reconstructing gene-gene interactions from measurements obtained under specific experimental conditions. Some of the open problems calling for solutions are now listed. First, the signature of noise is pervasive in genetic networks. For instance, in pertur-bation experiments only a few genes change expression value, while most genes show either noisy or constant patterns. The measurements are usually taken at an initial time and then regularly recorded until the genes reach a steady state. During this time interval, the gene temporal patterns are subject to several kinds of fluctuations, and only some of them are induced by the perturbations, directly or indirectly as a cascade effect. Noise is thus a strong conditioning factor for the gene temporal patterns; the ones that appear smooth are usually of interest compared to those characterized by a random signature. Consequently, sharp time-localized fluctuations lead to discard many patterns and focus just on subsets of genes. An important tool is thresholding, which deals with the separation of signal from noise. It identifies gene groups by selecting the genes that are differentially expressed with regard to 4
+
+noise-dependent patterns. Furthermore, a gene can be considered outlying if its expression value is significantly different (overor under-expressed) compared to the average expression value computed for all the genes.
+
+Methodological aspects
+
+Statistically speaking, if we are able to isolate a certain number of modes or components which represent in a compact way the systems dynamics underlying the gene network under examination, we might also try to compute statistics based on these modes through the gene sets that have been identified by them. Due to the inherent biological characterization of the estimated components, the thresh-olding step can validate or contradict the hypothesis that the observed expression values of the genes are significantly different from specific test statistics. The idea is that for each available condition (a sample point where a measurement is taken or an experiment is conducted), a genomic profile X is considered a mixture (via a certain matrix A) of unknown biological influences (modes or components) S that may have more or less impact over each specific condition. Then, feature sets are identified by linear combinations of genes which are delivered by each identified and estimated component. More formally, consider at time t an ≤− noise genomic system such as:
+
+X = AS + ≤ (1) The dimensions of the model (for k = 1) are S ∈ Rm, X ∈ Rn, and A ∈ Rn×m, and the gene expression matrix X has rows representing the different genes involved in the regulatory network under exam, while the columns list the measurements at successive conditions. The mixture signals in X represent k−dimensional vectors xi, i = 1,..., n, and the components S represent k−dimensional vectors sj, j = 1,..., m. The latter are mixed up linearly (or non-linearly) through the mixing matrix A. Both S and A are unknown variables and must be estimated from the only available information set X.This gene selection goal implies that a genetic regulatory network is a redundant system because inherently noisy, but also owing to the high-dimensionality and dependence between genes, only in part justified by biological reasons. Equivalently, the underlying system of gene dynamics is sparse; in other words, the gene-gene interaction matrix is only partially active, as some of the supposed links among genes are not supported by significant evidence. Exploiting sparsity when designing statistical inference procedures for gene network analysis as a key goal is to target just subsets of genes when measuring the effects of the experiments. And sparsity refers to dimensionality too, through the possibility of approxi-mating the truly intrinsic dimension of the input space. In turn, this may bring some valuable experimental insight too, by suggesting for instance how to calibrate the perturbations and selecting the genes expected to become targets. In order to explore these two aspects, redundancy and sparsity, clustering has been widely employed by computational biologists, but several limitations have appeared; there-fore, independent and principal component analysis (ICA and PCA, respectively) can also 5
+
+be proposed (and compared) as examples of flexible approximation tools targeted to dimen-sionality reduction and gene feature selection.
+
+Part 2
+
+Semi-Parametric Estimation in In Vivo MR Spectroscopy (ongoing joint work with: H. Ratiney, C. Cudalbu, S. Cavassila, D. Graveron-Demilly RMN, CNRS UMR 5012, Univ. Claude Bernard LYON I-CPE, France R. de Beer, D. van Ormondt, Applied Physics, TU Delft, The Netherlands). Magnetic Resonance Spectroscopy (MRS) is a unique tool for non-invasive in vivo detection and quantitation of metabolites. This makes MRS an indispensable tool for com-bating major diseases. Although modern MRS-methods are increasingly capable of detecting and quantifying metabolites, perturbation by signals from so-called macromolecules and un-wanted metabolites poses problems. Three procedures for alleviating the problem exist: 1) Tuning of the scanner to a metabolite of interest - 'spectral editing' - can clean up the MRS signal significantly. 2) Separate (approximate) measurement of the macromolecule signal and subsequent subtraction from the MRS signal. 3) Semi-parametric estimation of the model parameters of interest from the MRS signal. Our strategy is to process directly in the measurement domain; in MRS, this is the time domain. Alternatively, one can process in the frequency or spectral domain. A main disadvantage of the latter is that it starts with estimation of the spectrum which is not trivial in the case of missing samples or non-Cartesian sampling.
+
+Methodological aspects
+
+In semi-parametric estimation, the task is to disentangle the parametric and non-parametric parts of a signal. In MRS, the parametric part pertains to the metabolites, the non-parametric part to the macromolecules. In the measurement domain, the metabolite signal persists over time much longer than the macromolecule signal. On the other hand, during the initial period, the latter strongly dominates the former. This property is exploited to bring about the disentanglement. Through simulations, we have successfully investigated: 1) Iteration of the disentanglement procedure. 2) Derivation of Cramer-Rao Bounds (CRB) for the metabolite concentrations, taking the non-parametric macromolecule signal into account. This contributes to experimental design. Furthermore: 1) Our previous contributions did not report on iteration of the disentanglement pro-cedure. Now, we include cases where such iteration clearly helps. 2) We have devised a novel way (in MRS, at least) to estimate CRBs for the parametric part, taking the non-parametric part into account. 3) Only information about the point of time where the non-parametric part 'decays into the noise' is needed. We thus have shown that through semiparametric models it is possible to augment the applicability of MRS to Medicine, while in order to have the best possible impact we need to optimize the accuracy of the estimates for the parameters of interest. 6
+
+In particular, one seeks an improved reliability of the lower bounds computed on pa-rameters to be estimated with a planned scan, from which it depends in turn an improved reliability of the 'experimental design', or, in other words, a better prediction of feasibility of expensive MRS-scans in the clinic. Then, one would like to address: Awhat is the predicted minimum detectable concentration of each of the 40 or so metabolites of interest with a given scanner measurement protocol? BIs the try justifiable? \sref{20001167}{2}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The source discusses gene-network dimension reduction and semiparametric magnetic-resonance signal estimation.
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20001167:1}{S1}] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001167 (AIM-COMPUTATION-0005). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20001167:2}{S2}] AIM Workshop Problem Lists, source linked by catalogue record AIM-COMPUTATION-0005.
+\url{https://aimath.org/WWN/optimalcontrol/optimalcontrol.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 20001167 and code AIM-COMPUTATION-0005 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:20001167}
+\end{document}

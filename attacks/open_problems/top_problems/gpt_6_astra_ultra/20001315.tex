@@ -1,0 +1,143 @@
+% RESEARCH_DRAFT_SHA256: 92200fa796a7e13a23803be038625a2bcd185a78d78b6fd2176c459a1741534b
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001315, "title": "Regular-orbit equivalence and affine orbit-size certificates for SDLP", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001315", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Cryptanalysis of SDLP\n\nVarious problems relating to the cryptanalysis, both quantum and classical, of SDLP remain open.\n\nOn the quantum side the question of quantum equivalence of SDLP and the CDH-type problem underpinning semidirect product key exchange (SCDH) remains unproven, though we have strong cause to suspect their equivalence given the quantum equivalence of the heavily related vectorisation and parallelisation problems. The decomposition attack of Imran and Ivanyos, providing in some cases a reduction of SDLP to the abelian hidden subgroup problem, relies on the quantum ability to quickly compute a composition series of a solvable group. Whether similar quantum speedups in the computation series exist for non-solvable groups remains open.\n\nOn the classical side, we would like to develop a kind of Sylow theory for the projected sets implied by the semidirect product structure. It would also be useful to develop a classical method of computing the size of the acting group when one considers the semigroup variant of SDLP (currently we have only quantum methods).", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The orbit identities and affine classification do not prove the requested quantum equivalences, general composition-series speedups, or classical semigroup orbit-size algorithms.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Semidirect orbits: a finite permutation reduction and explicit affine tests}
+\noindent UnsolvedMath ID 20001315; AIM-CRYPTOGRAPHY-0002. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A semidirect product combines a group and an action by automorphisms. In a semidirect discrete-logarithm problem, a projected component of $(g,\phi)^n$ is given and the exponent n is sought; the corresponding Diffie--Hellman-type task combines projected secret powers. A composition series is a finite normal series with simple factors.
+\paragraph{Statement recorded in the supplied source.}
+Cryptanalysis of SDLP
+
+Various problems relating to the cryptanalysis, both quantum and classical, of SDLP remain open.
+
+On the quantum side the question of quantum equivalence of SDLP and the CDH-type problem underpinning semidirect product key exchange (SCDH) remains unproven, though we have strong cause to suspect their equivalence given the quantum equivalence of the heavily related vectorisation and parallelisation problems. The decomposition attack of Imran and Ivanyos, providing in some cases a reduction of SDLP to the abelian hidden subgroup problem, relies on the quantum ability to quickly compute a composition series of a solvable group. Whether similar quantum speedups in the computation series exist for non-solvable groups remains open.
+
+On the classical side, we would like to develop a kind of Sylow theory for the projected sets implied by the semidirect product structure. It would also be useful to develop a classical method of computing the size of the acting group when one considers the semigroup variant of SDLP (currently we have only quantum methods). \href{http://aimpl.org/postquantgroup/1/}{[S2]}
+\paragraph{Scope qualification.}
+The source bundles several questions and includes a semigroup variant; the actual group encodings and action are not fixed, and no one uniform equivalence is assumed.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+What quantum and classical reductions, composition-series algorithms, and orbit-size methods are available for semidirect discrete-logarithm problems?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001315 (AIM-CRYPTOGRAPHY-0002). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-CRYPTOGRAPHY-0002
+\url{http://aimpl.org/postquantgroup/1/}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Cryptanalysis of SDLP
+
+Various problems relating to the cryptanalysis, both quantum and classical, of SDLP remain open.
+
+On the quantum side the question of quantum equivalence of SDLP and the CDH-type problem underpinning semidirect product key exchange (SCDH) remains unproven, though we have strong cause to suspect their equivalence given the quantum equivalence of the heavily related vectorisation and parallelisation problems. The decomposition attack of Imran and Ivanyos, providing in some cases a reduction of SDLP to the abelian hidden subgroup problem, relies on the quantum ability to quickly compute a composition series of a solvable group. Whether similar quantum speedups in the computation series exist for non-solvable groups remains open.
+
+On the classical side, we would like to develop a kind of Sylow theory for the projected sets implied by the semidirect product structure. It would also be useful to develop a classical method of computing the size of the acting group when one considers the semigroup variant of SDLP (currently we have only quantum methods).
+
+\section{Attempt and results}
+The source bundles quantum reductions, composition series, a Sylow-like theory,
+and semigroup orbit sizes. We try the group-orbit route and calculate the
+one-dimensional affine case. These are elementary rederivations, not solutions
+to the whole agenda or independently checked quantum algorithms.
+
+\paragraph{Projected products are permutation orbits.}
+Let $G$ be a finite group, $\phi$ an automorphism, and
+$s_0=1$, $s_t=g\phi(g)\cdots\phi^{t-1}(g)$ for $t\ge1$.
+The map $T(h)=g\phi(h)$ is bijective, with inverse
+$T^{-1}(h)=\phi^{-1}(g^{-1}h)$, and $s_t=T^t(1)$ by induction.
+Its finite orbit therefore has a least positive return time $N$.
+If $s_t=s_u$ with $t\ge u$, apply $T^{-u}$ to get $s_{t-u}=1$.
+Euclidean division by $N$ shows this occurs exactly when $N\mid t-u$:
+a smaller positive remainder would contradict minimality of $N$.
+Thus $\mathbb Z/N\mathbb Z$ acts freely and transitively on the orbit by
+$[a]\cdot s_b=s_{a+b}$. This is well defined by the proved equality criterion.
+An exponent solution $a$ for $s_a$ gives the combined state
+$s_{a+b}=s_a\phi^a(s_b)$. Efficient computation of this expression requires
+an efficient representation of $\phi^a$; the algebraic identity does not itself
+provide a polynomial-cost coherent oracle or a reverse reduction from SCDH.
+
+\paragraph{A naive Sylow transfer already fails.}
+Take the additive group $G=\mathbb Z/3\mathbb Z$, $g=1$, and $\phi(h)=-h$.
+Then $T(h)=1-h$, so $s_0=0$, $s_1=1$, $s_2=0$ and $N=2$.
+The orbit has size two even though $|G|=3$, and its projected set
+$\{0,1\}$ is not closed under addition. Consequently the proposed shortcut
+of treating the projected set as a subgroup of $G$, with order dividing
+$|G|$ and the same Sylow primes, is false. This does not rule out a different
+structural theory of the acting permutation group.
+
+\paragraph{A fully classified affine scalar family.}
+Let $q=p^f$ and $T(z)=az+v$ on $\mathbb F_q$, starting at $s_0=0$.
+If $v=0$, the orbit is constant. Assume $v\ne0$.
+If $a=0$, the sequence is $0,v,v,\ldots$, so its tail has length one and
+its cycle length one. If $a=1$, then $s_t=tv$, which has exact period $p$:
+$tv=0$ precisely when the characteristic $p$ divides the integer $t$.
+If $a\ne0,1$, induction on the recurrence gives
+\[
+s_t=v\frac{a^t-1}{a-1}.
+\]
+Its return time is the multiplicative order of $a$, and an observed value
+$s_t$ determines $a^t=1+(a-1)s_t/v$ exactly. Thus this scalar instance of
+SDLP reduces to an ordinary discrete logarithm and its orbit size to an
+ordinary multiplicative order. The identity proves neither task easy for
+arbitrary fields under a bit-cost model. In particular, an orbit-size formula
+that invokes an unknown order is not a completed classical size algorithm.
+The noninvertible $a=0$ case demonstrates why a semigroup cannot simply be
+assumed to have a purely periodic orbit starting at the initial state.
+
+\section{Context, adversarial audit, and gap}
+The primary indexed abstract of Battarbee and coauthors, ePrint 2024/905,
+reports an efficient quantum algorithm for SDLP in every finite group, later
+than the historical AIM question. The full PDF was unavailable (403), so its
+proof and exact model were not verified here. This report must not be confused
+with a theorem established by this manuscript, and it does not by itself
+settle every semigroup or composition-series question in the source.
+The AIMPL pages also failed retrieval; the official workshop description and
+supplied snapshot establish provenance. The audit checked the product order,
+return-time divisibility, non-subgroup counterexample, and the transient affine
+case. No numerical experiments or claimed quantum reduction are supplied.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The orbit identities and affine classification do not prove the requested quantum equivalences, general composition-series speedups, or classical semigroup orbit-size algorithms.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Official AIM workshop description, Post-quantum group-based cryptography, 29 April--3 May 2024; inspected for provenance and scope. AIMPL section pages failed retrieval, so exact question text comes from the supplied snapshot. \url{https://aimath.org/workshops/upcoming/postquantgroup/}.
+\item Battarbee et al., On the Semidirect Discrete Logarithm Problem in Finite Groups, primary indexed abstract inspected; it reports an efficient quantum algorithm for every finite group. PDF retrieval returned 403; the full theorem and proof were not checked. \url{https://eprint.iacr.org/2024/905.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The orbit identities and affine classification do not prove the requested quantum equivalences, general composition-series speedups, or classical semigroup orbit-size algorithms.
+\end{document}

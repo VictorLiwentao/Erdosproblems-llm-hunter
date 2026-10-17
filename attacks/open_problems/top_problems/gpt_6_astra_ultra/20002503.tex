@@ -1,0 +1,82 @@
+% TOP_PROBLEM: {"id": 20002503, "title": "When holomorphic anomaly equations survive fiber integration", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "This is source Problem 1.1 and is also an explicit subquestion of canonical record 20002505, source Problem 1.3. Both existing upstream identities are retained as a parent/subquestion relationship. The word integrate is not a pre-existing precisely defined operation in the brief question. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002503", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Determine whether holomorphic anomaly equations descend after integration over elliptic fibrations.", "scope": "Proved a fiber-covariance correction and gave a smooth elliptic-fiber nonclosure example. No actual Calabi-Yau anomaly pushforward is constructed.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked differentiation hypotheses, normalization, covariance algebra, cos-squared torus integral and distinction between averaging notation and conjugation. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the averaged quadratic identity and nonzero torus covariance countercheck for multiplicative pushforward. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked differentiation hypotheses, normalization, covariance algebra, cos-squared torus integral and distinction between averaging notation and conjugation. Scope remains limited: Define the geometric pushforward and control its covariance, connection and singular-fiber terms in a specific holomorphic anomaly equation."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002503; source catalogue code AIM-PHYSICS-0011
+\setcounter{section}{20002502}
+\section{When holomorphic anomaly equations survive fiber integration}\label{20002503}
+{\small UnsolvedMath ID 20002503 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}For a Calabi--Yau threefold, the B-model genus-$g$ amplitude $F_g$ is a function or section over complex-structure moduli. A holomorphic anomaly equation describes its anti-holomorphic derivatives in terms of covariant derivatives of lower-genus amplitudes and Yukawa couplings. An elliptic fibration has generic fiber an elliptic curve. To integrate such an equation over a fibration requires specifying the relevant amplitudes, pushforward and boundary contributions.
+
+\paragraph{Catalogue wording retained for traceability.}
+Does the holomorphic anomaly equation "integrate" over elliptic fibrations?
+\paragraph{Scope and source qualification.}This is source Problem 1.1 and is also an explicit subquestion of canonical record 20002505, source Problem 1.3. Both existing upstream identities are retained as a parent/subquestion relationship. The word integrate is not a pre-existing precisely defined operation in the brief question. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Determine whether holomorphic anomaly equations descend after integration over elliptic fibrations.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved a fiber-covariance correction and gave a smooth elliptic-fiber nonclosure example. No actual Calabi-Yau anomaly pushforward is constructed.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{A product-fibration calculation.}Let \(Y\) be a compact measured space of total mass one and \(b\) a complex base parameter. For a smooth function \(F(b,y)\), differentiation under the integral gives \(\bar\partial_b\int_YF\,d\mu=\int_Y\bar\partial_bF\,d\mu\), when the measure is independent of \(b\). Thus a linear differential equation pushes forward in this restricted setting. A quadratic anomaly term behaves differently: for functions \(G,H\),
+\[\int_YGH\,d\mu=\left(\int_YG\,d\mu\right)\left(\int_YH\,d\mu\right)+\int_Y(G-\bar G)(H-\bar H)\,d\mu,
+\]
+where bars here denote fiber averages, not complex conjugation. Expanding the right-hand side proves the identity.
+\paragraph{Explicit nonclosure on an elliptic fiber.}On a flat real two-torus with normalized measure, take \(G=H=\cos\theta_1\). Each fiber average is zero, while the average of the product is \(1/2\). Thus replacing the pushforward of a quadratic term by a product of pushed-forward quantities loses a nonzero contribution, even for a smooth compact elliptic fiber. If one factor is constant on each fiber, the covariance term vanishes; this is a sufficient condition in the product model, not a necessary universal criterion.
+\paragraph{First gap.}Actual holomorphic anomaly equations involve tensor-valued amplitudes, covariant derivatives and moduli-dependent geometry. One must define the intended integration, show its commutation properties, and either eliminate or retain the fiber correlation terms. Singular fibers or boundaries may add further contributions absent here. The elementary compact-fiber example gives a concrete obstruction to a naive multiplicative pushforward, but it does not decide descent for a specified Calabi--Yau fibration. The overlap with record 20002505 remains a parent/subquestion relation rather than a duplicate new theorem.
+
+\paragraph{Verification and adversarial audit.}
+Checked differentiation hypotheses, normalization, covariance algebra, cos-squared torus integral and distinction between averaging notation and conjugation. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked differentiation hypotheses, normalization, covariance algebra, cos-squared torus integral and distinction between averaging notation and conjugation. Scope remains limited: Define the geometric pushforward and control its covariance, connection and singular-fiber terms in a specific holomorphic anomaly equation.
+
+Coordinator checked the averaged quadratic identity and nonzero torus covariance countercheck for multiplicative pushforward. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Define the geometric pushforward and control its covariance, connection and singular-fiber terms in a specific holomorphic anomaly equation.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002503:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002503 (AIM-PHYSICS-0011). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002503:2}{S2}] American Institute of Mathematics, Gromov-Witten invariants and number theory, source item 1.1.
+\url{http://aimpl.org/gromwitnumthry/1/}.
+\end{itemize}
+\label{end:20002503}
+\end{document}

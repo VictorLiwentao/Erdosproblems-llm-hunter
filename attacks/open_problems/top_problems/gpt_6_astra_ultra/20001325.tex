@@ -1,0 +1,146 @@
+% RESEARCH_DRAFT_SHA256: 4350b7a3055b3160eddc539019ee4e1d29b9bae3c18ea5640cf76f986578a5d0
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001325, "title": "Exact rank-one decoding and a factorized no-QRAM quantum baseline", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001325", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Parameters: $n \\geq 1$, $r\\geq 1$, $\\mathbb F_{q^m}$, $t \\geq 1$. How quickly can we find $v\\in \\mathbb F_{q^m}^n$ with $Hv = s$ and $\\text{wt}(v) = t$, given $H\\in \\mathbb F_{q^m}^{r\\times n}$ and $s\\in \\mathbb F_{q^m}^r$?\n\nHere, $\\text{wt}(v)$ is defined to be the rank of the $v$, viewed as a matrix with $n$ columns.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The polynomial rank-one subcase and exponential factor enumeration do not determine the general exact-rank decoding complexity or give an improved general quantum attack.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Exact rank-one syndrome decoding and constant-fiber rank factorizations}
+\noindent UnsolvedMath ID 20001325; AIM-CRYPTOGRAPHY-0012. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Fix a basis of $\mathbb F_{q^m}$ over $\mathbb F_q$. Expand $v\in\mathbb F_{q^m}^n$ into an $m\times n$ matrix over $\mathbb F_q$; its rank weight is that matrix's rank, independent of the chosen basis. The target is a vector of rank weight t solving the given linear syndrome equation $Hv=s$.
+\paragraph{Statement recorded in the supplied source.}
+Parameters: $n \geq 1$, $r\geq 1$, $\mathbb F_{q^m}$, $t \geq 1$. How quickly can we find $v\in \mathbb F_{q^m}^n$ with $Hv = s$ and $\text{wt}(v) = t$, given $H\in \mathbb F_{q^m}^{r\times n}$ and $s\in \mathbb F_{q^m}^r$?
+
+Here, $\text{wt}(v)$ is defined to be the rank of the $v$, viewed as a matrix with $n$ columns. \href{http://aimpl.org/quantumalg/1/}{[S2]}
+\paragraph{Scope qualification.}
+Weight exactly t is preserved; it is not changed to at most t. Some instances may have no solution.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+How quickly can a linear syndrome equation be solved by a vector with a prescribed rank weight?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001325 (AIM-CRYPTOGRAPHY-0012). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-CRYPTOGRAPHY-0012
+\url{http://aimpl.org/quantumalg/1/}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Parameters: $n \geq 1$, $r\geq 1$, $\mathbb F_{q^m}$, $t \geq 1$. How quickly can we find $v\in \mathbb F_{q^m}^n$ with $Hv = s$ and $\text{wt}(v) = t$, given $H\in \mathbb F_{q^m}^{r\times n}$ and $s\in \mathbb F_{q^m}^r$?
+
+Here, $\text{wt}(v)$ is defined to be the rank of the $v$, viewed as a matrix with $n$ columns.
+
+\section{Attempt and results}
+Write $K=\mathbb F_{q^m}$ with a fixed effective $\mathbb F_q$ basis.
+The source requires rank weight exactly $t$, and allows unsatisfiable inputs.
+We solve the rank-one subcase and test a factorization route for general $t$.
+These facts are already suggested in the supplied summary; this is a complete
+rederivation and finite validation, not a new general decoding breakthrough.
+
+\paragraph{Rank one is a linear-algebra decision and construction problem.}
+A nonzero vector $v\in K^n$ has rank weight one exactly when
+$v=a u$ for some $a\in K^*$ and nonzero $u\in\mathbb F_q^n$:
+its entries span a one-dimensional base-field subspace, and conversely such
+entries span the line generated by $a$.
+If $s\ne0$, introduce an additional unknown $b\in K$ and solve the
+$\mathbb F_q$-linear homogeneous system
+\[
+H u=b s,\qquad u\in\mathbb F_q^n,\quad b\in K.
+\]
+Expanding in the fixed basis gives $rm$ scalar linear equations in $n+m$
+base-field unknowns. A rank-one solution exists exactly when this kernel has
+an element with $b\ne0$. One direction takes $b=a^{-1}$; in the other,
+$u\ne0$ follows from $bs\ne0$, and $v=b^{-1}u$ has rank one and
+$Hv=s$. To decide whether the kernel projection to the $b$ coordinates is
+nonzero, compute a basis by elimination and inspect its $b$ components.
+If every basis vector has $b=0$, so does every linear combination; otherwise
+one such basis vector already supplies a solution. This avoids searching over
+all nonzero field elements.
+If $s=0$, rank-one solvability is equivalent to a nonzero
+$u\in\mathbb F_q^n$ with $Hu=0$: a solution $v=au$ implies this after
+dividing by $a$, and such a $u$ itself is a solution. This is a second finite
+kernel computation. Elimination and the required field operations have
+polynomial arithmetic cost in the explicit dimensions; bit costs depend on
+the specified finite-field representation and its arithmetic algorithms.
+
+\paragraph{Every exact-rank factorization has the same multiplicity.}
+Expand a vector into its $m$ by $n$ matrix $V$ over $\mathbb F_q$.
+For $1\le t\le\min(m,n)$, every rank-$t$ matrix factors as $V=BC$,
+where $B$ is $m$ by $t$ of column rank $t$ and $C$ is $t$ by $n$ of row
+rank $t$: choose a basis of the column space of $V$ for $B$ and write each
+column in that basis. Conversely such a product has rank $t$, since $C$
+maps onto $\mathbb F_q^t$ and $B$ is injective.
+If $B'C'=BC$, their common column space gives a unique
+$T\in\operatorname{GL}_t(\mathbb F_q)$ with $B'=BT$; injectivity of
+$B$ then forces $C'=T^{-1}C$. Every such $T$ works and distinct $T$ give
+distinct pairs. Thus every rank-$t$ matrix has exactly
+\[
+|\operatorname{GL}_t(\mathbb F_q)|=\prod_{i=0}^{t-1}(q^t-q^i)
+\]
+full-rank factorizations; the product counts successive independent columns.
+Enumerating all $q^{t(m+n)}$ factor pairs, rejecting those without both full
+ranks, and testing the syndrome is therefore a complete finite algorithm.
+It is not polynomial for variable dimensions. Treating factor pairs as unique
+errors would miscount the number of solutions by the displayed multiplicity.
+A quantum search claim would further have to specify coherent preparation,
+verification cost, and handling of unknown or zero solution count; none is
+assumed for free here.
+
+\paragraph{Exactness and finite checks.}
+If $t>\min(m,n)$ no solution can exist. Even for $t=1$, $H=I_n$ and $s=0$
+force $v=0$, so an at-most-one decoder returning zero fails the exact-one task.
+The accompanying Python script exhaustively checked all 64 one-row,
+length-two syndrome instances over $\mathbb F_4=\mathbb F_2[z]/(z^2+z+1)$,
+comparing the rank-one kernel criterion with all 16 vectors per instance.
+It also checked all 252 full-rank factor pairs for $2$ by $3$ rank-two
+matrices over $\mathbb F_2$: there are 42 distinct matrices, each occurring
+six times. These finite checks passed and are illustrative validation of the
+proofs, not evidence of a general decoding improvement.
+
+\section{Context, adversarial audit, and gap}
+The exact original question was inspected on printed page 3 of the official
+quantum workshop report. The audit separated zero from nonzero syndrome,
+checked that the kernel vector has nonzero scalar projection, retained exact
+rank, and counted factor multiplicities. No quantum circuit, QRAM model,
+unknown-solution search routine, or improved general decoding bound is supplied.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The polynomial rank-one subcase and exponential factor enumeration do not determine the general exact-rank decoding complexity or give an improved general quantum attack.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item AIM, Quantum algorithms for analysis of public-key crypto, official workshop summary, printed page 3; original coding and Grover questions inspected directly on 11 October 2026. \url{https://aimath.org/pastworkshops/quantumalgrep.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The polynomial rank-one subcase and exponential factor enumeration do not determine the general exact-rank decoding complexity or give an improved general quantum attack.
+\end{document}

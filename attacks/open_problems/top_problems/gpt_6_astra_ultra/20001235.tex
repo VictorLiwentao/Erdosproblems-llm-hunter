@@ -1,0 +1,96 @@
+% RESEARCH_DRAFT_SHA256: b3f0f65c3f446a76705595570c1234e74b8417cd871511f26127aa91fc5b4016
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001235, "title": "Nondefectivity and low-degree obstructions for the two-component S4 Birkhoff model", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001235", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Explicit positive two-component S4 mixture violating an unmixed quadratic.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch005/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 20001235; source catalogue code AIM-COMPUTATION-0073
+\section{Nondefectivity and low-degree obstructions for the two-component S4 Birkhoff model}\label{20001235}
+{\small UnsolvedMath ID 20001235 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+In the workshop ranking model, a distribution on the symmetric group $S_4$ is parameterized using first-order ranking summaries. A mixture takes convex combinations of distributions from that family; its algebraic closure is a secant variety. Its equations and likelihood modes depend on the number of mixture components.
+\paragraph{Statement recorded in the supplied source.}
+Problem 58 (Sturmfels). Compute a mixture of the S4 model from Diaconis' talk. What are the equations defining this secant variety? Is the likelihood multimodal? \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The supplied extraction includes adjacent workshop exposition; the numbered target passage is retained verbatim and that surrounding exposition is omitted. The source does not specify the number of mixture components; it is not silently set to two.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+What equations and likelihood behavior arise when the four-item ranking model is mixed?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001235 (AIM-COMPUTATION-0073). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0073
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001235 and source code AIM-COMPUTATION-0073 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001235}
+
+
+\section{Research attempt}
+\subsection{Literature and scope}
+Problem 58 concerns mixtures of the $S_4$ first-order ranking model, without fixing the number of components. I tested the simplest proposed shortcut: reuse the equations of one unmixed component. A positive two-component mixture already violates one of its quadratic binomials. This is a standard secant-versus-toric distinction, not a computation of the full secant ideal.
+\begin{proposition}
+Let $p_\sigma=Z^{-1}\prod_{i=1}^4\theta_{i,\sigma(i)}$ for $\sigma\in S_4$ and positive $\theta$. With $e$ the identity, $\pi=(12)$ and $\tau=(34)$, every such distribution satisfies $p_ep_{\pi\tau}=p_\pi p_\tau$. A strictly positive mixture of two such distributions can violate it.
+\end{proposition}
+\begin{proof}
+The multisets of matrix entries used by the products $w_ew_{\pi\tau}$ and $w_\pi w_\tau$, where $w_\sigma=\prod_i\theta_{i,\sigma(i)}$, are identical: the two swaps concern disjoint row and column pairs. Their monomials agree; dividing by $Z^2$ proves the equality.
+
+Put every $\theta$ entry equal to one except $\theta_{12}=a$ and $\theta_{34}=b$. The selected four unnormalized weights are $(1,a,b,ab)$. There are 24 permutations, six using each specified entry and two using both, so
+\[
+Z(a,b)=24+6(a-1)+6(b-1)+2(a-1)(b-1).
+\]
+Use $(a,b)=(1,1)$ and $(2,2)$, whose normalizers are 24 and 38. Mix their normalized distributions with weights $24/62$ and $38/62$. The selected probabilities become $(2,3,3,5)/62$, so
+\[
+p_ep_{\pi\tau}-p_\pi p_\tau=\frac{2\cdot5-3\cdot3}{62^2}=\frac1{3844}\ne0.
+\]
+All original weights and both mixture weights are positive; all 24 mixture probabilities are therefore positive.
+\end{proof}
+\subsection{Verification and remaining gaps}
+Enumeration of all 24 permutations checked both normalizers and the displayed mixture minor exactly. The failed step is assuming a polynomial identity survives averaging points, which is valid for linear identities but not for this quadratic. The example does not determine any complete two-component secant ideal, its scheme structure, or the likelihood's multimodality. The mixture size remains an original-scope qualification, and no new target progress is claimed.
+
+\section{References and source attribution}
+The original question is credited to the AIM workshop list prepared by Seth Sullivant (2004), \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}. The source question and catalogue attribution are reproduced above. This list was accessed on 11 October 2026; it is historical evidence of the question, not a certification of present open status.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch005/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

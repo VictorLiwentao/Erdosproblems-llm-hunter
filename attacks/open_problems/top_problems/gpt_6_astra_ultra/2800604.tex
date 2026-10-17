@@ -1,0 +1,151 @@
+% RESEARCH_DRAFT_SHA256: 549bcaf2933cb7e7f18c1a4b0204aba28c4d825e8db565587179922b86a98887
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 2800604, "title": "10 Lectures and 42 Open Problems — The Paley ETF Conjecture", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "problem_number": "AMR-027-0604", "set_id": 13}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "2800604", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Does the Paley Equiangular tight frame satisfy the Restricted Isometry Property pass the square root bottleneck? (even by logarithmic factors?).", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. No uniform cancellation estimate for arbitrary supports and coefficients above square-root sparsity is proved; clique obstructions alone do not characterize RIP.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Paley RIP: an exact clique obstruction to beyond-coherence arguments}
+\noindent UnsolvedMath ID 2800604; AMR-027-0604. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+Let $p\equiv1\pmod4$ be prime and let $Q\subset\mathbb F_p^*$ be
+the nonzero quadratic residues. Form a matrix $A_p$ with rows
+$\{0\}\cup Q$ and columns $\mathbb F_p\cup\{\infty\}$ by
+\[
+ (A_p)_{0j}=p^{-1/2},\quad
+ (A_p)_{rj}=(2/p)^{1/2}e^{2\pi i rj/p}\quad(r\in Q,j\in\mathbb F_p),
+ \qquad (A_p)_{\cdot,\infty}=e_0.
+\]
+The vector $e_0$ is one in row zero and zero elsewhere. This is the
+unit-column-norm Paley equiangular tight frame, of size
+$(p+1)/2$ by $p+1$. Distinct columns have inner-product magnitude
+$p^{-1/2}$.
+
+For $s\ge1$, set
+\[
+ \delta_s(A_p)=\max_{|J|\le s}
+                 \|(A_p)_J^*(A_p)_J-I_{|J|}\|_{\mathrm{op}},
+\]
+where $J$ is a column subset and the norm is the largest singular
+value. Does there exist a fixed $\delta<1$ and an integer function
+$s(p)$ with $s(p)/\sqrt p\to\infty$ such that
+$\delta_{s(p)}(A_p)\le\delta$ for all sufficiently large such primes?
+
+Even an unbounded logarithmic improvement over $\sqrt p$ is sought;
+a fixed constant multiple of $\sqrt p$ does not suffice. Equivalently,
+all coefficient vectors on each permissible column set must have their
+squared norm preserved within factors $1\pm\delta$. The question is
+unconditional for this specific arithmetic frame, not a random choice
+of Fourier rows or a conclusion assuming an unproved distribution
+property of quadratic residues.
+\subsection{Short English statement}
+Does the Paley frame preserve sparse-vector norms for sparsity growing faster than the square root of its size?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] ULAM.AI and the UnsolvedMath Contributors, supplied problems.json, record 2800604 (AMR-027-0604), AMR Open Problem Lists. Catalogue identity and source transcription; CC BY 4.0.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Bandeira - 42 Open Problems in Data Science (2016), Open Problem 6.4. Original source indexed by AMR-027-0604.
+\url{https://afonsobandeira.wordpress.com/2015/12/07/10l42pcompressedsensing/}.
+\item[S3] A. S. Bandeira, Ten Lectures and Forty-Two Open Problems in the Mathematics of Data Science, corresponding numbered problem and surrounding definitions.
+\url{https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Does the Paley Equiangular tight frame satisfy the Restricted Isometry Property pass the square root bottleneck? (even by logarithmic factors?).
+
+\section{Attempt and results}
+Let $p\equiv1\pmod4$ be prime and keep the frame in the original definition.
+Write $\chi$ for the quadratic character with $\chi(0)=0$, and
+$e_p(t)=e^{2\pi it/p}$. We derive its Gram entries directly, avoiding a
+dependence on the sign convention for the quadratic Gauss sum.
+
+\paragraph{Character-sum calculation.}
+Set $G=\sum_{t\ne0}\chi(t)e_p(t)$. Half the nonzero field elements are
+squares: the map $x\mapsto x^2$ has exactly two preimages for every nonzero
+square. Thus $\sum_{t\ne0}\chi(t)=0$. Since $\chi(-1)=1$,
+complex conjugation followed by $t\mapsto-t$ shows $G$ is real.
+Moreover, put $x=uy$ in the double sum to obtain
+\[
+|G|^2=\sum_{u\ne0}\chi(u)\sum_{y\ne0}e_p((u-1)y)
+=(p-1)-\sum_{u\ne0,1}\chi(u)=p.
+\]
+Here the inner sum equals $p-1$ at $u=1$ and $-1$ otherwise, by the finite
+geometric series. Hence $G=\varepsilon\sqrt p$ for some
+$\varepsilon\in\{-1,1\}$; its sign is unnecessary below.
+For $i\ne j$ in $\mathbb F_p$, the given row weights give
+\[
+\langle a_i,a_j\rangle
+=\frac1p\left(1+2\sum_{r\in Q}e_p(r(j-i))\right)
+=\frac{\chi(j-i)G}{p}.
+\]
+Indeed $2\boldsymbol1_Q(r)=1+\chi(r)$ for $r\ne0$, the nontrivial
+additive-character sum over the whole field is zero, and scaling its argument
+multiplies the character sum by $\chi(j-i)$. The infinity column has inner
+product $1/\sqrt p$ with every finite column. All columns have norm one.
+
+\paragraph{Exact error on a clique.}
+If $J\subset\mathbb F_p$ is a Paley clique of size $q\ge2$, every off-diagonal
+character in its Gram matrix is one. Thus its Gram error equals
+$\varepsilon(J_q-I_q)/\sqrt p$ and has norm $(q-1)/\sqrt p$.
+The same conclusion holds for an independent set, with the sign reversed.
+In particular, if $\delta_s(A_p)\le\delta<1$ and
+$s>1+\delta\sqrt p$, there cannot be a clique of size exceeding
+$1+\delta\sqrt p$: a larger clique has a subset of size
+$\lfloor1+\delta\sqrt p\rfloor+1\le s$, contradicting that bound.
+This necessary condition does not prove RIP, even if all cliques are small;
+arbitrary supports with mixed signs and arbitrary complex coefficients remain.
+
+\paragraph{The attempted absolute-value argument.}
+For every support of size $t\le s$, the preceding Gram entries and
+$(\sum|x_i|)^2\le t\sum|x_i|^2$ imply
+$|\|Ax\|^2-\|x\|^2|\le(t-1)\|x\|^2/\sqrt p$.
+Consequently $\delta_s\le(s-1)/\sqrt p$ is a sound elementary bound.
+But as $s/\sqrt p\to\infty$ it cannot supply any fixed distortion below one.
+The clique computation shows why replacing every sign by a favorable
+cancellation assumption is unjustified: some supports have perfectly aligned
+signs. It does not show that sufficiently large such supports exist.
+
+\section{Context, audit, and remaining scope}
+The original Paley-frame question and its relationship to clique questions
+were checked in Bandeira's primary notes on 11 October 2026.
+These are elementary standard Gram calculations, not a new cancellation
+bound. The audit checked $q=1$ separately (error zero), the infinity column,
+Gauss-sum sign independence, and the all-support/all-coefficient quantifiers.
+No numerical computation or theorem prover was used in this record.
+No unconditional estimate for $s/\sqrt p\to\infty$ was established, and no
+unproved character-pseudorandomness hypothesis has been substituted for it.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. No uniform cancellation estimate for arbitrary supports and coefficients above square-root sparsity is proved; clique obstructions alone do not characterize RIP.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Bandeira, lecture notes (2016), Section 6.5.3 and Open Problem 6.4; source question inspected. \url{https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} No uniform cancellation estimate for arbitrary supports and coefficients above square-root sparsity is proved; clique obstructions alone do not characterize RIP.
+\end{document}

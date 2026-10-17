@@ -1,0 +1,90 @@
+% RESEARCH_DRAFT_SHA256: 1c1791349dfd9a9ad2c75c4dfa1eae7d399d503e90dbad380de8e2c5fce29209
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001203, "title": "Finite Markov templates with several varying level sets", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001203", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Uniform coordinate-swap templates for complete independence; explicit failure for higher interactions.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch005/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 20001203; source catalogue code AIM-COMPUTATION-0041
+\section{Finite Markov templates with several varying level sets}\label{20001203}
+{\small UnsolvedMath ID 20001203 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For an integer matrix $A$, the fiber at $b$ is $\mathcal F_b=\{x\in\mathbb Z_{\ge0}^d:Ax=b\}$. A Markov basis is a finite set of integer moves $u$ with $Au=0$ such that steps $x\mapsto x\pm u$ staying nonnegative connect every nonempty fiber. A hierarchical categorical model is specified by a collection of allowed interactions. Its level sets give the possible values of each variable, and varying their sizes changes the model matrix and its Markov bases. Finiteness can concern move degrees, symmetry classes, or a finite collection of templates rather than a bound on the total number of moves.
+\paragraph{Statement recorded in the supplied source.}
+Question 27. What types of "finiteness" statements can be made about Markov bases for hierarchical models as more than one set of levels is allowed to vary? \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The source asks which kinds of finiteness are possible and does not assert one fixed finiteness conjecture.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+What finiteness properties survive when several numbers of categories grow in a hierarchical table model?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001203 (AIM-COMPUTATION-0041). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0041
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001203 and source code AIM-COMPUTATION-0041 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001203}
+
+
+\section{Research attempt}
+\subsection{Literature and scope}
+Question 27 varies several level counts in hierarchical models. I attempted a uniform move construction for complete independence, with a fixed number $r$ of variables and arbitrary finite level sets. This is a standard special case, rederived here, not a finiteness theorem for arbitrary interaction structures. The attempted extension fails at preservation of higher-order margins.
+\begin{proposition}
+For tables with fixed one-variable margins, the moves exchanging one coordinate between two observations form a degree-two Markov basis. Up to independent relabeling of levels, at most $r(2^{r-1}-1)$ nonzero move templates suffice. For total count $N\ge1$, any two tables in a fiber can be connected in at most $r(N-1)$ such steps.
+\end{proposition}
+\begin{proof}
+Represent each table by $N$ labeled rows, each an $r$-tuple. Choose any labeling of the target rows. In coordinate $j$, the current and target lists have the same multiset, so a permutation of the $N$ positions makes them equal. Every permutation is a product of at most $N-1$ transpositions: on a cycle of length $m$, use $m-1$ transpositions. Exchange the $j$th entries of the corresponding two rows for each transposition. This keeps all other coordinates fixed and preserves every one-variable margin. The two rows exist before the exchange, so the induced table remains nonnegative. A step subtracts two observations and adds two, hence has degree two unless it cancels to zero. Apply this separately for each coordinate. Previously matched coordinates are unchanged, and finally the labeled arrays agree. The empty table needs no moves.
+
+To count templates, specify the exchanged coordinate $j$ and the subset of the other $r-1$ coordinates in which the two rows differ. If this subset is empty the table change is zero. Otherwise each coordinate uses at most two levels, which independent relabeling sends to fixed labels. There are at most $2^{r-1}-1$ subsets for each $j$. Some descriptions coincide, so this is an upper bound, not an exact orbit count.
+\end{proof}
+\subsection{Failed extension and original-scope comparison}
+For two binary variables, exchanging the first coordinates of $(0,0),(1,1)$ produces $(1,0),(0,1)$. It preserves single-variable margins but changes the joint two-variable margin. Thus applying the same sorting algorithm to an arbitrary hierarchical model is invalid precisely when a prescribed interaction contains both the swapped coordinate and another differing coordinate. No replacement construction for those interactions is obtained here. Finite templates also do not mean a bounded number of instantiated moves.
+\subsection{Verification and remaining gaps}
+Explicit graph search checked all 495 binary three-way tables of total at most four, grouped into 225 fibers; the indicated exchanges connected every fiber. The proof covers all level sizes for complete independence. The unrestricted finiteness classifications in Question 27 remain outside this attempt.
+
+\section{References and source attribution}
+The original question is credited to the AIM workshop list prepared by Seth Sullivant (2004), \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}. The source question and catalogue attribution are reproduced above. This list was accessed on 11 October 2026; it is historical evidence of the question, not a certification of present open status.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch005/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

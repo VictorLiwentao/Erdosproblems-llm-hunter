@@ -1,0 +1,150 @@
+% RESEARCH_DRAFT_SHA256: fab639d0f906dd0b1dfe7fa86352c8de652c45bd963237fd67458f54eb359532
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20002193, "title": "Simplicial resolutions in Macaulay2 and a join-complete verification contract", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002193", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Can we add simplicial resolutions to Macaulay2?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The known monomial construction is proved and documented, but the source leaves the intended broader simplicial-resolution functionality unspecified; no new implementation or original-target advance is claimed.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Labelled simplicial resolutions: a full Taylor proof and a failed face-deletion test}
+\noindent UnsolvedMath ID 20002193; AIM-INFRASTRUCTURE-0093. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A free resolution of an $R$-module $M$ is an exact sequence $\cdots\to F_2\to F_1\to F_0\to M\to0$ with each $F_i$ free. In the monomial-ideal setting, a simplicial resolution is supported on a simplicial complex whose faces carry monomial labels; its augmented, homogenized chain complex must be exact. Other uses of simplicial resolution can concern different algebraic objects.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The registry marks reconstructed wording and does not select an input category or required construction. Existing SimplicialComplexes documentation describes monomial-labelled complexes and Lyubeznik resolutions; thus the prompt is not a verified claim that all such functionality is absent.
+
+Catalogue screening limitation: The supplied catalogue records the problem as solved; excluded from an unsolved-problem import.
+
+The source snapshot labels this record solved; this is catalogue metadata rather than independent verification of a mathematical result or the current completion of a project.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+The supplied catalogue marks this formulation as an unverified reconstruction; missing assumptions are not certified by the source link.
+\paragraph{Statement recorded in the supplied source.}
+Can we add simplicial resolutions to Macaulay2? \href{http://aimpl.org/macaulay2efie/3/}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. This is documentation of a source-labelled solved record, not a newly proposed unsolved problem.
+\subsection{Short English statement}
+Explore adding the intended simplicial-resolution constructions to Macaulay2.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20002193 (AIM-INFRASTRUCTURE-0093). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-INFRASTRUCTURE-0093.
+\url{http://aimpl.org/macaulay2efie/3/}.
+\item[S3] Official Macaulay2 SimplicialComplexes documentation, Working with associated chain complexes (monomial-labelled complexes and Lyubeznik resolutions).
+\url{https://macaulay2.com/doc/Macaulay2-1.24.05/share/doc/Macaulay2/SimplicialComplexes/html/___Working_spwith_spassociated_spchain_spcomplexes.html}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Can we add simplicial resolutions to Macaulay2?
+
+\section{Attempt and results}
+The source snapshot labels the broad software request solved, and official
+Macaulay2 documentation lists labelled complexes and Taylor resolutions.
+We preserve that provenance; no newly solved open problem or package change
+is claimed. The following verifies the standard monomial interpretation and
+identifies an unsound shortcut toward smaller resolutions.
+
+\paragraph{Construction with explicit augmentation.}
+Let $S=k[x_1,\ldots,x_n]$, and let $m_1,\ldots,m_r$ be nonzero monomials,
+$r\ge1$, with $I=(m_1,\ldots,m_r)$. For a subset $J$, let $m_J$ be the
+least common multiple of its labels, with $m_\varnothing=1$.
+Put $T_q=\bigoplus_{|J|=q}S e_J$ for $0\le q\le r$, where $e_J$ has
+multidegree $m_J$ and $T_0=S$. If $J=\{j_1<\cdots<j_q\}$, set
+\[
+d(e_J)=\sum_{a=1}^q(-1)^{a-1}\frac{m_J}{m_{J\setminus\{j_a\}}}
+ e_{J\setminus\{j_a\}}.
+\]
+Augment $T_0\to S/I$ by the quotient map. Every pair of removed vertices
+occurs twice in $d^2$, with opposite signs and the same coefficient
+$m_J/m_{J\setminus\{j_a,j_b\}}$, so $d^2=0$. The image of $d_1$ is
+exactly $I$, proving exactness at $T_0$ after augmentation.
+
+\paragraph{Proof of exactness in higher degrees.}
+Fix any monomial $u$. The $u$-graded strand has one basis vector
+$(u/m_J)e_J$ precisely when $m_J\mid u$. Let
+$V_u=\{j:m_j\mid u\}$. Since $m_J\mid u$ exactly when $J\subseteq V_u$,
+the strand on the $T_q$ is the augmented simplicial chain complex of the
+full simplex on $V_u$, with $q$ vertices in homological degree $q$.
+If $V_u$ is empty, only $T_0$ and $(S/I)_u$ occur and their map is an
+isomorphism. If $V_u$ is nonempty, then $(S/I)_u=0$; choose a vertex $v$.
+Define $h(e_J)$ by adjoining $v$ in its ordered position with the sign making
+its deletion positive, and set $h(e_J)=0$ when $v\in J$. Direct expansion
+of the alternating boundary gives $dh+hd=e_J$: the term deleting $v$ is
+$e_J$, and every term deleting another vertex cancels with the corresponding
+term in $hd$. This includes $J=\varnothing$, where $h(1)=e_v$.
+Thus every nonempty-simplex strand is exact. Any polynomial vector has only
+finitely many homogeneous components, so strandwise preimages can be summed
+to prove exactness of the full graded complex. This proves a free resolution
+of $S/I$, traditionally the Taylor resolution.
+
+\paragraph{An explicit failed compression.}
+For $I=(x,y,z)$, retain only vertices and edges of the labelled triangle and
+delete its two-dimensional face, keeping $T_0$ and the quotient augmentation.
+The resulting complex still has $d^2=0$, and every nonzero boundary entry is
+a nonconstant monomial. Nevertheless, at multidegree $xyz$ the three edges
+have the cycle
+\[
+z e_{12}-y e_{13}+x e_{23}.
+\]
+Its boundary is zero: expanding gives
+$z(x e_2-y e_1)-y(x e_3-z e_1)+x(y e_3-z e_2)=0$.
+The vector is nonzero in the free edge module and there is no higher module
+mapping to it. Thus the compressed complex is not exact. No face has label
+$xyz$ after deleting the triangle, so a verifier inspecting only degrees
+that label surviving faces misses this homology.
+For a finite labelled simplicial subcomplex in general, all strand types
+are determined by the subsets $V_u$: the permitted faces are precisely those
+with vertices in $V_u$. If $V_u$ is nonempty, put $v=\operatorname{lcm}_{j\in V_u}m_j$.
+Then $v\mid u$, and $m_i\mid v$ if and only if $m_i\mid u$; hence the
+strand type already occurs at this join of vertex labels. Checking every
+such join is a finite exactness test, though potentially exponential and
+requiring homology over the actual field $k$.
+
+\section{Context, adversarial audit, and gap}
+The official documentation was directly inspected and establishes that the
+standard monomial construction is documented. It does not resolve every
+possible meaning of the terse AIM request, whose reconstruction flag is
+retained. The audit included the empty face, quotient augmentation,
+characteristic-two cancellation, and the non-face join $xyz$. No software
+installation or test suite was executed, and no universal minimal-resolution
+construction or optimal package design is obtained.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The known monomial construction is proved and documented, but the source leaves the intended broader simplicial-resolution functionality unspecified; no new implementation or original-target advance is claimed.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Official SimplicialComplexes documentation, Working with associated chain complexes; full page inspected, including labelled complexes and Taylor/Lyubeznik resolution entries. \url{https://macaulay2.com/doc/Macaulay2/share/doc/Macaulay2/SimplicialComplexes/html/___Working_spwith_spassociated_spchain_spcomplexes.html}.
+\item AIM, Macaulay2: expanded functionality and improved efficiency, official workshop summary; relevant implementation discussion inspected on 11 October 2026. Original AIMPL pages failed retrieval; exact questions are taken from the supplied snapshot. \url{https://aimath.org/pastworkshops/macaulay2efierep.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The known monomial construction is proved and documented, but the source leaves the intended broader simplicial-resolution functionality unspecified; no new implementation or original-target advance is claimed.
+\end{document}

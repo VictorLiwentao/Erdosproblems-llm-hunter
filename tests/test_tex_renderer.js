@@ -13,6 +13,16 @@ vm.runInContext(scripts.find(script => script.includes('function formatTeX')), c
 const render = context.formatTeX;
 const tex = String.raw;
 
+for (const environment of ['proof', 'quote']) {
+    const result = render('\\begin{' + environment + '}First paragraph.\n\nSecond paragraph.\\end{' + environment + '}');
+    assert.match(result, /<p>Second paragraph\.[\s\S]*?<\/p>\s*<\/(?:div|blockquote)>/);
+    assert.doesNotMatch(result, /<\/(?:div|blockquote)>\s*<\/p>/);
+    const adjacent = render('Before.\n\\begin{' + environment + '}First.\n\nSecond.\n\\end{' + environment + '}\n\\subsection{Next}\nAfter.');
+    assert.match(adjacent, /^<p>Before\.<\/p><(?:div|blockquote)\b/);
+    assert.match(adjacent, /<p>Second\.[\s\S]*?<\/p>\s*<\/(?:div|blockquote)>\s*<h3>Next<\/h3>/);
+    assert.doesNotMatch(adjacent, /<\/(?:div|blockquote)>\s*<\/p>/);
+}
+
 for (const [environment, caption] of [['question', 'Question'], ['conjecture', 'Conjecture'],
     ['warning', 'Warning'], ['example', 'Example']]) {
     const result = render('\\begin{' + environment + '}[Named result]Relevant text.\\end{' + environment + '}');
@@ -47,6 +57,27 @@ assert.doesNotMatch(humanContribution, /Insert immediately|input-ready|host docu
 
 assert.equal(render(tex`C\textasciicircum{}r and O\textasciitilde{}(n)`, false, false),
              '<p>C^r and O~(n)</p>');
+assert.equal(render(tex`Literal \textbackslash{}(broken\textbackslash{}) and \$x\$`, false, false),
+             tex`<p>Literal <code>\</code>(broken<code>\</code>) and \$x\$</p>`);
+assert.equal(render(tex`\textbackslash{}alpha and \textbackslash{}\textbackslash{}begin\{array\}; $\backslash$`, false, false),
+             tex`<p><code>\</code>alpha and <code>\</code><code>\</code>begin{array}; $\backslash$</p>`);
+const literalSource = render(tex`\paragraph{Record scope and qualifications.}
+The source text below is rendered literally where necessary.
+\paragraph{Statement recorded in the supplied source.}
+[
+broken source
+]
+\paragraph{Source status.}
+\[x+y\]`, false, false);
+assert.match(literalSource, /<code>\[<\/code>/);
+assert.match(literalSource, /<code>\]<\/code>/);
+assert.match(literalSource, /\\\[x\+y\\\]/);
+assert.doesNotMatch(literalSource, /\\\[\s*broken source/);
+const compositeSource = render(fs.readFileSync(path.join(root,
+    'attacks/open_problems/top_problems/definitions/20001249.tex'), 'utf8'), false, false);
+assert.equal((compositeSource.match(/<code>\[<\/code>/g) || []).length, 2);
+assert.equal((compositeSource.match(/<code>\]<\/code>/g) || []).length, 2);
+assert.doesNotMatch(compositeSource, /\\\[\s*sup/);
 
 // Source-defined diameter and the Tate--Shafarevich symbol need browser aliases.
 assert.equal(context.window.MathJax.tex.macros.diam, tex`{\operatorname{diam}}`);
@@ -175,7 +206,7 @@ assert.equal(render(tex`\[x
 >y\]`), '<p>\\[x\n&gt;y\\]</p>');
 assert.equal(render(tex`> \[
 > x>y
-> \]`), '<blockquote> \\[\nx&gt;y\n\\] </blockquote>');
+> \]`), '<blockquote> \\[\nx&gt;y\n\\]</blockquote>');
 assert.equal(render(tex`\[x=1\label{eq:shared}\qedhere\]`), '<p><span class="tex-label" data-tex-label="eq:shared" data-tex-scope="0" data-tex-label-kind="math"></span>\\[x=1\\square\\]</p>');
 const references = render(tex`\begin{lemma}[Packing]\label{lem:packing}Claim.\end{lemma}
 By Lemma~\ref{lem:packing}, use \eqref{eq:missing}.`);
@@ -292,7 +323,7 @@ const layout = render(tex`First\\[2pt]Second\newline Third\par Fourth
 \normalsize
 \newpage`);
 assert.match(layout, /First<br>Second<br> Third<\/p><p>Fourth/);
-assert.match(layout, /<hr> <div style="text-align: center;">A <strong>centered<\/strong> result<\/div>/);
+assert.match(layout, /<hr>\s*<div style="text-align: center;">A <strong>centered<\/strong> result<\/div>/);
 assert.match(layout, /LaTeX <em>above<\/em> a<wbr> b …\u2003 end\./);
 assert.doesNotMatch(layout, /\\(?:hrule|par|centerline|newline|small|normalsize|newpage)/);
 assert.equal(render(tex`\MO{314626}{A \emph{question}}`), '<h3>MathOverflow #314626: A <em>question</em></h3>');

@@ -1,0 +1,146 @@
+% RESEARCH_DRAFT_SHA256: 63bc78de56c3647fe2a22b43b60918b968c46c3ad98bd310f06925d6b1f94092
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000059, "title": "Hardness of the $\\varepsilon-Dense$ Steiner Tree Problem", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000059", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Prove hardness results for the $\\varepsilon$-dense Steiner Tree problem, including whether exact optimization is NP-hard.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Weighted neighbor-density admits an exact padding reduction, but unit-cost padding fails and no hardness proof for the source dense approximation regime is established.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Dense Steiner tree: exact weighted padding and its unit-cost failure}
+\noindent UnsolvedMath ID 30000059; OWR-730-009. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Polynomial time means a number of elementary steps bounded by a polynomial in the encoded input length. A decision problem is in $\mathrm{NP}$ if yes-instances have polynomial-length certificates verifiable in polynomial time; NP-hardness is under polynomial-time reductions.
+
+In Steiner Tree a weighted graph and designated terminals are given, and one minimizes the cost of a connected subgraph containing them. Steiner Forest instead specifies terminal groups or demand pairs that must each be connected, allowing distinct groups to remain disconnected.
+\paragraph{Statement recorded in the supplied source.}
+Prove hardness results for the $\varepsilon$-dense Steiner Tree problem, including whether exact optimization is NP-hard. \href{https://doi.org/10.4171/owr/2004/28}{[S2]}
+\paragraph{Scope qualification.}
+The supplied question does not define $\varepsilon$-density, including whether degree is measured against all vertices or only terminals; the report\textquotesingle s definition is required.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Determine hardness of exact and approximate Steiner-tree optimization in the stated dense regime.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000059 (OWR-730-009). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Approximation Algorithms for NP-Hard Problems (2005), Oberwolfach Reports, DOI 10.4171/owr/2004/28, pp. 1461--1540
+\url{https://doi.org/10.4171/owr/2004/28}.
+\item[S3] dense Steiner problems
+\url{https://arxiv.org/abs/2004.14102}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Prove hardness results for the $\varepsilon$-dense Steiner Tree problem, including whether exact optimization is NP-hard.
+
+\section{Recovered density and the cost-model issue}
+The report defines density by requiring every terminal to have at
+least $\varepsilon|V\setminus S|$ neighbors outside the terminal
+set $S$. It is not density among all vertices or among terminals.
+The dense paragraph does not repeat a cost convention; its preceding
+general Steiner discussion permits edge costs, while its cited dense
+approximation result cannot be transferred to arbitrary costs merely
+from unweighted neighbor counts. We therefore analyze weighted padding
+explicitly and then show why it fails in the unit-cost interpretation.
+No unweighted hardness theorem is inferred from weighted padding.
+
+\paragraph{A precise weighted completion reduction.}
+Start with a connected finite graph with nonnegative integer edge
+costs and a nonempty terminal set $S$. Suppose $V\setminus S$ is nonempty;
+if it is empty, add a new nonterminal joined to one terminal by
+a cost-$H$ edge, with $H$ defined below. Let $C$ be the
+sum of the original edge costs and let $H=C+1$.
+Add every missing edge between a terminal and a nonterminal,
+giving every added edge cost $H$. Then each terminal is adjacent
+to every nonterminal, so the resulting graph is $1$-dense under
+the source's neighbor definition. Its optimum cost is unchanged.
+
+Indeed the connected original graph contains a spanning tree: start
+from one vertex and repeatedly add an edge to an unreached vertex
+until all vertices are reached. This is acyclic by construction.
+Its cost is at most $C$ and it connects all terminals. Any tree
+using an added edge has cost at least $H>C$, because all costs
+are nonnegative. An optimal tree therefore uses only original edges,
+and conversely every original terminal tree is available after
+completion. The optimum values coincide. The same argument covers
+the added nonterminal, which is too expensive to occur optimally.
+The integer $H$ has polynomial bit length: summing $|E|$ encoded
+costs adds at most $\lceil\log_2|E|\rceil$ bits to their maximum
+bit length. At most $|S||V\setminus S|$ edges are added.
+
+This is an exact polynomial reduction from weighted Steiner tree
+to its neighbor-dense weighted version. It transfers whatever exact
+hardness is established for the starting weighted problem. It does
+not prove a new source-independent NP-hardness theorem, nor does it
+preserve a restriction that all edge costs equal one or two.
+
+\paragraph{Unit-cost padding genuinely changes the optimum.}
+Take a path $v_0v_1\cdots v_L$ of unit edges, with terminals
+$v_0,v_L$ and $L\ge4$. Its unique terminal-connecting path
+uses all $L$ edges, so its Steiner optimum is $L$.
+If one instead adds unit-cost edges from both terminals to every
+internal vertex, the graph becomes $1$-dense. Any internal vertex
+now supplies a terminal path of length two, so the new optimum is
+at most two. It is exactly two because there is no direct
+terminal-terminal edge and the terminals are distinct. The optimum
+has changed by a factor $L/2$, unbounded with $L$.
+Thus replacing expensive completion edges by unit edges destroys
+the exact reduction and any fixed multiplicative preservation claim.
+
+\paragraph{Why cloning alone does not repair the missing reduction.}
+If a terminal originally sees $a$ of $b$ nonterminals, making
+$k$ identical clones of every nonterminal changes those counts to
+$ka$ and $kb$, leaving the ratio $a/b$ unchanged. Hence uniform
+cloning does not improve this density condition. Adding many common
+cheap neighbors does improve it, but introduces the shortcuts seen
+above. A valid unit-cost construction must reconcile these two
+effects; this attempt supplies none.
+
+\section{Audit}
+The density paragraph and Problem 3 on printed page 1532 were
+inspected directly. The audit recovered the actual denominator in
+density, kept bit length of the large weight explicit, and rejected
+a false inference from weighted hardness to the intended unit-cost
+dense regime. All examples are exact hand constructions; no solver
+or search was used. Resolving the cost convention and supplying a
+hardness reduction valid for the corresponding source regime remain
+necessary before a full answer can be claimed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Weighted neighbor-density admits an exact padding reduction, but unit-cost padding fails and no hardness proof for the source dense approximation regime is established.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 28/2004, Approximation Algorithms for NP-Hard Problems, original question and surrounding discussion read from the cached primary PDF text on 11 October 2026. Historical statements are not a current-status survey. \url{https://doi.org/10.4171/owr/2004/28}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Weighted neighbor-density admits an exact padding reduction, but unit-cost padding fails and no hardness proof for the source dense approximation regime is established.
+\end{document}

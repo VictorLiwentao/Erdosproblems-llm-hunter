@@ -1,0 +1,80 @@
+% TOP_PROBLEM: {"id": 30006637, "title": "Finite-Depth Channel Classification of Mixed-State Topological Order", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The permitted ancillary systems and direction of channel conversion must be fixed. One-way conversion is not automatically an equivalence relation."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006637", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Decide which mixed topological states can be connected by finite-depth local channels and characterize their anyonic obstructions.", "scope": "Proved depth-one reset and an exact finite-causal-cone obstruction to reverse preparation of a long-range correlated mixed state.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked Kraus normalization, causal-cone factorization for disjoint gates and product ancillas, mixed-state correlations and the distinction from a topological-order classification. Model self-audit only; no independent human mathematical verification. Coordinator checked the reset Kraus completeness, disjoint backward-causal-neighborhood factorization and long-range classical mixed-state obstruction. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked Kraus normalization, causal-cone factorization for disjoint gates and product ancillas, mixed-state correlations and the distinction from a topological-order classification. First remaining gap: Identify complete conversion invariants and anyonic/braiding obstructions for the source state and ancillary-operation classes, including the chosen direction and approximation notion. The inherited source status is preserved; original-target completion remains zero."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30006637; source catalogue code OWR-14299913-006
+\setcounter{section}{30006636}
+\section{Finite-Depth Channel Classification of Mixed-State Topological Order}\label{30006637}
+{\small UnsolvedMath ID 30006637 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+A quantum channel is a completely positive trace-preserving map on states. A finite-depth local channel is a composition of a bounded number of layers of bounded-range operations, uniformly in the system size. Mixed-state topological order concerns long-range structures not removable by the allowed operations. Anyons and their braiding provide potential obstructions.
+
+\paragraph{Catalogue wording retained for traceability.}
+Classify mixed-state topological orders under finite-depth quantum channels: given two states, determine whether a finite-depth channel maps one to the other, and characterize the obstructions supplied by anyons and nontrivial braiding.
+
+\paragraph{Scope and source qualification.}The permitted ancillary systems and direction of channel conversion must be fixed. One-way conversion is not automatically an equivalence relation.
+\subsection{Short English statement}
+Decide which mixed topological states can be connected by finite-depth local channels and characterize their anyonic obstructions.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved depth-one reset and an exact finite-causal-cone obstruction to reverse preparation of a long-range correlated mixed state.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30006637. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{A depth-one irreversible conversion.} On each finite-dimensional site define the reset channel \(\mathcal R(\rho)=|0\rangle\langle0|\operatorname{Tr}\rho\). Its Kraus operators \(K_j=|0\rangle\langle j|\) satisfy \(\sum_jK_j^*K_j=I\), proving complete positivity and trace preservation. Tensoring resets across sites maps every input state to the product vacuum in one local layer. Thus any supposed obstruction to arbitrary one-way conversion cannot prohibit conversion to that product state under this operation class.
+\paragraph{The reverse direction has an exact locality obstruction.} Assume circuits have depth \(D\), range at most \(r\), disjoint gates within each layer and initially uncorrelated local ancillas. Backward causal neighborhoods of single-site observables at separation greater than \(2Dr\) are disjoint. Pulling their product backwards through the local channels gives a product of operators on these disjoint input neighborhoods: no gate has support intersecting both cones. On a product input the expectation therefore factorizes. The output has zero connected correlation at such separations.
+\paragraph{A mixed-state countercheck and source gap.} The classical mixed state \(\rho_n=(|0\cdots0\rangle\langle0\cdots0|+|1\cdots1\rangle\langle1\cdots1|)/2\) has \(\langle Z_i\rangle=0\), \(\langle Z_iZ_j\rangle=1\) for distinct sites. It cannot be prepared exactly from product inputs by a uniformly bounded \(D,r\) on growing lattices, though it resets to a product state in depth one. This proves directional asymmetry without asserting this state has anyonic topological order. The source task still requires a classification and braiding obstructions for the actual mixed topological states and allowed ancillas. Correlated shared ancillas or approximate preparation require separate estimates and are not covered here.
+
+\paragraph{Verification and adversarial audit.}
+Checked Kraus normalization, causal-cone factorization for disjoint gates and product ancillas, mixed-state correlations and the distinction from a topological-order classification. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked Kraus normalization, causal-cone factorization for disjoint gates and product ancillas, mixed-state correlations and the distinction from a topological-order classification. First remaining gap: Identify complete conversion invariants and anyonic/braiding obstructions for the source state and ancillary-operation classes, including the chosen direction and approximation notion. The inherited source status is preserved; original-target completion remains zero.
+
+Coordinator checked the reset Kraus completeness, disjoint backward-causal-neighborhood factorization and long-range classical mixed-state obstruction. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Identify complete conversion invariants and anyonic/braiding obstructions for the source state and ancillary-operation classes, including the chosen direction and approximation notion.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30006637:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30006637 (OWR-14299913-006). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30006637:2}{S2}] Higher Structures from Symmetries in Quantum Field Theory (2026), Oberwolfach Reports, DOI 10.4171/owr/2026/12, pp. 737--794. Original report and mathematical context. Incorporated report material remains under the source CC BY-SA 4.0 terms unless otherwise noted.
+\url{https://doi.org/10.4171/owr/2026/12}.
+\end{itemize}
+\label{end:30006637}
+\end{document}

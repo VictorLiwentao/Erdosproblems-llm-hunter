@@ -1,0 +1,137 @@
+% RESEARCH_DRAFT_SHA256: c18d0a76cf813268240e4ae7730ddf78a27d7e07ef4f6bf73431c18815fd4fb1
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001320, "title": "A capability-sound kernel for group-based protocol implementations", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001320", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Implementation of group-based cryptography\n\nIn general very little work exists on efficient implementation of group-based protocols; over time we would like to build up a software library of such implementations.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The conditional replay theorem and explicit interface failures do not build the requested software library, select supported group representations, or establish efficient secure implementations.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Group-library semantics: replay correctness and two universal-interface obstructions}
+\noindent UnsolvedMath ID 20001320; AIM-CRYPTOGRAPHY-0007. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A group-based protocol implementation encodes group elements and supports operations such as multiplication, inversion, equality, and sampling under the protocol's assumptions. A software library exposes those operations with consistent input and output representations. Efficient implementation requires a stated representation and cost model.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+No protocol list, interface, computational target, or correctness specification is provided. The source is preserved as an implementation goal rather than a cryptographic theorem. The supplied catalogue marks this record partially solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+Implementation of group-based cryptography
+
+In general very little work exists on efficient implementation of group-based protocols; over time we would like to build up a software library of such implementations. \href{http://aimpl.org/postquantgroup/2/}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The source proposes a software library for group-based cryptographic protocols.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001320 (AIM-CRYPTOGRAPHY-0007). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-CRYPTOGRAPHY-0007.
+\url{http://aimpl.org/postquantgroup/2/}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Implementation of group-based cryptography
+
+In general very little work exists on efficient implementation of group-based protocols; over time we would like to build up a software library of such implementations.
+
+\section{Attempt and results}
+The source is a software-library goal, with no selected protocol or interface.
+We examine a minimal correctness route and two requests it cannot support
+uniformly. No library, standardized profile, or side-channel guarantee has
+been implemented here.
+
+\paragraph{A representation-independent replay theorem under explicit hypotheses.}
+Fix a protocol expressed as a finite deterministic state machine. Its state
+contains abstract group elements, public bytes, and a position in an explicitly
+specified random tape. Assume each permitted group operation has a fixed
+semantics; a decoder either rejects or gives one abstract value, a canonical
+encoder is injective on abstract values, and all public errors have specified
+conditions and encodings. Suppose two backends implement these semantics
+exactly and start with equal abstract states and identical public bytes and
+tapes. Then their public traces and rejection transitions coincide.
+Proof is by induction on transitions. A deterministic byte operation receives
+identical bytes. A group operation receives equal abstract arguments, so its
+semantic result is equal; encoding then produces identical bytes. A random
+operation consumes the same tape positions and applies the same rule. A branch
+or rejection predicate consequently has the same truth value. These cases
+preserve the induction invariant until termination.
+This is a functional conformance result conditional on the hypotheses; it
+neither constructs canonical forms nor proves timing behavior or cryptographic
+security. Without canonical encoding, equal abstract outputs need not have
+equal byte traces.
+
+\paragraph{There is no uniform distribution on a countably infinite group.}
+If a countably infinite group $G$ had a uniform probability mass $c$ on each
+element, then for $c>0$ a finite set of more than $1/c$ elements would have
+probability greater than one. Thus $c=0$. Countable additivity would then
+assign $G$ probability zero, contradicting probability one. Therefore an API
+that promises a uniform random element for every finitely represented infinite
+group has an impossible specification. A bounded word distribution is a
+possible different operation, but it depends on generators, length convention,
+and reduction rules and is not uniform on the group.
+
+\paragraph{Unit tests for the group axioms do not fix the action convention.}
+A left action must obey $(ab)\cdot x=a\cdot(b\cdot x)$.
+If a backend represents group elements by matrices but applies them in reversed
+order, it may effectively implement a right action. Associativity and inverse
+tests for its group multiplication alone cannot detect this mismatch.
+For a concrete test over $\mathbb F_5$, put
+\[
+A=\begin{pmatrix}1&1\\0&1\end{pmatrix},\qquad
+B=\begin{pmatrix}1&0\\1&1\end{pmatrix},\qquad v=\binom10.
+\]
+Both determinants equal one. Direct multiplication gives
+$AB=\left(\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\right)$ and
+$BA=\left(\begin{smallmatrix}1&1\\1&2\end{smallmatrix}\right)$.
+Thus $(AB)v=(2,1)^T$ while $B(Av)=(1,1)^T$, which are unequal.
+A proposed universal adapter that silently identifies the two conventions
+therefore changes observable protocol computations. The correct contract must
+specify and test the action law, not only multiplication and inverses.
+
+\section{Context, adversarial audit, and gap}
+The official workshop description supplies context; the original AIMPL page
+could not be retrieved. The audit distinguished semantic equality from
+canonical bytes, finite-tape replay from a live random source, countably
+infinite sampling from bounded word sampling, and left from right actions.
+No claim is made about undecidability or current availability of arbitrary
+group operations without a proved model. The matrix calculation is by hand;
+no backend, protocol, test harness, or performance study was implemented.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The conditional replay theorem and explicit interface failures do not build the requested software library, select supported group representations, or establish efficient secure implementations.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Official AIM workshop description, Post-quantum group-based cryptography, 29 April--3 May 2024; provenance and scope inspected on 11 October 2026. AIMPL pages failed retrieval, so the exact problem wording remains supplied-snapshot material. \url{https://aimath.org/workshops/upcoming/postquantgroup/}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The conditional replay theorem and explicit interface failures do not build the requested software library, select supported group representations, or establish efficient secure implementations.
+\end{document}

@@ -1,0 +1,40 @@
+% TOP_PROBLEM: {"id": 10000065, "title": "Time constant in a recursive series-parallel first-passage model", "category_id": 19, "category": {"id": 19, "name": "probability", "display_name": "Probability", "description": "Problems involving probability theory, stochastic processes, and random structures.", "slug": "probability", "order_index": 19, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: null
+% ENTRY_KIND: statement_only
+% Imported from: batch16.tex; UnsolvedMath ID 10000065
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded mathematical question.}#1}
+\begin{document}
+% UnsolvedMath ID 10000065; source catalogue code AMR-099-0065
+\setcounter{section}{10000064}
+\section{Time constant in a recursive series-parallel first-passage model}\label{10000065}
+{\small\sffamily UnsolvedMath ID 10000065 · Probability}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$, and $\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$ denote the integers, rationals, reals and complex numbers. Any other conventions are specified locally.
+
+
+Let $G_0$ be one oriented edge from a source to a sink. Replace each edge recursively by a copy of the three-edge pattern with a single edge from its source to an intermediate junction and two parallel edges from that junction to its sink, preserving the source-to-sink orientation; call the result $G_n$. Assign independent positive weights with common law $\xi$ to its edges and let $D_n$ be the minimum total weight of a source--sink path. Thus $D_0\stackrel d=\xi$ and
+\[D_n\stackrel d=D_{n-1}^{(1)}+\min\{D_{n-1}^{(2)},D_{n-1}^{(3)}\},\]
+where the three variables on the right are independent copies. For the comparison branching random walk, a binary tree starting with an edge has independent edge weights of the same law; let $M_m$ be its minimum root-to-level-$m$ weight. For laws for which the indicated finite limits exist, define the constants
+\[\gamma_{\rm rec}=\lim_{n\to\infty}2^{-n}\mathbb E D_n,\qquad\gamma_{\rm brw}=\lim_{m\to\infty}m^{-1}\mathbb E M_m.\]
+\paragraph{Statement recorded in the supplied source.}
+Compute $\gamma_{\rm rec}$ in terms of the edge-weight law $\xi$. Determine the hypotheses on $\xi$ needed for these finite constants to exist. For nondegenerate laws under those hypotheses, is $\gamma_{\rm rec}>\gamma_{\rm brw}$? \sref{10000065}{2}
+\subsection{Short English statement}
+Determine the first-passage time constant of a series-and-parallel hierarchy and whether it is strictly larger than the binary-tree constant.
+\subsection{Sources}
+\begin{description}
+\item[\hypertarget{source:10000065:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, \emph{UnsolvedMath: A Curated Collection of Open Mathematics Problems}, record 10000065 (AMR-099-0065). CC BY 4.0. \url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:10000065:2}{S2}] Itai Benjamini, \emph{Euclidean vs. Graph Metric}, version dated 16 July 2012; original author manuscript preserved in Arquivo.pt capture of 31 December 2020, Sections 9.1--9.2, equation (1) and Question 9.1, pp. 13--15. \url{https://arquivo.pt/noFrame/replay/20201231041538id_/http://www.wisdom.weizmann.ac.il/~itai/erd100.pdf}.
+\end{description}
+\label{end:10000065}
+\end{document}

@@ -1,0 +1,91 @@
+% TOP_PROBLEM: {"id": 30006483, "title": "The Gell–Mann–Brueckner Formula in the Thermodynamic Limit", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The report distinguishes proved mean-field results on a fixed torus from the open thermodynamic-limit problem. The two limits and their coupling conventions must not be interchanged."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006483", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Prove the predicted high-density correlation-energy formula for the electron gas after taking its thermodynamic limit.", "scope": "Constructed an explicit noncommuting remainder and computed an infrared logarithm to locate the uniformity needed for the thermodynamic correlation expansion.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked both iterated limits, the order-rho size of the error, the logarithmic cutoff integral and the distinction between a diagnostic function and a physical energy. Model self-audit only; no independent human mathematical verification. Coordinator checked the two orders of limits of the auxiliary remainder and its order-rho consequence, and the explicit logarithmic infrared integral. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked both iterated limits, the order-rho size of the error, the logarithmic cutoff integral and the distinction between a diagnostic function and a physical energy. First remaining gap: Prove thermodynamic-uniform correlation-energy bounds through order rho, including infrared screening and neutral-background cancellation in the source normalization. The inherited source status is preserved; original-target completion remains zero."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30006483; source catalogue code OWR-14299579-005
+\setcounter{section}{30006482}
+\section{The Gell–Mann–Brueckner Formula in the Thermodynamic Limit}\label{30006483}
+{\small UnsolvedMath ID 30006483 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+Jellium is a homogeneous electron gas with a neutralizing positive background. Let $e(\rho)$ be its thermodynamic ground-state energy density and $e_{\mathrm{HF}}(\rho)$ its Hartree--Fock counterpart. The high-density correlation energy is $e(\rho)-e_{\mathrm{HF}}(\rho)$. The Gell--Mann--Brueckner prediction has terms $c_1\rho\log\rho+c_2\rho+o(\rho)$ with the coefficients of the source's physical normalization.
+
+\paragraph{Catalogue wording retained for traceability.}
+Establish the Gell–Mann–Brueckner formula in the thermodynamic limit.
+
+\paragraph{Scope and source qualification.}The report distinguishes proved mean-field results on a fixed torus from the open thermodynamic-limit problem. The two limits and their coupling conventions must not be interchanged.
+\subsection{Short English statement}
+Prove the predicted high-density correlation-energy formula for the electron gas after taking its thermodynamic limit.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Constructed an explicit noncommuting remainder and computed an infrared logarithm to locate the uniformity needed for the thermodynamic correlation expansion.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30006483. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{A nonuniform-limit diagnostic.} Write a hypothetical finite-volume correlation energy density in the form
+\[
+ e_L(\rho)-e_{{\rm HF},L}(\rho)
+ =c_1\rho\log\rho+c_2\rho+\rho r(L,\rho).
+\]
+The elementary remainder \(r(L,\rho)=L/(L+\rho)\) tends to zero as \(\rho\to\infty\) for every fixed \(L\), but tends to one as \(L\to\infty\) for every fixed \(\rho\). Thus
+\[
+ \lim_{L\to\infty}\lim_{\rho\to\infty}r(L,\rho)=0,
+ \qquad
+ \lim_{\rho\to\infty}\lim_{L\to\infty}r(L,\rho)=1.
+\]
+This is a counterexample to a proposed interchange of limits, not a candidate physical jellium energy. It shows that even a correct fixed-torus expansion can miss an entire order-\(\rho\) term after thermodynamic limiting.
+\paragraph{The infrared scale behind the issue.} An auxiliary logarithmic momentum contribution \(\int_{2\pi/L}^K dk/k=\log(KL/(2\pi))\), for \(K>2\pi/L\), depends explicitly on the infrared cutoff. Replacing that cutoff by a density-dependent screening scale before controlling the sum/integral error can change the constant accompanying the logarithm. This observation is a direct integral calculation, not a derivation of a jellium ring-diagram formula or its coefficients.
+\paragraph{First source gap.} One needs a thermodynamic-uniform upper and lower correlation-energy comparison, controlling long wavelengths, background cancellation and the high-density remainder to \(o(\rho)\). The coefficients \(c_1,c_2\) must keep the source normalization; none is guessed here. The already proved fixed-torus mean-field results remain distinct from this required order of limits.
+
+\paragraph{Verification and adversarial audit.}
+Checked both iterated limits, the order-rho size of the error, the logarithmic cutoff integral and the distinction between a diagnostic function and a physical energy. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked both iterated limits, the order-rho size of the error, the logarithmic cutoff integral and the distinction between a diagnostic function and a physical energy. First remaining gap: Prove thermodynamic-uniform correlation-energy bounds through order rho, including infrared screening and neutral-background cancellation in the source normalization. The inherited source status is preserved; original-target completion remains zero.
+
+Coordinator checked the two orders of limits of the auxiliary remainder and its order-rho consequence, and the explicit logarithmic infrared integral. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Prove thermodynamic-uniform correlation-energy bounds through order rho, including infrared screening and neutral-background cancellation in the source normalization.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30006483:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30006483 (OWR-14299579-005). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30006483:2}{S2}] Arbeitsgemeinschaft: Analysis of Many-body Quantum Systems (2025), Oberwolfach Reports, DOI 10.4171/owr/2025/46, pp. 2491--2544. Original report and mathematical context. Incorporated report material remains under the source CC BY-SA 4.0 terms unless otherwise noted.
+\url{https://doi.org/10.4171/owr/2025/46}.
+\end{itemize}
+\label{end:30006483}
+\end{document}

@@ -1,0 +1,148 @@
+% RESEARCH_DRAFT_SHA256: 88af09c1d6f863379d93ca8f75fc0da3f67b90a619fab8e579de435eb6995b5f
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20002195, "title": "Degree-local Hom computation and certified corner reuse", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002195", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "There is preliminary code to decompose a module into indecomposables, but it would benefit from being much faster. Right now the bottleneck is the computation of the endomorphisms of module M.\n\nCan we compute all the degree-0 (or degree-≤ e) homomorphisms of a graded module M without computing the entirety of End M? What are other ways to speed up the decomposition of modules into indecomposable summands? If M is the direct sum of $N_1$ and $N_2$, how can we extract $\\mathrm{End}(N_1)$ and $\\mathrm{End}(N_2)$ from $\\mathrm{End}(M)$ without recalculating?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Finite component kernels and projector reuse do not solve general efficient indecomposable decomposition or implement and benchmark the requested package improvements.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Selected Hom degrees, reusable corners, and a decomposition obstruction}
+\noindent UnsolvedMath ID 20002195; AIM-INFRASTRUCTURE-0095. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a graded module M, a homogeneous map of degree d sends $M_j$ into $M_{j+d}$. Its endomorphism module is $\operatorname{End}(M)=\operatorname{Hom}(M,M)$. If $M=N_1\oplus N_2$, its endomorphisms have diagonal blocks $\operatorname{End}(N_i)$ and off-diagonal Hom blocks; the question asks whether desired blocks or degree slices can be computed without rebuilding the full module.
+\paragraph{Statement recorded in the supplied source.}
+There is preliminary code to decompose a module into indecomposables, but it would benefit from being much faster. Right now the bottleneck is the computation of the endomorphisms of module M.
+
+Can we compute all the degree-0 (or degree-≤ e) homomorphisms of a graded module M without computing the entirety of End M? What are other ways to speed up the decomposition of modules into indecomposable summands? If M is the direct sum of $N_1$ and $N_2$, how can we extract $\mathrm{End}(N_1)$ and $\mathrm{End}(N_2)$ from $\mathrm{End}(M)$ without recalculating? \href{http://aimpl.org/macaulay2efie/4/}{[S2]}
+\paragraph{Scope qualification.}
+The supplied degree-zero and degree-at-most-e targets and direct-sum reuse questions are retained; no blanket polynomial-time bound is asserted.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can selected degrees and direct-summand blocks of a module's homomorphisms be computed efficiently without recomputing its whole endomorphism module?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20002195 (AIM-INFRASTRUCTURE-0095). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-INFRASTRUCTURE-0095
+\url{http://aimpl.org/macaulay2efie/4/}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+There is preliminary code to decompose a module into indecomposables, but it would benefit from being much faster. Right now the bottleneck is the computation of the endomorphisms of module M.
+
+Can we compute all the degree-0 (or degree-≤ e) homomorphisms of a graded module M without computing the entirety of End M? What are other ways to speed up the decomposition of modules into indecomposable summands? If M is the direct sum of $N_1$ and $N_2$, how can we extract $\mathrm{End}(N_1)$ and $\mathrm{End}(N_2)$ from $\mathrm{End}(M)$ without recalculating?
+
+\section{Attempt and results}
+We attempt the source's bottleneck reduction using exact finite linear algebra,
+then determine what extra data is necessary to reuse endomorphisms after a
+split. These are standard mechanisms already foreshadowed in the supplied
+summary, proved here without accepting its claims as an external theorem.
+
+\paragraph{A finite degree-component kernel.}
+Let $R$ be a nonnegatively graded $k$-algebra, $M,N$ graded modules, and
+\[
+\bigoplus_{l=1}^b R f_l\xrightarrow{A}
+\bigoplus_{j=1}^a R e_j\longrightarrow M\longrightarrow0
+\]
+a homogeneous finite presentation, with $\deg e_j=u_j$, $\deg f_l=v_l$,
+and $A(f_l)=\sum_j a_{jl}e_j$. A degree-$d$ map $M\to N$ is equivalent
+to elements $n_j\in N_{u_j+d}$ satisfying
+$\sum_j a_{jl}n_j=0$ for every $l$. Indeed an assignment to a free basis
+extends uniquely to an $R$-linear map, and it factors through the displayed
+cokernel exactly when it kills the displayed relations. Consequently
+\[
+\operatorname{Hom}_R^d(M,N)=\ker\left(
+\bigoplus_j N_{u_j+d}\longrightarrow\bigoplus_l N_{v_l+d}\right),
+\quad(n_j)_j\longmapsto(\sum_j a_{jl}n_j)_l.
+\]
+If the indicated components have computed finite bases and multiplication
+matrices, this is a finite matrix kernel over $k$; it need not construct the
+whole internal Hom module. If $a=0$, then $M=0$ and every Hom component is zero; treat this case first.
+For $a>0$, if $N_t=0$ for $t<L$, a nonzero map must have some
+nonzero $n_j$, and therefore $d\ge L-\max_j u_j$. Thus degrees at most $e$
+reduce to the finite integer window $L-\max_j u_j\le d\le e$.
+Both local finite dimensionality and an effective component representation
+are necessary for this algorithmic conclusion. For example, assigning degree
+zero to the variable in $k[x]$ makes its degree-zero component infinite
+ dimensional; a finite-dimensional matrix computation no longer follows.
+
+\paragraph{Reusing a certified direct sum.}
+Suppose $M=N_1\oplus N_2$ is supplied with degree-zero maps
+$i_j:N_j\to M$, $p_j:M\to N_j$ satisfying
+$p_j i_l=\delta_{jl}$ and $i_1p_1+i_2p_2=1_M$.
+Let $E=\operatorname{End}_R(M)$ and $e_j=i_jp_j$. The map
+\[
+\operatorname{Hom}_R^d(N_j,N_i)\longrightarrow e_i E_d e_j,
+\qquad h\longmapsto i_i h p_j
+\]
+is an isomorphism with inverse $a\mapsto p_i a i_j$.
+Their compositions are identities by the stated split relations. Moreover,
+any $a\in E_d$ equals $\sum_{i,j}e_i a e_j$, and applying $p_l$ on the
+left and $i_t$ on the right shows the sum is direct as a vector-space
+ decomposition. For $i=j$ it respects composition, so it recovers both
+endomorphism corners as algebras. If a basis of $E_d$ is already stored,
+applying $a\mapsto e_i a e_j$ to that basis spans the desired corner;
+linear dependence removal yields a basis without recomputing Hom.
+The projector and actual composition operations are essential inputs.
+
+\paragraph{Why an endomorphism vector-space basis does not itself split a module.}
+Take $R=k[x]$ and $M=R/(x^2)$. Every endomorphism is multiplication by a
+unique $a+bx$, since its value at $1$ determines it and every such value is
+annihilated by $x^2$. If this endomorphism is idempotent, then
+$a^2=a$ and $(2a-1)b=0$. In a field, $a=0$ or $1$, and $2a-1$ is a
+unit in either case, including characteristic two. Hence $b=0$ and the
+only idempotents are zero and one. A nontrivial module direct sum would
+give a nontrivial projection idempotent, so none exists, although the
+endomorphism vector space has dimension two. Therefore replacing the search
+for an algebra idempotent by a vector-space split is an invalid inference.
+This example is an ungraded obstruction to that shortcut, not a claim that
+every degree-zero endomorphism algebra behaves identically.
+
+\section{Context, adversarial audit, and gap}
+The official workshop report describes direct-summand work. Exact AIMPL
+wording comes from the supplied snapshot because the page was unavailable.
+The audit checked the shifts in the relation map, the lower end of the
+requested degree window, off-diagonal corner orientation, and characteristic
+two in the idempotent example. The proof establishes exact reductions under
+explicit representations, but it does not bound the cost of obtaining component
+bases or split projectors, construct a general faster decomposition algorithm,
+or demonstrate a runtime improvement in Macaulay2. No package tests were run.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Finite component kernels and projector reuse do not solve general efficient indecomposable decomposition or implement and benchmark the requested package improvements.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item AIM, Macaulay2: expanded functionality and improved efficiency, official workshop summary; relevant implementation discussion inspected on 11 October 2026. Original AIMPL pages failed retrieval; exact questions are taken from the supplied snapshot. \url{https://aimath.org/pastworkshops/macaulay2efierep.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Finite component kernels and projector reuse do not solve general efficient indecomposable decomposition or implement and benchmark the requested package improvements.
+\end{document}

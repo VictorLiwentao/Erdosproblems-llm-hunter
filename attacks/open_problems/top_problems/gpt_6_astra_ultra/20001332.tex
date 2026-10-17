@@ -1,0 +1,109 @@
+% RESEARCH_DRAFT_SHA256: ea4918c8f6c1d51f34783a1352dcc7f29d711198b80e1f85b01b31a864013a6b
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001332, "title": "Exact period-quotient reduction and unary lift cost for hidden shift on Z^d", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001332", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and written mathematical review at the declared scope; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Exact period-quotient reduction and unary lift cost for hidden shift on Z^d; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Exact rectangular quotients and the cost of unary representatives; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch015 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 20001332; source catalogue code AIM-CRYPTOGRAPHY-0019
+\section{Exact period-quotient reduction and unary lift cost for hidden shift on Z\textasciicircum{}d}\label{20001332}
+{\small UnsolvedMath ID 20001332 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A hidden-shift instance consists of functions $f_0,f_1$ on a group $G$ related by $f_1(x)=f_0(xs)$ for an unknown shift $s$, with the additive version $f_1(x)=f_0(x+s)$ for abelian groups. The task is to recover a compatible shift from the stipulated function access. For $G=\mathbb Z^d$, periodicity under a sublattice means $f(x+\lambda)=f(x)$ for every period $\lambda$. Shifts differing by a period are indistinguishable. Unary query cost counts the size of an integer argument in unary, rather than only its binary length.
+\paragraph{Statement recorded in the supplied source.}
+Hidden shift on $\mathbb Z^d$ where $f_0$ and $f_1$ are periodic under unary oracle cost. \href{http://aimpl.org/quantumalg/4/}{[S2]}
+\paragraph{Scope qualification.}
+The source does not say which periods are provided, the lattice rank, or the collision promise; the question is retained with these unresolved oracle details.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+What is the cost of finding a hidden shift between periodic functions on an integer lattice when queries have unary cost?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001332 (AIM-CRYPTOGRAPHY-0019). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-CRYPTOGRAPHY-0019
+\url{http://aimpl.org/quantumalg/4/}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001332 and source code AIM-CRYPTOGRAPHY-0019 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001332}
+
+\section{Literature and context check}
+The original AIM URL was attempted on 2026-10-11, but the web fetch timed out and a direct retrieval failed at DNS resolution. Its supplied extract is preserved above; fresh access to that page is not claimed. Kuperberg's primary abstract was consulted for the abelian hidden-shift setting, without importing a full complexity theorem. The original question leaves the periods and their rank unspecified. The following exact reduction assumes known rectangular periods; its failure to preserve a logarithmic cost under unary encodings is proved explicitly.
+\section{Research attempt: Exact rectangular quotients and the cost of unary representatives}
+Assume known positive integers $N_1,\ldots,N_d$, and that $f_0,f_1$ are periodic under $N_i e_i$ for every coordinate. Put $G=\prod_i\mathbb Z/N_i\mathbb Z$, and define $F_b(\bar x)=f_b(x)$ for any integer representative $x$. This is well defined: two representatives differ by a sum of the stated periods. If $f_1(x)=f_0(x+s)$ then $F_1(\bar x)=F_0(\bar x+\bar s)$, with exactly the same oracle outputs. A quotient query can therefore be implemented by lifting each coordinate to $0,\ldots,N_i-1$ and making one original query.
+
+If $f_0$ has exactly the stated period lattice $\Lambda=\prod_iN_i\mathbb Z$, the quotient shift is unique. Indeed, if both $s,t$ work then $f_0(x+s)=f_0(x+t)$ for all $x$, so $t-s$ is a period, hence lies in $\Lambda$. Injectivity of $F_0$ is a stronger sufficient promise. Merely knowing that the displayed vectors are periods does not imply either property: $f_0(x)=x\bmod2$ with a supplied even period $N>2$ also has period two, and shifts differing by two are indistinguishable in $\mathbb Z/N\mathbb Z$.
+
+Now specify a literal unary encoding whose length for one integer $z$ is $1+|z|$, with a separate sign convention. A quotient representative set for $\mathbb Z/N\mathbb Z$ must contain $N$ distinct integers. If all have absolute value at most $B$, then $N\leq2B+1$, so $B\geq(N-1)/2$. Thus even the best choice of representatives has a worst-case unary length linear in $N$. Moreover, at most $2B+1$ residue representatives can have absolute value at most $B$. With $N\geq8$ and $B=\lfloor N/8\rfloor$, at least half have absolute value greater than $B$, proving an average unary cost at least $N/32$ for a uniform quotient query. The crude constant follows from $B\geq N/16$ for $N\geq8$.
+
+The standard nonnegative lifts have total unary length at most $d+\sum_i(N_i-1)$, whereas their binary lengths are $O(\sum_i\log(2N_i))$. A coherent query using fixed-size literal unary registers must accommodate the largest representative in its support. Consequently a finite-group routine polynomial in the logarithms of the periods does not acquire the same unary cost by this simulation. For $d=1$, $N=2^k$, merely holding a supported unary representative can require order $2^k$ positions while its binary description uses order $k$ bits.
+
+These are lower bounds for the explicit quotient-lift representation, not lower bounds against every possible hidden-shift algorithm. An algorithm that avoids large integer arguments or uses a different oracle interface would need its own analysis. When the period lattice is not given or does not have full rank, this finite quotient construction is not automatically available at all.
+\section{Verification and adversarial audit}
+For $N_i=1$ the corresponding coordinate is trivial, and it contributes no hidden information. The average-cost estimate is only stated for $N\geq8$; the finite smaller cases do not affect the claimed asymptotic obstruction. Extra periods are tested by an explicit collision example, rather than ruled out by terminology.
+\paragraph{Audit corrections.} A supplied period is not assumed to be a fundamental period. The cost lower bound is explicitly about lifting quotient representatives into a literal unary interface, not a universal quantum lower bound.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+No optimal unary-cost algorithm for the original periodic problem is established. Determining or representing unknown periods, handling nonrectangular or lower-rank lattices, and meeting a specified collision/success model remain outside the proved reduction.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://arxiv.org/abs/quant-ph/0302112} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and written mathematical review at the declared scope; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

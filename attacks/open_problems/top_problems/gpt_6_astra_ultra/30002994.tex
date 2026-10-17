@@ -1,0 +1,168 @@
+% RESEARCH_DRAFT_SHA256: 7295b7e2973478faa4485e517a32900021961cccbf190076141ce409b169f4dc
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30002994, "title": "Consequences of Indistinguishability Obfuscation", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002994", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The indistinguishability obfuscation conjecture asserts the feasibility of obfuscating functionally equivalent programs so their obfuscations cannot be distinguished; what are its precise consequences and relations to one-way functions and $P\\neq NP$?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The source is an open-ended question about iO consequences; only standard conditional implications and a failed candidate extraction are established, with no new unconditional implication or separation.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Indistinguishability obfuscation: conditional canonization and an inversion gap}
+\noindent UnsolvedMath ID 30002994; OWR-13949-001. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Indistinguishability obfuscation maps equivalent same-size circuits to computationally indistinguishable encodings while preserving functionality. A one-way function is efficiently computed but computationally hard to invert on the designated random-input distribution.
+
+A cryptographic security requirement compares an efficient adversary\textquotesingle s advantage with a negligible function of the security parameter. A negligible function is smaller than every inverse polynomial eventually; computational and information-theoretic security are different requirements.
+\paragraph{Statement recorded in the supplied source.}
+The indistinguishability obfuscation conjecture asserts the feasibility of obfuscating functionally equivalent programs so their obfuscations cannot be distinguished; what are its precise consequences and relations to one-way functions and $P\neq NP$? \href{https://doi.org/10.4171/owr/2015/54}{[S2]}
+\paragraph{Scope qualification.}
+The asymptotic circuit family and security definitions are those of the source; the question is not treated as a new assertion of unconditional obfuscation feasibility.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Determine the consequences and logical relationships of obfuscation with one-way functions and separation of efficient verification from computation.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30002994 (OWR-13949-001). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Complexity Theory (2016), Oberwolfach Reports, DOI 10.4171/owr/2015/54, pp. 3049--3099
+\url{https://doi.org/10.4171/owr/2015/54}.
+\item[S3] Oberwolfach complexity report
+\url{https://www.wisdom.weizmann.ac.il/~oded/PDF/owr-cc15.pdf}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+The indistinguishability obfuscation conjecture asserts the feasibility of obfuscating functionally equivalent programs so their obfuscations cannot be distinguished; what are its precise consequences and relations to one-way functions and $P\neq NP$?
+
+\section{Source scope and the attempted implication}
+The workshop introduction on printed page 3052 remarks that the
+indistinguishability-obfuscation conjecture does not itself supply one-way
+functions or a $P\ne NP$ assertion. The catalogue asks broadly for precise
+consequences rather than stating a single equivalence. We rederive the
+standard $P=NP$ conditional explanation and examine an elementary attempt
+to extract a one-way function. No unconditional obfuscator or separation
+is constructed.
+
+\section{Under P equals NP, circuit canonization is efficient}
+Fix a standard finite Boolean circuit encoding, with specified input and
+output arities. For two such circuits, nonequivalence has an NP witness:
+an input on which their evaluations differ. If $P=NP$, nonequivalence,
+and hence its complement equivalence, is decidable in polynomial time.
+
+Given a circuit $C$ of size $s$, choose a fixed encoding length $L(s)$
+polynomial in $s$, with padding and an explicit end marker, sufficiently
+large to encode every circuit of size at most $s$ with those arities.
+Let valid candidate strings describe circuits of size at most $s$ and
+length $L(s)$. At least one candidate represents $C$.
+For a candidate prefix $p$, the predicate
+\[
+\exists D\;[D\text{ is a valid candidate beginning with }p
+                  \text{ and }D\equiv C]
+\]
+is in NP under the assumed polynomial equivalence test: guess the
+remaining bits and verify validity and equivalence. Thus it too is in P
+under $P=NP$. Starting with the empty prefix, choose a zero next bit if
+the predicate remains true, and otherwise choose one. Induction preserves
+the existence of a completion, and after $L(s)$ steps produces the
+lexicographically first valid equivalent candidate. The number of calls
+and each call's input length are polynomial in $s$.
+
+Define the output to be that candidate circuit. It computes precisely the
+input's function and has size at most $s$. Equivalent circuits with the
+same size and arities have exactly the same candidate set and therefore
+identical outputs. Their output distributions have statistical distance
+zero, even against unbounded distinguishers. Ignoring a security parameter
+is permissible here, since security is perfect. This proves a deterministic
+perfect indistinguishability obfuscator conditional on $P=NP$, in the
+same-size circuit formulation. It does not claim efficient computation
+of a minimum circuit without that assumption.
+
+\section{Under the same assumption, one-way functions cannot exist}
+Let $f$ be any deterministic polynomial-time function on binary strings.
+Given $y=f(x)$ and $1^n$, where $|x|=n$, a prefix $p$ has an extension
+mapping to $y$ precisely when
+\[
+\exists z\in\{0,1\}^{n-|p|}\quad f(pz)=y.
+\]
+This is an NP predicate and hence polynomially decidable under $P=NP$.
+The same bitwise search finds a length-$n$ preimage for every $y$ in
+the image of length-$n$ strings. Its time is polynomial in $n+|y|$;
+the image length is polynomial in $n$. Its inversion success probability
+on a random length-$n$ input is one. This contradicts any usual
+one-wayness requirement for $f$.
+
+Together the two arguments give
+\[
+P=NP\quad\Longrightarrow\quad
+\text{perfect efficient iO exists and no one-way function exists}.
+\]
+This is a conditional theorem, not a proof of a model of arithmetic in
+which $P=NP$ holds, nor an unconditional logical independence result.
+Indeed an unconditional theorem ``iO implies $P\ne NP$,'' combined with
+the conditional canonization proof, would itself imply $P\ne NP$ by
+contradiction. The broad catalogue cannot be declared solved by simply
+assuming a resolution of that separation.
+
+\section{A concrete failed extraction of a one-way function}
+Try to encode a secret $s\in\{0,1\}^n$ in a circuit $C_s$ which prints
+$s$, and publish its obfuscation. Correctness defeats this candidate:
+evaluating the published circuit on any legal input returns $s$.
+If obfuscation is randomized and its coins are included in the proposed
+function's input, this argument recovers the embedded secret, but need
+not recover coins producing the exact published encoding; hence it is
+not by itself an inverter for that different function. The precise
+failure is that this construction cannot hide the secret or justify
+one-wayness merely through iO. Distinct $C_s$ compute distinct functions,
+so iO makes no indistinguishability promise between them. With a
+deterministic obfuscator, including the conditional one above, evaluation
+recovers a full input preimage and the candidate map is explicitly
+invertible. A randomized coin-based candidate needs an additional
+argument which this route does not supply.
+
+\section{Model-assisted audit and remaining scope}
+The audit checked the two successive uses of $P=NP$, the common size
+bound needed for canonical outputs, preimage-length input, and the
+difference between recovering a secret and inverting randomized coins.
+The conditional implications are known elementary mechanisms, not new
+cryptographic results. We have not classified iO consequences under
+other assumptions, built iO unconditionally, or proved a complexity
+separation. No numerical experiment or theorem prover was used.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The source is an open-ended question about iO consequences; only standard conditional implications and a failed candidate extraction are established, with no new unconditional implication or separation.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Complexity Theory, OWR 54/2015; relevant original passages read in the cached primary report. The web DOI endpoint was unavailable on the inspection date. \url{https://doi.org/10.4171/owr/2015/54}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The source is an open-ended question about iO consequences; only standard conditional implications and a failed candidate extraction are established, with no new unconditional implication or separation.
+\end{document}

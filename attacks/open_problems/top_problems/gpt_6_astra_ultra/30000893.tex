@@ -1,0 +1,155 @@
+% RESEARCH_DRAFT_SHA256: 16aa72ed63af4e7d652b9bccecbdda3ce3ac24ded1255c01712789f2a3816643
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000893, "title": "Quantitative Manipulability of Social Choice Functions", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000893", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "For a social choice function $f$ on profiles of voters' complete preferences, what fraction of profiles admit a profitable manipulation by some voter? Can this fraction be tiny, perhaps exponentially small, even for nontrivial functions?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The known near-dictatorship caveat is quantified exactly, but no general sharp manipulability bound or theorem for fixed-distance nontrivial rules is established.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{An exact exponentially rare-manipulation family and its distance caveat}
+\noindent UnsolvedMath ID 30000893; OWR-1782-003. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A preference profile gives each voter a complete ordering of alternatives. A social choice function selects one alternative from each profile. A profitable manipulation changes one voter\textquotesingle s reported order to obtain an outcome preferred under that voter\textquotesingle s true order.
+\paragraph{Statement recorded in the supplied source.}
+For a social choice function $f$ on profiles of voters' complete preferences, what fraction of profiles admit a profitable manipulation by some voter? Can this fraction be tiny, perhaps exponentially small, even for nontrivial functions? \href{https://doi.org/10.4171/owr/2008/01}{[S2]}
+\paragraph{Scope qualification.}
+The profile probability distribution and meaning of nontrivial are not specified in the short question.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Quantify how often voters can improve an outcome by misreporting preferences.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000893 (OWR-1782-003). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorics (2008), Oberwolfach Reports, DOI 10.4171/owr/2008/01, pp. 5--78
+\url{https://doi.org/10.4171/owr/2008/01}.
+\item[S3] Friedgut--Kalai--Keller--Nisan
+\url{https://doi.org/10.1137/090756740}.
+\item[S4] Mossel--Racz, without neutrality
+\url{https://arxiv.org/abs/1110.5888}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+For a social choice function $f$ on profiles of voters' complete preferences, what fraction of profiles admit a profitable manipulation by some voter? Can this fraction be tiny, perhaps exponentially small, even for nontrivial functions?
+
+\section{Source scope and attempted construction}
+The primary report specifies independent uniformly random complete preference
+orders, and calls a rule nontrivial if it is not a dictatorship and has at
+least three possible outcomes. Crucially its footnote already observes that
+rules extremely close to a dictatorship can have very few manipulable profiles.
+We make that known obstruction explicit, even under neutrality, and count
+both manipulable profiles and successful random misreports exactly. This is
+a rederivation of the source's caveat, not a new quantitative theorem for
+rules bounded away from triviality.
+
+\section{Exact construction and proof}
+Fix three alternatives, $n\ge2$ voters, and write a complete order as a
+three-entry list. Define $f$ as follows. If all voters report the same order
+$R=(a,b,c)$, choose its second alternative $b$; at every other profile choose
+the first voter's top alternative. Relabeling alternatives carries both cases
+and the chosen list position to their relabeled versions, so $f$ is neutral.
+At a unanimous profile it disagrees with every voter's top, so it is no
+voter's dictatorship. Its range is all three alternatives, because unanimity
+orders can place any specified alternative second.
+
+Every unanimous profile is manipulable: voter 1 can replace $(a,b,c)$ by
+$(a,c,b)$, producing the preferred outcome $a$. At a nonunanimous profile
+the chosen outcome is already voter 1's true top, so voter 1 cannot profit.
+Another voter $i>1$ can change the outcome only by making the profile
+unanimous. This requires all other voters to have a common order
+$R=(a,b,c)$ and voter $i$ to have a different true order $S$. The change
+from $a$ to $b$ is profitable exactly when $S$ ranks $b$ above $a$.
+Exactly three of the six possible orders do so; none equals $R$.
+Thus for each $R$ and $i>1$ there are three such profiles. These profiles
+are distinct: $R$ is the first voter's order and, when $n>2$, the sole
+exceptional index is determined; when $n=2$, the only possible index is 2.
+Together with the six unanimous profiles, their number is
+\[
+6+18(n-1)=6(3n-2),\qquad
+\Pr[\text{some profitable misreport exists}]=\frac{3n-2}{6^{n-1}}.
+\]
+No other profiles can be manipulable by the preceding classification.
+In particular the answer to the small-fraction existence subquestion is yes
+under the report's basic nontriviality definition, even for neutral rules.
+There is no claim that this family is extremal among all nontrivial rules.
+
+\paragraph{Exact random-misreport powers.}
+The report's $M_i$ samples both the profile and a fresh independent uniform
+report for voter $i$. This differs from the existence probability above.
+Voter 1 can profit only at a unanimous profile. There exactly one of the
+six possible reports, $(a,c,b)$, gives the only better outcome $a$.
+Hence $M_1=6/6^{n+1}=6^{-n}$. For a voter $i>1$, each of the six
+unanimous profiles has five profitable reports, and each of the eighteen
+classified nonunanimous profiles for that voter has one profitable report,
+namely $R$. Consequently
+\[
+M_i=\frac{6\cdot5+18}{6^{n+1}}=\frac8{6^n}\quad(i>1),
+\qquad \sum_iM_i=\frac{8n-7}{6^n}.
+\]
+These calculations also demonstrate why sampling a random false report and
+asking whether one exists must not be interchanged without a factor.
+
+\paragraph{Why this cannot defeat a fixed-distance theorem.}
+The rule differs from voter 1's dictatorship at exactly the six unanimous
+profiles, and nowhere else. Its distance from that dictatorship is
+$6/6^n=6^{1-n}$. Its distance from the set of all dictatorships is therefore
+at most this quantity, which tends to zero exponentially. This is not a
+family with a fixed positive distance parameter $\varepsilon$.
+In particular the source's lower bound involving $\varepsilon^2$ is not
+contradicted by the exponentially small manipulation probability.
+
+\section{Adversarial audit, computation, and remaining scope}
+An exhaustive exact Python check enumerated all $36,216,1296,7776$ profiles
+for $n=2,3,4,5$, respectively, and all six reports of each voter. It found
+$24,42,60,78$ manipulable profiles and successful profile/report counts
+$6$ for voter 1 and $48$ for every other voter, exactly as proved above.
+The program and raw counts accompany this manuscript; they are finite checks,
+not a substitute for the general counting proof.
+The later Mossel--Racz abstract states inverse-polynomial profile bounds
+under distance from nonmanipulable rules, without neutrality. Its full proof
+was not inspected here and is not presented as this attempt's result.
+A general sharp fraction for arbitrary specified rules or for rules a fixed
+distance from triviality is not obtained. The construction instantiates an
+already acknowledged source caveat, so no original-target progress percentage
+is assigned despite its complete answer to that limited existence subquestion.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The known near-dictatorship caveat is quantified exactly, but no general sharp manipulability bound or theorem for fixed-distance nontrivial rules is established.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Nisan contribution on quantitative social-choice manipulability, Oberwolfach Report 1/2008, printed pp.27--29, including footnote 1 and the random-misreport definition; relevant primary text read on 11 October 2026. \url{https://ems.press/content/serial-article-files/46145}.
+\item Mossel--Racz, A quantitative Gibbard--Satterthwaite theorem without neutrality, primary abstract read on 11 October 2026. Full proof and exact normalization comparison not audited. \url{https://arxiv.org/abs/1110.5888}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The known near-dictatorship caveat is quantified exactly, but no general sharp manipulability bound or theorem for fixed-distance nontrivial rules is established.
+\end{document}

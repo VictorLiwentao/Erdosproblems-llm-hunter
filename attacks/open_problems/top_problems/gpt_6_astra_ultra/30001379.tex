@@ -1,0 +1,129 @@
+% RESEARCH_DRAFT_SHA256: a57cb1a04a3703726925033ca2cf7a28df61742651210af07d8f587229a982a5
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30001379, "title": "Orbit-Closure Obstructions for Permanent–Determinant Separation", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001379", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written mathematical review at the declared scope; no independent human verification. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Orbit-Closure Obstructions for Permanent–Determinant Separation; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Small permanent degenerations and an unfulfilled weight obstruction; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch018 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30001379; source catalogue code OWR-4135-010
+\section{Orbit-Closure Obstructions for Permanent–Determinant Separation}\label{30001379}
+{\small UnsolvedMath ID 30001379 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+The determinant and padded permanent are homogeneous polynomials acted on by linear variable changes. Equivariance of a ring map means it commutes with this group action; a surjection is a map onto the whole target ring.
+
+For a group action on a vector space, $Gp$ is the orbit of $p$ and $\overline{Gp}$ is its algebraic closure. Its coordinate ring consists of polynomial functions modulo those vanishing on the orbit closure. Representation multiplicities count copies of a given irreducible representation in a graded component.
+\paragraph{Statement recorded in the supplied source.}
+For every positive polynomial $p$ and every $m_0\in\mathbb{N}$, does there exist $m\geq m_0$ such that no equivariant surjection exists from the coordinate ring of the determinant orbit closure to that of the padded permanent orbit closure? \href{https://doi.org/10.4171/owr/2009/52}{[S2]}
+\paragraph{Scope qualification.}
+The padding, dimension polynomial $p$, and group representation are the conventions of the source.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Rule out the stated equivariant ring surjections between determinant and padded-permanent orbit closures at arbitrarily large sizes.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30001379 (OWR-4135-010). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Complexity Theory (2010), Oberwolfach Reports, DOI 10.4171/owr/2009/52, pp. 2787--2850
+\url{https://doi.org/10.4171/owr/2009/52}.
+\item[S3] permanent versus determinant survey
+\url{https://arxiv.org/abs/1511.08113}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30001379 and source code OWR-4135-010 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30001379}
+
+\section{Literature and context check}
+The primary report, printed page 2840, formulates the equivariant-surjection target for padded permanents and determinant orbit closures and proposes representation obstructions. The padding requires determinant size at least permanent size; this convention is retained rather than treating a negative padding exponent as a polynomial. The following gives explicit small-size degenerations and the elementary weight-space obstruction that a larger-size proof would have to exploit. It does not assert a superpolynomial separation.
+\section{Research attempt: Small permanent degenerations and an unfulfilled weight obstruction}
+
+\paragraph{Why an arbitrary linear substitution gives a degeneration}
+Let $V$ be the vector space of the $n^2$ matrix-entry variables and $F=\det_n$ its polynomial. For any linear map $L:V\to V$, the polynomial $F\circ L$ belongs to the closure of the orbit under invertible linear substitutions. Indeed $\det(L+tI)$ is a nonzero monic polynomial in $t$, so $L+tI$ is invertible except for finitely many scalars. The coefficient vector of $F\circ(L+tI)$ tends to that of $F\circ L$ as $t\to0$. Every polynomial relation vanishing on the orbit also vanishes at this limit by continuity, proving membership in its Zariski closure.
+
+For permanent size one and $n\geq2$, substitute the diagonal matrix $\operatorname{diag}(x,z,\ldots,z)$ to obtain $z^{n-1}x$. For permanent size two and $n\geq3$, substitute the block diagonal matrix with first block
+\[
+ \begin{pmatrix}a&b\\-c&d\end{pmatrix}
+\]
+and remaining diagonal entries all $z$. Its determinant is $z^{n-2}(ad+bc)=z^{n-2}\operatorname{per}_2$. The cases $n=m=1$ are immediate, and $n=m=2$ use the same two-by-two block without $z$. In that last case merely changing the sign of one input variable is invertible, so the permanent and determinant actually have the same orbit.
+
+Let $X$ be the determinant orbit closure and $q$ one of these padded permanents. Since $X$ is closed and invariant under the group, it contains $Y=\overline{Gq}$. In the common ambient polynomial-coordinate ring, $I(X)\subseteq I(Y)$, because a function vanishing on the larger set also vanishes on the smaller one. Quotienting gives a surjective restriction map
+\[
+ \mathbb C[X]\longrightarrow\mathbb C[Y],
+\]
+which commutes with the group action. These low-size cases therefore cannot provide the obstruction demanded by the asymptotic conjecture. They do not refute it, since its quantifier asks for arbitrarily large permanent sizes.
+
+\paragraph{A necessary finite-dimensional weight test}
+Suppose a surjective linear map $\phi:U\to W$ commutes with a diagonal torus action, and both spaces split into finitely many character spaces. Then its restriction to each character space is onto the corresponding character space of $W$. For a direct proof choose a torus element whose eigenvalues on the finitely many distinct characters are distinct; such a choice exists because it avoids finitely many nonzero character-difference equations. For any one eigenvalue, Lagrange interpolation gives a polynomial in that torus operator equal to its eigenspace projection. Equivariance makes $\phi$ commute with this projection. Project a preimage of a target character vector to get a preimage of the same character. In particular a character occurring on the right but not the left obstructs surjectivity, and larger character-space dimension on the right also obstructs it.
+
+This test applies to finite-dimensional homogeneous pieces when the proposed map respects them. For these degree-$n$ form orbit closures, central scalar substitutions act on coordinate functions of homogeneous degree $d$ with character $t^{-nd}$ under the usual pullback convention. Distinct degrees give distinct characters, so a group-equivariant linear map respects the grading. The asserted scalar character follows because scaling the input variables by $t$ scales a degree-$n$ form by $t^n$, and pullback uses the inverse action. Each homogeneous coordinate-ring piece is a quotient of finitely many degree-$d$ coordinate monomials and is finite-dimensional.
+
+The missing step is to find and prove a discrepancy for the actual determinant and padded-permanent coordinate rings at unbounded sizes and every polynomial padding bound. The small degenerations above supply no such discrepancy, and mere knowledge that the two polynomials have different displayed monomials does not determine their orbit-closure coordinate-ring weights. No representation occurrence or multiplicity is asserted without calculation.
+
+\section{Verification and adversarial audit}
+The limiting substitutions use invertible maps for all but finitely many parameters, rather than assuming a singular substitution lies in the orbit. The direction of ideal inclusion and coordinate-ring restriction is checked. The $n=2$ case requires no extra padding variable. The weight argument concerns finite homogeneous pieces and explicitly explains why scalar equivariance preserves those pieces.
+\paragraph{Audit corrections.} Separated orbit membership from orbit closure, small fixed permanent sizes from the asymptotic quantifier, and necessary representation tests from an actual obstruction.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The full asymptotic non-surjection statement is unresolved here. Explicit low-size inclusions and a necessary obstruction criterion are proved; a separating weight or multiplicity family and the polynomial-padding quantifiers remain entirely missing. No new permanent--determinant separation is claimed.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46253} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+The parent Codex GPT-6 model has reviewed the written mathematical arguments at their declared scopes. This is model-assisted review, not independent human verification.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

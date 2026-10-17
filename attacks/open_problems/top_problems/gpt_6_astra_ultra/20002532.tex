@@ -1,0 +1,82 @@
+% TOP_PROBLEM: {"id": 20002532, "title": "The four-body super-eight and the rotating-square obstruction", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "solved", "statusQualification": "The primary workshop remarks already mention a computer-assisted interval-arithmetic proof. The source’s historical question is retained, with no fresh proof audit or open-status conclusion. A rotating square in the same symmetry class is an obstruction to a naive minimizing argument, not the super-eight itself. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase. The inherited catalogue status is solved; this historical statement is retained without independently verifying that settlement."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002532", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Prove existence of the equal-mass four-body super-eight orbit.", "scope": "Computed the exact rotating-square choreography as a competing solution and checked its energy. The source-solved super-eight proof is not reconstructed or independently verified.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked all pair distances, radial acceleration coefficient, angular frequency, virial energy relation and preservation of source-solved status. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the rotating-square force balance, pair count and virial check, while retaining the source-solved status. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked all pair distances, radial acceleration coefficient, angular frequency, virial energy relation and preservation of source-solved status. Scope remains limited: Specify and verify constraints or a shooting certificate selecting the actual super-eight and excluding square/collision alternatives."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002532; source catalogue code AIM-PHYSICS-0040
+\setcounter{section}{20002531}
+\section{The four-body super-eight and the rotating-square obstruction}\label{20002532}
+{\small UnsolvedMath ID 20002532 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}In the Newtonian $n$-body problem, positions $q_i\in\mathbb R^d$ and masses $m_i>0$ obey $m_i\ddot q_i=\nabla_{q_i}U$, where $U(q)=\sum_{i<j}m_im_j/|q_i-q_j|$ and the gravitational constant is normalized to one. Here $T=\tfrac12\sum_i m_i|\dot q_i|^2$, $E=T-U$, and a collision has $q_i=q_j$. The center of mass can be fixed at zero; moment of inertia is $I=\sum_i m_i|q_i|^2$. A choreography has all bodies traverse one closed curve with prescribed phase shifts. The super-eight is the named four-body equal-mass periodic orbit drawn and discussed in the workshop. Its detailed symmetry and topological class are part of that geometric specification; an arbitrary four-body periodic solution is not enough.
+
+\paragraph{Catalogue wording retained for traceability.}
+Problem 3. Prove the existence of super-eight solution for the 4-body problem with equal masses. (Joseph Gerver)
+\paragraph{Scope and source qualification.}The primary workshop remarks already mention a computer-assisted interval-arithmetic proof. The source’s historical question is retained, with no fresh proof audit or open-status conclusion. A rotating square in the same symmetry class is an obstruction to a naive minimizing argument, not the super-eight itself. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase. The inherited catalogue status is solved; this historical statement is retained without independently verifying that settlement.
+\subsection{Short English statement}
+Prove existence of the equal-mass four-body super-eight orbit.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Computed the exact rotating-square choreography as a competing solution and checked its energy. The source-solved super-eight proof is not reconstructed or independently verified.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{An explicit competing choreography.}Put four equal masses \(m>0\) at the vertices of a rotating square of circumradius \(R\): \(q_j(t)=R(\cos(\omega t+j\pi/2),\sin(\omega t+j\pi/2))\), \(j=0,1,2,3\). For the vertex \((R,0)\), the opposite vertex contributes acceleration \(-m/(4R^2)\) in the radial direction. Each adjacent vertex contributes radial acceleration \(-m/(2\sqrt2R^2)\); transverse components cancel. Hence the configuration solves Newton's equations exactly when
+\[\omega^2=\frac{m}{R^3}\left(\frac14+\frac1{\sqrt2}\right).
+\]
+The other equations follow by rotation. It is collision free, periodic, and all bodies follow the same circle with equal phase shifts.
+\paragraph{Why a generic choreography proof is insufficient.}The potential is \(U=m^2(2\sqrt2+1)/R\), by counting four edges of length \(\sqrt2R\) and two diagonals of length \(2R\). The kinetic energy is \(T=2m\omega^2R^2=U/2\), which independently checks the force coefficient. Thus a variational scheme that imposes only equal masses and cyclic choreography has this exact competitor; existence in that broad class does not identify the super-eight's curve, crossings or topological/symmetry data.
+\paragraph{Source status and gap.}The source already reports a computer-assisted proof and the catalogue is source-solved. This attempt neither verifies that proof nor reopens the historical problem. It reconstructs a concrete obstruction to an underspecified minimizing strategy. The first missing step in such a strategy is a constraint or validated shooting certificate that selects the actual super-eight while excluding the rotating square and collisions. No super-eight orbit or interval-arithmetic enclosure is generated here.
+
+\paragraph{Verification and adversarial audit.}
+Checked all pair distances, radial acceleration coefficient, angular frequency, virial energy relation and preservation of source-solved status. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked all pair distances, radial acceleration coefficient, angular frequency, virial energy relation and preservation of source-solved status. Scope remains limited: Specify and verify constraints or a shooting certificate selecting the actual super-eight and excluding square/collision alternatives.
+
+Coordinator checked the rotating-square force balance, pair count and virial check, while retaining the source-solved status. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Specify and verify constraints or a shooting certificate selecting the actual super-eight and excluding square/collision alternatives.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002532:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002532 (AIM-PHYSICS-0040). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002532:2}{S2}] American Institute of Mathematics, Variational Methods in Celestial Mechanics; notes by Kuo-Chang Chen, version 22 June 2003, source item 3.
+\url{https://aimath.org/WWN/varcelest/varcelest.pdf}.
+\end{itemize}
+\label{end:20002532}
+\end{document}

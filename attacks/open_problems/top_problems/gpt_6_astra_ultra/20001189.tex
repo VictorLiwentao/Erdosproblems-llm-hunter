@@ -1,0 +1,154 @@
+% RESEARCH_DRAFT_SHA256: f0d4e0392f26636c70bbe23378e11599a2f9831b25c523cae96d8cafcf47420c
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001189, "title": "Sufficient releases, conditional fibers, and incompatible Gibbs updates", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001189", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 13. What is the family of distributions that has margins and conditionals as sufficient statistics? What should the stationary distribution be for MCMC? Jon Forster asked, \"Is it safe to release full conditionals that have been perturbed?\" Aleksandra replied, \"Probably not.\"\n\nLuis Garcia\n\nLuis Garcia spoke about the algebraic structure of the probability distributions which arise from graphical models with hidden variables. Chris Meek asked, \"What is the algebraic characterization of the Verma constraints? (non-independence constraints)\" Mathias Drton asked, \"Are these the same constraints described by Richardson and Spirtes (Annals of Statistics 2002)?\" Henry Wynn asked, \"How do inequalities play a role in this problem?\"\n\nHenry Wynn\n\nHenry Wynn spoke about formulae relating cumulants to moments.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. No unique general sampling family or MCMC target follows from the unspecified summaries, and the composite disclosure-risk and hidden-variable constraint questions are not resolved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Sufficient summaries and incompatible conditionals: explicit target ambiguity}
+\noindent UnsolvedMath ID 20001189; AIM-COMPUTATION-0027. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A statistic is sufficient for a model parameter if the conditional law of the data given that statistic does not depend on the parameter. A margin sums a joint table over selected coordinates; a conditional distribution divides joint probabilities by the relevant marginal when positive. Gibbs updates sample specified full conditional laws, and stationarity requires their compatibility with a joint law. Hidden-variable models can impose polynomial constraints beyond conditional independence.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The excerpt combines several speaker contributions and never fixes one distribution family or MCMC target. Compatibility, disclosure risk, and algebraic constraints therefore remain distinct source directions. The supplied catalogue marks this record partially solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+Question 13. What is the family of distributions that has margins and conditionals as sufficient statistics? What should the stationary distribution be for MCMC? Jon Forster asked, "Is it safe to release full conditionals that have been perturbed?" Aleksandra replied, "Probably not."
+
+Luis Garcia
+
+Luis Garcia spoke about the algebraic structure of the probability distributions which arise from graphical models with hidden variables. Chris Meek asked, "What is the algebraic characterization of the Verma constraints? (non-independence constraints)" Mathias Drton asked, "Are these the same constraints described by Richardson and Spirtes (Annals of Statistics 2002)?" Henry Wynn asked, "How do inequalities play a role in this problem?"
+
+Henry Wynn
+
+Henry Wynn spoke about formulae relating cumulants to moments. \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The composite discusses sufficient summaries, perturbed conditionals, MCMC, and hidden-variable constraints.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001189 (AIM-COMPUTATION-0027). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-COMPUTATION-0027.
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 13. What is the family of distributions that has margins and conditionals as sufficient statistics? What should the stationary distribution be for MCMC? Jon Forster asked, "Is it safe to release full conditionals that have been perturbed?" Aleksandra replied, "Probably not."
+
+Luis Garcia
+
+Luis Garcia spoke about the algebraic structure of the probability distributions which arise from graphical models with hidden variables. Chris Meek asked, "What is the algebraic characterization of the Verma constraints? (non-independence constraints)" Mathias Drton asked, "Are these the same constraints described by Richardson and Spirtes (Annals of Statistics 2002)?" Henry Wynn asked, "How do inequalities play a role in this problem?"
+
+Henry Wynn
+
+Henry Wynn spoke about formulae relating cumulants to moments.
+
+\section{Attempt and finite models}
+The composite source does not fix one sampling model, disclosure rule,
+MCMC target or hidden-variable graph. We analyze two precise finite
+questions within it: whether a statistic chooses its conditional target,
+and whether perturbed full conditionals necessarily share a joint law.
+
+\paragraph{The statistic alone does not determine a conditional target.}
+Let $\Omega$ be any finite sample space and $S:\Omega\to\mathcal S$.
+Choose any positive weight $h(x)$ and functions $g_\theta(s)>0$, and
+normalize $p_\theta(x)=h(x)g_\theta(S(x))/Z_\theta$.
+For each nonempty fiber,
+\[
+\Pr_\theta(X=x\mid S=s)
+=\frac{h(x)}{\sum_{y:S(y)=s}h(y)},
+\]
+because $g_\theta(s)$ and $Z_\theta$ cancel. Hence $S$ is sufficient,
+yet different choices of $h$ give different conditional targets with the
+same statistic. On a two-point fiber, $h=(1,2)$ gives probabilities
+$(1/3,2/3)$, whereas equal weights give the uniform target.
+Thus specifying margins or conditional-frequency summaries does not by
+itself determine a unique stationary law. A sampling family is needed.
+
+\paragraph{Two incompatible positive binary full conditionals.}
+Let $X,Y\in\{0,1\}$ and prescribe
+\[
+\Pr(X=1\mid Y=0)=\Pr(X=1\mid Y=1)=1/2,
+\quad\Pr(Y=1\mid X=0)=1/4,
+\quad\Pr(Y=1\mid X=1)=3/4.
+\]
+The first pair would force $X$ independent of $Y$ in any positive joint
+law: $p(1,y)=p(0,y)$ for each $y$. Such a law has identical $Y$ conditionals
+for the two $X$ values, contradicting the latter pair. So all the
+individual conditional probabilities are valid and positive, but no
+joint distribution has them simultaneously.
+
+\paragraph{Nevertheless each scan rule has a stationary law.}
+With probability $\alpha\in(0,1)$ update $X$ from the first kernel,
+and otherwise update $Y$ from the second. Any stationary law must have
+$\Pr(X=1)=1/2$: the $Y$ update leaves this marginal fixed and the $X$
+update sets it to $1/2$. Its $Y$ marginal must then also be $1/2$,
+since the other update sets that marginal to
+$(1/2)(1/4)+(1/2)(3/4)=1/2$.
+Put $c=\mathbb E[(2X-1)(2Y-1)]$. After an $X$ update this is zero.
+After a $Y$ update it is $1/2$, since
+$\mathbb E[2Y-1\mid X]=(2X-1)/2$. Stationarity requires
+$c=(1-\alpha)/2$. Marginals and this correlation determine all four
+probabilities uniquely:
+\[
+\pi_{00}=\pi_{11}=(3-\alpha)/8,
+\qquad\pi_{01}=\pi_{10}=(1+\alpha)/8.
+\]
+They are positive and sum to one. The update calculations also show
+they reproduce their own two marginals and correlation after one step;
+those three numbers determine a binary joint law, so this proves
+stationarity directly, without an external Markov-chain theorem.
+The target changes with $\alpha$. Therefore the attempted inference
+``positive perturbed full conditionals define an intrinsic Gibbs target''
+is false. This example does not quantify disclosure safety.
+
+\section{Source scope and audit}
+The primary AIM passage and its subsequent hidden-variable discussion
+were inspected. The source's Verma-constraint, inequality and disclosure
+questions are not answered by a two-variable example. The arguments are
+elementary known constructions, not a new general sufficiency or privacy
+theorem. The audit checked positivity, sufficiency as parameter-free
+conditioning, and stationarity versus compatibility. No simulation or
+formal computation was performed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. No unique general sampling family or MCMC target follows from the unspecified summaries, and the composite disclosure-risk and hidden-variable constraint questions are not resolved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Computational Algebraic Statistics, prepared by Seth Sullivant, version 27 March 2004; the original numbered source question and its adjacent scope were inspected on 11 October 2026. \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} No unique general sampling family or MCMC target follows from the unspecified summaries, and the composite disclosure-risk and hidden-variable constraint questions are not resolved.
+\end{document}

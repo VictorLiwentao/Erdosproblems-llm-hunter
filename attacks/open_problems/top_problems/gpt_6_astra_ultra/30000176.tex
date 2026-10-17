@@ -1,0 +1,99 @@
+% TOP_PROBLEM: {"id": 30000176, "title": "Multipartite Dense-Coding Capacity", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The capacity depends on whether receiver decoding is local, LOCC, or global and on the assignment of senders to receivers. The report distinguishes these protocols; the question must retain that distinction. It asks both for more-than-two-receiver capacities or bounds and for usefulness of multipartite bound entanglement."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000176", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Web browsing opened the primary arXiv abstract identified in the literature field; no full-paper proof or current-status search was performed. Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Determine how much information several separated receivers can decode, and whether undistillable multipartite entanglement can help.", "scope": "Proves a global spectral counting ceiling for fixed-state unitary encodings for any number of receivers; neither LOCC capacity nor bound-entanglement usefulness is determined.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked support reduction, tensor-power largest eigenvalue, pure maximally entangled and maximally mixed endpoints, and the encoding-operation restriction. Model self-audit only; no independent human proof checking. Coordinator checked the common support projection, rho_m <= lambda^n P, the POVM trace bound and success-rate logarithmic limit. The restriction to fixed-state unitary encodings is essential and retained. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked support reduction, tensor-power largest eigenvalue, pure maximally entangled and maximally mixed endpoints, and the encoding-operation restriction. Retained unresolved status and zero original-target progress; A receiver-separation-sensitive bound or an achievable LOCC protocol is missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30000176; source catalogue code OWR-785-002
+\setcounter{section}{30000175}
+\section{Multipartite Dense-Coding Capacity}\label{30000176}
+{\small UnsolvedMath ID 30000176 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} A shared multipartite state is a positive trace-one operator $\rho$ on $\bigotimes_i\mathcal H_{A_i}\otimes\bigotimes_{j=1}^r\mathcal H_{B_j}$. Sender $A_i$ encodes a classical message by a local unitary and sends its subsystem to its assigned receiver. Local operations and classical communication (LOCC) permit the receivers to exchange classical messages, but not to perform a joint quantum operation. The dense-coding capacity is the supremum asymptotic classical communication rate, in bits per use, achievable with vanishing decoding error in the chosen receiver protocol. The unassisted benchmark is $\sum_i\log_2\dim\mathcal H_{A_i}$. Bound entanglement means entanglement from which the relevant parties cannot distil singlets by LOCC.
+
+\paragraph{Source scope and qualifications.} The capacity depends on whether receiver decoding is local, LOCC, or global and on the assignment of senders to receivers. The report distinguishes these protocols; the question must retain that distinction. It asks both for more-than-two-receiver capacities or bounds and for usefulness of multipartite bound entanglement.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+For distributed dense coding with more than two receivers, determine the capacity, or at least a nontrivial upper bound. Can multipartite bound-entangled states be useful for distributed dense coding?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The single-receiver capacity is exact and the two-receiver case has nontrivial upper bounds, but the general more-than-two-receiver capacity and usefulness of multipartite bound entanglement remain unresolved in the literature checked. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Determine how much information several separated receivers can decode, and whether undistillable multipartite entanglement can help.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proves a global spectral counting ceiling for fixed-state unitary encodings for any number of receivers; neither LOCC capacity nor bound-entanglement usefulness is determined.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition and its protocol qualifications were reviewed. The arXiv abstract of Bruss et al. [S4] was opened and confirms its one- and two-receiver scope; the full proof was not consulted. The following spectral counting argument is self-contained and makes no novelty claim.
+
+\paragraph{Context and investigated scope.} The complete supplied definition and its protocol qualifications were reviewed. The arXiv abstract of Bruss et al. [S4] was opened and confirms its one- and two-receiver scope; the full proof was not consulted. The following spectral counting argument is self-contained and makes no novelty claim.
+
+\paragraph{A spectral counting attempt.} Write $D_A=\prod_i\dim\mathcal H_{A_i}$, let $R$ be the rank of the joint receiver marginal $\rho_B$, and let $\lambda$ be the largest eigenvalue of $\rho$. Consider $n$ independent copies, unitary encodings on the sending systems, and $M$ equiprobable messages. Positivity implies that $\rho$ is supported on $\mathcal H_A\otimes\operatorname{supp}\rho_B$: if a receiver vector has zero marginal expectation, the corresponding positive diagonal block vanishes, and Cauchy--Schwarz for the positive quadratic form makes its off-diagonal blocks vanish too.
+
+Every encoded state $\rho_m$ therefore obeys $\rho_m\leq\lambda^n P$, where $P$ is the common support projection of dimension $(D_AR)^n$. For any decoding POVM $E_1,\ldots,E_M$, including every LOCC decoder,
+\[
+ p_{\rm success}=M^{-1}\sum_m\operatorname{Tr}(E_m\rho_m)
+ \leq M^{-1}\lambda^n\operatorname{Tr}P
+ =M^{-1}(D_AR\lambda)^n.
+\]
+If success tends to one, taking logarithms and dividing by $n$ gives $\limsup n^{-1}\log_2M\leq\log_2(D_AR\lambda)$. The proof even permits joint sender unitaries and unrestricted receiver measurements, hence applies to every assignment to three or more receivers.
+
+\paragraph{Counterchecks and obstruction.} A pure maximally entangled state with $R=D_A$ gives the familiar dimension ceiling $2\log_2D_A$. A maximally mixed shared state gives zero capacity in this fixed-state, unitary-only encoding class. That last check forbids silently importing a discard-and-reprepare operation, which would restore an unassisted rate. The estimate does not exploit separation and can be much too large. For pure $\rho$ it ignores all entanglement geometry. In particular it neither distinguishes bound entanglement from distillable entanglement nor determines any receiver-LOCC capacity. Obtaining an assignment-sensitive bound below this global counting ceiling is the first obstruction; deciding usefulness of multipartite bound entanglement remains a separate bundled question.
+
+\paragraph{Verification and adversarial audit.}
+Checked support reduction, tensor-power largest eigenvalue, pure maximally entangled and maximally mixed endpoints, and the encoding-operation restriction. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked support reduction, tensor-power largest eigenvalue, pure maximally entangled and maximally mixed endpoints, and the encoding-operation restriction. Retained unresolved status and zero original-target progress; A receiver-separation-sensitive bound or an achievable LOCC protocol is missing.
+
+Coordinator checked the common support projection, rho\_m <= lambda\textasciicircum{}n P, the POVM trace bound and success-rate logarithmic limit. The restriction to fixed-state unitary encodings is essential and retained. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Web browsing opened the primary arXiv abstract identified in the literature field; no full-paper proof or current-status search was performed. Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. A receiver-separation-sensitive bound or an achievable LOCC protocol is missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. A receiver-separation-sensitive bound or an achievable LOCC protocol is missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30000176:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30000176 (OWR-785-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30000176:2}{S2}] Entanglement and Decoherence: Mathematics and Physics of Quantum Information and Computation (2005), Oberwolfach Reports, DOI 10.4171/owr/2005/04, pp. 185--255; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2005/04}.
+\item[\hypertarget{source:30000176:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 19--21, printed pages 203--205.
+\url{https://ems.press/content/serial-article-files/45978}.
+\item[\hypertarget{source:30000176:4}{S4}] Bruss et al., Dense coding with multipartite quantum states; reference in the saved dated catalogue literature review.
+\url{https://arxiv.org/abs/quant-ph/0507146}.
+\item[\hypertarget{source:30000176:5}{S5}] Das et al., distributed dense coding with two receivers; reference in the saved dated catalogue literature review.
+\url{https://arxiv.org/abs/1412.6247}.
+\end{itemize}
+\label{end:30000176}
+\end{document}

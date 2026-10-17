@@ -1,0 +1,157 @@
+% RESEARCH_DRAFT_SHA256: a7156c963331e65587b9f2fdad6c88f3928d6b2edc2ecf49b533cfafbec88db5
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000172, "title": "Central-Trajectory Integral Bounds", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000172", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Central-Trajectory Integral Bounds; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A two-variable integral and a conditional superlevel reduction; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch015 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30000172; source catalogue code OWR-783-004
+\section{Central-Trajectory Integral Bounds}\label{30000172}
+{\small UnsolvedMath ID 30000172 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+The primal-dual central trajectory satisfies primal and dual feasibility with positive primal variables $x$ and dual slacks $s$, and $x_i s_i=\nu$. A dot denotes differentiation with respect to $\nu$, $\circ$ is componentwise multiplication, and $\lVert z\rVert_1=\sum_i|z_i|$.
+
+A linear program optimizes $c^Tx$ over a polyhedron $\{x:Ax\leq b\}$. In the simplex method a pivot moves between adjacent basic feasible solutions; a pivot rule chooses the next such move.
+\paragraph{Statement recorded in the supplied source.}
+For the primal-dual central trajectory $(x(\nu),s(\nu),y(\nu))$ of a linear program with constraint matrix $A$, define $\kappa(\nu)=\lVert\nu\dot x(\nu)\circ\dot s(\nu)\rVert_1^{1/2}$ and $$F(\nu_0,\nu_1)=\int_{\nu_1}^{\nu_0}\frac{\kappa(\nu)}{\nu}\,d\nu.$$ Is $F(\infty,0)$ bounded by a quantity depending only on $A$? More specifically, is $F(\infty,0)=O\!\left(n^{3.5}\log(\bar\chi_A^*+n)\right)$? \href{https://doi.org/10.4171/owr/2005/02}{[S2]}
+\paragraph{Scope qualification.}
+The condition measure $\bar\chi_A^*$ and required rank/feasibility assumptions are those of the report. $F(\infty,0)$ denotes the corresponding improper integral when defined.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Bound the total stated central-path integral using only the constraint matrix and obtain the conjectured quantitative estimate.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000172 (OWR-783-004). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Optimization and Applications (2005), Oberwolfach Reports, DOI 10.4171/owr/2005/02, pp. 69--133
+\url{https://doi.org/10.4171/owr/2005/02}.
+\item[S3] primary OWR paper text
+\url{https://ems.press/content/serial-article-files/45976}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30000172 and source code OWR-783-004 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30000172}
+
+\section{Literature and context check}
+The primary report, printed pages 123--124, states a superlevel-covering theorem for each constant curvature threshold and then conjectures the full improper-integral bound. This attempt proves the full integral estimate for $A=(1,1)$ and an elementary sufficient condition for the general conjecture. Applying that condition to the reported theorem requires a threshold-uniform bound on its implicit constants. The short report does not supply the proof needed to audit that uniformity, so the conditional reduction is not presented as a proof of the conjecture or as a contradiction in the report.
+\section{Research attempt: A two-variable integral and a conditional superlevel reduction}
+
+\paragraph{A direct bound on curvature}
+Use standard-form feasibility $Ax=b$, $A^Ty+s=c$, positivity, and $x_is_i=\nu$. Assume the central trajectory is differentiable on the interval in question. Differentiating gives $A\dot x=0$, $\dot s=-A^T\dot y$, and $s_i\dot x_i+x_i\dot s_i=1$. Set
+\[
+ u_i=\sqrt{s_i/x_i}\,\dot x_i,\qquad
+ v_i=\sqrt{x_i/s_i}\,\dot s_i.
+\]
+Then $u+v=\nu^{-1/2}{\bf1}$ and $u\cdot v=\dot x\cdot\dot s=0$. Consequently $\lVert u\rVert_2^2+\lVert v\rVert_2^2=n/\nu$, and Cauchy's inequality followed by $2ab\leq a^2+b^2$ gives
+\[
+ \kappa(\nu)^2=\nu\sum_i|u_iv_i|
+ \leq\nu\lVert u\rVert_2\lVert v\rVert_2\leq n/2.
+\]
+This is a finite-interval pointwise estimate; integrating a constant against $d\nu/\nu$ over all positive $\nu$ would diverge.
+
+\paragraph{The entire improper integral for one fixed matrix}
+Take $A=(1,1)$, right side $b>0$, and any two real costs. Subtracting a constant from both costs changes only the dual variable, and swapping coordinates does not change the integral. For unequal costs it therefore suffices to use costs $(0,c)$ with $c>0$. Write the slacks as $(s,s+c)$ and set $t=s/c>0$. Solving feasibility and complementarity gives
+\[
+ x_1=\frac{b(t+1)}{2t+1},\quad x_2=\frac{bt}{2t+1},\quad
+ \nu=\frac{bc\,t(t+1)}{2t+1}.
+\]
+The derivative $d\nu/dt=bc(2t^2+2t+1)/(2t+1)^2$ is positive; $t$ parametrizes all $0<\nu<\infty$. Differentiating $x_i$ and $s_i$ and using $d/d\nu=(d\nu/dt)^{-1}d/dt$ yields
+\[
+ \kappa^2=\frac{2t(t+1)(2t+1)}{(2t^2+2t+1)^2},\qquad
+ F(\infty,0)=\sqrt2\int_0^\infty\frac{dt}{\sqrt{t(t+1)(2t+1)}}.
+\]
+On $(0,1]$ the integrand is at most $\sqrt2/\sqrt t$; on $[1,\infty)$ it is at most $t^{-3/2}$. Hence
+\[
+ F(\infty,0)\leq2\sqrt2+2,
+\]
+independently of $b$ and of the nonzero cost difference. With equal costs the two primal coordinates are constantly $b/2$, so $\dot x=0$ and $F=0$. This proves a matrix-only bound for this one-row two-variable family, including the cost-degeneracy case, without claiming continuity of the total integral in that degeneracy.
+
+\paragraph{Exactly what a uniform superlevel bound would imply}
+For general $A$, put $H=\log(\bar\chi_A^*+n)$ and suppose, as an additional hypothesis, that one absolute constant $C$ gives
+\[
+ \mu\{\nu>0:\kappa(\nu)>t\}
+ \leq Cn^3\bigl(H+\log^+(1/t)\bigr),\quad 0<t\leq\sqrt n,
+ \qquad d\mu=d\nu/\nu.
+ \tag{1}
+\]
+Here $\log^+(z)=\max(0,\log z)$, and the same $C$ must work for every threshold, dimension and instance covered by the theorem. Pointwise $\kappa(\nu)=\int_0^{\sqrt n}{\bf1}_{\{t<\kappa(\nu)\}}dt$. Integrating this nonnegative identity first on finite rectangles, then taking increasing limits, gives the layer-cake identity
+\[
+ F(\infty,0)=\int_0^{\sqrt n}\mu\{\kappa>t\}\,dt.
+\]
+Under (1) this is at most
+\[
+ Cn^3\left(\sqrt n H+\int_0^1\log(1/t)\,dt\right)
+ =Cn^3(\sqrt n H+1).
+\]
+For $n\geq2$ this has the conjectured order. The elementary integral equals one by evaluating $t-t\log t$ at the endpoints; the limit $t\log t\to0$ follows, for example, by writing $t=e^{-u}$.
+
+The report covers each superlevel set by at most $n(n-1)/2$ intervals of logarithmic length of the stated order $nH+n\log(1/t)$. If their hidden constant were uniform as in (1), summing their lengths and applying the displayed argument would finish this route. A theorem only for each fixed threshold, with an uncontrolled threshold-dependent constant, is insufficient: integrability of that dependence must be proved. We have not checked the underlying full proof or obtained a uniform replacement. The report's explicit logarithmic term makes this route worth checking, but is not a substitute for that missing audit. No assertion is made that its constant actually fails to be uniform.
+
+\section{Verification and adversarial audit}
+The two-variable parameterization covers both ends of the improper integral and cancels the data-dependent scales $b,c$ exactly. Equal costs are handled separately because the substitution $t=s/c$ is then invalid. The curvature bound uses orthogonality from exact primal-dual feasibility. The layer-cake argument is nonnegative, so it does not assume finiteness of the desired integral in advance. Its hypothesis (1), rather than a silently imported uniformity assertion, is displayed explicitly.
+\paragraph{Audit corrections.} Kept the source conjecture separate from a conditional consequence of a stronger audited superlevel estimate; checked zero cost difference and both improper-integral endpoints.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The general matrix-only bound and its quantitative dependence remain unresolved here. A complete special family and a conditional implication are established. Proving or extracting a threshold-uniform estimate from the source literature is the first unfinished step of the general route, and its mathematical validity is not claimed merely because the source has a fixed-threshold theorem.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/45976} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

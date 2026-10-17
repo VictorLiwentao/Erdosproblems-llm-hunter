@@ -1,0 +1,43 @@
+% TOP_PROBLEM: {"id": 9700010, "title": "Sharp phase transition for SIS epidemics on general networks", "category_id": 19, "category": {"id": 19, "name": "probability", "display_name": "Probability", "description": "Problems involving probability theory, stochastic processes, and random structures.", "slug": "probability", "order_index": 19, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: null
+% ENTRY_KIND: statement_only
+% Imported from: batch13.tex; UnsolvedMath ID 9700010
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded mathematical question.}#1}
+\begin{document}
+% UnsolvedMath ID 9700010; source catalogue code AMR-096-0010
+\setcounter{section}{9700009}
+\section{Sharp phase transition for SIS epidemics on general networks}\label{9700010}
+{\small\sffamily UnsolvedMath ID 9700010 · Probability}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$, and $\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$ denote the integers, rationals, reals and complex numbers. Any other conventions are specified locally.
+
+
+For each $n$, let $G_n$ be a finite connected undirected graph on $n$ vertices, with symmetric edge weights $w_{vy}>0$ and vertex recovery rates $\mu_v>0$. For $\theta,\varepsilon>0$, its susceptible--infected--susceptible process has transitions
+\[I\to S\text{ at rate }\mu_v,\qquad S\to I\text{ at rate }\varepsilon+\theta\sum_{y:\,y\text{ infected}}w_{vy}.\]
+Let $X^{(n)}_{\theta,\varepsilon}$ be the stationary number of infected vertices. For nonnegative variables $Y_n$, write $Y_n\gg_p0$ if $\lim_{a\downarrow0}\limsup_n\mathbb P(Y_n<a)=0$; this is boundedness away from zero in probability. A property for every $\varepsilon_n\downarrow0$ sufficiently slowly means that some deterministic $b_n\downarrow0$ exists such that it holds for all such sequences with $\varepsilon_n\ge b_n$ eventually.
+Assume constants $0<\theta_-<\theta_+<\infty$ satisfy, for every sufficiently slowly decreasing $\varepsilon_n$,
+\[n^{-1}X^{(n)}_{\theta_-,\varepsilon_n}\to0\text{ in probability},\qquad n^{-1}X^{(n)}_{\theta_+,\varepsilon_n}\gg_p0.\]
+\paragraph{Statement recorded in the supplied source.}
+Prove, perhaps with further weak hypotheses on the networks and rates, that deterministic $\theta_n\in[\theta_-,\theta_+]$ exist for which every sufficiently slowly decreasing $\varepsilon_n\downarrow0$ and each fixed $\delta>0$ satisfy
+\[n^{-1}X^{(n)}_{\theta_n-\delta,\varepsilon_n}\to0\text{ in probability},\qquad n^{-1}X^{(n)}_{\theta_n+\delta,\varepsilon_n}\gg_p0.\]
+The first expression is considered when $\theta_n-\delta>0$; a nonpositive virulence parameter can equivalently be replaced by zero. \sref{9700010}{2}
+\subsection{Short English statement}
+Prove a sharp stationary SIS infection threshold on general weighted networks under the stated subcritical and supercritical assumptions.
+\subsection{Sources}
+\begin{description}
+\item[\hypertarget{source:9700010:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, \emph{UnsolvedMath: A Curated Collection of Open Mathematics Problems}, record 9700010 (AMR-096-0010). CC BY 4.0. \url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:9700010:2}{S2}] David Aldous, \emph{Limits for processes over general networks}, talk dated 13 April 2018, Slides headed An SIS model (contact process) and the following Conjecture, PDF pp. 23--24. \url{https://www.stat.berkeley.edu/~aldous/Talks/columbia2018.pdf}.
+\end{description}
+\label{end:9700010}
+\end{document}

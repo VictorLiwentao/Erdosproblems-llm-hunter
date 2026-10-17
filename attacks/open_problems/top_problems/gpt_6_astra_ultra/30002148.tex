@@ -1,0 +1,97 @@
+% TOP_PROBLEM: {"id": 30002148, "title": "Regular Conformal Equations for Matter with Nonzero Trace", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The question is a construction programme across matter models. It does not say that one fixed rescaling must work for every imaginable nonzero-trace tensor; admissible matter equations must be specified as in the source."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002148", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Can conformal field equations remain regular at the conformal boundary when the matter stress tensor has nonzero trace?", "scope": "Derives a conformal massive-scalar pole and proves that a constant power rescaling cannot remove it on a null-linear conformal background.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked determinant transformation, s(s−3) coefficient, null-gradient special case and restricted nature of the rescaling obstruction. Model self-audit only; no independent human proof checking. Coordinator checked the four-dimensional conformal wave formula and the rescaled zeroth-order coefficient, including the null-linear conformal-factor test. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked determinant transformation, s(s−3) coefficient, null-gradient special case and restricted nature of the rescaling obstruction. Retained unresolved status and zero original-target progress; A regular equivalent coupled conformal Einstein–matter variable system for a specified traceful model is not constructed."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30002148; source catalogue code OWR-12009-005
+\setcounter{section}{30002147}
+\section{Regular Conformal Equations for Matter with Nonzero Trace}\label{30002148}
+{\small UnsolvedMath ID 30002148 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+A conformal compactification writes the physical metric as $\widetilde g=\Omega^{-2}g$, with a conformal boundary at $\Omega=0$. The trace of a physical energy--momentum tensor is $\widetilde g^{ab}T_{ab}$. A regular conformal system is an equivalent system in rescaled metric, curvature and matter variables whose coefficients and unknowns do not acquire singular divisions by $\Omega$ at the boundary. Matter equations and their transformation law are essential parts of such a system.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+For matter with a nonzero-trace energy-momentum tensor, does there exist a choice of conformal variables yielding a regular conformal field-equation system with matter?
+
+\paragraph{Source scope and qualification.}
+The question is a construction programme across matter models. It does not say that one fixed rescaling must work for every imaginable nonzero-trace tensor; admissible matter equations must be specified as in the source.
+\subsection{Short English statement}
+Can conformal field equations remain regular at the conformal boundary when the matter stress tensor has nonzero trace?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derives a conformal massive-scalar pole and proves that a constant power rescaling cannot remove it on a null-linear conformal background.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A traceful scalar test on a simple compactification.} In four spacetime dimensions, take a flat unphysical metric $g$ and a positive conformal factor $\Omega$ on an interior region, with $\widetilde g=\Omega^{-2}g$. The scalar divergence formula gives
+\[
+ \widetilde\Box f=\Omega^2\Box_gf-2\Omega\,\nabla\Omega\cdot\nabla f,
+\]
+because $|\widetilde g|^{1/2}=\Omega^{-4}|g|^{1/2}$ and $\widetilde g^{ab}=\Omega^2g^{ab}$. For the massive equation $(\widetilde\Box-m^2)f=0$, division by $\Omega^2$ produces the coefficient $m^2\Omega^{-2}$.
+
+\paragraph{Why a power rescaling alone cannot generally remove it.} Set $f=\Omega^s u$. After substitution and division by $\Omega^s$, the zeroth-order coefficient is
+\[
+ s\Omega^{-1}\Box_g\Omega+s(s-3)\Omega^{-2}|\nabla\Omega|_g^2-m^2\Omega^{-2}.
+\]
+If $\Omega$ is a flat null linear coordinate, then $\Box_g\Omega=0$ and $|\nabla\Omega|_g^2=0$. No choice of constant $s$ cancels the massive pole in this example. First-derivative coefficients also require attention; eliminating the mass term was already impossible by this restricted ansatz.
+
+\paragraph{Full-source limit.} The test does not show that every formulation of massive or traceful matter is singular. More variables, differentiated equations, special asymptotics or model-dependent cancellations may change the analysis. It is also a matter equation on a fixed conformal background, not the fully coupled Einstein system. The first gap is an equivalent coupled variable choice with controlled boundary behavior for a specified admissible matter model. No universal no-go theorem for all nonzero-trace tensors is claimed.
+
+\paragraph{Verification and adversarial audit.}
+Checked determinant transformation, s(s−3) coefficient, null-gradient special case and restricted nature of the rescaling obstruction. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked determinant transformation, s(s−3) coefficient, null-gradient special case and restricted nature of the rescaling obstruction. Retained unresolved status and zero original-target progress; A regular equivalent coupled conformal Einstein–matter variable system for a specified traceful model is not constructed.
+
+Coordinator checked the four-dimensional conformal wave formula and the rescaled zeroth-order coefficient, including the null-linear conformal-factor test. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. A regular equivalent coupled conformal Einstein–matter variable system for a specified traceful model is not constructed.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. A regular equivalent coupled conformal Einstein–matter variable system for a specified traceful model is not constructed.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30002148:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30002148 (OWR-12009-005). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30002148:2}{S2}] Mathematical Aspects of General Relativity (2012), Oberwolfach Reports, DOI 10.4171/owr/2012/37, pp. 2269--2333. Primary report accessed 2026-10-11; relevant PDF pages 47.
+\url{https://doi.org/10.4171/owr/2012/37}.
+\item[\hypertarget{source:30002148:3}{S3}] Friedrich et al., conformal methods review (catalogue-listed context; not independently consulted in this preparation).
+\url{https://pmc.ncbi.nlm.nih.gov/articles/PMC10788156/}.
+\end{itemize}
+\label{end:30002148}
+\end{document}

@@ -1,0 +1,89 @@
+% TOP_PROBLEM: {"id": 30005835, "title": "Nonperiodic and Nonquadratic FFT Schemes for Materials", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "All three requested extensions are retained. Accuracy, stability and convergence need hypotheses for the actual selected material law."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005835", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Extend Fourier-based material solvers to nonperiodic boundaries, nonquadratic energies and grain-boundary effects.", "scope": "Solved a one-dimensional nonquadratic Dirichlet variational benchmark and exhibited cubic mode generation relevant to FFT aliasing.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked existence and uniqueness of the stress root, the convexity minimization proof, boundary lifting and exact cubic Fourier identity. Model self-audit only; no independent human mathematical verification. Coordinator checked strict monotonicity of the stress root, the convex competitor proof and the cubic harmonic-generation example. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked existence and uniqueness of the stress root, the convexity minimization proof, boundary lifting and exact cubic Fourier identity. First remaining gap: Establish nonlinear spectral convergence and boundary/interface consistency for the source material model including grain-boundary laws. The inherited source status is preserved; original-target completion remains zero."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30005835; source catalogue code OWR-14298167-002
+\setcounter{section}{30005834}
+\section{Nonperiodic and Nonquadratic FFT Schemes for Materials}\label{30005835}
+{\small UnsolvedMath ID 30005835 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+FFT-based material solvers exploit Fourier representations of mechanical equilibrium on a cell. Standard periodicity enables that representation, while quadratic energies give linear constitutive response. Grain boundaries are interfaces between differently oriented crystals and can carry their own energetic or dissipative laws.
+
+\paragraph{Catalogue wording retained for traceability.}
+Can FFT-based material schemes be extended beyond periodic boundary conditions, to nonquadratic energy potentials, and to models with grain-boundary behavior?
+
+\paragraph{Scope and source qualification.}All three requested extensions are retained. Accuracy, stability and convergence need hypotheses for the actual selected material law.
+\subsection{Short English statement}
+Extend Fourier-based material solvers to nonperiodic boundaries, nonquadratic energies and grain-boundary effects.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Solved a one-dimensional nonquadratic Dirichlet variational benchmark and exhibited cubic mode generation relevant to FFT aliasing.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30005835. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{A nonperiodic nonlinear benchmark.} On \((0,1)\), prescribe \(u(0)=0\), \(u(1)=U\), and take
+\[
+ E(u)=\int_0^1\left(\frac{a(x)}2u'(x)^2+\frac\beta4u'(x)^4\right)dx,
+ \qquad 0<a_0\leq a(x)\leq a_1,\quad\beta>0.
+\]
+For every stress \(s\), the equation \(a(x)p+\beta p^3=s\) has a unique real root \(p(x,s)\), since its derivative in \(p\) is at least \(a_0\). The integral \(F(s)=\int_0^1p(x,s)dx\) is continuous, strictly increasing and tends to \(\pm\infty\); the last claim follows uniformly from the bounds on \(a\). There is a unique \(s\) with \(F(s)=U\).
+\paragraph{Exact minimization and Fourier test.} Set \(u(x)=\int_0^xp(y,s)dy\). Convexity gives, for every admissible \(v\),
+\[
+ E(v)-E(u)\geq\int_0^1s(v'-u')dx=0.
+\]
+Strict convexity gives uniqueness. This supplies an exact nonlinear Dirichlet benchmark. Expanding \(u-Ux\) in sine functions enforces the boundary conditions, but the cubic stress couples Fourier modes. For example \(\cos^3(\pi x)=(3\cos(\pi x)+\cos(3\pi x))/4\), so retaining only the first mode while evaluating nonlinear products without resolving higher modes can alias the residual.
+\paragraph{Bundled source gap.} This benchmark neither supplies a multidimensional FFT convergence theorem nor a grain-boundary law. The first missing step is a stable discretization with controlled nonlinear aliasing and interface/boundary consistency for an actual material energy. Nonperiodic boundaries, nonquadratic potentials and grain-boundary behavior are all retained as separate requirements of [S2].
+
+\paragraph{Verification and adversarial audit.}
+Checked existence and uniqueness of the stress root, the convexity minimization proof, boundary lifting and exact cubic Fourier identity. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked existence and uniqueness of the stress root, the convexity minimization proof, boundary lifting and exact cubic Fourier identity. First remaining gap: Establish nonlinear spectral convergence and boundary/interface consistency for the source material model including grain-boundary laws. The inherited source status is preserved; original-target completion remains zero.
+
+Coordinator checked strict monotonicity of the stress root, the convex competitor proof and the cubic harmonic-generation example. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Establish nonlinear spectral convergence and boundary/interface consistency for the source material model including grain-boundary laws.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30005835:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30005835 (OWR-14298167-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30005835:2}{S2}] Mechanics of Materials: Multiscale Design of Advanced Materials and Structures (2024), Oberwolfach Reports, DOI 10.4171/owr/2024/11, pp. 657--730. Original report and mathematical context. Incorporated report material remains under the source CC BY-SA 4.0 terms unless otherwise noted.
+\url{https://doi.org/10.4171/owr/2024/11}.
+\end{itemize}
+\label{end:30005835}
+\end{document}

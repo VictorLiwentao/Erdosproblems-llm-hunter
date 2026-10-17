@@ -1,0 +1,148 @@
+% RESEARCH_DRAFT_SHA256: 6078d3230693a4dbe975a15f347c28690f17a7e9bfc59cb726b89384f49d0205
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20002188, "title": "A localization-safe action of Weyl operators", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002188", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Applying differential operators\n\nCurrently, the D-module package(s) doesn't have a built-in way to act on ring elements by differential operators.\n\nCan we add a convenient way to let the differential operators on a ring R act on elements of R? Can we have them act on elements of the fraction field?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. A proved polynomial-domain evaluation formula is not an implemented Macaulay2 action; arbitrary-ring dispatch, representations, integration, and performance remain unresolved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Fraction-field evaluation of Weyl words and a quotient-ring obstruction}
+\noindent UnsolvedMath ID 20002188; AIM-INFRASTRUCTURE-0088. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A differential operator on a commutative ring is built from multiplication and derivations, subject to their composition relations. On a polynomial ring, the Weyl operators satisfy $\partial_i x_j-x_j\partial_i=\delta_{ij}$. A derivation extends to fractions by $\partial(a/b)=(b\partial a-a\partial b)/b^2$ when the fraction field exists.
+\paragraph{Statement recorded in the supplied source.}
+Applying differential operators
+
+Currently, the D-module package(s) doesn't have a built-in way to act on ring elements by differential operators.
+
+Can we add a convenient way to let the differential operators on a ring R act on elements of R? Can we have them act on elements of the fraction field? \href{http://aimpl.org/macaulay2efie/2/}{[S2]}
+\paragraph{Scope qualification.}
+The source asks for an implementation of the mathematical action, not for a universal operator-extension theorem for arbitrary rings.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can differential operators be applied directly to ring elements and, where appropriate, to elements of the fraction field?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20002188 (AIM-INFRASTRUCTURE-0088). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-INFRASTRUCTURE-0088
+\url{http://aimpl.org/macaulay2efie/2/}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Applying differential operators
+
+Currently, the D-module package(s) doesn't have a built-in way to act on ring elements by differential operators.
+
+Can we add a convenient way to let the differential operators on a ring R act on elements of R? Can we have them act on elements of the fraction field?
+
+\section{Attempt and results}
+The original task requests software functionality. We derive a finite evaluation
+method in a specified ring and test its proposed extension to quotients. No
+Macaulay2 package was modified or executed. The supplied research summary
+already discusses rational differentiation; the elementary method below is a
+rederivation, not a claim of priority or a verified implementation.
+
+\paragraph{A precise polynomial-domain action.}
+Let $R=k[x_1,\ldots,x_n]$ for a characteristic-zero field $k$, and $K$ its
+fraction field. Multiplication by $x_i$ and ordinary polynomial partial
+ differentiation $D_i$ act on $R$. Extend $D_i$ by
+\[
+D_i(f/g)=\frac{gD_if-fD_ig}{g^2},\qquad g\ne0.
+\]
+This is independent of representation: if $fg'=f'g$, differentiating that
+identity and multiplying out shows
+$(gD_if-fD_ig)(g')^2=(g'D_if'-f'D_ig')g^2$.
+The sum and product rules follow by putting fractions over common denominators
+and expanding numerators. Any extension satisfying the product rule must have
+$D_i(g^{-1})=-g^{-2}D_ig$, by differentiating $gg^{-1}=1$, so it is unique.
+The commutator of two derivations is a derivation: expanding its action on $ab$
+cancels the two mixed terms. Hence $[D_i,D_j]$ is a derivation that vanishes on
+$k$ and every $x_l$, and consequently on $R$ and on inverses of all nonzero
+polynomials. Thus it vanishes on $K$. The product rule also gives
+$[D_i,x_j](h)=\delta_{ij}h$. These checks establish a representation of the
+Weyl algebra defined by these generator relations, so two equal operator
+expressions give equal rational functions.
+
+\paragraph{Finite polynomial numerator recursion.}
+For one ordered word $w=(i_1,\ldots,i_t)$ of derivatives, define $N_0=f$ and
+\[
+N_{s+1}=gD_{i_{s+1}}N_s-(s+1)N_sD_{i_{s+1}}g.
+\]
+Induction using the quotient rule proves
+$D_{i_s}\cdots D_{i_1}(f/g)=N_s/g^{s+1}$.
+For an operator given as a finite coefficient-left sum
+$P=\sum_w a_w D_{i_{|w|}}\cdots D_{i_1}$ of order at most $m$, we obtain
+\[
+P(f/g)=g^{-m-1}\sum_w a_w N_{|w|}g^{m-|w|}.
+\]
+Thus only polynomial arithmetic and one final fraction are required; this is
+not a bound on coefficient growth or runtime. Shared prefixes can reuse $N_s$.
+Derivative commutation, already proved, shows that two orders with the same
+multiplicities give the same $N_s$, since their denominators coincide in a
+domain. For $g=x$, $f=1$, and $P=D_x^m$, induction gives
+$P(1/x)=(-1)^m m!/x^{m+1}$. In characteristic zero its reduced denominator
+cannot be replaced uniformly by $x^m$, because $x$ does not divide the nonzero
+constant $m!$. This verifies the worst-case denominator exponent.
+
+\paragraph{The attempted quotient shortcut fails.}
+A $k$-linear operator $P:R\to R$ induces a well-defined map on $R/I$ exactly
+when $P(I)\subseteq I$. Necessity follows by applying the proposed quotient
+map to the zero class of each $h\in I$. Conversely, representatives differing
+by an element of $I$ then have images differing by an element of $I$.
+For $R=k[x]$, $I=(x^2)$, differentiation fails: $D(x^2)=2x\notin I$.
+In particular the representatives $0$ and $x^2$ would give distinct output
+classes. Moreover this quotient has a nonzero nilpotent and no fraction field.
+Consequently dispatching the polynomial formula on arbitrary quotient-ring
+representatives is incorrect even before performance is considered.
+
+\section{Context, adversarial audit, and gap}
+The primary workshop report confirms the D-module computational setting.
+The AIMPL problem page could not be retrieved, so its exact wording is taken
+from the preserved supplied record. The report is not evidence that this
+particular action interface has been implemented. The audit separated
+operator equality from a chosen word representation, checked the inverse
+rule and denominator cancellation, and rejected the arbitrary-ring extension.
+Characteristic zero, a polynomial-domain encoding, and coefficient-left input
+are explicit restrictions. No implementation, benchmarks, integration tests,
+or present package-absence claim is supplied. The original software request
+and its broader ring scope therefore remain unfulfilled here.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. A proved polynomial-domain evaluation formula is not an implemented Macaulay2 action; arbitrary-ring dispatch, representations, integration, and performance remain unresolved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item AIM, Macaulay2: expanded functionality and improved efficiency, official workshop summary; local-cohomology, DG, and direct-summand discussion read on 11 October 2026. The original AIMPL problem pages failed retrieval; their wording is available here only from the supplied snapshot. \url{https://aimath.org/pastworkshops/macaulay2efierep.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} A proved polynomial-domain evaluation formula is not an implemented Macaulay2 action; arbitrary-ring dispatch, representations, integration, and performance remain unresolved.
+\end{document}

@@ -7,10 +7,12 @@ The standalone catalogue command also builds model/version research attempts.
 
 import csv
 from datetime import date
+import hashlib
 import json
 from pathlib import Path
 import re
 import sys
+from urllib.parse import urlsplit
 
 
 BASE_DIR = Path(__file__).resolve().parents[1]
@@ -21,6 +23,7 @@ STATEMENTS_PATH = Path('attacks/open_problems/economics/statements')
 PUBLIC_STATEMENTS_PATH = Path('docs/data/economics/statements')
 ATTEMPTS_PATH = Path('attacks/open_problems/economics')
 PUBLIC_ATTEMPTS_PATH = Path('docs/data/economics/attempts')
+HUMAN_CONTRIBUTIONS_PATH = Path('lists/economics/human_contributions.json')
 STATEMENT_START = '% BEGIN ECONOMICS STATEMENT\n'
 STATEMENT_END = '% END ECONOMICS STATEMENT'
 ID_RE = re.compile(r'[A-Z][0-9]{2}-[1-9][0-9]*')
@@ -166,11 +169,61 @@ def extract_statement(content):
     return body
 
 
+def load_economics_human_contributions(base_dir, records):
+    """Validate attribution and immutable originals separately from LLM claims."""
+    base_dir = Path(base_dir)
+    manifest_path = base_dir / HUMAN_CONTRIBUTIONS_PATH
+    if not manifest_path.exists():
+        return {}
+    manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+    if manifest.get('schema_version') != 1 or not isinstance(manifest.get('contributions'), list):
+        raise ValueError('Unsupported Economics human contribution manifest')
+    registered = {record['id'] for record in records}
+    result = {}
+    for entry in manifest['contributions']:
+        if not isinstance(entry, dict):
+            raise ValueError('Invalid Economics human contribution record')
+        identifier, filename = entry.get('problem_id'), entry.get('filename')
+        if (identifier not in registered or not isinstance(filename, str)
+                or not re.fullmatch(re.escape(identifier) + r'(?:_v(?:[2-9]|[1-9][0-9]+))?\.tex', filename)
+                or filename in result):
+            raise ValueError('Invalid or duplicate Economics human contribution identity')
+        for key in ('author', 'submitted_by', 'scope', 'ai_use', 'verification'):
+            if not isinstance(entry.get(key), str) or not entry[key].strip():
+                raise ValueError(f'Missing human contribution {key}: {filename}')
+        posted = entry.get('first_posted')
+        if not isinstance(posted, str) or date.fromisoformat(posted).isoformat() != posted:
+            raise ValueError(f'Invalid human contribution date: {filename}')
+        if entry.get('review_status') != 'submitted':
+            raise ValueError('Human contribution imports must remain submitted')
+        for key in ('submission_url', 'original_source'):
+            url = urlsplit(entry.get(key, ''))
+            if url.scheme != 'https' or url.netloc != 'github.com' or url.username or url.password:
+                raise ValueError(f'Invalid human contribution {key}: {filename}')
+        if not re.fullmatch(r'/mehmetmars7/Erdosproblems-llm-hunter/pull/[1-9][0-9]*',
+                            urlsplit(entry['submission_url']).path):
+            raise ValueError(f'Invalid human contribution submission URL: {filename}')
+        if not re.fullmatch(r'/[\w.-]+/[\w.-]+/tree/[0-9a-f]{40}',
+                            urlsplit(entry['original_source']).path):
+            raise ValueError(f'Human contribution source must be commit-pinned: {filename}')
+        path = base_dir / ATTEMPTS_PATH / 'Human_Contribution' / filename
+        if (path.is_symlink() or not path.resolve().is_relative_to(base_dir.resolve())
+                or not path.is_file()):
+            raise ValueError(f'Missing or unsafe human contribution file: {filename}')
+        digest = entry.get('tex_sha256', '')
+        if (not re.fullmatch(r'[0-9a-f]{64}', digest)
+                or hashlib.sha256(path.read_bytes()).hexdigest() != digest):
+            raise ValueError(f'Human contribution checksum mismatch: {filename}')
+        result[filename] = entry
+    return result
+
+
 def load_economics_attempts(base_dir, records):
     """Join model/version writeups by permanent ID, never legacy OP ID or rank."""
     base_dir = Path(base_dir)
     by_id = {record['id']: record for record in records}
     attempts = {problem_id: [] for problem_id in by_id}
+    human_contributions = load_economics_human_contributions(base_dir, records)
     filename = re.compile(r'([A-Z][0-9]{2}-[1-9][0-9]*)(?:_v([1-9][0-9]*))?\.tex')
     for directory in sorted((base_dir / ATTEMPTS_PATH).glob('*')):
         if not directory.is_dir() or directory.name in {'statements', 'definitions'}:
@@ -183,19 +236,27 @@ def load_economics_attempts(base_dir, records):
             if problem_id not in by_id:
                 raise ValueError(f'Unknown Economics attempt ID: {problem_id}')
             content = path.read_text(encoding='utf-8')
-            header = re.findall(r'^% ECONOMICS_PROBLEM: (.+)$', content, re.M)
-            if len(header) != 1:
-                raise ValueError(f'Missing or repeated Economics attempt identity: {path.name}')
-            metadata = json.loads(header[0])
-            for field in ('id', 'title', 'jel_code', 'source_id'):
-                if metadata.get(field) != by_id[problem_id][field]:
-                    raise ValueError(f'Economics attempt {field} mismatch: {path.name}')
-            statuses = re.findall(r'^% ATTEMPT_STATUS: (.+)$', content, re.M)
-            if len(statuses) != 1 or statuses[0] not in {'unresolved', 'partial', 'solved'}:
-                raise ValueError(f'Missing or invalid Economics ATTEMPT_STATUS: {path.name}')
-            posted = re.findall(r'^% FIRST_POSTED: (.+)$', content, re.M)
-            if len(posted) != 1 or date.fromisoformat(posted[0]).isoformat() != posted[0]:
-                raise ValueError(f'Missing or invalid Economics FIRST_POSTED: {path.name}')
+            human = human_contributions.get(path.name) if directory.name == 'Human_Contribution' else None
+            if directory.name == 'Human_Contribution':
+                if human is None:
+                    raise ValueError(f'Unregistered Economics human contribution: {path.name}')
+                metadata = by_id[problem_id]
+                status, posted = 'unresolved', human['first_posted']
+            else:
+                header = re.findall(r'^% ECONOMICS_PROBLEM: (.+)$', content, re.M)
+                if len(header) != 1:
+                    raise ValueError(f'Missing or repeated Economics attempt identity: {path.name}')
+                metadata = json.loads(header[0])
+                for field in ('id', 'title', 'jel_code', 'source_id'):
+                    if metadata.get(field) != by_id[problem_id][field]:
+                        raise ValueError(f'Economics attempt {field} mismatch: {path.name}')
+                statuses = re.findall(r'^% ATTEMPT_STATUS: (.+)$', content, re.M)
+                if len(statuses) != 1 or statuses[0] not in {'unresolved', 'partial', 'solved'}:
+                    raise ValueError(f'Missing or invalid Economics ATTEMPT_STATUS: {path.name}')
+                dates = re.findall(r'^% FIRST_POSTED: (.+)$', content, re.M)
+                if len(dates) != 1 or date.fromisoformat(dates[0]).isoformat() != dates[0]:
+                    raise ValueError(f'Missing or invalid Economics FIRST_POSTED: {path.name}')
+                status, posted = statuses[0], dates[0]
             if content.count(r'\begin{document}') != 1 or content.count(r'\end{document}') != 1:
                 raise ValueError(f'Expected one complete Economics attempt: {path.name}')
             preamble, body = content.split(r'\begin{document}', 1)
@@ -224,9 +285,10 @@ def load_economics_attempts(base_dir, records):
             body = replace_tex_command(body, 'setlength', 2, lambda *args: '')
             body = replace_tex_command(body, 'addcontentsline', 3, lambda *args: '')
             body = expand_tex_notation(body, tex_notation_macros(preamble, {}))
-            attack = parse_attack('% ATTEMPT_STATUS: ' + statuses[0] + '\n' + body.strip(),
+            attack = parse_attack('% ATTEMPT_STATUS: ' + status + '\n' + body.strip(),
+                                  (human['author'] + ' (human contribution)') if human else
                                   MODEL_LABELS.get(directory.name, directory.name.replace('_', ' ')),
-                                  posted[0],
+                                  posted,
                                   metadata_content=content)
             # A full solution claim implies full completion even when the
             # manuscript has no numeric estimate or states a lower one.
@@ -236,6 +298,13 @@ def load_economics_attempts(base_dir, records):
                           file_path=path.relative_to(base_dir).as_posix(),
                           download_url=(PUBLIC_ATTEMPTS_PATH / directory.name / path.name)
                           .relative_to('docs').as_posix())
+            if human:
+                attack.update(entry_kind='human_contribution', status='unresolved',
+                              author=human['author'], review_status='submitted',
+                              submission_url=human['submission_url'],
+                              contribution_scope=human['scope'], ai_use=human['ai_use'],
+                              verification=human['verification'])
+                attack.pop('completion', None)
             attempts[problem_id].append(attack)
     for records in attempts.values():
         records.sort(key=lambda attack: (attack['model'], attack['version']))
@@ -255,14 +324,16 @@ def build_economics_data(base_dir=BASE_DIR):
         statement_path = base_dir / record['statement_file']
         content = statement_path.read_text(encoding='utf-8')
         body = extract_statement(content)
+        llm_attempts = [attack for attack in attempts[problem_id]
+                        if attack.get('entry_kind') != 'human_contribution']
         data[problem_id] = {
             'id': problem_id,
             'title': record['title'],
             'jel_code': record['jel_code'],
             'domain_label': 'Game theory' if record.get('source_catalog') == 'Game theory' else 'Economics',
             'status': 'open',
-            'llm_status': ('solved' if any(attack['status'] == 'solved' for attack in attempts[problem_id])
-                           else 'unresolved' if attempts[problem_id] else 'none'),
+            'llm_status': ('solved' if any(attack['status'] == 'solved' for attack in llm_attempts)
+                           else 'unresolved' if llm_attempts else 'none'),
             'rank': rankings[problem_id],
             'source_id': record['source_id'],
             'source_catalog': record.get('source_catalog'),
@@ -287,7 +358,7 @@ def build_economics_data(base_dir=BASE_DIR):
             continue
         # Unresolved attempts use the highest stated estimate across models
         # and versions, leaving absent estimates unset.
-        completions = [attack['completion'] for attack in attempts[problem_id]
+        completions = [attack['completion'] for attack in llm_attempts
                        if type(attack.get('completion')) in (int, float)]
         if completions:
             data[problem_id]['completion'] = max(completions)

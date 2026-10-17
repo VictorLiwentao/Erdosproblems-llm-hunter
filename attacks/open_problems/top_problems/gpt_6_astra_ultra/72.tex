@@ -1,0 +1,121 @@
+% RESEARCH_DRAFT_SHA256: 380371ead69fdc63ff525bd7a6e2417e509fbeab48151bba864a876a8e1a9cb6
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 72, "title": "Game Theory at Scale", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "72", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Exact equilibrium and finite-population error for a deterministic open-loop linear-quadratic game; explicit failure of treating a finite player as having zero influence on the mean.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch001/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 72; source catalogue code DARPA-013
+\section{Game Theory at Scale}\label{72}
+{\small UnsolvedMath ID 72 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+In a differential game a state follows dynamics such as $\dot x=F(t,x,u_1,\ldots,u_m)$, with each player choosing controls or a strategy to optimize its own specified payoff. A strategy may depend on observed histories under the information convention. A Nash equilibrium is a strategy profile at which no single player can improve its payoff by changing only its own strategy. Partial differential equations arise in value-function and equilibrium descriptions under additional assumptions. Scalability concerns how computational resources depend on the state dimension, player count and required accuracy.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+This is DARPA Mathematical Challenge Thirteen. Dynamics, information, payoffs, equilibrium notion, scaling regime and accuracy are not fixed by the source agenda; the illustrative dynamics do not impose a new source problem. The catalogue-linked mirror returned HTTP 404 during this preparation; its full original solicitation was not reverified. The supplied catalogue extract and historical attribution are documented with that access limitation.
+\paragraph{Statement recorded in the supplied source.}
+Create scalable mathematics for differential games, replacing traditional PDE approaches. \href{https://web.math.utk.edu/~vasili/refs/darpa07.MathChallenges.html}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+Develop methods for large differential games and identify alternatives to solving their full partial differential equations.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 72 (DARPA-013). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] DARPA DSO, Broad Agency Announcement 07-68, Mathematical Challenges (2007), challenge identified above; the catalogue-linked University of Tennessee mirror.
+\url{https://web.math.utk.edu/~vasili/refs/darpa07.MathChallenges.html}.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. The supplied catalogue credits: DARPA. Permanent source ID 72 and code DARPA-013 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:72}
+
+
+\section{Research attempt}
+The source agenda does not specify dynamics, information, equilibrium, or scaling. This attempt examines a finite-player differential game for which a mean-field replacement appears tempting, derives the exact equilibrium without a PDE, and identifies the finite-player term that the replacement loses. This is a worked linear-quadratic model, not a novel general theory.
+
+Fix $N\ge1$, $T>0$, $a\ge0$, and real initial values $\xi_1,\ldots,\xi_N$. Player $i$ chooses a deterministic open-loop control $u_i\in L^2([0,T])$. States obey $\dot x_i=u_i$, $x_i(0)=\xi_i$, and the player minimizes
+\[
+ J_i(u)=\frac12\int_0^T u_i(t)^2dt+
+       \frac a2\left(x_i(T)-\frac1N\sum_jx_j(T)\right)^2.
+\]
+Other players' controls are held fixed when a deviation is evaluated. Put $\bar\xi=N^{-1}\sum_i\xi_i$ and $k_N=aT(1-1/N)$.
+
+\begin{proposition}
+There is a unique open-loop Nash equilibrium up to almost-everywhere equality of controls. It has constant controls
+\[
+ u_i^*(t)=\frac{z_i-\xi_i}{T},\qquad
+ z_i=\bar\xi+\frac{\xi_i-\bar\xi}{1+k_N}.
+\]
+Computing all $z_i$ uses $O(N)$ real arithmetic operations. If $z_i^{\infty}=\bar\xi+(\xi_i-\bar\xi)/(1+aT)$, then
+\[
+ z_i-z_i^{\infty}=
+ \frac{aT(\xi_i-\bar\xi)}{N(1+k_N)(1+aT)}.
+\]
+\end{proposition}
+\begin{proof}
+For a prescribed terminal value $z_i$, integration gives $\int_0^T u_i=z_i-\xi_i$. Expanding the square about the constant mean, or using Cauchy--Schwarz, shows
+\[
+ \int_0^T u_i^2\ge (z_i-\xi_i)^2/T,
+\]
+with equality precisely for the constant control, almost everywhere. Therefore every best response is constant and it suffices to consider terminal choices. With $\bar z=N^{-1}\sum_jz_j$, player $i$'s reduced objective is
+\[
+ \frac{(z_i-\xi_i)^2}{2T}+\frac a2(z_i-\bar z)^2.
+\]
+Its second derivative in its own variable is $1/T+a(1-1/N)^2>0$. Thus its unique best response is characterized by
+\[
+ (z_i-\xi_i)/T+a(1-1/N)(z_i-\bar z)=0.
+\]
+Sum these equations to get $\bar z=\bar\xi$. Substitution gives the displayed $z_i$, and strict convexity proves each is a global best response. Any equilibrium must obey the same equations and hence is this one. The computation requires one sum and one constant-length formula per player. Subtracting the two terminal formulas gives the exact error identity.
+\end{proof}
+
+\paragraph{Failed mean-field substitution.}
+Replacing a player's effect on the mean by zero deletes the factor $1-1/N$. That replacement does not give an exact finite-player Nash equilibrium. For $N=2$, $a=T=1$ and initial values $(1,-1)$, it predicts terminal values $(1/2,-1/2)$, whereas the exact equilibrium is $(2/3,-2/3)$. At the proposed first coordinate the best-response derivative is $-1/2+(1/2)(1/2)=-1/4$, so a small increase improves the objective. The mean-field simplification is asymptotic, and its error is uniformly $O(1/N)$ only when the initial deviations and $aT$ are controlled. No feedback or stochastic equilibrium is inferred from this deterministic open-loop calculation. At $N=1$ the interaction cost vanishes and the formula correctly gives zero control; at $a=0$ every control is likewise zero at equilibrium.
+
+\section{Literature and context}
+The DARPA source mirror was inaccessible during the present check. The primary search abstract of M. Huang and M. Zhou, \emph{Linear quadratic mean field games: Asymptotic solvability and relation to the fixed point approach}, arXiv:1903.08776, describes dimension reduction and the distinction between finite games and their limiting equations. A direct open of that arXiv page returned an internal error, so only the returned primary search abstract was consulted. Its theorems are not applied here. Linear-quadratic reduction is established methodology; no novelty of the special game is asserted.
+
+\section{Verification and remaining gaps}
+Exact rational checks at $N=1,2,3,10$, $a=3/2$, $T=2/3$ and $\xi_i=i-1$ returned zero for every displayed first-order equation. The audit differentiated the player's own contribution to the mean and used strict convexity to turn stationarity into global best response. The $O(N)$ assertion counts arithmetic operations, not a claimed numerical conditioning or bit-complexity theorem. Nonlinear dynamics, partial observations, feedback strategies, stochastic noise and general payoffs remain outside the result; the broad source agenda is not settled.
+
+\section{References}
+Original S1--S2 above. M. Huang and M. Zhou, \emph{Linear quadratic mean field games: Asymptotic solvability and relation to the fixed point approach}, arXiv:1903.08776, \url{https://arxiv.org/abs/1903.08776}; primary search abstract consulted, direct page access failed, 11 October 2026. The model-specific proof above has no external game-theory theorem dependency.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch001/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

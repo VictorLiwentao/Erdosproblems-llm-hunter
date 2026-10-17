@@ -1,0 +1,82 @@
+% TOP_PROBLEM: {"id": 20002506, "title": "Compact-fixed-locus definitions and pole obstructions for noncompact elliptic genera", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The source does not select an equivariant, analytic, compact-support or regularized definition. Any sufficient construction must be distinguished from a full characterization of when a definition exists. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002506", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Find hypotheses and conventions that give a well-defined elliptic genus for noncompact Calabi–Yau spaces.", "scope": "Exhibited explicit equivariant holomorphic characters with divergent nonequivariant limits and coordinate-dependent finite parts. No full classification or canonical noncompact elliptic genus is defined.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked geometric series, affine Calabi-Yau example, multivariable weights and finite-part expansion in two coordinates. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the equivariant monomial character and the two coordinate-dependent Laurent finite parts. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked geometric series, affine Calabi-Yau example, multivariable weights and finite-part expansion in two coordinates. Scope remains limited: Specify and justify a Fredholm, compact-support or equivariant localization framework, including any nonequivariant specialization."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002506; source catalogue code AIM-PHYSICS-0014
+\setcounter{section}{20002505}
+\section{Compact-fixed-locus definitions and pole obstructions for noncompact elliptic genera}\label{20002506}
+{\small UnsolvedMath ID 20002506 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}For a compact complex manifold, the elliptic genus can be expressed as an index or characteristic-class series built from its tangent bundle. Noncompactness can make the relevant trace, index or integral divergent. Equivariant localization, compact support and boundary conditions lead to different possible extensions. A Calabi--Yau condition describes the complex geometry but alone does not ensure finite indices.
+
+\paragraph{Catalogue wording retained for traceability.}
+When can the elliptic genus be defined for noncompact Calabi-Yau manifolds?
+\paragraph{Scope and source qualification.}The source does not select an equivariant, analytic, compact-support or regularized definition. Any sufficient construction must be distinguished from a full characterization of when a definition exists. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Find hypotheses and conventions that give a well-defined elliptic genus for noncompact Calabi–Yau spaces.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Exhibited explicit equivariant holomorphic characters with divergent nonequivariant limits and coordinate-dependent finite parts. No full classification or canonical noncompact elliptic genus is defined.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{A noncompact index obstruction already at degree zero.}On \(\mathbb C\), the holomorphic monomials \(1,z,z^2,\ldots\) have equivariant weights \(1,t,t^2,\ldots\) for the scaling action. The formal character is
+\[\sum_{n\ge0}t^n=\frac1{1-t},\qquad |t|<1.
+\]
+This is finite as a rational equivariant expression away from \(t=1\), but has no finite nonequivariant limit. On \(\mathbb C^d\) with independent weights the corresponding character is \(\prod_{j=1}^d(1-t_j)^{-1}\). The trivial canonical bundle of affine space therefore does not by itself remove divergence of even the simplest holomorphic trace.
+\paragraph{Why a regularization choice matters.}Multiplying by \(1-t\) would assign the first expression the value one at \(t=1\), while taking its finite Laurent part in the coordinate \(s=1-t\) gives zero. Changing to \(u=-\log t\) changes the finite part: \((1-e^{-u})^{-1}=u^{-1}+1/2+O(u)\), obtained by inverting the Taylor series of \(e^{-u}\). Thus an unspecified finite-part prescription is coordinate dependent. No canonical ordinary index follows from the meromorphic character alone.
+\paragraph{Gap.}An elliptic genus has additional graded tangent-bundle factors, so this character calculation is an obstruction test rather than its full definition. A sufficient noncompact construction must specify an equivariant/compact-support/analytic framework, prove finiteness or meromorphic localization in that framework, and explain any specialization. The first gap is a justified Fredholm or localization setup for a declared geometric class. A universal criterion for when any acceptable definition exists is not supplied, and the different definitions in the source are not conflated.
+
+\paragraph{Verification and adversarial audit.}
+Checked geometric series, affine Calabi-Yau example, multivariable weights and finite-part expansion in two coordinates. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked geometric series, affine Calabi-Yau example, multivariable weights and finite-part expansion in two coordinates. Scope remains limited: Specify and justify a Fredholm, compact-support or equivariant localization framework, including any nonequivariant specialization.
+
+Coordinator checked the equivariant monomial character and the two coordinate-dependent Laurent finite parts. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Specify and justify a Fredholm, compact-support or equivariant localization framework, including any nonequivariant specialization.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002506:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002506 (AIM-PHYSICS-0014). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002506:2}{S2}] American Institute of Mathematics, Gromov-Witten invariants and number theory, source item 3.1.
+\url{http://aimpl.org/gromwitnumthry/3/}.
+\end{itemize}
+\label{end:20002506}
+\end{document}

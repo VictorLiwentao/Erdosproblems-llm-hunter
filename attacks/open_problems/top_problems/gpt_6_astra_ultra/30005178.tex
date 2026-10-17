@@ -1,0 +1,85 @@
+% TOP_PROBLEM: {"id": 30005178, "title": "Euclidean Extension of Hierarchical Susceptibility Asymptotics", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The scaling window, normalization and asymptotic function are those of the hierarchical result in the cited report; changing those quantities would give a different comparison."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005178", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Prove the Euclidean periodic-model analogue of the hierarchical model's universal finite-size susceptibility asymptotics.", "scope": "Derived an exact scalar quartic zero-mode scaling function and window; no comparison with the full Euclidean periodic lattice model.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked scaling powers, convergence at negative as well as positive mass parameter and the need for uniform integrable error control. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the zero-mode variable substitution, susceptibility factors and quartic domination for every real scaling parameter. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked scaling powers, convergence at negative as well as positive mass parameter and the need for uniform integrable error control. The remaining gap is: Control the effective zero-mode measure after integrating all Euclidean nonzero modes uniformly in the source scaling window. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30005178; source catalogue code OWR-11101914-002
+\setcounter{section}{30005177}
+\section{Euclidean Extension of Hierarchical Susceptibility Asymptotics}\label{30005178}
+{\small UnsolvedMath ID 30005178 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+For a finite system, susceptibility measures the integrated connected two-point correlation, equivalently the linear response to a uniform field. The hierarchical four-dimensional $|\phi|^4$ model organizes interactions by nested blocks. The Euclidean counterpart uses the ordinary periodic lattice. Finite-size scaling concerns the joint dependence on the system size and distance to criticality.
+
+\paragraph{Catalogue wording retained for traceability.}
+Extend the universal finite-size susceptibility-scaling asymptotics for the four-dimensional hierarchical $|\phi|^4$ model to the Euclidean model with periodic boundary conditions.
+
+\paragraph{Scope and source qualification.}The scaling window, normalization and asymptotic function are those of the hierarchical result in the cited report; changing those quantities would give a different comparison.
+\subsection{Short English statement}
+Prove the Euclidean periodic-model analogue of the hierarchical model's universal finite-size susceptibility asymptotics.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derived an exact scalar quartic zero-mode scaling function and window; no comparison with the full Euclidean periodic lattice model.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30005178. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{An exact zero-mode scaling calculation.} Let \(V>0\) denote volume, \(g>0\) a quartic coefficient and \(t\in\mathbb R\) a mass parameter. In the scalar constant-mode integral with density proportional to \(\exp[-V(tm^2/2+gm^4/4)]\), define susceptibility \(\chi_0=V\langle m^2\rangle\). Substituting \(m=(Vg)^{-1/4}s\) gives
+\[
+ \chi_0=V^{1/2}g^{-1/2}\,F(t\sqrt{V/g}),\qquad
+ F(z)=\frac{\int_{\mathbb R}s^2e^{-zs^2/2-s^4/4}ds}{\int_{\mathbb R}e^{-zs^2/2-s^4/4}ds}.
+\]
+Both integrals converge for every real \(z\), since the quartic term dominates; the denominator is strictly positive. The candidate window is therefore \(t\) of order \(\sqrt{g/V}\), without changing any integration contour.
+\paragraph{The missing comparison.} Integrating out nonconstant Euclidean lattice modes generally changes the effective mass, quartic coupling and higher interactions. Even a small pointwise remainder need not be small after rescaling throughout the growing integration region. A rigorous transfer requires an error bound dominated by an integrable quartic tail and uniform in the source scaling variable, together with the correct running-coupling normalization.
+\paragraph{Scope.} This calculation reproduces only the standard constant-mode mechanism; it is not the hierarchical theorem or its Euclidean extension. It neither identifies the report's universal function with \(F\) under its full conventions nor proves its logarithmic renormalization factors. The first gap is a controlled effective Euclidean zero-mode measure with the exact source normalization and uniform scaling-window errors.
+
+\paragraph{Verification and adversarial audit.}
+Checked scaling powers, convergence at negative as well as positive mass parameter and the need for uniform integrable error control. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked scaling powers, convergence at negative as well as positive mass parameter and the need for uniform integrable error control. The remaining gap is: Control the effective zero-mode measure after integrating all Euclidean nonzero modes uniformly in the source scaling window. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the zero-mode variable substitution, susceptibility factors and quartic domination for every real scaling parameter. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Control the effective zero-mode measure after integrating all Euclidean nonzero modes uniformly in the source scaling window.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30005178:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30005178 (OWR-11101914-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30005178:2}{S2}] The Renormalization Group (2022), Oberwolfach Reports, DOI 10.4171/owr/2022/33, pp. 1865--1925. Original report and mathematical context.
+\url{https://doi.org/10.4171/owr/2022/33}.
+\end{itemize}
+\label{end:30005178}
+\end{document}

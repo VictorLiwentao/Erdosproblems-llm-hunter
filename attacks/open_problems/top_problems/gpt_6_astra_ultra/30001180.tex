@@ -1,0 +1,99 @@
+% TOP_PROBLEM: {"id": 30001180, "title": "Recovering Spatial Tensor Systems by Intersection", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "Generation by the starting system is a theorem of the construction in this report. Recovering the starting tensor system by intersection, and characterizing free systems admitting that description, are the unresolved questions. This reverses a construction, whereas ID 30001178 asks generation inside a given free system."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001180", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Determine when constructing a free product system from a spatial tensor system and then intersecting tensor products recovers that original system.", "scope": "Proves a scalar Hilbert-space projection criterion for recovering the starting fiber and identifies the required decay estimate.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked decreasing-projection identity, strong convergence, equality criterion and the Hilbert-module complementability limitation. Model self-audit only; no independent human proof checking. Coordinator checked the decreasing projection identity and the conditional norm-decay criterion, with Hilbert-module complementability left open. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked decreasing-projection identity, strong convergence, equality criterion and the Hilbert-module complementability limitation. Retained unresolved status and zero original-target progress; Complemented projections, cofinal refinement control and decay of extra reduced-word components are not established for the source modules."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001180; source catalogue code OWR-3392-006
+\setcounter{section}{30001179}
+\section{Recovering Spatial Tensor Systems by Intersection}\label{30001180}
+{\small UnsolvedMath ID 30001180 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} For a unital coefficient algebra $B$, a Hilbert $B$-bimodule is a right Hilbert $B$-module with a compatible left action. $\mathcal B^a(E)$ denotes its adjointable operators. A pointed free product system $(E_t,\omega_t)$ has central reference vectors and associative identifications $E_s*E_t\simeq E_{s+t}$, using the source's reduced free product over $B$. A tensor product subsystem instead has $E_s\odot E_t\simeq E_{s+t}$ with $\odot$ the internal tensor product over $B$. An $E_0$-semigroup is a continuous semigroup of unital $*$-endomorphisms. A unit is a section whose values multiply according to the product-system structure. Starting with a spatial tensor product system $E^\odot$ and its reference unit, the source forms free products over time decompositions and takes an inductive limit to obtain a generated free product system $E^*$. Recovery asks whether intersecting all embedded tensor products at fixed total time gives exactly the original $E^\odot$, rather than a larger tensor subsystem.
+
+\paragraph{Source scope and qualifications.} Generation by the starting system is a theorem of the construction in this report. Recovering the starting tensor system by intersection, and characterizing free systems admitting that description, are the unresolved questions. This reverses a construction, whereas ID 30001178 asks generation inside a given free system.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+Given a spatial tensor product subsystem $E^{\odot}$ of a free product system, is $E^{\odot}$ recovered by the intersection procedure over all decompositions of each time parameter? More generally, characterize when a free product system can be obtained in this way from a spatial tensor product subsystem.
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The report gives a positive construction in a spatial setting but leaves open when the intersection procedure recovers the original tensor product system in general. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Determine when constructing a free product system from a spatial tensor system and then intersecting tensor products recovers that original system.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proves a scalar Hilbert-space projection criterion for recovering the starting fiber and identifies the required decay estimate.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A Hilbert-space intersection reduction.} Suppose a countable cofinal family of time refinements gives decreasing closed candidate subspaces $F_1\supset F_2\supset\cdots$ of a fixed Hilbert space, and let $P_n$ be their orthogonal projections. For $m\geq n$, $P_nP_m=P_m$, so
+\[
+ \|P_n\xi-P_m\xi\|^2=\|P_n\xi\|^2-\|P_m\xi\|^2.
+\]
+The decreasing nonnegative norms converge, making $P_n\xi$ Cauchy. Its limit belongs to every $F_n$, and the residual is orthogonal to their intersection. Thus $P_n$ converges strongly to the projection onto $\bigcap_nF_n$.
+
+\paragraph{A usable equality criterion.} If the starting tensor fiber $E_t$ is contained in every $F_n$, equality $\bigcap_nF_n=E_t$ would follow from a uniform bound
+\[
+ \|P_n\xi\|\leq\epsilon_n\|\xi\|\quad(\xi\perp E_t),\qquad\epsilon_n\to0.
+\]
+Indeed a vector in the intersection and orthogonal to $E_t$ is fixed by every projection, forcing it to vanish. Mere containment gives no such estimate: taking every $F_n=E_t\oplus\mathbb C v$ leaves a permanent extra vector in the intersection.
+
+\paragraph{Scope and obstruction.} This provides a concrete norm-decay route, not the requested recovery theorem. The actual source is a Hilbert-module construction, where closed submodules need not be orthogonally complemented, and even the scalar case requires cofinality and a control on reduced-word components. Those hypotheses have not been established. Generation of the free system by the starting tensor system, already in the source, does not imply decay of unwanted vectors under intersection. Recovery and the broader characterization of free systems obtainable this way both remain unresolved.
+
+\paragraph{Verification and adversarial audit.}
+Checked decreasing-projection identity, strong convergence, equality criterion and the Hilbert-module complementability limitation. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked decreasing-projection identity, strong convergence, equality criterion and the Hilbert-module complementability limitation. Retained unresolved status and zero original-target progress; Complemented projections, cofinal refinement control and decay of extra reduced-word components are not established for the source modules.
+
+Coordinator checked the decreasing projection identity and the conditional norm-decay criterion, with Hilbert-module complementability left open. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Complemented projections, cofinal refinement control and decay of extra reduced-word components are not established for the source modules.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Complemented projections, cofinal refinement control and decay of extra reduced-word components are not established for the source modules.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001180:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001180 (OWR-3392-006). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001180:2}{S2}] Mini-Workshop: Product Systems and Independence in Quantum Dynamics (2009), Oberwolfach Reports, DOI 10.4171/owr/2009/09, pp. 493--548; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2009/09}.
+\item[\hypertarget{source:30001180:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF page 38, printed page 530.
+\url{https://ems.press/content/serial-article-files/46209}.
+\item[\hypertarget{source:30001180:4}{S4}] free product systems; reference in the saved dated catalogue literature review.
+\url{https://iris.unimol.it/handle/11695/18113}.
+\end{itemize}
+\label{end:30001180}
+\end{document}

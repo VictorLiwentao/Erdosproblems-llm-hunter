@@ -1,0 +1,59 @@
+% SUBMISSION: {"kind": "statement_only", "category": "top_problems", "problem_id": "2800302", "proposal_type": "established", "source": "AMR Open Problem Lists, original problem source linked by catalogue record AMR-027-0302: https://afonsobandeira.wordpress.com/2015/10/05/10l42pcheeger/", "status_evidence": "The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.", "status_checked_on": "2026-10-11", "duplicate_check": "Canonical ID 2800302 and source code AMR-027-0302 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed.", "attribution": "Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted."}
+% TOP_PROBLEM: {"id": 2800302, "title": "10 Lectures and 42 Open Problems — Certifying that matrices are PSD", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: null
+% ENTRY_KIND: statement_only
+% Imported from: computer_science_statements.tex; UnsolvedMath ID 2800302
+% Compile twice: lualatex 2800302.tex
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+% UnsolvedMath ID 2800302; source catalogue code AMR-027-0302
+\setcounter{section}{2800301}
+\section{10 Lectures and 42 Open Problems — Certifying that matrices are PSD}\label{2800302}
+{\small\sffamily UnsolvedMath ID 2800302 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Let $M\in\mathbb{R}^{n\times n}$ satisfy $M=M^{\mathsf T}$. Positive semidefiniteness means
+\[
+ M\succeq0\quad\Longleftrightarrow\quad x^{\mathsf T}Mx\ge0\quad\text{for every }x\in\mathbb{R}^n.
+\]
+Write $\operatorname{nnz}(M)$ for its number of nonzero entries. For a nonsingular matrix the spectral condition number is $\kappa_2(M)=\|M\|_2\|M^{-1}\|_2$; the usual condition number is infinite for a singular matrix. Quasi-linear time allows a fixed power of logarithms times the input sparsity and dimension, for example $O((n+\operatorname{nnz}(M))(\log n)^C)$ when other promised parameters are fixed. A certificate is a checkable witness implying $M\succeq0$; a factorization $M=LL^{\mathsf T}$ is an example. The requested procedure may return no certificate, but every certificate it does return must be correct. On promised positive semidefinite inputs its probability of producing a valid certificate must be bounded below by a positive constant independent of $n$.
+\paragraph{Statement recorded in the supplied source.}
+Given a symmetric matrix ${M}$ with small condition number, is there a quasi-linear time (on ${n}$ and the number of non-zero entries of ${M}$ ) procedure that certifies that ${M\succeq 0}$ . More specifically, the procedure can be randomized in the sense that it may, with some probably not certify that ${M\succeq 0}$ even if that is the case, what is important is that it never produces erroneous certificates (and that it has a bounded-away-from-zero probably of succeeding, provided that ${M\succeq 0}$ ). \sref{2800302}{2}
+\paragraph{Scope qualification.}
+This is Bandeira's Open Problem 3.2. ``Small condition number'' is a promise in the source rather than a supplied numerical threshold; exact arithmetic, bit complexity, treatment of singular matrices and the precise conditioning dependence are not fixed there. These conventions must be stated when proposing an algorithm. Allowing a small probability of an incorrect certificate would change the question. The author's displayed 2015 question and 2016 lecture context were inspected on 2026-10-11; no complete modern status audit is claimed.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can positive semidefiniteness of a sparse, well-conditioned symmetric matrix be certified in time close to the time needed to read it, with no possibility of a false certificate?
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:2800302:1}{S1}] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 2800302 (AMR-027-0302). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:2800302:2}{S2}] AMR Open Problem Lists, original problem source linked by catalogue record AMR-027-0302
+\url{https://afonsobandeira.wordpress.com/2015/10/05/10l42pcheeger/}.
+\item[\hypertarget{source:2800302:3}{S3}] Afonso S. Bandeira, Problem 3.2: Certifying Positive-semidefiniteness, MIT OpenCourseWare (2015).
+\url{https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-of-data-science-fall-2015/50f5debad69d631aba2eebba2c0d2a0d_MIT18_S096F15_Open3.2.pdf}.
+\item[\hypertarget{source:2800302:4}{S4}] Afonso S. Bandeira, Ten Lectures and Forty-Two Open Problems in the Mathematics of Data Science (2016), Section 3.5, Open Problem 3.2.
+\url{https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf#page=54}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 2800302 and source code AMR-027-0302 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:2800302}
+\end{document}

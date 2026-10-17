@@ -1,0 +1,98 @@
+% TOP_PROBLEM: {"id": 30001742, "title": "Uniqueness in the Boltzmann–Nordheim Condensate Model", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The primary equation uses C_3[f_reg], without the superscript (1) present in the curated formula. No separate f_reg^(1) is defined in the report's equation (1). The source's two open questions concern uniqueness once a condensate is generated and extension beyond clustering, rather than merely existence near an equilibrium with a condensate already present."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001742", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Establish uniqueness of the condensate-generating mass-conserving evolution and derive it from more general correlated initial states.", "scope": "Proves a conditional Banach-space uniqueness estimate and isolates the collision-map bounds needed through condensate creation.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked product-difference decomposition, mass-functional norm, iterative Gronwall argument and the repaired C3 convention. Model self-audit only; no independent human proof checking. Coordinator checked the condensate-coefficient Lipschitz decomposition and iterated integral uniqueness estimate under the explicit Banach-space hypotheses. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked product-difference decomposition, mass-functional norm, iterative Gronwall argument and the repaired C3 convention. Retained unresolved status and zero original-target progress; Uniform collision estimates at condensation and a kinetic derivation from non-clustering data are both missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001742; source catalogue code OWR-4805-001
+\setcounter{section}{30001741}
+\section{Uniqueness in the Boltzmann–Nordheim Condensate Model}\label{30001742}
+{\small UnsolvedMath ID 30001742 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} In the isotropic Bose setting, $x=|v|^2/2$ is kinetic energy and $f_{\rm reg}(x,t)$ is the regular density in the measure $f_{\rm reg}(x,t)\sqrt{x}\,dx+n_c(t)\delta_0$. Its regular mass is $m[f]=\int_0^\infty f(x)\sqrt{x}\,dx$ in the source normalization, and mass conservation fixes $n_c(t)=m_{\rm tot}(0)-m[f_{\rm reg}(\cdot,t)]$. $C_4$ is the homogeneous Boltzmann--Nordheim collision functional; $C_3$ is obtained by inserting the condensate ansatz and extracting the condensate coupling. $\ell^1$-clustering is the summability condition on initial correlation functions used in the source's perturbative kinetic-limit argument.
+
+\paragraph{Source scope and qualifications.} The primary equation uses C\_3[f\_reg], without the superscript (1) present in the curated formula. No separate f\_reg^(1) is defined in the report's equation (1). The source's two open questions concern uniqueness once a condensate is generated and extension beyond clustering, rather than merely existence near an equilibrium with a condensate already present.
+
+\paragraph{Primary-source collision term.} The report's equation (1) is $\partial_t f_{\rm reg}=C_4[f_{\rm reg}]+(m_{\rm tot}(0)-m[f_{\rm reg}])C_3[f_{\rm reg}]$. The unexplained superscript in the catalogue is preserved only in the catalogue target below and is not an additional source variable.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+For the regular part of the isotropic Boltzmann–Nordheim condensate model, consider the mass-conserving evolution equation $\partial_t f_{\mathrm{reg}}(x,t)=C_4[f_{\mathrm{reg}}(\cdot,t)](x)+(m_{\mathrm{tot}}(0)-m[f_{\mathrm{reg}}(\cdot,t)])C_3[f_{\mathrm{reg}}^{(1)}(\cdot,t)](x)$. Does this equation have a unique solution when a condensate is generated? Can the perturbative construction be extended to initial data that are not $\ell^1$-clustering, thereby deriving this equation rather than the standard Boltzmann–Nordheim equation?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: Later analysis proves finite-time blow-up and condensate formation for broad classes of Nordheim solutions, but the extracted regularized continuation and its no-blow-up and zero-condensate-generation questions are not fully settled. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\paragraph{Scope and source qualification.}The primary equation uses C_3[f_reg], without the superscript (1) present in the curated formula. No separate f_reg^(1) is defined in the report's equation (1). The source's two open questions concern uniqueness once a condensate is generated and extension beyond clustering, rather than merely existence near an equilibrium with a condensate already present.
+\subsection{Short English statement}
+Establish uniqueness of the condensate-generating mass-conserving evolution and derive it from more general correlated initial states.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proves a conditional Banach-space uniqueness estimate and isolates the collision-map bounds needed through condensate creation.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A conditional uniqueness estimate for the corrected equation.} Let $X$ be a Banach space on which the regular mass $m$ is a bounded linear functional, and write $N(f)=C_4(f)+(M-m(f))C_3(f)$, using the source's $C_3[f]$ without the undefined superscript. On a set containing two trajectories suppose $C_4,C_3$ have Lipschitz constants $L_4,L_3$, $\|C_3(f)\|\leq B$, and $|M-m(f)|\leq K$. Subtracting and adding $(M-m(f))C_3(g)$ gives
+\[
+ \|N(f)-N(g)\|\leq(L_4+KL_3+B\|m\|)\|f-g\|.
+\]
+For integral solutions with equal initial data, iterating the resulting inequality $d(t)\leq L\int_0^td(s)ds$ yields $d(t)\leq D(Lt)^n/n!$ on a bounded time interval, hence $d(t)=0$ as $n\to\infty$.
+
+\paragraph{What condensation changes.} The coefficient $M-m(f)$ itself is harmless under these hypotheses: it is Lipschitz even when it first becomes positive. The difficult part is finding a space in which the singular Bose collision maps satisfy the stated bounds uniformly across condensate generation. This calculation has not done so. Mass conservation alone only defines the condensate mass and cannot replace those analytic estimates.
+
+\paragraph{Second bundled gap.} Uniqueness of this effective equation would not derive it from non-$\ell^1$-clustering microscopic data. That separate limit needs control of persistent initial correlations and a proof that the condensate-coupling term, rather than only $C_4$, survives. Both source targets remain unproved; no near-equilibrium theorem with a pre-existing condensate is substituted for them.
+
+\paragraph{Verification and adversarial audit.}
+Checked product-difference decomposition, mass-functional norm, iterative Gronwall argument and the repaired C3 convention. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked product-difference decomposition, mass-functional norm, iterative Gronwall argument and the repaired C3 convention. Retained unresolved status and zero original-target progress; Uniform collision estimates at condensation and a kinetic derivation from non-clustering data are both missing.
+
+Coordinator checked the condensate-coefficient Lipschitz decomposition and iterated integral uniqueness estimate under the explicit Banach-space hypotheses. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Uniform collision estimates at condensation and a kinetic derivation from non-clustering data are both missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Uniform collision estimates at condensation and a kinetic derivation from non-clustering data are both missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001742:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001742 (OWR-4805-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001742:2}{S2}] The Renormalization Group (2011), Oberwolfach Reports, DOI 10.4171/owr/2011/15, pp. 781--824; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2011/15}.
+\item[\hypertarget{source:30001742:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 31--32, printed pages 811--812.
+\url{https://ems.press/content/serial-article-files/46328}.
+\item[\hypertarget{source:30001742:4}{S4}] Nordheim blow-up and condensation; reference in the saved dated catalogue literature review.
+\url{https://doi.org/10.1007/s00220-014-2034-9}.
+\end{itemize}
+\label{end:30001742}
+\end{document}

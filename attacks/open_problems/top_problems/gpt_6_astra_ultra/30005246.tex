@@ -1,0 +1,88 @@
+% TOP_PROBLEM: {"id": 30005246, "title": "Mathematical Construction of the Negative-Phase Coulomb Category", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005246", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Construct the predicted negative-phase Coulomb category and prove its equivalence with the derived category of projective space.", "scope": "Rejected a semisimple isolated-vacuum category already for P1 using asymmetric morphism dimensions; no mathematical Coulomb-category construction.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked polynomial section dimensions and splitting of complexes in a semisimple category; avoided assuming equivalence must send particular line bundles to simple vacua. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the two projective-line Hom dimensions and symmetric Hom dimension in the proposed semisimple derived category. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked polynomial section dimensions and splitting of complexes in a semisimple category; avoided assuming equivalence must send particular line bundles to simple vacua. The remaining gap is: Define the negative-phase objects, morphisms and composition independently and prove the predicted derived equivalence for every n. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30005246; source catalogue code OWR-11695854-002
+\setcounter{section}{30005245}
+\section{Mathematical Construction of the Negative-Phase Coulomb Category}\label{30005246}
+{\small UnsolvedMath ID 30005246 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+A $U(1)$ gauged linear sigma model is a gauge theory whose phase is controlled by the stability parameter $\zeta$. The positive phase in this example has projective target $\mathbb P^n$. The category $D^b(\mathbb P^n)$ is the bounded derived category of coherent sheaves. The negative phase predicts a Coulomb-branch category $\mathcal C$ that needs a mathematical construction.
+
+\paragraph{Catalogue wording retained for traceability.}
+For the $U(1)$ gauged linear sigma model with target $\mathbb P^n$ and stability parameter $\zeta<0$, construct mathematically the Coulomb-branch category $\mathcal C$ predicted by physics and prove the predicted equivalence $D^b(\mathbb P^n)\simeq\mathcal C$.
+\subsection{Short English statement}
+Construct the predicted negative-phase Coulomb category and prove its equivalence with the derived category of projective space.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Rejected a semisimple isolated-vacuum category already for P1 using asymmetric morphism dimensions; no mathematical Coulomb-category construction.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30005246. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{Why counting Coulomb vacua is insufficient.} Test the simplest nontrivial target \(\mathbb P^1\). Its line bundles satisfy
+\[
+ \dim\operatorname{Hom}(\mathcal O,\mathcal O(1))=2,
+ \qquad \operatorname{Hom}(\mathcal O(1),\mathcal O)=0.
+\]
+The first space consists of homogeneous degree-one polynomials in the two homogeneous coordinates; the second would be a homogeneous section of negative degree and is zero (equivalently its two affine-chart polynomial representatives cannot obey the negative transition degree unless both vanish).
+Suppose one models two isolated Coulomb vacua merely by the semisimple category \(\operatorname{Vect}\oplus\operatorname{Vect}\). Every bounded complex is quasi-isomorphic to its graded cohomology: choose complements of cycles and boundaries to split the complex. Therefore for any objects \(A,B\) in its bounded derived category,
+\[
+ \dim\operatorname{Hom}(A,B)=\sum_{v,k}\dim A_v^k\dim B_v^k
+ =\dim\operatorname{Hom}(B,A).
+\]
+This symmetry contradicts the two line-bundle morphism dimensions above. Such a semisimple vacuum-counting category cannot be equivalent to \(D^b(\mathbb P^1)\).
+\paragraph{Source gap.} This excludes only a naive candidate, not the physically predicted Coulomb category. Nontrivial morphisms and their compositions, possibly from connecting sectors, are essential. Defining the actual negative-phase category for general \(n\) and proving a fully faithful, essentially surjective functor remain the first gaps. Relabelling \(D^b(\mathbb P^n)\) as \(\mathcal C\) would supply no independent construction.
+
+\paragraph{Verification and adversarial audit.}
+Checked polynomial section dimensions and splitting of complexes in a semisimple category; avoided assuming equivalence must send particular line bundles to simple vacua. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked polynomial section dimensions and splitting of complexes in a semisimple category; avoided assuming equivalence must send particular line bundles to simple vacua. The remaining gap is: Define the negative-phase objects, morphisms and composition independently and prove the predicted derived equivalence for every n. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the two projective-line Hom dimensions and symmetric Hom dimension in the proposed semisimple derived category. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Define the negative-phase objects, morphisms and composition independently and prove the predicted derived equivalence for every n.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30005246:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30005246 (OWR-11695854-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30005246:2}{S2}] Mini-Workshop: Quantization of Complex Symplectic Varieties (2022), Oberwolfach Reports, DOI 10.4171/owr/2022/45, pp. 2629--2658. Original report and mathematical context.
+\url{https://doi.org/10.4171/owr/2022/45}.
+\end{itemize}
+\label{end:30005246}
+\end{document}

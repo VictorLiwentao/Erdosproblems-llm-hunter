@@ -1,0 +1,58 @@
+% TOP_PROBLEM: {"id": 8100004, "title": "numerical computation with random data", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The catalogue excerpt ended before its actual open questions. They are restored from the final paragraphs of primary Problem 4. Ensemble admissibility and scaling regimes are to be specified as in that source and its cited studies; the stated 2017 open-status descriptions are historical."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: statement_only
+% SUBMISSION: {"kind": "statement_only", "category": "top_problems", "problem_id": "8100004", "proposal_type": "established", "source": "Percy Deift, Some Open Problems in Random Matrix Theory and the Theory of Integrable Systems. II, SIGMA 13 (2017), 016, Problem 4. https://arxiv.org/abs/1703.04931; Primary full-text formulation and 2017 historical progress discussion. https://arxiv.org/html/1703.04931v1", "status_evidence": "Inherited source-catalogue status partially_solved preserved. Primary source accessed 11 October 2026; compared against the supplied catalogue excerpt. Historical wording and partial-result remarks were checked for scope; no comprehensive current-literature or proof-verification audit was performed.", "status_checked_on": "2026-10-11", "duplicate_check": "Full 15,773-record source registry checked for identical normalized statements; available site registry checked for identical normalized title/statement and canonical-ID collision. Canonical ID is absent from the site registry. No mathematical-equivalence literature audit performed.", "attribution": "Percy Deift. Statement preparation: OpenAI GPT-6 Codex assistant, generation 11 October 2026; source-matching and notation editing by the assistant, no independent human mathematical verification. The consulted arXiv HTML version states CC BY-SA 4.0; preserve applicable attribution and share-alike provenance. Inherited rights/provenance note: Public arXiv source TeX; arXiv reuse license NEEDS_REVIEW"}
+% SOURCE_STATEMENT: "Standard algorithms to compute the eigenvalues of a random matrix $H$ are completely integrable Hamiltonian systems (see ). The question raised in was: What happens if we try to marry these two integrabilities? This question was taken up by P. The authors in then recorded \\tau_{\\epsilon, n, \\mathcal{A}, \\mathcal{E}}(H) \\equiv \\frac{T_{\\epsilon, n, \\mathcal{A}, \\mathcal{E}}(H)- \\langle T_{\\epsilon, n, \\mathcal{A}, \\mathcal{E}}\\rangle}{\\sg_{\\epsilon, n, \\mathcal{A}, \\mathcal{E}}}, where $\\langle T_{\\epsilon, n \\mathcal{A}, \\mathcal{E}}\\rangle$ and $\\sigma^2_{\\epsilon, n, \\mathcal{A}, \\mathcal{E}}$ are respectively the sample average and sample variance for $T_{\\epsilon, n,\\mathcal{A}, \\mathcal{E}}(H)$ computed for a very large sample of matrices $H\\in \\mathcal{E}$. Trogdon raised the question of whether the universality results in were limited to eigenvalue algorithms, or whether they were present more generally in numerical computations. And indeed in the authors found similar universality results for a wide variety of numerical algorithms, including; more general eigenvalue algorithms such as the Jacobi algorithm, and also algorithms for Hermitian ensembles,; the conjugate gradient and GMRES algorithms to solve linear $n\\times n$ systems $Hx=b$, $H$ and $b$ random,; an iterative algorithm to solve the Dirichlet problem $\\Delta u=0$ on a random star-shaped region $\\Omega \\subset \\mathbb{R}^2$ with random boundary data $f$ on $\\partial \\Omega$, and; a genetic algorithm to compute the equilibrium measure for orthogonal polynomials on the line, and was also for a decision making process in recent laboratory experiments of Yu. Thus the Toda algorithm with stopping time $T^{(1)}(H)$ is an algorithm to compute the largest eigenvalue of a given matrix"
+% Preparation and final self-audit: CONTRIBUTING.md prompts C and D; source/audit artifacts retained in the local physics_statements_2026_10_11 batch.
+% Imported from: physics_statements.tex; UnsolvedMath ID 8100004
+% !TeX program = lualatex
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 8100004; source catalogue code AMR-080-0004
+\setcounter{section}{8100003}
+\section{numerical computation with random data}\label{8100004}
+{\small UnsolvedMath ID 8100004 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}Let $H$ be an $n\times n$ random matrix from ensemble $\mathcal E$, and let $\mathcal A$ be a numerical algorithm with tolerance $\varepsilon$. Its stopping time is $T=T_{\varepsilon,n,\mathcal A,\mathcal E}(H)$; the centered and standardized time is $(T-\mathbb ET)/\sqrt{\operatorname{Var}T}$ when these quantities exist. For Toda flow $\dot X=[X,X_--X_-^*]$, one-row deflation time is the first $t$ with $\sum_{j=2}^n|X_{1j}(t)|^2<\varepsilon^2$. Full deflation permits a split into two blocks with off-diagonal block norm at most $\varepsilon$.
+
+\paragraph{Catalogue wording retained for traceability.}
+Prove universality for centered and scaled one-row Toda stopping times, including the needed joint edge eigenvalue/eigenvector statistics for $\beta=1$ invariant ensembles and $\beta=1,2$ Wigner ensembles. Control the eigenvalue ratios near zero and their eigenvectors required for an analogous QR result. Prove universality for full deflation times, including successive multi-row splittings. Establish stopping-time universality for the other algorithms discussed by Deift, such as conjugate gradient for random linear systems. Extend the accurate orthogonal-polynomial sampling method for unitary invariant ensembles to orthogonal and symplectic invariant ensembles.
+\paragraph{Scope and source qualification.}The catalogue excerpt ended before its actual open questions. They are restored from the final paragraphs of primary Problem 4. Ensemble admissibility and scaling regimes are to be specified as in that source and its cited studies; the stated 2017 open-status descriptions are historical.
+\subsection{Short English statement}
+Prove universality of numerical stopping times on random input and extend accurate sampling beyond unitary ensembles.
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:8100004:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 8100004 (AMR-080-0004). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:8100004:2}{S2}] Percy Deift, Some Open Problems in Random Matrix Theory and the Theory of Integrable Systems. II, SIGMA 13 (2017), 016, Problem 4.
+\url{https://arxiv.org/abs/1703.04931}.
+\item[\hypertarget{source:8100004:3}{S3}] Primary full-text formulation and 2017 historical progress discussion.
+\url{https://arxiv.org/html/1703.04931v1}.
+\end{itemize}
+\label{end:8100004}
+\end{document}

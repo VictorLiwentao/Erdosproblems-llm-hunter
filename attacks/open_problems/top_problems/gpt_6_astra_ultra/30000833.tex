@@ -1,0 +1,97 @@
+% TOP_PROBLEM: {"id": 30000833, "title": "Stability of Schwarzschild Black Holes Under Perturbation", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The smallness norm and asymptotic data class are not specified by this rough report formulation. Both completeness and nonempty black-hole region must be retained; linear stability or one restricted nonlinear data class does not alone settle the entire stated question."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000833", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Determine whether a small vacuum perturbation of Schwarzschild initial data still has complete future null infinity and a nonempty black-hole region.", "scope": "Proves local persistence of strict null trapping under specified smooth perturbations of a Schwarzschild interior sphere.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked null normalization, both expansion signs, strict interior margin and dependence on the initial slice; separated trapping from the event-horizon conclusion. Model self-audit only; no independent human proof checking. Coordinator checked both null expansions and persistence under a sufficiently small perturbation relative to the strict negative margin. This local observation is separated from global completeness. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked null normalization, both expansion signs, strict interior margin and dependence on the initial slice; separated trapping from the event-horizon conclusion. Retained unresolved status and zero original-target progress; Global exterior evolution and complete future null infinity have not been established for the source perturbation class."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30000833; source catalogue code OWR-1597-005
+\setcounter{section}{30000832}
+\section{Stability of Schwarzschild Black Holes Under Perturbation}\label{30000833}
+{\small UnsolvedMath ID 30000833 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} Vacuum initial data $(S,\bar g,K)$ obey the Einstein constraint equations and evolve to a maximal globally hyperbolic spacetime solving $\operatorname{Ric}(g)=0$. Schwarzschild has mass $M>0$ and exterior metric $-(1-2M/r)\,dt^2+(1-2M/r)^{-1}dr^2+r^2d\Omega^2$. Future null infinity $\mathcal I^+$ describes ideal endpoints of outgoing null rays. $J^-(\mathcal I^+)$ is the region able to signal to it, so $M\setminus J^-(\mathcal I^+)$ is the black-hole region.
+
+\paragraph{Source scope and qualifications.} The smallness norm and asymptotic data class are not specified by this rough report formulation. Both completeness and nonempty black-hole region must be retained; linear stability or one restricted nonlinear data class does not alone settle the entire stated question.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+For vacuum initial data that are a sufficiently small perturbation of Schwarzschild data on a Cauchy surface $S$, does the maximal development $(M,g)$ still contain a black hole; equivalently, is future null infinity $I^+$ complete and is $M\setminus J^-(I^+)$ nonempty?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: Dafermos, Holzegel, Rodnianski, and Taylor proved nonlinear asymptotic stability of Schwarzschild in the exterior for sufficiently small data on the relevant codimension-three set, including complete future null infinity and a complete event horizon; the unrestricted formulation in the extracted question is broader. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Determine whether a small vacuum perturbation of Schwarzschild initial data still has complete future null infinity and a nonempty black-hole region.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proves local persistence of strict null trapping under specified smooth perturbations of a Schwarzschild interior sphere.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A local feature that persists under small perturbation.} In ingoing Schwarzschild coordinates write $g=-f(r)dv^2+2dv\,dr+r^2d\Omega^2$, $f(r)=1-2M/r$. Choose future null normals $\ell=\partial_v+\tfrac12f\partial_r$ and $n=-\partial_r$, normalized by $g(\ell,n)=-1$. Since a sphere has area $4\pi r^2$, their expansions are
+\[
+ \theta_\ell=2\ell(r)/r=f(r)/r,\qquad \theta_n=2n(r)/r=-2/r.
+\]
+At any fixed $0<r_0<2M$, both are strictly negative. Their maximum is bounded above by a negative constant on the compact sphere.
+
+\paragraph{A precise limited stability statement.} The expansions depend continuously on the metric, its first derivatives, the embedded sphere and its first two derivatives, once the null normals are chosen continuously. Therefore every sufficiently small perturbation in those norms retains negativity at this sphere. This follows by taking the perturbation of each expansion less than half its strict negative margin. In initial-data language the same observation follows from the expressions involving the sphere's mean curvature and the trace of the second fundamental form.
+
+\paragraph{Global obstruction.} This proves persistence of a strictly trapped surface only when the chosen initial slice already contains one and the specified local norms are controlled. It does not show completeness of future null infinity, establish a globally visible exterior, or identify the event horizon. Connecting trapping to a black-hole region requires global causal and future-development information, precisely what a nonlinear stability theorem must provide. No smallness topology for all source data has been supplied, and neither of the two global conclusions in the original question is proved by this local calculation.
+
+\paragraph{Verification and adversarial audit.}
+Checked null normalization, both expansion signs, strict interior margin and dependence on the initial slice; separated trapping from the event-horizon conclusion. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked null normalization, both expansion signs, strict interior margin and dependence on the initial slice; separated trapping from the event-horizon conclusion. Retained unresolved status and zero original-target progress; Global exterior evolution and complete future null infinity have not been established for the source perturbation class.
+
+Coordinator checked both null expansions and persistence under a sufficiently small perturbation relative to the strict negative margin. This local observation is separated from global completeness. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Global exterior evolution and complete future null infinity have not been established for the source perturbation class.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Global exterior evolution and complete future null infinity have not been established for the source perturbation class.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30000833:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30000833 (OWR-1597-005). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30000833:2}{S2}] Analysis and Geometric Singularities (2007), Oberwolfach Reports, DOI 10.4171/owr/2007/41, pp. 2361--2442; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2007/41}.
+\item[\hypertarget{source:30000833:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 21--23, printed pages 2381--2383.
+\url{https://ems.press/content/serial-article-files/46126}.
+\item[\hypertarget{source:30000833:4}{S4}] Schwarzschild nonlinear stability; reference in the saved dated catalogue literature review.
+\url{https://arxiv.org/abs/2104.08222}.
+\item[\hypertarget{source:30000833:5}{S5}] linear Schwarzschild stability; reference in the saved dated catalogue literature review.
+\url{https://arxiv.org/abs/1601.06467}.
+\end{itemize}
+\label{end:30000833}
+\end{document}

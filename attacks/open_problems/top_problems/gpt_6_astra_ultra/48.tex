@@ -1,0 +1,112 @@
+% RESEARCH_DRAFT_SHA256: 120f369a1596c4d2e4df8fb724c2b26573aced95426c5bbd015e0df39c8f6767
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 48, "title": "Smale's 4th Problem: Integer Zeros of Polynomials", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "48", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Known degree-six intersective polynomial proved to defeat exhaustive modular-root rejection; explicit univariate finite search analyzed without claiming polynomial bit complexity.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch001/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 48; source catalogue code SMA-004
+\section{Smale's 4th Problem: Integer Zeros of Polynomials}\label{48}
+{\small UnsolvedMath ID 48 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+For $p\in\mathbb Z[x_1,\ldots,x_r]$, an integer zero is a vector $z\in\mathbb Z^r$ satisfying $p(z)=0$. A decision algorithm must halt and correctly report existence or nonexistence for every permitted input. Its complexity depends on the number of variables, the coefficient encoding and degree representation. In the actual Smale Problem 4, a univariate polynomial is represented by a straight-line program starting from $1$ and $t$ and using addition, subtraction and multiplication; $\tau(f)$ is the smallest number of operations.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The supplied title and decision formulation do not agree with Smale Problem 4. The original paper asks for a polynomial bound on the number of distinct integer roots in terms of straight-line complexity, rather than the decision task quoted below. Its Problem 5 discussion also records undecidability when the number of variables is unrestricted. The catalogue formulation is preserved, without substituting the root-count conjecture or claiming a universal decision algorithm.
+\paragraph{Statement recorded in the supplied source.}
+Find efficient algorithms for deciding whether a polynomial with integer coefficients has an integer root. \href{https://www.fim.uni-passau.de/fileadmin/dokumente/fakultaeten/fim/lehrstuhl/muller/SmaleProblems1998.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The catalogue asks for efficient integer-root decisions. Its title points to a different Smale question about how many integer roots a univariate polynomial can have.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 48 (SMA-004). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Steve Smale, Mathematical Problems for the Next Century, second version (7 August 1998), Problems 4 and 5, pp. 5--6. Consulted for the attribution and scope comparison; the catalogue decision wording differs.
+\url{https://www.fim.uni-passau.de/fileadmin/dokumente/fakultaeten/fim/lehrstuhl/muller/SmaleProblems1998.pdf}.
+\item[S3] Steve Smale, Mathematical Problems for the Next Century, Mathematical Intelligencer 20(2), 7--15 (1998).
+\url{https://doi.org/10.1007/BF03025291}.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. The supplied catalogue credits: Stephen Smale. Permanent source ID 48 and code SMA-004 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:48}
+
+
+\section{Research attempt}
+The source mixes an integer-root decision request, unrestricted variable count, and the title of Smale's univariate root-count conjecture. These are distinct. The concrete attempted decision method here is exhaustive modular sieving: reject $f$ when some modulus has no root, and hope that every polynomial without an integer root will eventually be rejected. This fails even for a fixed degree-six univariate input. The example is known in the literature; the full elementary verification below is a worked obstruction, not an original solution or a novelty claim.
+
+\begin{proposition}
+The polynomial
+\[
+ F(x)=(x^2-13)(x^2-17)(x^2-221)
+\]
+has no integer root, but for every integer $m\ge1$ there is an integer $r$ such that $F(r)\equiv0\pmod m$.
+\end{proposition}
+\begin{proof}
+None of $13,17,221$ is an integer square: they lie strictly between $3^2$ and $4^2$, $4^2$ and $5^2$, and $14^2$ and $15^2$, respectively. A product of integers is zero only if a factor is zero, proving the first assertion.
+
+Let $p$ be an odd prime other than $13,17$. In the multiplicative group of nonzero residues modulo $p$, squaring has kernel $\{1,-1\}$, so the subgroup of squares has index two. If either $13$ or $17$ is a square, use that factor. Otherwise they both lie in the other coset, and their product $221$ is a square. Each resulting root is nonzero modulo $p$. At $p=13$ use $2^2\equiv17$; at $p=17$ use $8^2\equiv13$.
+
+Any such root of $x^2-a$ lifts to all powers of its odd prime. Indeed, if $r^2-a=cp^k$, replace $r$ by $r+tp^k$. Modulo $p^{k+1}$ the new discrepancy is $(c+2rt)p^k$. Since $2r$ is invertible modulo $p$, choose $t$ to cancel $c$. This induction applies separately to the selected factor for each prime.
+
+For powers of two use $a=17$. The value $r=1$ is a root modulo $8$. If odd $r$ is a root modulo $2^k$, $k\ge3$, then $r$ and $r+2^{k-1}$ have squares differing by $r2^k+2^{2k-2}\equiv2^k\pmod{2^{k+1}}$. Exactly one is a root modulo $2^{k+1}$. Moduli $2$ and $4$ are immediate. Thus roots of $F$ exist modulo every prime power.
+
+Factor $m$ into pairwise coprime prime powers $q_j$. Choose a root $r_j$ for each. For completeness, put $M_j=m/q_j$ and choose $s_j$ with $s_jM_j\equiv1\pmod{q_j}$ by Bezout's identity. Then $r=\sum_jr_js_jM_j$ has all required residues. Hence each $q_j$ divides $F(r)$, and so does $m$. The case $m=1$ is automatic.
+\end{proof}
+
+The witnesses $r$ may change with $m$. Exchanging ``for every modulus there exists a root'' with ``there exists one integer root'' is exactly the invalid inference. Testing all primes is even weaker, but the example already passes the stronger test of all composite moduli.
+
+A separate finite search remains available for an explicitly given nonzero univariate polynomial $f(x)=a_dx^d+\cdots+a_0$, $d\ge1$, $a_d\ne0$. Put $M=\max_{j<d}|a_j/a_d|$. If $|x|>1+M$, then
+\[
+ \sum_{j<d}|a_jx^j|\le |a_d|M\frac{|x|^d-1}{|x|-1}<|a_d||x|^d,
+\]
+so $f(x)\ne0$. Evaluating all integers with $|x|\le\lceil1+M\rceil$ therefore decides existence (zero and constant polynomials are handled separately). This is a halting decision method, but the displayed enumeration length can be exponential in coefficient bit length; it gives no polynomial bit-complexity guarantee and does not address straight-line-program root counts.
+
+\section{Literature and context}
+Smale's primary 1998 manuscript, pp. 5--6, was inspected on 11 October 2026. Problem 4 asks for a polynomial bound on the number of distinct integer roots in straight-line complexity; Problem 5 discusses undecidability without a restriction on variable count. This confirms the catalogue's scope warning. No new proof of undecidability is offered here. L\^e and Spencer's primary manuscript, \emph{Intersective polynomials and Diophantine approximation, II}, Example 4, records this same polynomial; it was located during the novelty check. Its existence is established above without relying on their theorem.
+
+\section{Verification and remaining gaps}
+Exact integer computation found a root modulo every $m$ from $1$ through $2000$, and no integer root between $-2000$ and $2000$. The latter finite search alone would be insufficient; the nonsquare argument proves the global absence. The self-audit checked the exceptional primes $2,13,17$, prime-power lifting, and CRT compatibility. Modular sieving does not decide this negative instance, and the elementary exhaustive root bound has no efficient complexity estimate in the relevant encoding. Neither a new algorithm for a defined restricted class nor Smale's actual root-count conjecture is settled. The unrestricted decision interpretation already has an external negative answer; that historical result is not mathematical progress generated here.
+
+\section{References}
+Original sources S1--S3 above. S. Smale, \emph{Mathematical Problems for the Next Century}, 7 August 1998, Problems 4--5, \url{https://www.fim.uni-passau.de/fileadmin/dokumente/fakultaeten/fim/lehrstuhl/muller/SmaleProblems1998.pdf}. T. H. L\^e and C. V. Spencer, \emph{Intersective polynomials and Diophantine approximation, II}, Example 4, \url{https://home.olemiss.edu/~leth/papers/intersective_polynomials_II_2.pdf}. The elementary root bound and modular proof are supplied in full here.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch001/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

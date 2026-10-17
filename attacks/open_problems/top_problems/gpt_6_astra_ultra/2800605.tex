@@ -1,0 +1,125 @@
+% RESEARCH_DRAFT_SHA256: 645793364d7bc2e09d7b56f8e9abf50659c728e574899e1327959b2965f617da
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 2800605, "title": "10 Lectures and 42 Open Problems — Constructive Kadison-Singer", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "2800605", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Give a (polynomial time) construction of the tight frame partition satisfying the properties required in the Kadison-Singer problem (or the related Weaver’s conjecture). These partitions were proven to exist (with a non-constructive proof) in the recent breakthrough of Marcus, Spielman, and Srivastava .", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The energy proof loses sqrt(d), and the commuting reduction excludes general noncommuting tight frames; no algorithm with universal constants for all inputs is obtained.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Constructive frame partitioning: commuting inputs and a dimension-dependent barrier}
+\noindent UnsolvedMath ID 2800605; AMR-027-0605. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$, and $\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$ denote the integers, rationals, reals and complex numbers. Any other conventions are specified locally.
+
+
+A tight frame at level \(\eta\) is a finite family \(v_1,\ldots,v_m\in\mathbb C^d\) satisfying
+\[\sum_{i=1}^m v_i v_i^*=\eta I_d,\]
+equivalently \(\sum_i|\langle u,v_i\rangle|^2=\eta\) for every unit vector \(u\in\mathbb C^d\). Here \(v_i^*\) denotes conjugate transpose and \(\|\cdot\|_2\) is the Euclidean norm. Weaver's two-partition conclusion asks for a partition \([m]=S_1\sqcup S_2\) satisfying
+\[\sum_{i\in S_j}|\langle u,v_i\rangle|^2\le\eta-\theta
+\quad\text{for every unit }u\text{ and }j=1,2,\]
+with universal constants \(\eta\ge2\) and \(\theta>0\), when \(\|v_i\|_2\le1\). Marcus, Spielman and Srivastava established the existence of such partitions; for example their result allows \(\eta=18\) and \(\theta=2\).
+\paragraph{Statement recorded in the supplied source.}
+Give a polynomial-time construction of a partition with Weaver's two-partition property: find universal constants \(\eta\ge2\), \(\theta>0\) and an algorithm that, for every finite tight frame as above with \(\|v_i\|_2\le1\), outputs \(S_1,S_2\) satisfying the displayed inequality in time polynomial in the size of its input. In particular, can the partitions guaranteed by the Kadison--Singer existence theorem be found efficiently? \href{https://arxiv.org/pdf/2205.02161}{[S2]}
+\subsection{Short English statement}
+Construct efficiently the two-partition of any bounded tight frame guaranteed by Weaver’s formulation of the Kadison–Singer theorem, using universal constants.
+\subsection{Sources}
+\begin{description}
+\item[S1] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 2800605 (AMR-027-0605). CC BY 4.0. \url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Ben Jourdan, Peter Macgregor and He Sun, Is the Algorithmic Kadison-Singer Problem Hard? (2022), arXiv:2205.02161, Section 1, Conjecture 1 and the algorithmic question immediately following it. \url{https://arxiv.org/pdf/2205.02161}.
+\end{description}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Give a (polynomial time) construction of the tight frame partition satisfying the properties required in the Kadison-Singer problem (or the related Weaver’s conjecture). These partitions were proven to exist (with a non-constructive proof) in the recent breakthrough of Marcus, Spielman, and Srivastava .
+
+\section{Attempt and results}
+Keep $\sum_i v_iv_i^*=\eta I_d$ and $\|v_i\|\le1$. An algorithm for the
+full target must use constants $\eta,\theta$ independent of both $d$ and $m$.
+The following algorithms use exact real/complex arithmetic; polynomial bit
+complexity for approximate inputs is not claimed.
+
+\paragraph{A constructive commuting special case.}
+Suppose the rank-one matrices $v_iv_i^*$ commute pairwise. Two nonzero such
+matrices either have orthogonal ranges or the same range. To see this, write
+them $vv^*$ and $ww^*$. If $v^*w=0$ they multiply to zero in either order.
+Otherwise their equal nonzero products have ranges respectively $\mathbb Cv$
+and $\mathbb Cw$, forcing these ranges to agree. Thus the vectors split
+into groups along mutually orthogonal directions. Tightness implies that
+these directions span the entire space and that the sum of squared lengths
+in each direction is $\eta$.
+In each group, process weights $a_i=\|v_i\|^2\in[0,1]$, assigning the next
+weight to the smaller of two current loads. If their difference is $D\le1$,
+the next difference is $|D-a_i|\le1$. Starting at zero proves that the final
+loads differ by at most one, hence each is at most $(\eta+1)/2$.
+Grouping parallel/orthogonal vectors by inner products and applying this rule
+takes polynomially many arithmetic operations. Zero vectors may be placed
+arbitrarily. For $\eta=2$ this gives the source conclusion with $\theta=1/2$
+for every commuting input, in every dimension. The proof covers all unit test
+vectors because the two partial frame operators are diagonal in the
+orthonormal direction basis and each diagonal entry is at most $3/2$.
+
+\paragraph{Attempt to extend by a matrix-energy potential.}
+Set $A_i=v_iv_i^*$. We construct signs $\epsilon_i\in\{-1,1\}$ so that
+$S=\sum_i\epsilon_iA_i$ has small Frobenius norm. At a partial sum $T$,
+\[
+\tfrac12\|T+A_i\|_F^2+\tfrac12\|T-A_i\|_F^2
+=\|T\|_F^2+\|A_i\|_F^2.
+\]
+Choose the sign attaining the smaller value. Induction yields
+\[
+\|S\|_{\mathrm{op}}^2\le\|S\|_F^2
+\le\sum_i\|A_i\|_F^2=\sum_i\|v_i\|^4
+\le\sum_i\|v_i\|^2=\eta d.
+\]
+The two partition operators are $(\eta I\pm S)/2$, and thus have norms
+at most $(\eta+\sqrt{\eta d})/2$. This is a deterministic polynomial
+arithmetic algorithm, but its guarantee implies a positive saving only when
+$\eta>d$. Choosing $\eta=4d$ gives a saving at least $\eta/4$, yet violates
+the original requirement of universal constants. For fixed $\eta$ and
+unbounded $d$ the guarantee eventually becomes vacuous. This pinpoints the
+failure of the attempted Frobenius-norm derandomization.
+
+\section{Context and adversarial audit}
+The primary abstract of Jourdan, Macgregor and Sun, arXiv:2205.02161, was
+consulted on 11 October 2026. Its algorithmic and hardness conclusions have
+specific parameter regimes; its stated FNP-hard parameter is not used to
+rule out the source's universal-constant existence construction. The
+commuting and energy calculations here are elementary special-case/known
+methods; no new general algorithm or novelty is claimed. The audit checked
+zero vectors, complex conjugation, operator versus Frobenius norm, and the
+dimension-independence requirement. No numerical or formal computation was
+performed for this record.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The energy proof loses sqrt(d), and the commuting reduction excludes general noncommuting tight frames; no algorithm with universal constants for all inputs is obtained.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Ben Jourdan, Peter Macgregor and He Sun, Is the Algorithmic Kadison-Singer Problem Hard?, arXiv:2205.02161; abstract and parameter qualifications inspected. \url{https://arxiv.org/abs/2205.02161}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The energy proof loses sqrt(d), and the commuting reduction excludes general noncommuting tight frames; no algorithm with universal constants for all inputs is obtained.
+\end{document}

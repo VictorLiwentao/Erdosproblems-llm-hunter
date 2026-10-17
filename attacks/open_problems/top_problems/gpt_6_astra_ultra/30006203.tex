@@ -1,0 +1,123 @@
+% RESEARCH_DRAFT_SHA256: d2426c6a718533864e34bf49c9c026618d0afac6cf956acb02ac7f53dd9ef1b3
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30006203, "title": "Decidability of Symmetric Polynomial Nonnegativity", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006203", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Decidability of Symmetric Polynomial Nonnegativity; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Uniform quadratic symmetric forms and finite-dimension blindness; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch027 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30006203; source catalogue code OWR-14299088-005
+\section{Decidability of Symmetric Polynomial Nonnegativity}\label{30006203}
+{\small UnsolvedMath ID 30006203 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A symmetric polynomial is invariant under the specified permutations of its variables. Nonnegativity means its value is at least zero throughout the designated domain. A decidability question requires an effective encoding and quantification over the family of domains.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The supplied wording omits uniformity over variable or matrix sizes. Finite-variable polynomial nonnegativity and the source uniform family question must not be silently identified.
+
+Source-record limitation: The cleaned question omits uniformity over variable or matrix sizes, which is essential to distinguish the cited problem from ordinary decidable finite polynomial nonnegativity.
+\paragraph{Statement recorded in the supplied source.}
+Determine whether nonnegativity of a symmetric polynomial is decidable when there is only one group of variables, and whether the analogous problem is decidable for a single matrix variable. \href{https://doi.org/10.4171/owr/2025/9}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Study decidability of the source uniform symmetric-nonnegativity setting.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30006203 (OWR-14299088-005). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] MFO-RIMS Tandem Workshop: Optimization, Theoretical Computer Science and Algebraic Geometry: Convexity and Beyond (2025), Oberwolfach Reports, DOI 10.4171/owr/2025/9, pp. 405--450
+\url{https://doi.org/10.4171/owr/2025/9}.
+\item[S3] Symmetric nonnegative functions
+\url{https://arxiv.org/abs/2408.04616}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30006203 and code OWR-14299088-005 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30006203}
+
+\section{Literature and context check}
+The primary report, printed pp. 423--424, explicitly asks about one group of variables uniformly over all numbers of variables, equivalently the corresponding one-matrix-size-uniform setting. It contrasts this with fixed-size decidability. The original abbreviated record is preserved with its limitation; the calculation below uses a fully stated homogeneous quadratic subfamily and does not resolve the general uniform problem.
+\section{Research attempt: Uniform quadratic symmetric forms and finite-dimension blindness}
+
+For every $n\geq1$ put $p_1(x)=\sum_{i=1}^n x_i$ and $p_2(x)=\sum_{i=1}^n x_i^2$. Consider the same rational coefficients $a,b$ in all dimensions:
+\[
+F_n(x)=a p_2(x)+b p_1(x)^2.
+\]
+On all of $\mathbb R^n$, nonnegativity for every $n$ is equivalent to $a\geq0$ and $b\geq0$. Sufficiency is immediate from the squares. For necessity use $x=(1,-1)$ in dimension two to obtain $a\geq0$, and $x=(1,\ldots,1)$ in dimension $n$ to obtain $an+bn^2\geq0$. Dividing by $n^2$ and allowing arbitrary $n$ forces $b\geq0$.
+
+For a specified cutoff $N\geq2$, nonnegativity in all dimensions $1\leq n\leq N$ is instead equivalent to $a\geq0$ and $a+Nb\geq0$. To see this, split $x$ into its component along the all-one vector and its orthogonal complement. The form has eigenvalues $a+nb$ on the first component and $a$ on the second. If $b<0$, the first value is minimized at $n=N$; if $b\geq0$, $a\geq0$ suffices. Necessity follows from the same test vectors. In particular
+\[
+a=1,\qquad b=-\frac1{N+1/2}
+\]
+passes every test in dimensions at most $N$, but at $n=N+1$ the all-one vector has negative value. Therefore no fixed dimension cutoff independent of input coefficients can decide even this quadratic family by testing only those dimensions. This does not rule out a computable coefficient-dependent cutoff: the family itself is decided by the two sign tests already proved.
+
+If the designated domain is instead the nonnegative orthant, the uniform criterion changes to $b\geq0$ and $a+b\geq0$. Necessity follows from all-one vectors of arbitrarily large dimension and from one nonzero coordinate. For sufficiency, if $a\geq0$ both terms are nonnegative; if $a<0$, the inequality $p_2\leq p_1^2$ for nonnegative coordinates gives $F_n\geq(a+b)p_1^2\geq0$. Thus the domain cannot be omitted.
+
+\paragraph{One-sided search for a general negative witness.}
+For a rational polynomial expression in finitely many power sums interpreted in each dimension, enumerate dimensions and rational vectors in those dimensions, dovetailing the enumerations. Exact rational evaluation detects any negative value. If a negative real vector exists, continuity gives an open neighborhood of negative values containing a rational vector, so this search eventually detects it. This proves semidecidability of failure in this explicit encoding. It supplies no halting criterion for a uniformly nonnegative input; replacing that missing criterion by an unbounded run is not a decision algorithm.
+\section{Verification and adversarial audit}
+The finite-cutoff example is nonnegative on all real vectors in every tested dimension, not just on the displayed test vectors, by the complete eigenspace calculation. The orthant criterion was proved separately. The rational witness search uses strict negativity, where continuity gives an open set; it does not assume rational points on an exact algebraic zero set.
+\paragraph{Audit corrections.} Restored the primary source's essential all-dimensions quantifier explicitly, without changing the preserved record, and distinguished real-space from orthant domains.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The uniform single-group and single-matrix general decidability questions remain unresolved. The fixed quadratic decision and negative-witness enumeration do not provide a terminating procedure for arbitrary uniform symmetric expressions.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/51353} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

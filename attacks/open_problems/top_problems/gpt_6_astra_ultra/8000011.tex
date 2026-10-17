@@ -1,0 +1,70 @@
+% TOP_PROBLEM: {"id": 8000011, "title": "The Toda lattice with random initial data", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "8000011", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Determine the average diagonalization time of a Toda flow started from tridiagonal GOE data, including edge deflation and the related QR iteration question.", "scope": "Exact integral for full and edge Toda mean stopping time at n=2 only; higher n and discrete QR remain unresolved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked commutator signs, GOE variance, initially subthreshold orbits, the threshold boundary, polar density and integrability. The low-dimensional formula is not claimed novel. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the two-particle Toda ODE, half-plane Gaussian density, odd-term cancellation and polar stopping-time integral, including initial-below-threshold convention. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked commutator signs, GOE variance, initially subthreshold orbits, the threshold boundary, polar density and integrability. The low-dimensional formula is not claimed novel. Scope remains limited: Control interacting spectral gaps and norming constants for n>2, and separately derive the unshifted QR stopping law."}
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Mathematical question.} #1}
+\begin{document}
+% UnsolvedMath ID 8000011; source catalogue code AMR-079-0011
+\setcounter{section}{8000010}
+\section{The Toda lattice with random initial data}\label{8000011}
+{\small\sffamily UnsolvedMath ID 8000011 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$, and $\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$ denote the integers, rationals, reals and complex numbers. Any other conventions are specified locally.
+
+
+Let $n\ge2$ and let $J_0$ be a symmetric tridiagonal matrix with independent entries: diagonal $a_i\sim N(0,2)$ and positive off-diagonal $b_j\sim\chi_{n-j}$, where $\chi_r$ is the Euclidean length of $r$ independent standard real Gaussians. This fixes the GOE normalization with off-diagonal variance one before Householder tridiagonalization. Evolve $J(t)$ by $\dot J=[B,J]$ with $J(0)=J_0$, where $B_{i,i+1}=b_i$, $B_{i+1,i}=-b_i$, and all other entries are zero. Define \[\tau_\varepsilon=\inf\{t\ge0:\max_{1\le j<n}b_j(t)<\varepsilon\},\qquad \tau_\varepsilon^{\rm edge}=\inf\{t\ge0:b_{n-1}(t)<\varepsilon\}.\] For the standard unshifted QR iteration, use the normalization $J_r=Q_rR_r$ with $R_r$ upper triangular with positive diagonal (almost surely), and set $J_{r+1}=R_rQ_r$. Define the step count with the same off-diagonal tolerance by $m_\varepsilon=\inf\{r\in\mathbb Z_{\ge0}:\max_{1\le j<n}|(J_r)_{j,j+1}|<\varepsilon\}$. At stopping, the diagonal entries approximate the eigenvalues to $O(\varepsilon)$; the sign and stopping rules specify the convention for this QR formulation.
+\paragraph{Statement recorded in the supplied source.}
+Given $n$ and $\varepsilon>0$, determine $\mathbb E\tau_\varepsilon$, the average time for the Toda particles to become free to this accuracy. Also determine the edge-deflation expectation $\mathbb E\tau_\varepsilon^{\rm edge}$, and $\mathbb E m_\varepsilon$, the corresponding average number of QR steps under the stated normalization and tolerance for the same tridiagonal Gaussian-ensemble data. \sref{8000011}{2}
+\subsection{Short English statement}
+Determine the average diagonalization time of a Toda flow started from tridiagonal GOE data, including edge deflation and the related QR iteration question.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Exact integral for full and edge Toda mean stopping time at n=2 only; higher n and discrete QR remain unresolved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{Exact two-particle Toda stopping time.}Take \(n=2\). Put \(x=(a_1-a_2)/2\), \(b=b_1>0\). Direct multiplication of the stated commutator gives \(\dot x=2b^2\), \(\dot b=-2xb\). Hence \(R=(x^2+b^2)^{1/2}\) is constant, and, with \(u=\operatorname{artanh}(x(0)/R)\),
+\[x(t)=R\tanh(2Rt+u),\qquad b(t)=R\operatorname{sech}(2Rt+u).\]
+If \(b(0)<\varepsilon\), the stopping time as defined is zero, even if \(b\) later increases. If \(b(0)>\varepsilon\), its first descent below the threshold has infimum
+\[\tau_\varepsilon=\frac{\operatorname{arcosh}(R/\varepsilon)-u}{2R}.\]
+The equality boundary has probability zero in this ensemble. Edge and full stopping coincide for two particles.
+\paragraph{An integral for the expectation.}The initial \(x\) is \(N(0,1)\), and \(b\) is an independent absolute standard normal. Their joint density on \(b>0\) is \(\pi^{-1}e^{-(x^2+b^2)/2}\). Reflection \(x\mapsto-x\) cancels the term containing \(u\) on \(b>\varepsilon\). Using \(x=r\cos\theta,b=r\sin\theta\), \(0<\theta<\pi\), yields
+\[\mathbb E\tau_\varepsilon=\frac12\int_\varepsilon^\infty e^{-r^2/2}\operatorname{arcosh}(r/\varepsilon)
+\left(1-\frac2\pi\arcsin(\varepsilon/r)\right)\,dr.\]
+This integral is finite for every \(\varepsilon>0\): the factor in parentheses lies in \([0,1]\), and \(\operatorname{arcosh}(r/\varepsilon)\le\log(2r/\varepsilon)\). At the lower endpoint both angular width and inverse hyperbolic factor tend to zero.
+\paragraph{Scope.}This is a reconstructible elementary \(n=2\) calculation, not an asymptotic random-matrix result. For \(n>2\) the individual gaps and norming constants interact, so the one-radius reduction no longer applies. The unshifted discrete QR question has a different stopping law and has not been reduced to this formula. Thus neither the all-\(n\) expectations nor the bundled QR expectation is determined here.
+
+\paragraph{Verification and adversarial audit.}
+Checked commutator signs, GOE variance, initially subthreshold orbits, the threshold boundary, polar density and integrability. The low-dimensional formula is not claimed novel. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked commutator signs, GOE variance, initially subthreshold orbits, the threshold boundary, polar density and integrability. The low-dimensional formula is not claimed novel. Scope remains limited: Control interacting spectral gaps and norming constants for n>2, and separately derive the unshifted QR stopping law.
+
+Coordinator checked the two-particle Toda ODE, half-plane Gaussian density, odd-term cancellation and polar stopping-time integral, including initial-below-threshold convention. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Control interacting spectral gaps and norming constants for n>2, and separately derive the unshifted QR stopping law.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{description}
+\item[\hypertarget{source:8000011:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 8000011 (AMR-079-0011). CC BY 4.0. \url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:8000011:2}{S2}] Percy Deift, Some Open Problems in Random Matrix Theory and the Theory of Integrable Systems, arXiv:0712.0849 (2007), Problem 11, pp. 8--9. \url{https://arxiv.org/abs/0712.0849}.
+\end{description}
+\label{end:8000011}
+\end{document}

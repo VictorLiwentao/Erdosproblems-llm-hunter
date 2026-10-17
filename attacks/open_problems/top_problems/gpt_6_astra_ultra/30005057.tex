@@ -1,0 +1,120 @@
+% RESEARCH_DRAFT_SHA256: 5835b0f580b146f0be59924604efb47b967afe13114e771c16d080b066d981da
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30005057, "title": "Mutual-Information Bounds and Dimension-Free Dual Sudakov Minoration", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005057", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Mutual-Information Bounds and Dimension-Free Dual Sudakov Minoration; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "The recovered information inequality on Gaussian inputs; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch012 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30005057; source catalogue code OWR-9790365-007
+\section{Mutual-Information Bounds and Dimension-Free Dual Sudakov Minoration}\label{30005057}
+{\small UnsolvedMath ID 30005057 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+Mutual information is $I(X;Y)=D(P_{XY}\Vert P_XP_Y)$, where $D$ is relative entropy. A log-concave density has a concave logarithm on its support. Sudakov-type inequalities relate separation or covering numbers to stochastic-process or measure scales.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The proposed mutual-information inequality and precise minoration formula are absent; the record cannot be treated as an exact new inequality.
+
+Source-record limitation: The proposed mutual-information inequality and precise dual-Sudakov target are absent.
+\paragraph{Statement recorded in the supplied source.}
+Prove the proposed mutual-information inequality for log-concave random vectors and derive a dimension-free dual Sudakov minoration for general log-concave measures. \href{https://doi.org/10.4171/owr/2022/14}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Prove the stated information bound and a dimension-independent log-concave minoration.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30005057 (OWR-9790365-007). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] New Mathematical Techniques in Information Theory (2023), Oberwolfach Reports, DOI 10.4171/owr/2022/14, pp. 683--707
+\url{https://doi.org/10.4171/owr/2022/14}.
+\item[S3] Mendelson--Milman--Paouris, generalized dual Sudakov program
+\url{https://arxiv.org/abs/1610.09287}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30005057 and code OWR-9790365-007 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30005057}
+
+\section{Literature and context check}
+The report, p. 695, gives two separate open questions. Its first proposes, for arbitrary distributions of X, the inequality $I(X+G;X)\le c\,E_G\log\int e^{\langle G,x\rangle}\,dP_X(x)$, where G is independent standard Gaussian. Its second asks about dimension-free dual Sudakov minoration for log-concave measures. The retained catalogue statement bundles and narrows these descriptions; the original body is preserved, and no unsupported implication from one question to the other is assumed here.
+\section{Research attempt: The recovered information inequality on Gaussian inputs}
+Let $X$ be Gaussian with mean $m$ and positive semidefinite covariance $\Sigma$, and let $G$ be an independent standard Gaussian in $\mathbb R^n$. Its log moment generating function at $g$ is $\langle g,m\rangle+\tfrac12g^T\Sigma g$, so
+\[
+E_G\log E_X e^{\langle G,X\rangle}=\tfrac12\operatorname{tr}\Sigma.
+\]
+This follows from $EG=0$ and $E(G_iG_j)=\mathbf1_{i=j}$. The Gaussian moment-generating formula follows by completing the square in each independent normal coordinate after diagonalizing the covariance; zero-eigenvalue coordinates are deterministic.
+
+The mutual information is
+\[
+I(X+G;X)=h(X+G)-h(G)=\tfrac12\log\det(I+\Sigma).
+\]
+For completeness, the Gaussian entropy formula follows by taking the negative log of its density and averaging the quadratic form, whose expected value equals the dimension. The difference identity here follows by averaging $\log[p_{X+G\mid X}(Y\mid X)/p_{X+G}(Y)]$: conditionally, Y is a translate of G and has the same entropy. It does not require a density for X itself, so singular $\Sigma$ is allowed. If $\lambda_i\ge0$ are the covariance eigenvalues, then $\log(1+\lambda_i)\le\lambda_i$, because integrating $1/(1+t)\le1$ from zero to $\lambda_i$ proves the inequality. Summing establishes the proposed information inequality with $c=1$ throughout this Gaussian subclass.
+
+The constant cannot be universally less than one even just in one dimension: for variance $t>0$, the ratio of the two sides before multiplying by c is $\log(1+t)/t$, which tends to one as $t\downarrow0$ by the integral formula and the bounds $1/(1+t)\le\log(1+t)/t\le1$. Thus the Gaussian test gives a necessary lower bound on any universal constant.
+
+A tempting pointwise strengthening fails. For deterministic $X=m\ne0$, mutual information is zero, while the unaveraged log moment generating function is $\langle G,m\rangle$, negative with positive probability. No positive constant can make $0\le c\langle G,m\rangle$ hold almost surely. Its expectation is zero, so this is not a counterexample to the proposed averaged inequality. It shows why removing the expectation or ignoring translation cancellation changes the claim.
+\section{Verification and adversarial audit}
+The Gaussian calculation handles nonzero means and singular covariance without using the differential entropy of a singular X. The small-variance limit proves the constant obstruction. The deterministic translation example is checked only against the false pointwise strengthening.
+\paragraph{Audit corrections.} The exact missing inequality was recovered from the primary report and recorded without changing the preserved definition. Its arbitrary-distribution quantifier and the separate log-concave minoration question are distinguished.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The arbitrary-distribution information inequality is not proved, and no dimension-free dual Sudakov result or implication between the report's two questions is derived. The Gaussian calculation is a standard special case and is not claimed as novel progress toward the entire bundled target.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46950} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

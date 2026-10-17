@@ -1,0 +1,167 @@
+% RESEARCH_DRAFT_SHA256: df5b18565750b3c1953fd0f9c4ef061d21863e9c30dd1fa6cb343cf61579d4ba
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001180, "title": "Two fixed odds ratios form a line segment, with a complete boundary audit", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001180", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 4. For a 2 × 2 table of probabilities\n\n( p00 p01\n\np10 p11\n\n): does it makes sense to fix values of two of the odds ratios α = p00 p11\n\n> p01 p10\n\nand α∗ = p00 p01\n\n> p11 p10\n\nand look at the locus of possible values for the third odds-ratio α∗∗ = p00 p10\n\n> p01 p11?Describe the curve (in the probability simplex) obtained by intersecting two of these quadric surfaces.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The finite rational-odds locus and cleared nonnegative intersections are explicitly classified; the source leaves extended/infinite boundary conventions unspecified, so no all-conventions full-solution claim is made.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Two fixed odds ratios: positive locus, zero values, and extraneous boundary components}
+\noindent UnsolvedMath ID 20001180; AIM-COMPUTATION-0018. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A $2\times2$ probability table has nonnegative entries summing to one. On its positive interior the three source odds ratios are products of opposite or adjacent cells divided by the corresponding other two-cell products. Fixing a ratio imposes a quadratic equation after clearing denominators. Boundary tables require separate treatment because some ratios are undefined there.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The source does not specify boundary conventions or which ratio values are admissible. The catalogue's solved status is retained without deriving a new curve or line-segment classification here. The supplied catalogue marks this record solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+Question 4. For a 2 × 2 table of probabilities
+
+( p00 p01
+
+p10 p11
+
+): does it makes sense to fix values of two of the odds ratios α = p00 p11
+
+> p01 p10
+
+and α∗ = p00 p01
+
+> p11 p10
+
+and look at the locus of possible values for the third odds-ratio α∗∗ = p00 p10
+
+> p01 p11?Describe the curve (in the probability simplex) obtained by intersecting two of these quadric surfaces. \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. This is documentation of a source-labelled solved record, not a newly proposed unsolved problem.
+\subsection{Short English statement}
+The historical question studies the locus of probability tables with two specified odds ratios.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001180 (AIM-COMPUTATION-0018). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-COMPUTATION-0018.
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 4. For a 2 × 2 table of probabilities
+
+( p00 p01
+
+p10 p11
+
+): does it makes sense to fix values of two of the odds ratios α = p00 p11
+
+> p01 p10
+
+and α∗ = p00 p01
+
+> p11 p10
+
+and look at the locus of possible values for the third odds-ratio α∗∗ = p00 p10
+
+> p01 p11?Describe the curve (in the probability simplex) obtained by intersecting two of these quadric surfaces.
+
+\section{Precise interpretation}
+Write $(a,b,c,d)=(p_{00},p_{01},p_{10},p_{11})$ with nonnegative entries
+summing to one. The PDF identifies the ratios
+$\alpha=ad/(bc)$, $\beta=ab/(dc)$, and $\gamma=ac/(bd)$.
+Here a finite ratio is defined only when its denominator is nonzero.
+We describe both that rational locus and the cleared equations. We do not
+assign arbitrary values to $0/0$, or introduce unspecified extended-infinity
+conventions. This qualification matters because the source does not fix
+boundary conventions.
+
+\paragraph{Every positive pair and the remaining ratio.}
+Fix $A,B>0$, set $r=\sqrt{AB}$ and $s=\sqrt{A/B}$. If
+$\alpha=A,\beta=B$ on the rational domain, all four entries are positive.
+Multiplication and division of the two equations give $a/c=r$ and $d/b=s$.
+Conversely these two identities imply both prescribed ratios. Setting
+$t=b/c>0$ and normalizing gives exactly
+\[
+(a,b,c,d)=\frac{(r,t,1,st)}{1+r+(1+s)t},\qquad t>0,
+\quad\gamma=B/t^2.
+\]
+Thus every positive value of $\gamma$ occurs exactly once. The locus is
+the open affine segment from $u=(r,0,1,0)/(r+1)$ to
+$v=(0,1,0,s)/(1+s)$: its convex coefficient at $v$ is
+$\lambda=(1+s)t/[1+r+(1+s)t]$, which increases bijectively from zero to
+one. Neither endpoint belongs to the rational domain of both fixed ratios.
+
+\paragraph{The cleared intersection is larger.}
+Consider $ad=Abc$ and $ab=Bdc$ throughout the closed simplex.
+When all entries are positive the preceding proof applies. If an entry is
+zero and $A,B>0$, the two equations force either $b=d=0$ or $a=c=0$:
+for example $a=0$ forces $bc=dc=0$, hence either $c=0$ or $b=d=0$;
+the cases $b,c,d=0$ follow in the same way by substitution.
+Conversely every point on either of these coordinate edges satisfies both
+equations. Hence the nonnegative cleared intersection consists exactly of
+the closed connector $[u,v]$ together with the edges $\{b=d=0\}$ and
+$\{a=c=0\}$. The edges must not be treated as tables with the specified
+finite ratios: their denominators vanish.
+
+\paragraph{Finite zero parameters.}
+On the rational domain $b,c,d>0$. Therefore $\alpha=0$ if and only if
+$a=0$, which also forces $\beta=0$. A pair with exactly one zero and the
+other positive has no rational solution. If $A=B=0$, the rational locus
+is $a=0$, $b,c,d>0$, $b+c+d=1$, and $\gamma=0$.
+For completeness, substitution into the cleared equations gives these
+additional closed-simplex loci. If $A=0<B$, they are the three coordinate
+edges $\{a=c=0\}$, $\{a=d=0\}$, $\{b=d=0\}$: either $d>0$ forces
+$a=c=0$, or $d=0$ forces $ab=0$. If $B=0<A$, they are
+$\{a=c=0\}$, $\{a=b=0\}$, $\{b=d=0\}$, by the same argument with
+$b$ and $d$ exchanged. If both are zero, $ad=ab=0$ yields the face
+$a=0$ together with the edge $b=d=0$. Negative finite ratio values are
+inadmissible for nonnegative tables. Other choices of which two of the
+three ratios are fixed reduce to this case by permuting $b,c,d$.
+
+\section{Context, audit, and scope}
+The original odds-ratio formulas were checked in the primary AIM PDF.
+The attempt succeeds in giving the positive locus and every admissible
+finite-zero case, and identifies why clearing denominators alone creates
+false boundary answers. These are direct algebraic rederivations without
+novelty claims. The audit checked every zero-coordinate branch and the
+monotonic parameterization. No computation or theorem prover was used.
+Because the source leaves extended boundary meanings unspecified, this
+manuscript does not claim a complete classification under every possible
+projective or infinite-ratio convention. It states exactly which
+conventional rational question has been answered.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The finite rational-odds locus and cleared nonnegative intersections are explicitly classified; the source leaves extended/infinite boundary conventions unspecified, so no all-conventions full-solution claim is made.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Computational Algebraic Statistics, prepared by Seth Sullivant, version 27 March 2004; the original numbered source question and its adjacent scope were inspected on 11 October 2026. \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The finite rational-odds locus and cleared nonnegative intersections are explicitly classified; the source leaves extended/infinite boundary conventions unspecified, so no all-conventions full-solution claim is made.
+\end{document}

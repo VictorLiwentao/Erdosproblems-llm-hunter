@@ -1,0 +1,94 @@
+% RESEARCH_DRAFT_SHA256: b2edb3a1ee68bb036bb181e82fc660acb23ad6a75aa49479b3b5978367020ff3
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001204, "title": "Quartic Markov bases and saturated simplicial leaves", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001204", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Parity move calculation for the no-highest-interaction binary family.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch005/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 20001204; source catalogue code AIM-COMPUTATION-0042
+\section{Quartic Markov bases and saturated simplicial leaves}\label{20001204}
+{\small UnsolvedMath ID 20001204 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For an integer matrix $A$, the fiber at $b$ is $\mathcal F_b=\{x\in\mathbb Z_{\ge0}^d:Ax=b\}$. A Markov basis is a finite set of integer moves $u$ with $Au=0$ such that steps $x\mapsto x\pm u$ staying nonnegative connect every nonempty fiber. Binary hierarchical models have two levels per variable. For a move $u$, write $u=u^+-u^-$ with disjoint nonnegative parts; its degree is the total $\sum_i u_i^+$, equal to $\sum_i u_i^-$ when the total-count statistic is fixed. The task is to characterize models admitting a Markov basis with every move of degree at most four.
+\paragraph{Statement recorded in the supplied source.}
+Problem 28. Characterize the binary hierarchical models which have Markov bases con-sisting of moves of degree 4 or less. \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The supplied extraction includes adjacent workshop exposition; the numbered target passage is retained verbatim and that surrounding exposition is omitted.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Which binary hierarchical table models can be connected using only Markov moves of degree four or less?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001204 (AIM-COMPUTATION-0042). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0042
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001204 and source code AIM-COMPUTATION-0042 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001204}
+
+
+\section{Research attempt}
+\subsection{Literature and scope}
+Problem 28 asks for all binary hierarchical models of Markov degree at most four. I tested the tempting expectation that fixing only binary levels controls the degree, using the no-highest-interaction family. The calculation below is a familiar parity construction, not a new general classification.
+\begin{proposition}
+For $r\ge2$ binary variables with all $(r-1)$-variable margins prescribed, the minimal required Markov degree is $2^{r-1}$. Thus this restricted family has a degree-at-most-four basis exactly when $r\le3$.
+\end{proposition}
+\begin{proof}
+Index cells by $x\in\{0,1\}^r$ and put $u_x=(-1)^{x_1+\cdots+x_r}$. If an integer move $v$ preserves the margin omitting coordinate $j$, its entries satisfy $v_x+v_{x\oplus e_j}=0$. Successive bit flips therefore give $v_x=v_0u_x$. Conversely $u$ satisfies every such equation, so the integer kernel is exactly $\mathbb Z u$.
+
+For a nonempty fiber choose a table $z$. Its elements are $z+tu$ for integers $t$ satisfying
+\[
+-\min_{u_x=1}z_x\ \le t\le\ \min_{u_x=-1}z_x.
+\]
+All integers in this interval occur. The moves $\pm u$ connect it, and the positive part of $u$ has $2^{r-1}$ entries equal to one. To prove necessity, let $u^+,u^-$ be its positive and negative parts. The fiber through $u^+$ consists exactly of $u^+$ and $u^-$: the interval is $[-1,0]$. Any Markov basis must connect these two tables, forcing a step $\pm u$. No smaller-degree moves can do so.
+\end{proof}
+\subsection{Failed route and original-scope comparison}
+Already $r=4$ forces degree eight, refuting an attempted universal quartic bound based solely on binary state spaces. The proof uses the special kernel equations of this interaction family. Removing or changing facets can enlarge the kernel and invalidate the two-point-fiber argument; no inference about all binary complexes is justified.
+\subsection{Verification and remaining gaps}
+The degree sequence for $r=2,\ldots,8$ is $2,4,8,16,32,64,128$. This is an exact formula evaluation, not an exhaustive classification. The required characterization of all binary hierarchical models remains unresolved by this attempt.
+
+\section{References and source attribution}
+The original question is credited to the AIM workshop list prepared by Seth Sullivant (2004), \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}. The source question and catalogue attribution are reproduced above. This list was accessed on 11 October 2026; it is historical evidence of the question, not a certification of present open status.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch005/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

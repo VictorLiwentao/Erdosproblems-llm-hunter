@@ -1,0 +1,157 @@
+% RESEARCH_DRAFT_SHA256: 3fa4791f8ab2cee7e8112b44644c9efff5dc1cea172e2fc72e6ef34be8c3c6da
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001190, "title": "Binary independence and hierarchical models in cumulant coordinates", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001190", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Problem 14. Use the transformations from probabilities to moments to cumulants to de-scribe independence models/ hierarchical models in terms of polynomial functions in the cumulants.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Exact finite coordinate transport and a shortcut counterexample are established, but no unspecified hierarchy is classified and no original-target advance beyond known coordinate calculus is substantiated.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Square-free cumulants: an exact coordinate change and a failed hierarchy rule}
+\noindent UnsolvedMath ID 20001190; AIM-COMPUTATION-0028. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Moments are expectations of products or powers of random variables. Cumulants are coefficients of the formal logarithm of the moment-generating series, so moment and cumulant coordinates are related polynomially at each finite order. An independence or hierarchical model imposes specified relations on the joint law; the task is to express its constraints in cumulant coordinates.
+\paragraph{Statement recorded in the supplied source.}
+Problem 14. Use the transformations from probabilities to moments to cumulants to de-scribe independence models/ hierarchical models in terms of polynomial functions in the cumulants. \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The catalogue flags this record as reconstructed and unverified. The supplied question is preserved; the definitions do not certify a unique intended model. The primary notes contain the stated transformation task. The source does not select one hierarchy or one finite list of cumulant orders.
+The supplied catalogue marks this formulation as an unverified reconstruction; the source link does not establish that all missing assumptions were recovered.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can independence and hierarchical statistical models be described by polynomial equations in cumulants?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001190 (AIM-COMPUTATION-0028). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0028
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Problem 14. Use the transformations from probabilities to moments to cumulants to de-scribe independence models/ hierarchical models in terms of polynomial functions in the cumulants.
+
+\section{Attempt with an explicit finite convention}
+The original task does not fix a hierarchy or a number of variables.
+Here we work with $n$ binary variables $X_i\in\{0,1\}$ and normalized
+probabilities, and use only square-free cumulants. This gives an exact
+transport procedure for a specified finite model, followed by a test of
+whether a simpler vanishing rule can replace that procedure. It is not a
+classification of unspecified hierarchical models.
+
+\paragraph{Polynomial coordinate change, with proof.}
+For $A\subseteq[n]$ put $m_A=\mathbb E\prod_{i\in A}X_i$, with
+$m_\varnothing=1$. Work in the finite ring
+$\mathbb Q[t_1,\ldots,t_n]/(t_1^2,\ldots,t_n^2)$ and write
+$M=\sum_A m_A t_A$, where $t_A=\prod_{i\in A}t_i$.
+The sum $M-1$ is nilpotent, so $K=\log M$ is a finite polynomial.
+Define $\kappa_A$ to be its coefficient of $t_A$ for $A\ne\varnothing$.
+The logarithm expansion gives
+\[
+\kappa_A=\sum_{\pi\in\Pi(A)}(-1)^{|\pi|-1}(|\pi|-1)!
+                  \prod_{B\in\pi}m_B,
+\qquad
+m_A=\sum_{\pi\in\Pi(A)}\prod_{B\in\pi}\kappa_B.
+\]
+Here $\Pi(A)$ denotes set partitions. Indeed, a nonzero contribution to
+$(M-1)^k$ consists of $k$ disjoint nonempty blocks covering $A$;
+each unordered partition occurs $k!$ times. Multiplication by
+$(-1)^{k-1}/k$ gives the first coefficient. Applying the finite identity
+$\exp(\log M)=M$, the factor $1/k!$ in the exponential cancels the
+same $k!$ orderings and proves the inverse formula.
+If $p_S$ is the probability that exactly the coordinates in $S$ are one,
+then $m_A=\sum_{S\supseteq A}p_S$, and inclusion--exclusion gives
+\[
+p_S=\sum_{B\supseteq S}(-1)^{|B\setminus S|}m_B.
+\]
+To check this inversion, the coefficient of $p_T$ in the right side is
+$\sum_{S\subseteq B\subseteq T}(-1)^{|B\setminus S|}$, equal to one
+for $T=S$ and zero otherwise. Thus normalized probabilities, nonempty
+moments and nonempty square-free cumulants are related by invertible
+polynomial transformations. Substituting these formulas in every
+specified probability equation transports that equation exactly; cell
+nonnegativity must still be imposed after reconstruction.
+
+\paragraph{Where vanishing is sufficient.}
+For a partition of the variables into blocks, independence of these
+blocks implies $M$ is the product of their moment polynomials. Hence
+$K$ is the sum of their logarithms and every cumulant involving two
+blocks vanishes. Conversely, these vanishings split $K$ into polynomials
+on the blocks. Exponentiation splits $M$ into a product, so all moments
+factor. The inversion just proved then factors the joint cell
+probabilities, which proves block independence. These finite formal
+identities require neither convergence of an analytic series nor an
+assumption of positive cells.
+
+\paragraph{The attempted hierarchical shortcut fails.}
+A tempting extension is to set a cumulant to zero whenever the
+corresponding log-linear interaction is absent. Consider positive
+binary $X,Y,Z$ with $\Pr(X=1)=1/3$, with $Y,Z$ conditionally independent
+given $X$, and with
+\[
+\Pr(Y=1\mid X)=\Pr(Z=1\mid X)=1/4+X/2.
+\]
+All eight cells are positive. The logarithm of the joint probability
+is the sum of a function of $X$, a function of $(X,Y)$ and a function
+of $(X,Z)$, so there is no three-factor log-linear interaction.
+On the other hand, conditional independence and the displayed means give
+\[
+\kappa_{XYZ}=\mathbb E[(X-p)(Y-\mathbb EY)(Z-\mathbb EZ)]
+ =\tfrac14\mathbb E(X-p)^3
+ =\tfrac14p(1-p)(1-2p)=1/54,
+\quad p=1/3.
+\]
+The first equality follows by expanding the product and using the
+three-variable cumulant formula above. For the second, condition on
+$X$ and multiply the two conditional centered means $(X-p)/2$.
+Finally a Bernoulli variable has central third moment
+$p(1-p)^3-(1-p)p^3=p(1-p)(1-2p)$. Thus the shortcut gives a false
+constraint even for this elementary hierarchy. Exact substitution works,
+but a useful hierarchy-wide simplification remains unproved.
+
+\section{Audit and remaining scope}
+The primary AIM Problem 14 was checked, including its lack of a selected
+hierarchy. This manuscript rederives standard finite coordinate identities;
+it does not validate the stronger theorem embedded in the catalogue's
+research summary. The audit checked square-free versus repeated-index
+cumulants, normalization, positivity, and the distinction between
+independence and absence of a log-linear interaction. The example was
+calculated symbolically by hand; no numerical or formal computation was
+used. No original general classification or novelty is claimed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Exact finite coordinate transport and a shortcut counterexample are established, but no unspecified hierarchy is classified and no original-target advance beyond known coordinate calculus is substantiated.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Computational Algebraic Statistics, prepared by Seth Sullivant, version 27 March 2004; the original numbered source question and its adjacent scope were inspected on 11 October 2026. \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Exact finite coordinate transport and a shortcut counterexample are established, but no unspecified hierarchy is classified and no original-target advance beyond known coordinate calculus is substantiated.
+\end{document}

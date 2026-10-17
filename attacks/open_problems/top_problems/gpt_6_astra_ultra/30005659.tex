@@ -1,0 +1,89 @@
+% TOP_PROBLEM: {"id": 30005659, "title": "Quantum-Symmetric Classes of Artin–Schelter Regular Algebras", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "This asks for the full equivalence class in the report's specified relation, not merely a list of ordinary algebra isomorphisms."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005659", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Classify every algebra quantum-symmetrically equivalent to a given Artin--Schelter regular algebra.", "scope": "Explicitly constructed an associative graded twist and checked its Hilbert series and failure of ordinary isomorphism; no quantum-symmetric classification.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked associativity on homogeneous triples, invertibility of q, ordered basis, and the q=1 boundary; did not infer categorical equivalence from a Hilbert series. Model self-audit only; no independent human mathematical verification. Coordinator checked associativity of the graded twist, the generator relation and its unchanged graded dimensions. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked associativity on homogeneous triples, invertibility of q, ordered basis, and the q=1 boundary; did not infer categorical equivalence from a Hilbert series. First remaining gap: Construct the source-compatible quantum-group/comodule equivalence, then determine whether these twists exhaust the class. The inherited source status is preserved; original-target completion remains zero."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30005659; source catalogue code OWR-14297741-012
+\setcounter{section}{30005658}
+\section{Quantum-Symmetric Classes of Artin–Schelter Regular Algebras}\label{30005659}
+{\small UnsolvedMath ID 30005659 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+An Artin--Schelter regular algebra is a connected graded algebra satisfying the source's finite global-dimension, growth and Gorenstein conditions. Quantum symmetries are encoded by algebraic quantum groups coacting compatibly with the grading. Quantum-symmetric equivalence is the source's equivalence relation relating their graded representation or comodule structures.
+
+\paragraph{Catalogue wording retained for traceability.}
+Determine the full quantum-symmetric equivalence class of an Artin–Schelter regular algebra.
+
+\paragraph{Scope and source qualification.}This asks for the full equivalence class in the report's specified relation, not merely a list of ordinary algebra isomorphisms.
+\subsection{Short English statement}
+Classify every algebra quantum-symmetrically equivalent to a given Artin--Schelter regular algebra.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Explicitly constructed an associative graded twist and checked its Hilbert series and failure of ordinary isomorphism; no quantum-symmetric classification.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30005659. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{A concrete twist calculation.} Let \(k\) be a field, \(q\in k\setminus\{0\}\), and \(A=k[x,y]\) with its usual grading. Define the graded automorphism \(\sigma(x)=x,\ \sigma(y)=qy\). On the underlying graded vector space define, for homogeneous \(a\),
+\[
+ a*b=a\,\sigma^{\deg a}(b).
+\]
+If \(\deg a=r\) and \(\deg b=s\), then
+\[
+ (a*b)*c=a\sigma^r(b)\sigma^{r+s}(c)
+ =a*(b*c).
+\]
+Bilinearity proves associativity for arbitrary polynomials. The unit remains \(1\). The new degree-one generators satisfy \(x*y=q(y*x)\), and repeated ordered products are nonzero scalar multiples of \(x^iy^j\). Consequently they span and are linearly independent; the degree-\(n\) component still has dimension \(n+1\).
+\paragraph{What this tests.} For \(q\ne1\), the twisted algebra is noncommutative whereas \(A\) is commutative, so the two are not ordinarily isomorphic. Nevertheless their underlying graded vector spaces and Hilbert series coincide. This directly exhibits why matching growth data or enumerating ordinary isomorphism classes is too weak a proposed route to the requested quantum-symmetric classification.
+\paragraph{First categorical gap.} This construction alone neither proves Artin--Schelter regularity of the twisted example nor constructs the precise quantum-group comodule equivalence required by [S2]. Those are separate assertions, not consequences of the displayed dimension count. To turn twists into part of the full requested class one must establish the source equivalence with its compatibility data and then prove an exhaustion statement for all equivalent algebras. Neither direction is claimed here.
+
+\paragraph{Verification and adversarial audit.}
+Checked associativity on homogeneous triples, invertibility of q, ordered basis, and the q=1 boundary; did not infer categorical equivalence from a Hilbert series. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked associativity on homogeneous triples, invertibility of q, ordered basis, and the q=1 boundary; did not infer categorical equivalence from a Hilbert series. First remaining gap: Construct the source-compatible quantum-group/comodule equivalence, then determine whether these twists exhaust the class. The inherited source status is preserved; original-target completion remains zero.
+
+Coordinator checked associativity of the graded twist, the generator relation and its unchanged graded dimensions. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Construct the source-compatible quantum-group/comodule equivalence, then determine whether these twists exhaust the class.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30005659:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30005659 (OWR-14297741-012). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30005659:2}{S2}] Tensor-Triangular Geometry and Interactions (2023), Oberwolfach Reports, DOI 10.4171/owr/2023/40, pp. 2303--2358. Original report and mathematical context.
+\url{https://doi.org/10.4171/owr/2023/40}.
+\end{itemize}
+\label{end:30005659}
+\end{document}

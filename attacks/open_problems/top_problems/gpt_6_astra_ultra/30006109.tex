@@ -1,0 +1,98 @@
+% RESEARCH_DRAFT_SHA256: ae1f6cfb813e4b12cfe3dffb42ad99f6710479e0c18d36dd1f10edc8ad3807c0
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30006109, "title": "Approximating Fare-Zone Assignment on Trees", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006109", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "A complete standard k-exchange greedy guarantee and a concrete obstruction to naive LP integrality.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch011/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 30006109; source catalogue code OWR-14298804-012
+\section{Approximating Fare-Zone Assignment on Trees}\label{30006109}
+{\small UnsolvedMath ID 30006109 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+$y_e=1$ selects an edge as a fare-zone boundary. For a commodity path $P_i$, the constraint limits how many selected edges lie along it; the objective adds its weight once for each selected edge it traverses.
+\paragraph{Statement recorded in the supplied source.}
+Given a tree $G=(V,E)$ and weighted commodity paths $(P_i,w_i,u_i)$, choose $y_e\in\{0,1\}$ to maximize $\sum_{e\in E}y_e\sum_{i:e\in P_i}w_i$ subject to $\sum_{e\in P_i}y_e\leq u_i$ for every $i$. What approximation guarantees are achievable on trees, particularly when the maximum number of paths sharing an edge is bounded by a parameter $k$? \href{https://doi.org/10.4171/owr/2024/50}{[S2]}
+\paragraph{Scope qualification.}
+The input includes the listed path weights and budgets; no omitted transit-network interpretation changes the displayed optimization problem.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Approximate the stated fare-zone optimization on trees, especially when few commodity paths share any edge.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30006109 (OWR-14298804-012). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2025), Oberwolfach Reports, DOI 10.4171/owr/2024/50, pp. 2949--3000
+\url{https://doi.org/10.4171/owr/2024/50}.
+\item[S3] OWR report
+\url{https://oa.tib.eu/renate/bitstreams/706cca58-da6b-4d8c-a979-ebf6e92658f0/download}.
+\item[S4] Hoefer--Kauther--Pabst--Peis--Tran
+\url{https://arxiv.org/abs/2512.19493}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30006109 and source code OWR-14298804-012 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30006109}
+
+\section{Research attempt}
+\subsection{Literature, source context and scope}
+The full catalogue body, including qualifications and historical source status, is preserved above. The original workshop report was inspected in the locally cached publisher PDF text. This attempt distinguishes the source question from any explicitly restricted model introduced below. Repeated records retain their own source IDs and do not become independent conjectures. Elementary results and attributed literature results are not claimed as new original-target progress.
+
+\subsection{Attempted bounded-congestion exchange route}
+We use the displayed hard-budget formulation, in the restricted but natural case of nonnegative rational path weights and nonnegative integer budgets. Delete any edge lying on a zero-budget path; those edges can never be selected. Put $c_e=\sum_{i:e\in P_i}w_i\ge0$ and assume the congestion bound $k\ge1$. Repeatedly select a highest-weight edge whose addition is feasible, until the selected set $A$ is inclusion-maximal. This is a polynomial-time greedy algorithm by checking the listed path budgets.
+\begin{proposition}
+The resulting weight is at least $1/k$ times the optimum weight.
+\end{proposition}
+\begin{proof}
+Suppose $A\subseteq B$ are feasible and $A+e$ is feasible. Adding $e$ to $B$ violates at most $k$ budgets, since only paths containing $e$ can be violated. For each budget still violated, remove one edge of $(B\setminus A)\cap P_i$. Such an edge exists: $B$ already met that budget, its violation is by exactly one, and $A+e$ meets it. At most $k$ removals make $B+e$ feasible without deleting $A$.
+Start $B$ at an optimum $O$ and maintain a feasible $B$ containing the current greedy prefix. If the chosen $e$ is already in $B$, no exchange is needed; otherwise use the preceding removals and insert $e$. Every removed edge was individually feasible for addition to the previous prefix, hence has weight at most $c_e$. Charge its weight to $e$. An original optimum edge chosen while still in $B$ is charged to itself instead. These cases charge at most $k$ original optimum edges per greedy edge (at most one in the latter case). At termination, no unchosen edge can remain in $B$, because it could be added to the maximal greedy set. Thus every original optimum edge has been charged, and $c(O)\le k c(A)$.
+\end{proof}
+This is the standard elementary exchange argument for column-sparse cardinality packing, proved here to fix scope; no novelty or original-target completion is claimed. It does not use the tree structure beyond the congestion bound.
+The next attempted improvement is to round the natural LP as if it were integral. A star with three edges and a unit-weight, unit-budget path between every pair of leaves defeats that step. Each edge has weight two; the three pair constraints permit $(1/2,1/2,1/2)$, of value three, while an integer feasible solution chooses at most one edge, of value two. The tight-constraint matrix has determinant two, so the fractional point is an LP vertex.
+\subsection{Verification and remaining gaps}
+All eight binary choices for this star and the three tight LP constraints were checked. A better tree-specific approximation, optimal dependence on congestion, and stronger rounding remain unproved. The newer fare-zone paper cited by the catalogue uses dropout and pricing, which cannot silently replace this hard-budget problem.
+
+\section{References and source attribution}
+The primary Oberwolfach workshop report, \url{https://doi.org/10.4171/owr/2024/50}, was inspected on 11 October 2026. Relevant source passages: 2024/50 p. 2992, hard-budget fare-zone formulation. Catalogue and contributor attribution remain in the original Sources section. Mathematical arguments labeled as this attempt are proved above; cited external results remain attributed to their authors and are not independently reproved or claimed as our discoveries.
+
+\url{https://arxiv.org/html/2512.19493v3}. Hoefer, Kauther, Pabst, Peis and Tran, Fare Zone Assignment on Trees, version 3. The model definition was inspected: commodities may drop out when budgets are exceeded, and revenue uses a subadditive pricing function. This differs from the report constraints requiring every budget to hold. Its approximation results are therefore not transferred here without a proved correspondence.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch011/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

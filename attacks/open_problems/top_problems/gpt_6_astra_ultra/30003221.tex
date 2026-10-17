@@ -1,0 +1,125 @@
+% TOP_PROBLEM: {"id": 30003221, "title": "Ball-Shaped Minimizers of Competing Nonlocal Energies", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The parameter range $\\alpha>0$ was recovered from PDF pages 40--42. The target concerns every minimizer for all masses beyond an exponent-dependent finite threshold, not only existence of one radial minimizer. The report\\textquotesingle s diameter bound and asymptotic ball energy do not already prove eventual exact ball shape."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003221", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Above a finite mass threshold, must every minimizer of this competing-interaction energy be a filled ball?", "scope": "Proves, without a novelty claim, that every minimizer is a translated filled ball for alpha=2 and m>2π/3; leaves the source target for arbitrary alpha>0 unresolved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked finite second moments from finite quadratic interaction, translation and mass factors, Coulomb positivity by approximation, the explicit ball potential, threshold signs inside and outside the ball, and strict equality conditions. Model self-audit only; no independent human proof checking. Coordinator checked the canonical energy normalization, barycenter reduction, Coulomb positivity extension, explicit ball potential and monotonicity threshold in the alpha=2 proof; the all-exponent gap remains explicit. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked finite second moments from finite quadratic interaction, translation and mass factors, Coulomb positivity by approximation, the explicit ball potential, threshold signs inside and outside the ball, and strict equality conditions. Retained unresolved status and zero original-target progress; Replace the exact quadratic barycenter identity by a comparison strong enough to control all admissible deformations for general alpha>0. Additional GPT-6 Astra reviewer (ultra reasoning): From finite quadratic pair energy and positive mass, applied Fubini to obtain a finite second moment about a point; expanded the pair interaction to m times the second moment about the barycenter. Checked the Coulomb quadratic-form normalization: -Delta U=4 pi sigma and Q=(8 pi)^(-1) integral |grad U|^2. The O(r^-1) potential and O(r^-2) gradient make the spherical boundary term O(r^-1). Checked the extension from smooth compact support to bounded L1 densities: the near-diagonal kernel has integral 2 pi delta^2, giving a uniform L-infinity/L1 bound, and the far-diagonal difference is controlled by delta^(-1) times L1 convergence. Solved the radial ball potential and its matching: U_B=2 pi(R^2-r^2/3) inside and m/r outside for m=4 pi R^3/3. Expanded the energy difference with exactly W=U_B+m r^2, with no missing factor of two. Differentiated W: 2(m-2 pi/3)r inside and m(2r-r^-2) outside. The stated condition m>2 pi/3 implies R^3>1/2 and strict radial increase. Subtracting W(R) uses equal mass; the sign of sigma inside and outside makes the first variation nonnegative and its equality case precisely the filled ball up to null sets. Compared the source target for every alpha>0 and every sufficiently large-mass minimizer with the proved alpha=2 restriction. The draft explicitly preserves unresolved status, zero full-source completion and no novelty claim."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30003221; source catalogue code OWR-14751-005
+\setcounter{section}{30003220}
+\section{Ball-Shaped Minimizers of Competing Nonlocal Energies}\label{30003221}
+{\small UnsolvedMath ID 30003221 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+An admissible density is a measurable function $\rho:\mathbb R^3\to[0,1]$ with mass $m>0$. Its interaction energy is the displayed double integral, interpreted when finite. A characteristic-function minimizer is $\rho=\mathbf1_B$ almost everywhere for a Euclidean ball $B$, allowing translations of its center. The ball\textquotesingle s volume equals $m$ because of the unit density constraint. The index $m'_{c_2}(\alpha)$ denotes a finite, exponent-dependent large-mass threshold, not an independently quantified geometric constant. The report states the model for $\alpha>0$ and $m>0$, so these are the source parameter ranges.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+For
+$$
+E_\alpha(m)=\inf\left\{E_\alpha[\rho]:0\leq\rho\leq1,\ \int_{\mathbb R^3}\rho=m\right\},
+$$
+where
+$$
+E_\alpha[\rho]=\frac12\iint_{\mathbb R^3\times\mathbb R^3}\rho(x)\left(|x-y|^{-1}+|x-y|^\alpha\right)\rho(y)\,dx\,dy,
+$$
+does there exist $m'_{c_2}(\alpha)<\infty$ such that, whenever $m>m'_{c_2}(\alpha)$, every minimizer is the characteristic function of a ball of volume $m$?
+
+\paragraph{Source scope and qualification.}
+The parameter range $\alpha>0$ was recovered from PDF pages 40--42. The target concerns every minimizer for all masses beyond an exponent-dependent finite threshold, not only existence of one radial minimizer. The report\textquotesingle s diameter bound and asymptotic ball energy do not already prove eventual exact ball shape.
+\subsection{Short English statement}
+Above a finite mass threshold, must every minimizer of this competing-interaction energy be a filled ball?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proves, without a novelty claim, that every minimizer is a translated filled ball for alpha=2 and m>2π/3; leaves the source target for arbitrary alpha>0 unresolved.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{The exactly quadratic attractive interaction.}
+We try the source problem at $\alpha=2$ and prove a restricted large-mass result. Let $\rho$ be admissible with finite energy and mass $m$. The quadratic pair interaction implies a finite second moment after choosing an origin: by Fubini there is a point $y_0$ with $\int|x-y_0|^2\rho(x)\,dx<\infty$. Its barycenter $b=m^{-1}\int x\rho(x)\,dx$ is therefore defined, and direct expansion gives
+\[
+ \frac12\iint|x-y|^2\rho(x)\rho(y)\,dx\,dy
+ =m\int|x-b|^2\rho(x)\,dx.
+\]
+Translate so that $b=0$. Let $B$ be the centered ball of radius $R=(3m/(4\pi))^{1/3}$ and set $\sigma=\rho-\mathbf1_B$. Both densities have mass $m$ and barycenter zero.
+
+\paragraph{Coulomb positivity and the ball potential.}
+For a real bounded integrable $\sigma$, its Coulomb quadratic form is nonnegative:
+\[
+ \frac12\iint\frac{\sigma(x)\sigma(y)}{|x-y|}\,dx\,dy\geq0.
+\]
+For smooth compactly supported $\sigma$, define $U_\sigma=|\cdot|^{-1}*\sigma$. The identity $-\Delta U_\sigma=4\pi\sigma$ and integration by parts on expanding balls give the quadratic form as $(8\pi)^{-1}\int|\nabla U_\sigma|^2$. The boundary term tends to zero since $U_\sigma=O(|x|^{-1})$ and $\nabla U_\sigma=O(|x|^{-2})$. Truncation and smoothing extend nonnegativity to bounded integrable $\sigma$: the kernel on $|x-y|<\delta$ has integral $2\pi\delta^2$, while the complementary kernel is bounded by $1/\delta$, so convergence in $L^1$ with a uniform $L^\infty$ bound suffices.
+
+The ball potential, obtained by integrating its radial Poisson equation and matching at $R$, is
+\[
+ U_B(r)=\begin{cases}2\pi(R^2-r^2/3),&r\leq R,\\m/r,&r\geq R.\end{cases}
+\]
+Expansion of the Coulomb energy and the moment identity yield
+\[
+ E_2[\rho]-E_2[\mathbf1_B]
+ =\int W(|x|)\sigma(x)\,dx
+   +\frac12\iint\frac{\sigma(x)\sigma(y)}{|x-y|}\,dx\,dy,
+ \qquad W(r)=U_B(r)+mr^2.
+\]
+For $m>2\pi/3$, $W'(r)=2(m-2\pi/3)r>0$ on $0<r<R$. Outside, $W'(r)=m(2r-r^{-2})>0$ because $R^3=3m/(4\pi)>1/2$.
+
+\paragraph{The density constraint closes this special case.}
+Since $\int\sigma=0$, replace $W$ by $W-W(R)$ in the first integral. Inside $B$, both $W-W(R)$ and $\sigma=\rho-1$ are nonpositive; outside they are nonnegative. Thus both displayed energy terms are nonnegative. Strict monotonicity makes the first term zero only if $\rho=1$ almost everywhere inside $B$ and $\rho=0$ almost everywhere outside. The ball is therefore a global minimizer, and every minimizer is its translate, for $\alpha=2$ and $m>2\pi/3$.
+
+\paragraph{What does not extend.}
+The proof uses the exact barycentric second-moment identity. For general $\alpha>0$, the attractive energy is not that one-body moment, and its difference cannot be absorbed into this monotone effective potential by the argument above. The source asks for every exponent, not just $\alpha=2$. This elementary special-case reconstruction has not been checked for novelty and supplies no threshold for the remaining exponents; the full-source completion estimate remains zero.
+
+\paragraph{Verification and adversarial audit.}
+Checked finite second moments from finite quadratic interaction, translation and mass factors, Coulomb positivity by approximation, the explicit ball potential, threshold signs inside and outside the ball, and strict equality conditions. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked finite second moments from finite quadratic interaction, translation and mass factors, Coulomb positivity by approximation, the explicit ball potential, threshold signs inside and outside the ball, and strict equality conditions. Retained unresolved status and zero original-target progress; Replace the exact quadratic barycenter identity by a comparison strong enough to control all admissible deformations for general alpha>0. Additional GPT-6 Astra reviewer (ultra reasoning): From finite quadratic pair energy and positive mass, applied Fubini to obtain a finite second moment about a point; expanded the pair interaction to m times the second moment about the barycenter. Checked the Coulomb quadratic-form normalization: -Delta U=4 pi sigma and Q=(8 pi)\textasciicircum{}(-1) integral |grad U|\textasciicircum{}2. The O(r\textasciicircum{}-1) potential and O(r\textasciicircum{}-2) gradient make the spherical boundary term O(r\textasciicircum{}-1). Checked the extension from smooth compact support to bounded L1 densities: the near-diagonal kernel has integral 2 pi delta\textasciicircum{}2, giving a uniform L-infinity/L1 bound, and the far-diagonal difference is controlled by delta\textasciicircum{}(-1) times L1 convergence. Solved the radial ball potential and its matching: U\_B=2 pi(R\textasciicircum{}2-r\textasciicircum{}2/3) inside and m/r outside for m=4 pi R\textasciicircum{}3/3. Expanded the energy difference with exactly W=U\_B+m r\textasciicircum{}2, with no missing factor of two. Differentiated W: 2(m-2 pi/3)r inside and m(2r-r\textasciicircum{}-2) outside. The stated condition m>2 pi/3 implies R\textasciicircum{}3>1/2 and strict radial increase. Subtracting W(R) uses equal mass; the sign of sigma inside and outside makes the first variation nonnegative and its equality case precisely the filled ball up to null sets. Compared the source target for every alpha>0 and every sufficiently large-mass minimizer with the proved alpha=2 restriction. The draft explicitly preserves unresolved status, zero full-source completion and no novelty claim.
+
+Coordinator checked the canonical energy normalization, barycenter reduction, Coulomb positivity extension, explicit ball potential and monotonicity threshold in the alpha=2 proof; the all-exponent gap remains explicit. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Replace the exact quadratic barycenter identity by a comparison strong enough to control all admissible deformations for general alpha>0.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Replace the exact quadratic barycenter identity by a comparison strong enough to control all admissible deformations for general alpha>0.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30003221:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30003221 (OWR-14751-005). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30003221:2}{S2}] Many-Body Quantum Systems and Effective Theories (2016), Oberwolfach Reports, DOI 10.4171/owr/2016/43, pp. 2465--2511. Primary report accessed 2026-10-11; relevant PDF pages 40, 41, 42.
+\url{https://doi.org/10.4171/owr/2016/43}.
+\item[\hypertarget{source:30003221:3}{S3}] large-mass minimizers (catalogue-listed context; not independently consulted in this preparation).
+\url{https://www.sciencedirect.com/science/article/abs/pii/S0362546X21000961}.
+\end{itemize}
+\label{end:30003221}
+\end{document}

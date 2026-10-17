@@ -1,0 +1,162 @@
+% RESEARCH_DRAFT_SHA256: a3d6b7da6dafede2b83fc3e1ecc153b586994a2cc96f1128fd17410457685d35
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30002961, "title": "Open Problems in Mixed-Integer Nonlinear Optimization", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002961", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Why is semidefinite programming computationally slow? For\n$$X(\\alpha,\\beta,\\gamma)=\\{(x_1,x_2,t_1,t_2,z_1,z_2)\\in\\mathbb R^4\\times\\{0,1\\}^2:t_i\\geq x_i^2,\\ 0\\leq\\alpha x_1+\\beta x_2\\leq z_1,\\ 0\\leq\\gamma x_2\\leq z_2\\},$$\nfind a scalable compact description of $\\operatorname{conv}X(\\alpha,\\beta,\\gamma)$. What is the minimum number of auxiliary variables needed to represent a nonsemialgebraic convex hull semialgebraically? Develop randomized copositivity and complete-positivity tests, and recognize named structures in flat mathematical programs. Finally, if $m\\geq12$ points in the shell between the unit sphere and its circumscribed dodecahedron are mutually at least unit distance apart, find concise proofs for $m>16$ of the conjectured Euclidean shell inequality and formulate its $\\ell_1$ analogue.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The explicit two-binary set has a proved constant-size lift, but no scalable arbitrary-size construction or resolution of the remaining bundled questions is supplied.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{A bundled MINLP question: exact four-disjunct convexification and its scaling limit}
+\noindent UnsolvedMath ID 30002961; OWR-13941-001. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A linear program optimizes $c^Tx$ over a polyhedron $\{x:Ax\leq b\}$. In the simplex method a pivot moves between adjacent basic feasible solutions; a pivot rule chooses the next such move.
+
+An integer program imposes integral coordinates on a system of constraints. A mixed-integer program allows both integral and real coordinates; $\operatorname{conv}(S)$ denotes the set of finite convex combinations of feasible points of $S$.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+Source-record limitation: Damaged bundle: the shell inequality is absent and semialgebraic-representation scope is not recoverable.
+\paragraph{Statement recorded in the supplied source.}
+Why is semidefinite programming computationally slow? For
+$$X(\alpha,\beta,\gamma)=\{(x_1,x_2,t_1,t_2,z_1,z_2)\in\mathbb R^4\times\{0,1\}^2:t_i\geq x_i^2,\ 0\leq\alpha x_1+\beta x_2\leq z_1,\ 0\leq\gamma x_2\leq z_2\},$$
+find a scalable compact description of $\operatorname{conv}X(\alpha,\beta,\gamma)$. What is the minimum number of auxiliary variables needed to represent a nonsemialgebraic convex hull semialgebraically? Develop randomized copositivity and complete-positivity tests, and recognize named structures in flat mathematical programs. Finally, if $m\geq12$ points in the shell between the unit sphere and its circumscribed dodecahedron are mutually at least unit distance apart, find concise proofs for $m>16$ of the conjectured Euclidean shell inequality and formulate its $\ell_1$ analogue. \href{https://doi.org/10.4171/owr/2015/46}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+The source asks about open Problems in Mixed-Integer Nonlinear Optimization.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30002961 (OWR-13941-001). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Mixed-integer Nonlinear Optimization: A Hatchery for Modern Mathematics (2016), Oberwolfach Reports, DOI 10.4171/owr/2015/46, pp. 2701--2766
+\url{https://doi.org/10.4171/owr/2015/46}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Why is semidefinite programming computationally slow? For
+$$X(\alpha,\beta,\gamma)=\{(x_1,x_2,t_1,t_2,z_1,z_2)\in\mathbb R^4\times\{0,1\}^2:t_i\geq x_i^2,\ 0\leq\alpha x_1+\beta x_2\leq z_1,\ 0\leq\gamma x_2\leq z_2\},$$
+find a scalable compact description of $\operatorname{conv}X(\alpha,\beta,\gamma)$. What is the minimum number of auxiliary variables needed to represent a nonsemialgebraic convex hull semialgebraically? Develop randomized copositivity and complete-positivity tests, and recognize named structures in flat mathematical programs. Finally, if $m\geq12$ points in the shell between the unit sphere and its circumscribed dodecahedron are mutually at least unit distance apart, find concise proofs for $m>16$ of the conjectured Euclidean shell inequality and formulate its $\ell_1$ analogue.
+
+\section{Source scope}
+The preserved record combines several unrelated questions from the workshop
+session. The shell formula is absent from the catalogue sentence; the primary
+report does print a formula, but it is not a substitute for specifying which
+proof conventions and norm analogue the bundle asks to resolve. The questions
+about practical SDP speed, randomized tests, and structure recognition likewise
+have no single supplied quantitative success criterion. We retain all of these
+as unsolved components, and attempt the explicit displayed set $X$.
+
+\section{An exact lifted description for the displayed two-binary set}
+The following works for every fixed real $\alpha,\beta,\gamma$, including
+zero and negative values; it does not require division by those parameters.
+For each $b=(b_1,b_2)\in\{0,1\}^2$ introduce $\lambda_b\ge0$,
+$v^b=(v^b_1,v^b_2)\in\mathbb R^2$ and $s^b_1,s^b_2\ge0$.
+Consider the constraints
+\[
+\sum_b\lambda_b=1,\quad
+x_i=\sum_bv^b_i,\quad t_i=\sum_bs^b_i,\quad
+z_i=\sum_b\lambda_b b_i\quad(i=1,2),
+\]
+\[
+(v^b_i)^2\le\lambda_b s^b_i\quad(i=1,2),\qquad
+0\le\alpha v^b_1+\beta v^b_2\le\lambda_b b_1,\qquad
+0\le\gamma v^b_2\le\lambda_b b_2.
+\]
+Their projection is exactly $\operatorname{conv}X$, as a set of finite convex
+combinations, not merely its closure.
+
+First take a finite convex combination of original points. Group its terms by
+the binary vector $b$. Let $\lambda_b$ be total group weight, and let $v^b_i$
+and $s^b_i$ be the corresponding weighted sums of $x_i$ and $t_i$.
+All linear inequalities follow by summation. Weighted Cauchy--Schwarz gives
+$(v^b_i)^2\le\lambda_b\sum_{r\text{ in group}}\theta_r(x_i^r)^2
+\le\lambda_b s^b_i$. Thus every hull point has a lift.
+
+Conversely, a feasible lift with $\lambda_b=0$ forces $v^b_i=0$, but may
+still have $s^b_i>0$. Collect these vertical amounts as
+$r_i=\sum_{b:\lambda_b=0}s^b_i\ge0$. Choose any $b_*$ with positive
+$\lambda_{b_*}$, which exists because their sum is one, and add $r_i$
+to $s^{b_*}_i$; discard the zero-weight groups. For every remaining $b$,
+put
+\[
+\widehat x^b_i=v^b_i/\lambda_b,\qquad
+\widehat t^b_i=s^b_i/\lambda_b,\qquad\widehat z^b=b,
+\]
+using the increased $s^{b_*}$. Dividing the linear constraints by $\lambda_b$
+shows the original on/off inequalities. The perspective inequality gives
+$\widehat t^b_i\ge(\widehat x^b_i)^2$. Increasing $s^{b_*}$ only helps this
+inequality. Therefore all these are points of $X$, and their convex
+combination with weights $\lambda_b$ is the projected point. This proves
+exactness, including the zero-weight boundary and unbounded $t$ directions.
+
+Each quadratic constraint has a convex feasible set: for two points satisfying
+$v^2\le\lambda s$, $\lambda,s\ge0$, their convex combination satisfies it by
+$|\theta v+(1-\theta)v'|
+\le\theta\sqrt{\lambda s}+(1-\theta)\sqrt{\lambda's'}
+\le\sqrt{(\theta\lambda+(1-\theta)\lambda')
+(\theta s+(1-\theta)s')}$, using Cauchy--Schwarz.
+It is thus a finite convex quadratic lift with constant many variables for
+the literal two-binary set. All displayed inequalities are polynomial.
+
+\section{Why this does not settle scalability or the bundle}
+The route is disjunctive enumeration: each binary pattern receives a copy of
+the continuous variables. Applying it to an analogous model with $p$ binary
+variables generally creates $2^p$ groups. The two-variable calculation supplies
+no polynomial bound as $p$ grows. A scalable formulation would need a structural
+compression of these groups and a proof preserving the coupled inequalities;
+none is obtained here. Individual on/off perspective constraints cannot simply
+replace this proof when $\alpha x_1+\beta x_2$ couples both variables.
+
+The separate request for a semialgebraic representation of a nonsemialgebraic
+hull also requires the allowed meaning of representation: our construction
+addresses only this particular semialgebraic hull. It does not supply a
+universal representation theorem. No stochastic certification guarantee,
+recognition grammar, SDP runtime explanation, or shell inequality proof is
+claimed by solving the four-state convexification component.
+
+\section{Adversarial audit}
+The audit checked all real parameter signs, zero multipliers, positive-weight
+existence, and transfer of the vertical slack; without that transfer a
+perspective formulation might establish only a closure statement. The result
+is an elementary known disjunctive mechanism rederived for the actual displayed
+set. The unsolved scaling and other bundled components prevent a full-scope
+claim. No numerical computation or theorem prover was used.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The explicit two-binary set has a proved constant-size lift, but no scalable arbitrary-size construction or resolution of the remaining bundled questions is supplied.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 46/2015, open-problem session pp. 2707--2708 and the pooling discussion pp. 2715--2716; exact passages inspected in the primary report. \url{https://doi.org/10.4171/owr/2015/46}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The explicit two-binary set has a proved constant-size lift, but no scalable arbitrary-size construction or resolution of the remaining bundled questions is supplied.
+\end{document}

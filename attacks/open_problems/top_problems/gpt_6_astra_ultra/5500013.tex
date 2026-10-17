@@ -1,0 +1,151 @@
+% RESEARCH_DRAFT_SHA256: 6e2e53899b506b39aa47206a76c33fdbf4dad5351c35f6dd416c8e4d1c3b57f0
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 5500013, "title": "Point Location in 3D Subdivision", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "problem_number": "AMR-054-0013", "set_id": 13}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "5500013", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Point Location in 3D Subdivision; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Testing balanced spatial subdivision as a point-location route; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch003 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{lmroman10-regular.otf}[BoldFont=lmroman10-bold.otf,
+ ItalicFont=lmroman10-italic.otf,BoldItalicFont=lmroman10-bolditalic.otf]
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{latinmodern-math.otf}
+\AtBeginDocument{\let\setminus\smallsetminus}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+\section*{Point Location in 3D Subdivision}\label{5500013}
+{\small UnsolvedMath ID 5500013 · AMR-054-0013 · Computer Science · AMR Open Problem Lists}
+\subsection{Definitions and mathematical statement}
+A polyhedral subdivision of three-dimensional space is a finite
+face-to-face complex whose three-dimensional cells cover a prescribed
+polyhedral domain (with an exterior cell if needed). Its faces, edges,
+vertices, and incidence relations are given explicitly. Let $n$ denote
+its total boundary-description complexity; in a triangulated description
+this is the number of constant-size boundary faces up to constant factors.
+
+A point-location query supplies $q\in\mathbb R^3$ and asks which cell
+contains it. Boundary points may be handled by a fixed deterministic
+tie rule, or the query can report an incident cell. The central question
+is whether every such subdivision admits a data structure with
+\[
+                    O(n)\text{ storage},\qquad
+                    O(\log n)\text{ worst-case query time}.
+\]
+Preprocessing must construct the structure from the subdivision; its
+cost should be stated separately. The bounds refer to a standard
+real-arithmetic/pointer model with constant-size geometric records.
+
+Counting each polygonal face as one unit regardless of an unbounded
+number of vertices would conceal input complexity, so that convention
+is not used. The requested simultaneous space and query bounds are
+stronger than obtaining either bound alone with an unrestricted cost
+for the other.
+\subsection{Short English statement}
+Can arbitrary three-dimensional polyhedral subdivisions support
+logarithmic-time point location using only space proportional to their
+input complexity?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] ULAM.AI and the UnsolvedMath Contributors, supplied problems.json, record 5500013 (AMR-054-0013), AMR Open Problem Lists. Catalogue identity and source transcription; CC BY 4.0.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Open Problems Project - Computational Geometry, Problem 13. Original source indexed by AMR-054-0013.
+\url{https://topp.openproblem.net/p13}.
+\end{itemize}
+
+\section{Literature and context check}
+TOPP Problem 13 was consulted for the simultaneous space/query target. The
+page records historical tradeoffs, not a proof that a particular elementary
+hierarchy achieves both desired bounds. The following construction audits that
+hierarchy without claiming an impossibility theorem for all data structures.
+\section{Research attempt: Testing balanced spatial subdivision as a point-location route}
+Consider the unit cube subdivided into $m$ closed horizontal slabs
+\[
+ C_j=[0,1]^2\times[(j-1)/m,j/m],\qquad 1\le j\le m.
+\]
+Their full face/edge/vertex description has complexity $\Theta(m)$; neighboring
+slabs meet face-to-face, and side faces are subdivided at the same levels. A fixed
+tie rule assigns a point on a horizontal face to its upper slab, except the top.
+For this family, sorting the $m+1$ heights and binary searching gives $O(m)$
+storage and $O(\log(m+1))$ queries, including the tie rule. This is a genuine
+restricted solution but elementary, not a claimed advance on arbitrary subdivisions.
+
+The attempted general construction instead recursively bisects a bounding box
+by planes perpendicular to the $x$ axis, and stores in each leaf the cells that
+intersect it. For depth $h$, there are $2^h$ vertical leaf boxes. Every one of the
+$m$ slabs has an interior point in every leaf, so the lists contain exactly
+$m2^h$ incidences. If $h=\lceil\log_2m\rceil$, a query reaches a leaf in
+$O(\log m)$ steps but that leaf still contains all $m$ possible answers, and
+the lists use $\Theta(m^2)$ space. If lists are shared to reduce space, their
+logical candidate set still has size $m$; the navigation alone has not answered
+the query. This proves a precise failure of the inference that balanced geometric
+depth ensures balanced answer complexity.
+
+To express the same issue in recurrence form, let $c(Q)$ be the number of
+original cells meeting a node box. A binary cut may have
+$c(Q_1)=c(Q_2)=c(Q)$, not $c(Q)/2$. Counting objects only at the root and tree
+depth therefore cannot justify linear storage. The slab family saturates this
+failure at every level of the displayed tree.
+
+Choosing horizontal cuts repairs this family completely; hence the example
+does not defeat adaptive separators. What a successful adaptive proof must
+control is the total duplication over all cut cells as well as the number of
+query tests. Neither follows from balanced coordinates or a small tree depth.
+\section{Verification and adversarial audit}
+All cells are axis-aligned boxes, so the example satisfies the face-to-face
+input convention without hidden high-degree faces. Storage counts include every
+cell-to-leaf incidence. $m=1$ is constant size. Query points on slab boundaries
+were assigned explicitly. No universal separator lower bound is inferred.
+\paragraph{Audit corrections.} A bad hierarchy was not promoted to a lower bound for arbitrary or adaptive data structures; full boundary-description size is counted.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The first gap is an adaptive construction with a proved linear duplication
+budget and logarithmic query depth for all polyhedral subdivisions. The favorable
+slab algorithm and the unfavorable perpendicular hierarchy do not settle existence
+of such a data structure in the requested model.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://topp.openproblem.net/p13} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved. This is a research attempt with an explicit failed route or restricted
+calculation, not a full solution, not a current-status certification, and not a claim
+that the elementary material is new. The catalogue's original source-status label
+is preserved independently of this attempt status.
+\end{document}

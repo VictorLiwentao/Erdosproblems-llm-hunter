@@ -1,0 +1,89 @@
+% TOP_PROBLEM: {"id": 30005985, "title": "Robustness of Climate Models at Unresolved Scales", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "Selecting a stochastic framework depends on the particular equation and covariance; the source asks whether simpler noise models suffice, not whether every model needs all three advanced theories."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005985", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Determine suitable rough solution spaces and robust approximations for reduced climate models, and identify the stochastic structures needed at unresolved scales.", "scope": "Constructed smooth forcing loops converging uniformly to zero whose nonlinear responses retain a finite drift, exposing missing iterated-integral data.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Integrated the response exactly, checked uniform convergence and initial conditions, and separated this nonlinear area effect from universal claims about all climate models. Model self-audit only; no independent human mathematical verification. Coordinator checked the exact iterated forcing integral and nonzero uniform limit despite uniformly vanishing drivers. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Integrated the response exactly, checked uniform convergence and initial conditions, and separated this nonlinear area effect from universal claims about all climate models. First remaining gap: Identify surviving unresolved-scale products and establish a stable limiting solution map for the actual source geophysical equation and covariance. The inherited source status is preserved; original-target completion remains zero."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30005985; source catalogue code OWR-14298586-001
+\setcounter{section}{30005984}
+\section{Robustness of Climate Models at Unresolved Scales}\label{30005985}
+{\small UnsolvedMath ID 30005985 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+A reduced geophysical-flow model omits unresolved spatial or temporal scales. Grid-scale perturbations test numerical sensitivity at the mesh length. White noise is distribution-valued forcing and Brownian motion its time integral in a basic model. Rough paths, regularity structures and paracontrolled methods provide ways to define dynamics with rough inputs.
+
+\paragraph{Catalogue wording retained for traceability.}
+Determine whether reduced geophysical-flow models admit sufficiently rough solution spaces, whether their numerical approximations are robust under grid-scale perturbations, and which stochastic structures correctly represent unresolved processes. In particular, decide whether white-noise and Brownian-motion models suffice or whether rough paths, regularity structures, or paracontrolled distributions are required.
+
+\paragraph{Scope and source qualification.}Selecting a stochastic framework depends on the particular equation and covariance; the source asks whether simpler noise models suffice, not whether every model needs all three advanced theories.
+\subsection{Short English statement}
+Determine suitable rough solution spaces and robust approximations for reduced climate models, and identify the stochastic structures needed at unresolved scales.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Constructed smooth forcing loops converging uniformly to zero whose nonlinear responses retain a finite drift, exposing missing iterated-integral data.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30005985. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{A vanishing-input instability test.} For integers \(n\geq1\), take smooth two-component inputs
+\[
+ x_n(t)=n^{-1/2}(\cos(nt)-1),\qquad y_n(t)=n^{-1/2}\sin(nt),\quad t\in[0,T].
+\]
+Both converge uniformly to zero. Drive the ordinary differential equations \(du_n=dx_n\), \(dv_n=u_n\,dy_n\), with zero initial data. Then \(u_n=x_n\) and direct integration yields
+\[
+ v_n(t)=\int_0^t(\cos^2(ns)-\cos(ns))ds
+ =\frac t2+\frac{\sin(2nt)}{4n}-\frac{\sin(nt)}n.
+\]
+Thus \(v_n\to t/2\) uniformly, although the zero input produces \(v\equiv0\). Supremum control of the input alone cannot make this nonlinear solution map continuous.
+\paragraph{Interpretation for unresolved scales.} The missing quantity is a signed iterated integral: the small loops retain finite area. This is an explicit reason an approximation of unresolved forcing may need more information than pointwise or uniform convergence. It does not imply that every climate closure requires rough paths; a linear additive equation would not have the same area sensitivity, and a spatially singular nonlinear PDE may require further renormalized products.
+\paragraph{Source gap.} No specific geophysical equation, covariance or mesh perturbation law has been validated here. The first missing step is to determine which nonlinear products and iterated integrals survive the source coarse-graining and to prove stability in a topology controlling them. Suitable rough solution spaces, grid robustness and the choice among simple stochastic forcing and the advanced frameworks remain equation dependent, as stipulated in [S2].
+
+\paragraph{Verification and adversarial audit.}
+Integrated the response exactly, checked uniform convergence and initial conditions, and separated this nonlinear area effect from universal claims about all climate models. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Integrated the response exactly, checked uniform convergence and initial conditions, and separated this nonlinear area effect from universal claims about all climate models. First remaining gap: Identify surviving unresolved-scale products and establish a stable limiting solution map for the actual source geophysical equation and covariance. The inherited source status is preserved; original-target completion remains zero.
+
+Coordinator checked the exact iterated forcing integral and nonzero uniform limit despite uniformly vanishing drivers. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Identify surviving unresolved-scale products and establish a stable limiting solution map for the actual source geophysical equation and covariance.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30005985:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30005985 (OWR-14298586-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30005985:2}{S2}] Model Hierarchies in Atmosphere, Ocean, and Climate Sciences (2024), Oberwolfach Reports, DOI 10.4171/owr/2024/31, pp. 1731--1786. Original report and mathematical context. Incorporated report material remains under the source CC BY-SA 4.0 terms unless otherwise noted.
+\url{https://doi.org/10.4171/owr/2024/31}.
+\end{itemize}
+\label{end:30005985}
+\end{document}

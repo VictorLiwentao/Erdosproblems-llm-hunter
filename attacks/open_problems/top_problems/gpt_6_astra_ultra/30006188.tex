@@ -1,0 +1,86 @@
+% TOP_PROBLEM: {"id": 30006188, "title": "Lieb–Robinson Bounds for Nonrelativistic Fermions", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The constant $C(t)$ must retain the report's uniformity in the scaling parameter and admissible observables. Unbounded one-particle speed is the obstruction being investigated."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006188", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Extend the local effective-dynamics error estimate from pseudo-relativistic to nonrelativistic high-density fermions.", "scope": "Verified exact arbitrarily fast free wave-packet transport and a kinetic-moment tail estimate, identifying what a nonrelativistic localization proof must control.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the Galilean phase and factor-two velocity, same initial density, the moment tail inequality and why a boost does not falsify the exact/effective comparison itself. Model self-audit only; no independent human mathematical verification.  No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked the Galilean phase and factor-two velocity, same initial density, the moment tail inequality and why a boost does not falsify the exact/effective comparison itself. First remaining gap: Prove state-sensitive interacting localization with kinetic-tail costs compatible with the source uniform epsilon-to-minus-two comparison bound. The inherited source status is preserved; original-target completion remains zero. Additional GPT-6 Astra reviewer (ultra reasoning): Directly checked the free Galilean boost exp(i(p.x-|p|²t)) psi0(t,x-2pt) against i psi_t=-Delta psi; initial densities agree and translation velocity is 2p. Checked the momentum-tail bound integral_{|k|>P}|psi_hat|²<=K/P² for P>0 from the second kinetic moment. Confirmed that the draft explicitly does not claim the boost disproves the exact-versus-effective epsilon^{-2} comparison; both evolutions can undergo the same boost. Compared the retained epsilon-uniformity and localized-observable gap with the source qualification."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30006188; source catalogue code OWR-14299085-002
+\setcounter{section}{30006187}
+\section{Lieb–Robinson Bounds for Nonrelativistic Fermions}\label{30006188}
+{\small UnsolvedMath ID 30006188 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+The one-particle density matrix $\gamma^{(1)}_{N,t}$ is the partial trace of the exact $N$-fermion state; $\omega_{N,t}$ is the effective one-particle evolution in the report. The operator $O_z(\widehat x)$ is its localized spatial observable and $\varepsilon$ its high-density scaling parameter. A Lieb--Robinson type estimate controls spatial propagation or its effect on local comparisons.
+
+\paragraph{Catalogue wording retained for traceability.}
+Can the local estimate $\lvert\operatorname{tr} O_z(\widehat{x})(\gamma^{(1)}_{N,t}-\omega_{N,t})\rvert\leq C(t)\varepsilon^{-2}$, proved for pseudo-relativistic high-density fermions, be extended to nonrelativistic fermion dynamics, where the one-particle velocity is unbounded?
+
+\paragraph{Scope and source qualification.}The constant $C(t)$ must retain the report's uniformity in the scaling parameter and admissible observables. Unbounded one-particle speed is the obstruction being investigated.
+\subsection{Short English statement}
+Extend the local effective-dynamics error estimate from pseudo-relativistic to nonrelativistic high-density fermions.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Verified exact arbitrarily fast free wave-packet transport and a kinetic-moment tail estimate, identifying what a nonrelativistic localization proof must control.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30006188. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{Testing a state-independent propagation cone.} In units where the one-particle Hamiltonian is \(-\Delta\), let \(\psi_0(0,\cdot)\) be normalized, smooth and compactly supported, and let \(\psi_0(t,x)\) solve \(i\partial_t\psi_0=-\Delta\psi_0\). For any momentum \(p\in\mathbb R^d\), direct differentiation verifies
+\[
+ \psi_p(t,x)=e^{i(p\cdot x-|p|^2t)}\psi_0(t,x-2pt).
+\]
+All initial spatial densities agree, but their centers translate at velocities \(2p\). For a fixed \(t>0\), choose a bounded region containing most of \(|\psi_0(t)|^2\); its translate by \(2pt\) contains the same mass of \(\psi_p(t)\). Arbitrarily large \(p\) therefore defeats any state-uniform finite-speed localization claim with a fixed nontrivial tail tolerance.
+\paragraph{What energy control buys.} With Fourier transform normalized unitarily, a state satisfying \(\int |k|^2|\widehat\psi(k)|^2dk\leq K\) has
+\[
+ \int_{|k|>P}|\widehat\psi(k)|^2dk\leq K/P^2.
+\]
+This follows by \(1\leq |k|^2/P^2\) on the integration region. It permits a velocity-tail decomposition, but any resulting estimate depends on a controlled kinetic moment. In a fermionic many-particle state the moment and local occupation must be compared with the high-density scaling.
+\paragraph{Source error estimate remains.} The target compares exact and effective one-particle densities and asks for \(C(t)\varepsilon^{-2}\), not a literal finite-speed theorem for all states. A large boost by itself is no counterexample because both compared evolutions can share it. The first gap is a state-sensitive propagation estimate whose kinetic-tail and interaction errors preserve the source uniformity in \(\varepsilon\) and its localized observables.
+
+\paragraph{Verification and adversarial audit.}
+Checked the Galilean phase and factor-two velocity, same initial density, the moment tail inequality and why a boost does not falsify the exact/effective comparison itself. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked the Galilean phase and factor-two velocity, same initial density, the moment tail inequality and why a boost does not falsify the exact/effective comparison itself. First remaining gap: Prove state-sensitive interacting localization with kinetic-tail costs compatible with the source uniform epsilon-to-minus-two comparison bound. The inherited source status is preserved; original-target completion remains zero. Additional GPT-6 Astra reviewer (ultra reasoning): Directly checked the free Galilean boost exp(i(p.x-|p|²t)) psi0(t,x-2pt) against i psi\_t=-Delta psi; initial densities agree and translation velocity is 2p. Checked the momentum-tail bound integral\_\{|k|>P\}|psi\_hat|²<=K/P² for P>0 from the second kinetic moment. Confirmed that the draft explicitly does not claim the boost disproves the exact-versus-effective epsilon\textasciicircum{}\{-2\} comparison; both evolutions can undergo the same boost. Compared the retained epsilon-uniformity and localized-observable gap with the source qualification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Prove state-sensitive interacting localization with kinetic-tail costs compatible with the source uniform epsilon-to-minus-two comparison bound.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30006188:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30006188 (OWR-14299085-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30006188:2}{S2}] Mini-Workshop: New Directions in Correlated Quantum Systems (2025), Oberwolfach Reports, DOI 10.4171/owr/2025/7, pp. 339--374. Original report and mathematical context. Incorporated report material remains under the source CC BY-SA 4.0 terms unless otherwise noted.
+\url{https://doi.org/10.4171/owr/2025/7}.
+\end{itemize}
+\label{end:30006188}
+\end{document}

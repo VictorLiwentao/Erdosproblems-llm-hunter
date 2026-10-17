@@ -1,0 +1,167 @@
+% RESEARCH_DRAFT_SHA256: 7ce300bffbc976f491de904eef741312f48d229c4f2599933018b8ae23e1a936
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30002995, "title": "Karchmer–Raz–Wigderson Formula Lower-Bound Conjecture", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002995", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Can the Karchmer–Raz–Wigderson conjecture be proved in full generality, thereby implying superpolynomial formula-size lower bounds?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Restriction arguments prove only the maximum of the component depths. The approximate additive lower bound for arbitrary Boolean block composition remains unproved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{KRW composition: restriction bounds and the missing additive step}
+\noindent UnsolvedMath ID 30002995; OWR-13949-002. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+The Karchmer-Raz-Wigderson composition conjecture concerns formula complexity of composed Boolean functions and its associated communication relation. Superpolynomial formula size exceeds $n^c$ for every fixed $c$ eventually.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The exact conjectural inequality is not printed in this supplied question; no circuit version or unrestricted direct-sum principle is substituted.
+
+Source-record limitation: Duplicate full Karchmer-Raz-Wigderson composition target, retained in the more explicit supplied formulation under OWR ID 30004010; original DOI10.1007/BF01206317 and the primary 2017 composition paper identify the same conjecture.
+
+Related catalogue records: \href{https://mehmetmars7.github.io/Erdosproblems-llm-hunter/problem.html?type=open_problems&id=30004010}{30004010}. Separate source IDs are preserved for their provenance.
+\paragraph{Statement recorded in the supplied source.}
+Can the Karchmer–Raz–Wigderson conjecture be proved in full generality, thereby implying superpolynomial formula-size lower bounds? \href{https://doi.org/10.4171/owr/2015/54}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Prove the stated composition lower-bound conjecture in full generality.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30002995 (OWR-13949-002). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Complexity Theory (2016), Oberwolfach Reports, DOI 10.4171/owr/2015/54, pp. 3049--3099
+\url{https://doi.org/10.4171/owr/2015/54}.
+\item[S3] Rossman--Servedio--Tan
+\url{https://www.cs.columbia.edu/~rocco/papers/focs15.html}.
+\item[S4] Subsequent KRW analysis
+\url{https://doi.org/10.1137/15M1018319}.
+\item[S5] Karchmer--Raz--Wigderson
+\url{https://doi.org/10.1007/BF01206317}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Can the Karchmer–Raz–Wigderson conjecture be proved in full generality, thereby implying superpolynomial formula-size lower bounds?
+
+\section{Model and source scope}
+The original report, printed page 3056, distinguishes a special-case result
+from the full KRW conjecture. The primary 2017 paper's abstract identifies
+the intended subject as approximate additivity of depth under block
+composition; its universal-relation result is not the full conjecture.
+We use De Morgan formulas with fan-in two AND/OR gates, literal leaves,
+and constants, and measure depth by the maximum number of gates on a
+root-to-leaf path. Write $D(f)$ for minimum depth and $L(f)$ for minimum
+number of leaves. For nonconstant $f:\{0,1\}^m\to\{0,1\}$ and
+$g:\{0,1\}^n\to\{0,1\}$, put
+$F(x)=f(g(x^{(1)}),\ldots,g(x^{(m)}))$ on disjoint blocks.
+These conventions specify the auxiliary calculation; we do not replace
+the source conjecture by an exact equality with no allowable loss.
+
+\section{The restriction route gives a maximum, not a sum}
+Every nonconstant Boolean function has a one-dimensional restriction
+equal to a variable or its negation. Indeed choose two inputs with
+different function values and walk between them by flipping one
+coordinate at a time. Some adjacent pair has different values; fix
+all other coordinates at that pair's common values.
+
+Apply this fact to $g$ and make the same restriction in every block of
+$F$. The resulting function is $f$ with each input perhaps negated.
+Negating input literals does not change minimum depth. Restricting a
+formula to constants cannot increase depth, so $D(F)\ge D(f)$.
+Conversely choose a pivotal one-dimensional restriction of $f$.
+Fix the other blocks of $F$ to inputs giving its prescribed zeros or
+ones, possible since $g$ is nonconstant. The remaining function is
+$g$ or its complement. De Morgan duality, obtained recursively by
+interchanging AND with OR and negating every literal and constant,
+preserves depth, so $D(F)\ge D(g)$.
+
+Substitution in the opposite direction yields
+\[
+\max\{D(f),D(g)\}\le D(F)\le D(f)+D(g).
+\]
+For the upper bound replace each positive input leaf of a minimum-depth
+formula for $f$ by a formula for $g$, and each negative leaf by its
+De Morgan dual. Any path traverses at most $D(f)$ outer gates and
+$D(g)$ inner gates. The lower-bound restrictions above are different
+restrictions of the same formula. They do not exhibit a single path
+which must contain both costs, so adding their inequalities is unjustified.
+Identifying such simultaneous hardness is the unproved step of this route.
+
+\section{A complete read-once special case}
+Take $f=\operatorname{AND}_m$ and $g=\operatorname{OR}_n$, with
+$m,n\ge1$. Every one of the $mn$ input variables of $F$ is essential:
+set the other variables in its own block to zero and make each other
+block's OR equal one. Flipping the selected variable flips $F$.
+Any formula omitting a variable has identical evaluations when only that
+variable is changed, by induction over its gates. Thus every variable
+must occur in every formula for $F$, giving $L(F)\ge mn$.
+The direct AND of OR trees uses exactly $mn$ leaves, proving $L(F)=mn$.
+
+A binary tree of depth $d$ has at most $2^d$ leaves, by induction on
+its two subtrees. Conversely a conjunction or disjunction of $r$ inputs
+can be placed in depth $\lceil\log_2r\rceil$: pad with neutral constants
+to the next power of two and use a complete binary tree.
+Therefore
+\[
+\lceil\log_2(mn)\rceil\le D(F)
+\le\lceil\log_2m\rceil+\lceil\log_2n\rceil.
+\]
+The endpoints differ by at most one, since
+$\lceil a\rceil+\lceil b\rceil-1\le\lceil a+b\rceil$.
+This gives the expected additive behavior within one gate for this easy
+family, but the essential-variable argument only gives a logarithm of
+arity and does not yield general superlogarithmic depth lower bounds.
+
+There is even a harmless rounding failure of exact additivity:
+$\operatorname{OR}_5\circ\operatorname{OR}_5=\operatorname{OR}_{25}$
+has depth five by the same matching upper and lower bounds, whereas
+$D(\operatorname{OR}_5)+D(\operatorname{OR}_5)=6$.
+This refutes only an incorrectly strengthened equality. It is not a
+counterexample to the actual approximate-composition conjecture.
+
+\section{Model-assisted audit and remaining scope}
+The audit checked negated restrictions, nonconstant hypotheses, depth-zero
+endpoints, and the distinction between literal counting and formula depth.
+All proved facts are standard elementary bounds, with no novelty claim.
+The original question is broad and shares a target with catalogue 30004010;
+we retain this source ID without presenting it as an independent conjecture.
+No new general composition lower bound, explicit superpolynomial formula
+lower bound, numerical experiment, or theorem-prover verification is supplied.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Restriction arguments prove only the maximum of the component depths. The approximate additive lower bound for arbitrary Boolean block composition remains unproved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Complexity Theory, OWR 54/2015; the original relevant passages were inspected in the cached primary report, including their surrounding model qualifications. \url{https://doi.org/10.4171/owr/2015/54}.
+\item Gavinsky, Meir, Weinstein and Wigderson, Toward Better Formula Lower Bounds: The Composition of a Function and a Universal Relation (2017); primary abstract and introductory framing inspected, not its full proof. \url{https://www.math.ias.edu/~avi/PUBLICATIONS/GavinskyMeWeWi_sicomp2017.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Restriction arguments prove only the maximum of the component depths. The approximate additive lower bound for arbitrary Boolean block composition remains unproved.
+\end{document}

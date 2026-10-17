@@ -1,0 +1,98 @@
+% TOP_PROBLEM: {"id": 30001532, "title": "Nonlinear Coupling of Buoyancy Reversal and Radiation", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The source concerns cloud-top entrainment and specifically lists additional unresolved roles of shear, evaporation rates, droplet settling, and clustering. The extracted coupling question has no single specified PDE or coupling coefficient, so none is invented."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001532", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Determine whether evaporative buoyancy reversal couples nonlinearly to radiative and other cloud-top forcings.", "scope": "Computes a nonzero mixed forcing response and its stable branch in an explicit nonlinear relaxation ansatz.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the small root, stability derivative, mixed coefficient, c=0 limit and loss of uniformity near the branch point. Model self-audit only; no independent human proof checking. Coordinator checked the stable small-forcing root and its mixed quadratic response coefficient. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked the small root, stability derivative, mixed coefficient, c=0 limit and loss of uniformity near the branch point. Retained unresolved status and zero original-target progress; No cloud thermodynamics/radiation/entrainment reduction validates the ansatz or the omitted shear and droplet effects."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001532; source catalogue code OWR-4415-005
+\setcounter{section}{30001531}
+\section{Nonlinear Coupling of Buoyancy Reversal and Radiation}\label{30001532}
+{\small UnsolvedMath ID 30001532 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} Buoyancy reversal is the production of negatively buoyant mixtures during mixing of cloudy and clear air, for example through evaporation near a cloud-top inversion. Buoyancy drives vertical acceleration; radiative heating or cooling supplies an external thermal forcing. Nonlinear coupling means that the combined evolution cannot be accounted for by adding two independent linear responses.
+
+\paragraph{Source scope and qualifications.} The source concerns cloud-top entrainment and specifically lists additional unresolved roles of shear, evaporation rates, droplet settling, and clustering. The extracted coupling question has no single specified PDE or coupling coefficient, so none is invented.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+Can buoyancy reversal remain nonlinearly coupled to external forcings such as radiation?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The extracted question asks whether buoyancy reversal can couple nonlinearly to external forcings such as radiation; it is an ongoing modeling question and the report supplies no definitive answer. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Determine whether evaporative buoyancy reversal couples nonlinearly to radiative and other cloud-top forcings.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Computes a nonzero mixed forcing response and its stable branch in an explicit nonlinear relaxation ansatz.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{An explicit mixed-response test.} Let $x$ represent a small mixing/evaporation anomaly and consider the imposed scalar relaxation law $\dot x=-ax+F+R+cx^2$, with $a>0$, forcing amplitudes $F,R$, and $c\ne0$. The equilibrium tending to zero with $s=F+R$ is
+\[
+ x_*(s)=\frac{a-\sqrt{a^2-4cs}}{2c}
+ =\frac{s}{a}+\frac{cs^2}{a^3}+O(s^3).
+\]
+It exists for sufficiently small real $s$, and its linearized derivative $-a+2cx_*=-\sqrt{a^2-4cs}<0$, so it is locally stable. The combined response is not additive:
+\[
+ x_*(F+R)-x_*(F)-x_*(R)=\frac{2c}{a^3}FR+O((|F|+|R|)^3).
+\]
+Thus even separately additive forcing terms can interact through nonlinear state response.
+
+\paragraph{A measurable diagnostic, not a constitutive derivation.} The mixed derivative $\partial_F\partial_Rx_*(0,0)=2c/a^3$ is a precise quantity distinguishing nonlinear coupling from the sum of isolated responses. If $c=0$, it vanishes and superposition is exact; near the discriminant boundary the stable relaxation rate weakens, so a small-forcing expansion is no longer uniform.
+
+\paragraph{Physical gap.} This toy variable and coefficient are not derived from cloud-top buoyancy reversal or radiative transfer. The source also identifies shear, evaporation rates, droplet settling and clustering as unresolved influences; none is silently removed from the physical problem. A coupled thermodynamic/transport model and a validated observable linking its mixed response to entrainment are the first missing ingredients. The algebra proves a possible mechanism within an ansatz, not persistence of that mechanism in the source cloud regime.
+
+\paragraph{Verification and adversarial audit.}
+Checked the small root, stability derivative, mixed coefficient, c=0 limit and loss of uniformity near the branch point. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked the small root, stability derivative, mixed coefficient, c=0 limit and loss of uniformity near the branch point. Retained unresolved status and zero original-target progress; No cloud thermodynamics/radiation/entrainment reduction validates the ansatz or the omitted shear and droplet effects.
+
+Coordinator checked the stable small-forcing root and its mixed quadratic response coefficient. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. No cloud thermodynamics/radiation/entrainment reduction validates the ansatz or the omitted shear and droplet effects.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. No cloud thermodynamics/radiation/entrainment reduction validates the ansatz or the omitted shear and droplet effects.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001532:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001532 (OWR-4415-005). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001532:2}{S2}] Mathematical Theory and Modelling in Atmosphere-Ocean-Science (2010), Oberwolfach Reports, DOI 10.4171/owr/2010/34, pp. 2027--2099; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2010/34}.
+\item[\hypertarget{source:30001532:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 36--37, printed pages 2062--2063.
+\url{https://ems.press/content/serial-article-files/46292}.
+\end{itemize}
+\label{end:30001532}
+\end{document}

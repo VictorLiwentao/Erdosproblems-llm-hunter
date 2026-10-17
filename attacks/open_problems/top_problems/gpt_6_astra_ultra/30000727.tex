@@ -1,0 +1,99 @@
+% TOP_PROBLEM: {"id": 30000727, "title": "Wang–Ostrik Finiteness Conjecture for Fusion Categories", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The fixed-rank parameter ranges over positive integers. The report distinguishes the characteristic-zero setting from positive characteristic, and its rank-two and ribbon-rank-three results are special cases rather than proof of the full conjecture."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000727", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "For each prescribed number of simple objects, decide whether only finitely many fusion and ribbon categories can occur.", "scope": "Exhibits infinitely many rank-two based rings, showing that a coefficient-bound argument needs genuine categorification constraints.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked quotient associativity, nonnegative coefficients, duality coefficient and positive root; avoided claiming the rings are fusion categories. Model self-audit only; no independent human proof checking. Coordinator checked the rank-two based-ring multiplication and positive dimension equation. No categorification is assumed. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked quotient associativity, nonnegative coefficients, duality coefficient and positive root; avoided claiming the rings are fusion categories. Retained unresolved status and zero original-target progress; No bound on categorifiable fusion coefficients or count of actual fusion/ribbon structures is obtained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30000727; source catalogue code OWR-1533-001
+\setcounter{section}{30000726}
+\section{Wang–Ostrik Finiteness Conjecture for Fusion Categories}\label{30000727}
+{\small UnsolvedMath ID 30000727 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} Over $\mathbb C$, a fusion category is a finite semisimple rigid linear tensor category with simple tensor unit and finite-dimensional morphism spaces. Its rank is the number of isomorphism classes of simple objects. A ribbon category in this question is a fusion category equipped with the compatible braiding, duality, and twist structure. Tensor equivalence identifies categories by a linear monoidal equivalence, with the relevant additional structures respected for the ribbon version.
+
+\paragraph{Source scope and qualifications.} The fixed-rank parameter ranges over positive integers. The report distinguishes the characteristic-zero setting from positive characteristic, and its rank-two and ribbon-rank-three results are special cases rather than proof of the full conjecture.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+For each fixed rank, are there only finitely many fusion categories, and likewise only finitely many ribbon categories, up to tensor equivalence?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The Wang--Ostrik finiteness conjecture for all fusion categories of a fixed rank remains open. Rank-finiteness is known for important subclasses such as modular and braided fusion categories. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+For each prescribed number of simple objects, decide whether only finitely many fusion and ribbon categories can occur.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Exhibits infinitely many rank-two based rings, showing that a coefficient-bound argument needs genuine categorification constraints.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Testing whether rank bounds the fusion coefficients.} For every integer $n\geq0$, consider the free abelian group with basis $1,x$ and multiplication
+\[
+ 1x=x1=x,\qquad x^2=1+nx,\qquad x^*=x.
+\]
+It is an associative based ring: it is the quotient $\mathbb Z[t]/(t^2-nt-1)$ with the displayed basis, all structure constants are nonnegative, and the coefficient of $1$ in $xx^*$ is one. Its positive dimension assignment sends
+\[
+ x\longmapsto d_n=\frac{n+\sqrt{n^2+4}}2,
+\]
+since $d_n^2=1+nd_n$. Thus even rank two allows unbounded candidate fusion coefficients at the level of these elementary ring axioms.
+
+\paragraph{Why categorification is the essential missing input.} A fusion category would additionally need associativity isomorphisms satisfying pentagon equations, duality data and, for the ribbon question, braiding and twist constraints. The constructed rings are not asserted to admit any of those structures. For $n=0$ the ring is the group ring of the two-element group, but this endpoint does not authorize the same conclusion for arbitrary $n$.
+
+\paragraph{Attempt outcome.} The naive enumeration route ``fixed rank gives finitely many nonnegative multiplication tables'' is false before categorical constraints are used: the tables above already form an infinite sequence. Therefore a proof of the source conjecture must bound categorifiable coefficients using substantially more than positivity, rigidity-style coefficient identities and the rank. Neither a bound on actual categories nor finiteness of compatible ribbon structures is established. This is consistent with the source's separate known low-rank results and does not challenge their classification.
+
+\paragraph{Verification and adversarial audit.}
+Checked quotient associativity, nonnegative coefficients, duality coefficient and positive root; avoided claiming the rings are fusion categories. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked quotient associativity, nonnegative coefficients, duality coefficient and positive root; avoided claiming the rings are fusion categories. Retained unresolved status and zero original-target progress; No bound on categorifiable fusion coefficients or count of actual fusion/ribbon structures is obtained.
+
+Coordinator checked the rank-two based-ring multiplication and positive dimension equation. No categorification is assumed. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. No bound on categorifiable fusion coefficients or count of actual fusion/ribbon structures is obtained.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. No bound on categorifiable fusion coefficients or count of actual fusion/ribbon structures is obtained.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30000727:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30000727 (OWR-1533-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30000727:2}{S2}] Arbeitsgemeinschaft: Conformal Field Theory (2007), Oberwolfach Reports, DOI 10.4171/owr/2007/17, pp. 945--994; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2007/17}.
+\item[\hypertarget{source:30000727:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF page 23.
+\url{https://ems.press/content/serial-article-files/46103}.
+\item[\hypertarget{source:30000727:4}{S4}] rank-finiteness for modular categories; reference in the saved dated catalogue literature review.
+\url{https://arxiv.org/abs/1310.7050}.
+\end{itemize}
+\label{end:30000727}
+\end{document}

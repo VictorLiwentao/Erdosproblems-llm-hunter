@@ -1,0 +1,47 @@
+% TOP_PROBLEM: {"id": 9700024, "title": "Growth exponents in the balanced city-growth regime", "category_id": 19, "category": {"id": 19, "name": "probability", "display_name": "Probability", "description": "Problems involving probability theory, stochastic processes, and random structures.", "slug": "probability", "order_index": 19, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: null
+% ENTRY_KIND: statement_only
+% Imported from: batch14.tex; UnsolvedMath ID 9700024
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded mathematical question.}#1}
+\begin{document}
+% UnsolvedMath ID 9700024; source catalogue code AMR-096-0024
+\setcounter{section}{9700023}
+\section{Growth exponents in the balanced city-growth regime}\label{9700024}
+{\small\sffamily UnsolvedMath ID 9700024 · Probability}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$, and $\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$ denote the integers, rationals, reals and complex numbers. Any other conventions are specified locally.
+
+
+At integer time $t\ge1$, cities have distinct positions $x_i\in[0,1]^2$ and populations $N_i(t)\ge1$ summing to $t$. Start with one city of population one at a uniform random position. Fix $c_0,\alpha,\beta>0$, and define
+\[I(y,t)=c_0\max_i N_i(t)^\alpha\|y-x_i\|_2^{-\beta}.\]
+An independent uniform point $U\in[0,1]^2$ is selected for immigrant $t+1$. With probability $1/(1+I(U,t))$ the immigrant founds a new city of population one at $U$; otherwise it joins a city attaining the maximum influence at $U$, increasing that city's population by one. Ties may be resolved arbitrarily on the zero-area boundaries. Write $M(t)$ for number of cities, $N_{(1)}(t)=\max_iN_i(t)$, and $N_{(\ge2)}(t)=t-N_{(1)}(t)$. The nondecreasing quantities $M(t)$ and $N_{(\ge2)}(t)$ have limits in $[0,\infty]$. Define $R(y,t)=\min_i\|y-x_i\|_2$, and let $S_i(t)$ be the influence cell where city $i$ attains the maximum defining $I(y,t)$; put $a_i(t)=\operatorname{area}S_i(t)$. For $Q=I,R$, define
+\[\zeta^*[Q]=\inf\{u:\mathbb E\operatorname{area}\{y\in[0,1]^2:Q(y,t)\ge t^u\}\to0\},\]
+\[\zeta_*[Q]=\sup\{u:\mathbb E\operatorname{area}\{y\in[0,1]^2:Q(y,t)\le t^u\}\to0\}.\]
+For population, use the influence-cell weighted exponents
+\[\zeta^*[N]=\inf\{u:\mathbb E\sum_i a_i(t)\mathbf1_{\{N_i(t)\ge t^u\}}\to0\},\qquad
+\zeta_*[N]=\sup\{u:\mathbb E\sum_i a_i(t)\mathbf1_{\{N_i(t)\le t^u\}}\to0\}.\]
+All limits in these definitions are as $t\to\infty$.
+\paragraph{Statement recorded in the supplied source.}
+For $0<\alpha<1$ and $\beta>2\alpha$, prove
+\[\zeta_*[I]=\zeta^*[I]=\zeta_*[N]=\zeta^*[N]=\frac{\beta}{2-2\alpha+\beta},\qquad
+\zeta_*[R]=\zeta^*[R]=\frac{\alpha-1}{2-2\alpha+\beta}.\] \sref{9700024}{2}
+\subsection{Short English statement}
+Identify all six upper and lower influence, population and nearest-city distance exponents in the balanced growth regime.
+\subsection{Sources}
+\begin{description}
+\item[\hypertarget{source:9700024:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, \emph{UnsolvedMath: A Curated Collection of Open Mathematics Problems}, record 9700024 (AMR-096-0024). CC BY 4.0. \url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:9700024:2}{S2}] David J. Aldous, technical notes on the spatial city-growth model, draft dated 25 April 2007, Section 1, model, p. 2; Section 3, exponent definitions and conjectured values, p. 15. \url{https://www.stat.berkeley.edu/~aldous/Research/OP/cities-notes.pdf}.
+\end{description}
+\label{end:9700024}
+\end{document}

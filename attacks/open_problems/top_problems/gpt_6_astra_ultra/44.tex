@@ -1,0 +1,105 @@
+% RESEARCH_DRAFT_SHA256: 5eb91ee753df824bd26a4d55a4236500724e57d73aaa2fd5cd7e3935537ffcfa
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 44, "title": "The Polynomial Hirsch Conjecture", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "44", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Exact Cartesian-product diameter and facet formulas; a checked failure of fixed-seed product amplification, with no new bound for arbitrary polytopes.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch001/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 44; source catalogue code CS-002
+\section{The Polynomial Hirsch Conjecture}\label{44}
+{\small UnsolvedMath ID 44 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$, and $\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$ denote the integers, rationals, reals and complex numbers. Any other conventions are specified locally.
+
+
+Let $P\subseteq\mathbb R^d$ be a bounded convex polytope of affine dimension $d\ge1$; equivalently, it is the convex hull of finitely many points whose affine span is $\mathbb R^d$. A facet is a face of dimension $d-1$, and let $n$ be the number of facets. The graph $G(P)$ has the vertices of $P$ as graph vertices and its one-dimensional faces as graph edges. For vertices $v,w$, their graph distance is the smallest number of edges in an edge path from $v$ to $w$. The diameter $\operatorname{diam}G(P)$ is the maximum of these distances. \href{https://arxiv.org/pdf/1006.2814}{[S2]}
+\paragraph{Statement recorded in the supplied source.}
+Are there constants $C>0$ and $k\in\mathbb N$, independent of $d$, $n$ and $P$, such that every bounded $d$-dimensional convex polytope with $n$ facets satisfies
+\[
+ \operatorname{diam}G(P)\le C(d+n+1)^k?
+\]
+Equivalently, is there a single polynomial in $d$ and $n$ that bounds the vertex-edge diameter of every such polytope? \href{https://arxiv.org/pdf/1006.2814}{[S2]}
+The exponent must be uniform across dimensions. A dimension-dependent polynomial or a bound with exponent $\log_2 d$ does not give the requested fixed polynomial. The question uses the vertex-edge graph, rather than the circuit diameter of a system of inequalities.
+\subsection{Short English statement}
+Can every pair of vertices of any bounded polytope be joined by an edge path whose length is bounded by one fixed polynomial in its dimension and number of facets?
+\subsection{Sources}
+\begin{description}
+\item[S1] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 44 (CS-002). CC BY 4.0. \url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Francisco Santos, A Counterexample to the Hirsch Conjecture, Annals of Mathematics 176 (2012), 383--412; arXiv:1006.2814v3 (2011), Section 1, Conjecture 1.3, page 3. \url{https://arxiv.org/pdf/1006.2814}.
+\item[S3] Noriyoshi Sukegawa, Improving Bounds on the Diameter of a Polyhedron in High Dimensions, Discrete Mathematics 340 (2017), 2134--2142; arXiv:1604.04039v3, Section 1 and Theorem 1. \url{https://arxiv.org/pdf/1604.04039}.
+\end{description}
+\label{end:44}
+
+
+\section{Research attempt}
+The target is one fixed polynomial for all bounded polytopes, with dimension allowed to grow. The attempted disproof route was to take repeated Cartesian products of a polytope violating the linear Hirsch bound, hoping its diameter would multiply. The calculation below rules out that amplification mechanism. It is elementary polytope geometry, not a new diameter bound for arbitrary polytopes.
+
+\begin{proposition}
+If bounded full-dimensional polytopes $P_i$ have dimensions $d_i$, facet counts $n_i$, and graph diameters $D_i$, then their product has dimension $\sum_i d_i$, facet count $\sum_i n_i$, and graph diameter $\sum_i D_i$.
+\end{proposition}
+\begin{proof}
+It suffices to treat two factors. A face exposed by the functional $(a,b)$ on $P\times Q$ is exactly $F_a(P)\times F_b(Q)$: attaining the maximum of $a\cdot x+b\cdot y$ requires attaining both separate maxima. Every face of a polytope is exposed, so this describes all faces, including a whole factor when its functional is zero. Dimensions add under products because the direction spaces occupy disjoint coordinates. Consequently, vertices are pairs of vertices. A one-dimensional face is an edge in one factor times a vertex in the other. A codimension-one face is a facet in one factor times the whole other factor, giving the asserted facet count.
+
+Along any edge path from $(v,w)$ to $(v',w')$, each step changes exactly one coordinate. The number of changes in the first coordinate is at least $\operatorname{dist}_P(v,v')$, and likewise in the second. Conversely concatenate a shortest first-coordinate path and a shortest second-coordinate path. Thus
+\[
+ \operatorname{dist}_{P\times Q}((v,w),(v',w'))
+ =\operatorname{dist}_P(v,v')+\operatorname{dist}_Q(w,w').
+\]
+Choosing pairs attaining each factor diameter proves the result. Induction handles finitely many factors.
+\end{proof}
+
+For a fixed seed $P$, the $r$th product has $rd$ dimensions, $rn$ facets and diameter $rD$. Its Hirsch excess is $r(D-n+d)$, but its ratio $D/(n-d)$ stays fixed. Even a positive excess for every $r$ is only a linear lower bound in the growing parameters. More generally, if each chosen factor satisfies $D_i\le C(d_i+n_i+1)^k$, for fixed $C$ and integer $k\ge1$, write $a_i=d_i+n_i+1$. Then
+\[
+ \sum_iD_i\le C\sum_i a_i^k\le C(\sum_i a_i)^k
+ \le C(2\sum_i(d_i+n_i))^k,
+\]
+where the middle inequality follows by expanding the nonnegative integer power and the last uses $d_i+n_i\ge1$. Thus products of uniformly polynomially bounded factors remain polynomially bounded. Allowing factors with already growing unbounded exponents merely relocates the original difficulty.
+
+\paragraph{A boundary test.}
+An interval has two facets and diameter one. Its $r$th product has $2^r$ vertices but diameter $r$. Counting vertices, even exponentially many, cannot establish a superpolynomial diameter. A polygon with $m\ge3$ vertices has a cycle graph and diameter $\lfloor m/2\rfloor$: the two paths between vertices have lengths adding to $m$, so the shorter has at most that length, attained by opposite or nearly opposite vertices.
+
+\section{Literature and context}
+Santos's primary arXiv record \url{https://arxiv.org/abs/1006.2814}, inspected 11 October 2026, reports a 43-dimensional polytope with 86 facets contradicting the linear Hirsch conjecture. That report supplies motivation only; neither its construction nor a numerical diameter is used in the proof above. The complete catalogue references are preserved. No exhaustive search for later polynomial-diameter results or novelty of the product calculation was performed.
+
+\section{Verification and remaining gaps}
+An exhaustive breadth-first distance computation on $C_5\mathbin\square C_7$ returned diameter $5=2+3$. The proof, rather than this finite check, covers all bounded factors. The self-audit specifically corrected the tempting but false multiplication of diameters and checked that graph edges, not circuit steps, are being counted. The argument supplies no operation that produces a seed with superpolynomial diameter, and no upper bound on arbitrary polytopes. Both alternatives of the original problem remain unsettled by this attempt.
+
+\section{References}
+The original sources S1--S3 above retain their attribution. Additional consulted locator: F. Santos, \emph{A counterexample to the Hirsch conjecture}, arXiv:1006.2814, abstract, \url{https://arxiv.org/abs/1006.2814}. Product and polygon calculations are proved here; no external diameter theorem is a proof dependency.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch001/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

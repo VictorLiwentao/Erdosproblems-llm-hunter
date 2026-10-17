@@ -1,0 +1,156 @@
+% RESEARCH_DRAFT_SHA256: 2f3245935b55e1e7f5a34af5085ad721543063ca86e1ed5a020bc42dff13d1e1
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 2800501, "title": "10 Lectures and 42 Open Problems — Deterministic Restricted Isometry Property matrices", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "problem_number": "AMR-027-0501", "set_id": 13}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "2800501", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Construct deterministic matrices $A\\in\\mathbb{C}^{M\\times N}$ (or $A\\in\\mathbb{R}^{M\\times N}$ ) satisfying the $(s,\\frac13)$ -RIP for $s\\approx\\frac{M^{0.6}}{\\mathrm{polylog}(N)}$", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Only elementary near-square constructions are supplied; the intended fixed-compression-ratio exponent 3/5 construction remains missing, and the supplied statement leaves its aspect-ratio quantifier implicit.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Deterministic RIP: near-square constructions and the missing aspect-ratio quantifier}
+\noindent UnsolvedMath ID 2800501; AMR-027-0501. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+For $A\in\mathbb C^{M\times N}$ and an integer $s\ge1$, define the
+restricted isometry constant
+\[
+ \delta_s(A)=\sup_{\substack{x\ne0\\|\operatorname{supp}(x)|\le s}}
+             \left|\frac{\|Ax\|_2^2}{\|x\|_2^2}-1\right|.
+\]
+Here $\operatorname{supp}(x)=\{j:x_j\ne0\}$; the same definition applies
+to real matrices and vectors. Thus $(s,1/3)$-RIP means
+$(2/3)\|x\|_2^2\le\|Ax\|_2^2\le(4/3)\|x\|_2^2$ simultaneously
+for every vector supported on at most $s$ coordinates.
+
+Construct explicit deterministic rectangular matrices, with $M<N$,
+that achieve the source's target scale
+\[
+                  s\ \gtrsim\ \frac{M^{3/5}}{(\log N)^C}
+\]
+for an absolute constant $C$, in nonvacuous growing parameter ranges.
+The hidden positive constant is independent of $M,N$. The requested
+construction should produce the matrix in polynomial time in its
+output dimensions, with a specified exact or adequately controlled
+finite-precision representation. Its guarantee must hold for its
+actual output, without an unverified random choice.
+
+The interesting ranges have the displayed target substantially larger
+than $\sqrt M$; otherwise this does not break the usual coherence
+barrier. An identity matrix with $M=N$ therefore does not answer the
+question. Likewise, a construction good for one specified sparse
+vector is insufficient: the same matrix must preserve all sparse
+vectors of the required order. State explicitly which pairs $(M,N)$
+the construction supports and any padding needed for other dimensions.
+\subsection{Short English statement}
+Construct explicit deterministic restricted-isometry matrices with sparsity of order M to the three-fifths power, up to logarithmic factors.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] ULAM.AI and the UnsolvedMath Contributors, supplied problems.json, record 2800501 (AMR-027-0501), AMR Open Problem Lists. Catalogue identity and source transcription; CC BY 4.0.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Bandeira - 42 Open Problems in Data Science (2016), Open Problem 5.1. Original source indexed by AMR-027-0501.
+\url{https://afonsobandeira.wordpress.com/2015/11/22/10l42gordon/}.
+\item[S3] A. S. Bandeira, Ten Lectures and Forty-Two Open Problems in the Mathematics of Data Science, corresponding numbered problem and surrounding definitions.
+\url{https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Construct deterministic matrices $A\in\mathbb{C}^{M\times N}$ (or $A\in\mathbb{R}^{M\times N}$ ) satisfying the $(s,\frac13)$ -RIP for $s\approx\frac{M^{0.6}}{\mathrm{polylog}(N)}$
+
+\section{Attempt and results}
+The preserved definition requires $M<N$ and sparsity substantially above
+$\sqrt M$, but does not fix a lower bound on $N/M-1$. This matters:
+near-square matrices give a literal easy family. The following construction
+is stated with its precise dimensions; it is not claimed as resolution of
+the intended compressed-sensing problem at fixed aspect ratio.
+
+\paragraph{An exact deleted-Fourier construction.}
+Take $N=M+1$, $M\ge1$, and
+$A_{rj}=M^{-1/2}\exp(2\pi i rj/N)$ for $1\le r\le M$ and $0\le j<N$.
+The geometric-series identity gives
+\[
+A^*A=\frac NM I_N-\frac1M J_N.
+\]
+On a support $J$ of cardinality $t$, the Gram error is
+$M^{-1}(I_t-J_t)$. For $t\ge2$ its eigenvalues are $(1-t)/M$ on the
+constant vector and $1/M$ on its orthogonal complement; for $t=1$ it is zero.
+Consequently $\delta_s(A)=(s-1)/M$ for every integer $1\le s\le N$.
+In particular $s\le1+M/3$ gives the required $1/3$ distortion, including
+$s$ of order $M^{3/5}$. Entries have an exact succinct algebraic description
+using a root of unity and a square root, and the output has $MN$ entries.
+This is the usual simplex Gram matrix, an elementary known construction.
+There is no claim of a floating-point certificate without error control.
+
+\paragraph{How much codimension this method permits.}
+More generally delete $r=N-M$ rows from the unitary $N$-point Fourier matrix
+and scale the remaining rows by $\sqrt{N/M}$. Each column has norm one.
+For distinct columns the full Fourier inner product is zero, so the retained
+inner product is minus the deleted sum, of absolute value at most $r/M$.
+For any $t$-sparse $x$, therefore,
+\[
+|\|Ax\|^2-\|x\|^2|
+\le\frac rM\sum_{i\ne j}|x_i||x_j|
+\le\frac rM(t-1)\|x\|^2.
+\]
+The last step is Cauchy--Schwarz: $(\sum |x_i|)^2\le t\sum|x_i|^2$.
+Thus $r\le M^{2/5}$ allows $s$ of order $M^{3/5}$ by this certificate,
+but only with $N/M\longrightarrow1$.
+
+\paragraph{Why coherence alone stops at fixed aspect ratio.}
+Let $N$ unit columns lie in $\mathbb C^M$, and let $\mu$ be their maximum
+off-diagonal inner-product magnitude. If $G=A^*A$ has nonzero eigenvalues
+$\lambda_1,\ldots,\lambda_q$, $q\le M$, then
+$\sum\lambda_i=N$ and Cauchy--Schwarz gives
+$\operatorname{tr}(G^2)\ge N^2/M$.
+On the other hand $\operatorname{tr}(G^2)\le N+N(N-1)\mu^2$.
+Hence
+\[
+\mu^2\ge\frac{N-M}{M(N-1)}.
+\]
+If $N\ge(1+c)M$ for fixed $c>0$, this is at least
+$c/((1+c)M)$. A proof relying only on $(s-1)\mu\le1/3$ can then certify
+only $s\le1+\frac13\sqrt{(1+c)M/c}$. This limits this sufficient test;
+it is not an upper bound on the actual RIP order of every matrix.
+
+\section{Context, audit, and remaining scope}
+The primary lecture problem and its square-root-bottleneck discussion were
+inspected on 11 October 2026. The constructions and trace argument above are
+standard material, given with proofs to isolate the quantifier issue.
+The audit explicitly distinguishes $N/M\to1$ from $N\ge(1+c)M$, checks
+$s=1$ and $s=N$, and does not identify a limitation of coherence with an
+impossibility theorem for RIP. No numerical computation was used.
+The literal permissive formulation has the displayed near-square family;
+the source does not specify enough aspect-ratio quantifiers to call that a
+complete answer to its intended target. A substantive construction with fixed
+compression ratio and exponent $3/5$ has not been obtained here.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Only elementary near-square constructions are supplied; the intended fixed-compression-ratio exponent 3/5 construction remains missing, and the supplied statement leaves its aspect-ratio quantifier implicit.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Bandeira, lecture notes (2016), Open Problem 5.1 and Section 6.5; original construction target and coherence context inspected. \url{https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Only elementary near-square constructions are supplied; the intended fixed-compression-ratio exponent 3/5 construction remains missing, and the supplied statement leaves its aspect-ratio quantifier implicit.
+\end{document}

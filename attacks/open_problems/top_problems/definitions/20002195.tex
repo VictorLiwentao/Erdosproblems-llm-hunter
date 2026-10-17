@@ -1,0 +1,53 @@
+% SUBMISSION: {"kind": "statement_only", "category": "top_problems", "problem_id": "20002195", "proposal_type": "established", "source": "AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-INFRASTRUCTURE-0095: http://aimpl.org/macaulay2efie/4/", "status_evidence": "The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.", "status_checked_on": "2026-10-11", "duplicate_check": "Canonical ID 20002195 and source code AIM-INFRASTRUCTURE-0095 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed.", "attribution": "Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted."}
+% TOP_PROBLEM: {"id": 20002195, "title": "Degree-local Hom computation and certified corner reuse", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: null
+% ENTRY_KIND: statement_only
+% Imported from: computer_science_statements.tex; UnsolvedMath ID 20002195
+% Compile twice: lualatex 20002195.tex
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+% UnsolvedMath ID 20002195; source catalogue code AIM-INFRASTRUCTURE-0095
+\setcounter{section}{20002194}
+\section{Degree-local Hom computation and certified corner reuse}\label{20002195}
+{\small\sffamily UnsolvedMath ID 20002195 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a graded module M, a homogeneous map of degree d sends $M_j$ into $M_{j+d}$. Its endomorphism module is $\operatorname{End}(M)=\operatorname{Hom}(M,M)$. If $M=N_1\oplus N_2$, its endomorphisms have diagonal blocks $\operatorname{End}(N_i)$ and off-diagonal Hom blocks; the question asks whether desired blocks or degree slices can be computed without rebuilding the full module.
+\paragraph{Statement recorded in the supplied source.}
+There is preliminary code to decompose a module into indecomposables, but it would benefit from being much faster. Right now the bottleneck is the computation of the endomorphisms of module M.
+
+Can we compute all the degree-0 (or degree-≤ e) homomorphisms of a graded module M without computing the entirety of End M? What are other ways to speed up the decomposition of modules into indecomposable summands? If M is the direct sum of $N_1$ and $N_2$, how can we extract $\mathrm{End}(N_1)$ and $\mathrm{End}(N_2)$ from $\mathrm{End}(M)$ without recalculating? \sref{20002195}{2}
+\paragraph{Scope qualification.}
+The supplied degree-zero and degree-at-most-e targets and direct-sum reuse questions are retained; no blanket polynomial-time bound is asserted.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can selected degrees and direct-summand blocks of a module's homomorphisms be computed efficiently without recomputing its whole endomorphism module?
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002195:1}{S1}] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20002195 (AIM-INFRASTRUCTURE-0095). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002195:2}{S2}] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-INFRASTRUCTURE-0095
+\url{http://aimpl.org/macaulay2efie/4/}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20002195 and source code AIM-INFRASTRUCTURE-0095 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20002195}
+\end{document}

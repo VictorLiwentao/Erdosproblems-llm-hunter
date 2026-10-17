@@ -1,0 +1,113 @@
+% RESEARCH_DRAFT_SHA256: 15b40aad8f32186386c42e96e88b86e9abe8d9ec8ee6196ca6ee9c1af5a46e93
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001247, "title": "Faithful interchange between computational algebra systems", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001247", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review and model-assisted mathematical audit of written arguments; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Faithful interchange between computational algebra systems; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "An exact typed polynomial roundtrip and a lossy conversion obstruction; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch006 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 20001247; source catalogue code AIM-COMPUTATION-0085
+\section{Faithful interchange between computational algebra systems}\label{20001247}
+{\small UnsolvedMath ID 20001247 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+An algebra-system input format encodes objects such as rings, coefficient fields, variables, polynomials, ideals, and term orders. A faithful conversion must preserve those objects and conventions; the same printed polynomial can mean different things under different coefficient domains or variable orders.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+This is a software-interchange request without named formats, conversion scope, or a mathematical problem instance. The record does not claim that a converter exists or is correct. The supplied catalogue marks this record partially solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+Question 70 (Slavkovic). Are there scripts which convert between input formats for the different computational algebra systems? \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The source asks whether conversion scripts exist between computational algebra formats.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001247 (AIM-COMPUTATION-0085). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-COMPUTATION-0085.
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 20001247 and code AIM-COMPUTATION-0085 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:20001247}
+
+\section{Literature and context check}
+The source asks about format-conversion scripts but specifies no system versions or formats. The attempt constructs and tests a restricted rational-polynomial semantic interchange, while leaving named-system compatibility and current availability unclaimed.
+\section{Research attempt: An exact typed polynomial roundtrip and a lossy conversion obstruction}
+Fix an ordered list of distinct variable names $(x_1,\ldots,x_n)$ and the coefficient field $\mathbb Q$. Represent a polynomial as a finite map from exponent vectors in $\mathbb N^n$ to nonzero reduced fractions. A canonical normalization adds coefficients at duplicate exponent vectors, removes zeros, uses positive reduced denominators, and sorts exponent vectors lexicographically. Encode the ring tag, ordered variable names, exponent vectors, and numerator/denominator integer strings in a structured record. Decode by validating these types and rebuilding the map with exact integer and rational arithmetic.
+
+For valid polynomial input, decoding after encoding returns the same polynomial. Indeed, canonicalization merely collects coefficients of identical formal monomials; it cannot change any coefficient sum. Reduced rational numerator/denominator pairs determine those sums exactly. The record retains every exponent and the ordered assignment of variables to exponent positions. Decoding therefore reconstructs each coefficient of each monomial. Equality of polynomials in the formal polynomial ring is precisely equality of these coefficient maps. Applying canonical encoding again returns the same canonical record because coefficient reduction and ordering are deterministic. This proves semantic roundtrip and canonical re-encoding, not compatibility with unspecified external parsers.
+
+The companion Python prototype uses integer strings inside JSON and exact rational arithmetic. It deliberately supports only this schema and $\mathbb Q$. It does not evaluate arbitrary source code or claim to import a named computer-algebra syntax. A concrete obstruction to replacing the exact coefficients by binary floating point is
+\[
+\operatorname{float}(2^{53})=\operatorname{float}(2^{53}+1)
+\]
+in the tested Python binary64 environment. The two distinct constant polynomials then have the same serialized numerical value; no decoder depending only on that value can recover both originals. This is an information loss, not a rounding error that an inverse parser can infer away.
+
+Two additional tags matter beyond coefficients. The expression $x+x$ equals zero over $\mathbb F_2$ but equals $2x$ over $\mathbb Q$, so omitting the field can change semantics. A monomial order does not change the polynomial itself, but it changes claims about leading terms: $x+y$ has leading term $x$ in lexicographic order $x>y$ and $y$ in the reverse order. Thus any conversion of a claimed basis together with leading-term information must transmit that order separately. The prototype makes no such basis-level claim.
+\section{Verification and adversarial audit}
+The executed cases include the zero polynomial, a coefficient above $2^{53}$, duplicate-term addition and cancellation, and a sparse high-exponent term with a large negative rational coefficient. All four roundtrips and canonical re-encodings passed. A mismatched coefficient-field tag was rejected, and the binary64 coefficient collision was reproduced. These finite tests supplement the representation proof; they are not fuzzing or a full security audit.
+\paragraph{Audit corrections.} Integer coefficients are serialized as strings to preserve their exact values through JSON consumers. Polynomial roundtrip is separated from preservation of monomial-order-dependent certificates.
+\paragraph{External computation.} Executed \texttt{exact\_polynomial\_roundtrip.py} with Python 3.14.2 in the companion batch directory. Output: four exact roundtrips and canonical re-encodings passed; float collision reproduced; field mismatch rejected. The script is retained as the reproducibility artifact.
+\section{Scope and remaining gaps}
+Only one exact rational-polynomial schema is implemented. Converters for particular algebra systems, rational-function domains, algebraic-number encodings, ideals with monomial orders, and current script availability remain unaddressed. The source is an interoperability agenda, not a theorem settled by this prototype.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and a model-assisted mathematical
+audit of the written arguments; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

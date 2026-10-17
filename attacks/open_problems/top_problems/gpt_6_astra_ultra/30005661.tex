@@ -1,0 +1,87 @@
+% TOP_PROBLEM: {"id": 30005661, "title": "Periodic Ground States in Gross–Pitaevskii Theory", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The quantifier is every ground state, not merely the existence of a periodic minimizer. Infinite-volume ground state and $\\mu_c$ use the source definitions."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005661", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Determine whether every infinite-volume Gross--Pitaevskii ground state is crystalline above the fluid--solid transition.", "scope": "Computed a density-wave second variation and an explicit finite-volume instability criterion; did not prove crystallinity.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked exact preservation of density, the factors in the convolution energy, the even expansion and the distinction between instability and global periodicity. Model self-audit only; no independent human mathematical verification. Coordinator checked the density-wave interaction term, kinetic expansion and conditional local-instability sign. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked exact preservation of density, the factors in the convolution energy, the even expansion and the distinction between instability and global periodicity. First remaining gap: Exclude nonperiodic infinite-volume ground states by a global comparison for the source potentials and transition threshold. The inherited source status is preserved; original-target completion remains zero."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30005661; source catalogue code OWR-14297742-001
+\setcounter{section}{30005660}
+\section{Periodic Ground States in Gross–Pitaevskii Theory}\label{30005661}
+{\small UnsolvedMath ID 30005661 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+For a pair potential $w$, $(w*|u|^2)(x)=\int w(x-y)|u(y)|^2dy$. The stationary Gross--Pitaevskii equation is the Euler equation for a nonlocal energy at chemical potential $\mu$. Superstability controls the interaction energy from below at high local density; $\widehat w$ is its Fourier transform. Periodicity means invariance under a full-rank lattice of spatial translations.
+
+\paragraph{Catalogue wording retained for traceability.}
+For superstable, sufficiently decaying pair interactions $w$ whose Fourier transform takes negative values, must every infinite-volume ground state of $(-\Delta+w*|u|^2)u=\mu u$ be periodic when $\mu$ exceeds the fluid–solid transition value $\mu_c$?
+
+\paragraph{Scope and source qualification.}The quantifier is every ground state, not merely the existence of a periodic minimizer. Infinite-volume ground state and $\mu_c$ use the source definitions.
+\subsection{Short English statement}
+Determine whether every infinite-volume Gross--Pitaevskii ground state is crystalline above the fluid--solid transition.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Computed a density-wave second variation and an explicit finite-volume instability criterion; did not prove crystallinity.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30005661. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{Density-wave test on a torus.} As an auxiliary finite-volume calculation take a real even periodic integrable kernel \(w\), a nonzero reciprocal lattice vector \(k\), density \(\rho>0\), and \(|\varepsilon|<1\). Normalize convolution so its Fourier multiplier is \(\widehat w(k)\). Set \(u_\varepsilon(x)=\sqrt{\rho(1+\varepsilon\cos(k\cdot x))}\). Its mean density is exactly \(\rho\). For the energy per volume \(\langle|\nabla u|^2\rangle+\frac12\langle|u|^2(w*|u|^2)\rangle\), the interaction difference is exactly \(\rho^2\varepsilon^2\widehat w(k)/4\). Also
+\[
+ \langle|\nabla u_\varepsilon|^2\rangle
+ =\frac{\rho\varepsilon^2|k|^2}{4}
+ \left\langle\frac{\sin^2(k\cdot x)}{1+\varepsilon\cos(k\cdot x)}\right\rangle
+ =\frac{\rho\varepsilon^2|k|^2}{8}+O(\varepsilon^4).
+\]
+The linear term inside the average vanishes; the remaining expansion is uniform for \(|\varepsilon|\leq1/2\). Thus the constant state fails this local minimum test if \(|k|^2+2\rho\widehat w(k)<0\). The chemical-potential term has zero difference because mean density is fixed.
+\paragraph{Why the route stops.} A negative Fourier component can select an unstable wavelength, but this calculation selects neither a lattice nor every minimizing state. The test is periodic by construction; using it to conclude periodicity of arbitrary infinite-volume minimizers would assume the desired property. Interfaces between competing patterns and nonperiodic candidates are not excluded by a local second variation.
+\paragraph{Scope.} The source requires every infinite-volume ground state above its actual \(\mu_c\), for its superstable decaying kernels. No identification of \(\mu_c\) with this finite-volume instability threshold is proved. The first missing estimate is a global energy comparison excluding all nonperiodic competitors under the source ground-state definition.
+
+\paragraph{Verification and adversarial audit.}
+Checked exact preservation of density, the factors in the convolution energy, the even expansion and the distinction between instability and global periodicity. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked exact preservation of density, the factors in the convolution energy, the even expansion and the distinction between instability and global periodicity. First remaining gap: Exclude nonperiodic infinite-volume ground states by a global comparison for the source potentials and transition threshold. The inherited source status is preserved; original-target completion remains zero.
+
+Coordinator checked the density-wave interaction term, kinetic expansion and conditional local-instability sign. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Exclude nonperiodic infinite-volume ground states by a global comparison for the source potentials and transition threshold.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30005661:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30005661 (OWR-14297742-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30005661:2}{S2}] Many-Body Quantum Systems (2023), Oberwolfach Reports, DOI 10.4171/owr/2023/39, pp. 2247--2302. Original report and mathematical context.
+\url{https://doi.org/10.4171/owr/2023/39}.
+\end{itemize}
+\label{end:30005661}
+\end{document}

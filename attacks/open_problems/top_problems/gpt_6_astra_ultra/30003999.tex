@@ -1,0 +1,142 @@
+% RESEARCH_DRAFT_SHA256: 62f804c2a23d81f9148b04ca6bbaf5cfbc28cfba3208bebc2a22f3829b1d0949
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30003999, "title": "Polynomial-Time Comparison of Sparse Algebraic Power Sums", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003999", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and adversarial mathematical review of the written argument; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Polynomial-Time Comparison of Sparse Algebraic Power Sums; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "An exact algorithm for the retained cubic-root variant and a source discrepancy; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch012 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30003999; source catalogue code OWR-16633-016
+\section{Polynomial-Time Comparison of Sparse Algebraic Power Sums}\label{30003999}
+{\small UnsolvedMath ID 30003999 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Integers are encoded in binary; the displayed length includes their magnitudes logarithmically. Algebraic real numbers such as $2^{1/3}$ are represented exactly rather than rounded to floating-point values.
+
+Polynomial time means a number of elementary steps bounded by a polynomial in the encoded input length. A decision problem is in $\mathrm{NP}$ if yes-instances have polynomial-length certificates verifiable in polynomial time; NP-hardness is under polynomial-time reductions.
+\paragraph{Statement recorded in the supplied source.}
+Given integers $r_1,\ldots,r_n$, is there an algorithm polynomial in
+
+$$\sum_{i=1}^n\log(\lvert r_i\rvert+1)$$
+
+that decides whether $\sum_{i=1}^n2^{r_i/3}>1$? More generally, for fixed $\alpha\in\mathbb Q$ and input coefficients $\beta_i\in\mathbb Q$, decide whether $\sum_i\beta_i\alpha^{r_i}>0$. \href{https://doi.org/10.4171/owr/2018/50}{[S2]}
+\paragraph{Scope qualification.}
+The first target uses the cubic root of two, while the supplied generalization writes fixed rational $\alpha$. These are retained as distinct supplied formulations; exponent bit lengths alone do not silently exclude rational coefficient lengths or undefined negative powers of zero.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Compare the stated sparsely represented sums of algebraic powers in time polynomial in their encoding length.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30003999 (OWR-16633-016). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2019), Oberwolfach Reports, DOI 10.4171/owr/2018/50, pp. 2969--3023
+\url{https://doi.org/10.4171/owr/2018/50}.
+\item[S3] Oberwolfach Report 50/2018
+\url{https://ems.press/content/serial-article-files/46772}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30003999 and source code OWR-16633-016 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30003999}
+
+\section{Literature and context check}
+The primary report, p. 3015, asks about $\sum_i(2/3)^{r_i}>1$. The retained catalogue definition instead displays $\sum_i2^{r_i/3}>1$. These are different problems, not equivalent typography. The source then generalizes its rational-base problem to fixed rational $\alpha$ and rational coefficients. The complete original definition is preserved above; this attempt explicitly proves an algorithm for its cubic-root expression while leaving the report's rational-base target and the bundled generalization unresolved. No novelty is asserted for this fixed-degree algebraic reduction.
+\section{Research attempt: An exact algorithm for the retained cubic-root variant and a source discrepancy}
+\paragraph{A sparse dyadic sign lemma.}
+Given $m$ signed terms $c_j2^{e_j}$ with integer coefficients and integer exponents in binary, their sum's sign can be computed in time polynomial in the full encoded input length. Delete zero coefficients and set $C=\sum_j|c_j|$. If none remain, the answer is zero. Otherwise choose an integer $L$ with $2^L>C$, for example one more than the bit length of $C$. Sort exponents in decreasing order and partition into consecutive clusters, breaking whenever adjacent exponents differ by more than $L$.
+
+For each cluster with smallest exponent $b$, compute exactly the integer
+\[
+z=\sum_{j\text{ in cluster}}c_j2^{e_j-b}.
+\]
+Its exponent span is at most $(m-1)L$, since each within-cluster gap is at most $L$. Hence this integer has polynomially many bits and can be computed by ordinary integer shifts and additions without expanding the possibly enormous absolute exponents. Process clusters from largest exponents down. If $z=0$, discard that cluster. If $z\ne0$, its contribution has magnitude at least $2^b$, while every remaining term has exponent less than $b-L$. Thus the absolute value of the entire lower tail is at most $C2^{b-L-1}<2^b$. The full sum consequently has the sign of $z$. If all clusters cancel, the full sum is zero. Sorting, exponent subtraction and cluster arithmetic use polynomially many bit operations: $\log C$ is bounded by the total coefficient length plus $O(\log m)$, and the cluster spans are polynomial. Negative exponents cause no difficulty because the common factor $2^b$ is used only for a positive scale comparison.
+
+\paragraph{Grouping cubic-root powers.}
+Let $\theta=2^{1/3}$ be the positive real root. For each integer $r_i$, perform Euclidean division $r_i=3q_i+s_i$ with $s_i\in\{0,1,2\}$, including negative exponents. Then
+\[
+\sum_i2^{r_i/3}-1=A+B\theta+C\theta^2,
+\]
+where $A=-1+\sum_{s_i=0}2^{q_i}$, $B=\sum_{s_i=1}2^{q_i}$, and $C=\sum_{s_i=2}2^{q_i}$. Here $C$ denotes a coefficient rather than the coefficient-size bound in the preceding lemma. Each is stored as a sparse dyadic sum, without constructing a dense rational number.
+
+For rational $A,B,C$, the algebraic norm is
+\[
+N(A+B\theta+C\theta^2)=A^3+2B^3+4C^3-6ABC.
+\]
+For a direct verification, multiplication by $A+B\theta+C\theta^2$ in the basis $(1,\theta,\theta^2)$ has matrix
+\[
+\begin{pmatrix}A&2C&2B\\B&A&2C\\C&B&A\end{pmatrix};
+\]
+expanding its determinant gives the formula. Evaluation at each of the three distinct roots $\theta,\theta\omega,\theta\omega^2$ of $t^3-2$, where $\omega=e^{2\pi i/3}$, intertwines this multiplication map with scalar multiplication by the corresponding evaluated value. The evaluation matrix is a nonsingular Vandermonde matrix, since its root differences are nonzero. Thus the determinant is the product of the three evaluated values.
+
+The latter two factors are complex conjugates. Their product is positive unless they vanish. If a degree-at-most-two rational polynomial vanished at one of these roots, $t^3-2$ would have a proper rational factor: polynomial division by its minimal polynomial gives this standard implication, or the Euclidean algorithm would give a common factor. The cubic is irreducible over $\mathbb Q$: a reducible cubic has a rational root; writing such a root in lowest terms forces it to be an integer dividing two, and none of $\pm1,\pm2$ has cube two. Hence these conjugate factors vanish only when $A=B=C=0$. It follows that the real expression $A+B\theta+C\theta^2$ and its norm have the same sign, with zero occurring simultaneously.
+
+\paragraph{Bit complexity.}
+Expand the norm into ordered products of the sparse terms defining $A,B,C$. There are $O((n+1)^3)$ dyadic monomials. Their exponents are sums of at most three $q_i$ and their integer coefficients belong to a fixed finite set before aggregation, of absolute value at most six. This list can be built with polynomially many operations on binary integers of length polynomial in the original exponent lengths. Apply the sparse dyadic sign lemma to it. The resulting exact sign decides the retained cubic-root comparison in polynomial bit complexity, including equality cases such as two terms with $r_i=-3$, whose sum is exactly one. The actual input length includes separators and the number of entries, so it is at least $n$; the displayed sum of logarithms alone assigns zero contribution to a zero exponent and is only an informal size expression.
+
+\paragraph{The first gap for the source's rational base.}
+For $(2/3)^r$, powers do not fall into finitely many classes of dyadic monomials through this cubic norm. Clearing a common denominator may require powers of three whose dense length is proportional to an exponent's magnitude, not its binary length. The proved clustering lemma for one integer base does not compare the resulting mixed powers of two and three. No polynomial algorithm or hardness result for that rational-base problem follows from this argument.
+\section{Verification and adversarial audit}
+The norm sign proof explicitly checks that the nonreal conjugate product is strictly positive away from the zero element. The sparse-sign lemma compares a nonzero cluster with the entire lower tail, not one next term; cancellation within a cluster is exact. All arithmetic-size bounds use exponent differences within a cluster rather than absolute exponent magnitudes. The first expression's transcription discrepancy is retained and disclosed.
+\paragraph{Audit corrections.} The source uses $(2/3)^r$, not $2^{r/3}$. The manuscript does not silently replace one with the other. Polynomial time is justified for sparse binary exponents through a complete cluster-size argument, not through dense denominator expansion.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The cubic-root subquestion in the retained definition has a complete exact algorithm, but the primary report's rational-base question and the bundled arbitrary rational-base/coefficient problem remain unresolved here. Because those are essential parts of the original source scope, no full-solution status is claimed. Cases with negative powers of zero remain undefined unless separately excluded, as already qualified in the original definition.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46772} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and adversarial mathematical review of the written argument; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

@@ -1,0 +1,121 @@
+% TOP_PROBLEM: {"id": 30003383, "title": "Strong-Interaction Limits of the Hohenberg–Kohn Functional", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "All five tasks are retained, including the one-dimensional zero-point correction and the expressly conditional aspiration in three dimensions. Establishing the leading transport limit alone does not settle these next-order, statistics, Monge and approximation questions."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003383", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Understand the strong-interaction density-functional limit, its quantum corrections, three-dimensional transport maps and usable functional approximations.", "scope": "Derives the exact harmonic normal-mode zero-point energy and contrasts a quartic degenerate scale; does not prove the density-constrained asymptotic correction or the source statistics, Monge and approximation tasks.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the completed-square constant, normalized Gaussian and width, independent-mode sum, quartic rescaling, and the missing marginal, geometric and exchange-symmetry hypotheses. Model self-audit only; no independent human proof checking. Coordinator checked the oscillator square completion, Gaussian normalization and quartic rescaling, and the exact-marginal obstruction to transferring the local calculation. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked the completed-square constant, normalized Gaussian and width, independent-mode sum, quartic rescaling, and the missing marginal, geometric and exchange-symmetry hypotheses. Retained unresolved status and zero original-target progress; Control harmonic expansion around the actual optimal transport support while preserving every prescribed marginal at the correction scale, for both upper and lower bounds. Additional GPT-6 Astra reviewer (ultra reasoning): Expanded the completed square and integrated Re integral y conjugate(psi) psi-prime=-1/2 for a normalized rapidly decreasing state. The cross contribution is -omega/2 and the remaining ground-energy constant is omega/2, with omega=sqrt(lambda a). Checked the Gaussian normalization (omega/pi)^(1/4), equality in the square, spatial width order lambda^(-1/4) a^(-1/4), and the sum sqrt(lambda)/2 times sum sqrt(a_j) for independent positive normal modes. Checked both kinetic and quartic terms under y=lambda^(-1/6)z and the associated unitary rescaling; both carry lambda^(1/3), so the degenerate example has a different scale. Compared the source tasks and established-leading-limit qualification: exact marginal repair, lower bounds near the actual transport support, exchange statistics, higher-dimensional Monge questions and usable approximations are not claimed to follow from the auxiliary oscillator."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30003383; source catalogue code OWR-15212-002
+\setcounter{section}{30003382}
+\section{Strong-Interaction Limits of the Hohenberg–Kohn Functional}\label{30003383}
+{\small UnsolvedMath ID 30003383 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+The Hohenberg--Kohn or Levy--Lieb constrained-search functional minimizes kinetic plus interaction energy among quantum states with prescribed one-particle density. In the strong-interaction limit the leading interaction problem is multimarginal optimal transport, with every marginal determined by that density. A Monge solution is concentrated on the graph of deterministic maps from one particle position to the others. The zero-point correction describes the next contribution from small quantum fluctuations about the leading optimal configurations. Bose or Fermi statistics constrain the symmetry of the underlying quantum state.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+For the Hohenberg–Kohn functional and its multimarginal optimal-transport limit, determine the strong-interaction asymptotics; prove the zero-point-energy correction in one and, if possible, three dimensions; describe corrections due to quantum statistics; establish deterministic Monge solutions in three dimensions with more than two marginals; and construct effective approximate transport maps or functional derivatives for density-functional theory.
+
+\paragraph{Source scope and qualification.}
+All five tasks are retained, including the one-dimensional zero-point correction and the expressly conditional aspiration in three dimensions. Establishing the leading transport limit alone does not settle these next-order, statistics, Monge and approximation questions.
+\subsection{Short English statement}
+Understand the strong-interaction density-functional limit, its quantum corrections, three-dimensional transport maps and usable functional approximations.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derives the exact harmonic normal-mode zero-point energy and contrasts a quartic degenerate scale; does not prove the density-constrained asymptotic correction or the source statistics, Monge and approximation tasks.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{The proposed zero-point scale in a local normal mode.}
+A natural attempted route expands the interaction cost in directions normal to a minimizing transport configuration. To see what this would require, assume one such coordinate $y$ has a fixed positive quadratic coefficient $a$ and consider the auxiliary operator
+\[
+ H_\lambda=-\tfrac12\frac{d^2}{dy^2}+\frac{\lambda a}{2}y^2,
+ \qquad a>0,\quad\lambda>0.
+\]
+Write $\omega=\sqrt{\lambda a}$. For a normalized smooth rapidly decaying wave function $\psi$, integration by parts gives
+\[
+ \langle\psi,H_\lambda\psi\rangle
+ =\tfrac12\int_{\mathbb R}|\psi'+\omega y\psi|^2dy
+   +\frac\omega2.
+\]
+Indeed, the cross term is
+$\omega\operatorname{Re}\int y\overline\psi\psi'=-\omega/2$.
+Equality is attained by
+$\psi(y)=(\omega/\pi)^{1/4}e^{-\omega y^2/2}$.
+The ground energy is therefore $\sqrt\lambda\sqrt a/2$, and the spatial width is of order $\lambda^{-1/4}a^{-1/4}$.
+For $q$ independent normal coordinates with positive coefficients $a_1,\ldots,a_q$, summing the completed squares gives the exact energy
+\[
+ \frac{\sqrt\lambda}{2}\sum_{j=1}^q\sqrt{a_j}.
+\]
+This is the local harmonic mechanism behind a zero-point correction, not yet an asymptotic expansion of the density-constrained functional.
+
+\paragraph{Degenerate directions change the scale.}
+If the quadratic coefficient vanishes and the first confining term is $\lambda y^4$, substituting $y=\lambda^{-1/6}z$ gives the exact rescaling
+\[
+ -\tfrac12\partial_y^2+\lambda y^4
+ =\lambda^{1/3}\left(-\tfrac12\partial_z^2+z^4\right)
+\]
+under the corresponding unitary change of variables. Thus a positive transverse Hessian is a substantive assumption, not a harmless detail. A position-dependent Hessian, singular transport support, or tangent zero modes cannot be handled by simply summing fixed oscillators.
+
+\paragraph{Where the constrained-search proof stops.}
+The product Gaussians above generally do not have the exactly prescribed one-particle density. To turn them into an upper bound at the claimed correction order one must repair the marginals without an error of that order; a lower bound must control all admissible states near the optimal transport support and justify the harmonic approximation. Bose or Fermi symmetry imposes additional global constraints which this local oscillator ignores. Consequently the calculation proves neither the full strong-interaction asymptotics nor the one-dimensional zero-point theorem, much less its three-dimensional extension. It also gives no general three-dimensional Monge solution for more than two marginals and no effective maps or functional derivatives. All five source tasks, including the already established portions of the leading limit, remain distinct from this elementary reconstruction.
+
+\paragraph{Verification and adversarial audit.}
+Checked the completed-square constant, normalized Gaussian and width, independent-mode sum, quartic rescaling, and the missing marginal, geometric and exchange-symmetry hypotheses. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked the completed-square constant, normalized Gaussian and width, independent-mode sum, quartic rescaling, and the missing marginal, geometric and exchange-symmetry hypotheses. Retained unresolved status and zero original-target progress; Control harmonic expansion around the actual optimal transport support while preserving every prescribed marginal at the correction scale, for both upper and lower bounds. Additional GPT-6 Astra reviewer (ultra reasoning): Expanded the completed square and integrated Re integral y conjugate(psi) psi-prime=-1/2 for a normalized rapidly decreasing state. The cross contribution is -omega/2 and the remaining ground-energy constant is omega/2, with omega=sqrt(lambda a). Checked the Gaussian normalization (omega/pi)\textasciicircum{}(1/4), equality in the square, spatial width order lambda\textasciicircum{}(-1/4) a\textasciicircum{}(-1/4), and the sum sqrt(lambda)/2 times sum sqrt(a\_j) for independent positive normal modes. Checked both kinetic and quartic terms under y=lambda\textasciicircum{}(-1/6)z and the associated unitary rescaling; both carry lambda\textasciicircum{}(1/3), so the degenerate example has a different scale. Compared the source tasks and established-leading-limit qualification: exact marginal repair, lower bounds near the actual transport support, exchange statistics, higher-dimensional Monge questions and usable approximations are not claimed to follow from the auxiliary oscillator.
+
+Coordinator checked the oscillator square completion, Gaussian normalization and quartic rescaling, and the exact-marginal obstruction to transferring the local calculation. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Control harmonic expansion around the actual optimal transport support while preserving every prescribed marginal at the correction scale, for both upper and lower bounds.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Control harmonic expansion around the actual optimal transport support while preserving every prescribed marginal at the correction scale, for both upper and lower bounds.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30003383:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30003383 (OWR-15212-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30003383:2}{S2}] Applications of Optimal Transportation in the Natural Sciences (2017), Oberwolfach Reports, DOI 10.4171/owr/2017/7, pp. 339--416. Primary report accessed 2026-10-11; relevant PDF pages 21.
+\url{https://doi.org/10.4171/owr/2017/7}.
+\item[\hypertarget{source:30003383:3}{S3}] Lewin, Lieb, and Seiringer, OT and the semiclassical limit (catalogue-listed context; not independently consulted in this preparation).
+\url{https://www.numdam.org/item/JEP_2017__4__909_0/}.
+\item[\hypertarget{source:30003383:4}{S4}] Strictly correlated electrons in a quantum ring (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/2604.09908}.
+\item[\hypertarget{source:30003383:5}{S5}] Pass, Multi-marginal optimal transport (catalogue-listed context; not independently consulted in this preparation).
+\url{https://www.numdam.org/item/10.1051/m2an/2015020.pdf}.
+\end{itemize}
+\label{end:30003383}
+\end{document}

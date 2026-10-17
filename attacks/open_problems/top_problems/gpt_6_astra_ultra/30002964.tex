@@ -1,0 +1,164 @@
+% RESEARCH_DRAFT_SHA256: d0eb3a8b7928ae28008323fe5c75795ecb7452f5886e1c1f8c34b622a46a8087
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30002964, "title": "Complexity and Rank of Completely Positive Matrices", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002964", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Let $CP_n=\\{BB^T:B\\in\\mathbb R_{\\geq0}^{n\\times k}\\text{ for some }k\\}$ be the cone of completely positive matrices. Is membership in $CP_n$ in NP? How can the cp-rank $\\operatorname{cp}(A)=\\min\\{k:A=BB^T,\\ B\\in\\mathbb R_{\\geq0}^{n\\times k}\\}$ of an arbitrary $A\\in CP_n$ be determined?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. No polynomial-bit certificate for every rational completely positive matrix or effective general cp-rank complexity classification is proved; only width bounds, an exact reduction, and an explicit family are settled.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Completely positive factors: polynomial width versus finite-bit certificates}
+\noindent UnsolvedMath ID 30002964; OWR-13941-004. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Polynomial time means a number of elementary steps bounded by a polynomial in the encoded input length. A decision problem is in $\mathrm{NP}$ if yes-instances have polynomial-length certificates verifiable in polynomial time; NP-hardness is under polynomial-time reductions.
+
+A real symmetric matrix is copositive if $x^TAx\geq0$ for every $x\geq0$. It is completely positive if $A=BB^T$ for an entrywise nonnegative matrix $B$; the minimum number of columns of $B$ is its cp-rank.
+\paragraph{Statement recorded in the supplied source.}
+Let $CP_n=\{BB^T:B\in\mathbb R_{\geq0}^{n\times k}\text{ for some }k\}$ be the cone of completely positive matrices. Is membership in $CP_n$ in NP? How can the cp-rank $\operatorname{cp}(A)=\min\{k:A=BB^T,\ B\in\mathbb R_{\geq0}^{n\times k}\}$ of an arbitrary $A\in CP_n$ be determined? \href{https://doi.org/10.4171/owr/2015/46}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Determine certificate complexity of completely-positive membership and compute the minimum nonnegative factorization width.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30002964 (OWR-13941-004). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Mixed-integer Nonlinear Optimization: A Hatchery for Modern Mathematics (2016), Oberwolfach Reports, DOI 10.4171/owr/2015/46, pp. 2701--2766
+\url{https://doi.org/10.4171/owr/2015/46}.
+\item[S3] Badenbroek--de Klerk, Completely Positive Factorization
+\url{https://doi.org/10.1007/s10589-022-00417-4}.
+\item[S4] Dickinson--Gijben, Complexity of CP-Cone Membership
+\url{https://doi.org/10.1007/s10589-013-9564-0}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Let $CP_n=\{BB^T:B\in\mathbb R_{\geq0}^{n\times k}\text{ for some }k\}$ be the cone of completely positive matrices. Is membership in $CP_n$ in NP? How can the cp-rank $\operatorname{cp}(A)=\min\{k:A=BB^T,\ B\in\mathbb R_{\geq0}^{n\times k}\}$ of an arbitrary $A\in CP_n$ be determined?
+
+\section{The attempted certificate argument}
+Dur's report, printed pages 2721--2723, asks both about NP membership and
+cp-rank, and describes a factorization heuristic whose success is not universal.
+For a standard Turing-model membership question we take the input symmetric
+matrix $A$ to have rational entries in binary. Arbitrary unencoded real inputs
+do not define that NP question. The proposed shortcut is to bound factor
+width and then declare the factor a polynomial certificate. The first part
+can be proved; the second needs additional information about the entries.
+
+\paragraph{A complete polynomial-width proof.}
+Let $D=n(n+1)/2$, the dimension of the space of real symmetric matrices.
+If $A$ is completely positive, start with a finite sum
+$A=\sum_{j=1}^k b_jb_j^T$, $b_j\ge0$, discarding zero terms.
+If $k>D$, the symmetric rank-one matrices are linearly dependent:
+$\sum_j c_jb_jb_j^T=0$ for some nonzero real vector $c$.
+The coefficients have both signs: taking traces gives
+$\sum_jc_j\|b_j\|^2=0$, which cannot hold with nonzero coefficients of
+just one sign. Choose $t=\min_{c_j>0}1/c_j$. Then
+\[
+A=\sum_j(1-tc_j)b_jb_j^T,
+\]
+all new coefficients are nonnegative and at least one vanishes. Absorb each
+positive coefficient into its vector by its nonnegative square root and
+repeat. Each iteration decreases the number of terms, proving
+$\operatorname{cp}(A)\le D$. The zero matrix has an empty decomposition
+(or zero columns if required by a width convention).
+
+This proof gives an existential polynomial number of real parameters, not
+polynomially many bits. Even $A=(2)$ has cp-rank one with its unique
+nonnegative one-column factor $(\sqrt2)$, which is not rational: if
+$\sqrt2=a/b$ in lowest terms then $a^2=2b^2$ forces both $a$ and $b$ even.
+This example does not disprove NP membership, because $A=(2)$ also has the
+rational two-column factor $(1,1)$ and a short algebraic description of the
+one-column factor. It merely rejects the inference that a minimum-width
+factor can always be listed as rational numbers without further argument.
+No general polynomial bound on a suitable exact certificate's bit length
+or algebraic representation is proved here.
+
+\paragraph{The exact real-feasibility reduction and its limit.}
+For each integer $k\le D$, the system
+\[
+b_{ir}\ge0,\qquad\sum_{r=1}^k b_{ir}b_{jr}=A_{ij}
+\quad(1\le i\le j\le n)
+\]
+is feasible over the reals if and only if $\operatorname{cp}(A)\le k$;
+zero-padding proves the forward comparison of widths, and its equations
+are exactly the required factorization. Thus an exact existential-real
+feasibility subroutine would determine cp-rank by testing finitely many
+widths. This is a reduction to another decision task, not a polynomial-time
+algorithm or a supplied proof of that subroutine's complexity.
+
+\section{A family where ordinary rank badly underestimates cp-rank}
+Let $G$ be a finite simple triangle-free graph with $m$ edges and no isolated
+vertices. Set
+\[
+A_G=\sum_{\{i,j\}\in E(G)}(e_i+e_j)(e_i+e_j)^T.
+\]
+Its diagonal is the degree sequence, and its off-diagonal positive entries
+are exactly the graph edges, all equal to one. The displayed nonnegative
+factor proves $\operatorname{cp}(A_G)\le m$.
+In any nonnegative factorization, each column's positive support is a clique:
+if two support entries were positive at a nonedge $i,j$, their positive
+product would contradict $A_{ij}=0$, since all other products are nonnegative.
+Triangle-freeness therefore restricts a column to at most two positive
+entries. It can account for at most one positive off-diagonal graph edge.
+Every edge must be accounted for by some column, so at least $m$ columns
+are necessary. Consequently $\operatorname{cp}(A_G)=m$.
+
+For $G=K_{a,b}$ with $a,b\ge2$, this is $ab$. The ordinary rank is
+$a+b-1$. Indeed, if $B$ is the displayed edge-column matrix,
+$B^Tx=0$ says $x_i+x_j=0$ for every cross-part pair. These equations force
+one constant on the first part and its negative on the second, giving a
+one-dimensional kernel. Also $\ker(BB^T)=\ker(B^T)$ because
+$x^TBB^Tx=\|B^Tx\|^2$. Hence the rank assertion follows.
+Balanced parts thus give quadratic cp-rank but only linear ordinary rank.
+An attempt to find a nonnegative factor merely by rotating an ordinary
+rank-width factor must fail on this family: rotation preserves its width,
+which is too small. Additional zero columns are necessary before such a
+rotation can even be possible.
+
+\section{Audit and remaining scope}
+The width reduction, support lower bound and bipartite family are elementary
+known mechanisms with complete proofs, not new general cp-rank results.
+The audit distinguished real width from bit length, and irrationality of a
+minimal factor from absence of every short certificate. It also checked zero
+entries, nonnegative cancellation, and the exact obstruction to a fixed-width
+orthogonal-rotation heuristic. The source's NP question and arbitrary-matrix
+factorization complexity are still unanswered in this attempt. No numerical
+or formal proof checking was performed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. No polynomial-bit certificate for every rational completely positive matrix or effective general cp-rank complexity classification is proved; only width bounds, an exact reduction, and an explicit family are settled.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 46/2015; the relevant original question and surrounding mathematical discussion were read in the cached primary report on 11 October 2026. \url{https://doi.org/10.4171/owr/2015/46}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} No polynomial-bit certificate for every rational completely positive matrix or effective general cp-rank complexity classification is proved; only width bounds, an exact reduction, and an explicit family are settled.
+\end{document}

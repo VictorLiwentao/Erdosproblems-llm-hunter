@@ -1,0 +1,154 @@
+% RESEARCH_DRAFT_SHA256: 10a70e57ad183b568a4ca4ed221400b3a3bb8ac6b890f5781af171f215e8a814
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001329, "title": "Multiple marked inputs: exclusion bounds and tight query regimes", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001329", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Find $x,y$ distinct with $f(x) = f(y) = 1$. Consider the case where there are many solutions at low density. How quickly can this be done? Faster than Grover?\n\nMore generally, find distinct $x_1,\\dots, x_m$ such that $f(x_1) = \\dots = f(x_m) = 1$. Can you do better than $m$ preimage searches?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The verified known-count exclusion baseline does not supply the source-wide unknown-count algorithm or a matching lower bound for growing output count under a complete resource model.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Finding distinct marked inputs: verified exclusion and the duplicate-sampling cost}
+\noindent UnsolvedMath ID 20001329; AIM-CRYPTOGRAPHY-0016. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+An input is marked when $f(x)=1$. The requested output is m pairwise distinct marked inputs; repeating an earlier output does not count. Query complexity measures calls to f, with the domain size and number of marked inputs affecting the search cost.
+\paragraph{Statement recorded in the supplied source.}
+Find $x,y$ distinct with $f(x) = f(y) = 1$. Consider the case where there are many solutions at low density. How quickly can this be done? Faster than Grover?
+
+More generally, find distinct $x_1,\dots, x_m$ such that $f(x_1) = \dots = f(x_m) = 1$. Can you do better than $m$ preimage searches? \href{http://aimpl.org/quantumalg/2/}{[S2]}
+\paragraph{Scope qualification.}
+The source emphasizes many low-density solutions but does not promise an exact marked-input count or specify whether it is known.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can several distinct marked inputs be found more efficiently than by carrying out separate quantum searches?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001329 (AIM-CRYPTOGRAPHY-0016). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-CRYPTOGRAPHY-0016
+\url{http://aimpl.org/quantumalg/2/}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Find $x,y$ distinct with $f(x) = f(y) = 1$. Consider the case where there are many solutions at low density. How quickly can this be done? Faster than Grover?
+
+More generally, find distinct $x_1,\dots, x_m$ such that $f(x_1) = \dots = f(x_m) = 1$. Can you do better than $m$ preimage searches?
+
+\section{Attempt and results}
+Assume a Boolean oracle on a domain of size $N$, with a known exact number
+$K$ of marks, where $1\le K\le N/2$, and request $1\le m\le K$ distinct
+outputs. These are explicit restrictions absent from the full source. We
+prove an expected-cost baseline with exclusion and contrast it with repeated
+search that ignores already found outputs. No matching general lower bound
+or unknown-count implementation is claimed.
+
+\paragraph{A verified search stage with a uniform success bound.}
+Suppose $j$ distinct marks have been found. Define a predicate that accepts
+exactly the marked points outside that stored list, leaving $k=K-j$ marks.
+Its phase flip can be made by computing the Boolean oracle, checking the
+classical list reversibly, applying a sign, and uncomputing. This costs two
+oracle queries per phase flip; comparison-gate cost is separate.
+Put $\theta=\arcsin\sqrt{k/N}\le\pi/4$. In the span of uniform good and
+bad states, the uniform initial state has coordinates $(\sin\theta,\cos\theta)$.
+The phase flip followed by reflection in that initial state has matrix
+$\left(\begin{smallmatrix}\cos2\theta&\sin2\theta\\-\sin2\theta&\cos2\theta\end{smallmatrix}\right)$.
+The angle-addition formulas therefore give success probability
+$\sin^2((2r+1)\theta)$ after $r$ iterations.
+Choose a nonnegative integer $r$ nearest to $\pi/(4\theta)-1/2$.
+Then $|(2r+1)\theta-\pi/2|\le\theta$, so success probability is at least
+$\cos^2\theta\ge1/2$. Also
+$r\le\pi/(4\theta)\le(\pi/4)\sqrt{N/k}$, since
+$\arcsin u\ge u$ for $0\le u\le1$ (its derivative is at least one).
+Measure a candidate and verify with one additional Boolean query; reject an
+unmarked or previously stored point and restart the stage independently.
+The number of trials is geometric with mean at most two, and each trial uses
+$2r+1\le(\pi/2+1)\sqrt{N/k}$ queries. Thus the expected stage cost is at
+most $C\sqrt{N/k}$ for the explicit constant $C=\pi+2$.
+
+\paragraph{Expected total and one global cutoff.}
+Linearity of conditional expectation, applied successively to the completed
+stages, bounds the expected total query count by
+\[
+C\sqrt N\sum_{j=0}^{m-1}(K-j)^{-1/2}.
+\]
+No independence between stages is needed, because the bound depends only on
+the known remaining count. Each summand is at least $1/\sqrt K$, while
+monotonicity of $x^{-1/2}$ gives
+\[
+\sum_{l=K-m+1}^K l^{-1/2}
+\le\int_{K-m}^{K}x^{-1/2}\,dx
+=2(\sqrt K-\sqrt{K-m})
+=\frac{2m}{\sqrt K+\sqrt{K-m}}
+\le\frac{2m}{\sqrt K}.
+\]
+The integral at zero is finite when $m=K$. Hence the sum lies between
+$m/\sqrt K$ and $2m/\sqrt K$, and the algorithm has expected query cost
+at most $2Cm\sqrt{N/K}$, including $O(\sqrt{NK})$ at $m=K$.
+For $0<\delta<1$, abort after the ceiling of the proved expectation bound
+divided by $\delta$. Markov's inequality follows directly from
+$\mathbb E T\ge a\Pr(T>a)$ for nonnegative $T$ (or by an arbitrarily
+small limiting adjustment), and gives failure probability at most $\delta$.
+All outputs retained before success were explicitly verified, so aborting
+never converts an invalid point into a claimed mark. The memory and
+comparison-gate costs of exclusion are not included in this query bound.
+
+\paragraph{Why ignoring duplicates can introduce an avoidable logarithm.}
+If independent successful searches always return uniform points from all $K$
+marks, then after $j$ distinct marks the probability of a new one is
+$(K-j)/K$. The expected number of successful search outputs required for the
+next distinct mark is therefore $K/(K-j)$, by the geometric-series calculation.
+Collecting all $K$ requires $K\sum_{l=1}^K1/l$ such outputs in expectation.
+The harmonic sum is at least $\int_1^{K+1}dx/x=\log(K+1)$, so this
+version incurs a coupon-collection overhead. Exclusion changes the predicate
+and avoids those duplicate outputs. This is an improvement over that specific
+implementation, not a proof of a better asymptotic bound than every strategy
+for $m$ preimages.
+
+\section{Context, adversarial audit, and gap}
+The exact original question was read on printed page 3 of the workshop report.
+The primary Boyer--Brassard--Hoeyer--Tapp abstract discusses unknown-count
+search, but that algorithm and its proof were not imported into this known-count
+baseline. The audit checked $m=K$, integral endpoints, verification queries,
+unknown-count restrictions, and the separation between query and gate costs.
+An attempted lower bound obtained by multiplying a one-output search lower
+bound by $m$ would need a direct-product argument for adaptive shared queries;
+none is proved here, so no optimality conclusion follows from the upper bound.
+No numerical simulation or quantum implementation was run.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The verified known-count exclusion baseline does not supply the source-wide unknown-count algorithm or a matching lower bound for growing output count under a complete resource model.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item AIM, Quantum algorithms for analysis of public-key crypto, official workshop summary, printed page 3; original coding and Grover questions inspected directly on 11 October 2026. \url{https://aimath.org/pastworkshops/quantumalgrep.pdf}.
+\item Boyer, Brassard, Hoeyer and Tapp, Tight bounds on quantum searching; primary abstract inspected. It discusses multiple and unknown numbers of solutions; this attempt proves only its explicitly stated known-count baseline independently. \url{https://arxiv.org/abs/quant-ph/9605034}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The verified known-count exclusion baseline does not supply the source-wide unknown-count algorithm or a matching lower bound for growing output count under a complete resource model.
+\end{document}

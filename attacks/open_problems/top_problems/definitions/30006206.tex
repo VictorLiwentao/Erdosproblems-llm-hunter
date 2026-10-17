@@ -1,0 +1,58 @@
+% SUBMISSION: {"kind": "statement_only", "category": "top_problems", "problem_id": "30006206", "proposal_type": "established", "source": "MFO-RIMS Tandem Workshop: Optimization, Theoretical Computer Science and Algebraic Geometry: Convexity and Beyond (2025), Oberwolfach Reports, DOI 10.4171/owr/2025/9, pp. 405--450: https://doi.org/10.4171/owr/2025/9", "status_evidence": "The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.", "status_checked_on": "2026-10-11", "duplicate_check": "Canonical ID 30006206 and source code OWR-14299088-008 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed.", "attribution": "Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted."}
+% TOP_PROBLEM: {"id": 30006206, "title": "Complexity-Bounded Computation of Maximum Destabilizing Subgroups", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: null
+% ENTRY_KIND: statement_only
+% Imported from: computer_science_statements.tex; UnsolvedMath ID 30006206
+% Compile twice: lualatex 30006206.tex
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+% UnsolvedMath ID 30006206; source catalogue code OWR-14299088-008
+\setcounter{section}{30006205}
+\section{Complexity-Bounded Computation of Maximum Destabilizing Subgroups}\label{30006206}
+{\small\sffamily UnsolvedMath ID 30006206 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Let $G\subseteq\operatorname{GL}_n(\mathbb C)$ be reductive and closed under conjugate transpose, with a compatible rational representation $\pi$ on a Hermitian space $V$ and $v\ne0$. Set $K=G\cap U(n)$ and $M=G\cap\{x=x^\dagger>0\}\cong K\backslash G$, with metric $\langle U,W\rangle_x=\operatorname{tr}(x^{-1}Ux^{-1}W)$. The Kempf-Ness objective is $f_v(x)=\log\langle\pi(x)v,v\rangle$. Instability means $0\in\overline{\pi(G)v}$. For a unit tangent $H$ at $I$, define $f_v^\infty(H)=\lim_{t\to\infty}(f_v(e^{tH})-f_v(I))/t$. Maximum destabilization minimizes this slope; the associated real one-parameter flow is $e^{tH}$, destabilizing when $\pi(e^{tH})v\to0$. Gradient flow uses $\dot x=-\nabla f_v(x)$ in this metric, with its direction limit taken at infinity.
+\paragraph{Statement recorded in the supplied source.}
+Construct an algorithm that computes the maximum destabilizing one-parameter subgroup represented by the limiting direction of the relevant gradient flow, and prove explicit complexity bounds for the algorithm. \sref{30006206}{2}
+\paragraph{Scope qualification.}
+The primary convergence theorem identifies the limit but does not give the requested algorithmic bound. Representation encoding, arithmetic versus bit cost, and exact versus approximate output must be specified; this is the source\textquotesingle s real one-parameter-flow setting.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Compute the maximum destabilizing direction associated with the cited gradient flow and prove quantitative complexity bounds.
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30006206:1}{S1}] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30006206 (OWR-14299088-008). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30006206:2}{S2}] MFO-RIMS Tandem Workshop: Optimization, Theoretical Computer Science and Algebraic Geometry: Convexity and Beyond (2025), Oberwolfach Reports, DOI 10.4171/owr/2025/9, pp. 405--450
+\url{https://doi.org/10.4171/owr/2025/9}.
+\item[\hypertarget{source:30006206:3}{S3}] Hirai--Sakabe
+\url{https://doi.org/10.1287/moor.2025.0939}.
+\item[\hypertarget{source:30006206:4}{S4}] Hirai and Sakabe, primary paper, sections 2 and 4.1, DOI 10.1287/moor.2025.0939
+\url{https://pubsonline.informs.org/doi/full/10.1287/moor.2025.0939}.
+\item[\hypertarget{source:30006206:5}{S5}] Hirai and Sakabe, preprint arXiv:2404.09746
+\url{https://arxiv.org/abs/2404.09746}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30006206 and source code OWR-14299088-008 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30006206}
+\end{document}

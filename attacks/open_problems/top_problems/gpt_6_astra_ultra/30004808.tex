@@ -1,0 +1,84 @@
+% TOP_PROBLEM: {"id": 30004808, "title": "Initial Data for Physical Late-Time Schwarzschild Wave Tails", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The meaning of physically realistic data is itself a requested characterization; it is not replaced by an arbitrary compact-support hypothesis."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004808", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Identify isolated-system wave data that give physically meaningful late-time radiation tails on a Schwarzschild background.", "scope": "Showed finite-energy outgoing radiation permits many tail powers in the flat exterior limit; no physical Schwarzschild-data characterization or tail theorem.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Derived the radial reduction and radiation limit, checked integrability for all positive p and kept flat exterior diagnostics distinct from curvature-generated Schwarzschild tails. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the reduced radial wave equation and integrability of the late-time radiation flux for all stated positive exponents. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Derived the radial reduction and radiation limit, checked integrability for all positive p and kept flat exterior diagnostics distinct from curvature-generated Schwarzschild tails. The remaining gap is: Relate physically isolated-system scattering data and asymptotic charges to admissible hyperboloidal data and their Schwarzschild radiation asymptotics. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30004808; source catalogue code OWR-8415343-011
+\setcounter{section}{30004807}
+\section{Initial Data for Physical Late-Time Schwarzschild Wave Tails}\label{30004808}
+{\small UnsolvedMath ID 30004808 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+The wave operator is $\Box_g\phi=g^{\mu\nu}\nabla_\mu\nabla_\nu\phi$. A hyperboloidal spacelike hypersurface approaches future null infinity rather than spatial infinity. Late-time tails are the leading decay terms of the radiation field of $\phi$ on $\mathcal I^+$. The background is the Schwarzschild exterior with fixed mass.
+
+\paragraph{Catalogue wording retained for traceability.}
+For solutions of the scalar wave equation $\Box_g\phi=0$ on a Schwarzschild background arising from physically realistic isolated-system data, how should one choose or characterize the data on an asymptotically hyperboloidal hypersurface $\Sigma$ so as to obtain physically meaningful predictions for the late-time asymptotics along future null infinity $\mathcal{I}^+$?
+
+\paragraph{Scope and source qualification.}The meaning of physically realistic data is itself a requested characterization; it is not replaced by an arbitrary compact-support hypothesis.
+\subsection{Short English statement}
+Identify isolated-system wave data that give physically meaningful late-time radiation tails on a Schwarzschild background.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Showed finite-energy outgoing radiation permits many tail powers in the flat exterior limit; no physical Schwarzschild-data characterization or tail theorem.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30004808. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{A radiation-data diagnostic in the flat limit.} For a radial wave in three-dimensional Minkowski space, set \(\psi(t,r)=r\phi(t,r)\). Direct substitution into \(-\phi_{tt}+r^{-2}(r^2\phi_r)_r=0\) gives \(-\psi_{tt}+\psi_{rr}=0\), so on an exterior region
+\[
+ \psi(t,r)=F(t-r)+G(t+r).
+\]
+If \(G(v)\to0\), the radiation field at future null infinity is \(F(u)\), where \(u=t-r\). For any \(p>0\), a smooth outgoing profile agreeing with \((1+u)^{-p}\) at large positive \(u\) has finite late-time radiative energy \(\int|F'(u)|^2du\), because the integrand decays as \(u^{-2p-2}\). Smooth compactly supported profiles instead have no late tail in this flat model.
+\paragraph{Implication for an attempted data criterion.} Finite radiation energy alone permits a continuum of decay powers and also compact support. Thus that scalar norm does not determine a unique late-time asymptotic. A global regular center in the flat radial problem imposes a relation between ingoing and outgoing pieces; the exterior calculation does not impose it artificially on black-hole data.
+\paragraph{Source gap.} On Schwarzschild, curvature scattering changes the relation between input and radiation and can generate tails from compact data. This calculation therefore does not predict a Schwarzschild exponent. The first gap is a physical scattering/isolated-system characterization of hyperboloidal data, including their asymptotic charges or low-frequency content, followed by a controlled propagation to null infinity. Replacing that task by a convenient compact-support condition would alter the source question.
+
+\paragraph{Verification and adversarial audit.}
+Derived the radial reduction and radiation limit, checked integrability for all positive p and kept flat exterior diagnostics distinct from curvature-generated Schwarzschild tails. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Derived the radial reduction and radiation limit, checked integrability for all positive p and kept flat exterior diagnostics distinct from curvature-generated Schwarzschild tails. The remaining gap is: Relate physically isolated-system scattering data and asymptotic charges to admissible hyperboloidal data and their Schwarzschild radiation asymptotics. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the reduced radial wave equation and integrability of the late-time radiation flux for all stated positive exponents. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Relate physically isolated-system scattering data and asymptotic charges to admissible hyperboloidal data and their Schwarzschild radiation asymptotics.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30004808:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30004808 (OWR-8415343-011). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30004808:2}{S2}] Mathematical Aspects of General Relativity (2021), Oberwolfach Reports, DOI 10.4171/owr/2021/40, pp. 2157--2267. Original report and mathematical context.
+\url{https://doi.org/10.4171/owr/2021/40}.
+\end{itemize}
+\label{end:30004808}
+\end{document}

@@ -1,0 +1,95 @@
+% TOP_PROBLEM: {"id": 30003669, "title": "Symmetry Identities Beyond Renormalization-Group Methods", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "No particular model, identity or estimate is fixed by this research programme. A valid result must state the nonperturbative model class and information obtained, rather than asserting that every symmetry identity solves a difficult model."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003669", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Can exact identities from symmetries give control over models beyond the reach of standard renormalization methods?", "scope": "Proved exact spin-flip and susceptibility identities at arbitrary finite-volume coupling and a symmetry-compatible obstruction to a uniform bound.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked arbitrary coupling signs, finite-volume differentiation, and distinguished the diagnostic two-state distribution from a finite-coupling Gibbs example. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked finite-volume differentiation and spin-flip symmetry, and verified that the N-squared two-state variance example is used only as a symmetry-compatible diagnostic. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked arbitrary coupling signs, finite-volume differentiation, and distinguished the diagnostic two-state distribution from a finite-coupling Gibbs example. The remaining gap is: Derive a quantitative volume-uniform estimate for a specified nonperturbative model by using more than symmetry alone. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30003669; source catalogue code OWR-15960-002
+\setcounter{section}{30003668}
+\section{Symmetry Identities Beyond Renormalization-Group Methods}\label{30003669}
+{\small UnsolvedMath ID 30003669 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+A Ward identity is a relation between correlation functions or functional-integral derivatives obtained from a symmetry of the model and its measure. Renormalization-group methods compare effective descriptions at successive scales and often rely on a controlled perturbative regime. The question asks whether the symmetry identities themselves can supply information outside the regimes accessible by those conventional estimates.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Can symmetry-generated identities help study models for which standard renormalization-group techniques do not apply?
+
+\paragraph{Source scope and qualification.}
+No particular model, identity or estimate is fixed by this research programme. A valid result must state the nonperturbative model class and information obtained, rather than asserting that every symmetry identity solves a difficult model.
+\subsection{Short English statement}
+Can exact identities from symmetries give control over models beyond the reach of standard renormalization methods?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved exact spin-flip and susceptibility identities at arbitrary finite-volume coupling and a symmetry-compatible obstruction to a uniform bound.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30003669. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{An exact finite-volume identity.} To test what symmetry alone can control outside a small-coupling expansion, take spins \(\sigma_i\in\{-1,1\}\) on any finite graph, with real couplings \(J_{ij}\), inverse temperature \(\beta\ge0\), uniform field \(h\), and probability proportional to
+\[
+ \exp\left(\beta\sum_{i<j}J_{ij}\sigma_i\sigma_j+h\sum_i\sigma_i\right).
+\]
+Write \(M=\sum_i\sigma_i\). The bijection \(\sigma\mapsto-\sigma\) proves \(Z(h)=Z(-h)\), so every odd derivative of \(Z\) at zero vanishes. Differentiation of this finite sum gives the exact susceptibility identity
+\[
+ \frac{d}{dh}\mathbb E_h M=\mathbb E_h M^2-(\mathbb E_h M)^2\ge0.
+\]
+No restriction on \(\beta J_{ij}\) was used; at \(h=0\), odd observables have zero expectation.
+\paragraph{Why this does not close the source programme.} These identities do not bound the susceptibility uniformly in volume. Consider two states only, the all-plus and all-minus configurations, with equal probabilities at zero field. The same spin-flip symmetry holds but \(\operatorname{Var}(M)=N^2\) for \(N\) sites. This two-state measure is a diagnostic symmetry-compatible measure, not the finite-coupling Gibbs measure above. It demonstrates that symmetry alone cannot improve the trivial variance bound \(N^2\). A control argument must use additional quantitative interaction structure.
+\paragraph{Audit.} The finite-sum differentiation and bijection are exact and nonperturbative, but no model has been proved inaccessible to renormalization-group methods, and no new thermodynamic information beyond elementary Ward-type consequences is obtained. The first gap is a useful volume-uniform estimate from identities plus dynamics in a specified source model. This preserves the report's broad question without declaring it solved by a formal symmetry calculation.
+
+\paragraph{Verification and adversarial audit.}
+Checked arbitrary coupling signs, finite-volume differentiation, and distinguished the diagnostic two-state distribution from a finite-coupling Gibbs example. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked arbitrary coupling signs, finite-volume differentiation, and distinguished the diagnostic two-state distribution from a finite-coupling Gibbs example. The remaining gap is: Derive a quantitative volume-uniform estimate for a specified nonperturbative model by using more than symmetry alone. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked finite-volume differentiation and spin-flip symmetry, and verified that the N-squared two-state variance example is used only as a symmetry-compatible diagnostic. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Derive a quantitative volume-uniform estimate for a specified nonperturbative model by using more than symmetry alone.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30003669:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30003669 (OWR-15960-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30003669:2}{S2}] Reflection Positivity (2017), Oberwolfach Reports, DOI 10.4171/owr/2017/55, pp. 3263--3343. Primary report accessed 2026-10-11; relevant PDF pages 26.
+\url{https://doi.org/10.4171/owr/2017/55}.
+\item[\hypertarget{source:30003669:3}{S3}] Speicher, Bi-Free Probability and Reflection Positivity (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/2312.06813}.
+\item[\hypertarget{source:30003669:4}{S4}] OWR Report 55/2017 (catalogue-listed context; not independently consulted in this preparation).
+\url{https://oa.tib.eu/renate/server/api/core/bitstreams/8df8b5cb-72c1-4ca0-929f-dca03ec9bec0/content}.
+\end{itemize}
+\label{end:30003669}
+\end{document}

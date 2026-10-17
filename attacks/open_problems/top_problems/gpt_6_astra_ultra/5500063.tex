@@ -1,0 +1,160 @@
+% RESEARCH_DRAFT_SHA256: 35e078bb95bfd23f17374c71284ab6f26029f757295c0786ea51a0f6a5b74625
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 5500063, "title": "Dynamic Planar Nearest Neighbors", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "problem_number": "AMR-054-0063", "set_id": 13, "statusQualification": "The source does not specify worst-case versus amortized or expected bounds; these guarantees are distinguished explicitly rather than identified."}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "5500063", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Dynamic Planar Nearest Neighbors; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Why explicit Voronoi maintenance cannot charge every update logarithmically; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch003 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{lmroman10-regular.otf}[BoldFont=lmroman10-bold.otf,
+ ItalicFont=lmroman10-italic.otf,BoldItalicFont=lmroman10-bolditalic.otf]
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{latinmodern-math.otf}
+\AtBeginDocument{\let\setminus\smallsetminus}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+\section*{Dynamic Planar Nearest Neighbors}\label{5500063}
+{\small UnsolvedMath ID 5500063 · AMR-054-0063 · Computer Science · AMR Open Problem Lists}
+\subsection{Definitions and mathematical statement}
+Maintain a finite set $P\subset\mathbb R^2$ under insertions of
+new sites and deletions of existing sites. A query supplies
+$q\in\mathbb R^2$ and must return a site $p\in P$ minimizing
+$\|q-p\|_2$. Any minimizer is acceptable in a tie; when $P$ is
+empty, the structure reports this fact. Distances are exact,
+not approximate.
+
+Is there a data structure supporting insertions, deletions,
+and nearest-neighbor queries all in $O(\log(n+2))$ time, where
+$n$ is the current number of sites? Use the usual real-arithmetic
+model for planar geometric data structures, with polynomial
+space and preprocessing. The strongest reading requests a
+worst-case bound for every operation. An amortized or randomized
+solution must state its guarantee explicitly; these are distinct
+performance formulations of the source's general target.
+
+Updates may occur in arbitrary order, and their locations are
+not assumed to follow a random distribution. A structure allowing
+only insertions does not meet the fully dynamic requirement.
+Nor does logarithmic query time alone suffice when one update
+operation is slower. For an amortized formulation, the running
+time is assessed over whole update sequences, rather than
+charging every deletion its own worst-case cost. The source's
+related convex-hull reduction can guide constructions but does
+not itself supply the requested simultaneous bounds.
+\subsection{Short English statement}
+Can a fully dynamic planar point set support exact nearest-neighbor queries, insertions, and deletions in logarithmic time per operation?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] ULAM.AI and the UnsolvedMath Contributors, supplied problems.json, record 5500063 (AMR-054-0063), AMR Open Problem Lists. Catalogue identity and source transcription; CC BY 4.0.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Open Problems Project - Computational Geometry, Problem 63. Original source indexed by AMR-054-0063.
+\url{https://topp.openproblem.net/p63}.
+\item[S3] The Open Problems Project, original numbered problem and status notes.
+\url{https://topp.openproblem.net/p63}.
+\item[S4] Incremental Planar Nearest Neighbor Queries with Optimal Query Time, SoCG2025; insertion-only progress and comparison with fully dynamic bounds.
+\url{https://drops.dagstuhl.de/storage/00lipics/lipics-vol332-socg2025/html/LIPIcs.SoCG.2025.59/LIPIcs.SoCG.2025.59.html}.
+\end{itemize}
+
+\section{Literature and context check}
+TOPP Problem 63 was consulted for the fully dynamic target and its
+three-dimensional convex-hull reduction. The argument below tests explicit
+Voronoi maintenance, not every possible implicit data structure. No insertion-only
+result is promoted to the fully dynamic worst-case guarantee.
+\section{Research attempt: Why explicit Voronoi maintenance cannot charge every update logarithmically}
+The usual lifting identity is immediate: for $p=(a,b)$ and $q=(u,v)$,
+\[
+ \|q-p\|^2=\|q\|^2+(-2u,-2v,1)\cdot(a,b,a^2+b^2).
+\]
+Thus a minimum linear-functional query on the lifted points returns a nearest
+site. Insertions and deletions transfer one-for-one. This is an exact reduction,
+but supplies no data structure by itself.
+
+The attempted planar implementation stored every Voronoi adjacency explicitly
+and updated only a supposedly bounded neighborhood after an insertion. Let
+$p_1,\ldots,p_m$ be distinct sites on the unit circle, and insert the origin.
+For each $i$, at $q_i=p_i/2$ the origin and $p_i$ are both at distance $1/2$.
+For $j\ne i$,
+\[
+ \|q_i-p_j\|^2=\tfrac54-p_i\cdot p_j>\tfrac14.
+\]
+There is a strict positive gap to every other site. By continuity, a small
+segment of the origin--$p_i$ perpendicular bisector about $q_i$ belongs to
+their shared Voronoi boundary. Hence the inserted site has $m$ distinct new
+Voronoi adjacencies. A representation allocating a separate record for every
+new adjacency must write at least $m$ records on this one insertion. Deleting
+the origin reverses the example.
+
+The initial circle creates a high-order Voronoi vertex, but the adjacency
+conclusion does not rely on retaining that degeneracy. For fixed finite $m$,
+the finitely many displayed strict gaps have a positive minimum. A sufficiently
+small perturbation of the sites preserves positivity at suitably adjusted
+bisector points. In particular the effect cannot be dismissed as a tie-handling
+artifact. The original problem in any event permits the circular input.
+
+This defeats the proposed local-change bound for an explicit diagram, not the
+existence of a more economical representation. A lazy representation might
+describe the new cell without eagerly materializing all its adjacencies; then
+one must analyze exact queries and future deletions using that representation.
+Similarly dividing sites into binary-sized static blocks gives at most
+$\sum_{k\le\log_2n}O(k+1)=O(\log^2(n+2))$ query work if each nonempty block
+is queried separately in logarithmic time. This upper-bound calculation does
+not become $O(\log n)$ merely because there are logarithmically many blocks.
+\section{Verification and adversarial audit}
+The circle inequality was checked for every pair $i\ne j$, including
+antipodal points. The $m$ new adjacencies are certified by separate strict local
+distance comparisons. Empty sets and ties remain governed by the source
+convention. The write-count argument is expressly representation-specific.
+\paragraph{Audit corrections.} The linear explicit-diagram update was not stated as a lower bound for implicit structures, and the lifting reduction was not mistaken for an algorithm.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+An implicit fully dynamic structure with all three logarithmic guarantees
+has not been constructed. The first gap is handling updates with many geometric
+changes without paying for all changes, while keeping exact worst-case queries
+and arbitrary later deletions efficient.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://topp.openproblem.net/p63} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved. This is a research attempt with an explicit failed route or restricted
+calculation, not a full solution, not a current-status certification, and not a claim
+that the elementary material is new. The catalogue's original source-status label
+is preserved independently of this attempt status.
+\end{document}

@@ -1,0 +1,122 @@
+% RESEARCH_DRAFT_SHA256: 65a84895da55dcc58155b510711d07caa724ca6213f8803eb970ae0917aae1a4
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001340, "title": "HHL, Macaulay conditioning, and presentation instability", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001340", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and written mathematical review at the declared scope; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "HHL, Macaulay conditioning, and presentation instability; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "An unchanged zero set with exponentially different conditioning; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch015 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 20001340; source catalogue code AIM-CRYPTOGRAPHY-0027
+\section{HHL, Macaulay conditioning, and presentation instability}\label{20001340}
+{\small UnsolvedMath ID 20001340 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+The HHL quantum linear-system method targets information encoded in the solution of a linear system. A Macaulay-type coefficient matrix places original polynomial equations and chosen monomial multiples into rows, with monomials as columns. A matrix condition number compares its largest and smallest nonzero singular values on the relevant solution subspace.
+\paragraph{Statement recorded in the supplied source.}
+Does HHL break crypto? (See recent paper.)
+
+Understand condition number over $\mathbb C$ of matrix of coefficients of $f_1, f_2, \dots$ (original equations), $xf_1, xyf_2, \dots$ (only monomial terms). \href{http://aimpl.org/quantumalg/6/}{[S2]}
+\paragraph{Scope qualification.}
+The source does not identify the recent paper, cryptosystem, monomial-degree cutoff, or singular-subspace convention. This records the matrix-conditioning task and does not claim HHL breaks cryptography.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+What is the complex condition number of the polynomial coefficient systems used in proposed HHL-based cryptanalytic methods?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001340 (AIM-CRYPTOGRAPHY-0027). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-CRYPTOGRAPHY-0027
+\url{http://aimpl.org/quantumalg/6/}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001340 and source code AIM-CRYPTOGRAPHY-0027 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001340}
+
+\section{Literature and context check}
+Fresh retrieval of the original AIM quantum-algorithm problem pages failed (web timeout and direct network/DNS failure; an escalated retry of the related chapter-four page also failed certificate validation). The supplied original extract remains the source text; successful fresh access to those pages is not claimed. The original ``recent paper'' is not identified in the source extract and is not guessed here. Harrow--Hassidim--Lloyd's primary abstract was read: it concerns estimating observables of a linear-system solution, with condition-number dependence, rather than outputting an arbitrary classical solution vector for free. The following explicit degree-one Macaulay example tests whether algebraic solution-set simplicity bounds the coefficient condition number.
+\section{Research attempt: An unchanged zero set with exponentially different conditioning}
+For $0<\varepsilon\leq1$, consider the equations $f_1=x$, $f_2=x+\varepsilon y$. They have the unique common zero $(0,0)$ over $\mathbb C$: the first equation gives $x=0$, and the second then gives $y=0$. At degree cutoff one, their coefficient matrix in the monomials $(x,y)$ is
+\[
+ A_\varepsilon=\begin{pmatrix}1&0\\1&\varepsilon\end{pmatrix}.
+\]
+Let $s_{\max},s_{\min}$ be its singular values. Since $\|A_\varepsilon(1,0)^T\|^2=2$, we have $s_{\max}^2\geq2$. Also $s_{\max}^2\leq\|A_\varepsilon\|_F^2=2+\varepsilon^2$. The eigenvalues of $A_\varepsilon^*A_\varepsilon$ multiply to $|\det A_\varepsilon|^2=\varepsilon^2$, so $s_{\max}s_{\min}=\varepsilon$. It follows that
+\[
+ {2\over\varepsilon}\leq\kappa(A_\varepsilon)
+ ={s_{\max}^2\over\varepsilon}\leq{2+\varepsilon^2\over\varepsilon}. \tag{1}
+\]
+Take $\varepsilon=2^{-B}$. The rational input coefficients have $O(B)$ bits, but the condition number is at least $2^{B+1}$. Thus a running-time expression polynomial in the condition number is not necessarily polynomial in the input bit length, even in this simple system.
+
+This is more than arbitrary row scaling. Normalize each row to length one, obtaining
+$\widetilde A=\begin{pmatrix}1&0\\(1+\varepsilon^2)^{-1/2}&\varepsilon(1+\varepsilon^2)^{-1/2}\end{pmatrix}$.
+Its first-column squared length is $1+(1+\varepsilon^2)^{-1}\geq3/2$, and its determinant magnitude is $\varepsilon/\sqrt{1+\varepsilon^2}$. The same singular-value argument gives
+$\kappa(\widetilde A)\geq(3/2)\sqrt{1+\varepsilon^2}/\varepsilon$.
+Unit row norms therefore do not remove near-linear dependence.
+
+On the other hand, replacing the second equation by $(f_2-f_1)/\varepsilon=y$ gives the identical zero set with coefficient matrix $I_2$ and condition number one. This exhibits presentation dependence rather than an intrinsic cryptographic hardness lower bound. The transforming coefficients include $1/\varepsilon=2^B$, and any proposed preconditioner must account for representation, numerical precision, and the effect on the oracle access model. The example itself is easily preconditioned; it does not prove efficient preconditioning impossible in general.
+
+The first failed inference is now explicit: knowing the ideal's zero set, degree, sparsity, or that each row is normalized does not bound the singular condition number of a chosen coefficient presentation. A second independent gap is output: an observable of an encoded linear-system solution is not automatically the desired secret key or a list of roots. Neither gap is filled merely by calling the coefficient matrix Macaulay-type.
+\section{Verification and adversarial audit}
+The example uses nonzero singular values throughout, so no convention about deleting a nullspace changes (1). Degree cutoff one is a legitimate instance of the source's coefficient construction; no unsupported statement is made about every higher-degree prolongation. The exponential scaling is in the coefficient bit length $B$, not a unary representation of $2^B$.
+\paragraph{Audit corrections.} Small dimension, fixed zero set and normalized rows were tested separately from conditioning. The zero-set equations are not mislabeled as a nonzero HHL solution state, and no unspecified recent paper is attributed.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+No cryptosystem break, general Macaulay condition estimate, or root-extraction procedure is produced. The example disproves a broad presentation-independent conditioning shortcut while leaving the original, underspecified cryptanalytic question unresolved.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://arxiv.org/abs/0811.3171} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and written mathematical review at the declared scope; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

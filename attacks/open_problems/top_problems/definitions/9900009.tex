@@ -1,0 +1,45 @@
+% TOP_PROBLEM: {"id": 9900009, "title": "Markovian-kernel characterization of mass-stationarity", "category_id": 19, "category": {"id": 19, "name": "probability", "display_name": "Probability", "description": "Problems involving probability theory, stochastic processes, and random structures.", "slug": "probability", "order_index": 19, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: null
+% ENTRY_KIND: statement_only
+% Imported from: batch14.tex; UnsolvedMath ID 9900009
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded mathematical question.}#1}
+\begin{document}
+% UnsolvedMath ID 9900009; source catalogue code AMR-098-0009
+\setcounter{section}{9900008}
+\section{Markovian-kernel characterization of mass-stationarity}\label{9900009}
+{\small\sffamily UnsolvedMath ID 9900009 · Probability}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$, and $\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$ denote the integers, rationals, reals and complex numbers. Any other conventions are specified locally.
+
+
+Let $G$ be a locally compact second countable Abelian group, written additively, with Haar measure $\lambda$. Let $X$ be a random element of a measurable space with a jointly measurable $G$-action $\theta_s$, and let $\xi$ be a random locally finite Borel measure on $G$, with $0$ in its support almost surely. Define $\theta_s\xi(A)=\xi(A+s)$ and $\theta_s(X,\xi)=(\theta_sX,\theta_s\xi)$. For each relatively compact Borel $C$ with $0<\lambda(C)<\infty$, let $U_C$ be Haar-uniform on $C$, independent of $(X,\xi)$, and conditionally sample $V_C$ from $\xi$ normalized on $C-U_C$:
+\[\mathbb P(V_C\in A\mid X,\xi,U_C)=\frac{\xi(A\cap(C-U_C))}{\xi(C-U_C)}.\]
+Mass-stationarity means that these conditional laws are well-defined and
+\[(\theta_{V_C}(X,\xi),U_C+V_C)\stackrel d=((X,\xi),U_C)\]
+for all such $C$. A random Markov kernel $Q_{(X,\xi)}(s,A)$ on $G$ is measurable and gives a probability measure in $A$ for every $s$. Joint invariance means
+\[Q_{\theta_t(X,\xi)}(s,A)=Q_{(X,\xi)}(s+t,A+t).\]
+Preservation means $\int_GQ_{(X,\xi)}(s,A)\,\xi(ds)=\xi(A)$ for every Borel $A$. Its shift-invariance identity is
+\[\mathbb E\int_G\mathbf1_{\{\theta_s(X,\xi)\in B\}}Q_{(X,\xi)}(0,ds)=\mathbb P((X,\xi)\in B)\]
+for every measurable set $B$ in the pair state space.
+\paragraph{Statement recorded in the supplied source.}
+Is mass-stationarity equivalent to this identity holding for every jointly invariant preserving Markov kernel? In other words, can the bounded preserving kernels of Theorem 4.4 be restricted to kernels of total mass one? \sref{9900009}{2}
+\subsection{Short English statement}
+Can mass-stationarity be characterized using preserving transport kernels that are probability kernels?
+\subsection{Sources}
+\begin{description}
+\item[\hypertarget{source:9900009:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, \emph{UnsolvedMath: A Curated Collection of Open Mathematics Problems}, record 9900009 (AMR-098-0009). CC BY 4.0. \url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:9900009:2}{S2}] Hermann Thorisson, \emph{Some Open Probability Problems}, author preprint; original Universidad de Buenos Aires copy preserved in Internet Archive capture of 27 March 2024, Section 4, Theorem 4.4 and Problem 4.2, p. 6. \url{https://web.archive.org/web/20240327021031id_/http://cms.dm.uba.ar/depto/public/Some%20Open%20Problems-preprint.pdf}.
+\end{description}
+\label{end:9900009}
+\end{document}

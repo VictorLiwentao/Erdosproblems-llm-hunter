@@ -1,0 +1,128 @@
+% RESEARCH_DRAFT_SHA256: 18eb65c06f0192c13a31ba84554452dbee5a9103ee43307f40dfa13c8ff76555
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001182, "title": "Compatible and complete odds-ratio specifications", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001182", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 6. For multi-way tables, what are the complete and partial specifications that come from specifying sets of odds-ratios?\n\nExistence of Maximum Likelihood Estimates.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The positive homogeneous cell-contrast subproblem is characterized, but boundary cases, ratios of collapsed sums, and unspecified model/margin choices in the original broad task are not classified.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Compatibility of positive cell-contrast specifications and its boundary limitations}
+\noindent UnsolvedMath ID 20001182; AIM-COMPUTATION-0020. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A multiway table is a nonnegative array indexed by the levels of several categorical variables. An odds-ratio specification fixes selected multiplicative ratios of its cells. A complete specification identifies a distribution within the stated normalization and margins, while a partial specification leaves a nontrivial family of compatible tables.
+\paragraph{Statement recorded in the supplied source.}
+Question 6. For multi-way tables, what are the complete and partial specifications that come from specifying sets of odds-ratios? \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The supplied extraction includes adjacent workshop exposition; the numbered target passage is retained verbatim and that surrounding exposition is omitted. The source asks for characterization across multiway-table models and does not fix a particular dimension or set of ratios.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Which collections of odds ratios determine a categorical distribution completely, and what do incomplete collections determine?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001182 (AIM-COMPUTATION-0020). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0020
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 6. For multi-way tables, what are the complete and partial specifications that come from specifying sets of odds-ratios?
+
+Existence of Maximum Likelihood Estimates.
+
+\section{Attempt and results}
+We investigate a specified finite set of homogeneous multiplicative
+cell contrasts on a positive $m$-cell table. This is one precise subfamily
+of the source's unspecified collections of multiway odds ratios. It does
+not include ratios of sums formed after collapsing, or arbitrary fixed
+margins, without additional equations.
+
+\paragraph{Logarithmic compatibility and completeness.}
+Let $C$ be a real $k$ by $m$ matrix with $C\boldsymbol1=0$, and prescribe
+$q_i=\prod_{j=1}^m p_j^{C_{ij}}>0$. Define
+$H=\{u\in\mathbb R^m:\sum u_j=0\}$ and
+$p_j(u)=e^{u_j}/\sum_l e^{u_l}$. This is a bijection from $H$ to the
+positive simplex: its inverse is
+$u_j=\log p_j-m^{-1}\sum_l\log p_l$.
+Homogeneity gives $\log q=C\log p=Cu$. Since adding a constant vector
+does not change $Cu$, the image of $C$ on $H$ is its full image. Thus
+the prescribed ratios are compatible precisely when $\log q\in\operatorname{im}C$.
+For a compatible value, the inverse image in $H$ is an affine subspace
+of dimension $m-1-\operatorname{rank}C$, by rank-nullity.
+The softmax bijection transports it to the table fiber. The specification
+determines a unique positive table if and only if $\operatorname{rank}C=m-1$.
+This is an effective finite linear-algebra criterion for the stated
+positive homogeneous-contrast subproblem, not a new general model theorem.
+
+\paragraph{What fixed margins add in the smallest case.}
+For a positive $2$ by $2$ table with fixed first-row margin $r$ and
+first-column margin $c$, both in $(0,1)$, write
+$(a,b,c',d)=(t,r-t,c-t,1-r-c+t)$.
+The positive interval is $\max(0,r+c-1)<t<\min(r,c)$.
+Its odds ratio
+\[
+F(t)=\frac{t(1-r-c+t)}{(r-t)(c-t)}
+\]
+has logarithmic derivative
+$1/t+1/(1-r-c+t)+1/(r-t)+1/(c-t)>0$.
+At the left endpoint it tends to zero and at the right endpoint to infinity,
+including coincident-zero cases by cancelling their positive powers.
+Continuity and strict monotonicity give exactly one positive table for each
+positive ratio and these margins. By contrast, fixing the ratio alone has
+rank one on a four-cell simplex and leaves dimension two.
+
+\paragraph{Failed extension to arbitrary specifications.}
+The logarithm turns a cell product into a linear form, but it does not turn
+the logarithm of a block sum into a linear form in individual log cells.
+Nor does it apply at a zero cell. Thus the preceding rank argument does
+not describe collapsed odds or boundary strata. Even in two dimensions,
+the one extra odds contrast is complete only after margins are fixed;
+omitting which margins are given changes the answer. No universal
+classification for the broad source question follows just from this rank test.
+
+\section{Scope and adversarial audit}
+The original AIM question was consulted with its adjacent local/global
+odds-ratio distinction. The audit checked the $C\boldsymbol1=0$ hypothesis,
+both directions of the log-coordinate bijection, arbitrary compatible
+right sides, and margin endpoints. No numerical computation or theorem
+prover was used. These known coordinate methods isolate, but do not fill,
+the missing boundary and collapsed-ratio parts of the problem.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The positive homogeneous cell-contrast subproblem is characterized, but boundary cases, ratios of collapsed sums, and unspecified model/margin choices in the original broad task are not classified.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Computational Algebraic Statistics, prepared by Seth Sullivant, version 27 March 2004; the original numbered source question and its adjacent scope were inspected on 11 October 2026. \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The positive homogeneous cell-contrast subproblem is characterized, but boundary cases, ratios of collapsed sums, and unspecified model/margin choices in the original broad task are not classified.
+\end{document}

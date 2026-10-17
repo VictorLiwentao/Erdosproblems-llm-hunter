@@ -1,0 +1,154 @@
+% RESEARCH_DRAFT_SHA256: cd1e052f37f2053da4ccaf092343bb590af391ba1df888fdeb480a92148c222d
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30002722, "title": "Polynomial-Time Minimization of K-Submodular Functions", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002722", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Can a $k$-submodular function be minimized in polynomial time?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. No general minimization algorithm or self-contained oracle lower bound is established here; the later reported negative result is not a proof checked in this attempt.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{K-submodular minimization: orthants and a strict coordinate-descent trap}
+\noindent UnsolvedMath ID 30002722; OWR-13353-005. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A $k$-submodular function has domain $\{0,1,\ldots,k\}^V$ and satisfies $f(x)+f(y)\geq f(x\sqcap y)+f(x\sqcup y)$. Coordinatewise meet keeps equal labels and otherwise gives zero; join keeps an agreed label or a lone nonzero label, and gives zero for conflicting nonzero labels.
+
+Polynomial time means a number of elementary steps bounded by a polynomial in the encoded input length. A decision problem is in $\mathrm{NP}$ if yes-instances have polynomial-length certificates verifiable in polynomial time; NP-hardness is under polynomial-time reductions.
+
+A set function $f:2^V\to\mathbb R$ is submodular if $f(A)+f(B)\geq f(A\cup B)+f(A\cap B)$ for all $A,B\subseteq V$. It is monotone if inclusion never decreases its value and normalized if $f(\varnothing)=0$.
+\paragraph{Statement recorded in the supplied source.}
+Can a $k$-submodular function be minimized in polynomial time? \href{https://doi.org/10.4171/owr/2014/51}{[S2]}
+\paragraph{Scope qualification.}
+The input-access model, value encoding, and whether $k$ is fixed are not given; the supplied assessment singles out general $k\geq3$ as unresolved.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Minimize general multi-label submodular functions in polynomial time.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30002722 (OWR-13353-005). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2015), Oberwolfach Reports, DOI 10.4171/owr/2014/51, pp. 2873--2932
+\url{https://doi.org/10.4171/owr/2014/51}.
+\item[S3] Huber--Kolmogorov, k-submodular minimization
+\url{https://arxiv.org/abs/1309.5469}.
+\item[S4] Exact k-submodular optimization
+\url{https://doi.org/10.1016/j.disopt.2021.100670}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Can a $k$-submodular function be minimized in polynomial time?
+
+\section{Source model and attempted reduction}
+Kiraly's report, printed pages 2896--2897, introduces the evaluation-oracle
+model before asking the final $k$-submodular question. The catalogue sentence
+alone does not specify the representation. We analyze oracle access with
+$n=|V|$ and fixed $k\ge2$; a complete value table instead already has
+$(k+1)^n$ entries and can simply be scanned in time linear in that table.
+No hardness claim about every possible succinct representation follows.
+
+Choose a nonzero label vector $\ell\in\{1,\ldots,k\}^n$ and define
+$g_\ell(S)=f(x)$ where $x_i=\ell_i$ for $i\in S$, and $x_i=0$ otherwise.
+For two such vectors, meet and join correspond exactly to intersection and
+union. Thus $g_\ell$ is an ordinary submodular set function, by substitution
+in the defining inequality. Every vector belongs to at least one such orthant,
+so
+\[
+\min_x f(x)=\min_{\ell\in\{1,\ldots,k\}^n}\min_{S\subseteq V}g_\ell(S).
+\]
+Even granting ordinary submodular minimization as an external polynomial-time
+subroutine, this enumerates $k^n$ orthants. Its unproved step would be a
+polynomial procedure selecting sufficiently many of them. Choosing an arbitrary
+one fails already for $n=1$, $f(0)=0,f(1)=2,f(2)=-1$, with all other nonzero
+labels assigned value $2$: the only nontrivial unary inequalities are
+$f(a)+f(b)\ge2f(0)$ for distinct nonzero labels, and they all hold. The
+label-one orthant misses the minimum.
+
+\section{A complete obstruction to coordinate descent}
+One might try to choose labels incrementally, accepting any improving
+single-coordinate move. For every $k\ge2$, put
+\[
+u(0)=0,\qquad u(1)=1,\qquad u(a)=2\ (a\ge2),\qquad
+F(x_1,x_2)=u(x_1)+u(x_2)-3\mathbf1_{\{x_1=x_2=1\}}.
+\]
+Here $\mathbf1$ denotes the indicator of the stated event. This is
+$k$-submodular. We give a direct proof for all labels and pairs.
+For a coordinate without a conflict of distinct nonzero labels, the unary
+slack $u(a)+u(b)-u(a\sqcap b)-u(a\sqcup b)$ is zero.
+At a conflict it is $u(a)+u(b)\ge3$.
+For the interaction term, if both input vectors are $(1,1)$ the slack is zero.
+If exactly one input is $(1,1)$ and there is no coordinate conflict, their join
+is $(1,1)$ and their meet is not, again giving zero interaction slack.
+If exactly one input is $(1,1)$ and a conflict occurs, neither output is
+$(1,1)$; the interaction slack is $-3$, paid by that coordinate's unary
+slack. If neither input is $(1,1)$, their meet cannot be $(1,1)$; the
+interaction slack is either zero or $+3$, according to their join.
+These cases exhaust all pairs and prove the inequality.
+
+Nevertheless $F(0,0)=0$, while every vector obtained by changing exactly
+one coordinate has value $1$ or $2$. Thus $(0,0)$ is a strict local minimum
+for the proposed neighborhood. The global minimum is $F(1,1)=-1$:
+all other vectors have nonnegative unary sum and no subtracted term.
+The obstruction even occurs for $k=2$, whose known minimization algorithms
+therefore cannot be replaced by this coordinate-descent argument.
+Adding independent nonnegative unary terms supplies the same obstruction in
+higher dimensions. This is a failed-route example, not an oracle lower bound.
+
+\section{Primary-source check and adversarial audit}
+A source check found a result later than the catalogue assessment:
+Yuichi Yoshida's publisher and author abstracts report an exponential
+value-oracle lower bound for each fixed $k\ge3$, published online
+18 September 2026, DOI 10.1137/26M1889795. Only the abstract and publication
+metadata were inspected; its construction and proof have not been verified
+here, and that reported theorem is not used to certify completion.
+The 2021 paper named in the preserved references concerns maximization;
+its title cannot supply a minimization algorithm.
+
+The local exact script \texttt{combinatorial\_checks.py} checked all
+$81,256,625,1296,2401$ pair inequalities for $k=2,3,4,5,6$ respectively,
+and the strict local/global values. This finite check corroborates, and does
+not replace, the all-$k$ proof above. The audit checked conflicts involving
+zero separately, distinguished an exponential enumeration from a lower bound,
+and retained the oracle/table representation distinction. No theorem prover
+or independent human proof checking was used.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. No general minimization algorithm or self-contained oracle lower bound is established here; the later reported negative result is not a proof checked in this attempt.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 51/2014, Combinatorial Optimization; relevant original passages read in the cached primary report on 11 October 2026. \url{https://doi.org/10.4171/owr/2014/51}.
+\item Yuichi Yoshida, An Exponential Value-Oracle Lower Bound for k-Submodular Function Minimization, SIAM Journal on Discrete Mathematics 40(3), 1572--1579 (2026); abstract and publication metadata inspected, full proof not accessed. \url{https://epubs.siam.org/doi/10.1137/26M1889795}.
+\item Yoshida author publication page; matching theorem abstract inspected. \url{https://research.nii.ac.jp/~yyoshida/journals.html}.
+\item Q. Yu and S. Kucukyavuz, An exact cutting plane method for k-submodular function maximization (2021); title, abstract and introductory minimization discussion inspected. \url{https://doi.org/10.1016/j.disopt.2021.100670}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} No general minimization algorithm or self-contained oracle lower bound is established here; the later reported negative result is not a proof checked in this attempt.
+\end{document}

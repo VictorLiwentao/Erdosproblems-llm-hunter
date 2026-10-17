@@ -1,0 +1,82 @@
+% TOP_PROBLEM: {"id": 20002531, "title": "A gauge-invariant action-gap certificate for barbell transit orbits", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The source records small-neck existence and asks about all relevant Jacobi constants. A variational approach must address the degeneracy of the Jacobi metric at the Hill boundary; a local-neck result is not the full target. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002531", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Show whether every barbell Hill region of the planar restricted three-body problem admits transit trajectories.", "scope": "Derived a gauge-invariant action-gap formula and an explicit Hill-boundary length-collapse example. No all-level barbell transit theorem or general n-body variational application is proved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked endpoint gauge cancellation, Stokes orientation, magnetic contribution and weighted-length degeneration without assuming a global Finsler realization. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the gauge-invariant two-curve action difference and degenerating Hill-boundary length. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked endpoint gauge cancellation, Stokes orientation, magnetic contribution and weighted-length degeneration without assuming a global Finsler realization. Scope remains limited: Prove compactness and boundary-contact control plus a strict action comparison forcing transit at every relevant Jacobi level."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002531; source catalogue code AIM-PHYSICS-0039
+\setcounter{section}{20002530}
+\section{A gauge-invariant action-gap certificate for barbell transit orbits}\label{20002531}
+{\small UnsolvedMath ID 20002531 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}In the circular restricted three-body problem, two primaries follow prescribed circular motion and a test particle has negligible effect on them. In rotating coordinates the Jacobi constant combines kinetic energy and the effective gravitational/centrifugal potential. The Hill region is the set where the zero-velocity inequality permits motion. Its necks occur near collinear equilibria. A barbell-shaped Hill region has two larger permitted components connected by a neck. A transit orbit passes through the connecting region from one binary neighborhood toward another, near a collinear relative equilibrium.
+
+\paragraph{Catalogue wording retained for traceability.}
+In the planar restricted three-body problem, do transit orbits always exist for Jacobi constants for which the Hill region has the barbell shape in the source? More generally, identify settings in the $n$-body problem where the Maupertuis--Lagrange variational approach yields new results, accounting for degeneracy at the Hill-region boundary.
+\paragraph{Scope and source qualification.}The source records small-neck existence and asks about all relevant Jacobi constants. A variational approach must address the degeneracy of the Jacobi metric at the Hill boundary; a local-neck result is not the full target. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Show whether every barbell Hill region of the planar restricted three-body problem admits transit trajectories.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derived a gauge-invariant action-gap formula and an explicit Hill-boundary length-collapse example. No all-level barbell transit theorem or general n-body variational application is proved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{A gauge-invariant comparison in a magnetic variational model.}In rotating coordinates the reduced variational integrand generally includes a one-form. Abstractly take \(\mathcal J(\gamma)=\int_\gamma\sqrt{2W(q)}\,|dq|+\int_\gamma A\), with \(W\ge0\) the allowed-region kinetic factor and \(A\) a smooth one-form. For two curves \(\gamma_1,\gamma_2\) with the same endpoints, replacing \(A\) by \(A+d\phi\) changes each action by the same endpoint difference. Thus their action gap is gauge invariant. If their concatenation bounds an oriented surface \(S\), Stokes gives
+\[\mathcal J(\gamma_1)-\mathcal J(\gamma_2)=\ell_W(\gamma_1)-\ell_W(\gamma_2)+\int_SdA,
+\]
+where \(\ell_W\) is the first integral. The magnetic area term cannot generally be omitted when comparing transit candidates.
+\paragraph{Hill-boundary degeneracy.}In the local model \(W(x,y)=y\) on \(y\ge0\), the weighted length of a horizontal segment of Euclidean length \(L\) at height \(y=\delta\) is \(L\sqrt{2\delta}\), tending to zero as \(\delta\downarrow0\). Thus control of weighted length gives no uniform separation from the Hill boundary or control of ordinary length. A minimizing sequence may exploit such degeneration; connectedness of the allowed region alone does not prevent it.
+\paragraph{Gap.}The displayed functional is a diagnostic model, not a claimed global positive Finsler metric for every rotating three-body energy. To prove transit for every barbell Jacobi level one needs compactness, exclusion or regular treatment of boundary contact, and a strict comparison selecting the desired crossing. These have not been established. The more general n-body Maupertuis--Lagrange programme is also unresolved; known small-neck existence in the source is not extended by the elementary calculation.
+
+\paragraph{Verification and adversarial audit.}
+Checked endpoint gauge cancellation, Stokes orientation, magnetic contribution and weighted-length degeneration without assuming a global Finsler realization. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked endpoint gauge cancellation, Stokes orientation, magnetic contribution and weighted-length degeneration without assuming a global Finsler realization. Scope remains limited: Prove compactness and boundary-contact control plus a strict action comparison forcing transit at every relevant Jacobi level.
+
+Coordinator checked the gauge-invariant two-curve action difference and degenerating Hill-boundary length. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Prove compactness and boundary-contact control plus a strict action comparison forcing transit at every relevant Jacobi level.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002531:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002531 (AIM-PHYSICS-0039). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002531:2}{S2}] American Institute of Mathematics, Variational Methods in Celestial Mechanics; notes by Kuo-Chang Chen, version 22 June 2003, source item 2.
+\url{https://aimath.org/WWN/varcelest/varcelest.pdf}.
+\end{itemize}
+\label{end:20002531}
+\end{document}

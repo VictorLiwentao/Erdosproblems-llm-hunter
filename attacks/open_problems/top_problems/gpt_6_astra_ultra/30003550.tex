@@ -1,0 +1,137 @@
+% RESEARCH_DRAFT_SHA256: c64aa2020302bd875a854c07fc453b04d89b0f4a0487ca60e8f967c2c72ba25a
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30003550, "title": "Cutting Planes Lower Bounds for Random CNF Formulas", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003550", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and written-proof review of this attempt; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Cutting Planes Lower Bounds for Random CNF Formulas; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Density extremes and an explicit short Cutting Planes refutation; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch021 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30003550; source catalogue code OWR-15580-001
+\section{Cutting Planes Lower Bounds for Random CNF Formulas}\label{30003550}
+{\small UnsolvedMath ID 30003550 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+Cutting Planes derives integer-valid linear inequalities using linear combinations and rounding. A superpolynomial lower bound excludes refutations of size bounded by any fixed power of the encoded formula size.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The range of $k$, number and sampling of clauses, and coefficient-size convention are not specified in the supplied question.
+
+Source-record limitation: The density/sampling regime of random formulas and coefficient-size proof convention are absent.
+\paragraph{Statement recorded in the supplied source.}
+Can one prove superpolynomial lower bounds on the size of Cutting Planes refutations of random $k$-CNF formulas? \href{https://doi.org/10.4171/owr/2017/37}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Prove strong lower bounds for Cutting Planes refutations of random satisfiability instances.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30003550 (OWR-15580-001). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Proof Complexity and Beyond (2018), Oberwolfach Reports, DOI 10.4171/owr/2017/37, pp. 2299--2361
+\url{https://doi.org/10.4171/owr/2017/37}.
+\item[S3] Fleming--Pankratov--Pitassi--Robere, random CNFs
+\url{https://arxiv.org/abs/1703.02469}.
+\item[S4] Fleming et al., FOCS result
+\url{https://ieee-focs.org/FOCS-2017-Papers/3464a121.pdf}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30003550 and code OWR-15580-001 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30003550}
+
+\section{Literature and context check}
+The introduction and Fleming's talk in OWR 37/2017, pp.~2318--2319, were read. The report already states exponential Cutting Planes lower bounds in a random logarithmic-width regime and discusses the constant-width obstacle. Its full lower-bound proof and later developments were not checked here. Since the catalogue extract omits density and sampling conventions, the following investigation fixes a model explicitly and tests whether an unqualified density-independent lower-bound route can work.
+\section{Research attempt: Density extremes and an explicit short Cutting Planes refutation}
+
+\paragraph{A specified random model.}
+Let $1\le k\le n$, and draw $m$ clauses independently with replacement from all
+\[
+ Q=2^k\binom nk
+\]
+clauses using exactly $k$ distinct variables and arbitrary signs. A fixed assignment satisfies one random clause with probability $1-2^{-k}$, so if $Z$ counts satisfying assignments,
+\[
+ \mathbb EZ=2^n(1-2^{-k})^m\le\exp(n\log2-m2^{-k}).
+\]
+Markov's inequality gives $\Pr(Z>0)\le e^{-t}$ whenever $m\ge2^k(n\log2+t)$. This proves an unsatisfiability probability, not any proof-length lower bound. The attempted inference from ``unlikely to have a solution'' to ``hard to certify'' has no support in this calculation.
+
+\paragraph{At much greater density a short certificate appears.}
+Fix one set $S$ of $k$ variables. Each of its $2^k$ sign clauses has probability $1/Q$ per draw. A union bound gives
+\[
+ \Pr(\text{some sign clause on }S\text{ is missing})
+ \le 2^k(1-1/Q)^m\le 2^k e^{-m/Q}.
+\]
+For $m\ge Q(k\log2+t)$, all of them occur with probability at least $1-e^{-t}$. This complete block has a short explicit Cutting Planes refutation. Encode a positive literal by $x$, a negative literal by $1-x$, and a clause by the inequality that the sum of its literals is at least $1$, with Boolean bounds $0\le x\le1$.
+
+Pair clauses with identical other literals $C$ and opposite last literal. Their inequalities are
+\[
+ L_C+x\ge1,\qquad L_C+1-x\ge1.
+\]
+Adding gives $2L_C\ge1$. Since $L_C$ is integral, division by two with upward rounding gives $L_C\ge1$. Repeating for each remaining variable yields $0\ge1$. There are $2^k-1$ shortened clauses in this binary tree, each requiring one addition and one division. The coefficients in these derivations are at most two in literal notation; conversion to variable notation has integer constants of size $O(k)$. Thus the refutation has at most $2(2^k-1)$ new lines, besides its input clauses and bounds.
+
+For fixed $k$ the certificate size is constant with respect to $n$, and for $k\le C\log_2n$ it is polynomial in $n$. Its presence at this high density prevents a lower bound asserted uniformly over all clause counts. This does not contradict the source's lower bound, which concerns a particular distributional parameter regime.
+
+\paragraph{What the route actually establishes.}
+A first-moment proof of unsatisfiability and a coupon-style proof of an easy local contradiction can both apply to random formulas, depending on their parameters. Neither identifies a hard intermediate regime. The exponential size of the universe $Q$ also matters: this high-density example is not claimed to use the linear clause density relevant to many fixed-width hardness questions.
+\section{Verification and adversarial audit}
+The model samples distinct variables within each clause and permits repeated clauses across draws; the counts and probabilities use exactly that convention. The proof was checked at $k=1$, where the block is $x,\neg x$ and two Cutting Planes steps suffice. The constructed short derivation uses rounding legally because every literal sum is integer. It bounds lines and coefficient encodings, rather than treating large integer coefficients as free.
+\paragraph{Audit corrections.} Removed an invalid hardness inference from a first-moment unsatisfiability calculation. Added a full short-refutation construction at high density and kept that regime separate from the source theorem.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+No superpolynomial Cutting Planes lower bound is proved in the intended hard density regime, and the unrestricted coefficient-size convention remains unspecified in the catalogue. The calculation only rules out a density-free argument and distinguishes unsatisfiability from proof hardness. The first missing step is a proof measure that controls every Cutting Planes derivation on the specified hard distribution.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46700} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and written-proof review of this attempt; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

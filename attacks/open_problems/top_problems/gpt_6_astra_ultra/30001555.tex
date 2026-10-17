@@ -1,0 +1,128 @@
+% RESEARCH_DRAFT_SHA256: 486bdc66ba2cea2cee407297190b9bc678e49ce076add1d85742df30f8b556a6
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30001555, "title": "Decidability of Universal Factor Languages", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001555", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written mathematical review at the declared scope; no independent human verification. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Decidability of Universal Factor Languages; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A factor automaton and a polynomial-space decision procedure; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch018 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30001555; source catalogue code OWR-4425-010
+\section{Decidability of Universal Factor Languages}\label{30001555}
+{\small UnsolvedMath ID 30001555 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+$S^*$ is the set of finite concatenations of words from $S$, including the empty word. A factor is a contiguous substring; $\operatorname{Fact}(S^*)$ collects all such substrings and $\Sigma^*$ all finite alphabet words.
+\paragraph{Statement recorded in the supplied source.}
+For a finite set $S$ of words over an alphabet $\Sigma$, where $\operatorname{Fact}(S^*)$ is the set of factors of $S^*$, is it decidable whether $\operatorname{Fact}(S^*)=\Sigma^*$, and what is the computational complexity of testing this equality? \href{https://doi.org/10.4171/owr/2010/37}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Determine decidability and complexity of whether factors of the generated language include every possible word.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30001555 (OWR-4425-010). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Mini-Workshop: Combinatorics on Words (2011), Oberwolfach Reports, DOI 10.4171/owr/2010/37, pp. 2195--2244
+\url{https://doi.org/10.4171/owr/2010/37}.
+\item[S3] Rampersad, Shallit, and Xu
+\url{https://arxiv.org/abs/0907.0159}.
+\item[S4] current open-problems survey
+\url{https://cs.uwaterloo.ca/~shallit/Talks/bc4.pdf}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30001555 and source code OWR-4425-010 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30001555}
+
+\section{Literature and context check}
+The original report on printed page 2224 describes decidability via automata and leaves the exact finite-word factor-universality complexity open at that time. A later primary check found Mika and Szykula's paper, arXiv:1902.06702v5 (JACM 2021), whose abstract explicitly states that this exact finite-set problem is PSPACE-complete. Only that abstract was consulted for the later classification, not its full hardness construction. The work below rederives a complete elementary upper-bound algorithm and a witness bound; it is not a new resolution or a reproof of the published lower bound.
+\section{Research attempt: A factor automaton and a polynomial-space decision procedure}
+
+\paragraph{An automaton that recognizes factors directly}
+Let $S$ be a finite list of words over a finite alphabet $\Sigma$. Discard empty words, which do not change $S^*$. Make a base state $q_0$; for each nonempty word of length $\ell$, attach a directed path labeled by that word from $q_0$ back to $q_0$, using $\ell-1$ new internal states unique to the word. A length-one word gives a loop. There are
+\[
+ N=1+\sum_{w\in S,\ |w|>0}(|w|-1)
+\]
+states. Paths from $q_0$ back to $q_0$ read exactly the concatenations in $S^*$. Now declare every state initial and every state accepting. The resulting nondeterministic automaton reads exactly $\operatorname{Fact}(S^*)$.
+
+To prove the last assertion, a factor of a base-to-base path is a subpath between arbitrary states. Conversely every finite path between arbitrary states can be extended on its left and right to a base-to-base path, because every state lies on one of the word loops. The resulting label is a word of $S^*$ containing the original label as a factor. For $S$ empty, the lone base state and no labeled edges recognize only the empty word, as required. The empty alphabet is also allowed and makes its sole word, the empty word, accepted.
+
+\paragraph{Subset reachability decides universality}
+A deterministic subset state records all possible current automaton states. Start at the full $N$-state set and, for a letter, take the union of its outgoing neighbors from those states. A word is a factor exactly when its resulting subset is nonempty. Thus universality is equivalent to the empty subset being unreachable. Breadth-first search on at most $2^N$ subsets is a finite decision algorithm. If a missing word exists, a shortest path to the empty subset has no repeated subset, because deleting the intervening cycle would give a shorter missing word. Therefore there is a missing word of length at most $2^N-1$.
+
+\paragraph{A deterministic polynomial-space implementation}
+The exponential-size graph need not be stored. Subsets occupy $N$ bits and one-step adjacency can be computed from the given automaton. Define $R(U,V,j)$ to mean that there is a path of length at most $2^j$ from $U$ to $V$. At $j=0$ test equality or a single transition. For $j>0$, enumerate all $N$-bit subsets $W$ and accept exactly when some one satisfies both $R(U,W,j-1)$ and $R(W,V,j-1)$. The recurrence is valid by cutting a path at its midpoint; paths shorter than the allowance are covered because zero-length paths are allowed. Recursive calls are evaluated sequentially and their storage reused.
+
+Calling this with $j=N$ covers every reachable vertex in the $2^N$-vertex graph. The recursion depth is $N$, and each stack frame stores a constant number of $N$-bit subsets, the enumeration counter, and its recursion index. Thus it uses $O(N^2)$ working bits, in addition to input and polynomial-size bookkeeping for transitions. Negating the reachability answer uses the same space. This proves membership in PSPACE directly, without assuming nondeterministic polynomial space equals deterministic polynomial space. The time bound of this particular recursive algorithm is not polynomial.
+
+\paragraph{Boundary examples and the lower-bound gap}
+For $S=\{a,b\}$ over $\{a,b\}$, all words are factors. For $S=\{ab,ba\}$, all two-letter words occur, but $aaa$ does not: within a word the letters differ and an equal-letter run can cross only one word boundary, so it has length at most two. The all-states start condition is essential: a factor may begin in the middle of a dictionary word, and ordinary prefix universality is a different problem.
+
+A PSPACE-hardness result for unrestricted NFAs cannot simply be transferred to these automata. Their edges are organized as internally disjoint word loops around one state. A reduction must realize the necessary behavior by a polynomial-size finite word list, preserving this representation constraint. That is the missing lower-bound construction in this attempted automaton route; the later paper reports a construction using set rewriting systems, but it is not reproduced here.
+
+\section{Verification and adversarial audit}
+The automaton proof treats factors beginning and ending inside words, ignores harmless empty words, and includes the empty dictionary and empty alphabet. The witness bound follows from deterministic subset-state nonrepetition. The space recursion permits zero-length paths and reuses memory between its two recursive tests. No exponential-state enumeration is mislabeled polynomial time.
+\paragraph{Audit corrections.} Distinguished finite word-list representation from unrestricted NFA input and acknowledged the later exact published classification without claiming to have read or reproduced its hardness proof.
+\paragraph{External computation.} Executed \texttt{check\_factor\_automata.py} with five deterministic cases. Empty dictionary and the dictionary containing only the empty word returned missing word $a$; $\{a,b\}$ returned no missing word; $\{ab,ba\}$ returned $aaa$; $\{aa,bb\}$ returned $aba$. The latter two used three NFA states and seven visited subset states. These tests check examples and implementation conventions, not the general proof.
+\section{Scope and remaining gaps}
+The original target has a published PSPACE-completeness answer according to the consulted later primary abstract. This manuscript itself proves decidability, a missing-word bound and PSPACE membership, but does not independently rederive the lower bound, so its own full-proof completion remains unresolved/0. This status does not assert that the historical mathematical question remains open.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46296} (consulted 2026-10-11). 
+\item \url{https://arxiv.org/abs/1902.06702} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+The parent Codex GPT-6 model has reviewed the written mathematical arguments at their declared scopes. This is model-assisted review, not independent human verification.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

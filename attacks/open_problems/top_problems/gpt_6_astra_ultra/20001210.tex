@@ -1,0 +1,99 @@
+% RESEARCH_DRAFT_SHA256: 1f8181387c8c05e1ce062db427b87009068e598a8d1408d402fc414894fdfcfe
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001210, "title": "Fourier edge invariants and a visibility threshold for finite rate-class mixtures", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001210", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Positive CFN mixture counterexample to preserving a single-class edge quadratic.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch005/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 20001210; source catalogue code AIM-COMPUTATION-0048
+\section{Fourier edge invariants and a visibility threshold for finite rate-class mixtures}\label{20001210}
+{\small UnsolvedMath ID 20001210 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A phylogenetic model assigns transition parameters to edges of a tree and maps them to joint probabilities at its observed leaves. A phylogenetic invariant is a polynomial vanishing on all probability vectors in that model. Rate variation among sites can yield mixtures of phylogenetic probability distributions. Algebraically, mixtures are modeled by secant varieties: Zariski closures of spans of a fixed number of points of the original model variety. The task is to find equations for such rate-variable model families.
+\paragraph{Statement recorded in the supplied source.}
+Problem 34. Find invariants for other models with rate variation among sites: secant varieties of the phylogenetic variaties. \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The catalogue flags this record as reconstructed and unverified. The supplied question is preserved; the definitions do not certify a unique intended model. The source does not fix the tree, mutation model, number of rate classes, or mixture weights; no one narrower model is substituted for the question.
+The supplied catalogue marks this formulation as an unverified reconstruction; the source link does not establish that all missing assumptions were recovered.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can polynomial invariants be found for phylogenetic models that allow mutation rates to vary among sites?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001210 (AIM-COMPUTATION-0048). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0048
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001210 and source code AIM-COMPUTATION-0048 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001210}
+
+
+\section{Research attempt}
+\subsection{Literature and scope}
+Problem 34 leaves the mutation model, tree and rate classes unspecified. I use a binary symmetric (CFN) quartet on split $12\mid34$ as an explicit example, not as a replacement for that agenda. The attempted route is to retain a single-class quadratic invariant after mixing stochastic parameter points.
+\begin{proposition}
+A two-class stochastic mixture can violate the quadratic edge invariant that vanishes in each class.
+\end{proposition}
+\begin{proof}
+Represent binary states by spins $\pm1$. Give the root an independent uniform spin and each edge an independent noise spin with mean $\theta_e\in(0,1)$; a leaf spin is the root spin times the noises along its path. The transition probabilities are $(1+\theta_e)/2$ for no flip and $(1-\theta_e)/2$ for a flip, both positive. For pendant-edge means $\theta_1,\ldots,\theta_4$, set $a=\theta_1\theta_2$, $b=\theta_3\theta_4$. Cancellation of shared path noises gives
+\[
+E(X_1X_2)=a,\quad E(X_3X_4)=b,\quad E(X_1X_2X_3X_4)=ab.
+\]
+Thus the Fourier block $\left(\begin{smallmatrix}1&b\\a&ab\end{smallmatrix}\right)$ has determinant zero. The internal-edge noise cancels in these moments.
+
+Mix classes 1 and 2 with weights $\lambda,1-\lambda$. Linearity of moments gives determinant
+\[
+\lambda a_1b_1+(1-\lambda)a_2b_2-
+(\lambda a_1+(1-\lambda)a_2)(\lambda b_1+(1-\lambda)b_2)
+=\lambda(1-\lambda)(a_1-a_2)(b_1-b_2).
+\]
+Take $\lambda=1/2$, all four pendant means $1/5$ in class 1 and $4/5$ in class 2, and internal mean $1/2$ in both. Then $(a_1,b_1)=(1/25,1/25)$ and $(a_2,b_2)=(16/25,16/25)$, and the determinant is $9/100$. These are strictly positive stochastic models, so the violation is not caused by complex or inadmissible parameters.
+\end{proof}
+\subsection{Verification and remaining gaps}
+Exact rational calculation verified $9/100$. The failure is the invalid inference that a polynomial vanishing at two endpoints vanishes on their mixture segment. A $2\times2$ block supplies no $3\times3$ minors to repair the rank condition for two classes. This particular example does not compute a secant ideal or address other rate models, and may not satisfy a more restrictive common-rate parameterization unless that parameterization is specified. No general solution or novelty is claimed.
+
+\section{References and source attribution}
+The original question is credited to the AIM workshop list prepared by Seth Sullivant (2004), \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}. The source question and catalogue attribution are reproduced above. This list was accessed on 11 October 2026; it is historical evidence of the question, not a certification of present open status.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch005/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

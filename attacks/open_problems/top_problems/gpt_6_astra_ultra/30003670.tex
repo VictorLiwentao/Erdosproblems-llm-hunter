@@ -1,0 +1,92 @@
+% TOP_PROBLEM: {"id": 30003670, "title": "Osterwalder–Schrader Positivity in Free Probability", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The reflection, ordering convention and positive-time algebra are to be constructed or characterized. The displayed form only explains the type of positivity sought; it is not a universal axiom already satisfied by every noncommutative state."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003670", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Can Euclidean reflection positivity be formulated meaningfully for free probability and noncommuting random variables?", "scope": "Computed a positive but rank-one reflected form for freely independent identified copies; exposed the trivial-reconstruction obstruction.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Derived the two-factor consequence of freeness, checked complex conjugation and the exact null space, and kept the automorphism convention explicit. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked factorization of the two free subalgebras, the positive rank-one reflection form, and the one-dimensional quotient. No nontrivial reconstruction is obtained. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Derived the two-factor consequence of freeness, checked complex conjugation and the exact null space, and kept the automorphism convention explicit. The remaining gap is: Construct and control a nondegenerate reflection-positive noncommutative model with the source ordering and dynamical structure. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30003670; source catalogue code OWR-15960-003
+\setcounter{section}{30003669}
+\section{Osterwalder–Schrader Positivity in Free Probability}\label{30003670}
+{\small UnsolvedMath ID 30003670 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+Free probability studies a noncommutative probability space $(\mathcal A,\varphi)$, with a positive normalized functional $\varphi$ and a notion of free independence. Noncommuting random variables are elements of $\mathcal A$ whose products depend on order. An analogue of reflection positivity requires a reflection or anti-automorphism $\theta$ and a distinguished positive-time algebra, with a positive sesquilinear form corresponding to $\varphi(\theta(a)^*b)$ under the chosen convention.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Do analogues of Osterwalder–Schrader positivity exist in free probability or for noncommuting random variables?
+
+\paragraph{Source scope and qualification.}
+The reflection, ordering convention and positive-time algebra are to be constructed or characterized. The displayed form only explains the type of positivity sought; it is not a universal axiom already satisfied by every noncommutative state.
+\subsection{Short English statement}
+Can Euclidean reflection positivity be formulated meaningfully for free probability and noncommuting random variables?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Computed a positive but rank-one reflected form for freely independent identified copies; exposed the trivial-reconstruction obstruction.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30003670. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{A free-copy reflection test.} Suppose a noncommutative probability space contains two freely independent unital subalgebras \(\mathcal A_+,\mathcal A_-\). Let a complex-linear state-preserving star isomorphism \(\theta:\mathcal A_+\to\mathcal A_-\) specify the reflection convention. Freeness implies \(\varphi(xy)=\varphi(x)\varphi(y)\) for \(x\in\mathcal A_-\), \(y\in\mathcal A_+\): subtract the two expectations and use the vanishing of an alternating product of two centered elements. Consequently
+\[
+ B(a,b)=\varphi(\theta(a)^*b)=\overline{\varphi(a)}\varphi(b),\qquad
+ B(a,a)=|\varphi(a)|^2\ge0.
+\]
+Thus an analogue exists in this explicitly assumed free-copy setting and allows noncommuting variables inside each copy.
+\paragraph{The degeneracy obstruction.} The null space of \(B\) is exactly \(\ker\varphi|_{\mathcal A_+}\); every \(a\) is equivalent modulo it to \(\varphi(a)1\). Since \(B(1,1)=1\), the resulting quotient Hilbert space is one-dimensional. All centered observables disappear. Therefore this very direct replacement of independent reflected halves by free halves is too degenerate to reconstruct nontrivial observable excitations. Positivity by itself is an inadequate success criterion for a useful analogue.
+\paragraph{Scope audit.} This argument assumes the two copies and their state-preserving identification; it does not claim every reflection of every noncommutative state has this property. In particular the automorphism convention is explicit, rather than being confused with an order-reversing anti-automorphism. The source's existing bi-free context is not reconstructed here. The missing step is a nontrivial reflection form compatible with ordering, time evolution and the intended free-probabilistic structure. The calculation is elementary conditional groundwork and no new portion of that theory is claimed.
+
+\paragraph{Verification and adversarial audit.}
+Derived the two-factor consequence of freeness, checked complex conjugation and the exact null space, and kept the automorphism convention explicit. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Derived the two-factor consequence of freeness, checked complex conjugation and the exact null space, and kept the automorphism convention explicit. The remaining gap is: Construct and control a nondegenerate reflection-positive noncommutative model with the source ordering and dynamical structure. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked factorization of the two free subalgebras, the positive rank-one reflection form, and the one-dimensional quotient. No nontrivial reconstruction is obtained. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Construct and control a nondegenerate reflection-positive noncommutative model with the source ordering and dynamical structure.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30003670:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30003670 (OWR-15960-003). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30003670:2}{S2}] Reflection Positivity (2017), Oberwolfach Reports, DOI 10.4171/owr/2017/55, pp. 3263--3343. Primary report accessed 2026-10-11; relevant PDF pages 47, 48.
+\url{https://doi.org/10.4171/owr/2017/55}.
+\item[\hypertarget{source:30003670:3}{S3}] Speicher, Bi-Free Probability and Reflection Positivity (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/2312.06813}.
+\item[\hypertarget{source:30003670:4}{S4}] OWR Report 55/2017 (catalogue-listed context; not independently consulted in this preparation).
+\url{https://oa.tib.eu/renate/server/api/core/bitstreams/8df8b5cb-72c1-4ca0-929f-dca03ec9bec0/content}.
+\end{itemize}
+\label{end:30003670}
+\end{document}

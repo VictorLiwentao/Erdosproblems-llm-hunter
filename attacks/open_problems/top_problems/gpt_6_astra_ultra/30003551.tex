@@ -1,0 +1,132 @@
+% RESEARCH_DRAFT_SHA256: 46a566f690e4a3a6681146062eb2532dd5117a97370d3cd0e2cb0ea501ae6c69
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30003551, "title": "Bit-Width-Independent Verification of Integer Multipliers", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003551", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and written-proof review of this attempt; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Bit-Width-Independent Verification of Integer Multipliers; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Weighted gate identities and the arbitrary-circuit obstruction; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch021 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30003551; source catalogue code OWR-15580-003
+\section{Bit-Width-Independent Verification of Integer Multipliers}\label{30003551}
+{\small UnsolvedMath ID 30003551 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A bounded-bit multiplier is a Boolean circuit computing integer products in a specified finite bit representation. Verification asks whether its output bits satisfy the claimed arithmetic identities for every allowed input.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The representation, verification proof system, and exact class of properties are not specified.
+
+Source-record limitation: The claimed multiplier properties and verification proof model are not specified.
+\paragraph{Statement recorded in the supplied source.}
+Find a general-purpose method for verifying bounded-bit-width integer multiplier properties, including ring identities, without exponential scaling in the bit-width. \href{https://doi.org/10.4171/owr/2017/37}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Verify the stated integer-multiplier properties without exponential growth in bit width.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30003551 (OWR-15580-003). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Proof Complexity and Beyond (2018), Oberwolfach Reports, DOI 10.4171/owr/2017/37, pp. 2299--2361
+\url{https://doi.org/10.4171/owr/2017/37}.
+\item[S3] Beame and Liew on nonlinear integer arithmetic
+\url{https://doi.org/10.1145/3319396}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30003551 and code OWR-15580-003 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30003551}
+
+\section{Literature and context check}
+The Beame--Liew talk in OWR 37/2017, pp.~2310--2311, and the primary abstract of arXiv:1705.04302 were consulted. The report already gives short regular-resolution proofs for degree-two identities in several specified multiplier architectures and a quasipolynomial result for Wallace trees. Those proofs were not rederived here. The following direct polynomial certificate is a different, explicitly restricted verification model, followed by an obstruction to extending it to arbitrary circuits for free.
+\section{Research attempt: Weighted gate identities and the arbitrary-circuit obstruction}
+
+\paragraph{A local certificate that telescopes.}
+Let $A=\sum_{i=0}^{n-1}2^i a_i$ and $B=\sum_{j=0}^{n-1}2^j b_j$, with Boolean input bits. Generate partial-product bits $q_{ij}=a_i b_j$ of weight $2^{i+j}$. Suppose a finite arithmetic network transforms these tokens into output bits using full adders: three same-weight input tokens $u,v,w$ at weight $2^h$ are replaced by a sum bit $s$ at weight $2^h$ and a carry bit $t$ at weight $2^{h+1}$. Each token is consumed once or retained as output, and the final tokens contain one bit $z_h$ at each output position (zero bits may pad missing positions). The local identity is
+\[
+ u+v+w=s+2t.
+\]
+It is checked by the four possible numbers $0,1,2,3$ of true inputs, taking $s$ as parity and $t$ as majority. A half adder satisfies $u+v=s+2t$ by the analogous three cases.
+
+Multiply each gate identity by its input weight and sum over all gates. Every internal token appears once on each side and cancels. Therefore
+\[
+ \sum_h2^h z_h=\sum_{i,j}2^{i+j}q_{ij}
+ =\sum_{i,j}2^{i+j}a_i b_j=AB.
+\]
+Equivalently, the output-minus-product polynomial is a linear combination of the gate polynomials and $q_{ij}-a_i b_j$, with explicit constant coefficients $\pm2^h$. This is an exact certificate of degree at most two. If the supplied network has $G$ gates and weights use $O(n)$ bits, the certificate has $O(G+n^2)$ summands with $O(n)$-bit integer coefficients. It does not expand into $2^{2n}$ input assignments. For a truncated output, the same conservation proof establishes the equality modulo $2^w$ after discarding weights divisible by $2^w$; full integer equality and modular equality are distinct specifications.
+
+The structural conditions matter. Unaccounted fan-out, dropped carries, or wrong token weights break the cancellation proof. Local truth-table checks alone cannot establish that an arbitrary arrangement computes multiplication. Signed two's-complement conventions would require their own weighted input and truncation specification and are not silently included.
+
+\paragraph{A reduction for arbitrary candidate multiplier circuits.}
+Let $\varphi(a_0,\ldots,a_{n-1})$ be any Boolean CNF, represented by a circuit. Construct a circuit $C_\varphi(A,B)$ by taking a correct full multiplier, retaining all output bits except bit zero, and replacing bit zero by its exclusive-or with $\varphi(A)$. The construction adds only the size of $\varphi$ and a constant number of gates. Then
+\[
+ C_\varphi(A,B)=AB\text{ for every }A,B
+ \quad\Longleftrightarrow\quad \varphi\text{ is unsatisfiable}.
+\]
+If $\varphi$ is always false, the output is unchanged. If it is true on some $A$, the low output bit is flipped for that $A$ and every $B$, so equality fails; one may take $B=0$. Thus a general polynomial-time correctness tester for arbitrary circuits would in particular decide CNF unsatisfiability in polynomial time. This is an explicit reduction, not an unconditional impossibility theorem: no unproved separation such as $\mathrm P\ne\mathrm{NP}$ is being assumed as established.
+
+Likewise, a polynomially checkable proof format guaranteeing polynomial-size correctness certificates for every correct arbitrary circuit would give such certificates for every unsatisfiable CNF via this construction. The simple weighted-gate certificate supplies that guarantee only for networks whose arithmetic structure has already been recognized. General-purpose recognition of that structure, or a proof system efficiently covering arbitrary correct implementations, remains the unresolved step.
+\section{Verification and adversarial audit}
+The weighted sum was checked gate by gate, including carry weights and the full-product versus modulo-$2^w$ distinction. The reduction uses only the original multiplier input $A$ for the CNF variables and no extra oracle inputs. It preserves polynomial circuit size and checks both directions of the equivalence. No resolution proof-size result is inferred from the degree-two polynomial certificate.
+\paragraph{Audit corrections.} Separated a polynomial identity certificate from a resolution refutation and made the token-conservation assumptions explicit. Replaced an unsupported universal-efficiency assertion with a fully stated CNF-unsatisfiability reduction.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The original broad target includes unspecified properties, implementations and proof models. This attempt gives a direct certificate under explicit dataflow assumptions and an exact reduction explaining the arbitrary-circuit gap. It neither supplies a universal nonexponential method nor disproves one unconditionally; the known architecture-specific results remain contextual.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46700} (consulted 2026-10-11). 
+\item \url{https://arxiv.org/abs/1705.04302} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and written-proof review of this attempt; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

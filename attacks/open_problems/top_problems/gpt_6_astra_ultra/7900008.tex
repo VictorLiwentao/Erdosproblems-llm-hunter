@@ -1,0 +1,86 @@
+% TOP_PROBLEM: {"id": 7900008, "title": "Absolutely Continuous Spectrum Under a Weighted L2 Condition", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The brief catalogue statement does not specify local regularity or the self-adjoint realization. Those operator-domain hypotheses require consultation of the primary source, and are not invented here. Multiplicity on an interval is understood almost everywhere in spectral theory."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "7900008", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Determine whether the stated weighted square-integrability condition forces infinitely many absolutely continuous spectral channels at nonnegative energies.", "scope": "Verified free infinite spectral multiplicity and exhibited smooth potentials whose weighted norm is small while their supremum is large. The weighted-L2 spectral theorem remains unproved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked radial Jacobian cancellation, energy measure, nu>=2 multiplicity, zero endpoint and smooth finite-norm bump examples; no arbitrary self-adjoint realization was invented. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the energy polar-coordinate density, angular multiplicity and weighted-norm angular-bump construction. Operator-norm control is not inferred from the weighted hypothesis. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked radial Jacobian cancellation, energy measure, nu>=2 multiplicity, zero endpoint and smooth finite-norm bump examples; no arbitrary self-adjoint realization was invented. Scope remains limited: Construct infinitely many absolutely continuous channels using estimates controlled by the weighted norm rather than a nonexistent supremum bound."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 7900008; source catalogue code AMR-078-0008
+\setcounter{section}{7900007}
+\section{Absolutely Continuous Spectrum Under a Weighted L2 Condition}\label{7900008}
+{\small UnsolvedMath ID 7900008 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}The operator $-\Delta+V$ is a continuum Schrödinger operator on $L^2(\mathbb R^\nu)$, realized self-adjointly for a real potential under the source’s standing operator-domain assumptions. The displayed integral is a weighted square-integrability condition, with weight $|x|^{1-\nu}$. The absolutely continuous part is characterized by spectral measures having Lebesgue densities; its multiplicity is the number of independent spectral channels almost everywhere.
+
+\paragraph{Catalogue wording retained for traceability.}
+Let $V$ be a function on $\mathbb R^\nu$, $\nu\geq2$, satisfying $\int |x|^{-\nu+1}|V(x)|^2\,d^\nu x<\infty$. Prove that $-\Delta+V$ has absolutely continuous spectrum of infinite multiplicity on $[0,\infty)$.
+\paragraph{Scope and source qualification.}The brief catalogue statement does not specify local regularity or the self-adjoint realization. Those operator-domain hypotheses require consultation of the primary source, and are not invented here. Multiplicity on an interval is understood almost everywhere in spectral theory.
+\subsection{Short English statement}
+Determine whether the stated weighted square-integrability condition forces infinitely many absolutely continuous spectral channels at nonnegative energies.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Verified free infinite spectral multiplicity and exhibited smooth potentials whose weighted norm is small while their supremum is large. The weighted-L2 spectral theorem remains unproved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{The free infinite-multiplicity benchmark.}For \(V=0\), the Fourier transform turns \(-\Delta\) into multiplication by \(|\xi|^2\). In polar coordinates \(\xi=r\theta\), followed by \(E=r^2\),
+\[L^2(\mathbb R^\nu)\simeq L^2\left((0,\infty),\tfrac12E^{(\nu-2)/2}dE;L^2(S^{\nu-1})\right).
+\]
+Multiplication by the square root of the strictly positive density makes the base measure ordinary Lebesgue measure on \((0,\infty)\). For \(\nu\ge2\), the angular Hilbert space is infinite dimensional. The free operator therefore has absolutely continuous spectrum with infinite multiplicity almost everywhere on the positive axis. The single endpoint zero has no bearing on an almost-everywhere multiplicity assertion.
+\paragraph{What the proposed hypothesis actually controls.}The weighted condition becomes exactly
+\[\int_0^\infty\int_{S^{\nu-1}}|V(r\theta)|^2\,d\theta\,dr<\infty.\]
+It is a radial \(L^2\) average of angular \(L^2\) norms, not a uniform angular decay bound. To see this concretely, fix a smooth bounded radial function \(a\) supported in \(1<r<2\), and let \(b_M\) be a smooth angular bump of height \(M\) supported on a patch of area at most \(M^{-4}\). Then \(V_M(r\theta)=a(r)b_M(\theta)\) has weighted square norm at most \(\|a\|_2^2M^{-2}\), while its supremum grows like \(M\). Each individual example is a bounded smooth compactly supported potential, so no operator-domain pathology is needed for this warning.
+\paragraph{Failed perturbative step.}A proof based on smallness of the multiplication-operator norm cannot follow from the stated weighted norm: the bump family explicitly contradicts such a bound. Transferring the free angular channels to the perturbed operator requires a scattering or spectral estimate controlled by the weighted norm itself. This estimate is not proved here. The supplied warning about self-adjoint realization is retained, and the free case and bump test do not settle the general continuum assertion.
+
+\paragraph{Verification and adversarial audit.}
+Checked radial Jacobian cancellation, energy measure, nu>=2 multiplicity, zero endpoint and smooth finite-norm bump examples; no arbitrary self-adjoint realization was invented. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked radial Jacobian cancellation, energy measure, nu>=2 multiplicity, zero endpoint and smooth finite-norm bump examples; no arbitrary self-adjoint realization was invented. Scope remains limited: Construct infinitely many absolutely continuous channels using estimates controlled by the weighted norm rather than a nonexistent supremum bound.
+
+Coordinator checked the energy polar-coordinate density, angular multiplicity and weighted-norm angular-bump construction. Operator-norm control is not inferred from the weighted hypothesis. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Construct infinitely many absolutely continuous channels using estimates controlled by the weighted norm rather than a nonexistent supremum bound.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:7900008:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 7900008 (AMR-078-0008). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:7900008:2}{S2}] Barry Simon, Schrödinger operators in the twenty-first century, Mathematical Physics 2000, pp. 283–288, original Problem 8.
+\url{https://web.ma.utexas.edu/mp_arc-bin/mpa?yn=00-78}.
+\item[\hypertarget{source:7900008:3}{S3}] Wikipedia contributors, Simon problems, pinned revision 1335881350, The 2000 list. Existing catalogue wording adapted; CC BY-SA 4.0.
+\url{https://en.wikipedia.org/w/index.php?title=Simon_problems&oldid=1335881350#The_2000_list}.
+\end{itemize}
+\label{end:7900008}
+\end{document}

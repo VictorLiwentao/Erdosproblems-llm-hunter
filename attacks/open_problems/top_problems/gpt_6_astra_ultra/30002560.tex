@@ -1,0 +1,108 @@
+% RESEARCH_DRAFT_SHA256: 3baf5fee425408ec34eb99cf8053344e5a51540b4696c0610ce221fadac66a62
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30002560, "title": "Interior Maximizers of Mixed Characteristic Polynomials", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002560", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, written mathematical proof review, and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also supplied the auxiliary mathematical proof route, independently audited and explicitly credited in the research section. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Complete exact largest-root optimization for h(x,y)=xy, attaining the source’s proposed interior-or-zero and saturated-trace pattern in this restricted case.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification. Codex GPT-6 also reviewed the written arguments; this model review is not independent human verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch019/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 30002560; source catalogue code OWR-12975-005
+\section{Interior Maximizers of Mixed Characteristic Polynomials}\label{30002560}
+{\small UnsolvedMath ID 30002560 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A hyperbolicity cone is the connected cone associated with a polynomial hyperbolic in direction $e$. In the associated eigenvalue convention, trace is the sum of hyperbolic eigenvalues; the mixed characteristic polynomial is the source\textquotesingle s mixed differential construction.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The hyperbolic polynomial, mixed characteristic construction, trace normalization, and feasibility/attainment assumptions are not fully specified in the supplied question.
+
+Source-record limitation: The hyperbolic polynomial and mixed-characteristic construction are absent from the supplied target; its optimizer cannot be defined from this extraction.
+\paragraph{Statement recorded in the supplied source.}
+In the mixed-characteristic-polynomial optimization problem, maximize the largest zero subject to $u_i$ lying in the hyperbolicity cone, $\operatorname{tr}(u_i)\leq\varepsilon$, and $\sum_i u_i=e$. Is the maximum attained when every $u_i$ is either in the interior of the cone or zero? \href{https://doi.org/10.4171/owr/2014/17}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Determine whether the largest-root optimization has a maximizer using only interior vectors and zero vectors.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30002560 (OWR-12975-005). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Real Algebraic Geometry With A View Toward Systems Control and Free Positivity (2015), Oberwolfach Reports, DOI 10.4171/owr/2014/17, pp. 977--1045
+\url{https://doi.org/10.4171/owr/2014/17}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30002560 and code OWR-12975-005 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30002560}
+
+\section{Research attempt}
+\subsection{Literature, source context and scope}
+The full original catalogue body and source qualifications are preserved above. The relevant primary workshop passages were read in the cached publisher report. Historical claims and subsequent attributed results are distinguished from the mathematical work below. A restricted example, standard lemma or known theorem is not counted as new progress on the entire original target. Missing assumptions and repeated or rhetorical extracts are not silently turned into different solved problems.
+Codex (GPT-6; exact serving revision not exposed) supplied the auxiliary proof route used here. OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, independently worked through its mathematical steps, wrote this exposition, and performed the finite checks. This is model collaboration, not independent human verification.
+
+\subsection{An exact product-cone calculation}
+We work in the restricted hyperbolic example $h(x,y)=xy$ with $e=(1,1)$ and closed cone $\mathbb R_+^2$. Here $\operatorname{tr}(a,b)=a+b$. Let $m\ge1$, $\varepsilon>0$ and $m\varepsilon\ge2$. Consider $u_i=(a_i,b_i)\ge0$ with $\sum_i a_i=\sum_i b_i=1$ and $a_i+b_i\le\varepsilon$. These are the source's constraints for this particular degree-two polynomial.
+\begin{proposition}
+Put $q=\lfloor2/\varepsilon\rfloor$ and $r=2-q\varepsilon$. The largest possible largest root of the mixed characteristic polynomial is
+\[
+1+\frac12\sqrt{q\varepsilon^2+r^2}.
+\]
+It is achieved with $q$ trace masses equal to $\varepsilon$, one further mass $r$ if $r>0$, and all remaining masses zero, by taking $u_i=(s_i/2,s_i/2)$. In particular every nonzero $u_i$ in this maximizer lies in the interior of the cone.
+\end{proposition}
+\begin{proof}
+Only derivatives of order at most two survive in $h$. Since $\sum_i(a_i+b_i)=2$ and
+\[
+\sum_{i<j}(a_i b_j+a_j b_i)
+=(\sum_i a_i)(\sum_i b_i)-\sum_i a_ib_i=1-\sum_i a_ib_i,
+\]
+the polynomial $\prod_i(1-D_{u_i})h$ evaluated at $(t,t)$ equals
+\[
+\chi(t)=t^2-2t+1-\sum_i a_ib_i.
+\]
+Its largest root is $1+\sqrt{\sum_i a_ib_i}$. Write $s_i=a_i+b_i$. Then $a_ib_i\le s_i^2/4$, with equality at $a_i=b_i=s_i/2$. This equality choice simultaneously satisfies both total-coordinate constraints whenever $\sum_i s_i=2$. Thus it remains to maximize $\sum_i s_i^2$ under $0\le s_i\le\varepsilon$ and $\sum_i s_i=2$.
+If two entries lie strictly between 0 and $\varepsilon$, transfer an amount $\delta>0$ from the smaller to the larger until one reaches a boundary. The sum of their squares increases by $2\delta(s_{\rm large}-s_{\rm small})+2\delta^2>0$. Repeating eliminates at least one interior entry at each step, so a maximizer has at most one such entry. The total mass then forces $q$ entries equal to $\varepsilon$ and the optional remainder $r$. Feasibility $m\varepsilon\ge2$ ensures that enough coordinates are available: $q\le m$, with $q+1\le m$ when $r>0$. This also covers $\varepsilon>2$, where $q=0,r=2$, and the case $r=0$. The stated value follows. Each positive $s_i$ gives two positive coordinates, proving the interior assertion.
+\end{proof}
+\subsection{Verification and remaining gaps}
+All three-vector feasible pairs of coordinate compositions with denominator eight were enumerated at $\varepsilon=3/4$. The maximum $\sum_i a_ib_i$ is $11/32$, attained at trace masses $3/4,3/4,1/2$, matching the formula. Boundary cases $m=1,\varepsilon=2$ and $m=2,\varepsilon=1$ were also checked. The workshop already formulates the proposed general mass pattern. This calculation verifies it only for $h=xy$; it supplies no exchange inequality for higher-degree or arbitrary hyperbolic polynomials. The exact place where the route ceases to generalize is the reduction of the largest root to the scalar quadratic objective $\sum_i a_ib_i$. No general conjecture is claimed solved.
+
+\section{References and source attribution}
+Primary workshop report: \url{https://doi.org/10.4171/owr/2014/17}. Relevant passages read: 2014/17 pp. 993--995, mixed characteristic polynomial, Problem 0.4 and Conjecture 0.5.
+
+All retrievals were checked on 11 October 2026. Original question attribution remains in the preserved Sources section. External theorems are attributed and not claimed as new discoveries or fully verified merely by citation.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch, reviewed the written mathematical arguments, and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch019/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

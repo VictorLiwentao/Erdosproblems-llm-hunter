@@ -1,0 +1,132 @@
+% RESEARCH_DRAFT_SHA256: e76d26a1088697709856a734d158176c9fb6131ee890eab57d37ba4351ea6fca
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001184, "title": "A binary-collapse-invisible likelihood face", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001184", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Conjecture 8. Maximum likelihood estimates for an I × J × K table under the no 3-way interaction model do not exist if and only if they do not exist for all collapsings of the table to a 2 × 2 × 2 table.\n\nLater in the week, Nicholas Eriksson showed that this conjecture is false already for 3 × 3 × 3 tables. Mathias Drton asked \"How can we incorporate structural zeroes into this problem?\" Stephen Roehrig asked \"Is it possible to relate the MLE solutions for decomposable models to decomposable network flow problems?\"\n\nAkimichi Takemura", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The literal all-collapses implication is refuted by an elementary example, but the composite structural-zero/network-flow questions and stronger all-collapses-miss diagnostic interpretation are not resolved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Binary collapses and likelihood existence: a literal counterexample with scope limits}
+\noindent UnsolvedMath ID 20001184; AIM-COMPUTATION-0022. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A log-linear model expresses logarithms of cell probabilities using selected interaction terms. The no-three-way-interaction model for a three-way table keeps interactions involving at most two variables. Collapsing categories sums cell counts into coarser groups. A structural zero is a cell forced to have probability zero by the model or design; MLE existence is assessed within the model's admissible parameter space.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The passage itself says the conjecture was false for $3\times3\times3$ tables. Its structural-zero and network-flow remarks are additional questions, not a surviving form of the conjecture. The supplied catalogue marks this record solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+Conjecture 8. Maximum likelihood estimates for an I × J × K table under the no 3-way interaction model do not exist if and only if they do not exist for all collapsings of the table to a 2 × 2 × 2 table.
+
+Later in the week, Nicholas Eriksson showed that this conjecture is false already for 3 × 3 × 3 tables. Mathias Drton asked "How can we incorporate structural zeroes into this problem?" Stephen Roehrig asked "Is it possible to relate the MLE solutions for decomposable models to decomposable network flow problems?"
+
+Akimichi Takemura \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. This is documentation of a source-labelled solved record, not a newly proposed unsolved problem.
+\subsection{Short English statement}
+The source records a conjecture relating MLE existence to binary collapsings, together with its reported counterexample.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001184 (AIM-COMPUTATION-0022). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-COMPUTATION-0022.
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Conjecture 8. Maximum likelihood estimates for an I × J × K table under the no 3-way interaction model do not exist if and only if they do not exist for all collapsings of the table to a 2 × 2 × 2 table.
+
+Later in the week, Nicholas Eriksson showed that this conjecture is false already for 3 × 3 × 3 tables. Mathias Drton asked "How can we incorporate structural zeroes into this problem?" Stephen Roehrig asked "Is it possible to relate the MLE solutions for decomposable models to decomposable network flow problems?"
+
+Akimichi Takemura
+
+\section{Attempt and explicit example}
+The source explicitly reports that its conjecture was refuted in the
+workshop. We do not claim a new discovery. Its word ``all'' is preserved:
+failure upstairs is claimed equivalent to failure for every binary
+collapse. The stronger diagnostic idea that some collapse must detect
+every failure is a different statement. Structural-zero and network-flow
+questions in the same extract also remain separate.
+
+\paragraph{A $2$ by $2$ by $3$ counterexample to the literal universal wording.}
+Index $i,j\in\{0,1\}$ and $k\in\{0,1,2\}$. Give count zero to
+$(0,0,0),(0,1,0)$ and count one to each other cell. The original
+no-three-way-interaction model has no strictly positive MLE.
+Indeed, the model permits a parameter multiplying the probabilities in
+the pair-configuration $i=0,k=0$ by $e^{-t}$ before renormalizing; this
+is a two-factor potential. None of the observed counts lies in those
+cells. Decreasing their positive fitted probability strictly increases
+every observed cell probability after normalization, and hence strictly
+increases the likelihood for every finite $t$. There is no interior maximum.
+
+Now collapse $k$ into $\{0,1\}$ and $\{2\}$. For either value of $j$,
+the two rows indexed by $i$ in the resulting $i$-by-collapsed-$k$ slice
+are $(1,1)$ and $(2,1)$. All eight counts are positive and the slices
+for $j=0,1$ agree. Their empirical distribution factors as a positive
+joint law on $(i,k')$ times the uniform law on $j$, and therefore lies
+in the no-three-way-interaction model.
+It is a global MLE: if empirical probabilities are $q_l>0$ and candidate
+probabilities $p_l>0$, then
+\[
+\sum_lq_l\log(p_l/q_l)\le\sum_lq_l(p_l/q_l-1)=0,
+\]
+using $\log u\le u-1$, whose proof follows by differentiating
+$u-1-\log u$ and locating its minimum at one. Equality holds exactly
+when $p=q$. Thus the collapsed table has an ordinary MLE even though
+the original does not, disproving the displayed ``all collapsings''
+implication. The proof accounts for every count and uses no numerical fit.
+
+\paragraph{Why this does not settle the stronger detection interpretation.}
+For the different collapse $\{0\}$ versus $\{1,2\}$, the empty
+pair-configuration remains empty. The same two-factor likelihood argument
+then rules out a positive MLE. Thus our example has both a detecting
+and a nondetecting collapse. It does not prove that all binary collapses
+can miss a likelihood face. The source reports a $3$ by $3$ by $3$
+counterexample to its historical conjecture, but no explicit nine-cell
+construction is imported from the unsupported expanded title.
+
+\section{Audit and remaining questions}
+The AIM PDF was inspected at Conjecture 8 and the subsequent reported
+refutation. The self-audit checked the exact universal quantifier,
+sampling versus structural zeros, positive normalization, and feasibility
+of the empirical collapsed model. No simulation or theorem prover was run.
+This is a transparent known-style refutation of the literal substatement;
+it neither classifies structural zeros nor provides the requested general
+relation with decomposable network flows. No novelty is claimed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The literal all-collapses implication is refuted by an elementary example, but the composite structural-zero/network-flow questions and stronger all-collapses-miss diagnostic interpretation are not resolved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Computational Algebraic Statistics, prepared by Seth Sullivant, version 27 March 2004; the original numbered source question and its adjacent scope were inspected on 11 October 2026. \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The literal all-collapses implication is refuted by an elementary example, but the composite structural-zero/network-flow questions and stronger all-collapses-miss diagnostic interpretation are not resolved.
+\end{document}

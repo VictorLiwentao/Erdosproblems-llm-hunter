@@ -1,0 +1,135 @@
+% RESEARCH_DRAFT_SHA256: 88335f3aafa0336c859331335ce26c7b7655f42978099b3813a0bf4bf176b2fe
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30003554, "title": "PSD Rank Bounds for Polynomial-Size Selector Matrices", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003554", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and written-proof review of this attempt; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "PSD Rank Bounds for Polynomial-Size Selector Matrices; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Exact selector examples and a robust identity submatrix; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch021 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30003554; source catalogue code OWR-15580-006
+\section{PSD Rank Bounds for Polynomial-Size Selector Matrices}\label{30003554}
+{\small UnsolvedMath ID 30003554 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+The positive-semidefinite rank of a nonnegative matrix $M$ is the least $r$ such that $M_{ij}=\operatorname{tr}(A_iB_j)$ with $r\times r$ positive-semidefinite matrices $A_i,B_j$.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The selector construction, base function $f$, and precise lower bound are not supplied; no alternate selector matrix is substituted.
+
+Source-record limitation: The selector matrix construction and lower bound to extend are absent from the supplied target.
+\paragraph{Statement recorded in the supplied source.}
+Does the positive-semidefinite-rank lower bound for the selector matrix $M_f^{\operatorname{SEL}_m}$ remain valid when $m\leq n^{O(1)}$? \href{https://doi.org/10.4171/owr/2017/37}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Extend the cited selector-matrix rank lower bound to polynomially sized selector parameters.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30003554 (OWR-15580-006). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Proof Complexity and Beyond (2018), Oberwolfach Reports, DOI 10.4171/owr/2017/37, pp. 2299--2361
+\url{https://doi.org/10.4171/owr/2017/37}.
+\item[S3] Lower bounds on semidefinite programming relaxations
+\url{https://doi.org/10.1145/2746539.2746599}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30003554 and code OWR-15580-006 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30003554}
+
+\section{Literature and context check}
+The selector definitions and Theorem 4 in OWR 37/2017, pp.~2328--2329, were read. The report defines $\operatorname{SEL}_m(i,x)=x_i$ and the lifted matrix, introduces SOS degree, but its displayed PSD-rank theorem uses $\deg_+$ rather than the just-defined SOS notation. This apparent notation issue is retained as source uncertainty; no silently repaired general theorem is claimed. The precise later lifting theorem and its error term were not checked here. The following exact examples test the actual selector construction rather than substituting another matrix.
+\section{Research attempt: Exact selector examples and a robust identity submatrix}
+
+\paragraph{The matrix and an elementary PSD-rank lemma.}
+For $f:\{0,1\}^n\to\mathbb R_{\ge0}$, the rows are $i=(i_1,\ldots,i_n)\in[m]^n$, the columns are $x=(x^{(1)},\ldots,x^{(n)})\in(\{0,1\}^m)^n$, and
+\[
+ M_f(i,x)=f(x^{(1)}_{i_1},\ldots,x^{(n)}_{i_n}).
+\]
+The PSD rank of the $R\times R$ identity matrix is exactly $R$. The upper bound uses diagonal coordinate projections. For the lower bound, suppose $\delta_{ij}=\operatorname{tr}(A_iB_j)$ with real symmetric positive semidefinite $r\times r$ matrices. Spectral square roots give
+\[
+ \operatorname{tr}(A_iB_j)=\|A_i^{1/2}B_j^{1/2}\|_F^2.
+\]
+For $i\ne j$ this is zero, so the ranges of $A_i$ and $B_j$ are orthogonal. For $i=j$ it is nonzero, so choose $a_i$ in the range of $A_i$ and $b_i$ in the range of $B_i$ with $\langle a_i,b_i\rangle\ne0$. If $\sum_i c_i a_i=0$, pairing with $b_j$ forces $c_j=0$. Hence $r\ge R$. Restriction to a submatrix cannot increase PSD rank, since the same factors remain valid.
+
+\paragraph{Two selectors computed exactly.}
+For $f(z)=z_1$ and $n\ge1$, the matrix depends only on the first row index and first column block. It contains $I_m$ by choosing first blocks equal to singleton indicator vectors. Conversely $A_i=e_{i_1}e_{i_1}^T$ and $B_x=\operatorname{diag}(x^{(1)})$ give an $m$-dimensional factorization. Thus $\operatorname{rank}_{\mathrm{psd}}M_f=m$.
+
+For $f(z)=\prod_{j=1}^n z_j$, take columns indexed by $a\in[m]^n$, with each block $x^{(j)}$ the singleton indicator of $a_j$. Then $M_f(i,x)=1$ exactly when $i=a$, giving $I_{m^n}$. Since the matrix has $R=m^n$ rows, a diagonal factorization of dimension $R$ always exists: use the row coordinate projections and, for each column, its entries on the diagonal. Therefore
+\[
+ \operatorname{rank}_{\mathrm{psd}}M_{\mathrm{AND}_n}=m^n.
+\]
+Here SOS degree means the maximum degree of the polynomials being squared, rather than twice that degree. This example has exact SOS degree $n$ when squares of multilinear polynomials on the Boolean cube are used. If $\mathrm{AND}_n=\sum_jq_j^2$, every $q_j$ vanishes at every Boolean point except $(1,\ldots,1)$. The unique multilinear function with these values is $q_j=c_j\prod_i z_i$. Uniqueness follows by induction on the variables: a multilinear polynomial is $u(z')+z_n v(z')$, determined by its restrictions at $z_n=0,1$. At least one $c_j$ is nonzero, forcing degree $n$; the reverse bound follows by squaring $\mathrm{AND}_n$ itself on the cube.
+
+\paragraph{The lower bound survives a constant perturbation in this example.}
+For $f=\alpha\mathrm{AND}_n+\epsilon$ with $\alpha>0$, $\epsilon\ge0$, the same submatrix is $\alpha I_R+\epsilon J_R$, of ordinary rank $R$: on the all-ones vector its eigenvalue is $\alpha+\epsilon R$, and on its orthogonal complement it is $\alpha$. A PSD factorization of size $r$ places every row in the span of the $r(r+1)/2$ coordinate functions of a symmetric matrix under the trace pairing. Thus ordinary rank is at most $r(r+1)/2$, proving
+\[
+ r\ge \frac{\sqrt{1+8m^n}-1}{2}.
+\]
+Taking $m=n$ gives $n^{\Omega(n)}$ for this particular function, even with the perturbation. Normalizing its expectation by a positive scalar changes no PSD rank: multiply all row factors by that scalar. This is an elementary special-family calculation, not the requested lifting theorem for every admissible $f$.
+
+\paragraph{A quantifier boundary.}
+For $m=1$ there is only one row, so every nonzero nonnegative selector matrix has PSD rank one. Thus a general lower bound cannot be read as holding for every positive $m$ merely because $m\le n^{O(1)}$. The intended statement must select a sufficiently large polynomial gadget size, with the correct dependence on $f$ and its approximation measure. A successful identity-submatrix argument for AND supplies neither that dependence nor arbitrary-function coverage.
+\section{Verification and adversarial audit}
+The trace-zero implication, linear independence argument, diagonal upper bounds, ordinary-rank dimension bound and $m=1$ boundary were all proved explicitly. The perturbation remains nonnegative and its identity submatrix is nonsingular for every $\alpha>0$. The unique multilinear representation argument is supplied rather than assumed to identify SOS degree. No claim is made about the unresolved notation discrepancy in the source theorem.
+\paragraph{Audit corrections.} Recovered the selector definition from the primary source and flagged its degree-notation issue. Avoided treating the upper bound on $m$ as a universal all-$m$ quantifier. Added the perturbed identity argument so that exact zeros alone are not mistaken for robustness.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The desired uniform polynomial-gadget lifting theorem, its exact degree measure, perturbation tolerance and quantifiers remain untreated. The actual selector construction is analyzed for two functions and a robust perturbation of one of them. These special examples do not establish or refute the general original target, and no novelty is claimed.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46700} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and written-proof review of this attempt; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

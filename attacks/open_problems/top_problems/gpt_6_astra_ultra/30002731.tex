@@ -1,0 +1,162 @@
+% RESEARCH_DRAFT_SHA256: c690e4be559dcde632ae3fa68201dc70b0318acfc81a87449de409d6c0c5082a
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30002731, "title": "Exact Integrality Gap for Capacitated Facility Location", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002731", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "What is the exact integrality gap of the strengthened linear-programming relaxation for the capacitated facility location problem based on partial client assignments?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. No exact worst-case MFN integrality gap is determined; the fully computed family has gap one and only rejects transferring a weaker-LP counterexample.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Facility-location gap: a standard-LP obstruction eliminated by the source relaxation}
+\noindent UnsolvedMath ID 30002731; OWR-13353-020. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Capacitated facility location opens facilities at a cost and assigns clients subject to facility capacities, minimizing opening plus connection cost. A partial assignment fixes some client-facility relationships and strengthens the residual relaxation.
+
+A relaxation contains the integral feasible solutions. For a nonnegative minimization objective, its integrality gap is the supremum of the ratio between the integral optimum and the relaxation optimum over the specified instances.
+
+A linear program optimizes $c^Tx$ over a polyhedron $\{x:Ax\leq b\}$. In the simplex method a pivot moves between adjacent basic feasible solutions; a pivot rule chooses the next such move.
+\paragraph{Statement recorded in the supplied source.}
+What is the exact integrality gap of the strengthened linear-programming relaxation for the capacitated facility location problem based on partial client assignments? \href{https://doi.org/10.4171/owr/2014/51}{[S2]}
+\paragraph{Scope qualification.}
+The precise partial-assignment relaxation is not included in the supplied question.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Find the exact worst-case gap of the cited strengthened capacitated facility-location relaxation.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30002731 (OWR-13353-020). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2015), Oberwolfach Reports, DOI 10.4171/owr/2014/51, pp. 2873--2932
+\url{https://doi.org/10.4171/owr/2014/51}.
+\item[S3] Kao, MFN integrality gap
+\url{https://doi.org/10.1137/1.9781611977554.ch40}.
+\item[S4] An, Singh, and Svensson, MFN relaxation
+\url{https://arxiv.org/abs/1407.3263}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+What is the exact integrality gap of the strengthened linear-programming relaxation for the capacitated facility location problem based on partial client assignments?
+
+\section{Recovering the precise relaxation}
+The report refers to An--Singh--Svensson for the full definition. We inspected
+its Definition 2.1. Let $x_{ij},y_i\in[0,1]$ be assignment and opening
+variables, with integer capacities $U_i$. For every partial assignment $g\ge0$
+satisfying $\sum_i g_{ij}\le1$, $\sum_jg_{ij}\le U_i$, set
+$d_j=1-\sum_i g_{ij}$. The network has arcs
+\[
+j^s\longrightarrow i\ (x_{ij}),\quad i\longrightarrow j^s\ (g_{ij}),\quad
+i\longrightarrow i'\ \left(y_i\left(U_i-\sum_jg_{ij}\right)\right),\quad
+i'\longrightarrow j^t\ (y_i d_j),
+\]
+where parentheses indicate shared arc capacity. Commodity $j$ must send $d_j$
+from $j^s$ to $j^t$. Requiring feasibility for every valid $g$ is the
+MFN relaxation named by the source question. In particular, a bad point for
+the simpler assignment LP is not automatically a feasible lower-bound example
+for MFN. We test exactly that tempting transfer.
+
+\section{A family with exact values for both relaxations}
+Fix an integer $U\ge1$ and put $N=U+1$. There are $N$ unit clients and two
+facilities $A,B$, with capacities $U_A=U,U_B=N$, opening costs $0,F$,
+where $F>0$. Put all distinct client and facility points at distance
+$\varepsilon>0$ from each other. This is a metric: each nonzero distance
+$\varepsilon$ is at most the sum $2\varepsilon$ of two others.
+Every integral solution must open $B$, since $A$ alone has capacity $N-1$.
+Opening only $B$ and assigning all clients to it is feasible. Therefore
+\[
+\mathrm{OPT}_{\rm int}=F+N\varepsilon.
+\]
+
+The standard LP has
+$\sum_i x_{ij}=1$, $0\le x_{ij}\le y_i\le1$ and
+$\sum_jx_{ij}\le U_i y_i$.
+Summing capacities forces $U y_A+N y_B\ge N$, hence $y_B\ge1/N$.
+The connection cost is always $N\varepsilon$. The point
+\[
+y_A=1,\quad y_B=1/N,\quad x_{Aj}=U/N,\quad x_{Bj}=1/N
+\quad(j=1,\ldots,N)
+\]
+is feasible: the two loads are $U,1$, and the assignment/opening inequalities
+hold. It attains the lower bound, so
+\[
+\mathrm{OPT}_{\rm std}=F/N+N\varepsilon.
+\]
+For fixed $N,F$ the ratio tends to $N$ as $\varepsilon\downarrow0$;
+letting $N$ grow gives unbounded standard-LP gap.
+
+\paragraph{Why the same instance has MFN gap exactly one.}
+Choose $g$ assigning any $U$ clients to $A$ and leaving client $j_0$ unassigned.
+Facility $A$ has residual capacity zero. The only possible incoming arc to
+$j_0^t$ carrying positive flow is then from $B'$, and its capacity is $y_B$.
+Since $d_{j_0}=1$, every MFN-feasible point must have $y_B\ge1$, hence $y_B=1$.
+At $g=0$, a client source has outgoing arcs of total capacity $\sum_i x_{ij}$
+and no incoming arcs. Its demand is one, so $\sum_i x_{ij}\ge1$.
+Consequently every MFN point has objective at least $F+N\varepsilon$.
+
+For completeness, the upper bound does not rely on an unproved assertion
+that the MFN system is a relaxation. Take $y_B=1,y_A=0,x_{Bj}=1,x_{Aj}=0$.
+For an arbitrary valid fractional $g$, send each demand $d_j$ directly along
+$j^s,B,B',j^t$. Its first arc has capacity one and its last capacity $d_j$.
+The total load on $B\to B'$ is
+\[
+\sum_jd_j=N-\sum_jg_{Aj}-\sum_jg_{Bj}
+\le N-\sum_jg_{Bj},
+\]
+which is precisely the available $B$ capacity. All demands are nonnegative,
+so this constructs a feasible flow for every $g$. The resulting objective is
+$F+N\varepsilon$. Thus $\mathrm{OPT}_{\rm MFN}=\mathrm{OPT}_{\rm int}$
+on the entire family, while the weaker relaxation has arbitrarily large gap.
+
+\section{Attempt audit and remaining scope}
+The attempted lower-bound route was to transfer the familiar small fractional
+opening obstruction to MFN. The single explicitly chosen partial assignment
+invalidates that inference. The all-$g$ direct-flow construction then proves
+that this particular family cannot witness any MFN gap above one.
+These are auxiliary calculations illustrating the source's residual-network
+mechanism, not a new determination of its general gap.
+The audit checked the strict metric convention, $U=1$, every source and sink
+capacity, and arbitrary fractional partial assignments for the upper bound.
+The original report's constants are historical context; no claim that they
+are the best current constants is made. An attempted later DOI access did not
+return usable content, and supplies no verified newer bound here.
+No numerical calculation or theorem prover was used.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. No exact worst-case MFN integrality gap is determined; the fully computed family has gap one and only rejects transferring a weaker-LP counterexample.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 51/2014, Svensson, LP-based algorithms for capacitated facility location, printed pp. 2919--2921; original questions and scope read. \url{https://doi.org/10.4171/owr/2014/51}.
+\item An, Singh and Svensson, LP-Based Algorithms for Capacitated Facility Location, arXiv:1407.3263v2; introduction and Section 2, especially Definition 2.1 and the partial-assignment network, inspected. The general approximation proof is not independently checked here. \url{https://arxiv.org/html/1407.3263}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} No exact worst-case MFN integrality gap is determined; the fully computed family has gap one and only rejects transferring a weaker-LP counterexample.
+\end{document}

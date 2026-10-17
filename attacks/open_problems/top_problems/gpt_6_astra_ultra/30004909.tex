@@ -1,0 +1,193 @@
+% RESEARCH_DRAFT_SHA256: 179c5e6dca0e73c7afa27f34e0b365e037d1a96a822b2c128b5a4ec712d847ee
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004909, "title": "Approximating Submodular Functions by Matroid Rank Functions", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004909", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex GPT-6 (exact serving revision not exposed): orchestration, format review and a separate mathematical/source-scope review of the counterexample. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing and PDF text; local pypdf extraction and sips rendering of printed page2946 for visual source inspection; Python document assembly. No numerical experiment or theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Is there a universal constant $\\alpha$ such that every normalized nonnegative monotone submodular function $f:2^V\\to\\mathbb R_{\\geq0}$ with $f(\\{i\\})=1$ for all $i\\in V$ admits a matroid rank function $r$ satisfying $r(S)\\leq f(S)\\leq\\alpha r(S)$ for every $S\\subseteq V$?", "scope": "Every positive proposed universal constant is refuted by a finite ground set of size n>alpha^6. The example meets every function hypothesis; the proof handles every ordinary matroid and all subsets. No weighted or rescaled rank substitution is asserted.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: solved
+% FULL_SOLUTION_SCOPE: {"target": "Decide whether a universal constant approximates every normalized nonnegative monotone submodular function with singleton values one by an ordinary matroid rank on the same ground set; cover both r<=f<=alpha*r in the catalogue and r/alpha<=f<=alpha*r in the primary display.", "result": "For f(S)=sqrt(|S|), any primary-display factor obeys alpha>=|V|^(1/6), while the catalogue factor is at least sqrt(|V|). No finite universal constant exists.", "coverage": "Every positive proposed universal constant is refuted by a finite ground set of size n>alpha^6. The example meets every function hypothesis; the proof handles every ordinary matroid and all subsets. No weighted or rescaled rank substitution is asserted.", "dependencies": "All mathematical claims needed for the disproof, including submodularity and the basis argument, are proved in this manuscript from the definition of matroid rank. Primary-source inspection establishes the literal displayed formulation.", "human_verification": "None. Initial derivation and adversarial self-audit by dispatched gpt-6-astra; separate mathematical review by Codex GPT-6 orchestration model.", "unverified": "No independent human proof check, formal verification, or exhaustive literature/novelty search. No assertion about an unstated intended interpretation.", "novelty": "No novelty claimed; this is an elementary direct negative proof for the literal displayed formulations."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{A cardinality counterexample to the displayed matroid-rank approximation question}
+\noindent UnsolvedMath ID 30004909; OWR-8415356-020. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript gives a complete elementary negative answer to both literal displayed ordinary-matroid-rank formulations. No novelty claim or independent human verification is asserted.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A matroid rank function assigns each subset the maximum size of an independent subset within it. A normalized monotone submodular function has zero empty-set value, increases with inclusion, and satisfies $f(A)+f(B)\geq f(A\cup B)+f(A\cap B)$.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The cleaned lower inequality differs from the primary formulation. The supplied inequalities are retained, and no corrected theorem is silently substituted.
+
+Source-record limitation: The primary report asks for r(S)/alpha <= f(S) <= alpha r(S). The supplied clean statement instead requires r(S) <= f(S), dropping the factor alpha on the lower side and changing the target. The supplied inequality is preserved with this discrepancy.
+\paragraph{Statement recorded in the supplied source.}
+Is there a universal constant $\alpha$ such that every normalized nonnegative monotone submodular function $f:2^V\to\mathbb R_{\geq0}$ with $f(\{i\})=1$ for all $i\in V$ admits a matroid rank function $r$ satisfying $r(S)\leq f(S)\leq\alpha r(S)$ for every $S\subseteq V$? \href{https://doi.org/10.4171/owr/2021/53}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Compare the stated submodular function with a matroid rank function within a universal factor.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004909 (OWR-8415356-020). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/53, pp. 2893--2954
+\url{https://doi.org/10.4171/owr/2021/53}.
+\item[S3] Approximating submodular functions everywhere
+\url{https://doi.org/10.1137/1.9781611973068.59}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Is there a universal constant $\alpha$ such that every normalized nonnegative monotone submodular function $f:2^V\to\mathbb R_{\geq0}$ with $f(\{i\})=1$ for all $i\in V$ admits a matroid rank function $r$ satisfying $r(S)\leq f(S)\leq\alpha r(S)$ for every $S\subseteq V$?
+
+\section{The two formulations and the result}
+The preserved catalogue requires $r(S)\le f(S)\le\alpha r(S)$.
+The primary report, printed page 2946, instead displays
+\[
+\frac{r(S)}\alpha\le f(S)\le\alpha r(S)\qquad(S\subseteq V).
+\]
+The missing denominator was already flagged in the preserved definition.
+The primary PDF page was inspected visually as well as through its
+text extraction. Both displays refer to an ordinary, unweighted
+matroid rank on the same ground set. The following elementary
+counterexample disproves existence of a universal constant in either
+display. It makes no novelty claim and does not purport to settle
+any different intended formulation involving a rescaled, weighted,
+or otherwise transformed rank function.
+
+\paragraph{The counterexample family.}
+For each integer $n\ge1$, let $V$ be an $n$-element set and
+define $f(S)=\sqrt{|S|}$ for every $S\subseteq V$.
+It is nonnegative, normalized at the empty set, monotone under
+inclusion, and has $f(\{i\})=1$. Here is a direct proof of
+submodularity, including intersecting sets. Set
+$d_j=\sqrt{j+1}-\sqrt j=1/(\sqrt{j+1}+\sqrt j)$ for $j\ge0$.
+This is positive and decreases with $j$. Given $A,B$, let
+$a=|A\cap B|$, $b=|A\setminus B|$, and $c=|B\setminus A|$.
+Then
+\[
+\sqrt{a+b}-\sqrt a=\sum_{j=0}^{b-1}d_{a+j}
+\ge\sum_{j=0}^{b-1}d_{a+c+j}
+=\sqrt{a+b+c}-\sqrt{a+c}.
+\]
+For $b=0$ both sums are empty and equality holds. Rearranging
+is precisely $f(A)+f(B)\ge f(A\cap B)+f(A\cup B)$.
+Thus every member of this family satisfies every function hypothesis
+in both formulations.
+
+\paragraph{Disproof of the primary two-sided version.}
+Suppose a matroid $M$ on $V$, with rank function $r$, satisfies
+the primary display for some $\alpha>0$. Every singleton has
+$1=f(\{i\})\le\alpha r(\{i\})$, so it is not a loop:
+its integer rank is one. In particular $R=r(V)>0$, and
+the singleton inequality implies $\alpha\ge1$.
+By the definition of rank as maximum independent-set cardinality,
+there is an independent set $B$ with $|B|=R$ and $r(B)=R$.
+Applying the lower approximation inequality to $B$ gives
+\[
+\frac R\alpha\le\sqrt R,
+\quad\hbox{hence}\quad R\le\alpha^2.
+\]
+Applying the upper inequality to $V$ gives
+$\sqrt n\le\alpha R\le\alpha^3$. Consequently
+\[
+\alpha\ge n^{1/6}.
+\]
+For any proposed finite universal constant $\alpha>0$, choose an
+integer $n>\alpha^6$. The preceding inequalities are then impossible
+for every matroid on this ground set. This negates the complete
+quantifier ``there exists a constant for every function'' in the
+primary displayed question. The argument chooses a basis of the
+matroid proposed by the approximation, so it does not assume that
+this matroid is uniform or symmetric.
+
+\paragraph{Disproof of the catalogue's stronger version.}
+If the catalogue's lower inequality $r(S)\le f(S)$ is required,
+the same basis gives $R\le\sqrt R$. Since $R$ is a positive
+integer this forces $R=1$. The upper inequality on $V$ then
+requires $\alpha\ge\sqrt n$. Conversely the uniform rank-one
+matroid, in which the independent sets have size at most one,
+satisfies $r(S)=1$ for every nonempty $S$, so
+$r(S)\le\sqrt{|S|}\le\sqrt n\,r(S)$ for all sets,
+including the empty set by equality. Thus $\sqrt n$ is exactly
+the least factor for this example in the catalogue formulation.
+
+\paragraph{A sharpness check for the primary lower-bound mechanism.}
+For any $1\le R\le n$, the uniform matroid of rank $R$
+has rank $r(S)=\min\{|S|,R\}$. Its independent sets are all
+sets of size at most $R$: heredity is immediate, and if two
+independent sets have different sizes, any element of the larger
+not in the smaller can be added to the smaller without exceeding
+$R$, proving the exchange axiom.
+For a nonempty set of size $s$, the maximum of
+$r(S)/\sqrt s$ occurs at $s=R$ and equals $\sqrt R$:
+for $s\le R$ it is $\sqrt s$, and for $s\ge R$ it is
+$R/\sqrt s$. The maximum of $\sqrt s/r(S)$ is
+$\max\{1,\sqrt n/R\}$. Hence this matroid satisfies the
+primary inequalities with
+\[
+\alpha_R=\max\{\sqrt R,\sqrt n/R\}.
+\]
+Every other rank-$R$ matroid has factor at least this large by
+the basis and ground-set arguments just proved. Therefore the exact
+best factor for this family is
+$\min_{1\le R\le n}\max\{\sqrt R,\sqrt n/R\}$.
+Taking $R=\lceil n^{1/3}\rceil$ gives a factor at most
+$\sqrt2\,n^{1/6}$, because $R\le2n^{1/3}$ and
+$\sqrt n/R\le n^{1/6}$. This confirms that the divergent
+lower bound is a real rank-approximation obstruction, not an artifact
+of a needlessly weak estimate. No sharp constant is needed for
+the negative answer.
+
+\section{Adversarial audit and provenance}
+The self-audit checked the empty set, singleton normalization,
+noninteger values, all matroids rather than only uniform ones, and
+the order of the universal and existential quantifiers. The original
+PDF display was visually confirmed after extracting page 53
+(printed page 2946) from the cached primary report. Its notation
+uses a stray function letter in prose, but the displayed inequalities
+and heading specify matroid rank; no weighted or rescaled replacement
+is stated there. A separate Codex GPT-6 orchestration review also
+checked the basis argument against the primary formulation. This
+was a model-assisted mathematical review, not independent human
+verification or formal proof checking. No numerical experiment was
+needed. This manuscript proves the literal negative statement only;
+it does not claim a newly discovered resolution in the research
+literature or infer an unstated intended question from the open label.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\section{Full-solution scope declaration}
+The target is the universal-constant ordinary matroid-rank comparison on the same finite ground set. The complete square-root-cardinality proof above disproves both the catalogue display and the weaker primary display, covering every proposed positive constant and every proposed matroid. Its mathematical dependencies are proved explicitly; the primary report was inspected for the exact hypotheses. There was no human mathematical contribution or independent human verification. A second model checked the argument and source scope, but no formal proof system or exhaustive novelty search was used. An unstated intended reformulation is outside the claim, and no novelty is asserted.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 100\%}
+The full literal universal-constant claim is refuted by a complete counterexample family. This percentage measures target coverage, not novelty. Both the preserved catalogue inequality and the actual displayed primary inequality have a complete negative answer for ordinary matroid ranks. No alternative intended formulation is claimed resolved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 53/2021, Combinatorial Optimization, original question and surrounding discussion read from the primary PDF text on 11 October 2026. Historical statements are not a current-status survey. \url{https://ems.press/content/serial-article-files/46931}.
+\item MFO primary copy of the same report, page 2946; online PDF text and local primary-page rendering inspected to verify the exact inequality and surrounding hypotheses. \url{https://publications.mfo.de/bitstream/handle/mfo/3922/OWR_2021_53.pdf?isAllowed=y&sequence=4}.
+\end{itemize}
+\section{Final status}
+\textbf{Solved negatively for the literal displayed formulations.} Both the preserved catalogue inequality and the actual displayed primary inequality have a complete negative answer for ordinary matroid ranks. No alternative intended formulation is claimed resolved.
+\end{document}

@@ -1,0 +1,109 @@
+% TOP_PROBLEM: {"id": 30003218, "title": "Sharp Spectral-Cluster Density Bounds on Manifolds", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The exponent definitions and the source\\textquotesingle s intermediate-rank formulation were recovered from PDF pages 23--24. The report proves the sharpness construction for $M=S^2$ and asks the general compact manifold case; that special case is not substituted for the full target. Source asymptotic comparability conventions for $\\sim$ are retained."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003218", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Can intermediate-rank subspaces attain the predicted sharp spectral-cluster density bounds for every indicated exponent?", "scope": "Proves the exact p=2 rank identity and a coherent evaluation-vector construction at p=infinity, conditional on cluster size for the frequency scale; intermediate exponents and general-manifold sharpness remain untreated.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the two endpoint exponents, normalized reproducing vector, rank extension for every r up to D, pointwise optimality, and the missing cluster-size and positive-volume concentration estimates. Model self-audit only; no independent human proof checking. Coordinator checked the exact rank endpoint, normalized kernel evaluation vector and pointwise maximal density, including the explicit extra hypothesis needed for the frequency scale. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked the two endpoint exponents, normalized reproducing vector, rank extension for every r up to D, pointwise optimality, and the missing cluster-size and positive-volume concentration estimates. Retained unresolved status and zero original-target progress; Control the spatial size of concentration for intermediate-rank orthogonal families, and establish any needed frequency-window dimension estimate without adding it as an assumption."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30003218; source catalogue code OWR-14751-002
+\setcounter{section}{30003217}
+\section{Sharp Spectral-Cluster Density Bounds on Manifolds}\label{30003218}
+{\small UnsolvedMath ID 30003218 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+Write $n=\dim M\geq2$ and take $\Delta_g$ nonnegative. The source exponents are $s(p)=\frac{n-1}{2}(\frac12-\frac1p)$ for $2\leq p\leq\frac{2(n+1)}{n-1}$ and $s(p)=n(\frac12-\frac1p)-\frac12$ for $\frac{2(n+1)}{n-1}\leq p\leq\infty$. The second exponent is determined by $2s(p)+(n-1)/\alpha(p)=n-1$, allowing $\alpha(\infty)=\infty$. The space $E_\lambda$ is the displayed frequency cluster. Intermediate rank means $r_\lambda\to\infty$ and $r_\lambda/\dim E_\lambda\to0$. For an orthonormal basis $(u_j)$ of $Q$, its basis-independent density is $\rho_Q(x)=\sum_j|u_j(x)|^2$. The constants in the lower bound are independent of $\lambda$.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Let $M$ be smooth, compact, and boundaryless, let $E_\lambda=\mathbf{1}_{\{x:\lambda^2\leq x<(\lambda+1)^2\}}(\Delta_g)L^2(M)$, and suppose $1\ll r_\lambda\ll\dim E_\lambda$. For $2\leq p\leq\infty$, do there exist subspaces $Q_\lambda\subset E_\lambda$ with $\dim Q_\lambda\sim r_\lambda$ such that $\lVert\rho_{Q_\lambda}\rVert_{L^{p/2}(M)}\geq c\lambda^{2s(p)}r_\lambda^{1/\alpha(p)}$ for some $c>0$ independent of $\lambda$, where $\rho_Q$ is the density of an orthonormal basis of $Q$?
+
+\paragraph{Source scope and qualification.}
+The exponent definitions and the source\textquotesingle s intermediate-rank formulation were recovered from PDF pages 23--24. The report proves the sharpness construction for $M=S^2$ and asks the general compact manifold case; that special case is not substituted for the full target. Source asymptotic comparability conventions for $\sim$ are retained.
+\subsection{Short English statement}
+Can intermediate-rank subspaces attain the predicted sharp spectral-cluster density bounds for every indicated exponent?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proves the exact p=2 rank identity and a coherent evaluation-vector construction at p=infinity, conditional on cluster size for the frequency scale; intermediate exponents and general-manifold sharpness remain untreated.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{The rank endpoint and a point-concentration construction.}
+Fix a nonzero cluster $E_\lambda$ of dimension $D$, with orthonormal basis $(\phi_j)_{j=1}^D$, and write
+\[
+ K(x,y)=\sum_{j=1}^D\phi_j(x)\overline{\phi_j(y)}.
+\]
+For any rank-$r$ subspace $Q\subset E_\lambda$, $1\leq r\leq D$, its density satisfies
+$\int_M\rho_Q=r$.
+At $p=2$ the source exponents give $s(2)=0$ and $\alpha(2)=1$, so this exactly equals the required lower bound. This endpoint is an identity, not new sharpness progress.
+
+For any $x$ with $K(x,x)>0$, the vector
+\[
+ v_x(y)=K(y,x)/\sqrt{K(x,x)}
+\]
+has norm one and $|v_x(x)|^2=K(x,x)$. Extend it to an orthonormal $r$-tuple in $E_\lambda$ and let $Q_x$ be its span. The other vectors vanish at $x$: their inner product with $K(\cdot,x)$ is their evaluation at $x$, up to the chosen inner-product convention. Consequently
+\[
+ \rho_{Q_x}(x)=K(x,x),\qquad
+ \max_{\substack{Q\subset E_\lambda\\\dim Q=r}}\rho_Q(x)=K(x,x).
+\]
+The upper bound follows by extending a basis of $Q$ to one of $E_\lambda$ and dropping nonnegative terms. Since $\int_M K(x,x)=D$, some point has $K(x,x)\geq D/\operatorname{vol}(M)$. We obtain $\|\rho_{Q_x}\|_\infty\geq D/\operatorname{vol}(M)$ for every allowed rank.
+
+\paragraph{Comparison with the desired frequency scale.}
+At $p=\infty$, the requested scale is $\lambda^{n-1}$, independent of $r$, because $2s(\infty)=n-1$ and $1/\alpha(\infty)=0$. The preceding construction reaches that scale on any chosen sequence satisfying the additional estimate $D\geq c_0\lambda^{n-1}$. We have not proved that estimate for the source's frequency windows, and the intermediate-rank assumption alone does not imply it. The construction applies without it but gives only the stated bound in terms of $D$.
+
+\paragraph{Why endpoints do not fill the gap.}
+Large value at one point does not bound the volume on which the density is large. For $2<p<\infty$, that volume and the arrangement of $r$ orthogonal modes determine the $L^{p/2}$ norm. Interpolation of upper bounds cannot supply a missing lower bound. A construction with quantified spatial concentration and the specified rank scaling is still required on general compact manifolds. The source-known two-sphere result is retained rather than replaced by these endpoint identities.
+
+\paragraph{Verification and adversarial audit.}
+Checked the two endpoint exponents, normalized reproducing vector, rank extension for every r up to D, pointwise optimality, and the missing cluster-size and positive-volume concentration estimates. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked the two endpoint exponents, normalized reproducing vector, rank extension for every r up to D, pointwise optimality, and the missing cluster-size and positive-volume concentration estimates. Retained unresolved status and zero original-target progress; Control the spatial size of concentration for intermediate-rank orthogonal families, and establish any needed frequency-window dimension estimate without adding it as an assumption.
+
+Coordinator checked the exact rank endpoint, normalized kernel evaluation vector and pointwise maximal density, including the explicit extra hypothesis needed for the frequency scale. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Control the spatial size of concentration for intermediate-rank orthogonal families, and establish any needed frequency-window dimension estimate without adding it as an assumption.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Control the spatial size of concentration for intermediate-rank orthogonal families, and establish any needed frequency-window dimension estimate without adding it as an assumption.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30003218:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30003218 (OWR-14751-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30003218:2}{S2}] Many-Body Quantum Systems and Effective Theories (2016), Oberwolfach Reports, DOI 10.4171/owr/2016/43, pp. 2465--2511. Primary report accessed 2026-10-11; relevant PDF pages 23, 24.
+\url{https://doi.org/10.4171/owr/2016/43}.
+\item[\hypertarget{source:30003218:3}{S3}] Frank--Sabin spectral cluster bounds (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/1608.08299}.
+\end{itemize}
+\label{end:30003218}
+\end{document}

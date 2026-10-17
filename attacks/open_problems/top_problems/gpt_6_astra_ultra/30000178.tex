@@ -1,0 +1,99 @@
+% TOP_PROBLEM: {"id": 30000178, "title": "Facial Structure of Classical and Quantum Correlation Sets", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "Use the report's meaning of a quantum-violable Bell face; merely calling every supporting local inequality a Bell inequality would make the first question tautological. Minimal local dimensions, pure-state realizations, and rank-one projectors are bundled requirements. The report's historical treatment of Q must not be silently replaced by a modern closure or commuting-operator correlation set."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000178", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Describe the relevant faces of the local correlation polytope and determine whether quantum boundary correlations have minimal pure-state, rank-one measurement realizations.", "scope": "Reconstructs a quantum-violable binary Bell constraint and one pure minimal-qubit rank-one boundary realization.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked local deterministic vertices, nonsignalling normalization, Bell-operator square, contraction dilation, and the minimal-dimension claim. Model self-audit only; no independent human proof checking. Coordinator checked the CHSH square identity, commutator estimate, Bell-pair realization and common two-dimensional involution dilations for binary contractions. The universal facial classification remains untouched. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked local deterministic vertices, nonsignalling normalization, Bell-operator square, contraction dilation, and the minimal-dimension claim. Retained unresolved status and zero original-target progress; There is no argument for all relevant local faces or all points on the quantum boundary."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30000178; source catalogue code OWR-785-004
+\setcounter{section}{30000177}
+\section{Facial Structure of Classical and Quantum Correlation Sets}\label{30000178}
+{\small UnsolvedMath ID 30000178 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} Fix finite numbers of parties, measurement settings, outcomes, and a distribution of joint settings. A correlation is the array $p(\mathbf a\mid\mathbf x)$ of conditional outcome probabilities. The local polytope $P$ is the convex hull of deterministic local response arrays, equivalently the arrays obtained using a shared classical hidden variable. The quantum set $Q$ consists of arrays $\operatorname{Tr}(\rho\bigotimes_i M^{(i)}_{a_i\mid x_i})$ from a shared quantum state and local measurements in the report's framework. The nonsignalling polytope $R$ consists of nonnegative normalized arrays whose marginal at any group of parties is independent of the other parties' settings. A face is the intersection with a supporting hyperplane. The report calls a local face a Bell inequality when its supporting constraint admits a quantum violation.
+
+\paragraph{Source scope and qualifications.} Use the report's meaning of a quantum-violable Bell face; merely calling every supporting local inequality a Bell inequality would make the first question tautological. Minimal local dimensions, pure-state realizations, and rank-one projectors are bundled requirements. The report's historical treatment of Q must not be silently replaced by a modern closure or commuting-operator correlation set.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+Very little is known about the structure of $P$ and $Q$. Are all faces of $P$ that are not contained in faces of $R$ Bell inequalities? Is the boundary of $Q$ covered by probability distributions arising from projective measurements on pure states in Hilbert spaces of minimal dimension, with all projectors having rank one?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The local and nonsignalling sets and many Bell faces are well understood, but the broad structural questions about all relevant faces of the local polytope and boundary representations of the quantum body are not settled in general. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Describe the relevant faces of the local correlation polytope and determine whether quantum boundary correlations have minimal pure-state, rank-one measurement realizations.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Reconstructs a quantum-violable binary Bell constraint and one pure minimal-qubit rank-one boundary realization.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{The smallest nontrivial face test.} Restrict to two settings and two outcomes $\pm1$ per party and write $C=E_{00}+E_{01}+E_{10}-E_{11}$. For deterministic local outputs $a_0,a_1,b_0,b_1\in\{\pm1\}$,
+\[
+ C=a_0(b_0+b_1)+a_1(b_0-b_1)\in\{-2,2\}.
+\]
+Convex mixtures thus satisfy $C\leq2$. Nonsignalling arrays can instead have uniform single-party marginals and correlation signs $E_{xy}=(-1)^{xy}$; explicitly put probability $1/2$ on each output pair satisfying $ab=(-1)^{xy}$. This gives $C=4$, so the supporting constraint is not a supporting constraint of the nonsignalling set.
+
+\paragraph{A pure rank-one boundary realization.} On $|\Phi\rangle=(|00\rangle+|11\rangle)/\sqrt2$, take $A_0=Z,A_1=X,B_0=(Z+X)/\sqrt2,B_1=(Z-X)/\sqrt2$. The four expectations give $C=2\sqrt2$. Each measurement has rank-one spectral projections. This is a quantum boundary point: for arbitrary self-adjoint involutions the Bell operator $T=A_0\otimes(B_0+B_1)+A_1\otimes(B_0-B_1)$ satisfies
+\[
+ T^2=4I-[A_0,A_1]\otimes[B_0,B_1],\qquad \|T\|\leq2\sqrt2,
+\]
+since each commutator has norm at most two. The same bound for binary contractions follows by adjoining a two-dimensional dilation with involution block matrix $\left(\begin{smallmatrix}A&\sqrt{I-A^2}\\\sqrt{I-A^2}&-A\end{smallmatrix}\right)$. A one-dimensional local Hilbert space cannot violate the local bound, so local dimension two is minimal for this example.
+
+\paragraph{Scope audit.} This reconstructs the elementary CHSH example, not the asserted facial geometry for every finite scenario. In particular an exposed maximizer of one functional does not parametrize the entire quantum boundary; nonexposed points and other outcome cardinalities remain untouched. Neither bundled universal assertion follows.
+
+\paragraph{Verification and adversarial audit.}
+Checked local deterministic vertices, nonsignalling normalization, Bell-operator square, contraction dilation, and the minimal-dimension claim. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked local deterministic vertices, nonsignalling normalization, Bell-operator square, contraction dilation, and the minimal-dimension claim. Retained unresolved status and zero original-target progress; There is no argument for all relevant local faces or all points on the quantum boundary.
+
+Coordinator checked the CHSH square identity, commutator estimate, Bell-pair realization and common two-dimensional involution dilations for binary contractions. The universal facial classification remains untouched. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. There is no argument for all relevant local faces or all points on the quantum boundary.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. There is no argument for all relevant local faces or all points on the quantum boundary.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30000178:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30000178 (OWR-785-004). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30000178:2}{S2}] Entanglement and Decoherence: Mathematics and Physics of Quantum Information and Computation (2005), Oberwolfach Reports, DOI 10.4171/owr/2005/04, pp. 185--255; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2005/04}.
+\item[\hypertarget{source:30000178:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 27--28, printed pages 211--212.
+\url{https://ems.press/content/serial-article-files/45978}.
+\item[\hypertarget{source:30000178:4}{S4}] Collins et al., Bell inequalities for arbitrarily high-dimensional systems; reference in the saved dated catalogue literature review.
+\url{https://arxiv.org/abs/quant-ph/0106024}.
+\end{itemize}
+\label{end:30000178}
+\end{document}

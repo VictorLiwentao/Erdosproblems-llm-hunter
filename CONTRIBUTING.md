@@ -568,6 +568,15 @@ required for those questions.
 **Exceptions:** `top_problems/openai` is a scoped external-claim summary, not a new
 LLM-generated proof: it keeps the strict OPENAI_CLAIM/manifest/no-copy/adjudication
 workflow and build checks, rather than research percentage/model declarations.
+`economics/Human_Contribution` preserves original human-authored, AI-assisted TeX
+manuscripts unchanged. Register each accepted file in
+`lists/economics/human_contributions.json` with its permanent problem ID, author,
+submitter, first submission date, commit-pinned original source, submission URL,
+TeX SHA-256, scope, AI-use disclosure and checking scope. Its review status remains
+`submitted`; it does not set an LLM claim, completion estimate or source status.
+The manifest supplies import metadata in place of LLM-specific TeX declarations.
+The validator checks the original checksum, identity, provenance and bibliography.
+Only TeX manuscripts are imported; PDFs are not needed by the website renderer.
 `top_problems/Human_Contribution` is a human mathematical contribution, not an LLM
 attempt: preserve its dedicated identity/entry convention and accurately disclose
 human authorship, source, scope, references, and checking in the PR; prospective LLM

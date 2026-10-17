@@ -1,0 +1,135 @@
+% RESEARCH_DRAFT_SHA256: 83e65ebd14ed1908821dfb25198f2747f18912422293f4b09622d4ebad8b365d
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 2800301, "title": "10 Lectures and 42 Open Problems — Hardness at the Cheeger square-root gap", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "problem_number": "AMR-027-0301", "set_id": 13}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "2800301", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Exact cycle conductance/spectrum disproves inference from a sharp spectral exponent to computational hardness; connected-graph lower bound gives a connectivity-only small-phi promise regime.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch001/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec}
+\setmainfont{lmroman10-regular.otf}[BoldFont=lmroman10-bold.otf,
+ ItalicFont=lmroman10-italic.otf,BoldItalicFont=lmroman10-bolditalic.otf]
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{latinmodern-math.otf}
+\AtBeginDocument{\let\setminus\smallsetminus}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+\section*{10 Lectures and 42 Open Problems — Hardness at the Cheeger square-root gap}\label{2800301}
+{\small UnsolvedMath ID 2800301 · AMR-027-0301 · Computer Science · AMR Open Problem Lists}
+\subsection{Definitions and mathematical statement}
+Let $G=(V,E)$ be a finite undirected graph without isolated vertices.
+Write $d(v)$ for its degree, $\operatorname{vol}(S)=\sum_{v\in S}d(v)$,
+and $\delta(S)$ for the edges with one endpoint in $S$ and one outside.
+Its conductance, or normalized Cheeger constant, is
+\[
+ h_G=\min_{0<\operatorname{vol}(S)\le\operatorname{vol}(V)/2}
+                   \frac{|\delta(S)|}{\operatorname{vol}(S)}.
+\]
+The minimization ranges over all eligible vertex sets, without a
+prescribed cardinality or a requirement that the two sides be equal.
+
+Does there exist an absolute constant $c>0$ for which the following
+promise problem is NP-hard? The input is $G$ and a positive rational
+$\phi$, promised to satisfy one of
+\[
+                 h_G\le\phi,
+                 \qquad h_G\ge c\sqrt\phi;
+\]
+the task is to decide which alternative holds. Restrict to
+$0<\phi<\min\{c^2,c^{-2},1\}$ so the alternatives are separated and
+the second threshold is below one. The parameter $\phi$ is part of
+the input, not a universal fixed accuracy.
+
+NP-hardness here means a polynomial-time reduction from an NP-complete
+decision problem whose outputs satisfy the promise. The question seeks
+unconditional hardness at the square-root gap; hardness conditional
+on another unproved conjecture is not that conclusion. The normalization
+by volume is essential, since replacing it by $|S|$ on irregular graphs
+defines a different expansion parameter. Disconnected graphs have
+$h_G=0$ and cause no ambiguity.
+\subsection{Short English statement}
+Is it NP-hard to distinguish very small graph conductance from conductance at least a constant times its square root?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] ULAM.AI and the UnsolvedMath Contributors, supplied problems.json, record 2800301 (AMR-027-0301), AMR Open Problem Lists. Catalogue identity and source transcription; CC BY 4.0.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Bandeira - 42 Open Problems in Data Science (2016), Open Problem 3.1. Original source indexed by AMR-027-0301.
+\url{https://afonsobandeira.wordpress.com/2015/10/05/10l42pcheeger/}.
+\item[S3] A. S. Bandeira, Ten Lectures and Forty-Two Open Problems in the Mathematics of Data Science, corresponding numbered problem and surrounding definitions.
+\url{https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf}.
+\end{itemize}
+
+
+\section{Research attempt}
+The target is an unconditional NP-hardness reduction for the variable-$\phi$ conductance promise. This attempt tests whether a family witnessing a sharp square-root relation between conductance and a spectral quantity can itself establish hardness. Cycles give an exact countercheck: they exhibit that relation, but their conductance and the promise decision are explicitly easy. A second calculation identifies a small-$\phi$ regime where the promise reduces to connectivity.
+
+All graph calculations here concern finite simple undirected graphs with at least one edge and no isolated vertices, so the conductance minimization is nonempty. The complete original definition is retained; no cardinality-balanced cut is substituted for volume normalization.
+
+\begin{proposition}
+For the cycle $C_n$, $n\ge3$,
+\[
+ h_{C_n}=\frac1{\lfloor n/2\rfloor},\qquad
+ \lambda_2(I-A/2)=1-\cos(2\pi/n).
+\]
+Consequently $h_{C_n}/\sqrt{\lambda_2}\to\sqrt2/\pi$ as $n\to\infty$, although the exact conductance is computable from $n$ alone.
+\end{proposition}
+\begin{proof}
+Each vertex has degree two. An eligible set has $1\le|S|\le\lfloor n/2\rfloor$. Every nonempty proper subset of a cycle has at least two boundary edges: on traversing the cycle one must enter and leave the set. Therefore
+\[
+ \frac{|\delta(S)|}{\operatorname{vol}(S)}\ge\frac2{2|S|}
+ \ge\frac1{\lfloor n/2\rfloor}.
+\]
+A consecutive block of $\lfloor n/2\rfloor$ vertices has exactly two boundary edges and attains equality.
+
+Index vertices by $j=0,\ldots,n-1$. The vectors $v_k(j)=e^{2\pi i k j/n}$, $0\le k<n$, are eigenvectors of $A$ with eigenvalues $2\cos(2\pi k/n)$, by adding the two neighboring coordinates. They are a basis because their inner products are zero for distinct $k$: the corresponding geometric series sums to zero. Thus the normalized Laplacian eigenvalues are $1-\cos(2\pi k/n)$, with the smallest positive value at $k=1,n-1$. Finally $1-\cos(2t)=2\sin^2t$ and $\sin t/t\to1$, while $\lfloor n/2\rfloor/n\to1/2$, give the stated limit.
+\end{proof}
+
+The attempted inference ``a square-root spectral loss exists, therefore every polynomial algorithm encounters that computational barrier'' is unsupported. These cycles witness the exponent but are solved exactly in constant-length arithmetic once $n$ is known. They do not refute NP-hardness on general graphs; they show that inequality sharpness supplies no reduction by itself.
+
+\begin{proposition}
+Let $G$ have $M\ge1$ edges and no isolated vertices. If $G$ is connected, then $h_G\ge1/M$. If it is disconnected, then $h_G=0$. Hence on promised inputs with $0<\phi<1/M$, the original two alternatives are decided by a connectivity test: disconnected graphs are in the first alternative, and connected promised graphs are in the second.
+\end{proposition}
+\begin{proof}
+The total volume is $2M$. In a connected graph every eligible nonempty proper set has at least one boundary edge and volume at most $M$, proving the lower bound. In a disconnected graph, choose a component with volume at most half the total (one exists because there are at least two positive-volume components). It has positive volume and no boundary, so the minimum is zero. When $\phi<1/M$, a connected graph cannot meet $h_G\le\phi$. Under the separated promise in the original statement it must therefore meet the other alternative. Breadth-first search decides connectivity in $O(|V|+|E|)$ operations.
+\end{proof}
+
+This is a promise-restricted observation, not an algorithm for the entire source range of $\phi$. In particular, an alleged reduction producing only $\phi<1/M$ outputs would reduce its source problem to connectivity; establishing useful hardness must address a parameter regime not disposed of in this way (unless it also proves a collapse of the usual complexity classes).
+
+\paragraph{A normalization check.}
+For $K_n$, $n\ge2$, a set of $k\le\lfloor n/2\rfloor$ vertices has boundary $k(n-k)$ and volume $k(n-1)$, so $h_{K_n}=\lceil n/2\rceil/(n-1)$. This checks the half-volume convention and includes $K_2$, where conductance is one.
+
+\section{Literature and context}
+Bandeira's author blog and primary lecture notes were consulted on 11 October 2026. Open Problem 3.1 and the adjacent discussion in Section 3.4 formulate the square-root hardness question and distinguish the Small-Set Expansion hypothesis from an unconditional result. The source passage is in a discussion of unweighted regular graphs; the copied catalogue definition uses general graphs and volume normalization. The cycle calculation remains within the regular class, while the connectivity observation covers the broader catalogue class. The notes' conditional hardness result is not applied as an unconditional theorem here. No full current-literature hardness audit was completed.
+
+\section{Verification and remaining gaps}
+The script exhaustively enumerated all eligible vertex subsets for cycles $3\le n\le12$ and cliques $2\le n\le9$; every value matched the displayed exact formulas. The self-audit checked disconnected graphs, the strict range $\phi<1/M$, the second positive eigenvalue for odd and even cycles, and the distinction between a promise guarantee and a test on arbitrary inputs. No polynomial reduction from an NP-complete language was built, no absolute hardness constant $c$ was established, and no algorithm for all promised inputs was obtained. These are the original-target gaps, so the worked spectral examples and boundary regime count as no new completion of the hardness problem.
+
+\section{References}
+Original S1--S3 above. A. S. Bandeira, \emph{Ten Lectures and Forty-Two Open Problems in the Mathematics of Data Science}, Section 3.4 and Open Problem 3.1, \url{https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf}; author blog, \url{https://afonsobandeira.wordpress.com/2015/10/05/10l42pcheeger/}. Consulted 11 October 2026 for formulation and conditional-context comparison. All graph and spectral calculations used in this attempt are proved above.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch001/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

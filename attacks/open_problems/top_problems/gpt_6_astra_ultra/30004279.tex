@@ -1,0 +1,92 @@
+% TOP_PROBLEM: {"id": 30004279, "title": "Equivalent Bicommutant Categories from Nonisomorphic Conformal Nets", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The size and parameterization of large families and the precise associated category must be the report\\textquotesingle s definitions. The question concerns equivalence of that category, not merely equality of numerical invariants or representation-ring dimensions."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004279", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Can large families of distinct conformal nets share equivalent associated bicommutant tensor categories?", "scope": "Proved identical Z2 fusion rules can carry inequivalent associators; ruled out a numerical shortcut to the source tensor-equivalence claim.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the cocycle pentagon and normalized coboundary at (1,1,1); did not identify the diagnostic categories with source net constructions. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the normalized Z/2 cocycle identity and its nontrivial value under all normalized tensor coboundaries. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked the cocycle pentagon and normalized coboundary at (1,1,1); did not identify the diagnostic categories with source net constructions. The remaining gap is: Construct actual bicommutant tensor equivalences and independent nonisomorphism invariants for a parametrized conformal-net family. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30004279; source catalogue code OWR-17292-002
+\setcounter{section}{30004278}
+\section{Equivalent Bicommutant Categories from Nonisomorphic Conformal Nets}\label{30004279}
+{\small UnsolvedMath ID 30004279 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+A conformal net assigns local von Neumann algebras to intervals, with locality and conformal covariance. An associated bicommutant category is the tensor category constructed from the net by the source\textquotesingle s operator-algebraic analogue of taking a double commutant. Tensor equivalence is equivalence respecting products and unit objects. Nonisomorphic nets can differ as local theories even when a derived category fails to distinguish them.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Do there exist large families of pairwise nonisomorphic conformal nets whose associated bicommutant categories are equivalent as tensor categories?
+
+\paragraph{Source scope and qualification.}
+The size and parameterization of large families and the precise associated category must be the report\textquotesingle s definitions. The question concerns equivalence of that category, not merely equality of numerical invariants or representation-ring dimensions.
+\subsection{Short English statement}
+Can large families of distinct conformal nets share equivalent associated bicommutant tensor categories?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved identical Z2 fusion rules can carry inequivalent associators; ruled out a numerical shortcut to the source tensor-equivalence claim.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30004279. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{Why matching fusion rules is insufficient.} A candidate construction of many nets might first compare only fusion rings. Test that shortcut on categories of finite-dimensional \(\mathbb Z/2\)-graded vector spaces. On homogeneous degrees \(a,b,c\in\{0,1\}\), twist the usual associator by \(\omega(a,b,c)=(-1)^{abc}\). The pentagon is the cocycle identity
+\[
+ \omega(b,c,d)\omega(a,b+c,d)\omega(a,b,c)
+ =\omega(a+b,c,d)\omega(a,b,c+d),
+\]
+with addition modulo two. Both exponents expand to \(abc+abd+acd+bcd\), so it holds. Unit constraints hold because any zero argument gives one.
+\paragraph{A genuine tensor distinction.} This category has the same two simple objects and multiplication as the untwisted one. But a normalized scalar change of tensor identifications by \(\eta(a,b)\) has coboundary at \((1,1,1)\) equal to \(\eta(1,1)\eta(1,0)/(\eta(0,1)\eta(1,1))=1\). It cannot remove \(\omega(1,1,1)=-1\). A tensor equivalence must fix the sole nontrivial simple object, so this rules out such an equivalence despite identical fusion rules.
+\paragraph{Source gap.} This elementary associator example is not a pair of the source's bicommutant categories or conformal nets. It identifies exactly why numerical or fusion-rule agreement would not prove the desired tensor equivalence. The first missing step is a full equivalence on objects, morphisms, tensor product and associativity for actual net-derived bicommutant categories, together with an invariant proving the original nets pairwise nonisomorphic. No large family is constructed.
+
+\paragraph{Verification and adversarial audit.}
+Checked the cocycle pentagon and normalized coboundary at (1,1,1); did not identify the diagnostic categories with source net constructions. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked the cocycle pentagon and normalized coboundary at (1,1,1); did not identify the diagnostic categories with source net constructions. The remaining gap is: Construct actual bicommutant tensor equivalences and independent nonisomorphism invariants for a parametrized conformal-net family. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the normalized Z/2 cocycle identity and its nontrivial value under all normalized tensor coboundaries. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Construct actual bicommutant tensor equivalences and independent nonisomorphism invariants for a parametrized conformal-net family.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30004279:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30004279 (OWR-17292-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30004279:2}{S2}] Subfactors and Applications (2019), Oberwolfach Reports, DOI 10.4171/owr/2019/49, pp. 3053--3140. Primary report accessed 2026-10-11; relevant PDF pages 23, 24.
+\url{https://doi.org/10.4171/owr/2019/49}.
+\item[\hypertarget{source:30004279:3}{S3}] Henriques--Penneys, representations of fusion categories and commutants (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/2004.08271}.
+\item[\hypertarget{source:30004279:4}{S4}] Henriques--Penneys--Tener, finite-depth objects in bicommutant categories (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/2307.13822}.
+\end{itemize}
+\label{end:30004279}
+\end{document}

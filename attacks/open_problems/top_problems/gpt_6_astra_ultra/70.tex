@@ -1,0 +1,113 @@
+% RESEARCH_DRAFT_SHA256: 4826b5a3169fbd4e7376a9adf7d11edd0a5d3255d19f5381760932eeaabe0a57
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 70, "title": "Beyond Convex Optimization", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "70", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Exact quartic optimization family across all real parameters; isolated-critical-point enumeration demonstrably misses a positive-dimensional global minimizer set.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch001/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 70; source catalogue code DARPA-008
+\section{Beyond Convex Optimization}\label{70}
+{\small UnsolvedMath ID 70 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+An optimization problem minimizes a specified objective $f(x)$ over a feasible set $K$. A set is convex if $tx+(1-t)y\in K$ for $x,y\in K$ and $0\leq t\leq1$; a convex objective satisfies $f(tx+(1-t)y)\leq tf(x)+(1-t)f(y)$ on that domain. Linear algebra studies vector spaces and linear maps. Algebraic geometry studies polynomial equation sets and their algebraic invariants. Polynomial optimization uses polynomial objectives and constraints. These definitions identify the fields compared, without specifying a universal replacement algorithm.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+This is DARPA Mathematical Challenge Eight, a research agenda. The optimization class, permitted operations and performance criterion are unspecified. No precise theorem or universal algorithmic guarantee is inferred from the phrase systematically replace. The catalogue-linked mirror returned HTTP 404 during this preparation; its full original solicitation was not reverified. The supplied catalogue extract and historical attribution are documented with that access limitation.
+\paragraph{Statement recorded in the supplied source.}
+Determine whether algebraic geometry can systematically replace linear algebra in optimization. \href{https://web.math.utk.edu/~vasili/refs/darpa07.MathChallenges.html}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+Explore whether algebraic-geometric methods can provide a systematic framework for optimization beyond the usual linear-algebraic tools.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 70 (DARPA-008). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] DARPA DSO, Broad Agency Announcement 07-68, Mathematical Challenges (2007), challenge identified above; the catalogue-linked University of Tennessee mirror.
+\url{https://web.math.utk.edu/~vasili/refs/darpa07.MathChallenges.html}.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. The supplied catalogue credits: DARPA. Permanent source ID 70 and code DARPA-008 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:70}
+
+
+\section{Research attempt}
+The DARPA agenda does not define an optimization class or an efficiency target. To test one precise algebraic route, this attempt solves the real polynomial family
+\[
+ f_a(x,y)=(xy-1)^2+a(x^2+y^2),\qquad a\in\mathbb R,
+\]
+and tests the proposal ``solve the gradient equations and enumerate isolated stationary points.'' This is an explicitly chosen model, not a formal replacement of the source agenda.
+
+\begin{proposition}
+For $a<0$, $\inf_{\mathbb R^2}f_a=-\infty$. For $a=0$, the minimum is zero on precisely the hyperbola $xy=1$. For $0<a<1$, the minimum is $2a-a^2$, attained precisely at $(\sqrt{1-a},\sqrt{1-a})$ and its negative. For $a\ge1$, the unique minimum is $1$, attained at $(0,0)$.
+\end{proposition}
+\begin{proof}
+If $a<0$, take $x=0$ and let $|y|$ grow. If $a=0$, the square vanishes exactly when $xy=1$. For $a>0$, set $t=xy$. Since $(|x|-|y|)^2\ge0$, we have
+\[
+ f_a(x,y)\ge (t-1)^2+2a|t|=:q_a(t).
+\]
+For $t<0$, $q_a'(t)=2(t-1)-2a<0$, so this half-line has infimum $q_a(0)=1$. For $t\ge0$, completing the square gives
+\[
+ q_a(t)=(t-(1-a))^2+2a-a^2.
+\]
+Its minimizer on this half-line is $t=\max\{1-a,0\}$. Equality in the original inequality requires $|x|=|y|$. If $0<a<1$, the positive product forces the two stated points. If $a\ge1$, product zero and equal magnitudes force $x=y=0$. These points attain the stated values.
+\end{proof}
+
+\paragraph{Audit of stationary-point enumeration.}
+The gradient equations are
+\[
+ y(xy-1)+ax=0,\qquad x(xy-1)+ay=0.
+\]
+At $a=0$ their solution set is the entire hyperbola $xy=1$ together with $(0,0)$, so a method enumerating only isolated critical points returns the point with value $1$ and misses every global minimizer with value $0$. This is a concrete failure of that restricted algebraic procedure, not a failure of all algebraic-geometric methods. At $a>0$, multiplying the two equations by $x$ and $y$ and subtracting gives $a(x^2-y^2)=0$. The branch $x=-y$ gives $x(x^2+1+a)=0$, hence only zero; the branch $x=y$ gives $x(x^2-1+a)=0$. These recover the stationary points above. The Hessian at the origin is
+\[
+ \begin{pmatrix}2a&-2\\-2&2a\end{pmatrix},
+\]
+with eigenvalues $2(a-1)$ and $2(a+1)$. Hence no parameter-uniform positive Hessian gap survives as $a\to1$. A critical-point solver that presumes a uniformly isolated nondegenerate solution has an additional unjustified hypothesis even in this small family.
+
+\section{Literature and context}
+The catalogue-linked DARPA mirror was attempted on 11 October 2026; the browsing tool returned an internal access error. Its original full solicitation was therefore not reverified. A primary lecture PDF by Lek-Heng Lim, \emph{Analysis of cumulants} (6 March 2009), was located through a search extract explicitly quoting Mathematical Challenge Eight, confirming its algebraic-geometry/linear-algebra wording. This is context, not a theorem dependency. No novelty is claimed for solving a two-variable quartic family, and no systematic literature review of polynomial optimization was completed.
+
+\section{Verification and remaining gaps}
+Exact rational evaluation on the grid $x,y\in\{-3,-2.9,\ldots,3\}$ found no value below the proved formula for $a=0,1/4,1/2,1,2$. All real parameters and points in the proposition are covered by the algebraic proof, not by the grid. The self-audit included negative $a$, the noncompact $a=0$ minimizer set, the bifurcation at $a=1$, and the difference between real and complex stationary solutions. The first gap in generalizing the attempted procedure is handling positive-dimensional critical varieties, constraints and nonattainment while retaining a defined complexity guarantee. The agenda supplies no benchmark that would make this family a completion of the original task.
+
+\section{References}
+Original catalogue sources S1--S2 above. L.-H. Lim, \emph{Analysis of cumulants}, primary lecture PDF, DARPA Mathematical Challenge Eight slide, \url{https://www.stat.uchicago.edu/~lekheng/work/nsf.pdf}; search extract inspected 11 October 2026, not a full slide-deck audit. All mathematical claims about $f_a$ are proved here.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch001/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

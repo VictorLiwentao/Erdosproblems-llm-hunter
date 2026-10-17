@@ -1,0 +1,83 @@
+% TOP_PROBLEM: {"id": 20002544, "title": "An affine-defect test for Newtonian motions", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The source leaves affine-map admissibility and the excluded class of symmetric solutions informal. Those ambiguities are retained visibly rather than equating every affine class with a similarity class. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002544", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Find n-body motions in a fixed affine class beyond relative equilibria and the named symmetric examples.", "scope": "Derived affine force-dependency constraints and showed fixed affine class is locally vacuous for nondegenerate d-simplices, with an explicit local nonrelative example. Global nonsymmetric existence under the intended exclusions remains unresolved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked affine relation differentiation, simplex uniqueness, explicit three-body acceleration, nonhomothety ratios and the local/time-reversal limitations. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked preservation of affine dependencies under the force equations and the nonhomothetic three-point zero-velocity example; its affine representation is local. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked affine relation differentiation, simplex uniqueness, explicit three-body acceleration, nonhomothety ratios and the local/time-reversal limitations. Scope remains limited: Specify the excluded symmetry class and global rank requirement, then construct a solution satisfying every affine force-dependency identity for its full lifetime."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002544; source catalogue code AIM-PHYSICS-0052
+\setcounter{section}{20002543}
+\section{An affine-defect test for Newtonian motions}\label{20002544}
+{\small UnsolvedMath ID 20002544 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}In the Newtonian $n$-body problem, positions $q_i\in\mathbb R^d$ and masses $m_i>0$ obey $m_i\ddot q_i=\nabla_{q_i}U$, where $U(q)=\sum_{i<j}m_im_j/|q_i-q_j|$ and the gravitational constant is normalized to one. Here $T=\tfrac12\sum_i m_i|\dot q_i|^2$, $E=T-U$, and a collision has $q_i=q_j$. The center of mass can be fixed at zero; moment of inertia is $I=\sum_i m_i|q_i|^2$. A central configuration has $\nabla_{q_i}U=-\lambda m_iq_i$ in center-of-mass coordinates for a common scalar $\lambda$. After fixing $I=1$, it is a critical point of $U$ on the collision-free inertia ellipsoid. Congruent configurations and scales are factored out for a finiteness count. A relative equilibrium is a rigidly rotating solution with time-independent shape. Two configurations are affinely related if a common affine map sends every labeled position of one to the corresponding position of the other. After removing translations, this concerns common linear maps. An orbit remaining in one affine class is not necessarily rigidly rotating; the source’s symmetric examples motivate looking for additional motion types.
+
+\paragraph{Catalogue wording retained for traceability.}
+Are there solutions of the $n$-body problem lying in a fixed affine class that are neither relative equilibria nor the source’s symmetric examples, such as Gerver’s super-eight?
+\paragraph{Scope and source qualification.}The source leaves affine-map admissibility and the excluded class of symmetric solutions informal. Those ambiguities are retained visibly rather than equating every affine class with a similarity class. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Find n-body motions in a fixed affine class beyond relative equilibria and the named symmetric examples.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derived affine force-dependency constraints and showed fixed affine class is locally vacuous for nondegenerate d-simplices, with an explicit local nonrelative example. Global nonsymmetric existence under the intended exclusions remains unresolved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{An affine-dependence obstruction.}Let fixed reference points \(a_i\) span an affine d-plane and suppose \(q_i(t)=A(t)a_i+b(t)\), with \(A\) invertible. Every affine relation \(\sum_ic_i=0\), \(\sum_ic_ia_i=0\) then gives \(\sum_ic_iq_i(t)=0\), and differentiating twice yields the necessary force relation
+\[\sum_i c_i\sum_{j\ne i}m_j\frac{q_j-q_i}{|q_j-q_i|^3}=0.
+\]
+This is a concrete test for a proposed fixed-affine-class motion: the accelerations must preserve every affine dependency, not merely the positions at one time.
+\paragraph{A dimension boundary.}For \(n=d+1\) affinely independent labeled points there are no nontrivial affine dependencies. Any two such configurations are related by a unique invertible affine map, obtained by mapping the d difference-basis vectors. Thus any collision-free solution that stays affinely independent on a time interval automatically lies in one affine class there. The constraint becomes substantive only when there are additional points or global rank requirements.
+For example, three planar unit masses starting at \((0,0),(2,0),(0,1)\) with zero velocities remain noncollinear for sufficiently short time by continuity. The first body's acceleration is \((1/4,1)\); relative to the center of mass \((2/3,1/3)\), its two proportionality ratios are unequal, so this initial acceleration is not a common scalar homothety. Zero initial velocities and nonzero accelerations also exclude a relative equilibrium. This is only a local example, and its time-reversal symmetry is not hidden.
+\paragraph{Gap.}The source's excluded symmetric class and global affine admissibility are informal. A nontrivial global solution outside that class must be constructed with rank preserved for its required lifetime and all force-dependency identities enforced. The local simplex observation does not answer that global interpretation, nor classify motions for \(n>d+1\).
+
+\paragraph{Verification and adversarial audit.}
+Checked affine relation differentiation, simplex uniqueness, explicit three-body acceleration, nonhomothety ratios and the local/time-reversal limitations. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked affine relation differentiation, simplex uniqueness, explicit three-body acceleration, nonhomothety ratios and the local/time-reversal limitations. Scope remains limited: Specify the excluded symmetry class and global rank requirement, then construct a solution satisfying every affine force-dependency identity for its full lifetime.
+
+Coordinator checked preservation of affine dependencies under the force equations and the nonhomothetic three-point zero-velocity example; its affine representation is local. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Specify the excluded symmetry class and global rank requirement, then construct a solution satisfying every affine force-dependency identity for its full lifetime.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002544:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002544 (AIM-PHYSICS-0052). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002544:2}{S2}] American Institute of Mathematics, Variational Methods in Celestial Mechanics; notes by Kuo-Chang Chen, version 22 June 2003, source item 15.
+\url{https://aimath.org/WWN/varcelest/varcelest.pdf}.
+\end{itemize}
+\label{end:20002544}
+\end{document}

@@ -1,0 +1,93 @@
+% RESEARCH_DRAFT_SHA256: b0018ed28c06a83d17a706947f05dba7efbf751e7e1b42810162cb8d95f6edbb
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20002111, "title": "A version-aware design for longitudinal studies of open assessment systems", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002111", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Bounded regression-to-the-mean counterexample for selected longitudinal cohorts.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch008/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 20002111; source catalogue code AIM-INFRASTRUCTURE-0011
+\section{A version-aware design for longitudinal studies of open assessment systems}\label{20002111}
+{\small UnsolvedMath ID 20002111 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A longitudinal study follows individuals or cohorts over time. Repeated observations can describe within-person changes, but interpreting those changes requires attention to cohort composition, observation timing, tool versions, and missing follow-up.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+No study schedule, practice comparison, population, or outcome is supplied. The supplied catalogue marks this record open; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+12. Longitudinal study (individuals, cohorts)
+
+- Goal: find best practices \href{http://aimath.org/pastworkshops/oerassessmentproblems.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The source proposes longitudinal studies to identify best practices.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20002111 (AIM-INFRASTRUCTURE-0011). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-INFRASTRUCTURE-0011.
+\url{http://aimath.org/pastworkshops/oerassessmentproblems.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 20002111 and code AIM-INFRASTRUCTURE-0011 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:20002111}
+
+\section{Research attempt}
+\subsection{Literature, source context and scope}
+The primary AIM notes describe a brainstorming session. The original excerpt and all catalogue qualifications remain above. They do not specify a mathematical theorem or a complete empirical study. The formal model below is an explicitly limited research route introduced for this attempt, not a reconstruction of a missing original conjecture. The supplied catalogue's earlier research summary was inspected as context; its named framework is not adopted as an established solution. The elementary result below is not claimed novel, and no educational effectiveness data were collected.
+
+\subsection{Attempt: interpreting a selected cohort's longitudinal gain}
+I tested whether following the same individuals removes the ambiguity in before-and-after gains. Suppose all learners have unchanged latent level $\theta=1/2$, and each observation adds an independent error taking values $\pm1/4$ with equal probability. Follow only learners whose baseline score is the lower value $1/4$.
+\begin{proposition}
+The selected cohort has expected follow-up gain $1/4$ despite zero change in every latent level. A concurrently randomized comparison between two groups selected by this same baseline rule has expected gain contrast zero under this unchanged model.
+\end{proposition}
+\begin{proof}
+Conditioning on selection fixes the baseline error at $-1/4$, so the baseline score is $1/4$. The independent follow-up error still has mean zero; the expected follow-up score is therefore $1/2$. The expected observed gain is $1/2-1/4=1/4$, although $\theta$ is constant for each person. Selecting the higher baseline score instead would produce an expected decline of $1/4$.
+
+If eligible selected individuals are randomized into two comparison groups independently of their future errors, the conditional follow-up error mean is zero in each group. Both have the same baseline score and expected gain $1/4$, so subtracting their mean gains yields expectation zero. This cancellation is a statement under the specified common selection and error laws; it does not recover unobserved outcomes or remove arbitrary treatment differences.
+\end{proof}
+\subsection{Verification and remaining gaps}
+The four equally likely baseline/follow-up noise pairs give follow-up scores $1/4$ and $3/4$ with equal probability after selecting the low baseline. This is regression to the mean in an elementary bounded model. The failed inference is that individual follow-up alone turns score improvement into evidence of a best practice. Real longitudinal studies still require declared comparisons, instrument stability, cohort selection and missing-data assumptions. No educational practice is evaluated or selected here.
+
+\section{References and source attribution}
+American Institute of Mathematics, workshop discussion notes on open educational resources and assessment, \url{https://aimath.org/pastworkshops/oerassessmentproblems.pdf}. The 16-page primary PDF was opened on 11 October 2026 and its numbered brainstorming item was checked against the supplied record. The source supports the provenance and agenda, not the additional modeling assumptions or an empirical educational conclusion. Catalogue and contributor attribution are retained in the reproduced Sources section. The worked mathematics is proved here without reliance on an unverified external theorem.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch008/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

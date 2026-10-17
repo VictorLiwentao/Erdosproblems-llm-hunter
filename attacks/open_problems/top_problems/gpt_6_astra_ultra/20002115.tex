@@ -1,0 +1,98 @@
+% RESEARCH_DRAFT_SHA256: 830502a1e4ceee09628057dbbfa53266c768341814695a46c68e6c3dd34f65cd
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20002115, "title": "A distance-without-displacement audit", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002115", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Stationary queue calculation showing that reduced requests need not improve response delay.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch008/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 20002115; source catalogue code AIM-INFRASTRUCTURE-0015
+\section{A distance-without-displacement audit}\label{20002115}
+{\small UnsolvedMath ID 20002115 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+Instructor--student interaction includes opportunities for communication, explanation, and feedback. Perceived social distance and recorded contact are different quantities and need explicit measurement before an effect of technology can be compared.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The technology, comparison practice, and meaning of distance are unspecified. The supplied catalogue marks this record partially solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+16. Does the technology put distance between the student and instructor? \href{http://aimath.org/pastworkshops/oerassessmentproblems.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The source asks whether technology creates distance between students and instructors.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20002115 (AIM-INFRASTRUCTURE-0015). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-INFRASTRUCTURE-0015.
+\url{http://aimath.org/pastworkshops/oerassessmentproblems.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 20002115 and code AIM-INFRASTRUCTURE-0015 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:20002115}
+
+\section{Research attempt}
+\subsection{Literature, source context and scope}
+The primary AIM notes describe a brainstorming session. The original excerpt and all catalogue qualifications remain above. They do not specify a mathematical theorem or a complete empirical study. The formal model below is an explicitly limited research route introduced for this attempt, not a reconstruction of a missing original conjecture. The supplied catalogue's earlier research summary was inspected as context; its named framework is not adopted as an established solution. The elementary result below is not claimed novel, and no educational effectiveness data were collected.
+
+\subsection{Attempt: fewer requests versus faster human contact}
+I tested one operational meaning of distance: time until a request receives a completed response. Consider a first-come-first-served queue with Poisson request rate $\lambda>0$, independent exponential service rate $\mu>\lambda$, and a stationary backlog. This is a standard queueing model introduced for illustration, not an asserted description of instructor relationships.
+\begin{proposition}
+A request arriving in this stationary model has expected time in the system $1/(\mu-\lambda)$. Reducing the request rate can nevertheless increase that time if service capacity decreases more.
+\end{proposition}
+\begin{proof}
+Put $\rho=\lambda/\mu<1$. The probabilities $\pi_n=(1-\rho)\rho^n$ sum to one and satisfy $\lambda\pi_n=\mu\pi_{n+1}$ for every $n\ge0$. These adjacent balances give zero net flow at each state of the birth-and-death queue and hence a stationary distribution. The total jump rates are bounded by $\lambda+\mu$; equivalently, one can use a Poisson clock of that rate and a discrete transition matrix. The same balances preserve $\pi$ at every clock step, proving stationarity directly.
+
+The rate of arrivals seeing pre-arrival backlog $n$ is $\lambda\pi_n$: conditional on the past, the independent Poisson arrival probability in a small interval of length $h$ is $\lambda h+O(h^2)$, and an additional queue jump has probability $O(h)$, so simultaneous changes affect the count only by $O(h^2)$. Dividing the state-specific arrival rate by total rate $\lambda$ gives arrival-state probabilities $\pi_n$. Conditional on seeing $n$ requests present, the tagged request waits for $n+1$ exponential service completions, each of mean $1/\mu$, using memorylessness for the current service. Its mean time is therefore
+\[
+\frac1\mu\sum_{n\ge0}(n+1)(1-\rho)\rho^n
+=\frac1{\mu(1-\rho)}=\frac1{\mu-\lambda}.
+\]
+The geometric-series identity follows by summing $\sum_{j\ge0}\sum_{n\ge j}(1-\rho)\rho^n=\sum_{j\ge0}\rho^j$.
+\end{proof}
+\subsection{Verification and remaining gaps}
+Rates $(\lambda,\mu)=(8,10)$ give mean time $1/2$, while $(6,7)$ give mean time one. Thus fewer requests alone do not certify faster responses. The Poisson, service, stationarity and independence assumptions are essential; non-Poisson sampling does not generally see the time-average backlog. This calculation does not equate response delay with relational or epistemic distance and does not evaluate any actual technology. The source's broader notion of distance still needs definition and data.
+
+\section{References and source attribution}
+American Institute of Mathematics, workshop discussion notes on open educational resources and assessment, \url{https://aimath.org/pastworkshops/oerassessmentproblems.pdf}. The 16-page primary PDF was opened on 11 October 2026 and its numbered brainstorming item was checked against the supplied record. The source supports the provenance and agenda, not the additional modeling assumptions or an empirical educational conclusion. Catalogue and contributor attribution are retained in the reproduced Sources section. The worked mathematics is proved here without reliance on an unverified external theorem.
+
+\url{https://www.math.purdue.edu/~peterson/Teaching/532/PASTA.pdf}. Ronald W. Wolff, Poisson Arrivals See Time Averages (1982), primary paper opened; its lack-of-anticipation condition clarifies the standard arrival-sampling step.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch008/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

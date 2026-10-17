@@ -1,0 +1,93 @@
+% TOP_PROBLEM: {"id": 30001877, "title": "Momentum-Space Scarring on Irrational Point-Scatterer Tori", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The primary report states a conditional positive result assuming Poisson spacing of the unperturbed eigenvalues. The unconstrained catalogue question omits the irrationality and coupling details needed for a full theorem; this preparation does not certify that no later unconditional result exists."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001877", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Determine whether some high-energy eigenfunctions of an irrational point-scatterer torus concentrate in momentum directions.", "scope": "Derives a quantitative shell-mass criterion for momentum scarring and checks the at-most-four-direction property of irrational rectangular shells.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked normalization, multiplicity bound from irrationality, subsequential directions and the nonfree choice of perturbed eigenvalues. Model self-audit only; no independent human proof checking. Coordinator checked the exact shell-mass expression, irrational rectangular multiplicity bound and conditional atomic momentum-limit conclusion. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked normalization, multiplicity bound from irrationality, subsequential directions and the nonfree choice of perturbed eigenvalues. Retained unresolved status and zero original-target progress; No actual point-scatterer eigenvalue subsequence satisfying the coupling equation and shell-tail condition is constructed."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001877; source catalogue code OWR-11135-004
+\setcounter{section}{30001876}
+\section{Momentum-Space Scarring on Irrational Point-Scatterer Tori}\label{30001877}
+{\small UnsolvedMath ID 30001877 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} An irrational rectangular flat torus has a nonrational squared aspect ratio. A point scatterer is a selfadjoint point-interaction extension of the Laplacian at a fixed torus point, with a coupling convention. Eigenfunctions have Fourier coefficients indexed by the dual lattice. Their normalized squared coefficients determine momentum probability measures on directions; a momentum scar is a subsequential limit with concentration beyond the uniform directional distribution, in the sense examined by the source.
+
+\paragraph{Source scope and qualifications.} The primary report states a conditional positive result assuming Poisson spacing of the unperturbed eigenvalues. The unconstrained catalogue question omits the irrationality and coupling details needed for a full theorem; this preparation does not certify that no later unconditional result exists.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+For an irrational flat torus with a point scatterer, does there exist a subsequence of eigenfunctions that scars in momentum space?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The record is incomplete report prose about eigenfunction limits and a conditional scarring result, not a resolved standalone problem. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Determine whether some high-energy eigenfunctions of an irrational point-scatterer torus concentrate in momentum directions.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derives a quantitative shell-mass criterion for momentum scarring and checks the at-most-four-direction property of irrational rectangular shells.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A conditional Fourier-shell criterion.} Consider the usual Green-function coefficient ansatz for a new point-interaction eigenfunction, $c_\xi=C/(|\xi|^2-\lambda)$ on the dual lattice, with $\lambda$ off the unperturbed spectrum and $C$ chosen for unit norm. Let a shell $S_E=\{\xi:|\xi|^2=E\}$ have multiplicity $r_E$ and put $\delta=|E-\lambda|$. Its exact normalized momentum mass is
+\[
+ P_E=\frac{r_E/\delta^2}{r_E/\delta^2+\sum_{\xi\notin S_E}(|\xi|^2-\lambda)^{-2}}.
+\]
+If along a sequence $\delta^2\sum_{\xi\notin S_E}(|\xi|^2-\lambda)^{-2}\leq C_0$, then $P_E\geq r_E/(r_E+C_0)$. If the left side tends to zero, $P_E\to1$.
+
+\paragraph{Directional consequence and caveat.} On an irrational rectangular torus, equality of $m^2/a^2+n^2/b^2$ for two integer pairs forces equality of both squares when $a^2/b^2$ is irrational. Thus a nonzero shell has at most four sign-related directions. Extracting a subsequence of these finitely many directions gives limiting atoms whenever their shell mass tends to one. This is a precise sufficient scarring criterion under the coefficient ansatz and tail estimate.
+
+\paragraph{Missing arithmetic/spectral step.} The perturbed eigenvalue $\lambda$ must satisfy the actual extension's coupling equation; it cannot be chosen arbitrarily close to $E$. No subsequence satisfying the tail condition has been proved for the source coupling. The report's conditional Poisson-spacing argument is not upgraded to an unconditional result here. Establishing compatible small gaps and tail control is the first gap, and no fresh claim about current unconditional literature status is made.
+
+\paragraph{Verification and adversarial audit.}
+Checked normalization, multiplicity bound from irrationality, subsequential directions and the nonfree choice of perturbed eigenvalues. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked normalization, multiplicity bound from irrationality, subsequential directions and the nonfree choice of perturbed eigenvalues. Retained unresolved status and zero original-target progress; No actual point-scatterer eigenvalue subsequence satisfying the coupling equation and shell-tail condition is constructed.
+
+Coordinator checked the exact shell-mass expression, irrational rectangular multiplicity bound and conditional atomic momentum-limit conclusion. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. No actual point-scatterer eigenvalue subsequence satisfying the coupling equation and shell-tail condition is constructed.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. No actual point-scatterer eigenvalue subsequence satisfying the coupling equation and shell-tail condition is constructed.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001877:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001877 (OWR-11135-004). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001877:2}{S2}] The Analytic Theory of Automorphic Forms (2011), Oberwolfach Reports, DOI 10.4171/owr/2011/43, pp. 2397--2458; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2011/43}.
+\item[\hypertarget{source:30001877:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 41--42, printed pages 2437--2438.
+\url{https://ems.press/content/serial-article-files/46359}.
+\end{itemize}
+\label{end:30001877}
+\end{document}

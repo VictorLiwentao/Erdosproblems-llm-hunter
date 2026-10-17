@@ -1,0 +1,93 @@
+% TOP_PROBLEM: {"id": 30001182, "title": "Ambient-Algebra Independence of Exchangeable Independence", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The comparison must retain the subalgebras, their states, and joint distribution while changing ambient embeddings. The question is not whether arbitrary embeddings preserve an unrelated probability law. The source itself identifies possible embedding dependence as unresolved."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001182", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Determine whether the proposed exchangeability definition of independence intrinsically depends on the ambient algebra.", "scope": "Gives an explicit pure-state restriction countertest to an automatic extremality-preservation argument.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked purity by positivity, nonextreme diagonal restriction and the distinction between all-state and exchangeable extremality. Model self-audit only; no independent human proof checking. Coordinator checked purity of the two-dimensional vector state and nonextremality of its diagonal restriction, distinguished from exchangeable-state extremality. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked purity by positivity, nonextreme diagonal restriction and the distinction between all-state and exchangeable extremality. Retained unresolved status and zero original-target progress; An extremal exchangeable extension/restriction preserving the specified joint B,C distribution has not been constructed."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001182; source catalogue code OWR-3392-009
+\setcounter{section}{30001181}
+\section{Ambient-Algebra Independence of Exchangeable Independence}\label{30001182}
+{\small UnsolvedMath ID 30001182 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} An algebraic probability space is a unital $*$-algebra $A$ with a positive normalized state $\phi$. Write $A^{*\,\mathbb N}$ for the unital free product of countably many copies, with canonical embeddings $j_n$. A state on it is exchangeable if invariant under every finite permutation of the copies, and extremal if not a nontrivial convex combination of exchangeable states. For $B,C\subseteq A$, the source's independence requires an extremal exchangeable state $\phi_\infty$ whose restriction to separate copies of $B$ and $C$ agrees with their original joint distribution under $\phi$.
+
+\paragraph{Source scope and qualifications.} The comparison must retain the subalgebras, their states, and joint distribution while changing ambient embeddings. The question is not whether arbitrary embeddings preserve an unrelated probability law. The source itself identifies possible embedding dependence as unresolved.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+For the proposed notion of independence of subalgebras $B$ and $C$ contained in an algebra $A$ with state $\phi$, defined through an extremal exchangeable state on the infinite free product, is the dependence on the embedding algebra $A$ necessary?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The definition explicitly leaves dependence on the ambient embedding algebra as an open issue, and the general embedding-independence question remains unresolved. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Determine whether the proposed exchangeability definition of independence intrinsically depends on the ambient algebra.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Gives an explicit pure-state restriction countertest to an automatic extremality-preservation argument.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Why restriction of witnesses is delicate.} A natural route would restrict an extremal exchangeable state on a larger free product to a smaller one. Restriction is affine and preserves exchangeability, but affine maps need not preserve extreme points. Even ordinary state spaces show the obstruction: on $M_2(\mathbb C)$ the vector state of $v=(1,1)/\sqrt2$ is pure, while its restriction to the diagonal algebra is
+\[
+ \phi(\operatorname{diag}(a,b))=(a+b)/2,
+\]
+the nontrivial average of the two evaluation states.
+
+\paragraph{Purity check without a classification theorem.} If $\phi=t\psi_1+(1-t)\psi_2$, $0<t<1$, positivity and $\phi(I-|v\rangle\langle v|)=0$ force each $\psi_i$ to vanish on that projection. Cauchy--Schwarz for a positive functional then kills all matrix entries touching its range. Since the complementary range is one-dimensional and each state is normalized, both $\psi_i=\phi$. This verifies extremality on the large matrix algebra, while the restricted state is visibly nonextremal.
+
+\paragraph{What this does not show.} The example concerns extremality among all states, not extremality in the source's exchangeable-state simplex, so it is not an ambient-dependence counterexample. It invalidates only the automatic affine-restriction step. A successful proof must exploit exchangeability to construct or select an extremal extension preserving the prescribed joint distribution of $B$ and $C$. That is the first missing step; changing their joint law or replacing them with unrelated embeddings would answer a different question.
+
+\paragraph{Verification and adversarial audit.}
+Checked purity by positivity, nonextreme diagonal restriction and the distinction between all-state and exchangeable extremality. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked purity by positivity, nonextreme diagonal restriction and the distinction between all-state and exchangeable extremality. Retained unresolved status and zero original-target progress; An extremal exchangeable extension/restriction preserving the specified joint B,C distribution has not been constructed.
+
+Coordinator checked purity of the two-dimensional vector state and nonextremality of its diagonal restriction, distinguished from exchangeable-state extremality. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. An extremal exchangeable extension/restriction preserving the specified joint B,C distribution has not been constructed.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. An extremal exchangeable extension/restriction preserving the specified joint B,C distribution has not been constructed.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001182:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001182 (OWR-3392-009). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001182:2}{S2}] Mini-Workshop: Product Systems and Independence in Quantum Dynamics (2009), Oberwolfach Reports, DOI 10.4171/owr/2009/09, pp. 493--548; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2009/09}.
+\item[\hypertarget{source:30001182:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 48--49, printed pages 540--541.
+\url{https://ems.press/content/serial-article-files/46209}.
+\end{itemize}
+\label{end:30001182}
+\end{document}

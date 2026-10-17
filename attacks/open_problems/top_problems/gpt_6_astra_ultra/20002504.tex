@@ -1,0 +1,84 @@
+% TOP_PROBLEM: {"id": 20002504, "title": "Differential fingerprints of eta-products", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The source calls eta-products examples of mock modular forms; this is not generally correct. Eta-products satisfying suitable modularity conditions are ordinary modular forms. That terminology error is identified, not propagated as a definition. The source leaves the class of functions and differential equations to be clarified. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002504", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Identify differential equations for the modular or mock-modular objects considered in the eta-product discussion.", "scope": "Derived a convergent first-order q-differential equation for finite eta-products with explicit E2-type coefficients. The broader source object class and anomaly relationship remain unspecified and unresolved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked delta chain factor, negative exponents, logarithmic convergence, derivative convergence and eta-product versus mock-modular distinction. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the eta-product logarithmic derivative and coefficient convergence in its upper-half-plane domain, with nonvanishing qualified away from the cusp. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked delta chain factor, negative exponents, logarithmic convergence, derivative convergence and eta-product versus mock-modular distinction. Scope remains limited: Fix the intended modular/mock-modular function class and coefficient ring, then establish differential closure or anomaly relations beyond eta-products."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002504; source catalogue code AIM-PHYSICS-0012
+\setcounter{section}{20002503}
+\section{Differential fingerprints of eta-products}\label{20002504}
+{\small UnsolvedMath ID 20002504 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}Dedekind’s eta function is $\eta(\tau)=q^{1/24}\prod_{n\ge1}(1-q^n)$, $q=e^{2\pi i\tau}$, on the upper half-plane. An eta-product is a finite product $\prod_\delta\eta(\delta\tau)^{r_\delta}$, with specified exponents. A mock modular form is a holomorphic part of a nonholomorphic modular completion. Differential equations can involve derivatives with respect to moduli or $q$, but the variable and coefficient class must be stated.
+
+\paragraph{Catalogue wording retained for traceability.}
+In the source’s discussion of eta-products, root systems and the holomorphic anomaly equation, determine whether the functions under consideration satisfy other differential equations when they do not satisfy that anomaly equation.
+\paragraph{Scope and source qualification.}The source calls eta-products examples of mock modular forms; this is not generally correct. Eta-products satisfying suitable modularity conditions are ordinary modular forms. That terminology error is identified, not propagated as a definition. The source leaves the class of functions and differential equations to be clarified. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Identify differential equations for the modular or mock-modular objects considered in the eta-product discussion.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derived a convergent first-order q-differential equation for finite eta-products with explicit E2-type coefficients. The broader source object class and anomaly relationship remain unspecified and unresolved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{An explicit eta-product differential equation.}Let \(F(\tau)=\prod_{\delta\in D}\eta(\delta\tau)^{r_\delta}\), with finite \(D\subset\mathbb N\) and integers \(r_\delta\), and \(q=e^{2\pi i\tau}\). The product definition converges locally uniformly for \(|q|<1\), is nonzero on the upper half-plane (equivalently on the punctured disk after choosing the prefactor branch), and can be logarithmically differentiated termwise. With \(D_q=q\,d/dq\),
+\[D_q\log\eta(\delta\tau)=\frac\delta{24}-\sum_{n\ge1}\frac{\delta n q^{\delta n}}{1-q^{\delta n}}=\frac\delta{24}E_2(\delta\tau),
+\]
+where this equation defines \(E_2(\tau)=1-24\sum_{n\ge1}nq^n/(1-q^n)\). Hence
+\[D_qF=\frac1{24}\left(\sum_{\delta\in D}\delta r_\delta E_2(\delta\tau)\right)F.
+\]
+Local uniform convergence of the derivative series follows by comparison with \(\sum n r^n/(1-r^n)\) on \(|q|\le r<1\). Negative exponents cause no poles in the upper half-plane because eta has no zeros there, as follows from convergence of the logarithm of its product.
+\paragraph{Example and limitation.}For \(F=\eta^{24}\), the equation reduces to \(D_qF=E_2F\). It is a concrete first-order equation with a specified coefficient function, rather than the tautology \(F'=(F'/F)F\) with an unknown coefficient. However this is a differential identity of eta-products and does not classify the unspecified mock-modular or root-system objects of the source. Eta-products are not automatically mock modular; the supplied terminology repair is retained. Identifying the intended function class and a structurally meaningful coefficient ring, then relating these equations to anomaly equations when appropriate, remains the first gap.
+
+\paragraph{Verification and adversarial audit.}
+Checked delta chain factor, negative exponents, logarithmic convergence, derivative convergence and eta-product versus mock-modular distinction. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked delta chain factor, negative exponents, logarithmic convergence, derivative convergence and eta-product versus mock-modular distinction. Scope remains limited: Fix the intended modular/mock-modular function class and coefficient ring, then establish differential closure or anomaly relations beyond eta-products.
+
+Coordinator checked the eta-product logarithmic derivative and coefficient convergence in its upper-half-plane domain, with nonvanishing qualified away from the cusp. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Fix the intended modular/mock-modular function class and coefficient ring, then establish differential closure or anomaly relations beyond eta-products.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002504:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002504 (AIM-PHYSICS-0012). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002504:2}{S2}] American Institute of Mathematics, Gromov-Witten invariants and number theory, source item 1.2.
+\url{http://aimpl.org/gromwitnumthry/1/}.
+\end{itemize}
+\label{end:20002504}
+\end{document}

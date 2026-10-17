@@ -1,0 +1,98 @@
+% RESEARCH_DRAFT_SHA256: 925e1736ba0c3c95a6e88b2dbe8b42ea5d04feb7bc9801fa3b0ac9e38890a056
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001243, "title": "Finite-field least squares as statistical decoding", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001243", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Field-square obstruction and fully proved Berlekamp--Welch recovery in a restricted univariate noise model.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch005/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 20001243; source catalogue code AIM-COMPUTATION-0081
+\section{Finite-field least squares as statistical decoding}\label{20001243}
+{\small UnsolvedMath ID 20001243 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A finite-field model maps states in $\mathbb F_q^d$ to observed responses. Ordinary real squared distance is not intrinsically defined on $\mathbb F_q$; an error model or combinatorial discrepancy such as the number of mismatched observations must be chosen before fitting noisy data.
+\paragraph{Statement recorded in the supplied source.}
+Question 66 (Laubenbacher). The model selection problem over finite fields is very sensitive to noise. Is there some sort of "least squares" over finite fields to deal with noisy data? \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+No one finite-field loss or noise distribution is imposed; the source asks which suitable analogue can be developed.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Is there an analogue of least-squares fitting that can handle noisy data for models over finite fields?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001243 (AIM-COMPUTATION-0081). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0081
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001243 and source code AIM-COMPUTATION-0081 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001243}
+
+
+\section{Research attempt}
+\subsection{Literature and scope}
+Question 66 asks for noise tolerance analogous to least squares over finite fields without specifying a loss. I tested the literal sum-of-field-squares route: over $\mathbb F_5$, residuals $(1,2)$ have sum of squares $1+4=0$ despite both being nonzero. A finite field has no compatible ordered-field loss interpretation. As a restricted repair, I rederive the established Berlekamp--Welch decoding method for bounded-degree univariate data, with Hamming error count as the external integer-valued loss.
+\begin{proposition}
+Let $x_1,\ldots,x_N$ be distinct points of a finite field $\mathbb F_q$, and suppose $y_i=f(x_i)$ except at at most $t$ positions, where $\deg f\le d$ and $N\ge d+2t+1$. The polynomial $f$ is unique and can be recovered by linear algebra over the field followed by polynomial division.
+\end{proposition}
+\begin{proof}
+Find a monic polynomial $E$ of degree $t$ and a polynomial $Q$ of degree at most $d+t$ satisfying
+\[
+y_iE(x_i)=Q(x_i)\qquad(1\le i\le N).
+\]
+After fixing the leading coefficient of $E$ to one, these are linear equations in its remaining coefficients and those of $Q$. They have a solution: if the actual error set has size $e\le t$, take the product of $X-x_i$ over erroneous positions and multiply by any monic polynomial of degree $t-e$ to get $E_*$; then $Q_*=fE_*$ works. Padding may have repeated roots and requires no new field elements.
+
+For any solution $(E,Q)$, the polynomial $Q-fE$ has degree at most $d+t$ and vanishes at the $N-e$ correct positions. But $N-e\ge d+2t+1-e>d+t$, so it vanishes identically. Hence exact division gives $Q/E=f$, regardless of whether the linear system has multiple solutions. Uniqueness also follows directly: two degree-at-most-$d$ candidates with at most $t$ errors agree at at least $N-2t\ge d+1$ distinct points, forcing their difference to be zero. Gaussian elimination solves the displayed linear system in a polynomial number of field operations; polynomial division also has polynomial cost.
+\end{proof}
+\subsection{Verification and remaining gaps}
+Over $\mathbb F_{11}$, use $f=3+2X+X^2$, points $0,\ldots,6$ and corrupted values $(3,9,0,7,5,9,7)$, with errors at 1 and 5. Modular elimination at $d=t=2$ returned $E=5+5X+X^2$ and $Q=4+3X+7X^2+7X^3+X^4$; their product/division check recovers $f$ exactly. The field-square cancellation was checked separately in $\mathbb F_5$.
+
+This proof requires distinct evaluation points, bounded degree and a specified bounded Hamming-error model. It does not solve noisy multivariate model selection or impose a canonical real-valued least-squares loss on arbitrary field elements. The decoding result is established prior work, not original-target progress.
+
+\section{References and source attribution}
+The original question is credited to the AIM workshop list prepared by Seth Sullivant (2004), \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}. The source question and catalogue attribution are reproduced above. This list was accessed on 11 October 2026; it is historical evidence of the question, not a certification of present open status.
+
+\url{https://arxiv.org/abs/1212.5554}. Morgan Barbier, Re-encoding reformulation and application to Welch-Berlekamp algorithm; primary abstract and linked paper inspected for established decoding context.
+
+\url{https://arxiv.org/pdf/1212.5554}. Primary 12-page paper accessed; the present basic decoding proof is supplied in full and is not claimed as a new algorithm.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch005/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

@@ -1,0 +1,135 @@
+% RESEARCH_DRAFT_SHA256: e1e4822b77aac2300d0fb4918b1e0eed1bb252de3ba92f6cb9a9360b763ee780
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001187, "title": "An algebraic one-mode certificate for MANOVA", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001187", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 11. Can algebraic techniques be used to see the unimodality of the likelihood function in a MANOVA model. These models correspond to the chain graphs as described above but with the extra edges Xi → Yj for each i and j.Akimichi Takemura asked,\"As the number of samples grows, how quickly does the likelihood converge to a unimodal function in the bivariate SUR model?\"\n\nAleksandra Slavkovic\n\nAleksandra Slavkovic spoke about disclosure limitation problems associated with the releasse of marginals and conditionals. Since fixing conditionals is a linear constraint, the theory of Markov bases can be applied to the problem of deciding how many tables have the given fixed conditionals.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The standard full-rank MANOVA case is proved, but no convergence rate for bivariate SUR under specified growing-sample assumptions is obtained; arbitrary degenerate data need different conclusions.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{MANOVA likelihood: algebraic uniqueness under rank hypotheses and the unresolved SUR rate}
+\noindent UnsolvedMath ID 20001187; AIM-COMPUTATION-0025. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a statistical model with parameter $\theta$ and observations $D$, the likelihood is $L(\theta;D)=\Pr_\theta(D)$, or the corresponding density. Maximum likelihood seeks a global maximum over the admissible parameter space. In seemingly unrelated regression (SUR), several response equations have separate regression coefficients and a correlated multivariate error vector. MANOVA allows every predictor to enter every response equation. Unimodality asks whether the likelihood has only one mode, with attention to its stated parameter domain.
+\paragraph{Statement recorded in the supplied source.}
+Question 11. Can algebraic techniques be used to see the unimodality of the likelihood function in a MANOVA model. These models correspond to the chain graphs as described above but with the extra edges Xi → Yj for each i and j.Akimichi Takemura asked,"As the number of samples grows, how quickly does the likelihood converge to a unimodal function in the bivariate SUR model?" \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The catalogue flags this record as reconstructed and unverified. The supplied question is preserved; the definitions do not certify a unique intended model. The supplied extraction includes adjacent workshop exposition; the numbered target passage is retained verbatim and that surrounding exposition is omitted. The primary workshop notes identify the MANOVA and bivariate SUR questions. They do not specify a sample distribution, a convergence metric, or a rate theorem.
+The supplied catalogue marks this formulation as an unverified reconstruction; the source link does not establish that all missing assumptions were recovered.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can algebra explain likelihood unimodality in MANOVA and the sample-size dependence of unimodality in bivariate SUR?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001187 (AIM-COMPUTATION-0025). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0025
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 11. Can algebraic techniques be used to see the unimodality of the likelihood function in a MANOVA model. These models correspond to the chain graphs as described above but with the extra edges Xi → Yj for each i and j.Akimichi Takemura asked,"As the number of samples grows, how quickly does the likelihood converge to a unimodal function in the bivariate SUR model?"
+
+Aleksandra Slavkovic
+
+Aleksandra Slavkovic spoke about disclosure limitation problems associated with the releasse of marginals and conditionals. Since fixing conditionals is a linear constraint, the theory of Markov bases can be applied to the problem of deciding how many tables have the given fixed conditionals.
+
+\section{A specified MANOVA model}
+Let $Y$ be an $n$ by $q$ response matrix, $X$ a fixed $n$ by $k$
+design of full column rank, and use independent Gaussian rows with
+mean $XB$ and common positive-definite covariance $\Sigma$.
+Set $\widehat B=(X^TX)^{-1}X^TY$ and
+$S_0=(Y-X\widehat B)^T(Y-X\widehat B)$. Assume $S_0\succ0$.
+These hypotheses specify a standard subproblem; the source does not
+provide a sampling law for its separate SUR convergence-rate question.
+
+\paragraph{Algebraic residual decomposition.}
+The normal equations $X^T(Y-X\widehat B)=0$ eliminate cross terms and
+give, for every $B$,
+\[
+S(B)=(Y-XB)^T(Y-XB)
+=S_0+(B-\widehat B)^TX^TX(B-\widehat B).
+\]
+The second term is positive semidefinite and is zero exactly when
+$B=\widehat B$, since $X^TX\succ0$.
+For fixed $B$, the negative twice-log-likelihood, up to constants, is
+$n\log\det\Sigma+\operatorname{tr}(\Sigma^{-1}S(B))$.
+Write $S=S(B)\succ0$ and $T=S^{1/2}\Sigma^{-1}S^{1/2}/n$.
+The expression becomes a constant depending on $S$ plus
+$n\operatorname{tr}(T)-n\log\det T$.
+Each positive eigenvalue $t$ of $T$ satisfies $t-\log t\ge1$,
+with equality exactly at $t=1$, by differentiation. Thus the unique
+optimum over $\Sigma$ is $\Sigma=S(B)/n$.
+The profile likelihood is maximized by minimizing $\det S(B)$.
+Conjugating its residual decomposition by $S_0^{-1/2}$ gives
+$\det S(B)=\det S_0\det(I+H)$ with $H\succeq0$. Every eigenvalue
+of $I+H$ is at least one, and equality of the product to one forces
+$H=0$. Hence the unique global maximum is
+$(\widehat B,S_0/n)$.
+
+\paragraph{There are no other interior stationary points.}
+The $B$ score is $X^T(Y-XB)\Sigma^{-1}=0$. Since $\Sigma$ is invertible
+and $X^TX$ nonsingular, it forces $B=\widehat B$. The covariance score
+then forces $\Sigma=S_0/n$, as is also seen by the preceding change of
+variables. Thus there is exactly one interior stationary point, and
+it is the global maximum.
+If $S_0$ is singular, evaluating at $\widehat B$ and shrinking covariance
+eigenvalues along the residual nullspace sends the log likelihood to
+$+\infty$: the trace term has no component in those directions while
+$-n\log\det\Sigma/2$ diverges. If the design is rank deficient,
+different coefficients can give the same fitted mean. Both hypotheses
+are therefore substantive; universal uniqueness for arbitrary data fails.
+
+\paragraph{Why this does not give a SUR sample-size rate.}
+The shared design is essential to one matrix normal equation. With
+different designs in separate response equations, cross-response
+covariance weights couple different coefficient spaces; the displayed
+residual decomposition does not hold with one common $\widehat B$.
+Increasing $n$ without specifying design sequences, a distribution,
+identifiability and a convergence event cannot yield a rate statement.
+No such assumptions are silently supplied for the separate source question.
+
+\section{Context and audit}
+The AIM MANOVA and SUR passages were checked. The proof is classical
+Gaussian regression algebra, reproduced completely; it is not a new SUR
+rate theorem. The audit checked covariance positivity, normalization by
+$n$, rank-deficient and singular cases, and stationary versus global
+optimality. No numerical or formal computation was performed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The standard full-rank MANOVA case is proved, but no convergence rate for bivariate SUR under specified growing-sample assumptions is obtained; arbitrary degenerate data need different conclusions.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Computational Algebraic Statistics, prepared by Seth Sullivant, version 27 March 2004; the original numbered source question and its adjacent scope were inspected on 11 October 2026. \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The standard full-rank MANOVA case is proved, but no convergence rate for bivariate SUR under specified growing-sample assumptions is obtained; arbitrary degenerate data need different conclusions.
+\end{document}

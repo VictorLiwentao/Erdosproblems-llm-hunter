@@ -1,0 +1,169 @@
+% RESEARCH_DRAFT_SHA256: 73d8369c204e1cbc4d411b4061559c502210be948db636e4d71a2e4f3df013ce
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001191, "title": "Exact cumulant ideal of the normalized binary four-cycle", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001191", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for exact finite four-cycle witness enumeration, document assembly and metadata inspection. No theorem prover or ideal-generation computation. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 15. What is the cumulant ideal of the binary four-cycle model?\n\nRussell Steele\n\nRussell Steele spoke about mixture models, model selection, and the Bayesian Infor-mation Criterion (BIC).", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. An explicit transported relation and a fully verified boundary obstruction to the obvious generator set are obtained; full cumulant ideal generation remains unproved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{The binary four-cycle: transported determinants and a boundary quartic obstruction}
+\noindent UnsolvedMath ID 20001191; AIM-COMPUTATION-0029. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+For a random vector $X$, joint cumulants are coefficients of $\log\mathbb E[e^{t\cdot X}]$ near $t=0$ when this expression is defined. Moments and cumulants are related polynomially in fixed finite order. A binary four-cycle graphical model has four binary variables with conditional-independence structure given by a cycle; its cumulant ideal consists of polynomial relations satisfied in cumulant coordinates.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The excerpt does not state the coordinate normalization, positivity conventions, or whether its ideal means the model ideal or its Zariski closure. Those choices must accompany any explicit generators. The supplied catalogue marks this record solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+Question 15. What is the cumulant ideal of the binary four-cycle model?
+
+Russell Steele
+
+Russell Steele spoke about mixture models, model selection, and the Bayesian Infor-mation Criterion (BIC). \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. This is documentation of a source-labelled solved record, not a newly proposed unsolved problem.
+\subsection{Short English statement}
+The historical question asks for polynomial cumulant relations of the binary four-cycle model.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001191 (AIM-COMPUTATION-0029). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-COMPUTATION-0029.
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 15. What is the cumulant ideal of the binary four-cycle model?
+
+Russell Steele
+
+Russell Steele spoke about mixture models, model selection, and the Bayesian Infor-mation Criterion (BIC).
+
+\section{Specified convention and attempted route}
+Take four binary variables, normalized cells $p_x$ for $x\in\{0,1\}^4$,
+and the positive graphical model with edge potentials on
+$12,23,34,41$. The ideal under investigation in this attempt is the
+polynomial vanishing ideal of its complex Zariski closure inside the
+normalization hyperplane, transported to square-free cumulants. These
+conventions are explicit additions needed to calculate; the source asks
+for an ideal without spelling them out. No complete generating list is
+claimed below.
+
+\paragraph{An explicit cumulant equation.}
+Set $m_\varnothing=1$ and
+$m_A=\sum_{\pi\in\Pi(A)}\prod_{B\in\pi}\kappa_B$ for nonempty $A$.
+This formula follows by expanding the exponential of
+$\sum_{A\ne\varnothing}\kappa_A t_A$ in the ring with $t_i^2=0$:
+ordered disjoint partitions occur $k!$ times and cancel $1/k!$.
+Let
+\[
+T=1-m_2-m_4+m_{24},\quad U=m_1-m_{12}-m_{14}+m_{124},
+\quad V=m_3-m_{23}-m_{34}+m_{234},
+\]
+\[
+W=m_{13}-m_{123}-m_{134}+m_{1234}.
+\]
+These are respectively the total probability of $X_2=X_4=0$, and
+its portions with $X_1=1$, $X_3=1$, and both equal to one.
+For the conditional $2$ by $2$ table of $(X_1,X_3)$ on this event,
+the four unnormalized entries are $T-U-V+W,U-W,V-W,W$.
+Their determinant is $TW-UV$. Graphical factorization, with $X_2,X_4$
+fixed, separates the factors containing $X_1$ from those containing
+$X_3$, and therefore proves the cumulant polynomial equation
+\[
+TW-UV=0.
+\]
+Permuting conditioned binary values, and then exchanging the two
+nonedges, gives eight necessary determinant equations. The formula is
+valid even on the closure, since it is polynomial and holds everywhere
+in the positive factorization.
+
+\paragraph{Why these eight equations do not generate the desired ideal.}
+A complete exact search over four-cell supports suggested the following
+example, whose verification is independent of the search. Give mass
+$1/4$ to each of
+\[
+A=\{0000,0011,1101,1110\}
+\]
+and zero to all other cells. In $A$, all four values of the pair $(X_2,X_4)$
+occur exactly once, as do all four values of $(X_1,X_3)$. Conditioning
+on either pair leaves a point mass on the opposite pair. Every one of
+the eight conditional determinants is therefore zero.
+However the graphical factorization also implies
+\[
+Q(p)=p_{0000}p_{0011}p_{1101}p_{1110}
+       -p_{0001}p_{0010}p_{1100}p_{1111}=0.
+\]
+For a direct proof, compare the two four-element multisets in this
+formula. On edge $12$, both have pair counts $(2,0,0,2)$ in the order
+$00,01,10,11$. On each of the other three edges, both have counts
+$(1,1,1,1)$. In a product of four edge-factorized probabilities,
+each edge potential therefore has exactly the same exponent on both
+sides, and the two normalizing factors are both $Z^{-4}$. This proves
+$Q=0$ on the graphical model and hence on its algebraic closure.
+At our law supported on $A$, instead, $Q=4^{-4}\ne0$.
+Consequently the eight determinants cannot generate the vanishing ideal:
+if they did, every simultaneous zero of them would annihilate $Q$.
+This is a boundary obstruction; no assertion is made that this law is a
+positive four-cycle factorization.
+
+The coordinate change does not remove the obstruction. Probability
+reconstruction is
+$p_S=\sum_{B\supseteq S}(-1)^{|B\setminus S|}m_B$, by the binomial
+inclusion--exclusion identity. The cumulant change is invertible by the
+finite logarithm, whose ordered-partition expansion inverts the
+exponential above. Thus substituting the reconstruction in $Q$ gives
+an explicit additional cumulant relation, still violated by the
+cumulants of our example. Merely transporting the eight familiar
+quadrics cannot be the complete calculation requested by the source.
+
+\section{Audit and gap}
+The source Question 15 and adjoining change of speaker were checked.
+The Python search enumerated all size-four supports and size-four cell
+multisets, compared their four edge summaries, and tested both families
+of conditional determinants using integers. Its displayed witness is
+proved fully above; the finite search is not claimed exhaustive over
+ideals or all degrees. The audit checked normalization, boundary points,
+exact opposite-pair contexts and the fact that vanishing constraints
+are weaker than ideal generation. The missing step is a complete
+ideal-generation proof with the chosen closure and normalization, not
+just another necessary equation. This is a known-type obstruction and
+no new full ideal calculation is asserted.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. An explicit transported relation and a fully verified boundary obstruction to the obvious generator set are obtained; full cumulant ideal generation remains unproved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Computational Algebraic Statistics, prepared by Seth Sullivant, version 27 March 2004; the original numbered source question and its adjacent scope were inspected on 11 October 2026. \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} An explicit transported relation and a fully verified boundary obstruction to the obvious generator set are obtained; full cumulant ideal generation remains unproved.
+\end{document}

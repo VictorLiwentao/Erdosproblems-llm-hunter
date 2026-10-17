@@ -1,0 +1,145 @@
+% RESEARCH_DRAFT_SHA256: af4d00b10f14e944ea07879ef6b8782c4e49f6ae1b0dd62d013bae6daabb5403
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30001199, "title": "Circular Assume–Guarantee Reasoning for General Systems", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001199", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written mathematical review at the declared scope; no independent human verification. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Circular Assume–Guarantee Reasoning for General Systems; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Circular simulation for a fully observed linear subclass; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch018 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30001199; source catalogue code OWR-3394-009
+\section{Circular Assume–Guarantee Reasoning for General Systems}\label{30001199}
+{\small UnsolvedMath ID 30001199 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+$\parallel$ denotes parallel interconnection and $\preccurlyeq$ the source\textquotesingle s behavioral refinement or simulation relation. Assume-guarantee reasoning proves a composite specification from component obligations.
+\paragraph{Statement recorded in the supplied source.}
+The circular assume–guarantee rule with premises $\Sigma_{P_1}\parallel\Sigma_{Q_2}\preccurlyeq\Sigma_{Q_1}\parallel\Sigma_{Q_2}$ and $\Sigma_{Q_1}\parallel\Sigma_{P_2}\preccurlyeq\Sigma_{Q_1}\parallel\Sigma_{Q_2}$, and conclusion $\Sigma_{P_1}\parallel\Sigma_{P_2}\preccurlyeq\Sigma_{Q_1}\parallel\Sigma_{Q_2}$, is valid for deterministic systems. Is it valid for general systems? \href{https://doi.org/10.4171/owr/2009/11}{[S2]}
+\paragraph{Scope qualification.}
+The notions of systems, composition, and refinement are not defined in the supplied question. Its premises and conclusion are preserved without adding a soundness assumption.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Determine whether the stated circular compositional reasoning rule remains valid for general systems.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30001199 (OWR-3394-009). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Control Theory: On the Way to New Application Fields (2009), Oberwolfach Reports, DOI 10.4171/owr/2009/11, pp. 593--680
+\url{https://doi.org/10.4171/owr/2009/11}.
+\item[S3] circular assume-guarantee rule
+\url{https://doi.org/10.1145/509705.509707}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30001199 and source code OWR-3394-009 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30001199}
+
+\section{Literature and context check}
+The primary report, printed pages 657--658, states the circular rule for its feedback composition and simulation semantics. It concerns linear systems with auxiliary disturbances, not arbitrary interpretations of parallel composition. The following proves the rule for a nondeterministic but fully state-observed linear subclass, and isolates the precise simplification that fails with hidden states. This does not answer the unrestricted source question.
+\section{Research attempt: Circular simulation for a fully observed linear subclass}
+
+\paragraph{A complete simulation criterion with identity output}
+Consider $\Sigma_S:\dot z=A_Sz+G_Sd_S$, $y=z$ and $\Sigma_T:\dot z=A_Tz+G_Td_T$, $y=z$, with the same state dimension and unrestricted auxiliary disturbance signals. Simulation is required from every source state, preserving the output trajectory. Since the output is the entire state, the matched target state must always be the identical vector. Such simulation holds exactly when
+\[
+ \operatorname{im}(A_S-A_T)+\operatorname{im}G_S\subseteq\operatorname{im}G_T.
+ \tag{1}
+\]
+For necessity, apply any linear annihilator of $\operatorname{im}G_T$ to the equality of trajectories. This removes the target disturbance even when it is only locally integrable. For a constant source disturbance the source trajectory is smooth, so the resulting derivative identity holds at every time by continuity. Evaluate at time zero for every initial $z$, first with $d_S=0$, and then subtract the zero-disturbance case. This gives (1), since the intersection of kernels of all such annihilators is $\operatorname{im}G_T$; this last assertion follows by extending a basis of that image to a basis of the whole state space. For sufficiency choose a linear right inverse $L$ of $G_T$ on its image, obtainable by selecting a basis of independent columns. Given a source trajectory, set
+\[
+ d_T=L((A_S-A_T)z+G_Sd_S).
+\]
+The target derivative is then the source derivative. The identical trajectory satisfies the target equation and output constraint. For continuous or locally integrable signals these expressions give admissible signals on each common existence interval. This proves the criterion without selecting incompatible state relations.
+
+\paragraph{Applying the criterion to the circular rule}
+For $i=1,2$, let both $P_i$ and $Q_i$ have state/output $x_i\in\mathbb R^{n_i}$ and dynamics
+\[
+ \dot x_i=A_{X_i}x_i+B_{X_i}u_i+G_{X_i}d_i,
+ \qquad X_i\in\{P_i,Q_i\}.
+\]
+Use feedback $u_1=-x_2$, $u_2=x_1$, and observe the full pair $(x_1,x_2)$. The composite matrices are
+\[
+ A_{X_1X_2}=\begin{pmatrix}A_{X_1}&-B_{X_1}\\ B_{X_2}&A_{X_2}\end{pmatrix},\qquad
+ G_{X_1X_2}=\operatorname{diag}(G_{X_1},G_{X_2}).
+\]
+The first premise $P_1\parallel Q_2\preccurlyeq Q_1\parallel Q_2$, by (1), implies
+\[
+ \operatorname{im}[\,A_{P_1}-A_{Q_1}\quad -(B_{P_1}-B_{Q_1})\,]
+       +\operatorname{im}G_{P_1}\subseteq\operatorname{im}G_{Q_1}.
+ \tag{2}
+\]
+Indeed the drift difference has only its first block row nonzero, and the target disturbance image is the direct product of the two component images. Conversely (2) implies that first premise, since its unchanged second disturbance is already permitted. The second premise similarly gives
+\[
+ \operatorname{im}[\,B_{P_2}-B_{Q_2}\quad A_{P_2}-A_{Q_2}\,]
+       +\operatorname{im}G_{P_2}\subseteq\operatorname{im}G_{Q_2}.
+ \tag{3}
+\]
+For the fully implemented pair $P_1\parallel P_2$, its drift difference from $Q_1\parallel Q_2$ has precisely these two block rows. Equations (2) and (3) place each row value in its target disturbance image, for every shared state pair, and also place each source disturbance there. Their direct product is therefore (1) for the desired conclusion. This proves the circular rule for this subclass, allowing nonzero $G$ and hence genuine nondeterminism.
+
+\paragraph{Where the proof stops}
+With general outputs $y_i=C_ix_i$, output equality need not force identical internal states. Simulation witnesses are then relations, possibly matching the same source state to different target states. The two premises may supply different hidden-state matches or different disturbance witnesses on the shared feedback ports. The block-row inclusions (2)--(3) were obtained only because the relation was forced to be the identity, so importing them into the general case is invalid. Establishing a compatible joint relation, rather than merely having two separate existential matching relations, is the unfinished part of this approach. No counterexample to the report's general rule is asserted.
+
+\section{Verification and adversarial audit}
+Criterion (1) includes drift differences that can be absorbed by target disturbances; demanding equality of drift matrices would have been unnecessarily strong. The block matrices use the source's signed feedback convention, and both component disturbance spaces remain independent. Zero disturbance columns recover the deterministic special case. Full output observability is a declared restriction, not a consequence of the source premises.
+\paragraph{Audit corrections.} Allowed drift matching through the target disturbance image and exposed the missing compatibility of hidden-state witnesses, instead of treating existential simulations as interchangeable.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The source's general circular assume--guarantee question with hidden states and arbitrary linear simulation relations is unresolved. A nondeterministic fully observed subclass is proved directly; its proof identifies the exact identity-relation simplification that prevents a general conclusion.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46211} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+The parent Codex GPT-6 model has reviewed the written mathematical arguments at their declared scopes. This is model-assisted review, not independent human verification.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

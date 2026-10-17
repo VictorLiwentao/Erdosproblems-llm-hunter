@@ -1,0 +1,176 @@
+% RESEARCH_DRAFT_SHA256: bde9205f1b9dd6351e8a3b3311e817e17b3f91dc98206f500dd9c0ba36be4279
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30003000, "title": "Depth-Three Lower Bounds for an Explicit Trilinear Function", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003000", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Can one prove a lower bound larger than $\\exp(\\sqrt n)$ on the size of standard depth-three circuits computing the explicit trilinear function $F_{\\mathrm{tet}}(x,y,z)=\\sum_{i_1,i_2,i_3:\\sum_{j=1}^3|i_j-n/2|\\leq n/2}x_{i_1}y_{i_2}z_{i_3}$?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The arithmetic interpretation is corrected against the primary source, and the attempted parity restriction proves only depth-two hardness. A stronger lower bound for standard depth-three Boolean circuits computing the original target is not obtained.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{The tetrahedral trilinear target: Boolean versus arithmetic depth}
+\noindent UnsolvedMath ID 30003000; OWR-13949-007. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A trilinear polynomial is separately linear in each of three variable blocks. The displayed support selects index triples by their total distance from the central index. A depth-three standard arithmetic circuit has the source\textquotesingle s prescribed three alternating gate layers.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The field, index ranges, gate convention, and allowed constants are not specified in the supplied question.
+
+Source-record limitation: The trilinear polynomial' s index ranges, coefficient field, and gate convention are not supplied.
+\paragraph{Statement recorded in the supplied source.}
+Can one prove a lower bound larger than $\exp(\sqrt n)$ on the size of standard depth-three circuits computing the explicit trilinear function $F_{\mathrm{tet}}(x,y,z)=\sum_{i_1,i_2,i_3:\sum_{j=1}^3|i_j-n/2|\leq n/2}x_{i_1}y_{i_2}z_{i_3}$? \href{https://doi.org/10.4171/owr/2015/54}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Prove a stronger size lower bound for the explicit depth-three trilinear target.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30003000 (OWR-13949-007). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Complexity Theory (2016), Oberwolfach Reports, DOI 10.4171/owr/2015/54, pp. 3049--3099
+\url{https://doi.org/10.4171/owr/2015/54}.
+\item[S3] Goldreich--Tal rigidity results
+\url{https://www.wisdom.weizmann.ac.il/~oded/p_rigid.html}.
+\item[S4] Rigidity paper
+\url{https://www.wisdom.weizmann.ac.il/~oded/R2/rigid.pdf}.
+\item[S5] Oberwolfach complexity report
+\url{https://ems.press/content/serial-article-files/46601}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Can one prove a lower bound larger than $\exp(\sqrt n)$ on the size of standard depth-three circuits computing the explicit trilinear function $F_{\mathrm{tet}}(x,y,z)=\sum_{i_1,i_2,i_3:\sum_{j=1}^3|i_j-n/2|\leq n/2}x_{i_1}y_{i_2}z_{i_3}$?
+
+\section{A necessary correction to the preserved editorial definition}
+The original report, printed pages 3085--3088, concerns standard
+depth-three \emph{Boolean} circuits: unbounded fan-in AND and OR gates
+with literals at the inputs. Its trilinear and AN-complexity models over
+$\mathbb F_2$ are intermediate restricted models. The preserved
+catalogue definition above calls the standard circuit arithmetic; that
+editorial interpretation is inconsistent with the primary report.
+We retain the original definition for provenance but do not base a
+solution claim on this mismatch. The source explicitly gives indices
+$i_1,i_2,i_3\in[n]$.
+The author's primary webpage likewise distinguishes canonical from
+standard depth-three Boolean circuits. Its displayed convolution-form
+trilinear target is not silently identified here with the tetrahedral
+formula without proving a reduction.
+
+\section{Why the arithmetic reading cannot have the requested bound}
+Over any field, regard the displayed expression as a formal polynomial.
+There are at most $n^3$ eligible triples. Compute each monomial by a
+fan-in-three multiplication and add all outputs. This uses at most
+$n^3$ multiplication gates and one addition gate, with at most
+$3n^3+n^3$ wires. If exactly three arithmetic layers are required,
+insert identity linear forms at the bottom, giving a
+$\Sigma\Pi\Sigma$ circuit with polynomially many gates and wires.
+The circuit computes the expression by the definition of polynomial
+addition and multiplication. For sufficiently large $n$ its size is
+less than $\exp(\sqrt n)$: taking logarithms, $3\log n+O(1)<\sqrt n$,
+which follows for example by writing $n=e^t$ and using
+$e^{t/2}\ge t^2/8$ for large $t$ from the exponential series.
+Thus an exponential lower bound in the ordinary arithmetic gate model
+would be false. This is a diagnosis of the editorial mismatch, not a
+negative answer to the actual Boolean question.
+
+\section{An explicit parity restriction and the depth-two barrier}
+Take even $n\ge2$. Set $y_{n/2}=z_{n/2}=1$ and all other $y,z$
+coordinates to zero. For each $i\in[n]$ we have
+$|i-n/2|\le n/2$, so every remaining monomial is $x_i$.
+Over $\mathbb F_2$ the restricted function is exactly
+$x_1\oplus\cdots\oplus x_n$. Assigning constants to a Boolean circuit
+does not increase depth or size, since each gate still evaluates its
+original Boolean operation on those assigned inputs.
+
+Every satisfiable conjunction of literals implying odd parity must fix
+every variable. If a variable were not fixed, two extensions differing
+only on that variable would satisfy the conjunction while having
+opposite parities. Hence each such term covers at most one odd-parity
+input. There are exactly $2^{n-1}$ odd-parity inputs, because flipping
+the first bit bijects even and odd inputs. Any DNF for parity therefore
+needs at least $2^{n-1}$ satisfiable terms, and the full minterm DNF
+attains that number. A CNF clause which is falsifiable and valid for
+parity must likewise contain every variable: otherwise a falsifying
+assignment can be extended in both parities. Its falsification set
+therefore covers at most one even input. This proves the matching
+$2^{n-1}$ clause lower bound for CNF.
+
+Consequently the parity restriction gives an exponential lower bound
+for depth two. The requested circuits have depth three, and the
+restriction preserves those three layers. One cannot apply the
+depth-two counting argument to a depth-three circuit without an
+additional depth-reduction theorem.
+
+\section{A concrete reason that extra layer matters}
+Let $b=\lceil\sqrt n\rceil$ and partition the $n$ variables into
+$\ell=\lceil n/b\rceil\le b$ nonempty blocks of size at most $b$.
+For each desired vector of block parities of odd total parity, require
+each block to have its specified parity. Each such requirement has a
+CNF with at most $2^{b-1}$ clauses, by listing the assignments of the
+wrong parity and excluding each with its full-width clause. Their
+conjunction is still a CNF with at most $\ell2^{b-1}$ clauses.
+OR these CNFs over the $2^{\ell-1}$ odd block-parity vectors.
+The result has Boolean layers OR--AND--OR, with literal inputs.
+
+An assignment satisfies this circuit exactly when its actual
+block-parity vector has odd parity, which is exactly parity of all
+$n$ variables. The number of bottom clauses, counted even without
+sharing, is at most
+$2^{\ell-1}\ell2^{b-1}$, and each has at most $b$ wires.
+Including all other gates and wires gives
+$O(b\ell2^{b+\ell})=\exp(O(\sqrt n))$ size.
+This is an upper bound for the restricted parity function, not for
+$F_{\rm tet}$. It explains exactly why the depth-two lower-bound
+mechanism cannot by itself exceed the requested depth-three scale.
+The report's restricted AN-complexity or canonical-circuit lower
+bounds also do not transfer to all Boolean circuits simply by deleting
+the word canonical: a lower bound for a subclass need not hold in a
+larger class. No normalization theorem supplying that transfer is proved.
+
+\section{Model-assisted audit and remaining scope}
+The audit checked the field, actual gate types, source index range,
+the even-$n$ restriction, and every layer of the parity construction.
+The arithmetic upper bound, parity restriction and depth-two argument
+are elementary known mechanisms, not novel general Boolean lower bounds.
+No numerical experiment or theorem prover was used. The source's
+standard depth-three Boolean lower bound remains unresolved, and the
+copied editorial arithmetic definition is expressly not used to claim
+full completion.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The arithmetic interpretation is corrected against the primary source, and the attempted parity restriction proves only depth-two hardness. A stronger lower bound for standard depth-three Boolean circuits computing the original target is not obtained.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Tal, Rigidity of Random Toeplitz Matrices with an Application to Depth-Three Circuits, OWR 54/2015, pp. 3085--3088; full relevant passage and gate-model footnotes inspected in the cached primary source. \url{https://doi.org/10.4171/owr/2015/54}.
+\item Goldreich and Tal, primary author webpage for Matrix Rigidity of Random Toeplitz Matrices; canonical-circuit distinction and the differently displayed convolution target inspected. \url{https://www.wisdom.weizmann.ac.il/~oded/p_rigid.html}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The arithmetic interpretation is corrected against the primary source, and the attempted parity restriction proves only depth-two hardness. A stronger lower bound for standard depth-three Boolean circuits computing the original target is not obtained.
+\end{document}

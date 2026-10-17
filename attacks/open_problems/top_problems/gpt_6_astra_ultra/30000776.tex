@@ -1,0 +1,94 @@
+% TOP_PROBLEM: {"id": 30000776, "title": "Rigid Order–Disorder Interfaces in Continuous-Spin Models", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The source writes S^1=R/Z but also writes cos(r), whose angular period is 2 pi. Those expressions require an explicit rescaling convention: a period-one representative uses cos(2 pi r), while a radian representative uses cos(r). The catalogue formula is retained; it cannot be used literally as a well-defined period-one potential without this convention. The report's toy and clock-model theorems do not settle the smooth continuous-spin model."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000776", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Prove that the order--disorder interface stays rigid in the proposed continuous-spin model in dimension at least three.", "scope": "Quantifies soft twist costs and the narrow-well angular scale, identifying an obstacle to transferring discrete contour estimates.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked radian convention, finite-p twist bound, p→∞ scaling and distinction between orientation twists and order-disorder interfaces. Model self-audit only; no independent human proof checking. Coordinator checked the integer-power geometric-sum inequality, distributed-twist energy bound and narrow-well scaling, with the ordered/disordered interface distinction retained. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked radian convention, finite-p twist bound, p→∞ scaling and distinction between orientation twists and order-disorder interfaces. Retained unresolved status and zero original-target progress; A phase-label contour estimate controlling continuous spin-wave entropy at coexistence is missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30000776; source catalogue code OWR-1544-003
+\setcounter{section}{30000775}
+\section{Rigid Order–Disorder Interfaces in Continuous-Spin Models}\label{30000776}
+{\small UnsolvedMath ID 30000776 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} The sites are $i\in\mathbb Z^d$ and $\langle i,j\rangle$ denotes nearest-neighbor pairs. A circle spin is an angle modulo its chosen full-period convention, and $U$ is the strongly narrow-well interaction in the source. At order--disorder coexistence, mixed boundary conditions favor the ordered phase on one side and the disordered phase on the other. Rigidity means that the interface remains macroscopically localized; a Dobrushin state is an infinite-volume Gibbs state supporting this interface and breaking translation symmetry in the normal direction.
+
+\paragraph{Source scope and qualifications.} The source writes S^1=R/Z but also writes cos(r), whose angular period is 2 pi. Those expressions require an explicit rescaling convention: a period-one representative uses cos(2 pi r), while a radian representative uses cos(r). The catalogue formula is retained; it cannot be used literally as a well-defined period-one potential without this convention. The report's toy and clock-model theorems do not settle the smooth continuous-spin model.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+For the continuous-spin model on $\mathbb Z^d$ with spins $\sigma_i\in S^1=\mathbb R/\mathbb Z$ and Hamiltonian $H(\sigma)=\sum_{\langle i,j\rangle}U(|\sigma_i-\sigma_j|)$, where $U(r)=-((1+\cos r)/2)^p$ for large integer $p$, is the order–disorder interface rigid when $d\geq3$? Equivalently, does the model admit three-dimensional Dobrushin states?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: Rigidity of the order--disorder interface is proved for related toy and clock models, but the conjectured rigidity for the continuous circle-spin model in dimensions at least three remains open. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Prove that the order--disorder interface stays rigid in the proposed continuous-spin model in dimension at least three.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Quantifies soft twist costs and the narrow-well angular scale, identifying an obstacle to transferring discrete contour estimates.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A continuous-spin test of a discrete contour argument.} Fix an integer $p\geq1$ and use radian angles, so the source potential is $U(r)=-\cos^{2p}(r/2)$. Along a chain of $L$ bonds impose total angle change $\theta$ and distribute it evenly, with each difference $\theta/L$. Relative to the aligned state the energy cost is
+\[
+ \Delta E=L\bigl(1-\cos^{2p}(\theta/(2L))\bigr)
+ \leq Lp\sin^2(\theta/(2L))\leq\frac{p\theta^2}{4L}.
+\]
+The first inequality is $1-(1-a)^p\leq pa$ for $0\leq a\leq1$, proved by expanding the geometric sum. Thus a fixed total twist can cost arbitrarily little when spread over a long chain, even at fixed large $p$.
+
+\paragraph{The narrow well has a definite local scale.} For fixed $a$ and $p\to\infty$, $\cos^{2p}(a/(2\sqrt p))\to e^{-a^2/4}$, obtained from $\log\cos z=-z^2/2+O(z^4)$. The angular well width is therefore of order $p^{-1/2}$. Treating distinct angles as discrete labels with a uniform positive mismatch cost is incompatible with these two calculations.
+
+\paragraph{Why rigidity is still undecided.} A gradual twist between ordered orientations is not an interface between an ordered and a disordered phase. The source's Dobrushin question concerns the latter and could survive these soft modes. The calculation only blocks a direct clock-model Peierls proof that assigns a fixed energetic penalty to every change of angle. One must instead control phase labels, entropy and spin waves together in the continuous model. The period-one convention would require replacing every angle by $2\pi$ times its coordinate; no inconsistent $\cos r$ on $\mathbb R/\mathbb Z$ is used.
+
+\paragraph{Verification and adversarial audit.}
+Checked radian convention, finite-p twist bound, p→∞ scaling and distinction between orientation twists and order-disorder interfaces. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked radian convention, finite-p twist bound, p→∞ scaling and distinction between orientation twists and order-disorder interfaces. Retained unresolved status and zero original-target progress; A phase-label contour estimate controlling continuous spin-wave entropy at coexistence is missing.
+
+Coordinator checked the integer-power geometric-sum inequality, distributed-twist energy bound and narrow-well scaling, with the ordered/disordered interface distinction retained. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. A phase-label contour estimate controlling continuous spin-wave entropy at coexistence is missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. A phase-label contour estimate controlling continuous spin-wave entropy at coexistence is missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30000776:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30000776 (OWR-1544-003). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30000776:2}{S2}] Phase Transitions (2007), Oberwolfach Reports, DOI 10.4171/owr/2007/28, pp. 1575--1650; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2007/28}.
+\item[\hypertarget{source:30000776:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF page 66.
+\url{https://ems.press/content/serial-article-files/46114}.
+\end{itemize}
+\label{end:30000776}
+\end{document}

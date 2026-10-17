@@ -1,0 +1,123 @@
+% RESEARCH_DRAFT_SHA256: 7449194ebd5e062e4238c5de492bc820c4e91fb4805b7d1b076ab88f6027dd0a
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30003990, "title": "Convergence Rates for Convex-Body Bounds", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003990", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and adversarial mathematical review of the written argument; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Convergence Rates for Convex-Body Bounds; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A density family that stalls and an exact Chebyshev calculation; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch012 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30003990; source catalogue code OWR-16633-006
+\section{Convergence Rates for Convex-Body Bounds}\label{30003990}
+{\small UnsolvedMath ID 30003990 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A convex body is a compact convex set with nonempty interior. An SOS density $q$ has nonnegative values and is normalized by $\int_Kq\,d\mu=1$; its objective is $\int_Kp q\,d\mu$, minimizing over the degree bound.
+
+A polynomial is a sum of squares (SOS) if it is $\sum_j q_j^2$ for polynomials $q_j$. Moment-SOS hierarchies impose positivity through increasingly large truncated moment matrices and corresponding degree-bounded SOS certificates.
+\paragraph{Statement recorded in the supplied source.}
+Let $p_{\min}$ be the minimum of a polynomial $p$ on a convex body $K$, and let $p(r)$ be the degree-$2r$ sum-of-squares-density upper bound obtained from a reference measure on $K$. What is the sharp asymptotic rate of $p(r)-p_{\min}$ for general convex bodies? \href{https://doi.org/10.4171/owr/2018/50}{[S2]}
+\paragraph{Scope qualification.}
+The reference measure, polynomial class, body regularity, and uniformity of the asymptotic rate require the source.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Determine how quickly the stated polynomial upper bounds converge to the true minimum over a convex body.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30003990 (OWR-16633-006). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2019), Oberwolfach Reports, DOI 10.4171/owr/2018/50, pp. 2969--3023
+\url{https://doi.org/10.4171/owr/2018/50}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30003990 and source code OWR-16633-006 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30003990}
+
+\section{Literature and context check}
+The report's Laurent contribution, pp. 2991--2993, distinguishes Lebesgue and Chebyshev reference measures and describes the eigenvalue route. The following computations rederive an interval instance and test a simple concentration ansatz; they do not establish the sharp rate for general convex bodies.
+\section{Research attempt: A density family that stalls and an exact Chebyshev calculation}
+First take $K=[-1,1]$, Lebesgue reference measure, and objective $p(x)=x+1$ with minimum zero. The single-square density proportional to $(1-x)^{2r}$ is admissible at degree $2r$. With $t=(1-x)/2$, its expectation of $p$ is
+\[
+\frac{\int_0^1 2(1-t)t^{2r}\,dt}{\int_0^1t^{2r}\,dt}
+=2\left(1-\frac{2r+1}{2r+2}\right)=\frac1{r+1}.
+\]
+Thus this particular family gives exactly order $1/r$; analyzing it more tightly cannot prove a faster rate for that same family. This is not a lower bound on the optimum over all admissible densities.
+
+Now change the reference measure explicitly to the Chebyshev probability measure $dx/(\pi\sqrt{1-x^2})$. With $x=\cos\theta$, $0\le\theta\le\pi$, an orthonormal polynomial basis is $b_0=1$, $b_j=\sqrt2\cos(j\theta)$ for $j\ge1$. Orthogonality follows by integrating the identity $2\cos(j\theta)\cos(k\theta)=\cos((j-k)\theta)+\cos((j+k)\theta)$; all nonconstant integer-frequency cosines integrate to zero.
+
+For degree-at-most-$r$ polynomials, multiplication by $x$ followed by orthogonal projection has a symmetric matrix $J_r$ with zero diagonal, first off-diagonal entry $1/\sqrt2$, and subsequent off-diagonal entries $1/2$. This follows from $\cos\theta\cos(j\theta)=(\cos((j+1)\theta)+\cos((j-1)\theta))/2$ and the normalization of $b_0$. For $r\ge1$, at each
+\[
+\theta_k=\frac{(2k+1)\pi}{2(r+1)},\quad 0\le k\le r,
+\]
+the vector $(1,\sqrt2\cos\theta_k,\ldots,\sqrt2\cos(r\theta_k))$ is an eigenvector with eigenvalue $\cos\theta_k$. The first row gives $\cos\theta_k$, the second row uses $1+\cos(2\theta)=2\cos^2\theta$, the interior rows use the recurrence, and the last row uses $\cos((r+1)\theta_k)=0$. The eigenvalues are distinct; symmetry makes the corresponding eigenvectors orthogonal, since $\lambda u^Tv=(J_ru)^Tv=u^TJ_rv=\mu u^Tv$. There are $r+1$ nonzero orthogonal vectors, so they form a basis. Expanding any coefficient vector in that basis shows its Rayleigh quotient is a weighted average of these eigenvalues.
+
+For any sum-of-squares density $h=\sum_\ell q_\ell^2$ of degree at most $2r$, each $q_\ell$ may be taken of degree at most $r$: any higher leading degree would have a strictly positive sum of squared leading coefficients and could not cancel. Its normalized objective integral is a weighted average of the Rayleigh quotients for $I+J_r$. The minimum is therefore achieved by a single eigenvector square and equals
+\[
+p(r)=1-\cos\frac{\pi}{2(r+1)}.
+\]
+For $r=0$, the only densities are constant and the same formula gives one. Finally $1-\cos t=2\sin^2(t/2)$ is between $2t^2/\pi^2$ and $t^2/2$ for $0\le t\le\pi/2$, using the chord lower bound and tangent upper bound for sine. Hence this chosen measure gives an exact $\Theta(r^{-2})$ rate.
+\section{Verification and adversarial audit}
+Both measure normalizations and the degree of the density are explicit. The tridiagonal eigenvector calculation includes the exceptional first off-diagonal normalization and checks $r=0$ separately. The order-$1/r$ value is only the performance of one Lebesgue-density ansatz; it is not misused as a universal lower bound.
+\paragraph{Audit corrections.} Changing the reference measure is announced explicitly. An ansatz's slow convergence is distinguished from slow convergence of the optimized hierarchy.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The exact one-dimensional Chebyshev calculation is known material rederived from first principles. Neither it nor the failed Lebesgue ansatz determines the sharp rate for general convex bodies with their specified reference measures and uniformity requirements.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46772} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and adversarial mathematical review of the written argument; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

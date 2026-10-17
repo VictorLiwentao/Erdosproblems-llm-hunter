@@ -1,0 +1,169 @@
+% RESEARCH_DRAFT_SHA256: c7bd5e7b35765be297be46b7feb465150a47fe721fbdf5b2c5516766fc60db70
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30001203, "title": "Global Observability from Negative Gramian Curvature", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001203", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 proposed the finite-cover/Nash counterexample and supplied primary-source pointers, in addition to orchestration and format review; gpt-6-astra independently inspected and reworked the argument. Exact serving revisions not exposed. Codex GPT-6 completed written mathematical review of the full argument and approved its literal source scope. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Global Observability from Negative Gramian Curvature; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Complete negative resolution of the literal general-manifold implication: a compact connected two-dimensional system satisfies every Gramian, curvature and completeness hypothesis and fails global observability. No extra simple-connectedness or Euclidean-state restriction is introduced.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch018 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: solved
+% FULL_SOLUTION_SCOPE: {"target": "Entire original implication from uniformly positive bounded Gramian, uniform negative curvature and geodesic completeness to global observability on a general manifold.", "result": "Counterexample in Research attempt: finite double cover of a compact hyperbolic surface, stationary dynamics and Nash-embedded base output.", "coverage": "Dimension n=2, horizon T=1, finite output dimension 17; every stated hypothesis is proved and two distinct initial states have identical entire output trajectories. One instance refutes the original universal implication. No hypothesis is weakened; original source statuses and duplicate/damaged provenance remain preserved.", "dependencies": "Nash smooth isometric embedding theorem for compact Riemannian manifolds, original Theorem2 printed page59, visually checked; standard smooth hyperbolic octagon construction, explained here and checked in Goldman authored slides. Local smooth ODE existence and elementary differential geometry are used.", "human_verification": "None. gpt-6-astra mathematical audit and Codex GPT-6 written mathematical review only.", "unverified": "No independent human or formal verification; Nash theorem proof not rederived. No claim about an additional simply-connected or globally Euclidean-state hypothesis.", "novelty": "No novelty asserted; primary OWR statement, Nash theorem and Goldman construction consulted, without an exhaustive literature-priority search."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30001203; source catalogue code OWR-3394-020
+\section{Global Observability from Negative Gramian Curvature}\label{30001203}
+{\small UnsolvedMath ID 30001203 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+$\Phi(t)$ is the linearized state-transition matrix and $H(t)$ the output derivative along the trajectory. A uniformly positive observability Gramian defines a Riemannian metric; global observability means distinct initial states give distinct full output trajectories.
+
+In the LOCAL model vertices communicate synchronously along graph edges; messages and local computation are unrestricted and complexity is the number of rounds. After $t$ rounds a vertex can depend only on its radius-$t$ neighborhood and any supplied identifiers or randomness.
+
+A state-space system evolves as $\dot x=f(x,u)$ with output $y=h(x,u)$. Model reduction seeks a lower-dimensional system preserving specified input-output properties. Observability distinguishes initial states from their output trajectories, while controllability concerns reachable states under allowed inputs.
+\paragraph{Statement recorded in the supplied source.}
+For the observed system $\dot{x}=f(x)$, $y=h(x)$ on an $n$-dimensional manifold, let $P(x_0)=\int_0^T\Phi(t)^TH(t)^TH(t)\Phi(t)\,dt$ be the local observability Gramian along the trajectory from $x_0$. If $P(x_0)$ is uniformly positive definite and bounded, does uniform negative curvature of the resulting Riemannian metric, together with geodesic completeness, imply global observability on $[0,T]$? \href{https://doi.org/10.4171/owr/2009/11}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Determine whether the stated completeness and negative-curvature assumptions promote local observability to global observability.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30001203 (OWR-3394-020). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Control Theory: On the Way to New Application Fields (2009), Oberwolfach Reports, DOI 10.4171/owr/2009/11, pp. 593--680
+\url{https://doi.org/10.4171/owr/2009/11}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30001203 and source code OWR-3394-020 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30001203}
+
+\section{Literature and context check}
+The original OWR report, printed pages 674--675, was read directly. It permits an arbitrary $n$-manifold and Euclidean outputs; it does not require simple connectedness. The counterexample route below was suggested by the parent Codex GPT-6 model and independently checked and expanded by gpt-6-astra. Nash's original isometric-embedding theorem and Goldman's authored hyperbolic-surface construction were consulted. No literature-priority claim is made. The parent Codex GPT-6 model completed a written mathematical review of this proof and its complete literal source scope. This model-assisted review is not independent human verification.
+\section{Research attempt: A finite-cover obstruction to global observability}
+
+\paragraph{A compact negatively curved manifold and its double cover}
+Let $(N,g)$ be a closed connected orientable hyperbolic surface of genus two, with curvature $-1$. One standard explicit construction glues the paired sides of a regular hyperbolic octagon of interior angle $\pi/4$. Such an octagon exists because, in the disk model, its angle varies continuously from the small-polygon Euclidean limit $3\pi/4$ to zero as its vertices approach the ideal boundary. Pair the sides by hyperbolic isometries in the genus-two polygon pattern. All eight vertices are identified and their angles total $2\pi$; edges have two half-neighborhoods. Thus the quotient has smooth hyperbolic neighborhoods also at its seam and vertex. It has one face, four edges and one vertex, Euler characteristic $-2$, and is a compact genus-two surface. This standard construction is also explicitly exhibited in the consulted Goldman slides; no assertion of a new surface construction is made.
+
+Cut $N$ along a nonseparating simple closed smooth curve around a handle. Its cut surface is connected and has two boundary copies of that curve. Take two copies of the cut surface and identify each positive boundary to the negative boundary of the other copy using the original boundary identification. The resulting $M$ is compact and connected: each copy is connected, and the crosswise boundary identifications join them. The map
+\[
+ \pi:M\longrightarrow N
+\]
+which forgets the copy is two-to-one. Away from the cut it is the identity on a chart in each copy; at the seam each glued pair of half-collars maps bijectively to a collar of the original curve. These charts give a smooth local diffeomorphism everywhere, with exactly two points in each fiber. Equip $M$ with $\widetilde g=\pi^*g$. It is a smooth positive definite metric, and local isometry to $N$ shows that its curvature is identically $-1$.
+
+\paragraph{The external theorem used to produce Euclidean outputs}
+We invoke Nash's smooth isometric embedding theorem for compact Riemannian manifolds. In the exact form needed here, a compact smooth $n$-manifold with a smooth positive metric admits a smooth isometric embedding into some finite-dimensional Euclidean space. The original paper's Theorem 2 on printed page 59 includes $3\leq k\leq\infty$ and target dimension $n(3n+11)/2$. This theorem is an explicitly declared external dependency; its lengthy proof is not reproduced. Applied to $N$, it supplies
+\[
+ j:N\longrightarrow\mathbb R^{17},\qquad j^*\langle\cdot,\cdot\rangle=g.
+\]
+The exact dimension is not essential, but is allowed by the source's unrestricted finite output dimension.
+
+\paragraph{A system with precisely the required Gramian}
+On $M$ set
+\[
+ f=0,\qquad h=j\circ\pi,\qquad T=1.
+\]
+Both maps are smooth. Every solution is stationary, $x(t)=x_0$, exists for all real time, and has output $h(x_0)$. In any local state coordinates the derivative of the zero vector field is zero, hence its fundamental matrix is $\Phi(t)=I$. The output derivative is the constant matrix $H(t)=dh_{x_0}$. Therefore the source Gramian, as a bilinear form on $T_{x_0}M$, is
+\[
+ P_{x_0}(v,w)=\int_0^1\langle dh_{x_0}v,dh_{x_0}w\rangle\,dt
+  =g_{\pi(x_0)}(d\pi_{x_0}v,d\pi_{x_0}w)
+  =\widetilde g_{x_0}(v,w).
+ \tag{1}
+\]
+It is uniformly negatively curved, with sectional curvature $-1$ in this two-dimensional example.
+
+\paragraph{Uniform bounds and geodesic completeness}
+Uniform positive definiteness and boundedness on an arbitrary manifold are understood relative to a fixed smooth background metric, or in a chosen finite atlas with compact chart cores. Both hold here. For any smooth background metric $g_0$, its unit tangent bundle over compact $M$ is compact. The positive continuous function $v\mapsto\widetilde g(v,v)$ on that unit bundle has positive minimum $a$ and finite maximum $b$. Thus
+\[
+ a\,g_0(v,v)\leq P(v,v)\leq b\,g_0(v,v)
+\]
+for all tangent vectors. Equivalently, cover $M$ by finitely many coordinate neighborhoods whose closures lie inside larger smooth charts. The matrix entries and least eigenvalues are continuous on these compact closures, giving common finite upper and positive lower coordinate bounds. No coordinate-invariant meaning can be assigned to bounds uniform under arbitrary rescaling of all possible coordinates, and no such meaning is used.
+
+For completeness, the geodesic equation preserves speed: metric compatibility gives $d\widetilde g(\dot\gamma,\dot\gamma)/dt=2\widetilde g(\nabla_{\dot\gamma}\dot\gamma,\dot\gamma)=0$. Geodesics of a fixed speed stay in the corresponding compact sphere bundle of $TM$. The smooth geodesic vector field has a uniform local existence time on that compact set, by covering it with finitely many ordinary differential-equation neighborhoods. A geodesic therefore cannot have a finite endpoint of its maximal interval of existence: the uniform existence time extends it from a sufficiently late point. The same argument in reverse time proves geodesic completeness. Zero-speed geodesics are constant.
+
+\paragraph{Failure of global observability}
+Choose the two distinct points $x_0,x_1$ over any point of $N$. They have
+\[
+ h(x_0)=j(\pi(x_0))=j(\pi(x_1))=h(x_1).
+\]
+Their entire constant output trajectories agree on $[0,1]$, although their initial states differ. Thus the system is not globally observable. Locally, $\pi$ is a diffeomorphism and $j$ is an embedding, so $h$ is locally one-to-one, consistent with its positive Gramian. Every hypothesis of the literal general-manifold question is satisfied, and the proposed implication is false. Simple connectedness, a global Euclidean coordinate chart, and restrictions on output dimension are not hypotheses of the consulted source and are not supplied by this argument.
+
+\section{Verification and adversarial audit}
+The source explicitly says that states are local coordinates on an arbitrary manifold; no simple-connectedness hypothesis appears on printed pages 674--675. The constant-vector-field construction meets the entire finite-horizon definition, rather than a discrete-time or asymptotic version. Equation (1) computes the actual Gramian and does not merely choose an unrelated negative metric. Compactness controls the metric bounds and completeness, while the nontrivial cover supplies the two indistinguishable states. The Nash statement was visually checked in the original PDF on printed page 59; its smooth compact case is an external theorem, not an assumed analytic-embedding variant. The finite atlas interpretation of uniform bounds is stated explicitly. The same construction serves both retained source IDs; these are duplicate formulations, not two independent discoveries.
+\paragraph{Audit corrections.} Matched the local-coordinate manifold scope to the primary report; computed the induced Gramian exactly; stated the reference-metric meaning of uniform bounds; explicitly attributed the parent model's construction and the external Nash theorem.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The displayed argument answers the literal arbitrary-manifold yes/no implication negatively, with Nash's smooth compact embedding theorem as a stated external dependency. The written argument and this exact scope have been reviewed by the parent Codex GPT-6 model. No result is claimed for an extra simply-connected or globally Euclidean-state version, which would be a stronger different question. No independent human checking or novelty certification is asserted.
+\section{Full-solution scope declaration}
+The entire original universal implication is false. The constructed smooth system
+has dimension two, horizon one and finite-dimensional Euclidean output. Its actual
+observability Gramian is uniformly positive and bounded, has constant curvature
+$-1$, and is geodesically complete, but a pair of distinct initial states has the
+same entire output trajectory. One such instance answers the universal yes/no
+question negatively; no source hypothesis is removed or weakened. The primary
+report permits arbitrary state manifolds and imposes no simple-connectedness or
+global Euclidean-coordinate condition. The exact compact smooth Nash embedding
+theorem is an external dependency whose original statement was checked, while its
+proof was not rederived. The standard hyperbolic surface construction and cover
+are explained above. Both source IDs retain their original metadata and the
+repeated record's damaged-extract qualification. No novelty is asserted and no
+exhaustive priority search was performed. The generating model and parent Codex
+GPT-6 reviewed the written argument; no independent human or formal proof checking
+is claimed.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 100\%}
+The counterexample covers every hypothesis of the entire original implication and
+refutes its conclusion. Completion measures target coverage, not novelty or
+independent verification.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46211} (consulted 2026-10-11). 
+\item \url{https://sites.math.rutgers.edu/~feehan/teaching/math866/nash.pdf} (consulted 2026-10-11). 
+\item \url{https://math.umd.edu/~wmg/gdansk.pdf} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+The parent Codex GPT-6 model has reviewed the written mathematical arguments at their declared scopes. This is model-assisted review, not independent human verification.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+proposed the finite-cover/Nash mathematical construction, completed written mathematical review, and performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+\textbf{Solved: the original general-manifold implication is false.}
+The complete counterexample uses the explicitly declared Nash theorem dependency.
+No newness or independent human verification is claimed, and the catalogue's
+historical source-status label is preserved.
+\end{document}

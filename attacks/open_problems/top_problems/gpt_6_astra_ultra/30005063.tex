@@ -1,0 +1,136 @@
+% RESEARCH_DRAFT_SHA256: d026f0025bd9caa8e1ecfe36cffbb370c939975a2ceabb88b6e52860cec766d1
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30005063, "title": "Convex Relaxations for Planted Graph Matching", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005063", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Convex Relaxations for Planted Graph Matching; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A cyclic-vector stability route and its missing random threshold; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch012 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30005063; source catalogue code OWR-9790365-013
+\section{Convex Relaxations for Planted Graph Matching}\label{30005063}
+{\small UnsolvedMath ID 30005063 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A permutation $\pi$ represents a planted vertex correspondence; its permutation matrix has one $1$ in each row and column. A doubly stochastic matrix is an entrywise nonnegative square matrix with each row and column sum equal to $1$. The Frobenius norm is $\lVert M\rVert_F^2=\sum_{i,j}|M_{ij}|^2$. The optimization relaxes a search over permutation matrices to doubly stochastic matrices. Rounding converts an optimizer back into a vertex permutation, by the source rounding rule. With high probability means probability tending to $1$ as matrix dimension grows.
+\paragraph{Statement recorded in the supplied source.}
+Let $\pi$ be a uniformly random permutation, and let $A$ and $B$ be correlated symmetric random matrices under the planted correspondence $\pi$. For which correlations does the minimizer of
+$$
+\min_{X\ \mathrm{doubly\ stochastic}}\|AX-XB\|_F^2
+$$
+round to $\pi$ with high probability? \href{https://doi.org/10.4171/owr/2022/14}{[S2]}
+\paragraph{Scope qualification.}
+The correlated random-matrix family, signal normalization and rounding map must be the ones specified by the source; arbitrary joint symmetric-matrix laws do not give the same recovery threshold.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+At what signal correlations does the convex graph-matching relaxation recover the planted vertex correspondence?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30005063 (OWR-9790365-013). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] New Mathematical Techniques in Information Theory (2023), Oberwolfach Reports, DOI 10.4171/owr/2022/14, pp. 683--707
+\url{https://doi.org/10.4171/owr/2022/14}.
+\item[S3] Lyzinski--Fishkind--Fiori--Vogelstein--Priebe--Sapiro, graph matching
+\url{https://arxiv.org/abs/1405.3133}.
+\item[S4] Araya Valdivia--Tyagi, simplex relaxation
+\url{https://arxiv.org/abs/2310.20609}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30005063 and source code OWR-9790365-013 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30005063}
+
+\section{Literature and context check}
+The primary report, p.~700, asks for a constant-correlation high-probability rounding theorem for specified random matrix families. Two additional primary abstracts were read: Lyzinski et al. distinguish exact recovery by an indefinite relaxation from failure of a convex optimum to equal the permutation; Araya Valdivia--Tyagi study a different simplex relaxation, including noiseless results. Neither abstract alone settles the source question about rounding the doubly stochastic optimizer. The following is a self-contained deterministic sufficient condition, with only a noiseless generic illustration.
+\section{Research attempt: A cyclic-vector stability route and its missing random threshold}
+Relabel vertices so that the ground-truth permutation is $I$, and first put $B=A$, with real symmetric $A$. Write $\mathbf1$ for the all-ones column and define the Krylov matrix
+\[
+ K_A=[\mathbf1,A\mathbf1,\ldots,A^{n-1}\mathbf1].
+\]
+Assume $K_A$ is invertible. If $AX=XA$ and $X\mathbf1=\mathbf1$, then induction gives $XA^j\mathbf1=A^j\mathbf1$ for every $j$. Hence $XK_A=K_A$ and $X=I$. Since $I$ is doubly stochastic and has objective zero, it is the unique doubly stochastic minimizer when $B=A$.
+
+This condition is generic in the full space of real symmetric matrices. The polynomial $\det K_A$ in the independent matrix entries is not identically zero: for $A=\operatorname{diag}(a_1,\ldots,a_n)$ with distinct $a_i$, $K_A$ is a Vandermonde matrix. Its determinant is $\prod_{i<j}(a_j-a_i)$, as follows because the determinant is alternating, vanishes whenever two $a_i$ coincide, has the product's degree, and has leading coefficient one. A nonzero real polynomial has a zero set of Lebesgue measure zero: induct on the number of variables, regard it as a polynomial in the last variable, exclude the measure-zero set where all coefficient polynomials vanish, and use the finite number of roots in the remaining one-dimensional fibers together with Fubini on bounded boxes. Thus any symmetric matrix law with a joint density on all independent entries, including diagonal entries, satisfies the condition almost surely. This statement alone does not cover Bernoulli entries or an imposed zero diagonal.
+
+For $n\geq2$, define the real linear space
+\[
+ \mathcal L=\{H:H\mathbf1=0,\ \mathbf1^TH=0\},\qquad
+ \kappa_A=\min_{H\in\mathcal L,\ \|H\|_F=1}\|AH-HA\|_F.
+\]
+The unit sphere here is nonempty and compact. If a minimizer had zero commutator, then $HA^j\mathbf1=A^jH\mathbf1=0$ for every $j$, whence $HK_A=0$ and $H=0$, a contradiction. Thus $\kappa_A>0$.
+
+Now let $B=A+E$, and let $X$ be any doubly stochastic minimizer. Feasibility of $I$ gives $\|AX-XB\|_F\leq\|E\|_F$. Every doubly stochastic matrix satisfies $\|X\|_2\leq1$: for a real vector $v$, convexity of the square in each row gives $\sum_i(\sum_jX_{ij}v_j)^2\leq\sum_{ij}X_{ij}v_j^2=\|v\|_2^2$. Applying this bound column by column yields $\|XE\|_F\leq\|E\|_F$. Consequently
+\[
+ \|AX-XA\|_F\leq\|AX-XB\|_F+\|XE\|_F\leq2\|E\|_F,
+ \qquad \|X-I\|_F\leq {2\|E\|_F\over\kappa_A}.       \tag{4}
+\]
+The last step uses $X-I\in\mathcal L$ and homogeneity; it is immediate if $X=I$.
+
+As a declared auxiliary rounding rule, choose the permutation matrix nearest to $X$ in Frobenius norm. Every permutation $P\ne I$ moves at least two rows, so $\|P-I\|_F\geq2$. If $\delta=\|X-I\|_F<1$, the triangle inequality gives $\|X-P\|_F\geq2-\delta>\delta$, proving unique rounding to $I$. Thus $\|E\|_F<\kappa_A/2$ is sufficient.
+
+The key obstruction is quantitative. Positivity of $\kappa_A$ at each fixed dimension does not give a useful lower bound as $n$ grows or show that constant-correlation noise satisfies (4). Also genericity cannot be replaced by perfect correlation alone: if $A\mathbf1=d\mathbf1$ and $A$ is symmetric, then $J/n$ is doubly stochastic and $A(J/n)=(J/n)A$, so for $n>1$ there is an uninformative zero-objective minimizer distinct from $I$. This regular-matrix example is not a counterexample to the source's iid random law.
+\section{Verification and adversarial audit}
+The perturbation estimate applies to every optimizer and uses no uniqueness assumption in the noisy case. The condition on a joint density explicitly includes the diagonal, avoiding an unjustified transfer from the full symmetric space to a lower-dimensional ensemble. At $n=1$ the doubly stochastic set is already $\{I\}$ and the sphere defining $\kappa_A$ is unnecessary. Equality $\|E\|_F=\kappa_A/2$ is not claimed sufficient because the rounding comparison would be non-strict.
+\paragraph{Audit corrections.} Equality of the convex optimizer with the permutation was separated from successful rounding. The auxiliary nearest-permutation rule, full-density ensemble, and noiseless genericity were not substituted for the original target.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The original constant-correlation theorem needs quantitative random estimates, treatment of its exact ensemble, and its intended rounding rule. The deterministic near-noiseless estimate and full-density genericity argument do not supply those ingredients; no new random recovery threshold is claimed.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46950} (consulted 2026-10-11). 
+\item \url{https://arxiv.org/abs/1405.3133} (consulted 2026-10-11). 
+\item \url{https://arxiv.org/abs/2310.20609} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

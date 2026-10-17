@@ -1,0 +1,226 @@
+% RESEARCH_DRAFT_SHA256: 4c14623c1cab34abfa61a110b67ed02d6e997551b782d077788a958700480823
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004682, "title": "High-Dimensional Regression and PDE Learning Without Dimensional Curse", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004682", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "What error bounds can be obtained for regression of high-dimensional nonsmooth functions, how can PDEs be solved without the curse of dimensionality, and what training and validation data sizes and distributions are efficient and effective for deep learning?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. No general regression class, PDE class, sampling law or error target is supplied by the source. The Lipschitz oracle obstruction, additive construction and fresh-validation theorem apply only to their explicit auxiliary models.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Regression without dimensional curse: a sampling obstruction, an additive exception, and validation bounds}
+\noindent UnsolvedMath ID 30004682; OWR-7155444-003. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+For squared-loss regression, the usual target is the conditional mean $m(x)=\mathbb E[Y\mid X=x]$, when defined, and approximation error may be measured by $\mathbb E[(\widehat m(X)-m(X))^2]$. Other losses or norms define other targets. A PDE method approximates a solution $u$ of a specified differential equation, with initial or boundary data, in a chosen error norm. The curse of dimensionality refers to sample or computation requirements growing exponentially with dimension, for example $\epsilon^{-c d}$ to obtain error $\epsilon$ in dimension $d$. Training data fit the estimator; validation data estimate its performance under a specified sampling distribution.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+Source-record limitation: This is a broad deep-learning research agenda without a specified regression class, PDE, sampling model, error criterion, or dimensional dependence. There is no determinate mathematical target to preserve.
+\paragraph{Statement recorded in the supplied source.}
+What error bounds can be obtained for regression of high-dimensional nonsmooth functions, how can PDEs be solved without the curse of dimensionality, and what training and validation data sizes and distributions are efficient and effective for deep learning? \href{https://doi.org/10.4171/owr/2021/23}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+The source asks about high-Dimensional Regression and PDE Learning Without Dimensional Curse.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004682 (OWR-7155444-003). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Mini-Workshop: Analysis of Data-driven Optimal Control (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/23, pp. 1209--1257
+\url{https://doi.org/10.4171/owr/2021/23}.
+\item[S3] Jentzen et al., feedforward networks and compositional functions
+\url{https://epubs.siam.org/doi/10.1137/21M1391596}.
+\item[S4] Duan et al., deep neural network approximation of composition functions
+\url{https://arxiv.org/abs/2304.07947}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+What error bounds can be obtained for regression of high-dimensional nonsmooth functions, how can PDEs be solved without the curse of dimensionality, and what training and validation data sizes and distributions are efficient and effective for deep learning?
+
+\section{Source scope and attempted route}
+The report, printed pages 1233--1235, discusses compositional
+approximation theorems and then poses a research agenda about
+nonsmooth regression, PDEs, and training/validation distributions.
+It does not quantify a common target class or error norm. We
+attempt to make the role of structure precise by comparing
+uniform approximation of unrestricted Lipschitz functions with an
+additive subclass, followed by a separate validation calculation.
+All results below are explicitly scoped auxiliary facts, not a
+solution of the original agenda or a new PDE complexity theorem.
+
+\section{An exponential point-query obstruction}
+Equip $[0,1]^d$ with $\ell_\infty$ distance. For an integer $m\ge1$
+put $h=1/(2m)$ and place $M=m^d$ centers at points whose
+coordinates are $(2j-1)/(2m)$, $1\le j\le m$. Set
+\[
+ b_c(x)=\max(0,h-\|x-c\|_\infty),\qquad
+ f_\sigma(x)=\sum_c\sigma_c b_c(x),\quad \sigma_c\in\{-1,1\}.
+\]
+The positive supports of distinct bumps are disjoint. Every
+$f_\sigma$ is $1$-Lipschitz. Within the same bump this follows
+from the reverse triangle inequality; if one point is outside all
+bumps it follows by distance to that bump's boundary. If two
+points lie in different bumps with centers $c,c'$, some coordinate
+of the centers differs by at least $2h$. Writing
+$r=\|x-c\|_\infty$, $r'=\|x'-c'\|_\infty$ gives
+\[
+ \|x-x'\|_\infty\ge2h-r-r'=b_c(x)+b_{c'}(x'),
+\]
+which bounds even the sum of the two absolute function values.
+This proves the claim for either choice of signs.
+
+An adaptive randomized algorithm making fewer than $M$ exact
+point evaluations cannot guarantee uniform error less than $h$
+with success probability greater than $1/2$ for every member of
+this family. To see this, choose the signs independently and
+uniformly, independently of the algorithm's random seed.
+Each query reveals at most one previously unknown sign; boundary
+queries reveal none. Conditional on the complete transcript and
+seed, all unqueried signs remain independent fair signs, because
+query choices depend only on already revealed signs. Choose an
+unqueried center by a fixed ordering. Its reported prediction $z$
+is independent of its sign, whereas its true value is $h$ or
+$-h$. At least one of $|z-h|,|z+h|$ is at least $h$. Thus the
+conditional probability that the uniform error is at least $h$
+is at least $1/2$. Average first over transcripts and then over
+sign vectors. At least one fixed input function has failure
+probability at least $1/2$.
+
+Consequently a worst-case point-evaluation guarantee at any
+error $\epsilon<h$ and success probability exceeding $1/2$
+requires at least $m^d$ evaluations. This is a concrete curse
+for this oracle, norm, and function class; it is not an i.i.d.
+regression lower bound under an unstated distribution. The same
+input-information obstruction applies to uniform approximation
+at time $T$ for the trivial PDE $\partial_tu=0$, $u(0,x)=f(x)$,
+whose solution is exactly $u(t,x)=f(x)$. It says nothing against
+specified parabolic PDE classes with stronger regularity or
+compositional promises.
+
+\section{A structural exception with an explicit network}
+Assume instead
+\[
+ f(x)=\frac1d\sum_{i=1}^d g_i(x_i),
+\]
+where each $g_i:[0,1]\to\mathbb R$ is $1$-Lipschitz. No
+smoothness or differentiability is assumed. Evaluate $f(0)$ and
+$f((j/m)e_i)$ for each $i$ and $j=1,\ldots,m$, for a total of
+$1+dm$ queries. They determine
+\[
+ q_i(j/m)=f((j/m)e_i)-f(0)
+ =\frac{g_i(j/m)-g_i(0)}d.
+\]
+Let $\widehat q_i$ be the linear interpolant of these values,
+including $q_i(0)=0$, and define
+$\widehat f(x)=f(0)+\sum_i\widehat q_i(x_i)$.
+For a $1$-Lipschitz function on an interval of length $1/m$,
+write $x=(1-t)a+tb$. Its linear interpolation error is at most
+\[
+ (1-t)|g(x)-g(a)|+t|g(x)-g(b)|
+ \le 2t(1-t)/m\le1/(2m).
+\]
+Divide by $d$ for each $q_i$ and sum to obtain
+$\|\widehat f-f\|_\infty\le1/(2m)$.
+
+This interpolant has an exact ReLU representation. If $s_{ij}$
+is the slope of $\widehat q_i$ on interval $[j/m,(j+1)/m]$,
+then
+\[
+ \widehat q_i(t)=s_{i0}t+
+ \sum_{j=1}^{m-1}(s_{ij}-s_{i,j-1})\max(t-j/m,0).
+\]
+The derivative on each open interval telescopes to the required
+slope, the value at zero is correct, and continuity proves equality
+at every knot as well. On $[0,1]$, $t=\max(t,0)$, so including
+one linear term per coordinate requires at most $dm$ hidden
+units, with a constant output bias. Query and representation
+counts are polynomial in $d$ and $1/\epsilon$. This positive
+result depends on the additive promise and exact designed
+samples; it does not establish statistical training efficiency for
+arbitrary deep networks.
+
+\section{Validation with a stated distribution and selection rule}
+Let $H\ge1$ candidate predictors be fixed independently of
+$N$ fresh validation samples drawn from a common distribution.
+Suppose each validation loss lies in $[0,1]$, and write $R_j$
+and $\widehat R_j$ for its population and empirical means.
+Then
+\[
+ \Pr\{\max_{j\le H}|\widehat R_j-R_j|>\eta\}
+ \le 2H e^{-2N\eta^2}.
+\]
+Here is a complete exponential-moment proof. For a random variable
+$Z\in[0,1]$, the second derivative of
+$\log\mathbb E e^{tZ}$ is the variance under its exponentially
+tilted law. Any law on $[0,1]$ has variance at most $1/4$,
+since its variance is no larger than
+$\mathbb E(Z-1/2)^2\le1/4$. Integrating the derivative bound
+from zero gives
+$\mathbb E e^{t(Z-\mathbb EZ)}\le e^{t^2/8}$ for every real $t$.
+Independence, Markov's inequality and $t=4\eta$ bound either
+tail of a mean by $e^{-2N\eta^2}$. Union over both tails and
+all candidates proves the display.
+
+In particular, taking
+$N\ge\log(2H/\delta)/(2\eta^2)$ controls all candidates with
+probability at least $1-\delta$. Selecting the smallest validation
+loss then has true risk at most the smallest candidate risk plus
+$2\eta$, by applying the simultaneous bounds twice. Candidates
+may depend on a separate training sample, since the argument can
+condition on that sample. It does not cover repeatedly adapting
+new candidates to the same validation observations.
+
+Nor can validation from one distribution certify another without
+assumptions: a function observed only at $x=0$ can take either
+value $1$ or $-1$ at an unobserved $x=1$, with identical
+observations at zero. For any prediction $z$ at one,
+$\max(|z-1|,|z+1|)\ge1$. Thus a distribution concentrated at
+zero cannot resolve test error concentrated at one.
+
+\section{Adversarial audit and remaining scope}
+The audit checked the Lipschitz bound across different bump
+supports, adaptive sign independence, strictness of the error
+threshold, the use of function queries rather than inaccessible
+component queries, the ReLU count at $m=1$, and the independence
+required by validation. No computations or theorem prover were
+used. The attempt establishes why structural promises and data
+access matter, but the source's unspecified regression/PDE/data
+agenda remains unresolved. Its original partially-solved metadata
+is preserved separately from this attempt's zero completion claim.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. No general regression class, PDE class, sampling law or error target is supplied by the source. The Lipschitz oracle obstruction, additive construction and fresh-validation theorem apply only to their explicit auxiliary models.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item OWR23/2021, Analysis of Data-driven Optimal Control; workshop discussion p.1211 and Kang/Gong compositional approximation discussion pp.1233–1235 inspected from the cached primary report. Historical claims are not a current-status survey. \url{https://doi.org/10.4171/owr/2021/23}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} No general regression class, PDE class, sampling law or error target is supplied by the source. The Lipschitz oracle obstruction, additive construction and fresh-validation theorem apply only to their explicit auxiliary models.
+\end{document}

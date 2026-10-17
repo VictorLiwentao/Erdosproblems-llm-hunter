@@ -1,0 +1,159 @@
+% RESEARCH_DRAFT_SHA256: fc2c10f2c247b5baccd3c8238ebc974808fbba465b4d1c611fccb84738ed1aa2
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20002194, "title": "Truncation representatives, semantic equality certificates, and functorial cohomology maps", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002194", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "M2 currently has sheaves on projective varieties, but no morphisms between them, and no way to compute the associated maps on cohomology.\n\nWhat is the best way to implement a \"morphism of sheaves\" data type? What's the best way to calculate the maps on sheaf cohomology induced by such a morphism on a projective variety?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. This rederives certificates and a projective-line example for already documented functionality; it does not supply a new implementation or an optimal general cohomology algorithm.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Sheaf-map equality by local annihilation and an explicit projective-line cohomology map}
+\noindent UnsolvedMath ID 20002194; AIM-INFRASTRUCTURE-0094. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+For sheaves of modules $\mathcal F,\mathcal G$ on a projective variety $X$, a morphism $\phi:\mathcal F\to\mathcal G$ consists of compatible module maps on open sets, commuting with restrictions. It induces maps $H^i(X,\phi):H^i(X,\mathcal F)\to H^i(X,\mathcal G)$. A graded-module representative can require truncation: a map representing $\phi$ may have source $M_{\geq d}$ rather than the chosen full module $M$.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The historical claim of absent functionality is superseded in the cited workshop report: SheafMap and induced cohomology maps were implemented. Current official documentation also lists these operations. The original project statement remains intact; no unresolved theorem is inferred from it.
+
+Catalogue screening limitation: The supplied catalogue records the problem as solved; excluded from an unsolved-problem import.
+
+The source snapshot labels this record solved; this is catalogue metadata rather than independent verification of a mathematical result or the current completion of a project.
+\paragraph{Statement recorded in the supplied source.}
+M2 currently has sheaves on projective varieties, but no morphisms between them, and no way to compute the associated maps on cohomology.
+
+What is the best way to implement a "morphism of sheaves" data type? What's the best way to calculate the maps on sheaf cohomology induced by such a morphism on a projective variety? \href{http://aimpl.org/macaulay2efie/4/}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. This is documentation of a source-labelled solved record, not a newly proposed unsolved problem.
+\subsection{Short English statement}
+Represent morphisms of sheaves and compute the induced maps on sheaf cohomology in Macaulay2.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20002194 (AIM-INFRASTRUCTURE-0094). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-INFRASTRUCTURE-0094.
+\url{http://aimpl.org/macaulay2efie/4/}.
+\item[S3] AIM workshop summary, Macaulay2: expanded functionality and improved efficiency (reports parallelization and sheaf-map implementation progress).
+\url{https://aimath.org/pastworkshops/macaulay2efierep.pdf}.
+\item[S4] Official Macaulay2 Varieties documentation, SheafMap (module truncation and induced maps).
+\url{https://macaulay2.com/doc/Macaulay2/share/doc/Macaulay2/Varieties/html/___Sheaf__Map.html}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+M2 currently has sheaves on projective varieties, but no morphisms between them, and no way to compute the associated maps on cohomology.
+
+What is the best way to implement a "morphism of sheaves" data type? What's the best way to calculate the maps on sheaf cohomology induced by such a morphism on a projective variety?
+
+\section{Attempt and results}
+The original software request is historically superseded in the supplied
+record, official report, and current SheafMap documentation. We do not claim
+a new implementation. Instead we test two mathematical requirements of an
+interface: equality must respect sheafification, and induced maps must act on
+cohomology classes rather than arbitrary stored representatives.
+
+\paragraph{A finite certificate for vanishing of a represented map.}
+Let $S=k[x_0,\ldots,x_n]/J$ with $J$ homogeneous, $B=(x_0,\ldots,x_n)$,
+and let $f:M\to N$ be a degree-zero map of finitely generated graded
+$S$-modules. Write $L=\operatorname{im}f$. On the standard open set
+$D_+(x_i)$, sheafification is obtained from the degree-zero part of
+localization. Thus the associated sheaf map is zero exactly when every
+localized homogeneous element of $L$ is zero. To justify the degree-zero
+qualification, if $l$ has degree $d$, then $x_i^{-d}l$ has degree zero
+in the localized module; multiplying by the unit $x_i^d$ recovers $l$.
+Consequently vanishing is equivalent to $L_{x_i}=0$ for every $i$.
+Choose finite homogeneous generators $l_1,\ldots,l_s$ of $L$.
+Localization vanishes precisely when, for every $i,j$, some power of $x_i$
+kills $l_j$: this is the defining zero criterion for fractions. Taking a
+maximum over $j$ gives a positive integer $a_i$ with $x_i^{a_i}L=0$.
+Every monomial in $B^t$, for
+$t=1+\sum_{i=0}^n(a_i-1)$, has some exponent at least $a_i$ by the
+pigeonhole principle. Hence $B^t L=0$. Conversely $B^tL=0$ implies
+$x_i^t L=0$, so all those localizations vanish. We have proved
+\[
+\widetilde f=0\quad\Longleftrightarrow\quad
+B^t\operatorname{im}f=0\text{ for some }t\ge0.
+\]
+For two maps on a common module presentation, apply this to their difference.
+For maps with truncated sources, first restrict to a common truncation.
+The inclusion $M_{\ge r}\subseteq M$ sheafifies to an isomorphism: after
+localizing at $x_i$, multiply any homogeneous element by enough powers of
+$x_i$ to put it in degree at least $r$, then divide by that unit. This proves
+that restriction is semantically legitimate. Maps with different module
+presentations additionally require explicit transports; matrix equality
+alone is not an invariant comparison.
+
+\paragraph{A complete Cech calculation for a family of induced maps.}
+On $\mathbb P^1_k$ with homogeneous coordinates $[x:y]$, put $z=x/y$.
+Using the trivialization $y^d$ of $\mathcal O(d)$ on $y\ne0$, the two-chart
+Cech complex has degree-one space $k[z,z^{-1}]$ and degree-zero image
+\[
+k[z]+z^d k[z^{-1}].
+\]
+The exponent sets in these two summands are respectively $j\ge0$ and
+$j\le d$. Therefore its first cohomology has basis the classes of $z^j$
+with $d<j<0$; for $d\ge-1$ it is zero. The kernel describing degree-zero
+cohomology is the intersection $k[z]\cap z^d k[z^{-1}]$, with basis
+$1,z,\ldots,z^d$ if $d\ge0$ and zero otherwise.
+These are direct computations of the displayed complex. Using the usual
+acyclicity of this affine cover identifies it with sheaf cohomology; that
+standard geometric identification is a stated dependency, not reproved here.
+
+For a homogeneous polynomial $h(x,y)$ of degree $e\ge0$, multiplication
+$\mathcal O(d)\to\mathcal O(d+e)$ acts in the chosen trivialization by
+$H(z)=h(z,1)$. It respects the quotient above: $H(z)k[z]\subseteq k[z]$,
+and each monomial $z^a$, $0\le a\le e$, takes
+$z^d k[z^{-1}]$ into $z^{d+e}k[z^{-1}]$, since its resulting exponents
+are at most $d+a\le d+e$. Thus multiply a basis Laurent monomial by
+$H$, then discard exponents outside $d+e<j<0$ to compute the induced map.
+For $d=-3$, $e=1$, $h=x$, the source basis is $(z^{-2},z^{-1})$, the
+target basis is $(z^{-1})$, and the induced matrix is $(1\ \ 0)$:
+$z^{-2}\mapsto z^{-1}$ while $z^{-1}\mapsto1$, a boundary.
+Keeping the raw product $1$ as an extra target coordinate would be incorrect.
+
+\section{Context, adversarial audit, and gap}
+The official report and documentation verify that SheafMap values and induced
+cohomology maps are documented; they do not demonstrate a novel contribution
+by this attempt. The source-solved metadata is preserved. The audit checked
+negative degrees in localization, uniform annihilator exponents, source
+truncation, and the distinction between a boundary and zero as a stored
+Laurent polynomial. The criterion is an existence certificate, not a supplied
+optimal bound on $t$ or a completed equality routine. General projective
+cohomology algorithms, implementation choices, and performance remain outside
+this mathematical test. No Macaulay2 execution occurred.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. This rederives certificates and a projective-line example for already documented functionality; it does not supply a new implementation or an optimal general cohomology algorithm.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item AIM, Macaulay2: expanded functionality and improved efficiency, official workshop summary; relevant implementation discussion inspected on 11 October 2026. Original AIMPL pages failed retrieval; exact questions are taken from the supplied snapshot. \url{https://aimath.org/pastworkshops/macaulay2efierep.pdf}.
+\item Official Varieties documentation, SheafMap; full page inspected, including truncated module representatives and induced-cohomology methods. \url{https://macaulay2.com/doc/Macaulay2/share/doc/Macaulay2/Varieties/html/___Sheaf__Map.html}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} This rederives certificates and a projective-line example for already documented functionality; it does not supply a new implementation or an optimal general cohomology algorithm.
+\end{document}

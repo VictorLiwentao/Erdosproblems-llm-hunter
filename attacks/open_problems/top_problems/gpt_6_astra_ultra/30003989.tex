@@ -1,0 +1,127 @@
+% RESEARCH_DRAFT_SHA256: b424fe67bd5959f6f20842f8f33a9437fb41acf65cadd4718a753689cdc68a6c
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30003989, "title": "Proximity and Sparsity of Optimal Integer Solutions", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003989", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and adversarial mathematical review of the written argument; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Proximity and Sparsity of Optimal Integer Solutions; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A support-collision argument and a necessary coefficient dependence; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch012 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30003989; source catalogue code OWR-16633-003
+\section{Proximity and Sparsity of Optimal Integer Solutions}\label{30003989}
+{\small UnsolvedMath ID 30003989 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a vector $z$, $\lVert z\rVert_1=\sum_i|z_i|$, $\lVert z\rVert_\infty=\max_i|z_i|$, and sparsity is the number of nonzero coordinates. Proximity measures the distance between a continuous optimum and an integral optimum.
+
+A relaxation contains the integral feasible solutions. For a nonnegative minimization objective, its integrality gap is the supremum of the ratio between the integral optimum and the relaxation optimum over the specified instances.
+
+A linear program optimizes $c^Tx$ over a polyhedron $\{x:Ax\leq b\}$. In the simplex method a pivot moves between adjacent basic feasible solutions; a pivot rule chooses the next such move.
+
+An integer program imposes integral coordinates on a system of constraints. A mixed-integer program allows both integral and real coordinates; $\operatorname{conv}(S)$ denotes the set of finite convex combinations of feasible points of $S$.
+\paragraph{Statement recorded in the supplied source.}
+For integer linear optimization, given an optimal solution of the linear-programming relaxation, how close can an optimal integer solution be in the $\ell_1$ or $\ell_\infty$ norm, and for a system of linear equations with nonnegative variables and a linear objective, how sparse can an optimal integer solution be? \href{https://doi.org/10.4171/owr/2018/50}{[S2]}
+\paragraph{Scope qualification.}
+The matrix parameters allowed in the bounds and the optimal-solution selection quantifiers are source-dependent.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Bound distance from linear-programming optima to integer optima and the number of nonzero coordinates needed by integer optima.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30003989 (OWR-16633-003). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2019), Oberwolfach Reports, DOI 10.4171/owr/2018/50, pp. 2969--3023
+\url{https://doi.org/10.4171/owr/2018/50}.
+\item[S3] The Support of Integer Optimal Solutions
+\url{https://doi.org/10.1137/17M1162792}.
+\item[S4] Optimal Proximity Bound and Product Function Estimates in Integer Linear Programming
+\url{https://arxiv.org/abs/2606.13579}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30003989 and source code OWR-16633-003 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30003989}
+
+\section{Literature and context check}
+The 2018 report discusses proximity and sparse integer optima. The consulted 2026 preprint abstract, arXiv:2606.13579, reports a sharp Euclidean proximity theorem for optimal LP vertices in standard form. Only its abstract was checked here, so its proof and complete hypotheses are not imported as established results of this attempt. The calculations below are elementary bounds and obstructions, not a new sharp proximity theorem.
+\section{Research attempt: A support-collision argument and a necessary coefficient dependence}
+Let $A\in\mathbb Z^{m\times n}$, $m\ge1$, have entries of absolute value at most $\Delta$, and suppose minimizing $c^Tx$ over $Ax=b$, $x\in\mathbb Z_{\ge0}^n$ has an attained optimum. Choose an optimum of minimum support size $s$. Then
+\[
+2^s\le(2s\Delta+1)^m.
+\]
+For $s=0$ this is immediate. Otherwise consider all $2^s$ subset sums of the columns on its support. Every coordinate of a subset sum is an integer between $-s\Delta$ and $s\Delta$. If the displayed inequality failed, two distinct subsets would have the same sum. Subtract their indicator vectors to obtain nonzero $y\in\{-1,0,1\}^n$ supported on the positive coordinates of $x$, with $Ay=0$. Since these coordinates of $x$ are at least one, both $x+y$ and $x-y$ are nonnegative integer feasible. Optimality forces $c^Ty=0$: either nonzero sign would improve one of those two points.
+
+Replace $y$ by $-y$ if needed so it has a positive coordinate. Put $t=\min\{x_i:y_i=1\}$, a positive integer. Then $x-ty$ stays nonnegative: coordinates with $y_i=1$ decrease by at most their original values, those with $y_i=-1$ increase, and other coordinates do not change. At least one positive support coordinate becomes zero, none outside the support becomes positive, feasibility is preserved by $Ay=0$, and the objective is unchanged by $c^Ty=0$. This contradicts support minimality and proves the inequality. It is a standard pigeonhole method, not an optimal sparsity estimate.
+
+A coefficient-independent proximity bound cannot hold even for one equation and two variables. For any integer $a\ge2$, minimize $y$ subject to
+\[
+ax+y=a-1,\qquad x,y\ge0.
+\]
+The LP optimum is uniquely $x_*=(a-1)/a$, $y_*=0$. For integer feasible solutions, $0\le x\le(a-1)/a<1$ forces $x=0$, so the unique integer solution is $(0,a-1)$. The distances are $a-1$ in $\ell_\infty$ and $(a-1)+(a-1)/a$ in $\ell_1$, both unbounded with fixed numbers of variables and equations. The relevant matrix coefficient grows with $a$; this example therefore challenges only bounds omitting such matrix information, not bounds parameterized by determinants or coefficients.
+
+The support argument does not produce proximity to a prescribed LP optimum: its long feasible move may be far from that LP point. Conversely the proximity example has a one-sparse integer optimum. Thus neither elementary observation merges the two source questions into one solved bound.
+\section{Verification and adversarial audit}
+The support proof checks both signs of the integer perturbation before using optimality, and verifies that the final long step creates no new support. The example has unique LP and integer optima, eliminating ambiguity about selecting a favorable optimum. The $s=0$ and $\Delta=0$ boundaries are compatible with the displayed inequality.
+\paragraph{Audit corrections.} A claimed sharp modern theorem was not assumed after reading only its abstract. The lower-bound example does not keep the coefficient parameter fixed, and support reduction is not represented as LP proximity.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+Sharp norm-specific proximity and sparsity bounds with the source's full parameter choices remain unproved here. The finite subset-sum argument and lower-bound family are known-style route analysis, and the recent Euclidean claim is only accurately reported as an abstract claim.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46772} (consulted 2026-10-11). 
+\item \url{https://arxiv.org/abs/2606.13579} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and adversarial mathematical review of the written argument; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

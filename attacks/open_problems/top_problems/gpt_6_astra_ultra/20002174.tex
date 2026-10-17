@@ -1,0 +1,109 @@
+% RESEARCH_DRAFT_SHA256: bf009831cc5b68ae1bab0a9adca932bef9a74d94238b6bf13d3b811d0e575d72
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20002174, "title": "Hermetic modules for sharing PreTeXt policy and style", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002174", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Hermetic modules for sharing PreTeXt policy and style; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Shared style modules can depend on import order; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch009 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 20002174; source catalogue code AIM-INFRASTRUCTURE-0074
+\section{Hermetic modules for sharing PreTeXt policy and style}\label{20002174}
+{\small UnsolvedMath ID 20002174 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A course context supplies shared organization, metadata, and publication configuration for course materials. A reusable resource can be distributed separately from that context. A LaTeX style file contains presentation-related definitions and is an analogy in the source, not a specified PreTeXt interchange format.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The source does not define the resource boundary, dependency packaging, license, or configuration-inheritance behavior.
+
+Catalogue screening limitation: PreTeXt software design, documentation, or publication feature request; no mathematical problem is specified by the supplied passage.
+
+The source snapshot labels this record partially solved; this is catalogue metadata rather than independent verification of a mathematical result or the current completion of a project.
+\paragraph{Statement recorded in the supplied source.}
+How to share outside a "Course" context (like sharing a .sty file). \href{https://github.com/PreTeXtBook/community/wiki/Moderated-Problem-Session}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+Enable sharing of document resources outside a course package.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20002174 (AIM-INFRASTRUCTURE-0074). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-INFRASTRUCTURE-0074.
+\url{https://github.com/PreTeXtBook/community/wiki/Moderated-Problem-Session}.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 20002174 and code AIM-INFRASTRUCTURE-0074 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:20002174}
+
+\section{Literature and context check}
+The primary community-session source was consulted. The record is a broad software-design request, and no mathematical theorem follows from its editorial catalogue title. The finite model below is explicitly auxiliary; it does not certify an actual implementation or current feature status.
+\section{Research attempt: Shared style modules can depend on import order}
+Let a configuration state contain a font choice $f$. Module $A$ assigns $f=\text{serif}$ and module $B$ assigns $f=\text{sans}$. Importing $A$ then $B$ yields sans, while importing $B$ then $A$ yields serif. Both modules are individually well-defined; the composition is noncommutative. Thus successful reuse of each module does not imply that an unordered collection of modules has a determined meaning.
+
+A finite explicit-map merge can avoid this ambiguity by requiring disjoint exported keys. If modules assign values on pairwise disjoint domains, their union is a function and every key has the same value regardless of merge order. Proof: a key occurs in at most one module, so every ordering takes its value from that same module. More generally overlapping equal assignments are harmless by the same argument, while unequal overlaps must either be rejected or resolved by an explicit priority policy. Priority makes the outcome deterministic but does not prove that it matches the author's intent.
+
+Ambient dependencies cause another failure. Suppose a module reads an unrecorded host variable $h$ and selects serif when $h=0$, sans otherwise. Two projects with identical module bytes and explicit configuration can then render differently. Under a deterministic evaluation model, reproducibility follows only when every observed input is included: if evaluation is a function $R(M,C,H)$, equal triples produce equal outputs by functionality, while equality of just $(M,C)$ is insufficient when $H$ varies observably. Eliminating ambient reads or making them explicit repairs this limited problem. It does not prove portability across different renderer implementations or explain every styling convention.
+\section{Verification and adversarial audit}
+The construction and counterexample are checked in the written finite model. No actual PreTeXt build, browser, EPUB reader, or publishing service was tested. All runtime and identity assumptions used by the proof are stated explicitly.
+\paragraph{Audit corrections.} Determinism under complete inputs is not conflated with order independence or aesthetic compatibility. Unequal exported-key collisions and hidden host inputs are explicit counterexamples.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+This is a restricted route investigation. The full feature requires implementation, supported-version decisions, conformance tests, and user-facing evaluation that were not performed here. The original agenda remains unresolved, and no novelty or completed software feature is claimed.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://github.com/PreTeXtBook/community/wiki/Moderated-Problem-Session} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

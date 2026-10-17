@@ -1,0 +1,162 @@
+% RESEARCH_DRAFT_SHA256: 078479004706d2dca88f4f0daaa6a013c58720b3f873cba2ef77f7e800e04942
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30002956, "title": "Complexity of Embedding Two-Complexes in Three-Manifolds", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002956", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Determine the decidability and computational complexity of deciding whether a given 2-complex embeds in a 3-manifold, including the case of non-orientable surfaces of even Euler genus and the related thickenability problem.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The broad embedding and thickenability complexity questions, especially the even-genus and ambient-input cases, are not classified; local links and explicit refinement certificates do not close the gap.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Two-complex embeddings: a local obstruction and the certificate-size gap}
+\noindent UnsolvedMath ID 30002956; OWR-13940-003. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A finite simplicial complex is a finite family of vertex subsets closed under taking subsets. Its dimension is one less than its largest simplex size. A piecewise-linear embedding is an injective map linear on simplices after finite subdivisions.
+\paragraph{Statement recorded in the supplied source.}
+Determine the decidability and computational complexity of deciding whether a given 2-complex embeds in a 3-manifold, including the case of non-orientable surfaces of even Euler genus and the related thickenability problem. \href{https://doi.org/10.4171/owr/2015/45}{[S2]}
+\paragraph{Scope qualification.}
+The ambient manifold representation, fixed versus input manifold, and relationship of the surface and thickenability subquestions are not fully specified in the short question.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Classify decidability and complexity of embedding the specified two-dimensional complexes in three-manifolds.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30002956 (OWR-13940-003). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Computational Geometric and Algebraic Topology (2016), Oberwolfach Reports, DOI 10.4171/owr/2015/45, pp. 2637--2699
+\url{https://doi.org/10.4171/owr/2015/45}.
+\item[S3] Burton--de Mesmay--Wagner, Finding Non-orientable Surfaces
+\url{https://doi.org/10.1007/s00454-017-9900-0}.
+\item[S4] Matoušek--Sedgwick--Tancer--Wagner, Embeddability in the 3-sphere
+\url{https://arxiv.org/abs/1402.0815}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Determine the decidability and computational complexity of deciding whether a given 2-complex embeds in a 3-manifold, including the case of non-orientable surfaces of even Euler genus and the related thickenability problem.
+
+\section{The original distinctions}
+De Mesmay's report, printed pages 2666--2668, separates embeddings into a
+specified 3-manifold, embeddings into $\mathbb R^3$, existence of some
+3-manifold containing the complex (thickenability), and non-orientable surface
+subcases. The odd-genus result in the report does not cover even genus.
+We keep the piecewise-linear convention in the preserved definition and test
+an attempted route based on contractibility, local links, and finite
+simplicial embedding certificates. No missing ambient-manifold quantifier is
+filled in by silently choosing the easiest of these problems.
+
+\section{A contractible complex that fails every ambient choice}
+Let $C$ be the simplicial cone over the graph $K_5$, with apex $v$.
+It is contractible: in cone coordinates $(x,t)$, where all $(x,0)$ are the
+apex, the homotopy $(x,t)\mapsto(x,(1-s)t)$ contracts it as $s$ goes from
+zero to one. This is well defined at the collapsed apex and continuous on
+each cone simplex, hence on the finite complex.
+Nevertheless $C$ has no PL embedding into any 3-manifold.
+
+We justify the local obstruction. In a PL coordinate neighborhood of the
+image of $v$, subdivide so the embedding is linear on the finitely many
+incident simplices. A sufficiently small sphere centered at that image
+meets each incident edge in a point and each incident triangular sector in
+an arc. The arcs are disjoint except at their prescribed endpoints because
+the map is injective. Equivalently, radial intersection embeds a subdivision
+of the link of $v$ in the surrounding two-sphere. Shrinking the sphere keeps
+all nonincident simplices away: there are finitely many compact nonincident
+pieces disjoint from the apex. If the image lies on a manifold boundary,
+the local sphere is a hemisphere, which still embeds in a sphere. Thus the
+vertex link must be a planar graph. At the cone apex it is exactly $K_5$;
+subdivision cannot cure a nonplanar graph, since suppressing a degree-two
+vertex simply concatenates its two embedded arcs.
+
+For completeness $K_5$ is nonplanar by the elementary planar edge bound.
+A connected simple planar graph with at least three vertices and no bridges
+has Euler relation $v-e+f=2$ and every face boundary has length at least
+three. Counting edge sides gives $3f\le2e$, hence $e\le3v-6$.
+Euler's relation follows by deleting cycle edges one at a time: deleting a
+nonbridge merges its two incident faces, decreasing both $e$ and $f$ by one;
+what remains is a spanning tree, with $e=v-1$ and one face.
+For $K_5$, $v=5,e=10>9$. This proves the contradiction.
+The cone example is explicitly mentioned by the primary report; the proof
+here rederives it rather than claiming a new obstruction.
+
+This also defeats the proposed inference that contraction to a point should
+permit an embedding into a 3-ball. A contraction is a continuous family of
+maps; its intermediate maps need not be injective. It provides no control
+of the nonplanar local link. Checking global homotopy triviality therefore
+cannot replace local embedding constraints.
+
+\section{What an explicit simplicial certificate does certify}
+For fixed finite complexes $K'$ and $M'$, a map on their vertices that is
+injective and sends each simplex of $K'$ to a simplex of $M'$ gives an
+embedding of their realizations. To prove this, the affine map is injective
+on each simplex because its image vertices form an affinely independent
+simplex. Images of two source simplices intersect exactly in the face on
+their common image vertices, by the defining intersection property of an
+ambient simplicial complex. Vertex injectivity makes these precisely the
+images of the common source vertices. Thus the map is globally injective.
+It is continuous, and its inverse onto the image is continuous because a
+continuous bijection from a compact space to a Hausdorff space is closed:
+a closed subset is compact and its image is compact, hence closed.
+This proves a topological, and indeed simplicial, embedding.
+
+Such a certificate is checkable in polynomial time in the explicit sizes
+of $K',M'$: compare vertex images for injectivity and check each simplex
+image against the target simplex list. But the original inputs are $K,M$,
+not arbitrary already-supplied refinements. An attempted exhaustive search
+would need certificates that $K',M'$ are the appropriate subdivisions and
+would need a bound on their sizes to prove NP membership or a running-time
+classification. Finite enumerations through a bounded set of subdivisions
+can prove yes on a found certificate and can fail to find any certificate
+without proving no. Our argument supplies no uniform bound on the needed
+subdivisions, no terminating negative-case test, and no resolution of the
+even-genus surface case. In particular the vertex-map certificate alone
+does not establish the complexity claimed in the broad catalogue question.
+
+\section{Source check and adversarial audit}
+The Matousek--Sedgwick--Tancer--Wagner primary abstract arXiv:1402.0815
+reports decidability specifically for $\mathbb R^3$ or the 3-sphere. Its full
+proof is not rederived here and the assertion is not transferred to an
+arbitrary input 3-manifold. The audit checked the boundary-manifold case,
+subdivision at the cone apex, and the separation between a polynomial
+verifier on explicit refinements and a polynomial certificate bound for the
+original input. All proved statements are auxiliary or rederivations;
+no new complexity classification, computation or theorem-prover check is
+asserted.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The broad embedding and thickenability complexity questions, especially the even-genus and ambient-input cases, are not classified; local links and explicit refinement certificates do not close the gap.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item de Mesmay, Embeddability of 2-complexes, OWR 45/2015, pp. 2666--2668; original subquestions and cone obstruction read. \url{https://doi.org/10.4171/owr/2015/45}.
+\item Matousek, Sedgwick, Tancer and Wagner, Embeddability in the 3-sphere is decidable; abstract inspected, general proof not independently checked. \url{https://arxiv.org/abs/1402.0815}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The broad embedding and thickenability complexity questions, especially the even-genus and ambient-input cases, are not classified; local links and explicit refinement certificates do not close the gap.
+\end{document}

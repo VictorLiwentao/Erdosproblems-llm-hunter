@@ -1,0 +1,141 @@
+% RESEARCH_DRAFT_SHA256: d0285a06202388c46fa9180a7942d632a5fbf6b453348257fe6556bfacb947e3
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000782, "title": "Boolean Evaluation and Arithmetic-Circuit Complexity", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000782", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "If a multivariate polynomial $P$ can be evaluated on rational inputs by a Boolean polynomial-time algorithm, must $P$ have a polynomial-size arithmetic circuit using only additions, subtractions, and multiplications?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Interpolation has an exponential grid in variable dimension and gate arithmetization only preserves Boolean-domain values; the intended efficient family simulation remains unproved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Boolean evaluation to arithmetic circuits: interpolation and a failed gatewise transfer}
+\noindent UnsolvedMath ID 30000782; OWR-1587-001. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+Polynomial time means a number of elementary steps bounded by a polynomial in the encoded input length. A decision problem is in $\mathrm{NP}$ if yes-instances have polynomial-length certificates verifiable in polynomial time; NP-hardness is under polynomial-time reductions.
+
+An arithmetic circuit is a directed acyclic graph whose input nodes are variables or field constants and whose internal nodes perform additions and multiplications (with subtraction allowed when stated). Size counts gates; depth is the maximum number of gates on an input-output path.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The supplied statement refers to one polynomial without specifying a growing polynomial family, degree bounds, or coefficient encoding. The intended asymptotic comparison is that of the source.
+
+Source-record limitation: The required growing polynomial family, degree/coefficient encoding, and complexity-size parameters are absent; a single fixed polynomial does not define the stated asymptotic target.
+\paragraph{Statement recorded in the supplied source.}
+If a multivariate polynomial $P$ can be evaluated on rational inputs by a Boolean polynomial-time algorithm, must $P$ have a polynomial-size arithmetic circuit using only additions, subtractions, and multiplications? \href{https://doi.org/10.4171/owr/2007/31}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Determine whether efficient Boolean evaluation of a polynomial entails a small arithmetic circuit.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000782 (OWR-1587-001). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Complexity Theory (2008), Oberwolfach Reports, DOI 10.4171/owr/2007/31, pp. 1793--1864
+\url{https://doi.org/10.4171/owr/2007/31}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+If a multivariate polynomial $P$ can be evaluated on rational inputs by a Boolean polynomial-time algorithm, must $P$ have a polynomial-size arithmetic circuit using only additions, subtractions, and multiplications?
+
+\section{Source scope and attempted route}
+The primary report really uses the terse single-polynomial wording, then
+explicitly discusses families and low degree in its explanation. The preserved
+catalogue leaves those asymptotic parameters unspecified. We test two proposed
+transfers under stated degree assumptions rather than silently choose a complete
+replacement conjecture.
+
+\paragraph{Interpolation gives a finite circuit and its true size.}
+Let $P\in\mathbb Q[x_1,\ldots,x_n]$ have individual degree at most $D$.
+For $0\le i\le D$, define
+\[
+L_i(t)=\prod_{\substack{0\le j\le D\\j\ne i}}\frac{t-j}{i-j}.
+\]
+These rational-coefficient polynomials satisfy $L_i(j)=\mathbf1_{i=j}$.
+The tensor interpolation identity is
+\[
+P(x)=\sum_{a\in\{0,\ldots,D\}^n}P(a)\prod_{j=1}^n L_{a_j}(x_j).
+\]
+For completeness, the difference has individual degree at most $D$ and
+vanishes on the whole grid. Induction on variables proves it is zero: fixing
+all but the last grid coordinates gives a univariate polynomial with $D+1$
+roots and degree at most $D$, so its coefficients vanish on the smaller grid;
+apply induction to them.
+With rational constants allowed, each $L_i(x_j)$ has an addition/multiplication
+circuit using $O(D)$ operations, since the denominators $i-j$ are nonzero
+constant rational factors. Precompute all these polynomials in
+$O(n(D+1)^2)$ gates, then sum the $(D+1)^n$ products in
+$O(n(D+1)^n)$ more. Evaluating a Boolean polynomial-time oracle at all the
+grid points supplies the constants $P(a)$, but uses $(D+1)^n$ oracle calls.
+For fixed $n$ this is polynomial in $D$ and the relevant evaluation costs;
+for variable $n$ it is generally exponential. Thus interpolation does not
+prove the required family-size bound. It also produces rational constants,
+not a constant-free circuit without a separate construction of those constants.
+
+\paragraph{Boolean gate arithmetization preserves only Boolean inputs.}
+On bits, AND is multiplication, NOT is $1-x$, and OR is $x+y-xy$.
+Replacing gates by these formulas gives a polynomial agreeing with the
+Boolean circuit on its finite Boolean domain, as induction on gates proves.
+But agreement on that domain does not identify a general polynomial on
+rational inputs. For example, $P(x)=x^2$ agrees with $Q(x)=x$ on $\{0,1\}$
+and differs at $x=2$. More generally any multiple of $x_i^2-x_i$ vanishes
+on the Boolean cube. Hence a gatewise transfer of a circuit for values on
+bits may recover only a residue class modulo these relations, not $P$ itself.
+A Boolean evaluator on rational inputs instead operates on variable-length
+numerator/denominator encodings, so its bit gates are not functions on just
+the original $n$ field variables. Translating those bits into field operations
+without a complexity loss is precisely an additional unproved step, not an
+application of the three gate identities.
+
+\paragraph{Even a small arithmetic circuit need not give short exact output.}
+Repeated squaring computes $x^{2^k}$ using $k$ multiplication gates.
+At rational input $x=2$, its integer value has $2^k+1$ binary digits.
+Writing that exact value takes at least that many output operations in the
+usual bit model. This is a complete output-length observation, not a
+counterexample to the source implication, whose premise requires fast Boolean
+evaluation. It shows why degree and output encoding cannot be ignored when
+comparing the two models or trying to reverse a simulation argument.
+
+\section{Adversarial audit and gap}
+The report passage was inspected, including the distinction from the adjacent
+constant-free class separation. The audit checked interpolation denominators,
+individual versus total degree, the number of grid points, and exact rather
+than compressed value output. We establish neither an efficient variable-dimension
+transfer nor a counterexample family meeting the Boolean-evaluation premise.
+No finite collection of Boolean input tests was promoted to an identity over
+rational inputs, and no numerical computation was performed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Interpolation has an exponential grid in variable dimension and gate arithmetization only preserves Boolean-domain values; the intended efficient family simulation remains unproved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 31/2007, Koiran pp.1835--1836, Raz p.1846, Saxena p.1851, Sudan p.1855; the item-specific original passage was read from cached primary PDF text on 11 October 2026. This is source inspection, not a present-status survey. \url{https://ems.press/content/serial-article-files/46116}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Interpolation has an exponential grid in variable dimension and gate arithmetization only preserves Boolean-domain values; the intended efficient family simulation remains unproved.
+\end{document}

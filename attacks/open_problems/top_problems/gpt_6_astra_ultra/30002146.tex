@@ -1,0 +1,96 @@
+% TOP_PROBLEM: {"id": 30002146, "title": "Nonaxisymmetric Stability of Extremal Kerr Waves", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The decay rate was recovered from the primary report (PDF page 30); the data norm and time-foliation conventions remain those of that estimate. Its target is decay of the scalar itself, and known transverse-derivative instabilities are a separate phenomenon."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002146", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Does the known horizon-inclusive decay of axisymmetric waves on an extremal Kerr black hole extend to waves without rotational symmetry?", "scope": "Computes the horizon energy-flux sign change for nonaxisymmetric modes, isolating a failure of the axisymmetric positivity argument.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked generator phases, averaged factor 1/2, superradiant/synchronous endpoints and scalar-versus-transverse-derivative scope. Model self-audit only; no independent human proof checking. Coordinator checked the phase-averaged horizon-flux sign and the axisymmetric, superradiant and synchronous cases. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked generator phases, averaged factor 1/2, superradiant/synchronous endpoints and scalar-versus-transverse-derivative scope. Retained unresolved status and zero original-target progress; A coercive nonaxisymmetric extremal estimate yielding the exact horizon-inclusive tau^(-3/5) scalar decay is missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30002146; source catalogue code OWR-12009-002
+\setcounter{section}{30002145}
+\section{Nonaxisymmetric Stability of Extremal Kerr Waves}\label{30002146}
+{\small UnsolvedMath ID 30002146 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+For the extremal Kerr metric $g_{M,a}$ with $M>0$ and $|a|=M$, the scalar wave equation is $\Box_g\psi=0$, where $\Box_g$ is the metric wave operator. Axisymmetry means invariance under the rotational Killing field $\Phi$, namely $\Phi\psi=0$. The event horizon is the boundary of the region that can communicate with future null infinity. Pointwise decay here concerns $\psi$ itself on the exterior together with the horizon, rather than boundedness or decay of every transverse derivative. The source estimate is $|\psi(\tau,\cdot)|\leq CD\,\tau^{-3/5}$ up to and including the horizon, with $D$ controlled by its sufficiently regular initial data. The question asks to remove axisymmetry from this estimate.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+For sufficiently regular solutions $\psi$ of the scalar wave equation on extremal Kerr, does the pointwise decay estimate up to and including the event horizon that is known for axisymmetric solutions remain valid without assuming axisymmetry?
+
+\paragraph{Source scope and qualification.}
+The decay rate was recovered from the primary report (PDF page 30); the data norm and time-foliation conventions remain those of that estimate. Its target is decay of the scalar itself, and known transverse-derivative instabilities are a separate phenomenon.
+\subsection{Short English statement}
+Does the known horizon-inclusive decay of axisymmetric waves on an extremal Kerr black hole extend to waves without rotational symmetry?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Computes the horizon energy-flux sign change for nonaxisymmetric modes, isolating a failure of the axisymmetric positivity argument.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{The nonaxisymmetric horizon-flux obstruction.} Let $T=\partial_t$, $\Phi=\partial_\varphi$ and $K=T+\Omega_H\Phi$ be the horizon generator. For a complex separated phase $\psi=Ae^{-i\omega t+im\varphi}$, with real $\omega$ and integer $m$, one has $T\psi=-i\omega\psi$ and $K\psi=-i(\omega-m\Omega_H)\psi$. For the real part of this wave, averaging the product of these derivatives over its phase gives
+\[
+ \overline{(T\operatorname{Re}\psi)(K\operatorname{Re}\psi)}
+ =\tfrac12\omega(\omega-m\Omega_H)|A|^2.
+\]
+On the horizon $g(K,T)=0$ because $K$ is normal and $T$ tangent, so this is the relevant sign in the scalar stress-energy flux associated with $T$.
+
+\paragraph{Why the axisymmetric estimate does not transfer directly.} At $m=0$ the sign is nonnegative. For $m\Omega_H>0$ and $0<\omega<m\Omega_H$ it is negative, and at the synchronous frequency it vanishes. Hence an energy argument using positivity of this flux loses its principal sign when axisymmetry is removed. The computation needs no assertion that a single monochromatic mode is a finite-energy global solution; it is a local frequency sign test.
+
+\paragraph{Exact remaining target.} A substitute coercive estimate must control the superradiant and synchronous regimes and then recover the source's $|\psi|\leq CD\tau^{-3/5}$ up to the extremal horizon in its data norm. None is proved here. Blowup of transverse derivatives would not alone refute decay of $\psi$ itself, so that separate extremal phenomenon is not offered as a counterexample. The nonaxisymmetric scalar decay problem remains unresolved in this attempt.
+
+\paragraph{Verification and adversarial audit.}
+Checked generator phases, averaged factor 1/2, superradiant/synchronous endpoints and scalar-versus-transverse-derivative scope. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked generator phases, averaged factor 1/2, superradiant/synchronous endpoints and scalar-versus-transverse-derivative scope. Retained unresolved status and zero original-target progress; A coercive nonaxisymmetric extremal estimate yielding the exact horizon-inclusive tau\textasciicircum{}(-3/5) scalar decay is missing.
+
+Coordinator checked the phase-averaged horizon-flux sign and the axisymmetric, superradiant and synchronous cases. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. A coercive nonaxisymmetric extremal estimate yielding the exact horizon-inclusive tau\textasciicircum{}(-3/5) scalar decay is missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. A coercive nonaxisymmetric extremal estimate yielding the exact horizon-inclusive tau\textasciicircum{}(-3/5) scalar decay is missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30002146:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30002146 (OWR-12009-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30002146:2}{S2}] Mathematical Aspects of General Relativity (2012), Oberwolfach Reports, DOI 10.4171/owr/2012/37, pp. 2269--2333. Primary report accessed 2026-10-11; relevant PDF pages 30, 31.
+\url{https://doi.org/10.4171/owr/2012/37}.
+\item[\hypertarget{source:30002146:3}{S3}] Aretakis, axisymmetric waves on extreme Kerr (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/1110.2006}.
+\item[\hypertarget{source:30002146:4}{S4}] Dafermos--Rodnianski--Shlapentokh-Rothman, subextremal Kerr stability (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/1402.7034}.
+\end{itemize}
+\label{end:30002146}
+\end{document}

@@ -1,0 +1,93 @@
+% TOP_PROBLEM: {"id": 30002149, "title": "Non-Disappearance of Nonnegative Scalar-Curvature Limits", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The convergence topology was recovered as intrinsic flat convergence (PDF page 50). The source reports non-disappearance under additional nonnegative-Ricci-curvature or uniform-contractibility assumptions; these are partial cases, not replacements for the scalar-curvature target."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002149", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Can positive-volume regions disappear in limits of nonnegative-scalar-curvature manifolds without interior minimal surfaces?", "scope": "Derives a flat-current noncancellation certificate and a thin-cylinder cancellation example, isolating why volume alone is insufficient.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked mass estimates, side-boundary term, opposite orientations and distinction between ambient flat currents and admissible intrinsic-flat manifold sequences. Model self-audit only; no independent human proof checking. Coordinator checked the bounded-current-test estimate and smooth-region thin-cylinder flat-norm bound, without inferring an admissible intrinsic geometric counterexample. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked mass estimates, side-boundary term, opposite orientations and distinction between ambient flat currents and admissible intrinsic-flat manifold sequences. Retained unresolved status and zero original-target progress; The source scalar-curvature/minimal-surface hypotheses have not been converted into an intrinsic noncancellation bound."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30002149; source catalogue code OWR-12009-006
+\setcounter{section}{30002148}
+\section{Non-Disappearance of Nonnegative Scalar-Curvature Limits}\label{30002149}
+{\small UnsolvedMath ID 30002149 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+Scalar curvature is the trace $R_g$ of the Ricci tensor of a Riemannian metric. A minimal hypersurface has mean curvature zero; a closed interior minimal surface is compact, boundaryless and lies in the interior. In a geometric convergence theory, disappearance means that a region with nonzero volume has no surviving part in the limiting geometric object. Volume is the Riemannian measure of the manifolds in the sequence. The report uses intrinsic flat convergence of oriented integral current spaces; disappearance of the whole sequence means convergence to the zero current space, $d_{\mathcal F}(M_j,0)\to0$. The cited conjecture asks whether this can happen with volumes bounded away from zero under the stated curvature and minimal-surface conditions.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Do sequences of manifolds with nonnegative scalar curvature and no closed interior minimal surfaces other than their boundaries avoid disappearing in the limit unless their volumes tend to zero?
+
+\paragraph{Source scope and qualification.}
+The convergence topology was recovered as intrinsic flat convergence (PDF page 50). The source reports non-disappearance under additional nonnegative-Ricci-curvature or uniform-contractibility assumptions; these are partial cases, not replacements for the scalar-curvature target.
+\subsection{Short English statement}
+Can positive-volume regions disappear in limits of nonnegative-scalar-curvature manifolds without interior minimal surfaces?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derives a flat-current noncancellation certificate and a thin-cylinder cancellation example, isolating why volume alone is insufficient.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A simple persistence certificate from a current test.} Let oriented integral currents $T_j$ be realized in a common metric space and suppose $T_j=U_j+\partial V_j$ with masses $\mathbf M(U_j)+\mathbf M(V_j)\to0$, the kind of decomposition witnessing flat convergence to zero. For a fixed smooth compactly supported differential form $\omega$ of the right degree in a Euclidean ambient space, the defining mass estimate and Stokes formula give
+\[
+ |T_j(\omega)|\leq\|\omega\|_\infty\mathbf M(U_j)+\|d\omega\|_\infty\mathbf M(V_j)\to0.
+\]
+Thus a uniformly positive evaluation on one bounded test form would prevent disappearance in that realization. Volume alone does not supply such a test because opposite orientations can cancel.
+
+\paragraph{An explicit cancellation model.} Two parallel oriented copies of the closure of a fixed bounded region $D\subset\mathbb R^n$ with smooth boundary, separated by distance $\epsilon$ and oppositely oriented, form the top and bottom of the thin cylinder $D\times[0,\epsilon]$. Their total volume tends to $2|D|$, while the cylinder has volume $\epsilon|D|$ and its side boundary has mass $\epsilon|\partial D|$. The current difference therefore has flat norm at most $\epsilon(|D|+|\partial D|)$. Positive mass can disappear through cancellation.
+
+\paragraph{Why this is not a counterexample to the source.} The example is an ambient current configuration, not a connected manifold sequence with the source curvature, intrinsic distances and no-interior-minimal-surface conditions. In intrinsic flat convergence the embeddings also vary, so the certificate must survive their geometry. The first gap is extracting a quantitative noncancellation test from nonnegative scalar curvature and the minimal-surface exclusion. The stronger Ricci/contractibility assumptions from known source cases are not silently imposed.
+
+\paragraph{Verification and adversarial audit.}
+Checked mass estimates, side-boundary term, opposite orientations and distinction between ambient flat currents and admissible intrinsic-flat manifold sequences. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked mass estimates, side-boundary term, opposite orientations and distinction between ambient flat currents and admissible intrinsic-flat manifold sequences. Retained unresolved status and zero original-target progress; The source scalar-curvature/minimal-surface hypotheses have not been converted into an intrinsic noncancellation bound.
+
+Coordinator checked the bounded-current-test estimate and smooth-region thin-cylinder flat-norm bound, without inferring an admissible intrinsic geometric counterexample. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. The source scalar-curvature/minimal-surface hypotheses have not been converted into an intrinsic noncancellation bound.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. The source scalar-curvature/minimal-surface hypotheses have not been converted into an intrinsic noncancellation bound.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30002149:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30002149 (OWR-12009-006). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30002149:2}{S2}] Mathematical Aspects of General Relativity (2012), Oberwolfach Reports, DOI 10.4171/owr/2012/37, pp. 2269--2333. Primary report accessed 2026-10-11; relevant PDF pages 50, 51.
+\url{https://doi.org/10.4171/owr/2012/37}.
+\item[\hypertarget{source:30002149:3}{S3}] Sormani, scalar curvature and intrinsic-flat convergence (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/1606.08949}.
+\end{itemize}
+\label{end:30002149}
+\end{document}

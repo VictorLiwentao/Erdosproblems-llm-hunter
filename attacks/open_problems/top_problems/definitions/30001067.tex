@@ -1,0 +1,56 @@
+% SUBMISSION: {"kind": "statement_only", "category": "top_problems", "problem_id": "30001067", "proposal_type": "established", "source": "Discrete Geometry (2009), Oberwolfach Reports, DOI 10.4171/owr/2008/44, pp. 2477--2556: https://doi.org/10.4171/owr/2008/44", "status_evidence": "The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.", "status_checked_on": "2026-10-11", "duplicate_check": "Canonical ID 30001067 and source code OWR-2090-020 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed.", "attribution": "Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted."}
+% TOP_PROBLEM: {"id": 30001067, "title": "Rotational Matching Complexity for Planar Point Sets", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: null
+% ENTRY_KIND: statement_only
+% Imported from: computer_science_statements.tex; UnsolvedMath ID 30001067
+% Compile twice: lualatex 30001067.tex
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+% UnsolvedMath ID 30001067; source catalogue code OWR-2090-020
+\setcounter{section}{30001066}
+\section{Rotational Matching Complexity for Planar Point Sets}\label{30001067}
+{\small\sffamily UnsolvedMath ID 30001067 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+$R(\theta)$ is the planar rotation matrix and $\pi$ runs over all permutations of $\{1,\ldots,n\}$. The cost is the total squared Euclidean discrepancy after rotation and matching.
+
+Polynomial time means a number of elementary steps bounded by a polynomial in the encoded input length. A decision problem is in $\mathrm{NP}$ if yes-instances have polynomial-length certificates verifiable in polynomial time; NP-hardness is under polynomial-time reductions.
+
+In the LOCAL model vertices communicate synchronously along graph edges; messages and local computation are unrestricted and complexity is the number of rounds. After $t$ rounds a vertex can depend only on its radius-$t$ neighborhood and any supplied identifiers or randomness.
+\paragraph{Statement recorded in the supplied source.}
+Let $A_1,\ldots,A_n$ and $B_1,\ldots,B_n$ be $2n$ points in the plane, and define $$f(\theta)=\min_{\pi}\sum_i\|A_i-R(\theta)B_{\pi(i)}\|^2,$$ where $R(\theta)$ is rotation about the origin. How many intervals of $\theta$ can have a constant optimal permutation, and is this number polynomially bounded? How many local minima can $f$ have, and is there a polynomial-time algorithm for finding the best rotation? \sref{30001067}{2}
+\paragraph{Scope qualification.}
+At ties more than one permutation may be optimal; the supplied question does not specify tie-breaking or generic-position assumptions.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Bound how often optimal planar matchings change with rotation, count local optima, and efficiently find the best rotation.
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001067:1}{S1}] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30001067 (OWR-2090-020). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001067:2}{S2}] Discrete Geometry (2009), Oberwolfach Reports, DOI 10.4171/owr/2008/44, pp. 2477--2556
+\url{https://doi.org/10.4171/owr/2008/44}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30001067 and source code OWR-2090-020 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30001067}
+\end{document}

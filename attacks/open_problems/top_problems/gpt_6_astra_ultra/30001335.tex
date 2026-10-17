@@ -1,0 +1,97 @@
+% TOP_PROBLEM: {"id": 30001335, "title": "Geometric Collapse in the Toroidal Six-Vertex Model", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The comparison comes from a dimer model where the torus angle collapses as the imaginary part tends to zero. The six-vertex conjecture deliberately predicts different behavior with nonzero critical imaginary part; it cannot be replaced by the usual cusp degeneration. The exact geometric-collapse observable remains part of the source construction."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001335", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Test the proposed six-vertex phase transition in which emergent torus geometry collapses at a critical modulus with nonzero imaginary part.", "scope": "Computes flat-torus scale/shape degeneration and shows why a nonzero critical imaginary modulus does not by itself decide collapse.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked metric determinant, lattice lengths, fixed-i shrinking example and noncollapse with a positive lower scale and finite interior modulus. Model self-audit only; no independent human proof checking. Coordinator checked the torus metric determinant, lattice-loop length and distinction between scale collapse and shape degeneration. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked metric determinant, lattice lengths, fixed-i shrinking example and noncollapse with a positive lower scale and finite interior modulus. Retained unresolved status and zero original-target progress; The source six-vertex spectral data have not been converted into a controlled scale/shape metric and collapse observable."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001335; source catalogue code OWR-4084-009
+\setcounter{section}{30001334}
+\section{Geometric Collapse in the Toroidal Six-Vertex Model}\label{30001335}
+{\small UnsolvedMath ID 30001335 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} In the six-vertex model, arrows on edges of a square lattice obey the ice rule: two arrows enter and two leave each vertex. Periodic boundary conditions place the lattice on a torus. The report discusses a continuum geometry emerging from finite-size spectral data, described by a complex modular parameter $\tau=\tau_0+i\tau_1$ with $\tau_1>0$. Geometric collapse refers to degeneration of that emergent geometry at a thermal phase transition, rather than removal of the combinatorial periodic lattice.
+
+\paragraph{Source scope and qualifications.} The comparison comes from a dimer model where the torus angle collapses as the imaginary part tends to zero. The six-vertex conjecture deliberately predicts different behavior with nonzero critical imaginary part; it cannot be replaced by the usual cusp degeneration. The exact geometric-collapse observable remains part of the source construction.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+Does the six-vertex model on a torus undergo a phase transition at which the emergent torus geometry collapses, with critical modular parameter $\tau$ satisfying $\operatorname{Im}(\tau)\neq0$?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: Rigorous torus free-energy and finite-size results now exist for the six-vertex model, but the specific nonzero-critical-parameter collapse conjecture is not established. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Test the proposed six-vertex phase transition in which emergent torus geometry collapses at a critical modulus with nonzero imaginary part.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Computes flat-torus scale/shape degeneration and shows why a nonzero critical imaginary modulus does not by itself decide collapse.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{What a modulus can and cannot encode.} Give the coordinate torus $\mathbb R^2/\mathbb Z^2$ the flat metric
+\[
+ g_{s,\tau}=s^2|dx+\tau dy|^2,\qquad s>0,\quad\tau=u+iv,\ v>0.
+\]
+Its matrix is $s^2\left(\begin{smallmatrix}1&u\\u&u^2+v^2\end{smallmatrix}\right)$, with determinant $s^4v^2$ and area $s^2v$. A lattice loop indexed by integers $(m,n)$ has length $s|m+n\tau|$.
+
+\paragraph{Two different collapse mechanisms.} Fixing $\tau=i$ and letting $s\downarrow0$ shrinks every length and the area while the imaginary part remains one. Conversely, if $s$ stays bounded below and $\tau$ converges to a finite $u_*+iv_*$ with $v_*>0$, the positive-definite metric matrices stay uniformly bounded below. Then nonzero lattice loops have a uniform positive minimum length, so this flat family does not collapse. This follows from continuity of the smallest eigenvalue and $m^2+n^2\geq1$.
+
+\paragraph{Source-level implication.} Therefore nonzero $\operatorname{Im}\tau$ alone neither forbids nor explains collapse: an independent scale factor or another geometric observable matters. This is not the usual $v\to0$ degeneration and does not replace the source's conjecture with it. The first missing step is to extract both scale and shape from the six-vertex finite-size spectrum and identify which source-defined observable degenerates at the transition. No transfer-matrix calculation or phase-transition theorem is supplied, so the proposed model-specific collapse remains unresolved.
+
+\paragraph{Verification and adversarial audit.}
+Checked metric determinant, lattice lengths, fixed-i shrinking example and noncollapse with a positive lower scale and finite interior modulus. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked metric determinant, lattice lengths, fixed-i shrinking example and noncollapse with a positive lower scale and finite interior modulus. Retained unresolved status and zero original-target progress; The source six-vertex spectral data have not been converted into a controlled scale/shape metric and collapse observable.
+
+Coordinator checked the torus metric determinant, lattice-loop length and distinction between scale collapse and shape degeneration. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. The source six-vertex spectral data have not been converted into a controlled scale/shape metric and collapse observable.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. The source six-vertex spectral data have not been converted into a controlled scale/shape metric and collapse observable.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001335:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001335 (OWR-4084-009). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001335:2}{S2}] Noncommutative Geometry (2009), Oberwolfach Reports, DOI 10.4171/owr/2009/41, pp. 2271--2334; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2009/41}.
+\item[\hypertarget{source:30001335:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF page 44, printed page 2314.
+\url{https://ems.press/content/serial-article-files/46243}.
+\item[\hypertarget{source:30001335:4}{S4}] six-vertex free energy; reference in the saved dated catalogue literature review.
+\url{https://arxiv.org/abs/2012.11675}.
+\item[\hypertarget{source:30001335:5}{S5}] toroidal finite-size partition function; reference in the saved dated catalogue literature review.
+\url{https://doi.org/10.1103/PhysRevE.53.3225}.
+\end{itemize}
+\label{end:30001335}
+\end{document}

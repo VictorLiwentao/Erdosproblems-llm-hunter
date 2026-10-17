@@ -1,0 +1,55 @@
+% SUBMISSION: {"kind": "statement_only", "category": "top_problems", "problem_id": "9300002", "proposal_type": "established", "source": "AMR Open Problem Lists, original problem source linked by catalogue record AMR-092-0002: https://unsolvedproblems.org/index_files/DiffieHellman.htm", "status_evidence": "The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.", "status_checked_on": "2026-10-11", "duplicate_check": "Canonical ID 9300002 and source code AMR-092-0002 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed.", "attribution": "Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted."}
+% TOP_PROBLEM: {"id": 9300002, "title": "Computational Diffie–Hellman problem", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: null
+% ENTRY_KIND: statement_only
+% Imported from: computer_science_statements.tex; UnsolvedMath ID 9300002
+% Compile twice: lualatex 9300002.tex
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+% UnsolvedMath ID 9300002; source catalogue code AMR-092-0002
+\setcounter{section}{9300001}
+\section{Computational Diffie–Hellman problem}\label{9300002}
+{\small\sffamily UnsolvedMath ID 9300002 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Let $p$ be prime and $g$ a generator of the cyclic multiplicative group $\mathbb{F}_p^{\times}$, whose order is $p-1$. Unknown exponents $a,b$ are taken modulo $p-1$. The input consists of the binary representations of $p,g,A=g^a\bmod p$ and $B=g^b\bmod p$, and the output is the residue $g^{ab}\bmod p$. The output is independent of the representatives chosen for $a,b$. A uniform efficient algorithm has running time polynomial in the binary input length, hence polynomial in $\log p$. Computing either exponent by a discrete-logarithm algorithm is sufficient to obtain the answer, but recovering either exponent is not part of the required output.
+\paragraph{Statement recorded in the supplied source.}
+Given a prime modulus $p$, a group generator $g$, and the public values $g^a$ and $g^b$ modulo $p$, can the shared value $g^{ab}\bmod p$ be computed efficiently without knowing $a$ or $b$? \sref{9300002}{2}
+\paragraph{Scope qualification.}
+The open computational question uses classical computation; quantum discrete-logarithm algorithms change its status. The original Diffie--Hellman paper presents the public powers and shared product exponent and does not prove their classical hardness. The catalogue supplies neither a distribution on primes and exponents nor a particular cryptographic hardness assumption, so a universal average-case claim is not asserted here. Some parameter families admit easier algorithms. The original primary paper was inspected on 2026-10-11; the catalogue's linked later problem page was unavailable through the browsing tool, and no complete current cryptanalytic audit is claimed.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can the shared Diffie--Hellman value be computed quickly from the two public powers, without either party's secret exponent?
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:9300002:1}{S1}] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 9300002 (AMR-092-0002). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:9300002:2}{S2}] AMR Open Problem Lists, original problem source linked by catalogue record AMR-092-0002
+\url{https://unsolvedproblems.org/index_files/DiffieHellman.htm}.
+\item[\hypertarget{source:9300002:3}{S3}] Whitfield Diffie and Martin E. Hellman, New Directions in Cryptography, IEEE Transactions on Information Theory 22 (1976), pp. 644--654, Section III.
+\url{https://www-ee.stanford.edu/~hellman/publications/24.pdf}.
+\item[\hypertarget{source:9300002:4}{S4}] Peter W. Shor, Algorithms for quantum computation: discrete logarithms and factoring, FOCS 1994; reason to distinguish the computational model.
+\url{https://doi.org/10.1109/SFCS.1994.365700}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 9300002 and source code AMR-092-0002 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:9300002}
+\end{document}

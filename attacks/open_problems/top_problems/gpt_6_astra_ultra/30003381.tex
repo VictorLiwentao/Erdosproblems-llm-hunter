@@ -1,0 +1,126 @@
+% RESEARCH_DRAFT_SHA256: 968ba7d9be2c3bb77eb963351d29e9232332e6f29d79460d85f3d85b546c1a24
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30003381, "title": "Achievable Relations in Multi-Key Ciphertext Transformations", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003381", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and written-proof review of this attempt; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Achievable Relations in Multi-Key Ciphertext Transformations; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Nonsignaling marginals do not imply local correlations; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch021 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30003381; source catalogue code OWR-15210-007
+\section{Achievable Relations in Multi-Key Ciphertext Transformations}\label{30003381}
+{\small UnsolvedMath ID 30003381 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A public-key ciphertext encodes a plaintext under one public key and is decoded by the corresponding secret key. A ciphertext transformation may coordinate across the different public-key instances.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The encryption scheme, admissible transformations, leakage, and security setting are not specified in the supplied question.
+
+Source-record limitation: The encryption scheme and admissible ciphertext transformations are not supplied, so the relation target is undefined.
+\paragraph{Statement recorded in the supplied source.}
+Given ciphertexts encrypting $x_1,\ldots,x_n$ under independent public keys and transformed ciphertexts decrypting to $y_1,\ldots,y_n$, which relations between $(x_1,\ldots,x_n)$ and $(y_1,\ldots,y_n)$ can an adversary induce? \href{https://doi.org/10.4171/owr/2017/5}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Characterize relations an adversary can force among messages encrypted under independent keys.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30003381 (OWR-15210-007). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Cryptography (2018), Oberwolfach Reports, DOI 10.4171/owr/2017/5, pp. 213--266
+\url{https://doi.org/10.4171/owr/2017/5}.
+\item[S3] Dodis et al., Spooky Encryption and its Applications
+\url{https://iacr.org/archive/crypto2016/98160089/98160089.pdf}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30003381 and code OWR-15210-007 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30003381}
+
+\section{Literature and context check}
+Rothblum's spooky-encryption talk in OWR 5/2017, pp.~255--256, was read. It distinguishes local relations, nonsignaling relations, shared setup and fully independent keys, and reports conditional constructions. The catalogue question is broader than a single fixed encryption scheme. The following reduction and four-input calculation explain why marginal security alone does not characterize the joint relations; they do not construct or rule out the reported schemes.
+\section{Research attempt: Nonsignaling marginals do not imply local correlations}
+
+\paragraph{The exact computational marginal implication.}
+Assume an IND-CPA secure public-key encryption scheme, independently generated keys, and an efficient transformation that receives their public keys and encryptions of chosen messages and returns one ciphertext under each key. Fix distinct indices $i,j$, all messages except $x_j$, and two choices for $x_j$. For every efficient predicate of the decrypted output $y_i$ (including a decryption-failure symbol), its acceptance probabilities in the two experiments differ negligibly.
+
+Otherwise an IND-CPA adversary for key $j$ generates all other key pairs itself, including secret key $i$, and uses its challenge ciphertext for the varying $j$-th input. It forms all other encryptions, runs the transformation, decrypts its $i$-th output and applies the predicate. Its distinguishing advantage is exactly the nonnegligible difference. The simulation is valid because the keys are independently generated and the reduction knows every secret key except the challenged one. This proof establishes computational indistinguishability of a marginal, not literal equality of distributions. It does not automatically apply to correlated key setup without a suitable security experiment.
+
+\paragraph{A joint relation with completely flat marginals.}
+For two input bits $x_1,x_2$, choose a uniform bit $r$ and define an abstract output distribution by
+\[
+ y_1=r,\qquad y_2=r+x_1x_2\quad\text{in }\mathbb F_2.
+\]
+Each output alone is a uniform bit independent of both inputs, yet their XOR is exactly $x_1x_2$. This relation therefore satisfies even exact nonsignaling marginals.
+
+It cannot be implemented by local functions with only input-independent shared randomness: there do not exist $a(x_1,R)$ and $b(x_2,R)$ satisfying the XOR relation with probability one for every input pair. Since there are only four input pairs, probability-one correctness would give a set of random seeds of probability one on which all four equations hold. At each such seed their XOR gives
+\[
+ 0=0+0+0+1=1,
+\]
+where the zero on the left follows because each of $a(0),a(1),b(0),b(1)$ appears twice. More quantitatively, every deterministic seed fails on at least one pair, so under uniformly random inputs any such shared-randomness local strategy succeeds with probability at most $3/4$. The strategy $a=b=0$ attains $3/4$, proving the bound sharp in this restricted model.
+
+\paragraph{The missing implication in a classification attempt.}
+The computational marginal reduction does not prohibit the displayed joint relation: it offers no test on one decrypted output that can distinguish either value of the other input. The locality bound also does not prohibit a ciphertext transformation, whose algorithm sees all ciphertexts simultaneously and may use algebraic structure unavailable to separated local functions. Confusing these models would incorrectly turn marginal IND-CPA security into a full classification. Conversely, exhibiting an abstract nonsignaling distribution does not show that it can be efficiently realized by any chosen encryption scheme. The first remaining step is precisely an encryption construction or a scheme-specific obstruction for the joint relation.
+\section{Verification and adversarial audit}
+The IND-CPA reduction explicitly retains the secret key needed to decrypt output $i$ and challenges a different key $j$. The four equations were checked for every Boolean input and the shared-randomness success bound proved by averaging deterministic seeds. The distinction between exact nonsignaling, computational marginal indistinguishability, and local realizability is maintained throughout.
+\paragraph{Audit corrections.} Replaced an incorrect exact-distribution reading of semantic security by computational indistinguishability. Distinguished a nonsignaling abstract distribution from both local shared-randomness operations and an implemented ciphertext transformation.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+No necessary-and-sufficient characterization for the unspecified encryption schemes and admissible transformations is obtained. The primary source's common-randomness and independent-key constructions are contextual, not re-proved. The actual result is a precise marginal reduction and an explicit nonlinear correlation that exposes the insufficiency of marginal security for the original joint-relation question.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46669} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and written-proof review of this attempt; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

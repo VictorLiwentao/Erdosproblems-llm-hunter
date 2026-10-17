@@ -1,0 +1,155 @@
+% RESEARCH_DRAFT_SHA256: 41470814a1cdd1dd3e770712d574e276aa9483eea94c4ecd9adab2a46aaa4355
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001257, "title": "Binomial windows for prescribed-degree factors", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001257", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 7. Let m ≥ n ∈ Z. Prove there is a polynomial g ∈ Fq[x] of degree\n\n≤ 2 log n so that xm + g(x) has an irreducible factor of degree n. (Gao)", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Exact quotient-space feasibility and sparse Frobenius windows are proved, but no intersection argument covers every exponent at the original logarithmic perturbation bound.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Prescribed-degree factors: a quotient-space test and exact Frobenius windows}
+\noindent UnsolvedMath ID 20001257; AIM-COMPUTATION-0095. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+An irreducible factor of degree $n$ is a nonconstant divisor irreducible over $\mathbb F_q$ with that degree. The proposed perturbation $g$ has degree at most $2\log n$, while the main term is $x^m$. The task is existence of a low-degree perturbation admitting such a factor.
+\paragraph{Statement recorded in the supplied source.}
+Question 7. Let m ≥ n ∈ Z. Prove there is a polynomial g ∈ Fq[x] of degree
+
+≤ 2 log n so that xm + g(x) has an irreducible factor of degree n. (Gao) \href{https://aimath.org/WWN/primesinp/primesinp.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The printed source does not specify the logarithm base and writes m and n as integers; the degree and logarithm require positive n. No sharper range or corrected theorem is substituted.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can a very low-degree perturbation of a monomial force an irreducible factor of a prescribed degree?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001257 (AIM-COMPUTATION-0095). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0095
+\url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 7. Let m ≥ n ∈ Z. Prove there is a polynomial g ∈ Fq[x] of degree
+
+≤ 2 log n so that xm + g(x) has an irreducible factor of degree n. (Gao)
+
+\section{A cutoff that keeps the logarithm ambiguity visible}
+Let $n\ge1$, $m\ge n$ and an integer degree cutoff $L\ge0$ be fixed.
+The source requests $L=\lfloor2\log n\rfloor$ without specifying the
+logarithm base. Our statements retain $L$ explicitly. The proposed
+route is to choose an irreducible factor first and solve for the low
+degree perturbation in its quotient field.
+
+\paragraph{Exact linear-algebra equivalence for a chosen factor.}
+Let $F\in\mathbb F_q[X]$ be monic irreducible of degree $n$, and let
+$\alpha$ be the class of $X$ in $K=\mathbb F_q[X]/(F)$.
+Then some $g$ of degree at most $L$ satisfies $F\mid X^m+g$ exactly
+when
+\[
+-\alpha^m\in\operatorname{span}_{\mathbb F_q}
+                  (1,\alpha,\ldots,\alpha^L).
+\]
+Indeed, divisibility is equivalent to zero remainder modulo the monic
+$F$, which is the equation $\alpha^m+g(\alpha)=0$. The coefficients
+of $g$ give one direction and coordinates in the span give the other.
+If $L\ge n-1$ this always works, since the first $n$ powers form a
+basis by monic division and linear independence below degree $n$.
+For smaller $L$, dimension alone does not force membership.
+For example over $\mathbb F_2$, $F=X^3+X+1$ is irreducible: it has
+no root at zero or one, and any reducible cubic over a field has a
+linear factor. Here $\alpha^3=\alpha+1$ and
+$\alpha^4=\alpha^2+\alpha$, which is not in the span of $1,\alpha$.
+Thus a degree-one perturbation at $m=4$ cannot contain this selected
+factor. This is a counterexample to an arbitrarily chosen-factor route
+at cutoff one, not to the source's larger logarithmic cutoff.
+
+\paragraph{An exact family of successful small windows.}
+Every element of a finite field with $q^n$ elements satisfies
+$\alpha^{q^n}=\alpha$: nonzero elements form a group of order
+$q^n-1$, so their orders divide that number by the coset proof of
+Lagrange's theorem; zero also satisfies the equation.
+It follows that if $s$ is a positive multiple of $n$, $r\ge0$ and
+$m=q^s+r$, then every monic degree-$n$ irreducible satisfies
+\[
+F\mid X^m-X^{r+1}.
+\]
+To prove this, work in its $q^n$-element quotient field and repeatedly
+apply the $q^n$-power identity, obtaining
+$\alpha^{q^s+r}=\alpha^{r+1}$. The preceding remainder criterion
+then proves divisibility. Thus $g=-X^{r+1}$ works whenever $r+1\le L$.
+These windows are sparse special values of $m$; they are not all
+integers $m\ge n$.
+
+For completeness, degree-$n$ irreducibles do exist over every finite
+field. In an algebraic closure the roots of $X^{q^n}-X$ are distinct
+(its derivative is $-1$), and form a field: the $q^n$-power map
+preserves sums, products and inverses. There are exactly $q^n$ roots.
+The orbit of a root under $\alpha\mapsto\alpha^q$ has length $d\mid n$;
+the product of its linear factors has coefficients fixed by that map,
+hence in $\mathbb F_q$ (the fixed elements are the $q$ roots of
+$X^q-X$). Its minimal polynomial has exactly that orbit: applying
+Frobenius to a root of a polynomial over $\mathbb F_q$ gives another
+root, while the displayed orbit product is itself such a polynomial.
+An element with degree less than $n$ lies among the roots of
+$X^{q^d}-X$ for a proper divisor $d$ of $n$. Their union has size at
+most $\sum_{d=1}^{\lfloor n/2\rfloor}q^d<q^n$ for $n\ge2$,
+by the finite geometric sum (including $n=2,q=2$).
+An element outside the union has degree $n$. The case $n=1$ is
+immediate. This justifies that the successful-window statement contains
+an actual factor rather than a vacuous universal quantifier.
+
+\paragraph{The general step still missing.}
+For arbitrary $m$ and logarithmic $L<n-1$, one must vary $F$ and
+prove that at least one resulting power $\alpha^m$ lies in its short
+power span. Neither the dimension argument nor a count of candidate
+polynomials proves such an intersection. Exhaustive testing may find
+examples, but a failed test for one $F$ does not exclude all $F$, and
+an observed sequence of successes would not prove existence for all
+$m,n,q$. For $n=1$, the constant perturbation $g=-1$ already gives
+the linear factor $X-1$, consistent with the zero logarithmic cutoff.
+
+\section{Audit}
+The primary Question 7 and its remarks were inspected. The audit kept
+field size, factor degree, perturbation degree, sparsity and primitivity
+distinct, and did not impose a logarithm base that the source omits.
+All computations above are exact by hand; no polynomial search was run.
+These elementary finite-field constructions do not supply the universal
+existence theorem requested by the source, and no novelty is asserted.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Exact quotient-space feasibility and sparse Frobenius windows are proved, but no intersection argument covers every exponent at the original logarithmic perturbation bound.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Future directions in algorithmic number theory, workshop 24--28 March 2003, report version 30 April 2003; original question, relevant lecture context and adjoining remarks inspected on 11 October 2026. \url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Exact quotient-space feasibility and sparse Frobenius windows are proved, but no intersection argument covers every exponent at the original logarithmic perturbation bound.
+\end{document}

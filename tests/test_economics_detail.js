@@ -150,6 +150,15 @@ async function main() {
     page = await render('?type=economics&id=C73-1', explicitReference);
     assert.equal(page.element('problem-links').references[2].href, 'problem.html?type=economics&id=C73-2');
 
+    const withHuman = { ...sample, 'C73-1': { ...sample['C73-1'], llm_status: 'none',
+        attacks: [{model: 'Example Author (human contribution)', version: 1,
+            entry_kind: 'human_contribution', review_status: 'submitted', status: 'unresolved',
+            raw: String.raw`\section{Original human manuscript}A claimed theorem.`}] } };
+    page = await render('?type=economics&id=C73-1', withHuman);
+    assert.match(page.element('attempts-container').innerHTML, /Example Author \(human contribution\)/);
+    assert.match(page.element('attempts-container').innerHTML, /status-text">submitted</);
+    assert.match(page.element('problem-meta').innerHTML, /LLM Claim:<\/strong> no attempt/);
+
     const withAttacks = { ...sample, 'C73-1': { ...sample['C73-1'], llm_status: 'unresolved',
         attacks: [1, 2].map(version => ({
             model: 'GPT 6 Astra Pro', version, status: 'unresolved', date_posted: '2026-10-09',

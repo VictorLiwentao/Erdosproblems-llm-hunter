@@ -1,0 +1,96 @@
+% TOP_PROBLEM: {"id": 30003581, "title": "Lower-Bounded Hamiltonians for Many-Body Point Interactions", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The report explains that unrestricted bosonic zero-range systems can suffer Thomas collapse and focuses on a fermion-plus-distinguishable-particle model. Thus this extraction is a construction question in admissible regimes, not an existence claim for every statistics or mass ratio."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003581", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Construct mathematically sound many-particle contact-interaction Hamiltonians that do not collapse to arbitrarily negative energy.", "scope": "Rejected the naive attractive delta form in three dimensions by a normalized scaling sequence; no admissible many-body contact Hamiltonian is constructed.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked normalization and both epsilon powers; distinguished failure of an unrenormalized form from collapse of genuine point-interaction extensions and from fermionic channels. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the normalized contact-form scaling and discontinuity of point evaluation in the three-dimensional H1 norm. The unrenormalized expression is distinguished from actual point-interaction extensions. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked normalization and both epsilon powers; distinguished failure of an unrenormalized form from collapse of genuine point-interaction extensions and from fermionic channels. The remaining gap is: Construct a closed renormalized many-body contact form with a uniform lower bound in the specified fermionic mass regime. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30003581; source catalogue code OWR-15584-001
+\setcounter{section}{30003580}
+\section{Lower-Bounded Hamiltonians for Many-Body Point Interactions}\label{30003581}
+{\small UnsolvedMath ID 30003581 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+A point interaction is a zero-range interaction specified by contact boundary conditions or an extension of a free differential operator, rather than a naive bounded multiplication potential. A Hamiltonian is self-adjoint on an explicitly stated dense domain; boundedness below means $\langle\psi,H\psi\rangle\geq-C\|\psi\|^2$ on its quadratic-form domain for some finite $C$. Pairwise contact conditions must be jointly compatible with the statistics, mass ratios and many-particle collision geometry.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Construct a self-adjoint Hamiltonian, bounded from below, that models pairwise point interactions in a many-body quantum system.
+
+\paragraph{Source scope and qualification.}
+The report explains that unrestricted bosonic zero-range systems can suffer Thomas collapse and focuses on a fermion-plus-distinguishable-particle model. Thus this extraction is a construction question in admissible regimes, not an existence claim for every statistics or mass ratio.
+\subsection{Short English statement}
+Construct mathematically sound many-particle contact-interaction Hamiltonians that do not collapse to arbitrarily negative energy.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Rejected the naive attractive delta form in three dimensions by a normalized scaling sequence; no admissible many-body contact Hamiltonian is constructed.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30003581. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{Why a naive contact quadratic form fails.} I test the simplest proposed construction before addressing the fermionic mass regimes specified by [S2]. In three relative spatial dimensions consider the formal two-body form
+\[
+ q(\psi)=\int_{\mathbb R^3}|\nabla\psi|^2\,dx-g|\psi(0)|^2,
+ \qquad g>0,\quad\psi\in C_c^\infty(\mathbb R^3).
+\]
+Choose \(\phi\) in this domain with \(\|\phi\|_2=1\) and \(\phi(0)\ne0\), and set \(\psi_\varepsilon(x)=\varepsilon^{-3/2}\phi(x/\varepsilon)\). A change of variables yields
+\[
+ \|\psi_\varepsilon\|_2=1,\qquad
+ q(\psi_\varepsilon)=\varepsilon^{-2}\|\nabla\phi\|_2^2-g\varepsilon^{-3}|\phi(0)|^2\longrightarrow-\infty.
+\]
+Thus this unrenormalized candidate cannot be the desired lower-bounded form. Even point evaluation is not continuous in the free energy norm: with \(\chi_\varepsilon(x)=\phi(x/\varepsilon)\), its squared \(H^1\) norm is \(\varepsilon^3\|\phi\|_2^2+\varepsilon\|\nabla\phi\|_2^2\to0\), while its value at zero stays nonzero.
+\paragraph{Scope and audit.} These are computations about smooth functions in the relative coordinate, not a theorem of Thomas collapse for properly defined extensions. Antisymmetry can remove a same-species contact channel; it does not justify applying this calculation to every allowed many-body channel. Genuine point interactions require singular domains or renormalized forms rather than the displayed expression. The first missing step is to construct and control the jointly compatible contact charges in the source's admissible statistics and mass range. Self-adjointness, stability and all simultaneous-collision domains remain unproved here.
+
+\paragraph{Verification and adversarial audit.}
+Checked normalization and both epsilon powers; distinguished failure of an unrenormalized form from collapse of genuine point-interaction extensions and from fermionic channels. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked normalization and both epsilon powers; distinguished failure of an unrenormalized form from collapse of genuine point-interaction extensions and from fermionic channels. The remaining gap is: Construct a closed renormalized many-body contact form with a uniform lower bound in the specified fermionic mass regime. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the normalized contact-form scaling and discontinuity of point evaluation in the three-dimensional H1 norm. The unrenormalized expression is distinguished from actual point-interaction extensions. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Construct a closed renormalized many-body contact form with a uniform lower bound in the specified fermionic mass regime.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30003581:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30003581 (OWR-15584-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30003581:2}{S2}] Mathematical Questions and Challenges in Quantum Electrodynamics and its Applications (2017), Oberwolfach Reports, DOI 10.4171/owr/2017/41, pp. 2539--2599. Primary report accessed 2026-10-11; relevant PDF pages 40.
+\url{https://doi.org/10.4171/owr/2017/41}.
+\item[\hypertarget{source:30003581:3}{S3}] Three-body zero-range interactions (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/2107.07188}.
+\item[\hypertarget{source:30003581:4}{S4}] Contact-interaction Hamiltonians (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/2403.12594}.
+\end{itemize}
+\label{end:30003581}
+\end{document}

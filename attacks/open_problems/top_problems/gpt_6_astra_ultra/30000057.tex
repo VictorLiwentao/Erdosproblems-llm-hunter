@@ -1,0 +1,151 @@
+% RESEARCH_DRAFT_SHA256: df4f8a977fc1ec7fc12887057fb2642072066ead0bd55eb42ed29441fb3f103b
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000057, "title": "Expected-Optimum Approximation for Random MAX $R$-3SAT", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000057", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "For fixed clause size $r$ and density $m/n$, design a polynomial-time algorithm for random MAX $R$-3SAT instances $F$ that returns an assignment with expected value $\\mathbb{E}[A(F)]\\geq(1-\\varepsilon)\\mathbb{E}[\\operatorname{OPT}(F)]$ for every $\\varepsilon>0$.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The elementary guarantee improves with density, but does not give arbitrary accuracy at every fixed density or settle every source distribution convention.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Random MAX-3SAT: an explicit high-density bound and the fixed-density gap}
+\noindent UnsolvedMath ID 30000057; OWR-730-006. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+$n$ is the number of Boolean variables and $m$ the number of random clauses. $A(F)$ counts the clauses satisfied by the algorithm and $\operatorname{OPT}(F)$ the maximum satisfiable count; expectations are over the instance distribution and any algorithmic randomness.
+
+Polynomial time means a number of elementary steps bounded by a polynomial in the encoded input length. A decision problem is in $\mathrm{NP}$ if yes-instances have polynomial-length certificates verifiable in polynomial time; NP-hardness is under polynomial-time reductions.
+
+A $k$-CNF formula is a conjunction of clauses, each a disjunction of at most $k$ literals; a literal is a variable or its negation. Satisfiability asks whether a Boolean assignment makes every clause true. MAX-SAT instead maximizes the number or weight of satisfied clauses.
+\paragraph{Statement recorded in the supplied source.}
+For fixed clause size $r$ and density $m/n$, design a polynomial-time algorithm for random MAX $R$-3SAT instances $F$ that returns an assignment with expected value $\mathbb{E}[A(F)]\geq(1-\varepsilon)\mathbb{E}[\operatorname{OPT}(F)]$ for every $\varepsilon>0$. \href{https://doi.org/10.4171/owr/2004/28}{[S2]}
+\paragraph{Scope qualification.}
+The supplied name MAX $R$-3SAT and parameter $r$ are retained. The random-clause distribution and relation between these symbols must be read from the report; they are not replaced by a different random-SAT model.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Find efficient assignments whose expected score approaches the expected best possible score for random satisfiability instances.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000057 (OWR-730-006). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Approximation Algorithms for NP-Hard Problems (2005), Oberwolfach Reports, DOI 10.4171/owr/2004/28, pp. 1461--1540
+\url{https://doi.org/10.4171/owr/2004/28}.
+\item[S3] random MAX-3SAT approximation theorem
+\url{https://doi.org/10.1051/ro:2007008}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+For fixed clause size $r$ and density $m/n$, design a polynomial-time algorithm for random MAX $R$-3SAT instances $F$ that returns an assignment with expected value $\mathbb{E}[A(F)]\geq(1-\varepsilon)\mathbb{E}[\operatorname{OPT}(F)]$ for every $\varepsilon>0$.
+
+\section{Distribution and source scope}
+The primary discussion distinguishes approximating the optimum value
+from finding an assignment with a ratio guarantee. The cleaned question
+asks the stronger assignment guarantee in expectation. Its clause-size
+symbol $r$ is not a new parameter silently substituted for the source's
+three-literal clauses. We analyze the explicit model in which each
+clause independently chooses three uniform literals with replacement
+from the $2n$ literals. This makes precise one reading of the source's
+random choice; no claim is made for an unspecified different distribution.
+
+\paragraph{A fixed assignment and a bound on the expected optimum.}
+Every fixed assignment makes exactly $n$ of the $2n$ literals false.
+All three draws are false with probability $1/8$, so the number
+$X_a$ of clauses satisfied by assignment $a$ has expectation
+$qm$, where $q=7/8$. Different clauses are independent. We claim
+\[
+qm\le\mathbb E\operatorname{OPT}(F)
+\le qm+\sqrt{mn\log2/2}.
+\]
+The lower bound follows by using any fixed assignment.
+For the upper bound, if $B$ is a Bernoulli variable, the function
+$h(t)=\log\mathbb E e^{t(B-\mathbb EB)}$ has $h(0)=h'(0)=0$.
+Direct differentiation shows that $h''(t)$ is the variance of a
+Bernoulli variable with its exponentially tilted success probability,
+and is at most $1/4$, since $u(1-u)\le1/4$. Twice integrating
+gives $h(t)\le t^2/8$ for $t\ge0$. Independence now gives
+$\mathbb E e^{t(X_a-qm)}\le e^{mt^2/8}$. There are $2^n$
+assignments, so
+\[
+\mathbb E e^{t(\operatorname{OPT}-qm)}
+\le\sum_a\mathbb E e^{t(X_a-qm)}\le2^n e^{mt^2/8}.
+\]
+The first inequality holds because a maximum of nonnegative numbers
+is bounded by their sum. Jensen's inequality for the exponential
+gives $t(\mathbb E\operatorname{OPT}-qm)\le n\log2+mt^2/8$.
+Choosing $t=\sqrt{8n\log2/m}$ proves the claim for $m,n>0$;
+$m=0$ is immediate. Jensen here also follows from the supporting-line
+inequality $e^x\ge e^u(1+x-u)$ with $u=\mathbb EX$.
+
+\paragraph{What this actually proves for an algorithm.}
+The deterministic algorithm returning the all-false assignment has
+expected score $qm$, though its score on an individual formula need
+not be at least $qm$. If $m=cn$, the preceding estimate yields
+\[
+\frac{\mathbb EA(F)}{\mathbb E\operatorname{OPT}(F)}
+\ge\frac{q}{q+\sqrt{\log2/(2c)}}
+\ge1-\frac{1}{q}\sqrt{\frac{\log2}{2c}}.
+\]
+The last inequality is $1/(1+x)\ge1-x$ for $x\ge0$,
+obtained by multiplying by $1+x$. Thus a density
+$c\ge\log2/(2q^2\varepsilon^2)$ suffices for the requested
+expectation ratio in this specified model. This is an elementary
+high-density observation, not a scheme for every fixed density and
+arbitrarily small $\varepsilon$.
+
+\paragraph{The failed extension to a fixed sparse density.}
+For fixed $c$, our error bound divided by $m$ is a positive constant,
+not a quantity tending to zero with $n$. The union over $2^n$
+assignments contributes the $n\log2$ term that survives after
+optimization. A concentration statement for $\operatorname{OPT}/n$
+around its unknown expectation cannot remove this term or compute
+that expectation: it locates the random value around an unspecified
+center. This is the exact point where combining a trivial assignment
+with concentration fails to prove a PTAS at every fixed density.
+No lower bound on all algorithms is inferred from this failure.
+
+\section{Audit}
+The original discussion on printed page 1531 was inspected. The audit
+keeps approximation of a number separate from producing an assignment,
+and expectation ratios separate from expected ratios or high-probability
+claims. Clauses with repeated variables are permitted in the explicitly
+analyzed model, so no false pointwise $7m/8$ guarantee is used.
+No random-instance experiment or current-literature completeness claim
+was made. The density dependence leaves the original all-accuracy,
+fixed-density target unresolved.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The elementary guarantee improves with density, but does not give arbitrary accuracy at every fixed density or settle every source distribution convention.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 28/2004, Approximation Algorithms for NP-Hard Problems, original question and surrounding discussion read from the cached primary PDF text on 11 October 2026. Historical statements are not a current-status survey. \url{https://doi.org/10.4171/owr/2004/28}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The elementary guarantee improves with density, but does not give arbitrary accuracy at every fixed density or settle every source distribution convention.
+\end{document}

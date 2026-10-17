@@ -1,0 +1,98 @@
+% TOP_PROBLEM: {"id": 30001486, "title": "Casimir-Connection Monodromy and Quantum Weyl Groups", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The identification of the finite-dimensional Yangian and quantum-loop module data is part of the proposed comparison. Equality of abstract braid groups alone is insufficient, and a result for sl_2 alone does not settle every simple Lie algebra."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001486", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Identify the monodromy of the trigonometric Casimir connection with the affine quantum Weyl-group action.", "scope": "Derives local logarithmic monodromy and first-order simultaneous-conjugacy tests for any proposed quantum-Weyl intertwiner.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked monodromy orientation, determinant, arbitrary C0 conjugacy and insufficiency of local residues for global equivalence. Model self-audit only; no independent human proof checking. Coordinator checked the fixed-residue logarithmic monodromy and simultaneous first-order conjugacy requirement. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked monodromy orientation, determinant, arbitrary C0 conjugacy and insufficiency of local residues for global equivalence. Retained unresolved status and zero original-target progress; The actual module comparison and global higher-order braid-generator intertwining are not constructed."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001486; source catalogue code OWR-4338-002
+\setcounter{section}{30001485}
+\section{Casimir-Connection Monodromy and Quantum Weyl Groups}\label{30001486}
+{\small UnsolvedMath ID 30001486 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} Let $\mathfrak g$ be a complex simple Lie algebra, $\mathfrak h$ a Cartan subalgebra, and $W$ its Weyl group. The regular torus removes the root hypertori from the torus with Lie algebra $\mathfrak h$; the fundamental group of its Weyl quotient is the affine braid group in the report. The trigonometric Casimir connection is the flat Weyl-equivariant connection defined there with values in the Yangian $Y(\mathfrak g)$. Its monodromy gives a braid-group representation. The quantum loop algebra $U_\hbar(L\mathfrak g)$ deforms the enveloping algebra of $\mathfrak g[z,z^{-1}]$, and its quantum Weyl operators give a second braid-group action. Equivalence asks for an intertwiner between these representations under the source's module comparison.
+
+\paragraph{Source scope and qualifications.} The identification of the finite-dimensional Yangian and quantum-loop module data is part of the proposed comparison. Equality of abstract braid groups alone is insufficient, and a result for sl\_2 alone does not settle every simple Lie algebra.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+Is the monodromy of the trigonometric Casimir connection equivalent to the quantum Weyl-group action of the affine braid group on finite-dimensional modules over the quantum loop algebra $U_{\hbar}(L\mathfrak g)$?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The monodromy equivalence is proved for sl\_2, while the conjecture for a general simple Lie algebra remains open. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\paragraph{Scope and source qualification.}The identification of the finite-dimensional Yangian and quantum-loop module data is part of the proposed comparison. Equality of abstract braid groups alone is insufficient, and a result for sl_2 alone does not settle every simple Lie algebra.
+\subsection{Short English statement}
+Identify the monodromy of the trigonometric Casimir connection with the affine quantum Weyl-group action.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derives local logarithmic monodromy and first-order simultaneous-conjugacy tests for any proposed quantum-Weyl intertwiner.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A local monodromy necessary test.} For a fixed finite-dimensional matrix $R$ and formal or small complex parameter $\hbar$, consider the pure logarithmic equation $dF/dz=(\hbar R/z)F$. On a chosen logarithm branch, $F(z)=\exp(\hbar R\log z)$, verified by differentiating the exponential of the fixed matrix. One positive circuit about zero changes it by
+\[
+ M_R=\exp(2\pi i\hbar R)=I+2\pi i\hbar R+O(\hbar^2).
+\]
+Its determinant is $\exp(2\pi i\hbar\operatorname{Tr}R)$, as follows by triangularizing $R$ and multiplying the diagonal exponentials.
+
+\paragraph{Constraints on a proposed intertwiner.} If two braid actions have generator matrices $M_i=I+\hbar A_i+O(\hbar^2)$ and $Q_i=I+\hbar B_i+O(\hbar^2)$, and an intertwiner is $C=C_0+O(\hbar)$ with invertible $C_0$, then $CM_iC^{-1}=Q_i$ forces $C_0A_iC_0^{-1}=B_i$ for every generator. In particular their traces and eigenvalue multisets must match simultaneously. An intertwiner with $C_0=I$ cannot repair any first-order residue mismatch.
+
+\paragraph{Where the attempt stops.} The trigonometric Casimir connection has several singular loci and noncommuting residues, together with a nontrivial Yangian/quantum-loop module comparison. The pure one-residue equation is not its global solution, and the preceding test is not sufficient for equivalence: higher braid words and higher orders may differ even after the tests pass. The first gap is an explicit module identification and simultaneous comparison of the source generator matrices beyond this local check. No general-simple-Lie-algebra result is inferred from a rank-one calculation.
+
+\paragraph{Verification and adversarial audit.}
+Checked monodromy orientation, determinant, arbitrary C0 conjugacy and insufficiency of local residues for global equivalence. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked monodromy orientation, determinant, arbitrary C0 conjugacy and insufficiency of local residues for global equivalence. Retained unresolved status and zero original-target progress; The actual module comparison and global higher-order braid-generator intertwining are not constructed.
+
+Coordinator checked the fixed-residue logarithmic monodromy and simultaneous first-order conjugacy requirement. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. The actual module comparison and global higher-order braid-generator intertwining are not constructed.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. The actual module comparison and global higher-order braid-generator intertwining are not constructed.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001486:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001486 (OWR-4338-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001486:2}{S2}] Geometry, Quantum Fields, and Strings: Categorial Aspects (2010), Oberwolfach Reports, DOI 10.4171/owr/2010/25, pp. 1485--1533; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2010/25}.
+\item[\hypertarget{source:30001486:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 29--30.
+\url{https://ems.press/content/serial-article-files/46283}.
+\item[\hypertarget{source:30001486:4}{S4}] Toledano-Laredo; reference in the saved dated catalogue literature review.
+\url{https://arxiv.org/abs/1003.2017}.
+\item[\hypertarget{source:30001486:5}{S5}] Gautam--Toledano-Laredo; reference in the saved dated catalogue literature review.
+\url{https://arxiv.org/abs/1109.2367}.
+\end{itemize}
+\label{end:30001486}
+\end{document}

@@ -1,0 +1,164 @@
+% RESEARCH_DRAFT_SHA256: 43515ce1efe4f4384d63231c258814975c1bcae76bc5375ef939e9c914291766
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001258, "title": "Information and conditioning audit for zeta-zero primality and factoring proposals", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001258", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 8. Look at ∑ nρ over the zeros ρ of the Riemann zeta function with the imaginary part of ρ the interval [ T, 2T ]. This is ≈ T / (2 π)Λ( n). Can you make a primality test out of this? (Conrey) The sum ∑ nρζ′(ρ)/ζ ′′ (ρ) ≈ T / (2 π) log p log q if n = pq. Can you make a factoring algorithm out of this?\n\nProblem/", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Conditional arithmetic recovery and precision bounds are proved, but neither printed zero-sum formula is converted into a uniform certified polynomial-time oracle.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Zeta-zero proposals: exact information recovery and the missing certified approximation}
+\noindent UnsolvedMath ID 20001258; AIM-COMPUTATION-0096. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+The Riemann zeta function $\zeta(s)$ has nontrivial complex zeros $\rho$. The von Mangoldt function satisfies $\Lambda(n)=\log p$ for a prime power $n=p^k$ and is zero otherwise. The source suggests extracting primality or factorization information from sums over zeros with imaginary parts in $[T,2T]$.
+\paragraph{Statement recorded in the supplied source.}
+Question 8. Look at ∑ nρ over the zeros ρ of the Riemann zeta function with the imaginary part of ρ the interval [ T, 2T ]. This is ≈ T / (2 π)Λ( n). Can you make a primality test out of this? (Conrey) The sum ∑ nρζ′(ρ)/ζ ′′ (ρ) ≈ T / (2 π) log p log q if n = pq. Can you make a factoring algorithm out of this?
+
+Problem/ \href{https://aimath.org/WWN/primesinp/primesinp.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The source's displayed approximate identities are motivations, not asserted error bounds. Computing zeros accurately, treatment of multiplicities, truncation, and bit complexity remain unspecified.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can numerical information about zeta zeros be turned into a primality test or factoring algorithm?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001258 (AIM-COMPUTATION-0096). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0096
+\url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 8. Look at ∑ nρ over the zeros ρ of the Riemann zeta function with the imaginary part of ρ the interval [ T, 2T ]. This is ≈ T / (2 π)Λ( n). Can you make a primality test out of this? (Conrey) The sum ∑ nρζ′(ρ)/ζ ′′ (ρ) ≈ T / (2 π) log p log q if n = pq. Can you make a factoring algorithm out of this?
+
+Problem/
+
+\section{What the displayed approximations do not provide}
+The source gives heuristic-looking approximate expressions without a
+uniform error estimate, a rule for multiple zeros, or a cost for
+computing the zeros and derivatives. We do not assert either printed
+asymptotic, its sign or its error term as a proved theorem here.
+Instead we test whether the proposed arithmetic information would be
+sufficient if it could be obtained with a specified error, then locate
+the remaining computational gap.
+
+\paragraph{A certified von Mangoldt approximation would suffice.}
+Suppose an oracle outputs a real $A(n)$ with
+$|A(n)-\Lambda(n)|<\log2/3$ for every integer $n>1$.
+By definition, $\Lambda(n)$ is zero unless $n$ is a prime power,
+and otherwise is at least $\log2$. Comparing $A(n)$ with
+$\log2/2$ therefore separates prime powers from other integers.
+One must still reject proper powers to get primality. This can be done
+deterministically by checking exponents $2\le k\le\lfloor\log_2n\rfloor$:
+for each $k$ binary-search the integer $k$th root and compare its
+exact $k$th power with $n$. Every proper power has such an exponent,
+and all searches and repeated multiplications have polynomially many
+operations on $O(\log n)$-bit integers (intermediate powers may be
+stopped when they exceed $n$). A prime power that is not a proper
+power is prime. Thus a sufficiently accurate oracle is enough, but
+the zero-sum expression has not been shown to supply that oracle.
+
+\paragraph{Semiprime information and a rigorous rounding threshold.}
+Let $n=pq$ with distinct primes $p<q$. Put
+$L=\log n$, $S=(\log p)(\log q)$ and
+$\Delta=\log(q/p)>0$. The numbers $\log p,\log q$ are exactly the
+roots of $z^2-Lz+S$, so
+\[
+\log p=\frac{L-\sqrt{L^2-4S}}2.
+\]
+If $\widehat S=S+e$, $|e|\le\varepsilon\le\Delta^2/8$, the
+new discriminant is at least $\Delta^2/2>0$. Rationalizing the
+square-root difference gives
+\[
+\left|\frac{L-\sqrt{L^2-4\widehat S}}2-\log p\right|
+=\frac{2|e|}{\sqrt{\Delta^2-4e}+\Delta}
+\le\frac{2\varepsilon}{\Delta}.
+\]
+If also $\varepsilon\le\Delta/(16p)$, this logarithmic error is
+at most $1/(8p)$. For $|u|\le1/2$,
+$|e^u-1|\le2|u|$: the positive exponential series is bounded by
+$1/(1-|u|)$, and the negative case is smaller. Exponentiating the
+approximated smaller root therefore gives an absolute error at most
+$1/4$ in $p$, so rounding to the nearest integer recovers it.
+The equal-prime case is detected separately by an integer square-root
+check.
+
+This conditioning bound does not require exponentially many precision
+bits. Since
+$\Delta=\int_p^q dt/t\ge(q-p)/q\ge1/n$ and $p\le n$,
+$\varepsilon=1/(32n^2)$ satisfies both sufficient inequalities.
+It has $O(\log n)$ bits of precision. The argument treats $L$ as its
+exact mathematical value; an implementation must also bound logarithm,
+square-root and exponential evaluation errors inside the rounding
+margin. The real unresolved issue is obtaining the arithmetic statistic
+with such a certificate and cost, not merely writing the quadratic
+formula.
+
+\paragraph{How errors in zero locations enter the unweighted sum.}
+For a proposed zero $\rho$ and perturbation $\delta$ with
+$|\delta|\le\eta$ and $\eta\log n\le1/2$,
+\[
+|n^{\rho+\delta}-n^\rho|
+\le n^{\operatorname{Re}\rho}(e^{\eta\log n}-1)
+\le2n^{\operatorname{Re}\rho}\eta\log n.
+\]
+The first inequality follows from $n^z=\exp(z\log n)$ and the
+absolute exponential series; the second is the preceding bound.
+For $M$ terms with real parts at most one, the total location error is
+at most $2Mn\eta\log n$. This controls only approximated included
+terms, not omitted zeros, an incorrect window endpoint, multiplicities,
+or the analytic remainder relating the sum to an arithmetic function.
+The weighted expression has an additional denominator issue:
+a simple zero of a function does not imply its second derivative there
+is nonzero; $f(z)=z+z^3$ at zero is an elementary example.
+This does not assert that a zeta zero has that behavior. It shows that
+simplicity alone cannot justify division by $\zeta''(\rho)$ or a
+numerical lower bound for that denominator.
+
+\section{Audit and remaining target}
+The primary Question 8 was inspected. The audit checked prime-power
+ambiguity, closely spaced prime factors, the double-root case, and the
+distinction between precision bits and the work needed to compute a
+long zero sum. No zeta zeros, derivatives or numerical factors were
+computed. A uniform effective remainder, reliable denominator treatment
+and certified polynomial-time evaluation remain missing for both
+proposals. The conditional information calculations are elementary
+known-type results, not a zeta-based primality or factoring algorithm.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Conditional arithmetic recovery and precision bounds are proved, but neither printed zero-sum formula is converted into a uniform certified polynomial-time oracle.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Future directions in algorithmic number theory, workshop 24--28 March 2003, report version 30 April 2003; original question, relevant lecture context and adjoining remarks inspected on 11 October 2026. \url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Conditional arithmetic recovery and precision bounds are proved, but neither printed zero-sum formula is converted into a uniform certified polynomial-time oracle.
+\end{document}

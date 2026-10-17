@@ -1,0 +1,87 @@
+% TOP_PROBLEM: {"id": 30006221, "title": "Feasible High-Performance Plasma Flows for Stellarators", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The report poses a design programme. Performance objectives, stability norm and engineering admissibility are needed to define a particular optimization problem."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006221", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Find a stable, efficient and buildable stellarator plasma-flow configuration, together with methods for exploring physically admissible designs.", "scope": "Proved an explicit global no-self-intersection condition for ambient Lipschitz deformations of an embedded torus; no stellarator equilibrium or performance result.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the torus R>r condition, global bi-Lipschitz lower bound and differential immersion; distinguished geometric feasibility from physics and manufacturability. Model self-audit only; no independent human mathematical verification.  No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked the torus R>r condition, global bi-Lipschitz lower bound and differential immersion; distinguished geometric feasibility from physics and manufacturability. First remaining gap: Couple admissible geometry to the source plasma equilibrium with quantitative stability, efficiency and engineering constraints. The inherited source status is preserved; original-target completion remains zero. Additional GPT-6 Astra reviewer (ultra reasoning): Checked injectivity of the standard torus for R>r>0: the cylindrical radius is positive, giving phi, and ((rho-R)/r,z/r) gives (cos theta,sin theta). Derived both Lipschitz bounds for F=Id+v; L<1 gives global injectivity and a quantitative separation bound. For C1 v, checked D F=I+Dv is invertible when ||Dv||<1 and hence preserves the immersion. Confirmed that efficiency, actual plasma equilibrium, stability and engineering buildability are all explicitly left unproved."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30006221; source catalogue code OWR-14299090-002
+\setcounter{section}{30006220}
+\section{Feasible High-Performance Plasma Flows for Stellarators}\label{30006221}
+{\small UnsolvedMath ID 30006221 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+A stellarator confines plasma using a three-dimensional magnetic geometry. A candidate flow must satisfy the relevant plasma equilibrium and dynamical laws as well as engineering constraints. Stability, efficiency and geometric realizability are different requirements; excluding self-intersections constrains the configuration geometry.
+
+\paragraph{Catalogue wording retained for traceability.}
+Does there exist a stellarator plasma-flow configuration that is simultaneously highly efficient, dynamically stable, and physically buildable? Develop methods for exploring the configuration space while excluding self-intersections and other nonphysical deformations.
+
+\paragraph{Scope and source qualification.}The report poses a design programme. Performance objectives, stability norm and engineering admissibility are needed to define a particular optimization problem.
+\subsection{Short English statement}
+Find a stable, efficient and buildable stellarator plasma-flow configuration, together with methods for exploring physically admissible designs.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved an explicit global no-self-intersection condition for ambient Lipschitz deformations of an embedded torus; no stellarator equilibrium or performance result.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30006221. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{A geometry-preserving search neighborhood.} Start with the standard embedded torus
+\[
+ X(\theta,\varphi)=((R+r\cos\theta)\cos\varphi,
+ (R+r\cos\theta)\sin\varphi,r\sin\theta),\qquad R>r>0.
+\]
+Its cylindrical radius is strictly positive, so \(\varphi\) and then \(\theta\) are recovered from the point modulo their natural periods; this proves injectivity on the parameter torus. For an ambient displacement \(v:\mathbb R^3\to\mathbb R^3\) with Lipschitz constant \(L<1\), set \(F(x)=x+v(x)\). Then
+\[
+ (1-L)|x-y|\leq|F(x)-F(y)|\leq(1+L)|x-y|.
+\]
+Thus \(F\circ X\) has no self-intersections. If \(v\) is continuously differentiable, \(\|Dv\|<1\) also ensures that the differential of \(F\) is invertible and preserves the surface immersion.
+\paragraph{A meaningful but limited constraint.} This gives an explicit admissible geometric neighborhood and a lower bound on pairwise separation under deformation. It does not enforce prescribed curvature, coil spacing, manufacturability tolerances or magnetic topology. Merely requiring a local positive Jacobian would be weaker than the global separation bound and would not on its own rule out distant self-intersections.
+\paragraph{Source gap.} No plasma equilibrium, stable flow or efficiency objective is evaluated in this construction. The first missing step is coupling this geometric admissibility parameterization to a well-posed source equilibrium and a quantitative stability/performance constraint. The three simultaneous requirements of efficiency, dynamical stability and buildability are not established by exhibiting a smooth embedded torus.
+
+\paragraph{Verification and adversarial audit.}
+Checked the torus R>r condition, global bi-Lipschitz lower bound and differential immersion; distinguished geometric feasibility from physics and manufacturability. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked the torus R>r condition, global bi-Lipschitz lower bound and differential immersion; distinguished geometric feasibility from physics and manufacturability. First remaining gap: Couple admissible geometry to the source plasma equilibrium with quantitative stability, efficiency and engineering constraints. The inherited source status is preserved; original-target completion remains zero. Additional GPT-6 Astra reviewer (ultra reasoning): Checked injectivity of the standard torus for R>r>0: the cylindrical radius is positive, giving phi, and ((rho-R)/r,z/r) gives (cos theta,sin theta). Derived both Lipschitz bounds for F=Id+v; L<1 gives global injectivity and a quantitative separation bound. For C1 v, checked D F=I+Dv is invertible when ||Dv||<1 and hence preserves the immersion. Confirmed that efficiency, actual plasma equilibrium, stability and engineering buildability are all explicitly left unproved.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Couple admissible geometry to the source plasma equilibrium with quantitative stability, efficiency and engineering constraints.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30006221:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30006221 (OWR-14299090-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30006221:2}{S2}] Mathematical Imaging and Surface Processing (2025), Oberwolfach Reports, DOI 10.4171/owr/2025/5, pp. 209--274. Original report and mathematical context. Incorporated report material remains under the source CC BY-SA 4.0 terms unless otherwise noted.
+\url{https://doi.org/10.4171/owr/2025/5}.
+\end{itemize}
+\label{end:30006221}
+\end{document}

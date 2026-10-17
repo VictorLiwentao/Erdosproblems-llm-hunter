@@ -1,0 +1,153 @@
+% RESEARCH_DRAFT_SHA256: b5e4679d262674402b2929644e8ad3ad0a196f5d01436be1e624dd1b0c0eda7f
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000901, "title": "Optimal Rates of Collusion-Secure Fingerprinting Codes", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000901", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "For digital fingerprinting codes secure against collusion by $t$ pirates, what is the exact asymptotic rate, and does the known probabilistic construction attain that rate for every $t$?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The one-pirate boundary case and a controlled information calculation do not establish the operational capacity or construction optimality for general fixed t.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Fingerprinting-rate attempt: one-pirate capacity and a finite-t information gap}
+\noindent UnsolvedMath ID 30000901; OWR-1782-015. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A fingerprinting code assigns distinct marked codewords to users. A coalition combines its copies into a pirate output; a tracing algorithm must identify a coalition member under the allowed attack model. Rate compares the logarithm of the user count with codeword length.
+
+A code $C\subseteq\Sigma^N$ is a set of permitted length-$N$ words. Its Hamming minimum distance is the minimum number of unequal coordinates of two distinct words. For a linear $[N,K,D]_q$ code, rate is $K/N$ and relative distance is $D/N$; decoding recovers a codeword from corrupted observations.
+\paragraph{Statement recorded in the supplied source.}
+For digital fingerprinting codes secure against collusion by $t$ pirates, what is the exact asymptotic rate, and does the known probabilistic construction attain that rate for every $t$? \href{https://doi.org/10.4171/owr/2008/01}{[S2]}
+\paragraph{Scope qualification.}
+The marking assumption, alphabet, tracing error, and asymptotic order are source-specific.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Determine optimal collusion-resistant fingerprinting rates and whether the cited random construction attains them.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000901 (OWR-1782-015). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorics (2008), Oberwolfach Reports, DOI 10.4171/owr/2008/01, pp. 5--78
+\url{https://doi.org/10.4171/owr/2008/01}.
+\item[S3] Tardos, optimal probabilistic codes
+\url{https://doi.org/10.1145/1346330.1346335}.
+\item[S4] fingerprinting capacity bounds
+\url{https://arxiv.org/abs/cs/0612073}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+For digital fingerprinting codes secure against collusion by $t$ pirates, what is the exact asymptotic rate, and does the known probabilistic construction attain that rate for every $t$?
+
+\section{Primary model and attempted information calculation}
+The original report specifies binary length-$L$ fingerprints for $N$ users,
+random code generation, and an accusation of one user. A valid coalition strategy
+sees its members' codewords and obeys the marking condition: a coordinate on
+which they agree cannot be altered. Security means the accused user belongs
+to the coalition with probability at least $1-\varepsilon$. We measure rate
+in bits, $R=(\log_2N)/L$. The report already asserts a matching leading
+constant as $t\to\infty$, while asking optimality of its construction for
+each fixed $t$. Reproducing a large-$t$ leading term is therefore insufficient.
+
+\paragraph{Complete boundary case: one pirate has capacity one.}
+When $t=1$, marking forces the forged word to be that pirate's own word.
+For any fixed codebook, including one with repeated words, write
+$q_i(w)$ for the probability the decoder accuses user $i$ on input $w$.
+For a uniform pirate index, the success probability is
+$N^{-1}\sum_i q_i(c_i)$. Grouping users with the same codeword $w$ gives
+$\sum_{i:c_i=w}q_i(w)\le1$. There are at most $2^L$ groups, so success
+is at most $2^L/N$. This also holds after averaging a randomized codebook.
+Security for every singleton implies security for a uniform singleton, hence
+$N(1-\varepsilon)\le2^L$ and
+$R\le1+L^{-1}\log_2(1/(1-\varepsilon))$.
+Conversely assign all $2^L$ distinct binary words to distinct users and
+look up the received word. This has rate one and zero error. Thus the
+one-pirate asymptotic capacity is exactly one as $L\to\infty$ and
+$\varepsilon\to0$. This elementary boundary case is not claimed new.
+
+\paragraph{Interleaving attack and a controlled single-coordinate expansion.}
+Try independent pirate bits $X_1,\ldots,X_t$ with common bias $p\in(0,1)$.
+Let a pirate strategy choose a uniform member and output that bit $Y$.
+It obeys marking. Its conditional probabilities are
+\[
+\Pr(Y=1\mid X_1=1)=p+(1-p)/t,
+\quad \Pr(Y=1\mid X_1=0)=p-p/t,
+\quad \Pr(Y=1)=p.
+\]
+With binary entropy $h(p)=-p\log_2p-(1-p)\log_2(1-p)$, conditional
+entropy therefore gives the exact single-user mutual information
+\[
+I(X_1;Y)=h(p)-p h(p+(1-p)/t)-(1-p)h(p-p/t).
+\]
+Fix $0<\delta\le1/2$ and $p\in[\delta,1-\delta]$, $t\ge2$.
+Taylor's formula applies on $[\delta/2,1-\delta/2]$, where $h^{(3)}$ is
+bounded. The weighted first-order shifts cancel, and their weighted squared
+sum is $p(1-p)/t^2$. Since $h''(p)=-1/(\ln2\,p(1-p))$,
+\[
+I(X_1;Y)=\frac1{2\ln2\,t^2}+O_\delta(t^{-3}).
+\]
+More explicitly, if $H_\delta$ is the maximum of $|h^{(3)}|$ on that compact
+interval, the remainder in absolute value is at most $H_\delta/(6t^3)$,
+because each shift has magnitude at most $1/t$ and the two weights sum to
+one. This justifies the expansion and its lack of uniformity near biases zero
+and one. It does not prove a coding theorem or a converse for the source model.
+
+\paragraph{Why one user's mutual information is not the fixed-t answer.}
+For $t=2$ and $p=1/2$, the preceding expression is exactly
+$1-h(1/4)$. For the pair of pirate bits jointly, equal bits occur with
+probability $1/2$ and make $Y$ deterministic; unequal bits make $Y$ fair.
+Thus $H(Y\mid X_1,X_2)=1/2$ and
+$\tfrac12 I((X_1,X_2);Y)=1/4$.
+These quantities differ: $h(1/4)=2-\tfrac34\log_2 3>3/4$, because
+$\log_2 3<5/3$ is equivalent to $27<32$. Hence
+$1-h(1/4)<1/4$.
+The two natural information expressions already disagree at fixed $t$;
+choosing one by analogy would not prove the source's operational capacity.
+One must justify the code ensemble, the allowable adversarial strategies,
+the tracing criterion, and the relevant achievability/converse reductions.
+No such equivalence is established by this calculation.
+
+\section{Adversarial audit and unresolved scope}
+The audit retained the per-coalition security quantifier, allowed randomized
+codebooks and decoders in the boundary converse, and separated fixed-$t$
+optimality from the already reported large-$t$ constant. The inspected
+Anthapadmanabhan--Barg--Dumer primary abstract discusses bounds and distinct
+multiuser-channel converses; its full proof was not used here. No simulation
+was performed. The exact rates and optimality of the report's specific
+probabilistic construction for every $t$ remain unproved by this attempt.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The one-pirate boundary case and a controlled information calculation do not establish the operational capacity or construction optimality for general fixed t.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Tardos and Amiri fingerprinting-capacity contribution, Oberwolfach Report 1/2008, printed pp.63--65, full model and conjecture read from cached primary text on 11 October 2026. \url{https://ems.press/content/serial-article-files/46145}.
+\item Anthapadmanabhan, Barg, Dumer, On the Fingerprinting Capacity Under the Marking Assumption; primary abstract read only, not its full coding theorems. \url{https://arxiv.org/abs/cs/0612073}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The one-pirate boundary case and a controlled information calculation do not establish the operational capacity or construction optimality for general fixed t.
+\end{document}

@@ -1,0 +1,82 @@
+% TOP_PROBLEM: {"id": 8100004, "title": "numerical computation with random data", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The catalogue excerpt ended before its actual open questions. They are restored from the final paragraphs of primary Problem 4. Ensemble admissibility and scaling regimes are to be specified as in that source and its cited studies; the stated 2017 open-status descriptions are historical."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "8100004", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Prove universality of numerical stopping times on random input and extend accurate sampling beyond unitary ensembles.", "scope": "Derived a scalar stopping-time sensitivity and an explicit counterexample to transferring mean/variance from weak convergence. No Toda, QR, full-deflation, conjugate-gradient or sampling universality theorem is proved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked residual threshold, rare-event probabilities, variance calculation and distinction between convergence in distribution and uniform integrability. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the exact scalar stopping time and rare-event example showing failure of second-moment transfer. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked residual threshold, rare-event probabilities, variance calculation and distinction between convergence in distribution and uniform integrability. Scope remains limited: Obtain uniform residual expansions and tail estimates controlling inverse spectral gaps and eigenvector coefficients, including their moments."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 8100004; source catalogue code AMR-080-0004
+\setcounter{section}{8100003}
+\section{numerical computation with random data}\label{8100004}
+{\small UnsolvedMath ID 8100004 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}Let $H$ be an $n\times n$ random matrix from ensemble $\mathcal E$, and let $\mathcal A$ be a numerical algorithm with tolerance $\varepsilon$. Its stopping time is $T=T_{\varepsilon,n,\mathcal A,\mathcal E}(H)$; the centered and standardized time is $(T-\mathbb ET)/\sqrt{\operatorname{Var}T}$ when these quantities exist. For Toda flow $\dot X=[X,X_--X_-^*]$, one-row deflation time is the first $t$ with $\sum_{j=2}^n|X_{1j}(t)|^2<\varepsilon^2$. Full deflation permits a split into two blocks with off-diagonal block norm at most $\varepsilon$.
+
+\paragraph{Catalogue wording retained for traceability.}
+Prove universality for centered and scaled one-row Toda stopping times, including the needed joint edge eigenvalue/eigenvector statistics for $\beta=1$ invariant ensembles and $\beta=1,2$ Wigner ensembles. Control the eigenvalue ratios near zero and their eigenvectors required for an analogous QR result. Prove universality for full deflation times, including successive multi-row splittings. Establish stopping-time universality for the other algorithms discussed by Deift, such as conjugate gradient for random linear systems. Extend the accurate orthogonal-polynomial sampling method for unitary invariant ensembles to orthogonal and symplectic invariant ensembles.
+\paragraph{Scope and source qualification.}The catalogue excerpt ended before its actual open questions. They are restored from the final paragraphs of primary Problem 4. Ensemble admissibility and scaling regimes are to be specified as in that source and its cited studies; the stated 2017 open-status descriptions are historical.
+\subsection{Short English statement}
+Prove universality of numerical stopping times on random input and extend accurate sampling beyond unitary ensembles.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derived a scalar stopping-time sensitivity and an explicit counterexample to transferring mean/variance from weak convergence. No Toda, QR, full-deflation, conjugate-gradient or sampling universality theorem is proved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{A stopping-time transfer with an exposed moment gap.}Suppose a deterministic residual has the exact form \(R(t)=Ce^{-\Delta t}\), with \(C>\varepsilon>0\), \(\Delta>0\). Then \(T_\varepsilon=\Delta^{-1}\log(C/\varepsilon)\). This elementary model illustrates why both an edge gap and an eigenvector-dependent coefficient enter deflation. A convergence theorem for \(\Delta\) alone cannot determine \(T\) unless the logarithmic coefficient and its dependence are controlled.
+\paragraph{Standardization needs more than convergence in law.}Let \(Y_n\) equal \(n\) with probability \(n^{-2}\), and zero otherwise. Then \(Y_n\to0\) in probability and \(\mathbb EY_n=1/n\), but \(\operatorname{Var}Y_n=1-n^{-2}\to1\). The standardized variables \((Y_n-\mathbb EY_n)/\sqrt{\operatorname{Var}Y_n}\) also converge in probability to zero despite having variance one. Rare events carry the entire limiting second moment. Therefore a distributional approximation of a rescaled stopping time does not justify replacing deterministic normalization by its true mean and variance.
+For the residual model, small gaps create precisely such a possible tail mechanism: \(T^2=\Delta^{-2}\log^2(C/\varepsilon)\). A usable second-moment transfer would require uniform integrability of this expression, not simply a limiting gap distribution.
+\paragraph{First gap and scope.}No claim is made that this scalar residual is exact for general Toda, QR or conjugate gradient. Deriving their residual expansions with errors uniform on rare small-gap/eigenvector events is the first missing step. Full deflation additionally changes the active block and cannot be reduced to a single fixed edge gap. The requested orthogonal/symplectic sampling method is also not supplied. This is a concrete audit of the mean-variance universality route, with all ensemble and algorithm questions left at their original scope.
+
+\paragraph{Verification and adversarial audit.}
+Checked residual threshold, rare-event probabilities, variance calculation and distinction between convergence in distribution and uniform integrability. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked residual threshold, rare-event probabilities, variance calculation and distinction between convergence in distribution and uniform integrability. Scope remains limited: Obtain uniform residual expansions and tail estimates controlling inverse spectral gaps and eigenvector coefficients, including their moments.
+
+Coordinator checked the exact scalar stopping time and rare-event example showing failure of second-moment transfer. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Obtain uniform residual expansions and tail estimates controlling inverse spectral gaps and eigenvector coefficients, including their moments.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:8100004:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 8100004 (AMR-080-0004). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:8100004:2}{S2}] Percy Deift, Some Open Problems in Random Matrix Theory and the Theory of Integrable Systems. II, SIGMA 13 (2017), 016, Problem 4.
+\url{https://arxiv.org/abs/1703.04931}.
+\item[\hypertarget{source:8100004:3}{S3}] Primary full-text formulation and 2017 historical progress discussion.
+\url{https://arxiv.org/html/1703.04931v1}.
+\end{itemize}
+\label{end:8100004}
+\end{document}

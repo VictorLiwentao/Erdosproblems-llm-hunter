@@ -1,0 +1,136 @@
+% RESEARCH_DRAFT_SHA256: cfaaea5475bdcc57cc1d34744f5329d4bdef278d5601958f695b752c2b424dea
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001322, "title": "An epimorphism audit for non-Hopfian cryptography", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001322", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Applications of infinite non-abelian groups to cryptography\n\nSeveral cryptanalytic methods against group-based cryptography suggest possible use cases for infinite non-abelian groups; for example, non-Hopfian groups. We would like to develop tools to understand how these infinite objects can fit into a cryptographic context, and whether their use can be used to address some of the cryptanalytic methods deployed against group-based cryptography.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The lift and finite-image obstructions do not build or analyze a specified secure infinite-group protocol; non-Hopfianity alone supplies neither one-wayness nor an efficient cryptographic representation.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Non-Hopfian maps: public lifts invert words and finite images erase kernels}
+\noindent UnsolvedMath ID 20001322; AIM-CRYPTOGRAPHY-0009. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A group is nonabelian if some elements do not commute. It is Hopfian if every surjective endomorphism is injective; a non-Hopfian group admits a surjective endomorphism with nontrivial kernel. Using an infinite group computationally requires finite encodings of elements and explicit operations or decision problems.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The agenda does not specify a group, endomorphism, security assumption, or attack task. The existence of a noninjective epimorphism alone is not treated as a security guarantee. The supplied catalogue marks this record partially solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+Applications of infinite non-abelian groups to cryptography
+
+Several cryptanalytic methods against group-based cryptography suggest possible use cases for infinite non-abelian groups; for example, non-Hopfian groups. We would like to develop tools to understand how these infinite objects can fit into a cryptographic context, and whether their use can be used to address some of the cryptanalytic methods deployed against group-based cryptography. \href{http://aimpl.org/postquantgroup/3/}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The source explores whether infinite nonabelian groups could support new cryptographic constructions.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001322 (AIM-CRYPTOGRAPHY-0009). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-CRYPTOGRAPHY-0009.
+\url{http://aimpl.org/postquantgroup/3/}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Applications of infinite non-abelian groups to cryptography
+
+Several cryptanalytic methods against group-based cryptography suggest possible use cases for infinite non-abelian groups; for example, non-Hopfian groups. We would like to develop tools to understand how these infinite objects can fit into a cryptographic context, and whether their use can be used to address some of the cryptanalytic methods deployed against group-based cryptography.
+
+\section{Attempt and results}
+The source proposes infinite nonabelian platforms without a particular scheme.
+We test the tempting implication that a surjective noninjective endomorphism
+should be hard to invert. Two exact obstructions below explain why that
+implication needs additional distributions and encoding constraints.
+
+\paragraph{Public generator lifts give an any-preimage algorithm.}
+Let $G=\langle a_1,\ldots,a_d\rangle$ and let $\phi:G\to G$ be surjective.
+Assume public words $w_i$ satisfy $\phi(w_i)=a_i$.
+For an input word $u=a_{i_1}^{\epsilon_1}\cdots a_{i_L}^{\epsilon_L}$,
+$\epsilon_j\in\{+1,-1\}$, replace each letter by $w_{i_j}^{\epsilon_j}$.
+The resulting word $v$ satisfies $\phi(v)=u$ by the homomorphism property.
+If $C=\max_i|w_i|$, its length is at most $CL$, and simple concatenation
+writes it using at most a constant times that many symbols. Different words
+representing the same group element may yield different preimages, which is
+allowed for an any-preimage relation. This does not recover a particular
+sampled preimage, obey a promised short-output distribution, or discover the
+lifts when they are unavailable. Surjectivity alone ensures lifts exist, not
+that their lengths are small or that one can find them efficiently.
+
+\paragraph{Every finite homomorphic observation kills an iterated kernel.}
+Assume now $G$ is finitely generated and $\phi$ is a surjective endomorphism.
+For any finite group $Q$, the set $\operatorname{Hom}(G,Q)$ is finite:
+a homomorphism is determined by images of $d$ generators, so there are at
+most $|Q|^d$ choices. Precomposition
+$f\mapsto f\circ\phi$ is injective because $\phi$ is surjective.
+An injective map of a finite set is surjective. Thus every $f:G\to Q$
+has the form $h\circ\phi$, and $f$ kills $\ker\phi$.
+The same argument applied to the surjective map $\phi^t$ shows that $f$
+kills $\ker\phi^t$ for every $t\ge1$.
+Consequently distinct elements differing by an element of any iterated kernel
+have identical values under every finite-group homomorphism. If a target group
+$H$ is residually finite, meaning each nonidentity element has a nonidentity
+image in some finite group, any homomorphism $G\to H$ also kills these
+kernels: otherwise composing with a separating finite quotient contradicts
+the preceding result. In particular a finitely generated residually finite
+group cannot have a surjective noninjective endomorphism.
+This is a standard argument, rederived rather than treated as evidence of
+cryptographic hardness. It limits faithful finite homomorphic encodings; it
+does not say every finite byte serialization is a homomorphism.
+
+\paragraph{Finite generation is genuinely needed for the finite-image claim.}
+Let $G=\bigoplus_{j\ge0} S_3$ be the group of finite-support sequences of
+permutations, with coordinatewise multiplication. It is infinite and nonabelian.
+The left shift $\phi(g_0,g_1,\ldots)=(g_1,g_2,\ldots)$ is a surjective
+endomorphism with nontrivial kernel the first $S_3$ factor; inserting an identity
+at the front is an explicit efficient right inverse in the finite-list encoding.
+The first-coordinate projection to $S_3$ does not kill that kernel.
+The group is not finitely generated: any finite set of sequences has support
+in a finite set of coordinates, as does the subgroup it generates.
+Thus this example both defeats non-Hopfianity-as-inversion-hardness and checks
+why the finite-generation hypothesis cannot be omitted above.
+
+\section{Context, adversarial audit, and gap}
+The official AIM workshop description was inspected; AIMPL retrieval failed
+and the exact agenda is preserved from the supplied snapshot. The supplied
+research summary mentions the first two mechanisms, so no novelty is claimed.
+The audit checked public lift availability, output length, finite versus
+infinite Hom sets, and the distinction between finite homomorphic observations
+and arbitrary encodings. No protocol, input distribution, or security reduction
+has been constructed, and no computation was run.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The lift and finite-image obstructions do not build or analyze a specified secure infinite-group protocol; non-Hopfianity alone supplies neither one-wayness nor an efficient cryptographic representation.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Official AIM workshop description, Post-quantum group-based cryptography, 29 April--3 May 2024; provenance and scope inspected on 11 October 2026. AIMPL pages failed retrieval, so the exact problem wording remains supplied-snapshot material. \url{https://aimath.org/workshops/upcoming/postquantgroup/}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The lift and finite-image obstructions do not build or analyze a specified secure infinite-group protocol; non-Hopfianity alone supplies neither one-wayness nor an efficient cryptographic representation.
+\end{document}

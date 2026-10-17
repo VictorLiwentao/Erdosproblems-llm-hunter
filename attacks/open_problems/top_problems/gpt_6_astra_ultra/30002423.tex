@@ -1,0 +1,106 @@
+% RESEARCH_DRAFT_SHA256: 563059ae0499e8d94578d3a3c24eebc53a171148776d9b03d665ffed3107fa96
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30002423, "title": "Polynomial Tractability of Permutation-Invariant Integration", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002423", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, written mathematical proof review, and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Complete rederivation of the known Fourier-space fooling-function lower bound and its necessary tractability consequences.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification. Codex GPT-6 also reviewed the written arguments; this model review is not independent human verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch019/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 30002423; source catalogue code OWR-12723-011
+\section{Polynomial Tractability of Permutation-Invariant Integration}\label{30002423}
+{\small UnsolvedMath ID 30002423 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+$n(\varepsilon,d)$ is the minimum number of permitted function observations needed to approximate the integration functional in dimension $d$ with relative or normalized error $\varepsilon$. Polynomial tractability asks for $n(\varepsilon,d)\leq C d^a\varepsilon^{-b}$ with constants independent of $d,\varepsilon$.
+
+Fixed-parameter tractability for parameter $k$ means running time $f(k)N^{O(1)}$, where $N$ is the input length and $f$ is computable. The exponent is independent of $k$.
+
+For a discrete random variable $X$, entropy is $H(X)=-\sum_xp(x)\log p(x)$, and mutual information is $I(X;Y)=H(X)+H(Y)-H(X,Y)$. Coding rates, capacities, and exponents depend on the stated channel or source model and error criterion.
+\paragraph{Statement recorded in the supplied source.}
+For integration over the permutation-invariant spaces $S_{I_d}(E_{d,\alpha})$, under what conditions on the coordinate sets $I_d$ is the information complexity $n(\varepsilon,d)$ polynomially bounded in $d$ and $\varepsilon^{-1}$? \href{https://doi.org/10.4171/owr/2013/49}{[S2]}
+\paragraph{Scope qualification.}
+The Korobov-space norm, weights, observation class, error criterion, and precise symmetry sets $I_d$ are those in the report.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Characterize when permutation symmetry prevents integration complexity from growing faster than a polynomial.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30002423 (OWR-12723-011). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Uniform Distribution Theory and Applications (2014), Oberwolfach Reports, DOI 10.4171/owr/2013/49, pp. 2837--2917
+\url{https://doi.org/10.4171/owr/2013/49}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30002423 and source code OWR-12723-011 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30002423}
+
+\section{Research attempt}
+\subsection{Literature, source context and scope}
+The full original catalogue body and source qualifications are preserved above. The relevant primary workshop passages were read in the cached publisher report. Historical claims and subsequent attributed results are distinguished from the mathematical work below. A restricted example, standard lemma or known theorem is not counted as new progress on the entire original target. Missing assumptions and repeated or rhetorical extracts are not silently turned into different solved problems.
+
+\subsection{A dimension argument survives every choice of cubature weights}
+Use precisely the source's periodic Fourier class, with $\alpha>1$ and
+\[
+\|f\|_{E_{d,\alpha}}=\sup_{k\in\mathbb Z^d}|\widehat f(k)|\prod_{j=1}^d\max(1,|k_j|)^\alpha.
+\]
+Let $s$ of the $d$ coordinates be required to be permutation invariant, and put $r=d-s$. A cubature rule uses $N$ fixed point values with arbitrary complex linear weights. We rederive the source's known sample threshold, then examine why it does not by itself settle tractability.
+\begin{proposition}
+For $N<(s+1)2^r$, every such rule has worst-case error at least 1 on the invariant unit ball. Consequently strong polynomial tractability fails; ordinary polynomial tractability would require $r=O(\log d)$ along the family of invariant coordinate sets.
+\end{proposition}
+\begin{proof}
+Let $V$ be the space spanned by the orbit sums of $e^{2\pi i a\cdot x}$ for $a\in\{0,1\}^d$ under permutations of the $s$ symmetric coordinates. An orbit is determined by the number of ones in those coordinates and the exact bits in the remaining $r$ coordinates. There are $D=(s+1)2^r$ orbits, whose disjoint Fourier supports make their orbit sums linearly independent. Thus $\dim V=D$.
+Vanishing at $N<D$ sample points imposes at most $N$ homogeneous linear conditions, so some nonzero $g\in V$ vanishes at every node. Set
+\[
+f=\frac{|g|^2}{\int_{[0,1]^d}|g|^2}.
+\]
+It is invariant, nonnegative, has integral 1 and vanishes at the nodes. Its Fourier support is contained in $\{-1,0,1\}^d$. Every Fourier coefficient has absolute value at most $\int f=1$, while all frequency weights on this support equal 1. Hence $\|f\|_{E_{d,\alpha}}=1$, with equality supplied by the zeroth coefficient. The cubature gives zero on $f$, proving error at least 1. The zero-output rule has error at most 1, so this threshold statement is exact below $D$.
+For any fixed requested error below 1, at least $D$ nodes are necessary. Since $(s+1)2^r\ge(s+1)(r+1)\ge s+r+1=d+1$, a dimension-independent bound is impossible. If a polynomial bound $N(\varepsilon,d)\le C\varepsilon^{-b}d^a$ existed, setting $\varepsilon=1/2$ would give $2^r\le C2^bd^a$, hence $r\le a\log_2 d+\log_2(C2^b)$, the claimed necessary condition.
+\end{proof}
+\subsection{Verification and remaining gaps}
+Orbit counts were enumerated for all $0\le s\le d\le8$. For $d=3,s=2$ and a node at zero, $g=e^{2\pi ix_3}-1$ yields $f=1-\cos(2\pi x_3)$, with Fourier coefficients $1,-1/2,-1/2$, integral 1 and node value 0. This checks the normalization and the particular Fourier norm.
+The source already proves this lower threshold. The attempted next step would infer sufficiency from it or from the source's fixed-dimension upper estimate. Neither follows: a lower bound alone constructs no rule, and the displayed source factor $(1+\zeta(\alpha)/2^{\alpha-1})^d-1$ grows with $d$ when $\alpha$ is fixed. Thus the condition $r=O(\log d)$ is only necessary here; no complete polynomial-tractability characterization is obtained. No new result beyond the known lower bound is claimed.
+
+\section{References and source attribution}
+Primary workshop report: \url{https://doi.org/10.4171/owr/2013/49}. Relevant passages read: 2013/49 pp. 2904--2905, the exact function-space norm, Theorem 1 and the tractability questions.
+
+All retrievals were checked on 11 October 2026. Original question attribution remains in the preserved Sources section. External theorems are attributed and not claimed as new discoveries or fully verified merely by citation.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch, reviewed the written mathematical arguments, and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch019/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

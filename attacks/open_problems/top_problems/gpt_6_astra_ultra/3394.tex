@@ -1,0 +1,134 @@
+% RESEARCH_DRAFT_SHA256: 396722fd58b1fc2327002980feb1de7c4a1716ce579a7333dcc17c102d4c0aca
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 3394, "title": "Sums of independent random variables with unbounded variance", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "problem_number": "OPG-36887", "set_id": 12}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "3394", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Explicit counterexample to coordinatewise conditional-mean compression as a lower-tail minimization step; full n=1 proof and finite rational counterexample search. Newer external full-resolution claim identified and kept separate.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch001/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec}
+\setmainfont{lmroman10-regular.otf}[BoldFont=lmroman10-bold.otf,
+ ItalicFont=lmroman10-italic.otf,BoldItalicFont=lmroman10-bolditalic.otf]
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{latinmodern-math.otf}
+\AtBeginDocument{\let\setminus\smallsetminus}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+\section*{Sums of independent random variables with unbounded variance}\label{3394}
+{\small UnsolvedMath ID 3394 · OPG-36887 · Computer Science · OpenGarden}
+\subsection{Definitions and mathematical statement}
+Let $n\ge1$, $\mu>0$ and $\delta>0$. Let $X_1,\ldots,X_n$ be
+independent nonnegative real random variables on a probability space,
+with finite expectations satisfying $\mathbb E X_i\le\mu$ for each
+$i$. They need not have identical distributions, and their variances
+may be infinite. Write $S=\sum_{i=1}^n X_i$, so
+$\mathbb E S=\sum_i\mathbb E X_i$ is finite.
+
+The conjectured uniform lower bound is
+\[
+ \mathbb P(S-\mathbb E S<\delta\mu)
+            \ge \min\left\{\frac{\delta}{1+\delta},\ e^{-1}\right\}.
+\]
+The event uses a strict inequality, which matters when the variables
+have atoms. The centering is the actual expectation of the sum,
+rather than the upper bound $n\mu$. The proposed right-hand side
+depends only on $\delta$, independently of $n$, $\mu$, and all
+the distributions. Dividing each $X_i$ by $\mu$ gives the equivalent
+normalization $\mu=1$; requiring $\mu>0$ avoids a degenerate strict
+event at zero.
+Establish the inequality for every admissible family and every
+$\delta>0$, or give a fully specified independent family and
+parameter violating it. An assumption of bounded variance or
+bounded support would restrict the stated problem.
+\subsection{Short English statement}
+How small can the probability be that a sum of independent nonnegative variables lies less than a prescribed amount above its own mean?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] ULAM.AI and the UnsolvedMath Contributors, supplied problems.json, record 3394 (OPG-36887), OpenGarden collection. Catalogue identity and source transcription; CC BY 4.0.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Open Problem Garden, Sums of independent random variables with unbounded variance. Original problem and discussion; the mathematical formulation below is expanded from the supplied source record.
+\url{http://www.openproblemgarden.org/op/sums_of_independent_random_variables_with_unbounded_variance}.
+\end{itemize}
+
+
+\section{Research attempt}
+Normalize by the supplied $\mu>0$, so each mean is at most one and the desired event is $S-\mathbb ES<\delta$. The attempted proof route was to replace each marginal distribution by two conditional means on the two sides of its individual threshold. Such a replacement preserves that marginal's expectation and threshold probability. It does not preserve, or decrease, the lower-tail probability of the sum; the exact counterexample below blocks this route to an extremal reduction.
+
+\begin{proposition}
+There are independent mean-one nonnegative $X_1,X_2$ and independent mean-one two-point $Y_1,Y_2$ for which
+\[
+ \mathbb P(X_i<2)=\mathbb P(Y_i<2)=2/3\quad(i=1,2),
+\]
+but
+\[
+ \mathbb P(X_1+X_2<3)=2/3<8/9=
+ \mathbb P(Y_1+Y_2<3).
+\]
+Each $Y_i$ is obtained from $X_i$ by replacing the parts below and at least two by their conditional means.
+\end{proposition}
+\begin{proof}
+Take each $X_i$ uniform on $\{0,1,2\}$, independently. Its expectation is one; below two its conditional mean is $1/2$, and at least two its conditional mean is two. Thus $Y_i$ is $1/2$ with probability $2/3$ and two with probability $1/3$, also with expectation one. The ordered pairs of $X$ values with sum below three are $(0,0),(0,1),(0,2),(1,0),(1,1),(2,0)$, six of nine equally likely pairs. For $Y$, every pair except $(2,2)$ has sum below three, with total probability $1-(1/3)^2=8/9$. These calculations prove every assertion.
+\end{proof}
+
+At $n=2$ and $\delta=1$, the global threshold in the original event is exactly three, whereas the individual thresholds are two. A valid minimization argument would require replacing marginals without increasing the global lower tail, so the direction in this example is fatal to the proposed step. It does not disprove the conjecture, and it does not refute other rigorously established reductions to two-point laws.
+
+\paragraph{An elementary case and sharpness tests.}
+For $n=1$, write $a=\mathbb EX\le1$. Nonnegativity gives
+\[
+ a\ge(a+\delta)\mathbb P(X\ge a+\delta),
+ \quad\text{so}\quad
+ \mathbb P(X<a+\delta)\ge\frac\delta{a+\delta}
+ \ge\frac\delta{1+\delta}.
+\]
+This proves the full one-variable case, including atoms at the threshold. If $a=0$, nonnegativity implies $X=0$ almost surely, and the event has probability one.
+
+For every $\delta>0$, the mean-one law taking $1+\delta$ with probability $1/(1+\delta)$ and zero otherwise has lower-tail probability $\delta/(1+\delta)$. Adding deterministic variables equal to one gives the same value at every larger $n$. Alternatively let all $n$ independent variables take $n+\delta$ with probability $1/(n+\delta)$ and zero otherwise. Their means are one; the strict event holds exactly when all vanish, with probability $(1-1/(n+\delta))^n\to e^{-1}$. Thus both branches of the proposed dimension-free constant are genuine upper constraints on a universal lower bound. These standard examples do not establish that no worse law exists.
+
+\section{Literature and context}
+The supplied background is dated and must not be treated as a current-status verdict. On 11 October 2026 the original Open Problem Garden page and Feige's author-hosted manuscript were opened. Recent primary sources were also found. Fu, Han, Wang, Yan, Zhang and Zhou, arXiv:2607.23980v1, Theorem 1.1, prove a sharp finite-$n$ bound for $\delta\ge1$ and a weaker bound for $0<\delta<1$; its displayed theorem and scope discussion were inspected. Nie and Wei, arXiv:2607.24528, state the unit-slack case in their abstract. These results belong to those authors, not this attempt.
+
+Zhi Ling's \emph{On Samuels' Conjecture}, arXiv:2608.18392v1, Corollary 1.3, explicitly claims the full sharp formula
+\[
+ \inf\mathbb P(S<\mathbb ES+\delta)=
+ \min\left\{\frac\delta{1+\delta},\left(1-\frac1{n+\delta}\right)^n\right\}
+\]
+under the present normalized assumptions, and consequently the dimension-free target. The theorem statements and surrounding scope were inspected; the entire proof was not audited here. An earlier preprint by Metin D\"urr, arXiv:2508.07316v1, also claims the full bound; its statement and proposed marginal transformations were inspected without certifying its proof. The existence of these claims prevents representing the old snapshot as an up-to-date determination that the full conjecture is open. The source metadata is retained, and no external claim is relabelled as a new LLM solution.
+
+\section{Verification and remaining gaps}
+Exact rational enumeration searched $9261$ independent three-variable two-point product laws for each $\delta\in\{1/4,1/2,3/4,1,2\}$: each variable took height $h\in\{1,5/4,\ldots,6\}$ with probability $1/h$, and zero otherwise. All $2^3$ outcomes were evaluated with the strict inequality. The minima were, respectively,
+\[
+ 1/5,\quad1/3,\quad1331/3375,\quad27/64,\quad64/125.
+\]
+No value below the conjectured bound occurred in this finite grid. This does not exhaust arbitrary heights, nonzero lower support points, larger $n$, or infinite-variance laws.
+
+The self-audit kept the strict threshold, actual expectation centering and the direction of the extremal reduction. The first gap in this attempt is a valid global extremal argument for general independent marginals; the failed compression cannot supply it. External papers may address that gap, but their full proofs and publication acceptance have not been independently checked here. Attempt status is unresolved with no new original-target progress, rather than a claim that all external resolution claims fail.
+
+\section{References}
+Original sources S1--S2 above. U. Feige, \emph{On sums of independent random variables with unbounded variance, and estimating the average degree in a graph}, author manuscript, \url{https://www.wisdom.weizmann.ac.il/~feige/Others/newmarkov.pdf}. W. Fu et al., \emph{Sharp small-deviation inequalities for sums of independent nonnegative random variables}, \url{https://arxiv.org/html/2607.23980v1}. Z. Nie and J. Wei, \emph{On Feige's conjecture}, \url{https://arxiv.org/abs/2607.24528}. Z. Ling, \emph{On Samuels' Conjecture}, \url{https://arxiv.org/html/2608.18392v1}. M. D\"urr, \emph{A Proof of Feige's Conjecture}, \url{https://arxiv.org/html/2508.07316v1}. All were accessed at the stated scope on 11 October 2026; none is an external theorem dependency of the counterexample or elementary calculations proved here.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch001/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

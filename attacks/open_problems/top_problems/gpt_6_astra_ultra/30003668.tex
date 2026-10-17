@@ -1,0 +1,96 @@
+% TOP_PROBLEM: {"id": 30003668, "title": "Euclidean Reconstruction of Relativistic Quantum Field Theories", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The word sensible is a request to identify suitable axioms and analytic conditions. This programme does not say every Euclidean measure admits a Wightman theory or that formal Wick rotation proves reconstruction."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003668", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Determine when a Euclidean field model can be reconstructed as a mathematically consistent relativistic quantum theory.", "scope": "Exhibited an ordinary positive covariance failing reflection positivity and checked exponential-mixture positive-time kernels; no general relativistic reconstruction is proved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the negative diagonal and smooth-test persistence, m=0, and avoided asserting that a time-only example is a full Euclidean field model. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the positive covariance cos(t-s), negative reflected diagonal at pi/2 and the positive exponential reflection kernel; the example is explicitly time-only. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked the negative diagonal and smooth-test persistence, m=0, and avoided asserting that a time-only example is a full Euclidean field model. The remaining gap is: Control the full correlation hierarchy with reflection positivity, spacetime symmetry and analytic growth conditions sufficient for local real-time reconstruction. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30003668; source catalogue code OWR-15960-001
+\setcounter{section}{30003667}
+\section{Euclidean Reconstruction of Relativistic Quantum Field Theories}\label{30003668}
+{\small UnsolvedMath ID 30003668 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+A Euclidean classical field theory is described by Euclidean correlation functions or a probability measure on fields. Reconstruction seeks a positive Hilbert space, vacuum, unitary time evolution and local relativistic observable fields in real time. Reflection positivity is positivity of reflected Euclidean-time correlations and is a crucial compatibility requirement; Euclidean symmetry, regularity and growth conditions also enter reconstruction theorems. Analytic continuation concerns the correlation functions, not merely replacing a real variable by an imaginary one in a formal action.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Given a Euclidean classical field theory, when does analytic continuation from Euclidean time to real time produce a sensible relativistic quantum field theory?
+
+\paragraph{Source scope and qualification.}
+The word sensible is a request to identify suitable axioms and analytic conditions. This programme does not say every Euclidean measure admits a Wightman theory or that formal Wick rotation proves reconstruction.
+\subsection{Short English statement}
+Determine when a Euclidean field model can be reconstructed as a mathematically consistent relativistic quantum theory.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Exhibited an ordinary positive covariance failing reflection positivity and checked exponential-mixture positive-time kernels; no general relativistic reconstruction is proved.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30003668. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{Testing positivity before continuation.} A one-time Gaussian example separates ordinary positivity from reflection positivity, a necessary issue in [S2]. Let \(A,B\) be independent centered real random variables with variance one and define \(X(t)=A\cos t+B\sin t\). If they are Gaussian this is a Gaussian process, but its covariance calculation needs only the stated second moments:
+\[
+ C(t-s)=\mathbb E[X(t)X(s)]=\cos(t-s).
+\]
+For all complex coefficients \(c_j\), the ordinary covariance matrix is positive because its quadratic form is \(\mathbb E|\sum_jc_jX(t_j)|^2\ge0\). Reflection positivity would require positivity of \(C(t+s)\) for positive times. At \(t=s=\pi/2\) the diagonal entry is \(\cos\pi=-1\), so it fails. Replacing point evaluation by a narrow nonnegative smooth test function supported near \(\pi/2\) preserves negativity by continuity.
+\paragraph{A compatible comparison.} In contrast, \(C_m(t)=e^{-m|t|}\), \(m\ge0\), obeys the positive-time test
+\[
+ \sum_{i,j}\overline c_i c_j C_m(t_i+t_j)
+ =\left|\sum_j c_je^{-mt_j}\right|^2\ge0.
+\]
+Nonnegative mixtures of these kernels retain the property by integrating nonnegative quadratic forms, whenever the displayed integrals exist.
+\paragraph{Audit and remaining scope.} This computation rules out the route ``positive Euclidean covariance implies a positive reconstructed Hilbert space''. It is deliberately a time-only diagnostic, not a Euclidean-invariant interacting spacetime counterexample or a reconstruction theorem. The source programme also demands locality, relativistic covariance, regularity and growth. Passing the displayed two-point test proves none of those, and no analytic continuation of all correlation functions is constructed. The historical references are retained as context, with no new literature or novelty claim.
+
+\paragraph{Verification and adversarial audit.}
+Checked the negative diagonal and smooth-test persistence, m=0, and avoided asserting that a time-only example is a full Euclidean field model. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked the negative diagonal and smooth-test persistence, m=0, and avoided asserting that a time-only example is a full Euclidean field model. The remaining gap is: Control the full correlation hierarchy with reflection positivity, spacetime symmetry and analytic growth conditions sufficient for local real-time reconstruction. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the positive covariance cos(t-s), negative reflected diagonal at pi/2 and the positive exponential reflection kernel; the example is explicitly time-only. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Control the full correlation hierarchy with reflection positivity, spacetime symmetry and analytic growth conditions sufficient for local real-time reconstruction.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30003668:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30003668 (OWR-15960-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30003668:2}{S2}] Reflection Positivity (2017), Oberwolfach Reports, DOI 10.4171/owr/2017/55, pp. 3263--3343. Primary report accessed 2026-10-11; relevant PDF pages 33, 34.
+\url{https://doi.org/10.4171/owr/2017/55}.
+\item[\hypertarget{source:30003668:3}{S3}] Osterwalder--Schrader axioms (catalogue-listed context; not independently consulted in this preparation).
+\url{https://doi.org/10.1007/BF01645738}.
+\item[\hypertarget{source:30003668:4}{S4}] OWR Report 55/2017 (catalogue-listed context; not independently consulted in this preparation).
+\url{https://ems.press/content/serial-article-files/46717}.
+\end{itemize}
+\label{end:30003668}
+\end{document}

@@ -1,0 +1,162 @@
+% RESEARCH_DRAFT_SHA256: 126c8bbaead999d5fd50bd341c7db901d8156bc8fc43687261a63c631e5b3bce
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30002724, "title": "Combinatorial Decompositions of the All-Ones Vector", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002724", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Can the all-ones vector be represented as a linear or integer combination of combinatorially interesting vectors, such as incidence vectors of tours?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The source asks a broad family-dependent decomposition question; the parity classification and K4 convex calculations settle only the explicitly defined tour cases and give no universal improved bound.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{All-ones tour decompositions: parity and an exact K4 calculation}
+\noindent UnsolvedMath ID 30002724; OWR-13353-008. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+An incidence vector of a subset has coordinate one for selected elements and zero otherwise. A linear combination permits scalar coefficients; an integer combination restricts coefficients to integers. A tour is a closed route visiting the required vertices under the source convention.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The allowed vectors, coefficient signs, and decomposition objective are not specified.
+
+Source-record limitation: The allowed combinatorially interesting vectors and decomposition objective are unspecified.
+\paragraph{Statement recorded in the supplied source.}
+Can the all-ones vector be represented as a linear or integer combination of combinatorially interesting vectors, such as incidence vectors of tours? \href{https://doi.org/10.4171/owr/2014/51}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Represent the all-ones vector using useful combinatorial incidence vectors.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30002724 (OWR-13353-008). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2015), Oberwolfach Reports, DOI 10.4171/owr/2014/51, pp. 2873--2932
+\url{https://doi.org/10.4171/owr/2014/51}.
+\item[S3] Haddadan--Newman--Ravi, uniform covers
+\url{https://arxiv.org/abs/1707.05387}.
+\item[S4] Sebo, tours and detours
+\url{https://pagesperso.g-scop.grenoble-inp.fr/~seboa/sebo_files/papers/seboberwolfach14cahiers.pdf}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Can the all-ones vector be represented as a linear or integer combination of combinatorially interesting vectors, such as incidence vectors of tours?
+
+\section{Source scope retained}
+Sebo's report, printed pages 2912--2913, opens with the broad question retained
+in the catalogue and then considers several distinct families. It defines a
+tour by an edge-multiplicity vector in $\{0,1,2\}^E$ with even degree at each
+vertex and connected spanning support. The catalogue's incidence-vector
+terminology alone would obscure multiplicity two. We use this precise tour
+convention for the following component of the broad question, without
+replacing all its unspecified vector families by tours.
+
+The report states that in a 3-edge-connected graph the all-ones vector lies
+in the convex hull of tours and asks whether that uniform bound can improve.
+Its spanning-tree and parity-correction argument invokes polyhedral results
+not reproved here. Instead we attempt to strengthen the coefficients from
+real to integer, and test exact uniform covers in the smallest complete example.
+
+\section{An integer-coefficient obstruction with a complete classification}
+Let $G$ be a finite loopless connected graph with at least one edge. If
+$\mathbf1_E=\sum_t a_t T_t$ is any finite integer combination of tours,
+with coefficients of either sign, then for each vertex $v$,
+\[
+\deg_G(v)=\sum_{e\ni v}1=\sum_t a_t\sum_{e\ni v}(T_t)_e
+\]
+is even. Thus every vertex degree must be even. Conversely, if every vertex
+of connected $G$ has even degree, $\mathbf1_E$ itself is a tour under the
+source definition: its entries are one, every star has even sum, and its
+support is connected and spanning. Hence, for this specified tour family,
+\[
+\mathbf1_E\text{ is an integer combination of tours}
+\quad\Longleftrightarrow\quad G\text{ has only even degrees}.
+\]
+Allowing negative integer coefficients does not remove the parity obstruction.
+This is an elementary classification within the tour convention, not a
+resolution of the source's broader unspecified combination problem.
+
+For a convex combination of tours a different necessary condition holds.
+Every nonempty proper vertex cut is crossed an even number of times by a
+tour, since the sum of degrees on one side is twice its internal multiplicity
+plus its crossing multiplicity. Connected spanning support makes that even
+number positive, hence at least two. Therefore
+\[
+\alpha\mathbf1_E\in\operatorname{conv}\{\text{tours}\}
+\quad\Longrightarrow\quad \alpha|\delta(S)|\ge2
+\]
+for every such cut. In particular a bridge prevents $\mathbf1_E$ from
+being a convex combination. This is only a necessary cut test in general.
+
+\section{K4 separates convex and integer representations}
+In $K_4$ there are three undirected Hamilton cycles, obtained by omitting one
+of the three perfect matchings. Every edge lies in exactly two cycles:
+it belongs to one perfect matching and is omitted only for that matching.
+A Hamilton cycle is a tour, so their uniform average is
+$(2/3)\mathbf1_E$. Each vertex cut has three edges, and the preceding cut
+bound forces $\alpha\ge2/3$. Thus the smallest uniform scalar for $K_4$
+is exactly $2/3$.
+
+The vector $\mathbf1_E$ also has a direct convex representation avoiding any
+claim that upward monotonicity holds automatically. For each Hamilton cycle
+$C$, and each of the two edges $e$ in its omitted matching, form
+$T_{C,e}=\mathbf1_C+2\mathbf1_{\{e\}}$. This has entries in $\{0,1,2\}$,
+is connected and spanning because $C$ is, and has even degrees because a
+doubled edge changes both endpoint degrees by two. There are six such tours.
+Fix an edge $a$. It belongs to two Hamilton cycles, each giving two tours,
+so its ordinary-cycle contribution across the six is four. It is the doubled
+edge in exactly one of the two tours from the remaining cycle, contributing
+two more. Its average multiplicity is therefore $(4+2)/6=1$.
+The uniform average of the six tours is exactly $\mathbf1_E$.
+
+Nevertheless no integer combination of tours equals $\mathbf1_E$ in $K_4$,
+since each vertex has degree three. Thus even on a 3-edge-connected graph,
+convex representability cannot be upgraded to integral coefficients by
+clearing denominators and then cancelling: clearing denominators changes
+the target to a multiple of $\mathbf1_E$. This is the exact failed inference
+in the attempted strengthening.
+
+\section{Context and adversarial audit}
+All claimed tour calculations have full direct proofs. They do not determine
+a universal improved scalar for arbitrary 3-edge-connected graphs or select
+a meaning for every ``combinatorially interesting'' vector family in the
+source question. The audit checked spanning connectedness, multiplicity two,
+negative integer coefficients, and every edge count in the six-tour average.
+The complete source definition and broad qualification remain preserved.
+No computation, general literature-status claim, theorem prover or independent
+human proof checking is asserted; the material is elementary and no novelty
+is claimed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The source asks a broad family-dependent decomposition question; the parity classification and K4 convex calculations settle only the explicitly defined tour cases and give no universal improved bound.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 51/2014; original source passage and surrounding definitions read in the cached primary report on 11 October 2026. \url{https://doi.org/10.4171/owr/2014/51}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The source asks a broad family-dependent decomposition question; the parity classification and K4 convex calculations settle only the explicitly defined tour cases and give no universal improved bound.
+\end{document}

@@ -1,0 +1,137 @@
+% RESEARCH_DRAFT_SHA256: 48058d54cb13d702ea2d2c641bda48fc2acd80b0249991713befaa2d96ecef73
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 5500010, "title": "Simple Linear-Time Polygon Triangulation", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "5500010", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Simple Linear-Time Polygon Triangulation; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Auditing fan triangulation and ear-scan costs; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch003 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Mathematical question.}#1}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 5500010; source catalogue code AMR-054-0010
+\section{Simple Linear-Time Polygon Triangulation}\label{5500010}
+{\small UnsolvedMath ID 5500010 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$, and $\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$ denote the integers, rationals, reals and complex numbers. Any other conventions are specified locally.
+
+
+A simple polygon has a non-self-intersecting polygonal boundary with $n$ vertices. A triangulation partitions its interior into triangles by noncrossing diagonals, using its vertices. Linear time means $O(n)$ running time. Simplicity of the algorithm is the qualitative criterion used in the source.
+\paragraph{Statement recorded in the supplied source.}
+Find a deterministic linear-time triangulation algorithm for arbitrary simple polygons that is significantly simpler than Chazelle\textquotesingle s. The related question recorded with it asks for a simple linear-time algorithm computing a shortest path within a simple polygon without first using a more complicated triangulation algorithm. \href{https://github.com/edemaine/topp/blob/main/Problems/P.000010}{[S2]}
+\subsection{Short English statement}
+Find a deterministic linear-time triangulation algorithm for arbitrary simple polygons that is significantly simpler than Chazelle\textquotesingle s. The related question recorded with it asks for a simple linear-time algorithm computing a shortest path within a simple polygon without first using a more complicated triangulation algorithm.
+\subsection{Sources}
+\begin{description}
+\item[S1] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 5500010 (AMR-054-0010). CC BY 4.0. \url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Erik D. Demaine, Joseph S. B. Mitchell and Joseph O\textquotesingle Rourke (editors), \emph{The Open Problems Project}, maintained original source, Problem 10, Statement and complete Partial/Related Results. \url{https://github.com/edemaine/topp/blob/main/Problems/P.000010}.
+\end{description}
+\label{end:5500010}
+
+\section{Literature and context check}
+The maintained TOPP Problem 10 page was consulted. It retains both the
+simpler deterministic triangulation question and the related shortest-path
+question. Its discussion distinguishes randomized constructions from the requested
+deterministic guarantee. ``Significantly simpler'' has no formal measure in the
+source. No recent-resolution claim is made from that historical page alone.
+\section{Research attempt: Auditing fan triangulation and ear-scan costs}
+The first attempted linear algorithm was to choose one boundary vertex and
+draw a fan. For a convex polygon $v_0,\ldots,v_{n-1}$ this works: each diagonal
+$v_0v_i$ lies in the polygon by convexity, and the triangles
+$(v_0,v_i,v_{i+1})$, $1\le i\le n-2$, have disjoint interiors and exhaust it.
+One proof is to intersect every ray from $v_0$ with the convex polygon: its
+intersection is an interval, whose outer endpoint lies on exactly one opposite
+edge except at finitely many directions. Thus construction and explicit output
+cost $O(n)$ arithmetic operations. For two points of a convex polygon, their
+straight segment is also a shortest internal path: every rectifiable competitor
+has length at least the Euclidean distance, by applying the triangle inequality
+to its polygonal approximations.
+
+The fan inference fails on this explicit simple polygon, in boundary order:
+\[
+ (0,0),(4,0),(4,4),(3,4),(3,1),(1,1),(1,4),(0,4).
+\]
+Its interior is the outer rectangle with the upper open rectangular notch
+$1<x<3$, $1<y<4$ removed. The proposed diagonal from $(0,0)$ to $(4,4)$
+passes through $(2,2)$, outside the polygon. Its boundary edges have disjoint
+relative interiors, so this is a valid simple-polygon counterexample to the fan
+algorithm, rather than a self-intersecting input. A shortest-path shortcut through
+the notch likewise fails the domain constraint.
+
+The next attempt was ear removal with an explicit emptiness scan: when $m$
+vertices remain, select a convex candidate, test all other $m-3$ vertices for
+membership in its triangle, and remove it if empty. On a strictly convex polygon
+every such candidate succeeds, but the specified verifier still makes exactly
+\[
+ \sum_{m=4}^n(m-3)=\frac{(n-3)(n-2)}2
+\]
+point-in-triangle tests. The input family can be the vertices of any strictly
+convex $n$-gon. Thus constant amortized time per removed ear has not been proved:
+even a sequence of successful ears can require quadratic verification under the
+chosen implementation. This is a running-time counterexample to that concrete
+implementation, not a lower bound for ear methods with more careful maintenance.
+
+The two failures locate the remaining operation: cheaply certifying that a
+candidate diagonal is internal in arbitrary nonconvex geometry. Neither the
+convex fan proof nor the successful-ear count pays for that operation. A
+replacement visibility structure would require its own preprocessing and update
+analysis before an $O(n)$ total bound could be asserted.
+\section{Verification and adversarial audit}
+The notch example was checked by its coordinate intervals and by the point
+$(2,2)$ on the proposed diagonal. The exact quadratic sum was evaluated
+symbolically. Triangles ($n=3$) give zero ear-removal tests, consistently. Collinear
+boundary vertices and shortest paths in nonconvex polygons are not claimed
+handled by the convex special case.
+\paragraph{Audit corrections.} The quadratic count is only for the specified full-scan verifier, not a general lower bound; convexity was not silently imposed on the original target.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+No new algorithm for arbitrary simple polygons and no general internal
+shortest-path algorithm was obtained. The first unresolved step is a simple
+deterministic linear-total-cost mechanism for internal-diagonal certification;
+both bundled questions and their qualitative simplicity requirement remain.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://topp.openproblem.net/p10} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved. This is a research attempt with an explicit failed route or restricted
+calculation, not a full solution, not a current-status certification, and not a claim
+that the elementary material is new. The catalogue's original source-status label
+is preserved independently of this attempt status.
+\end{document}

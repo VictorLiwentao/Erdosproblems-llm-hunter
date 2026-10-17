@@ -1,0 +1,118 @@
+% RESEARCH_DRAFT_SHA256: b1a32d3ac28e6a9be24dbc463f9734733186ec177fddd2785c506ace7859776b
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30005052, "title": "Local-to-Global Tensorization of Information Functionals", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005052", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Local-to-Global Tensorization of Information Functionals; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Nonnegative entropy weights tensorize and a sign-based extension fails; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch012 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30005052; source catalogue code OWR-9790365-001
+\section{Local-to-Global Tensorization of Information Functionals}\label{30005052}
+{\small UnsolvedMath ID 30005052 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For finite-alphabet random variables, $H(Z)=-\sum_z p(z)\log p(z)$ is entropy, with $0\log0=0$. In the source family a channel $W$ sends $X$ to $(Y_1,\ldots,Y_k)$, and real weights $\alpha_S$ and an input penalty $\gamma$ specify
+\[F_{\gamma,W}(p_X)=\sum_{S\subseteq[k]}\alpha_S H(Y_S)-\mathbb E[\gamma(X)].\]
+For two independent channels, the joint functional replaces $H(Y_S)$ by $H(Y_{1,S},Y_{2,S})$ and subtracts $\mathbb E[\gamma_1(X_1)+\gamma_2(X_2)]$, allowing correlated inputs. Local tensorization means products of local maximizers of the separate functionals are local maximizers of the joint functional, for every pair of penalties. Global tensorization means a product input attains the joint maximum for every pair of penalties.
+\paragraph{Statement recorded in the supplied source.}
+For which families of information functionals does local tensorization imply global tensorization? \href{https://doi.org/10.4171/owr/2022/14}{[S2]}
+\paragraph{Scope qualification.}
+The functional and the local/global distinction are recovered from the report discussion on pp. 689--690. Local maximality is relative to the finite probability simplex; the question asks for families, rather than asserting an implication for all information quantities.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+For which channel and entropy-weight families does the local product-maximizer property force a global product-maximizer property?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30005052 (OWR-9790365-001). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] New Mathematical Techniques in Information Theory (2023), Oberwolfach Reports, DOI 10.4171/owr/2022/14, pp. 683--707
+\url{https://doi.org/10.4171/owr/2022/14}.
+\item[S3] Nair, local and global tensorization
+\url{https://ems.press/content/serial-article-files/46950?nt=1}.
+\item[S4] New Mathematical Techniques in Information Theory, Oberwolfach Report 14/2022, pp. 689--690.
+\url{https://ems.press/content/serial-article-files/46950}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30005052 and source code OWR-9790365-001 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30005052}
+
+\section{Literature and context check}
+The report, pp. 689--690, defines local and global tensorization for entropy-weight functionals with arbitrary input penalties. The following proof covers nonnegative entropy weights, a standard sufficient family. It then checks exactly why the same argument does not cover signed weights or settle the report's full local-to-global conjecture.
+\section{Research attempt: Nonnegative entropy weights tensorize and a sign-based extension fails}
+For a finite channel with outputs $Y_S$ and a real input penalty $\gamma$, write $F(p)=\sum_S\alpha_SH_p(Y_S)-E_p\gamma(X)$. Assume all $\alpha_S\ge0$. Entropy is concave in a probability vector: each summand $-t\log t$ has second derivative $-1/t<0$ for $t>0$ and extends continuously at zero, so its concavity extends to the closed simplex. Output probabilities depend linearly on input probabilities, and the penalty is affine. Hence $F$ is concave on the input simplex.
+
+Every local maximizer of a concave function on a convex set is global. If $F(q)>F(p)$, concavity gives $F((1-t)p+tq)\ge(1-t)F(p)+tF(q)>F(p)$ for every $t>0$, contradicting local maximality as $t\downarrow0$. This includes boundary points relative to the simplex. Continuity and compactness guarantee existence of global maximizers for finite real penalties.
+
+For two independent channels with arbitrarily correlated inputs, entropy subadditivity gives
+\[
+F_{12}(p_{12})\le F_1(p_1)+F_2(p_2).
+\]
+To justify the inequality, $H(U)+H(V)-H(U,V)=D(p_{UV}\Vert p_Up_V)\ge0$. For probability vectors, nonnegativity follows from $-\log t\ge1-t$: summing $p\log(p/q)$ over positive $p$ gives at least $\sum_{p>0}(p-q)\ge0$, with infinite divergence if $q=0<p$. Multiply each subadditivity inequality by its nonnegative weight; penalties depend only on their own marginals and therefore split exactly. Product inputs make the two channels' output vectors independent and attain equality. Products of individual global maximizers thus globally maximize the joint functional for every pair of penalties. Since local maxima of the individuals are global, this family also has the local tensorization property.
+
+The same subadditivity proof cannot just ignore negative weights. For the functional $-H(X)$ on a noiseless binary channel, fix both input marginals to be uniform. The product coupling has joint value $-2\log2$, while the equal-bit coupling has $-\log2$, which is larger. Thus replacing a correlated input by the product of its marginals can decrease a signed entropy objective. This is not a counterexample to the source conjecture: uniform inputs are not local maximizers of $-H$ on the full simplex with zero penalty, and the source quantifies over all penalties rather than imposing these fixed marginals. It only falsifies the specific nonnegative-weight proof extension.
+\section{Verification and adversarial audit}
+The proof checks local maximality relative to the closed simplex, separates marginal penalties exactly, and proves the entropy inequality used. The signed example's failure to meet the conjecture's local-maximizer premise is explicit.
+\paragraph{Audit corrections.} The fixed-marginal signed example is not advertised as a counterexample to the original conjecture. Boundary local maxima and the penalty quantifiers remain intact.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+Nonnegative weights form a proved known sufficient family. The general signed-weight local-to-global implication, including its universal penalty quantifier, remains unresolved here.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46950} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

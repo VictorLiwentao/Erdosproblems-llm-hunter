@@ -1,0 +1,97 @@
+% RESEARCH_DRAFT_SHA256: 3f2a48efa7e5f1fbea485fff02aa30a04bd9f5035861782b77efc19c9c8628a6
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001236, "title": "An exact MLE fiber for the smallest binary hidden-variable model", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001236", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Complete stationary-set calculation with a positive-probability saddle in a hidden model.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch005/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 20001236; source catalogue code AIM-COMPUTATION-0074
+\section{An exact MLE fiber for the smallest binary hidden-variable model}\label{20001236}
+{\small UnsolvedMath ID 20001236 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a statistical model with parameter $\theta$ and observations $D$, the likelihood is $L(\theta;D)=\Pr_\theta(D)$, or the corresponding density. Maximum likelihood seeks a global maximum over the admissible parameter space. A graphical model specifies a family of joint distributions through a graph and its associated conditional-independence constraints. Hidden variables are summed or integrated out to obtain the joint distribution on observed variables. Algebraic methods encode critical-point equations and eliminate latent coordinates. The resulting solution sets must be distinguished from admissible real maximizers and from equivalent hidden-variable parameterizations.
+\paragraph{Statement recorded in the supplied source.}
+Question 59 (Ho¸ sten). What can algebra say about MLE's for models with hidden vari-ables? \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The source asks a broad mathematical method question; it does not impose a graph class or assert a general closed formula.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+What can algebraic methods reveal about maximum-likelihood estimation in models with hidden variables?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001236 (AIM-COMPUTATION-0074). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0074
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001236 and source code AIM-COMPUTATION-0074 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001236}
+
+
+\section{Research attempt}
+\subsection{Literature and scope}
+Question 59 is the broad agenda of using algebra for hidden-model MLEs. I tested whether solving interior algebraic score equations and checking positive probabilities suffices to identify maxima. A binary latent-spin model gives an exact saddle that survives both tests, along with a nonisolated maximum set.
+\begin{proposition}
+Let $H$ be a uniform spin $\pm1$ and $X=HU$, $Y=HV$, where independent noise spins have means $a,b\in(-1,1)$. For data of size $N>0$ with empirical product mean $c\in(-1,1)\setminus\{0\}$, the interior stationary set is
+\[
+\{(a,b):ab=c\}\ \cup\ \{(0,0)\}.
+\]
+The first part consists of global maxima, and the origin is a saddle with strictly positive observable probabilities.
+\end{proposition}
+\begin{proof}
+Summing over $H$ gives $p(x,y)=(1+abxy)/4$ for $x,y\in\{\pm1\}$. With $t=ab$, the log likelihood up to constants is
+\[
+\ell(t)=\frac N2\bigl((1+c)\log(1+t)+(1-c)\log(1-t)\bigr),
+\qquad \ell'(t)=\frac{N(c-t)}{1-t^2}.
+\]
+Its derivative changes from positive to negative at $t=c$, so that is its unique observable maximum. The value $c$ is attainable in the parameter domain, for example using $a=\sqrt{|c|}$ and $b=\operatorname{sign}(c)\sqrt{|c|}$.
+
+The parameter scores are $b\ell'(ab)$ and $a\ell'(ab)$. Since $|ab|<1$, denominators never vanish. Either $ab=c$, or both scores force $a=b=0$, proving completeness of the stationary set without adding denominator roots. At the origin the Hessian is $\left(\begin{smallmatrix}0&Nc\\Nc&0\end{smallmatrix}\right)$, whose eigenvalues are $\pm N|c|$. Along the corresponding directions the leading nonzero likelihood changes have opposite signs, so the origin is a saddle. Its four probabilities are all $1/4$. Every point with $ab=c$ has the maximum observable probability law and is a global parameter maximum along a continuum.
+\end{proof}
+\subsection{Verification and remaining gaps}
+At $N=100,c=1/2$, the Hessian eigenvalues are $-50,50$. If $c=0$, the origin instead lies on the maximum set $ab=0$, so the stated exclusion of zero is essential. This elementary singular-parameter example shows precisely why positivity and score equations are insufficient for classifying MLEs. It does not provide algorithms for arbitrary hidden graphs or a complete boundary analysis. No novelty is claimed.
+
+\section{References and source attribution}
+The original question is credited to the AIM workshop list prepared by Seth Sullivant (2004), \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}. The source question and catalogue attribution are reproduced above. This list was accessed on 11 October 2026; it is historical evidence of the question, not a certification of present open status.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch005/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

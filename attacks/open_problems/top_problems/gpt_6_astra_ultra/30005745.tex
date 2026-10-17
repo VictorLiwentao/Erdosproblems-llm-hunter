@@ -1,0 +1,90 @@
+% TOP_PROBLEM: {"id": 30005745, "title": "Higher-Dimensional Semiclassical Kinetic-Energy Corrections", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The catalogue specifies proportionality but not a universal numerical coefficient or a complete error class. Those must be recovered from the source prediction, not assigned arbitrarily."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005745", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Prove the predicted next-order gradient correction to semiclassical kinetic energy in dimension at least two.", "scope": "Proved the gradient lower bound and tested two invalid routes to extracting it as an additive next-order correction.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the Cauchy--Schwarz factors, regularization at zero density, independent lower bounds versus an additive bound, and equal dilation homogeneities. Model self-audit only; no independent human mathematical verification. Coordinator checked the orbital Cauchy-Schwarz gradient bound and equal mass-preserving dilation powers, without adding two independent lower bounds. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked the Cauchy--Schwarz factors, regularization at zero density, independent lower bounds versus an additive bound, and equal dilation homogeneities. First remaining gap: Control the leading-energy-subtracted kinetic functional in the actual source semiclassical scaling with the source coefficient and density class. The inherited source status is preserved; original-target completion remains zero."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30005745; source catalogue code OWR-14298014-004
+\setcounter{section}{30005744}
+\section{Higher-Dimensional Semiclassical Kinetic-Energy Corrections}\label{30005745}
+{\small UnsolvedMath ID 30005745 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+Semiclassical kinetic energy compares the quantum constrained energy at density $\rho$ with its leading local Thomas--Fermi expression. The proposed next term is a gradient correction proportional to $\int|\nabla\sqrt\rho|^2$. A rigorous correction must specify the semiclassical scaling, coefficient, density regularity and remainder in that scaling.
+
+\paragraph{Catalogue wording retained for traceability.}
+In dimensions $d\geq2$, can one justify the predicted next-order semiclassical correction to the kinetic energy, proportional to $\int_{\mathbb{R}^d}|\nabla\sqrt{\rho(x)}|^2\,dx$?
+
+\paragraph{Scope and source qualification.}The catalogue specifies proportionality but not a universal numerical coefficient or a complete error class. Those must be recovered from the source prediction, not assigned arbitrarily.
+\subsection{Short English statement}
+Prove the predicted next-order gradient correction to semiclassical kinetic energy in dimension at least two.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved the gradient lower bound and tested two invalid routes to extracting it as an additive next-order correction.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30005745. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{The elementary gradient lower bound.} Take finitely many complex \(H^1(\mathbb R^d)\) orbitals \(\phi_j\) with nonnegative occupations \(n_j\), and let \(\rho=\sum_j n_j|\phi_j|^2\). Pointwise where \(\rho>0\), Cauchy--Schwarz gives
+\[
+ |\nabla\rho|^2
+ =4\left|\operatorname{Re}\sum_j n_j\overline{\phi_j}\nabla\phi_j\right|^2
+ \leq4\rho\sum_jn_j|\nabla\phi_j|^2.
+\]
+Using \(\sqrt{\rho+\epsilon}\) and letting \(\epsilon\downarrow0\) extends the integrated estimate across zeros:
+\[
+ \int|\nabla\sqrt\rho|^2\leq\sum_jn_j\int|\nabla\phi_j|^2.
+\]
+This explains why a gradient energy appears naturally, without specifying a next-order coefficient.
+\paragraph{Failure of the subtraction argument.} Bounds \(T\geq A\) and \(T\geq B\) imply \(T\geq\max(A,B)\), not \(T\geq A+B\). Therefore combining this estimate with a Thomas--Fermi lower bound cannot produce the desired additive semiclassical correction. Moreover under the mass-preserving dilation \(\rho_L(x)=L^{-d}\rho(x/L)\), both \(\int\rho_L^{1+2/d}\) and \(\int|\nabla\sqrt{\rho_L}|^2\) scale as \(L^{-2}\). Spatial dilation alone does not separate their asymptotic orders.
+\paragraph{Source gap.} One must first impose the report's genuine many-particle or semiclassical scaling, recover its coefficient and admissible density class, and estimate the difference after subtracting the leading local energy with a smaller remainder. No such difference estimate is proved here in any \(d\geq2\); the known auxiliary inequality does not settle the recorded proportionality prediction.
+
+\paragraph{Verification and adversarial audit.}
+Checked the Cauchy--Schwarz factors, regularization at zero density, independent lower bounds versus an additive bound, and equal dilation homogeneities. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked the Cauchy--Schwarz factors, regularization at zero density, independent lower bounds versus an additive bound, and equal dilation homogeneities. First remaining gap: Control the leading-energy-subtracted kinetic functional in the actual source semiclassical scaling with the source coefficient and density class. The inherited source status is preserved; original-target completion remains zero.
+
+Coordinator checked the orbital Cauchy-Schwarz gradient bound and equal mass-preserving dilation powers, without adding two independent lower bounds. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Control the leading-energy-subtracted kinetic functional in the actual source semiclassical scaling with the source coefficient and density class.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30005745:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30005745 (OWR-14298014-004). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30005745:2}{S2}] Mini-Workshop: Mathematics of Many-body Fermionic Systems (2023), Oberwolfach Reports, DOI 10.4171/owr/2023/49, pp. 2809--2849. Original report and mathematical context.
+\url{https://doi.org/10.4171/owr/2023/49}.
+\end{itemize}
+\label{end:30005745}
+\end{document}

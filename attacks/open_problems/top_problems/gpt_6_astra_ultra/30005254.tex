@@ -1,0 +1,179 @@
+% RESEARCH_DRAFT_SHA256: 249b181adbbe6041172835bb6726068409161501ddfccabf6d82d48f6fe32039
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30005254, "title": "Global Margin Maximization beyond the Neural Tangent Regime", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005254", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Global Margin Maximization beyond the Neural Tangent Regime; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A solvable homogeneous margin flow and a failing invariant branch; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch024 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30005254; source catalogue code OWR-11695855-007
+\section{Global Margin Maximization beyond the Neural Tangent Regime}\label{30005254}
+{\small UnsolvedMath ID 30005254 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For binary labeled data $(x_i,y_i)$ with $y_i\in\{-1,1\}$, the margin of a score function $f_\theta$ on sample $i$ is $y_i f_\theta(x_i)$. A parameter-homogeneous network satisfies $f_{c\theta}(x)=c^d f_\theta(x)$ for $c>0$ and a fixed degree $d>0$. A maximum-margin objective maximizes the smallest training margin subject to the source parameter normalization, or equivalently minimizes its normalized parameter cost under unit-margin constraints when that equivalence applies. Gradient descent updates $\theta_{t+1}=\theta_t-\eta_t\nabla L(\theta_t)$. The neural-tangent regime approximates the score by its first-order parameter expansion at initialization.
+\paragraph{Statement recorded in the supplied source.}
+Under what conditions does gradient descent globally optimize a maximum-margin objective for deep homogeneous networks, and when does it move beyond the neural-tangent regime to learn stronger representations? \href{https://doi.org/10.4171/owr/2022/46}{[S2]}
+\paragraph{Scope qualification.}
+Architecture, loss, step sizes, separability and the margin normalization must be stated in any proposed answer; homogeneity alone is not claimed to ensure a global optimum.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Identify conditions under which training homogeneous deep networks reaches a globally best normalized margin and learns beyond a fixed linearization.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30005254 (OWR-11695855-007). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Mini-Workshop: Mathematical Foundations of Robust and Generalizable Learning (2023), Oberwolfach Reports, DOI 10.4171/owr/2022/46, pp. 2659--2686
+\url{https://doi.org/10.4171/owr/2022/46}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30005254 and source code OWR-11695855-007 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30005254}
+
+\section{Literature and context check}
+
+I read the primary report's maximum-margin questions on pages 2681--2682.
+The report discusses KKT convergence under assumptions and asks for global
+optimality and improvement over a near-initialization regime. The following
+one-sample bilinear model is an auxiliary exact gradient-flow calculation.
+Continuous-time flow is stated explicitly and is not silently identified with
+discrete gradient descent at arbitrary step sizes.
+
+\section{Research attempt: A solvable homogeneous margin flow and a failing invariant branch}
+
+\paragraph{A complete global-margin calculation in a restricted model.}
+Take one sample $x=y=1$, scalar output $f_{u,v}(x)=uvx$, exponential loss
+$L=e^{-uv}$ and Euclidean parameter normalization. Its normalized margin is
+\[
+ \gamma(u,v)=\frac{uv}{u^2+v^2}\leq\frac12,
+\]
+for nonzero parameters, because $(u-v)^2\geq0$. Equality holds exactly at
+$u=v\ne0$. The unit-margin minimum-cost problem is
+$\min\frac12(u^2+v^2)$ subject to $uv\geq1$; its value is one, attained
+at $u=v=1$ and at $u=v=-1$, since $u^2+v^2\geq2uv\geq2$.
+Gradient flow satisfies
+\[
+ \dot u=v e^{-uv},\qquad\dot v=u e^{-uv},\qquad
+ \frac{d}{dt}(u^2-v^2)=0.
+\]
+Assume $u(0),v(0)>0$. They stay positive and increase. Put $w=uv>0$ and
+$c=u^2-v^2$, which is constant. Then
+\[
+ \dot w=(u^2+v^2)e^{-w}=\sqrt{c^2+4w^2}\,e^{-w}.
+\]
+The right side is positive and bounded for $w\geq w(0)$, so the scalar
+solution exists for all positive time: it cannot escape to infinity in finite
+time while its derivative is bounded. The original positive $u,v$ are recovered
+from $u^2=(\sqrt{c^2+4w^2}+c)/2$ and the analogous formula for $v^2$.
+If $w$ had a finite limit, its continuous right side would have a positive
+limit, contradicting boundedness of $w$. Therefore $w\to\infty$ and
+\[
+ \gamma(u,v)=\frac{w}{\sqrt{c^2+4w^2}}\longrightarrow\frac12.
+\]
+This proves global normalized-margin convergence for this model and this
+positive initialization region, with no inference from a KKT condition.
+
+\paragraph{Homogeneity and separability alone do not ensure success.}
+On the invariant branch $v=-u$, $u(0)>0$, the same flow becomes
+$\dot u=-u e^{u^2}$. It stays positive and decreases to zero: a positive
+limit would leave its derivative bounded away from zero negatively. The
+solution exists for all positive time, since it stays in a compact interval and
+the smooth vector field is bounded there. Its score $uv=-u^2$ approaches
+zero from below, and its normalized margin equals $-1/2$ at every finite time.
+The data are nevertheless separable by $(u,v)=(1,1)$.
+At $(0,0)$ the gradient is zero and the flow is stationary as well.
+These explicit initializations disprove a universal global-convergence statement
+based solely on homogeneity and separability. They do not show failure from a
+random initialization with a density, since the bad branch has measure zero.
+
+\paragraph{The tangent comparison still has an unresolved step.}
+At zero, the first-order parameter linearization of $uv$ is identically zero,
+whereas the nonlinear model can represent a positive separator. But the actual
+gradient at zero is also zero. Thus the mere existence of a stronger nonlinear
+representation does not imply that gradient descent discovers it or escapes its
+tangent model. A beyond-tangent learning theorem needs a specified initialization,
+trajectory and performance comparison, none of which follows from this
+representational observation. The successful branch above already has the same
+optimal normalized margin in its balanced case, so it is not presented as an
+example of a provable representation-learning advantage.
+
+\section{Verification and adversarial audit}
+
+Global flow existence was checked on both branches rather than presumed from
+local smoothness. The normalized margin excludes the zero parameter vector;
+on the failing branch it is evaluated only at finite times. The positive branch's
+invariant and its exact scalar evolution verify the margin limit. No discrete
+step-size theorem or random-initialization failure probability is asserted.
+
+\paragraph{Audit corrections.} Separated flow from discrete GD and normalized-margin convergence from
+mere loss decrease. The bad initialization set is labeled measure zero, and the
+tangent representability example is not claimed to show learning or escape.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+
+The source asks for conditions in deep networks and comparisons with the
+neural-tangent regime. The exact two-factor flow gives only a small sufficient
+case and a precise obstruction to a general inference. It leaves general depth,
+discrete-time GD, realistic datasets and the representation comparison unresolved.
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46984} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

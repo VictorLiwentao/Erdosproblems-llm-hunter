@@ -1,0 +1,144 @@
+% RESEARCH_DRAFT_SHA256: e2a8cb33ca089f634d11feb4a59842a334147e2493458e9eaaf3e582aaf2f94c
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001264, "title": "A format-sensitive genus barrier for Schoof-Pila", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001264", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 14. Pila's method for computing roots of unity is exponential in g. Is there any reason it can't be made linear? (Elkies)", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Explicit output has an exponential lower bound, while sparse descriptions are short; no algorithm realizes the required arithmetic action from the compressed data with the requested genus dependence.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Roots of unity in genus-dependent algorithms: explicit and compressed outputs}
+\noindent UnsolvedMath ID 20001264; AIM-COMPUTATION-0102. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+An $r$th root of unity is an element $\zeta$ satisfying $\zeta^r=1$ in a specified field or algebra. An algorithm must state how such an element and its ambient field are represented. The genus of a smooth projective curve measures its geometric complexity, but the symbol $g$ in this excerpt is not defined.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+Input, output, and the meaning of $g$ are absent. A genus-dependent point-counting problem cannot be substituted for the literal roots-of-unity question without further source scope. The supplied catalogue marks this record partially solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+Question 14. Pila's method for computing roots of unity is exponential in g. Is there any reason it can't be made linear? (Elkies) \href{https://aimath.org/WWN/primesinp/primesinp.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The historical source asks whether an unnamed exponential dependence in Pila's method can become linear.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001264 (AIM-COMPUTATION-0102). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-COMPUTATION-0102.
+\url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 14. Pila's method for computing roots of unity is exponential in g. Is there any reason it can't be made linear? (Elkies)
+
+\section{A representation-sensitive attempted route}
+Question 14 mentions the roots-of-unity step in Pila's algorithm,
+an exponential dependence on genus, and the desire for a linear one.
+Its adjacent remark concerns an $\ell^{2g}$-element group and avoiding
+a complete projective model. It does not say that an explicit list
+of all those elements is required. We examine the natural shortcut
+of replacing enumeration by a sparse representation, keeping that
+distinction visible. The following results concern representations;
+they are not a proved improvement of Pila's algorithm.
+
+\paragraph{The explicit-list barrier and a compressed example.}
+Fix a prime $\ell$ and $g\ge1$, and put $N=\ell^{2g}$.
+Over a field of characteristic different from $\ell$, the polynomial
+$X^N-1$ has exactly $N$ distinct roots in an algebraic closure.
+It splits there by the definition of algebraic closure. Its derivative
+is $NX^{N-1}$, which cannot vanish at a nonzero root, so none is
+repeated. Hence a format listing every root with at least one output
+symbol per entry has length at least $N$. No algorithm in that format
+can have total running time linear in $g$, because writing those
+symbols alone takes at least $N$ steps.
+
+This lower bound disappears for a different task. The sparse expression
+$X^{\ell^{2g}}-1$ uses an exponent with $O(g\log\ell)$ bits.
+Over $\mathbb C$, one primitive root is described exactly by
+$\exp(2\pi i/N)$: its $k$th power is one precisely when $N\mid k$,
+by the period $2\pi$ of the complex exponential on the imaginary axis.
+The roots of exact order $N$ are also described by
+\[
+C(X)=\sum_{j=0}^{\ell-1}X^{j\ell^{2g-1}}.
+\]
+Indeed $(X^{N/\ell}-1)C(X)=X^N-1$. At a root of
+$X^{N/\ell}-1$ the sum equals $\ell\ne0$, so the roots of $C$
+are exactly the $N$th roots whose order does not divide $N/\ell$.
+Every divisor of the prime power $N$ is a power of $\ell$;
+these are therefore precisely the roots of order $N$.
+For fixed $\ell$ this sparse description has size $O(g)$, while
+its dense degree is $N-N/\ell$. We do not assert that writing
+this description computes an embedded finite-field root or permits
+all subsequent operations in time linear in $g$.
+
+\paragraph{The same obstruction in a torsion-space abstraction.}
+If a relevant torsion group is supplied abstractly as the vector space
+$V=\mathbb F_\ell^{2g}$, its cardinality is $\ell^{2g}$:
+each of $2g$ coordinates has $\ell$ independent choices.
+A linear operator can instead be represented by $(2g)^2$ field
+entries. To see sufficiency, its values on the coordinate basis
+determine its value on $\sum a_ie_i$ by linearity, and any matrix
+defines such a map. This compression is genuine once coordinates
+and the operator are given. It does not construct that basis in
+geometric coordinates or compute the operator's entries from a curve.
+In particular, substituting an abstract matrix for geometric torsion
+is circular if recovering that matrix was the original hard step.
+
+\paragraph{Where the shortcut stops.}
+A sparse polynomial supplies a relation, not a chosen compatible
+root in the required extension field with the operations and embeddings
+needed by the point-counting algorithm. Listing roots forces an
+exponential output, but the source explicitly contemplates avoiding
+large geometric representations. Thus the output-size argument cannot
+rule out the requested compressed improvement. Conversely the short
+formula above does not implement it: the missing step is to recover
+the required arithmetic action from that short representation with
+proved costs in $g$, the field size and $\ell$.
+
+\section{Audit}
+The primary Question 14 and its adjoining group-size and projective-model
+remarks were inspected. The audit distinguishes a linear running time
+from an exponent linear in genus; the brief source wording does not
+settle which precise bound is intended. It also distinguishes one
+symbolic root, all explicit roots, and an arithmetic representation
+usable by a subsequent algorithm. No root-finding code or benchmark
+was run. The elementary bounds diagnose two incompatible output
+models, not an impossibility theorem for the original algorithm.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Explicit output has an exponential lower bound, while sparse descriptions are short; no algorithm realizes the required arithmetic action from the compressed data with the requested genus dependence.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Future directions in algorithmic number theory, workshop 24--28 March 2003, report version 30 April 2003; original question, relevant lecture context and adjoining remarks inspected on 11 October 2026. \url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Explicit output has an exponential lower bound, while sparse descriptions are short; no algorithm realizes the required arithmetic action from the compressed data with the requested genus dependence.
+\end{document}

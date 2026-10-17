@@ -1,0 +1,86 @@
+% TOP_PROBLEM: {"id": 8000014, "title": "Initial/boundary value problems for integrable systems", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The example retains every smooth compactly supported initial profile and the prescribed sinusoidal boundary driver with nonzero frequency. Compatibility at the initial-boundary corner must be addressed where a classical solution is sought; it is not silently removed."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "8000014", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Determine the long-time response of half-line NLS to boundary driving and overcome the unknown Neumann-trace obstacle.", "scope": "Derived the exact linear half-line Schrödinger Dirichlet-to-Neumann map and a sinusoidal short-time check. Nonlinear NLS, arbitrary compact initial profiles and their long-time response remain unresolved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked Laplace branch, decaying solution, fractional convolution, g(0)=0, sinusoidal small-time coefficient and corner compatibility limitations. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the Laplace square-root branch, half-line decaying solution, fractional boundary trace and small-time sinusoidal expansion. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked Laplace branch, decaying solution, fractional convolution, g(0)=0, sinusoidal small-time coefficient and corner compatibility limitations. Scope remains limited: Control the nonlinear and initial-data contributions to the dependent Neumann trace uniformly at long time."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 8000014; source catalogue code AMR-079-0014
+\setcounter{section}{8000013}
+\section{Initial/boundary value problems for integrable systems}\label{8000014}
+{\small UnsolvedMath ID 8000014 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}An initial-boundary value problem on the half-line specifies $u(x,0)=u_0(x)$ for $x\ge0$ and boundary data at $x=0$ for $t\ge0$. For NLS, Dirichlet data $u(0,t)$ determine the solution together with the initial profile, whereas the Neumann trace $u_x(0,t)$ is dependent data. A Dirichlet-to-Neumann map recovers that trace. Fokas' formulation uses both traces in its spectral representation.
+
+\paragraph{Catalogue wording retained for traceability.}
+In the late 1990s Fokas introduced a new, more flexible approach to inverse scattering theory, and in recent years a number of researchers (Fokas, Its,..., Anne Boutet de Monvel, Shepelsky,...) have applied Fokas' approach to the initial/boundary value problem for various integrable systems such as NLS. Much progress has been made, but there is a basic, and puzzling, obstacle to applying the method, viz. one needs to know certain dependent data in order to proceed. For example, the initial/boundary value problem for NLS is well-posed if one gives the initial data $u(x,0)=u_0(x)$, $x\geq 0$, and the boundary data $u(0,t)=u_1(t)$, $t\geq 0$. However, in implementing the method it turns out that one needs to know the dependent data $u_x(0,t)$, $t\geq 0$, as such information appears explicitly in the solution formulae. Progress has been made in determining $u_x(0,t)$, $t\geq0$, from $u_0(x)$ and $u_1(t)$ intrinsically via the method, but the control one obtains on $u_x(0,t)$ is not sufficient in order to obtain the long-time behavior of the initial/boundary value problem. This is true even in simple cases, such as the following: suppose $u(x,t)$ solves NLS in $(x\geq0,t\geq0)$ with $u(0,t)=\sin(\omega t)$, $\omega\neq0$, and $u(x,0)=u_0(x)$, where $u_0$ is smooth with compact support. How does $u(x,t)$ behave as $t\to\infty$? The solution of this problem for any such $u_0(x)$ would be a very significant development in the theory, and would also be of considerable interest in science and engineering. There is a philosophical point at stake here. The evolution of NLS in $x>0$ represents the interplay of forces which are ``integrable'' at some fundamental, algebraic level, and indeed, if no other forces are present, as in the full-line scattering or periodic cases, the equation can be integrated explicitly. When one considers the initial/boundary value problem, however, new physical forces come into play which describe the interaction of the particles on the boundary with the NLS particles in the interior. There is absolutely no a priori guarantee that the enlarged system, ``NLS particles in $x>0$''+``particles on the boundary'', is integrable. It may be that the long-time behavior of the composite system can only be solved for ``generic, Cantor-set'' like data, as is familiar from KAM theory. In other words, an explicit description of the long-time behavior of the solution of the initial/boundary value problem for NLS for general initial data may not be possible. This is a very intriguing situation.
+\paragraph{Scope and source qualification.}The example retains every smooth compactly supported initial profile and the prescribed sinusoidal boundary driver with nonzero frequency. Compatibility at the initial-boundary corner must be addressed where a classical solution is sought; it is not silently removed.
+\subsection{Short English statement}
+Determine the long-time response of half-line NLS to boundary driving and overcome the unknown Neumann-trace obstacle.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derived the exact linear half-line Schrödinger Dirichlet-to-Neumann map and a sinusoidal short-time check. Nonlinear NLS, arbitrary compact initial profiles and their long-time response remain unresolved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{Linear Dirichlet-to-Neumann calculation.}To isolate the dependent-trace issue, take the linear half-line equation \(iu_t+u_{xx}=0\), zero initial data, and Dirichlet input \(g(t)\), with \(g(0)=0\). For the Laplace transform \(U(x,p)\), \(\operatorname{Re}p>0\), the equation is \(U_{xx}=-ipU\). Choose \(\kappa(p)=e^{-i\pi/4}\sqrt p\), with the square root positive on the positive real axis and continued in the right half-plane; then \(\operatorname{Re}\kappa>0\). Decay as \(x\to\infty\) gives
+\[U(x,p)=G(p)e^{-\kappa(p)x},\qquad
+\mathcal L[u_x(0,\cdot)](p)=-e^{-i\pi/4}\sqrt p\,G(p).
+\]
+Inverting the elementary Laplace convolution, since \(g(0)=0\), yields
+\[u_x(0,t)=-\frac{e^{-i\pi/4}}{\sqrt\pi}\int_0^t\frac{g'(s)}{\sqrt{t-s}}\,ds.
+\]
+Thus even the linear Neumann trace is a nonlocal-in-time functional of the Dirichlet data.
+\paragraph{The sinusoidal boundary.}For \(g(t)=\sin(\omega t)\), \(\omega\ne0\), the formula becomes \(-e^{-i\pi/4}\omega\pi^{-1/2}\int_0^t\cos(\omega s)(t-s)^{-1/2}ds\). At small time it equals \(-2e^{-i\pi/4}\omega\sqrt{t/\pi}+O(t^{5/2})\), obtained by expanding the cosine and integrating; the error bound follows from \(|\cos(\omega s)-1|\le\omega^2s^2/2\). This checks the corner behavior rather than assuming a periodic trace from time zero.
+\paragraph{Missing nonlinear and initial-data terms.}A cubic NLS solution adds an interior nonlinear forcing to the transformed equation, and nonzero initial data add another contribution. Neither is controlled by the linear formula. Higher classical corner compatibility may also fail for arbitrary compactly supported data, even when the zeroth-order value matches \(g(0)\). The source asks for long-time behavior for every such initial profile and the nonlinear driven system, not only zero-data linear response. Uniform nonlinear trace control is the first missing step; no NLS asymptotic or generic-data restriction is silently substituted.
+
+\paragraph{Verification and adversarial audit.}
+Checked Laplace branch, decaying solution, fractional convolution, g(0)=0, sinusoidal small-time coefficient and corner compatibility limitations. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked Laplace branch, decaying solution, fractional convolution, g(0)=0, sinusoidal small-time coefficient and corner compatibility limitations. Scope remains limited: Control the nonlinear and initial-data contributions to the dependent Neumann trace uniformly at long time.
+
+Coordinator checked the Laplace square-root branch, half-line decaying solution, fractional boundary trace and small-time sinusoidal expansion. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Control the nonlinear and initial-data contributions to the dependent Neumann trace uniformly at long time.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:8000014:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 8000014 (AMR-079-0014). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:8000014:2}{S2}] Percy Deift, Some open problems in random matrix theory and the theory of integrable systems (2007), arXiv:0712.0849, Problem 14.
+\url{https://arxiv.org/abs/0712.0849}.
+\end{itemize}
+\label{end:8000014}
+\end{document}

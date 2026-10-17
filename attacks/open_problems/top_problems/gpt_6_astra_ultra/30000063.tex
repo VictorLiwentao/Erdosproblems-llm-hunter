@@ -1,0 +1,148 @@
+% RESEARCH_DRAFT_SHA256: 8443ff74b5bdf5b30ce5ec68a91c2f8b67e86a54b4c46c2ea46dc3ccfc36e51a
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000063, "title": "An FPAS for Constrained Bicriteria Spanning Trees", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000063", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Does the constrained bicriteria minimum spanning-tree problem admit a fully polynomial approximation scheme?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Scalarization misses an exact-budget optimum, and the valid scaling argument requires an exact constrained oracle not constructed here.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Constrained spanning trees: a scalarization obstruction and a conditional scaling route}
+\noindent UnsolvedMath ID 30000063; OWR-730-013. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A PTAS has approximation ratio $1+\varepsilon$ for minimization (or $1-\varepsilon$ for maximization), with polynomial runtime for each fixed $\varepsilon>0$. A fully polynomial scheme is polynomial also in $\varepsilon^{-1}$.
+
+In a bicriteria minimization problem each feasible solution has two costs. A cost pair is Pareto-optimal if no feasible pair is no larger in both coordinates and strictly smaller in one.
+
+A spanning tree of a connected finite graph is an acyclic connected subgraph containing every vertex. Its cost is the sum of its edge costs.
+\paragraph{Statement recorded in the supplied source.}
+Does the constrained bicriteria minimum spanning-tree problem admit a fully polynomial approximation scheme? \href{https://doi.org/10.4171/owr/2004/28}{[S2]}
+\paragraph{Scope qualification.}
+The constrained objective, budget constraint, and permitted budget violation are those of the report; bicriteria budget violation is not silently permitted.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Decide whether constrained spanning-tree optimization with two costs permits an approximation scheme polynomial in both input size and inverse accuracy.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000063 (OWR-730-013). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Approximation Algorithms for NP-Hard Problems (2005), Oberwolfach Reports, DOI 10.4171/owr/2004/28, pp. 1461--1540
+\url{https://doi.org/10.4171/owr/2004/28}.
+\item[S3] fully polynomial bicriteria approximation scheme
+\url{https://doi.org/10.1016/j.orl.2003.06.003}.
+\item[S4] PTAS for constrained minimum spanning tree
+\url{https://doi.org/10.1137/S0097539703426775}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Does the constrained bicriteria minimum spanning-tree problem admit a fully polynomial approximation scheme?
+
+\section{Exact budget is part of the target}
+The original constrained problem minimizes total weight under an
+upper bound on a second cost. A fully polynomial scheme must keep
+that budget exact; allowing a proportional budget violation changes
+the problem. We test a Lagrange-multiplier route and then spell out
+the exact oracle that a standard scaling argument would need.
+
+\paragraph{A budget-optimal tree missed by every scalarization.}
+Take a triangle whose three edges have $(\hbox{cost},\hbox{weight})$
+pairs $(6,0),(2,2),(0,6)$. Its three spanning trees have pairs
+\[
+(8,2),\qquad(6,6),\qquad(2,8).
+\]
+They are all Pareto optimal because sorting by cost reverses the
+strict weight order. With cost budget six the optimum weight is
+six, attained by the middle tree. Yet that tree never minimizes
+$\hbox{weight}+\lambda\,\hbox{cost}$ for any $\lambda\ge0$.
+Beating the $(8,2)$ tree would require $6+6\lambda\le2+8\lambda$,
+or $\lambda\ge2$; beating the $(2,8)$ tree would require
+$6+6\lambda\le8+2\lambda$, or $\lambda\le1/2$.
+These requirements are inconsistent, even allowing ties.
+Thus enumerating ordinary MSTs under nonnegative scalarized costs
+can miss the exact-budget optimum. Selecting the best feasible tree
+among those supported optima gives weight eight here, so cannot
+prove any ratio below $4/3$ on this instance. This does not
+exclude algorithms using more than scalarization.
+
+\paragraph{A correct conditional rounding calculation.}
+Let a graph have $n\ge2$ vertices and nonnegative weights $w_e$.
+Fix $\varepsilon>0$ and suppose a positive number
+$L\le\operatorname{OPT}$ is available.
+Set $K=\varepsilon L/(n-1)$ and
+$\widetilde w_e=\lfloor w_e/K\rfloor$. If an oracle returns
+an exact-budget feasible tree $T$ minimizing the rounded total,
+and $T^*$ is an original optimum, then
+\[
+w(T)<K\widetilde w(T)+(n-1)K
+\le K\widetilde w(T^*)+(n-1)K
+\le\operatorname{OPT}+\varepsilon L
+\le(1+\varepsilon)\operatorname{OPT}.
+\]
+Every tree has exactly $n-1$ edges, and each rounding error lies
+in $[0,K)$, proving the first and third inequalities; the middle
+one is the oracle's optimality. The cost constraint is never rounded,
+so its exact feasibility is retained. Zero optimum requires a separate
+zero-weight feasibility check because $K=0$ is invalid.
+
+The missing step is precisely that exact-budget rounded-weight oracle
+with time polynomial in the input and a suitable rounded-weight
+range. Ordinary minimum spanning tree does not supply it, as the
+triangle proves. Merely writing the scaling inequalities is not a
+fully polynomial algorithm, and a pseudopolynomial loop over a large
+binary-encoded budget is not polynomial in its input length.
+
+\paragraph{Why rounding the budget instead is unsafe.}
+For any scale $K>0$, choose $0<\delta<K$ and consider a
+single required edge of cost $B+\delta$ with $B$ an integer
+multiple of $K$. Rounding its cost down to a multiple of $K$
+makes it cost $B$, apparently feasible, whereas no tree satisfies
+the original budget $B$. Thus floor rounding of cost, unlike the
+objective rounding above, can manufacture feasibility. An algorithm
+must either retain exact costs or prove a different sound repair.
+
+\section{Audit}
+Problem 1 in the primary bicriteria section on printed page 1533
+was inspected. The audit checked which coordinate is the constraint,
+both comparisons in the unsupported-tree example, zero optimum and
+input bit length. All arguments are exact and no spanning-tree solver
+was run. The conditional scaling calculation is standard material;
+no new oracle, fully polynomial scheme or hardness theorem is claimed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Scalarization misses an exact-budget optimum, and the valid scaling argument requires an exact constrained oracle not constructed here.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 28/2004, Approximation Algorithms for NP-Hard Problems, original question and surrounding discussion read from the cached primary PDF text on 11 October 2026. Historical statements are not a current-status survey. \url{https://doi.org/10.4171/owr/2004/28}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Scalarization misses an exact-budget optimum, and the valid scaling argument requires an exact constrained oracle not constructed here.
+\end{document}

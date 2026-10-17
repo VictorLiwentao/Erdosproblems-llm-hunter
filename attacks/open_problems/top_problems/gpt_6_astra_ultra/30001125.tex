@@ -1,0 +1,93 @@
+% TOP_PROBLEM: {"id": 30001125, "title": "Critical Transition and Pattern Scales in Shear Turbulence", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "This threshold is not automatically the linear-instability Reynolds number: the report stresses a discontinuous subcritical transition. It asks for the mechanism and long scale of the patterns in the examined shear flows, without a universal wavelength formula."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001125", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Explain why many shear flows develop large turbulent--laminar patterns close to the onset of sustained turbulence.", "scope": "Solves a subcritical amplitude normal form and its diverging stationary decay length, separating onset and wavelength selection.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked saddle-node and linear thresholds, upper-branch derivative and decay-length interpretation; did not identify scalar coarsening with stable band selection. Model self-audit only; no independent human proof checking. Coordinator checked the saddle-node threshold, derivative on the upper branch and diverging interface decay length, without inferring pattern selection. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked saddle-node and linear thresholds, upper-branch derivative and decay-length interpretation; did not identify scalar coarsening with stable band selection. Retained unresolved status and zero original-target progress; No Navier–Stokes reduction or mechanism selecting the actual turbulent-laminar wavelength is derived."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001125; source catalogue code OWR-2495-002
+\setcounter{section}{30001124}
+\section{Critical Transition and Pattern Scales in Shear Turbulence}\label{30001125}
+{\small UnsolvedMath ID 30001125 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} The Reynolds number $\mathrm{Re}$ is the dimensionless ratio of inertial and viscous effects in the specified shear geometry. $\mathrm{Re}_c$ denotes the source's threshold where sustained turbulence becomes possible. Turbulent--laminar patterns consist of spatially varying regions of turbulent and laminar flow, with a characteristic wavelength much larger than the basic shear-layer scale.
+
+\paragraph{Source scope and qualifications.} This threshold is not automatically the linear-instability Reynolds number: the report stresses a discontinuous subcritical transition. It asks for the mechanism and long scale of the patterns in the examined shear flows, without a universal wavelength formula.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+In shear flows, why does transition to turbulence occur near the critical Reynolds number $R_{e,c}$ so often, and why is the resulting pattern's length scale so large?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: Shear-flow transition and the large pattern length near the critical Reynolds number remain active problems; later stability and instability results do not provide a general explanation of the observed scaling. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Explain why many shear flows develop large turbulent--laminar patterns close to the onset of sustained turbulence.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Solves a subcritical amplitude normal form and its diverging stationary decay length, separating onset and wavelength selection.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A subcritical amplitude test.} Consider the real amplitude equation $\dot a=\mu a+ba^3-ca^5$ with $b,c>0$. Nonzero equilibria have $r=a^2>0$ satisfying $cr^2-br-\mu=0$. They first appear at $\mu=-b^2/(4c)$ in a saddle-node, although the zero state stays linearly stable until $\mu=0$. This elementary distinction prevents identifying the onset of sustained finite-amplitude behavior with a linear-instability threshold.
+
+\paragraph{A large length can arise, but is not selected.} Add diffusion: $a_t=D a_{xx}+\mu a+ba^3-ca^5$, $D>0$. Linearizing a stationary profile near a stable homogeneous equilibrium $a_*$ gives $D v''+f'(a_*)v=0$, where $f(a)=\mu a+ba^3-ca^5$. Exponentially decaying perturbations have length
+\[
+ \ell=\sqrt{D/(-f'(a_*))}\quad\text{when }f'(a_*)<0.
+\]
+On the upper nonzero branch, $f'(a_*)=2r(b-2cr)$, which approaches zero from below at the saddle-node. Thus this toy interface width diverges there. It is a decay length, not automatically the wavelength of a stable pattern; the scalar equation alone can coarsen instead of selecting periodic bands.
+
+\paragraph{Source gap.} These formulas exhibit two plausible ingredients, subcriticality and a slow relaxation length, without deriving them from Navier--Stokes or identifying $\mu$ with the source Reynolds parameter. The missing step is a controlled reduction giving coefficients, mode interactions and wavelength selection in the actual shear geometry. Neither the recurrent proximity to $R_{e,c}$ nor the observed pattern scale is thereby explained quantitatively.
+
+\paragraph{Verification and adversarial audit.}
+Checked saddle-node and linear thresholds, upper-branch derivative and decay-length interpretation; did not identify scalar coarsening with stable band selection. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked saddle-node and linear thresholds, upper-branch derivative and decay-length interpretation; did not identify scalar coarsening with stable band selection. Retained unresolved status and zero original-target progress; No Navier–Stokes reduction or mechanism selecting the actual turbulent-laminar wavelength is derived.
+
+Coordinator checked the saddle-node threshold, derivative on the upper branch and diverging interface decay length, without inferring pattern selection. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. No Navier–Stokes reduction or mechanism selecting the actual turbulent-laminar wavelength is derived.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. No Navier–Stokes reduction or mechanism selecting the actual turbulent-laminar wavelength is derived.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001125:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001125 (OWR-2495-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001125:2}{S2}] Dynamics of Patterns (2008), Oberwolfach Reports, DOI 10.4171/owr/2008/57, pp. 3201--3271; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2008/57}.
+\item[\hypertarget{source:30001125:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 39--40, printed pages 3239--3240.
+\url{https://ems.press/content/serial-article-files/46201}.
+\end{itemize}
+\label{end:30001125}
+\end{document}

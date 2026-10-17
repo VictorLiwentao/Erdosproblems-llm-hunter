@@ -1,0 +1,152 @@
+% RESEARCH_DRAFT_SHA256: d0a917a89da62ab52cc294e5d9102a93ee16ff2599aa00e0e941869a958d19ed
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30002733, "title": "Duplicate Constant-Gap Facility-Location Relaxation", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002733", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Does there exist a polynomial-size linear-programming relaxation for the capacitated facility location problem whose integrality gap is bounded by a constant?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The repeated compact-relaxation target remains unresolved; facet counting and deleting the commodity-specific residual bound do not establish either a compact formulation or its impossibility.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Repeated facility-location question: two invalid compactness shortcuts}
+\noindent UnsolvedMath ID 30002733; OWR-13353-022. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+Capacitated facility location opens facilities and assigns clients while respecting capacities and minimizing opening and connection costs. Polynomial size means that the number of encoded variables and inequalities is polynomial in instance size.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The supplied registry flags this extraction as unrecoverable. It is displayed as a literal source fragment; the definitions provide context rather than a replacement formal statement.
+
+Source-record limitation: Source flags the statement as unrecoverable: This extraction repeats the capacitated-facility-location relaxation question represented canonically by OWR-13353-021. No separate clean statement is promoted, and the original record remains visible for provenance.
+
+Related catalogue records: \href{https://mehmetmars7.github.io/Erdosproblems-llm-hunter/problem.html?type=open_problems&id=30002732}{30002732}. Separate source IDs are preserved for their provenance.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+The supplied catalogue marks this record as unrecoverable. Its extract and terminology are documented, but a complete original problem has not been reconstructed.
+\paragraph{Statement recorded in the supplied source.}
+Does there exist a polynomial-size linear-programming relaxation for the capacitated facility location problem whose integrality gap is bounded by a constant? \href{https://doi.org/10.4171/owr/2014/51}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+The supplied fragment concerns duplicate Constant-Gap Facility-Location Relaxation. Its complete mathematical target is not recovered.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30002733 (OWR-13353-022). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2015), Oberwolfach Reports, DOI 10.4171/owr/2014/51, pp. 2873--2932
+\url{https://doi.org/10.4171/owr/2014/51}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Does there exist a polynomial-size linear-programming relaxation for the capacitated facility location problem whose integrality gap is bounded by a constant?
+
+\section{Source-record scope}
+This is the preserved duplicate of catalogue ID 30002732, with upstream
+unrecoverable-extraction metadata. The primary report's printed page 2921
+contains one compact constant-gap facility-location question, following the
+separate exact-gap question. We do not treat this repeated ID as another
+independent conjecture. This standalone attempt tests two shortcuts relevant
+to that same question; it does not reconstruct an additional missing target.
+
+\section{An exponential number of facets need not prevent an extension}
+A possible negative route is to exhibit exponentially many essential projected
+inequalities and conclude that no compact extended formulation exists. The
+inference is false. For $d\ge2$, consider
+\[
+C_d=\{x\in\mathbb R^d:\sum_{i=1}^d|x_i|\le1\}
+ =\{x:s^Tx\le1\ \text{for every }s\in\{-1,1\}^d\}.
+\]
+Equality of the descriptions follows by choosing $s_i$ with the sign of $x_i$;
+all other sign sums are no greater than the sum of absolute values.
+For each $s$, the $d$ points $s_i e_i$ belong to the hyperplane $s^Tx=1$
+and to $C_d$. They are affinely independent: a relation
+$\sum_i a_i s_i e_i=0$ forces every $a_i=0$, in particular every affine
+relation with $\sum_i a_i=0$ is trivial. Thus this is a facet, since its
+affine dimension is $d-1$. The polytope is full dimensional because it
+contains a neighborhood of zero. Different signs give different facets,
+so there are $2^d$ of them. None can be deleted from this sign description:
+for any $1<t<d/(d-2)$ when $d>2$, or any $t>1$ when $d=2$,
+$x=(t/d)s$ violates its own inequality while every different sign vector
+$u$ has $u^Tx\le t(d-2)/d<1$.
+
+Yet $C_d$ is the projection of just $2d+1$ inequalities in $2d$ variables:
+\[
+t_i\ge x_i,\quad t_i\ge-x_i\quad(1\le i\le d),\qquad\sum_it_i\le1.
+\]
+These imply $\sum_i|x_i|\le\sum_it_i\le1$, and conversely one may set
+$t_i=|x_i|$. Thus facet counting in the original variables alone cannot
+settle the source's unrestricted compact-formulation question. This familiar
+example is a proof of a failed inference, not a facility-location lower bound.
+
+\section{Why one residual total-flow condition loses a source constraint}
+The MFN network in the source includes a commodity-specific terminal arc
+of capacity $y_i d_j$. Replacing it by an unlimited terminal arc appears to
+simplify each residual feasibility check. The following exact scenario shows
+what information is lost, even before attempting to compress all scenarios.
+There are $N=U+1$ clients, $U\ge1$, and facilities $A,B$ of capacities $U,N$.
+Take $y_A=1,y_B=1/N$, $x_{Aj}=U/N,x_{Bj}=1/N$ for every client.
+Partially assign $U$ clients fully to $A$, leaving $j_0$ unassigned.
+Facility $A$ then has zero residual capacity, while $B$ has residual capacity
+$Ny_B=1$. If terminal bounds are removed, the one residual unit is routable:
+send $1/N$ directly from $j_0$ to $B$, and send $1/N$ along each of the $U$
+paths $j_0,A,j,B$ through a preassigned client $j$. The total first-arc load
+$j_0\to A$ is $U/N$, every reverse arc $A\to j$ has capacity one,
+and every $j\to B$ arc carries $1/N$, exactly its assignment capacity.
+The resulting unit crosses $B\to B'$ and reaches $j_0^t$.
+
+In the actual MFN system, however, the arc $B'\to j_0^t$ has capacity
+$y_Bd_{j_0}=1/N<1$, and the $A$ bridge has zero capacity. The residual
+unit cannot reach its sink. Thus this weakened check accepts a scenario
+rejected by the source relaxation. The example does not prove that the
+weakened formulation passes every other partial assignment, nor that all
+single-commodity formulations have a large gap. It pinpoints the failure of
+the proposed deletion in a specific required check.
+
+\section{Context and adversarial audit}
+The natural-encoding restriction in the primary abstract arXiv:1312.1819
+was inspected separately from the original report. Neither a count of MFN
+scenarios nor that restricted lower-bound statement excludes all polynomial
+extensions. Conversely, the residual-flow calculation does not manufacture
+a compact constant-gap LP. The duplicate remains the same unresolved source
+question. The audit checked affine independence of the facet witnesses,
+the $d=2$ boundary, every arc in the residual routing, and the distinction
+between a single residual scenario and universal feasibility. No computation,
+theorem prover, novelty claim or independent human proof checking is asserted.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The repeated compact-relaxation target remains unresolved; facet counting and deleting the commodity-specific residual bound do not establish either a compact formulation or its impossibility.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 51/2014, Svensson, LP-based algorithms for capacitated facility location, printed pp. 2919--2921; original questions and scope read. \url{https://doi.org/10.4171/owr/2014/51}.
+\item An, Singh and Svensson, LP-Based Algorithms for Capacitated Facility Location, arXiv:1407.3263v2; introduction and Section 2, especially Definition 2.1 and the partial-assignment network, inspected. The general approximation proof is not independently checked here. \url{https://arxiv.org/html/1407.3263}.
+\item Kolliopoulos and Moysoglou (2013); primary abstract inspected for the natural-encoding qualifier only. \url{https://arxiv.org/abs/1312.1819}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The repeated compact-relaxation target remains unresolved; facet counting and deleting the commodity-specific residual bound do not establish either a compact formulation or its impossibility.
+\end{document}

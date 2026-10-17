@@ -1,0 +1,126 @@
+% RESEARCH_DRAFT_SHA256: f8ac696e2dd4768b1665826e0c20564fed3e2081d232ff3fa14642587d6d6eae
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30005059, "title": "Decidability of Linear Information Inequalities", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005059", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Decidability of Linear Information Inequalities; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A terminating search for counterexamples and its missing converse; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch012 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30005059; source catalogue code OWR-9790365-009
+\section{Decidability of Linear Information Inequalities}\label{30005059}
+{\small UnsolvedMath ID 30005059 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For finite-valued jointly distributed variables $X_1,\ldots,X_m$, let $X_S=(X_i)_{i\in S}$ and let $H(X_S)=-\sum_x p_S(x)\log p_S(x)$, with $0\log0=0$ and $H(X_\varnothing)=0$. The input to the decision problem is a finite rational coefficient list $(c_S)_{S\subseteq[m]}$. Validity means $\sum_S c_SH(X_S)\geq0$ for every joint distribution and every choice of finite alphabet sizes. Decidability asks for an algorithm that halts with the correct yes/no answer for every such input.
+\paragraph{Statement recorded in the supplied source.}
+Is the validity of linear information inequalities decidable? \href{https://doi.org/10.4171/owr/2022/14}{[S2]}
+\paragraph{Scope qualification.}
+Alphabet sizes are unbounded. This concerns unconditional linear inequalities; implications from additional equalities or inequalities are separate decision problems.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Can an algorithm always decide whether a proposed linear inequality between entropies holds for every finite joint distribution?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30005059 (OWR-9790365-009). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] New Mathematical Techniques in Information Theory (2023), Oberwolfach Reports, DOI 10.4171/owr/2022/14, pp. 683--707
+\url{https://doi.org/10.4171/owr/2022/14}.
+\item[S3] Abo Khamis--Kolaitis--Ngo--Suciu, decision problems
+\url{https://doi.org/10.4230/LIPIcs.ICALP.2020.106}.
+\item[S4] Miika Hannula, Information Inequality Problem over Set Functions, ICDT 2024, LIPIcs 290, pp. 19:1--19:20.
+\url{https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICDT.2024.19}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30005059 and source code OWR-9790365-009 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30005059}
+
+\section{Literature and context check}
+The primary report, p.~697, asks about validity over all finite joint laws, with no alphabet bound. Hannula's ICDT 2024 abstract was also read: it distinguishes the unrestricted entropy problem from results for normal polymatroids and monotone set functions. Those different semantic domains cannot be substituted for entropy vectors. Only that abstract, not the full ICDT proof, is used here. The following elementary semidecision argument and two-variable case are rederivations, not a new decidability theorem.
+\section{Research attempt: A terminating search for counterexamples and its missing converse}
+Write $F(p)=\sum_S c_SH_p(X_S)$. If $F(p)<0$ for one finite joint law, there is a rational joint law on the same alphabets with $F<0$. Indeed, rational points are dense in a finite probability simplex (approximate all but one coordinate from below and assign the remaining mass to the last coordinate). Each marginal is a linear function of the table, and $-t\log t$ is continuous on $[0,1]$ when its value at zero is defined to be zero. Thus $F$ is continuous.
+
+Here is an effective search, including the numerical-certification step. Enumerate alphabet bounds $a$, positive denominators $D$, and all nonnegative integer tables on $[a]^m$ with entries summing to $D$. Divide by $D$. Every rational finite law appears, after adding unused symbols. For each positive rational $q$, put $z=(q-1)/(q+1)$, so $|z|<1$. Integration of the geometric series gives
+\[
+ \log q=2\sum_{k=0}^{N-1}\frac{z^{2k+1}}{2k+1}+R_N,
+ \qquad |R_N|\leq\frac{2|z|^{2N+1}}{(2N+1)(1-z^2)}.
+\]
+The bound follows by bounding each remaining denominator by $2N+1$ and summing a geometric series. Both the finite sum and the error bound are rational and computable. Zero probabilities contribute exactly zero. Therefore each rational table admits arbitrarily accurate rational intervals containing $F$. Dovetail the enumeration and precision, and halt with ``invalid'' as soon as an interval's upper endpoint is negative. A strict counterexample eventually causes termination; validity never causes an erroneous rejection.
+
+The precise failed inference is that exhaustive counterexample search also decides validity. It supplies neither a finite alphabet bound sufficient for every input nor a terminating certificate on the valid side. A valid inequality whose minimum is zero does not eventually acquire a strictly positive numerical margin.
+
+For comparison, there is a full finite criterion with two variables. The inequality
+\[
+ aH(X)+bH(Y)+cH(X,Y)\geq0
+\]
+holds universally if and only if $a+c\geq0$, $b+c\geq0$, and $a+b+c\geq0$. Set $u=H(X\mid Y)$, $v=H(Y\mid X)$, and $w=I(X;Y)$. Conditional entropies are averages of nonnegative entropies. Also $w=D(p_{XY}\Vert p_Xp_Y)\geq0$: applying $-\log t\geq1-t$ with $t=q/p$ and summing over positive $p$ gives $D(p\Vert q)\geq1-\sum_{p>0}q\geq0$ (and zero denominators give infinite divergence). Entropy chain identities yield
+\[
+ aH(X)+bH(Y)+cH(X,Y)=(a+c)u+(b+c)v+(a+b+c)w.
+\]
+This proves sufficiency. For necessity use, respectively, a fair bit $X$ with constant $Y$, constant $X$ with fair bit $Y$, and $X=Y$ a fair bit. These realize a positive value on each of the three coordinate rays and zero on the others.
+\section{Verification and adversarial audit}
+The enumeration includes degenerate laws through zero table entries. It searches all alphabet sizes, not just binary variables. The logarithm tail bound is valid for $q>1$ as well as $0<q<1$, although probabilities only need the latter range. Dovetailing avoids waiting indefinitely for a zero-valued table. The two-variable necessity tests also check negative coefficients individually.
+\paragraph{Audit corrections.} Unconditional inequalities were kept separate from implication problems. The rational search is explicitly one-sided; finite numerical sampling was not promoted to a universal certificate.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+No procedure terminating on every valid input is obtained. The two-variable cone calculation and invalidity semidecision are known elementary structure, and do not decide the original unrestricted problem or establish its current literature status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46950} (consulted 2026-10-11). 
+\item \url{https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICDT.2024.19} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

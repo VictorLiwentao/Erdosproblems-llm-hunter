@@ -1,0 +1,84 @@
+% TOP_PROBLEM: {"id": 8100003, "title": "interacting particle systems and KPZ", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "Broken sentences and a truncated final question in the catalogue are replaced by a paraphrase of the full primary Problem 3. Historical descriptions of partial progress are dated 2017, and are not assertions that all these subquestions remain open today."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "8100003", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Prove full KPZ scaling and limiting processes for broad initial data, and extend solvable-model methods and perturbation theory.", "scope": "Derived the 3:2:1 rescaled coefficients and noise covariance, exposing why direct coefficient limits erase the desired randomness. All requested process universality and bundled model extensions remain unproved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked every chain-rule factor and white-noise covariance, regularization caveat, centering and all restored subquestions. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked all chain-rule scaling factors and white-noise covariance normalization, with the singular renormalized limit left unproved. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked every chain-rule factor and white-noise covariance, regularization caveat, centering and all restored subquestions. Scope remains limited: Establish tightness and identify the renormalized multi-point scaling limit for a specified initial-data and model class."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 8100003; source catalogue code AMR-080-0003
+\setcounter{section}{8100002}
+\section{interacting particle systems and KPZ}\label{8100003}
+{\small UnsolvedMath ID 8100003 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}For a random growing interface with height $h(x,t)$, KPZ scaling means time, space and centered height scale in proportions $3:2:1$: $t\sim L^3$, $x\sim L^2$ and fluctuations $\sim L$. A multi-point scaling limit concerns joint distributions or a specified process topology, not just one marginal. Last-passage percolation maximizes sums of random weights over directed paths. ASEP is an exclusion process with asymmetric jump rates.
+
+\paragraph{Catalogue wording retained for traceability.}
+Prove $3:2:1$ universality for the KPZ equation for a broad specified class of initial data, including identification of the limiting process in the strong sense referred to in Deift’s Problem 3. Analyze joint solutions at multiple space-time points. Establish the corresponding scaling for last-passage percolation with general weights and fluctuations of longest increasing subsequences for non-uniform permutation laws. Explain the mechanism behind Tracy--Widom’s ASEP solution and extend it to more general initial data. Develop perturbation theory for non-solvable interacting particle models that establishes robustness of asymptotic scaling.
+\paragraph{Scope and source qualification.}Broken sentences and a truncated final question in the catalogue are replaced by a paraphrase of the full primary Problem 3. Historical descriptions of partial progress are dated 2017, and are not assertions that all these subquestions remain open today.
+\subsection{Short English statement}
+Prove full KPZ scaling and limiting processes for broad initial data, and extend solvable-model methods and perturbation theory.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derived the 3:2:1 rescaled coefficients and noise covariance, exposing why direct coefficient limits erase the desired randomness. All requested process universality and bundled model extensions remain unproved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{A scaling calculation with its singular limit exposed.}Formally write KPZ as \(h_t=\nu h_{xx}+(\lambda/2)h_x^2+\sqrt D\,\xi\), with positive \(\nu,D\) and space-time white noise \(\xi\). The formula is used only at a smooth regularization level; the square requires renormalization in the rough equation. Set \(H_L(x,t)=L^{-1}h(L^2x,L^3t)\). Chain-rule differentiation gives
+\[(H_L)_t=(\nu/L)(H_L)_{xx}+(\lambda/2)(H_L)_x^2+\sqrt D\,L^{-1/2}\xi_L,
+\]
+where \(\xi_L(x,t)=L^{5/2}\xi(L^2x,L^3t)\) again has white-noise covariance. Indeed the spatial and temporal delta functions scale by \(L^{-2}\) and \(L^{-3}\), exactly canceled by \(L^5\). Any deterministic centering term must be transformed along with this equation.
+\paragraph{Why coefficient limits do not prove universality.}Both the viscosity and noise amplitudes vanish in these coordinates, whereas the nonlinear coefficient remains fixed. Dropping the vanishing terms before proving regularity and tightness would produce a deterministic first-order equation and erase the fluctuations sought by the problem. Their effect can persist through rough gradients; the scaling identity contains no uniform bound on those gradients. Thus dimensional scaling by itself does not identify a random limiting process.
+\paragraph{Remaining questions.}The first missing step is tightness and identification of renormalized joint laws in a declared space-time topology for a specified initial-data class. Neither general-weight last passage, nonuniform permutations, ASEP's mechanism and broader initial data, nor perturbative robustness of non-solvable particle systems follows from the identity. The 2017 source's historical descriptions are retained without a fresh status audit. This is a consistency calculation and a precise failure of a naive coefficient-limit argument, not a KPZ universality proof.
+
+\paragraph{Verification and adversarial audit.}
+Checked every chain-rule factor and white-noise covariance, regularization caveat, centering and all restored subquestions. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked every chain-rule factor and white-noise covariance, regularization caveat, centering and all restored subquestions. Scope remains limited: Establish tightness and identify the renormalized multi-point scaling limit for a specified initial-data and model class.
+
+Coordinator checked all chain-rule scaling factors and white-noise covariance normalization, with the singular renormalized limit left unproved. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Establish tightness and identify the renormalized multi-point scaling limit for a specified initial-data and model class.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:8100003:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 8100003 (AMR-080-0003). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:8100003:2}{S2}] Percy Deift, Some Open Problems in Random Matrix Theory and the Theory of Integrable Systems. II, SIGMA 13 (2017), 016, Problem 3.
+\url{https://arxiv.org/abs/1703.04931}.
+\item[\hypertarget{source:8100003:3}{S3}] Primary full-text formulation and 2017 historical progress discussion.
+\url{https://arxiv.org/html/1703.04931v1}.
+\end{itemize}
+\label{end:8100003}
+\end{document}

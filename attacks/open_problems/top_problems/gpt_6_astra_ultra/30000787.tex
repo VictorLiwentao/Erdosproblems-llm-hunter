@@ -1,0 +1,135 @@
+% RESEARCH_DRAFT_SHA256: 8fb327f462e2f001cac5f1696f71ed75426dd9e35222262f0bf36de72d5ff92b
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000787, "title": "Antisymmetric Association Schemes and Polynomial Factoring", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000787", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Certain antisymmetric association schemes should not exist; if this is true, deterministic polynomial factoring over finite fields would be in $\\mathrm{P}$ under the Generalized Riemann Hypothesis.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The source omits the forbidden scheme conditions; existing antisymmetric examples and idempotent splitting do not resolve that unknown condition or deterministic factoring under GRH.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Antisymmetric schemes: existing thin examples and the missing factoring condition}
+\noindent UnsolvedMath ID 30000787; OWR-1587-007. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+An association scheme partitions ordered pairs of a finite set into relations with prescribed regular intersection counts. Antisymmetry restricts how each relation relates to its transpose. Factoring over a finite field means finding the irreducible factors of an input polynomial.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The particular schemes conjectured not to exist are not identified in the supplied question. The GRH-conditional consequence is not asserted here as a proved theorem.
+
+Source-record limitation: The association schemes conjectured not to exist are not identified, so the actual nonexistence claim is absent.
+\paragraph{Statement recorded in the supplied source.}
+Certain antisymmetric association schemes should not exist; if this is true, deterministic polynomial factoring over finite fields would be in $\mathrm{P}$ under the Generalized Riemann Hypothesis. \href{https://doi.org/10.4171/owr/2007/31}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Resolve the stated obstruction to association schemes and its proposed consequence for deterministic finite-field factoring.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000787 (OWR-1587-007). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Complexity Theory (2008), Oberwolfach Reports, DOI 10.4171/owr/2007/31, pp. 1793--1864
+\url{https://doi.org/10.4171/owr/2007/31}.
+\item[S3] Gao, deterministic factoring
+\url{https://doi.org/10.1016/S0747-7171(01)00005-1}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Certain antisymmetric association schemes should not exist; if this is true, deterministic polynomial factoring over finite fields would be in $\mathrm{P}$ under the Generalized Riemann Hypothesis.
+
+\section{Source limitation and attempted route}
+The original factoring paragraph says only that certain antisymmetric
+association schemes are conjectured not to exist. It does not define the
+extra conditions selecting those schemes. We cannot recover that nonexistence
+target from this source alone. We test the blanket antisymmetry interpretation,
+then prove the algebraic split that a successful factoring route would have
+to produce. Neither calculation supplies the missing conjecture.
+
+\paragraph{Antisymmetric schemes do exist in every odd order.}
+Let $X=\mathbb Z/N\mathbb Z$ with $N$ odd, and for each $a\in X$ set
+$R_a=\{(x,x+a):x\in X\}$. These relations partition $X\times X$,
+$R_0$ is the diagonal, and $R_a^T=R_{-a}$.
+For $(x,y)\in R_c$, the number of $z$ with $(x,z)\in R_a$ and
+$(z,y)\in R_b$ is one if $a+b=c$, and zero otherwise: the first condition
+forces $z=x+a$, and the second then tests $y=x+a+b$.
+Thus the required intersection number is independent of the chosen pair,
+proving the association-scheme axioms for this example. When $a\ne0$,
+$R_a\ne R_{-a}$ because $2a=0$ has only the zero solution for odd $N$.
+Hence every non-diagonal relation is different from its transpose, the usual
+antisymmetric convention. The case $N=1$ is vacuous. These are known thin
+schemes, and their existence is not a refutation of a conjecture about an
+unstated narrower class.
+
+\paragraph{A necessary parity condition under that convention.}
+In any finite homogeneous association scheme of order $N$, let $k_R$ be the
+constant number of points related by $R$ to a fixed first point.
+The transpose relation also has constant valency, and counting all pairs in
+$R$ in the two directions gives $Nk_R=Nk_{R^T}$, so the valencies agree.
+If every non-diagonal relation is paired with a distinct transpose, then
+$N-1=\sum_{R\ne\mathrm{diag}}k_R$ is a sum of equal pairs and is even.
+Thus $N$ must be odd. This condition is far too weak to prohibit the explicit
+examples above or to imply a factoring algorithm.
+
+\paragraph{The precise algebraic certificate that would split a polynomial.}
+Let $f\in\mathbb F_q[z]$ be a nonconstant squarefree polynomial and work
+in $A=\mathbb F_q[z]/(f)$. Suppose a represented element $e\in A$ satisfies
+$e^2=e$ and $e\ne0,1$. Compute $g=\gcd(f,e)$ using a polynomial
+representative. If $g=f$, then $e=0$ in $A$, a contradiction.
+If $g=1$, a Bezout identity shows $e$ is invertible in $A$; multiplying
+$e(e-1)=0$ by its inverse gives $e=1$, also a contradiction.
+Thus $g$ is a proper nonconstant factor of $f$.
+Conversely, if $f=gh$ with $g,h$ coprime and both nonconstant, Bezout gives
+$ag+bh=1$. The element $e=ag\pmod f$ is zero modulo $g$ and one modulo
+$h$, so $e(e-1)$ is divisible by both coprime factors and hence by $f$.
+It is neither zero nor one modulo $f$, as seen modulo $h$ and $g$ respectively.
+This proves an exact equivalence between a coprime split and a nontrivial
+idempotent certificate. Euclidean division and the Euclidean algorithm check
+it using polynomially many field operations; they do not find such an
+element merely from its existence. The source's missing combinatorial
+conditions would have to force an efficiently constructible split or equivalent
+information. That implication is not present in the inspected paragraph.
+
+\section{Adversarial audit and gap}
+The primary report's factoring paragraph and its references were read, but the
+referenced Gao paper was not independently inspected. No GRH-conditional
+factoring theorem or newer status statement is asserted here. The audit checked
+intersection counts, transposition, the odd-order boundary, and the difference
+between checking and finding an idempotent. The named class of forbidden
+schemes remains unidentified; no invented universal nonexistence statement
+is attributed to the source. No computation was run.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The source omits the forbidden scheme conditions; existing antisymmetric examples and idempotent splitting do not resolve that unknown condition or deterministic factoring under GRH.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 31/2007, Koiran pp.1835--1836, Raz p.1846, Saxena p.1851, Sudan p.1855; the item-specific original passage was read from cached primary PDF text on 11 October 2026. This is source inspection, not a present-status survey. \url{https://ems.press/content/serial-article-files/46116}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The source omits the forbidden scheme conditions; existing antisymmetric examples and idempotent splitting do not resolve that unknown condition or deterministic factoring under GRH.
+\end{document}

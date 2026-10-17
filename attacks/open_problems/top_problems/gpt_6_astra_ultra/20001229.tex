@@ -1,0 +1,96 @@
+% RESEARCH_DRAFT_SHA256: 7f68b0a72f67951605a53dfd389c87ac58ad39aaff5e610417a04790cde22de7
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001229, "title": "Parameter tying and exact homogeneous binary-star invariants", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001229", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Positive three-node homogeneous-chain characterization and nonstationary counterexample.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch005/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 20001229; source catalogue code AIM-COMPUTATION-0067
+\section{Parameter tying and exact homogeneous binary-star invariants}\label{20001229}
+{\small UnsolvedMath ID 20001229 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A graphical model specifies a family of joint distributions through a graph and its associated conditional-independence constraints. Hidden variables are summed or integrated out to obtain the joint distribution on observed variables. Homogeneous transition matrices reuse the same parameters on more than one edge or clique. Algebraically this is parameter tying: the unconstrained model's parameter space is restricted by specified equalities before mapping to observable probabilities.
+\paragraph{Statement recorded in the supplied source.}
+Problem 52 (Pachter). Try applying the algebraic techniques to more restrictive families of models. For example, models with homogeneous transition matrices (that is, the same set of parameters is used for more than one edge/ clique in the graph), or genomic models. \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The source asks for methods for restricted families, including genomic models; it does not assert one fixed complexity or identifiability theorem.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can algebraic statistical methods be developed for models that reuse transition parameters across several parts of the graph?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001229 (AIM-COMPUTATION-0067). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0067
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001229 and source code AIM-COMPUTATION-0067 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001229}
+
+
+\section{Research attempt}
+\subsection{Literature and scope}
+Problem 52 proposes restrictive families such as homogeneous transitions. I attempted an explicit constraint description for a positive observed binary chain of length three. The homogeneous condition is parameter sharing, not stationarity. The distinction yields a checked obstruction to equating adjacent joint distributions.
+\begin{proposition}
+A strictly positive joint table $p_{ijk}$, $i,j,k\in\{0,1\}$, has the form $p_{ijk}=\pi_iP_{ij}P_{jk}$ with a common row-stochastic matrix $P$ if and only if it satisfies conditional independence $X_0\perp X_2\mid X_1$ and
+\[
+p_{ij+}p_{+i+}=p_{+ij}p_{i++}\quad(i,j\in\{0,1\}).
+\]
+Conditional independence here means all $2\times2$ minors of the matrix $(p_{ijk})_{i,k}$ vanish for each fixed $j$.
+\end{proposition}
+\begin{proof}
+In a positive rank-one slice with fixed $j$, its entries equal row sum times column sum divided by the total: writing it as a column times a row proves that identity directly. Thus conditional independence gives
+\[
+p_{ijk}=\frac{p_{ij+}p_{+jk}}{p_{+j+}}.
+\]
+Set $\pi_i=p_{i++}>0$ and $P_{ij}=p_{ij+}/p_{i++}$. These are normalized probabilities. The displayed tying equations say $p_{+ij}/p_{+i+}=P_{ij}$. Substitute this with indices $(j,k)$ into the factorization to obtain $p_{ijk}=\pi_iP_{ij}P_{jk}$. Conversely, that factorization gives conditional independence, first transition $P_{ij}=p_{ij+}/p_{i++}$, and second transition $P_{ij}=p_{+ij}/p_{+i+}$, proving all required equations.
+\end{proof}
+\subsection{Failed route and verification}
+With $\pi=(9/10,1/10)$ and $P=\left(\begin{smallmatrix}4/5&1/5\\3/10&7/10\end{smallmatrix}\right)$, the first pair probability $p_{00+}=18/25$ differs from the second $p_{+00}=3/5$, even though the same matrix is used twice. Exact rational enumeration verified all four tying equations. The false step in requiring equal adjacent joint margins is silently imposing stationarity of the initial distribution.
+\subsection{Original-scope comparison and remaining gaps}
+This elementary positive-chain description is a restricted worked example, not a new general parameter-sharing theory. At boundary tables, the divisions used above can fail and the equations may admit extra components. Hidden states, larger graphs and genomic models in the original agenda are not treated.
+
+\section{References and source attribution}
+The original question is credited to the AIM workshop list prepared by Seth Sullivant (2004), \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}. The source question and catalogue attribution are reproduced above. This list was accessed on 11 October 2026; it is historical evidence of the question, not a certification of present open status.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch005/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

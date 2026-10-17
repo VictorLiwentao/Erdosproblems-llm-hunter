@@ -1,0 +1,132 @@
+% RESEARCH_DRAFT_SHA256: d69281602f7eaf9e93f0265a2ceff503ba9a56de64204b331516a0add1b5747b
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30006201, "title": "Degree Automatability of Sum-of-Squares Proofs", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006201", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Degree Automatability of Sum-of-Squares Proofs; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Exact Gram repair and a bit-length obstruction; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch027 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30006201; source catalogue code OWR-14299088-003
+\section{Degree Automatability of Sum-of-Squares Proofs}\label{30006201}
+{\small UnsolvedMath ID 30006201 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Degree-$d$ SOS search seeks a certificate using polynomial squares and constraint multipliers within the prescribed degree bound. Coefficient bounds concern exact encoding size, separately from the number of monomials or certificate degree.
+
+Polynomial time means a number of elementary steps bounded by a polynomial in the encoded input length. A decision problem is in $\mathrm{NP}$ if yes-instances have polynomial-length certificates verifiable in polynomial time; NP-hardness is under polynomial-time reductions.
+
+A polynomial is a sum of squares (SOS) if it is $\sum_j q_j^2$ for polynomials $q_j$. Moment-SOS hierarchies impose positivity through increasingly large truncated moment matrices and corresponding degree-bounded SOS certificates.
+\paragraph{Statement recorded in the supplied source.}
+Characterize meaningful conditions under which low-degree sum-of-squares proofs can be found in polynomial time with polynomially bounded coefficients. In particular, determine when the degree-$d$ sum-of-squares relaxation is algorithmically computable in time polynomial in the natural input size for fixed $d$. \href{https://doi.org/10.4171/owr/2025/9}{[S2]}
+\paragraph{Scope qualification.}
+The input coefficient model, precision, strict-feasibility promises, and allowed constraint multipliers are those of the source; fixed degree alone is not asserted to ensure efficient exact computation.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Find conditions making low-degree sum-of-squares proof search polynomial-time with manageable coefficients.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30006201 (OWR-14299088-003). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] MFO-RIMS Tandem Workshop: Optimization, Theoretical Computer Science and Algebraic Geometry: Convexity and Beyond (2025), Oberwolfach Reports, DOI 10.4171/owr/2025/9, pp. 405--450
+\url{https://doi.org/10.4171/owr/2025/9}.
+\item[S3] Bortolotti--Mastrolilli--Vargas
+\url{https://arxiv.org/abs/2504.17756}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30006201 and source code OWR-14299088-003 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30006201}
+
+\section{Literature and context check}
+The primary report, printed pp. 416--418, explicitly distinguishes SDP size from coefficient bit complexity, imposes an explicit Archimedean hypothesis in its property (P), and reports sufficient criteria for small approximate SOS proofs. Those reported results are not re-proved here. The following repair lemma tests what a numerical Gram-matrix route would additionally need.
+\section{Research attempt: Exact Gram repair and a bit-length obstruction}
+
+Let $z$ be the column of monomials of degree at most $d$ and let $A$ send a symmetric Gram matrix $G$ to the coefficient vector of $z^{\mathsf T}Gz$. Additional multiplier coefficients can be included as extra linear variables, but consider first this pure Gram case. Suppose $A$ is surjective onto a specified coefficient subspace containing the target $b$, and a linear right inverse $B$ on that subspace is known, with
+\[
+AB=I,\qquad \|Bu\|_F\leq K\|u\|_2.
+\]
+Given a symmetric rational candidate $\widetilde G$ with $\lambda_{\min}(\widetilde G)\geq\gamma>0$, set $r=A\widetilde G-b$ and $G=\widetilde G-Br$. Then $AG=b$ exactly. For every unit vector $x$,
+\[
+x^{\mathsf T}Gx\geq\gamma-|x^{\mathsf T}(Br)x|
+\geq\gamma-\|Br\|_F\geq\gamma-K\|r\|_2.
+\]
+Thus $K\|r\|_2\leq\gamma$ certifies a positive-semidefinite exact Gram matrix, and hence an SOS representation over the reals by diagonalizing $G$. If $A,B,\widetilde G,b$ are rational, the repaired Gram matrix is rational. This conclusion does not assert rational coefficients for a particular square-root decomposition.
+
+The lemma isolates two absent guarantees: a positive Gram margin and a controlled right-inverse norm. For example, $x^2$ in basis $(1,x)$ has the unique Gram matrix $\operatorname{diag}(0,1)$, with zero margin; no strict-feasibility inference is available even though the SOS is trivial. The linear map $A_\tau(u)=\tau u$, $\tau>0$, has right inverse norm $1/\tau$; a coefficient residual of size $\tau$ may require a unit-size correction. Residual smallness alone is therefore insufficient.
+
+\paragraph{Why matrix dimension does not bound output length.}
+A separate exact SDP example has real variables $x_0,\ldots,x_m$ and constraints
+\[
+x_0\geq2,\qquad
+\begin{pmatrix}x_{i+1}&x_i\\x_i&1\end{pmatrix}\succeq0
+\quad(0\leq i<m).
+\]
+The $2\times2$ condition is equivalent to $x_{i+1}\geq x_i^2$: complete the square in its quadratic form. Induction gives $x_m\geq2^{2^m}$. Equality at every step gives a feasible rational point. The input has $O(m)$ small-integer coefficients, but any explicitly written rational feasible $x_m=a/b$ with integers $b\geq1$ needs at least $2^m+1$ numerator bits since $a\geq2^{2^m}b$. Thus small SDP size alone does not imply a short exact rational output.
+
+This SDP is not a counterexample to the source's explicitly bounded/Archimedean hypotheses; it demonstrates the invalid general inference that formulation size settles automatability. For the source route one must additionally derive quantitative margin, conditioning, or other certificate-structure bounds from those hypotheses. The repair lemma by itself supplies none.
+\section{Verification and adversarial audit}
+The repair bound uses the Frobenius norm to dominate the operator norm and treats the equality residual in the right-inverse domain. Zero-margin and ill-conditioned examples were checked directly. The SDP lower bound concerns ordinary explicit rational output encoding, not a compressed arithmetic circuit for huge numbers. The source's proof degree convention bounds squared terms and multiplier products, not just degrees of square roots.
+\paragraph{Audit corrections.} Kept the illustrative SDP outside the source's Archimedean theorem; distinguished a rational PSD Gram certificate from a rational square decomposition.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+No general sufficient criterion improving the report's results or algorithm of the requested degree/bit complexity is obtained. In particular numerical approximate feasibility is not identified with exact SOS proof construction.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/51353} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

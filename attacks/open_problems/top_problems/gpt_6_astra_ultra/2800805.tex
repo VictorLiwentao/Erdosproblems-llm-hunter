@@ -1,0 +1,139 @@
+% RESEARCH_DRAFT_SHA256: 463ff11b2e1110b39ca02ad6d84ecc90691747aef1a28dd7933ec75dc6a62e5f
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 2800805, "title": "10 Lectures and 42 Open Problems — Maximum and minimum bisections on random regular graphs", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "2800805", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Given a $d$ -regular graph on $n$ nodes $G$ . Let $MaxBis(G)$ and $MinBis(G)$ denote, respectively, the size of its largest and smallest bisection. Is it true that for every $d$ $MaxBis(G)$ $+ MinBis(G)$ $=$ $\\frac{d}{2} + o(1)$ , where $o(1)$ is a term that goes to zero as $n$ grows?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. No random-graph argument relates both extremal bisections for all fixed degrees; the low-degree calculations and deterministic counterexample do not establish or refute the original convergence claim.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Regular-graph bisections: normalization, exact low-degree cases, and a failed universality argument}
+\noindent UnsolvedMath ID 2800805; AMR-027-0805. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A simple $d$-regular graph has degree $d$ at every vertex. For even $n$, a bisection is a partition $V=S\sqcup(V\setminus S)$ with $|S|=n/2$; its size is the number of edges joining the two parts. Let $\operatorname{MaxBis}(G)$ and $\operatorname{MinBis}(G)$ be the maximum and minimum such sizes. The author's full lecture notes use $G\sim G^{\mathrm{reg}}(n,d)$, the uniform distribution on simple $d$-regular graphs on $n$ labeled vertices, and state the source-corrected conjecture
+\[
+ \frac{\operatorname{MaxBis}(G)+\operatorname{MinBis}(G)}{n}
+ =\frac d2+o(1)
+\]
+for each fixed $d$ as admissible even $n$ tends to infinity. Equivalently, the unnormalized sum is $dn/2+o(n)$. The asymptotic random-graph assertion is interpreted as convergence in probability: for every $\eta>0$, the probability that the absolute difference of the normalized sum from $d/2$ exceeds $\eta$ tends to zero.
+\paragraph{Statement recorded in the supplied source.}
+Given a $d$ -regular graph on $n$ nodes $G$ . Let $MaxBis(G)$ and $MinBis(G)$ denote, respectively, the size of its largest and smallest bisection. Is it true that for every $d$ $MaxBis(G)$ $+ MinBis(G)$ $=$ $\frac{d}{2} + o(1)$ , where $o(1)$ is a term that goes to zero as $n$ grows? \href{https://afonsobandeira.wordpress.com/2015/12/04/10l42pmaxcut/}{[S2]}
+\paragraph{Scope qualification.}
+The supplied catalogue question below preserves the blog wording, which omits the factor $1/n$ and does not repeat the random-graph hypothesis in the displayed question. Section 8.6 and Conjecture 8.5 of the author's full lecture notes supply both. The corrected formula above is explicitly separated from that supplied wording: it is not a claim about every deterministic regular graph. The correction was checked against the primary PDF on 2026-10-11. The catalogue's partial-status label is retained; a full modern proof-status audit is not claimed.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+For a typical random regular graph of a fixed degree, do the largest and smallest balanced cuts have asymptotically complementary numbers of crossing edges?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 2800805 (AMR-027-0805). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AMR Open Problem Lists, original problem source linked by catalogue record AMR-027-0805
+\url{https://afonsobandeira.wordpress.com/2015/12/04/10l42pmaxcut/}.
+\item[S3] Afonso S. Bandeira, Ten Lectures and Forty-Two Open Problems in the Mathematics of Data Science (2016), Section 8.6 and Conjecture/Open Problem 8.5; includes normalization and random-graph hypothesis.
+\url{https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf#page=117}.
+\item[S4] Lenka Zdeborova and Stefan Boettcher, Conjecture on the maximum cut and bisection width in random regular graphs (2009); related original cut/bisection conjecture.
+\url{https://arxiv.org/abs/0912.4861}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Given a $d$ -regular graph on $n$ nodes $G$ . Let $MaxBis(G)$ and $MinBis(G)$ denote, respectively, the size of its largest and smallest bisection. Is it true that for every $d$ $MaxBis(G)$ $+ MinBis(G)$ $=$ $\frac{d}{2} + o(1)$ , where $o(1)$ is a term that goes to zero as $n$ grows?
+
+\section{Attempt and results}
+The source-corrected target is the convergence in probability of
+$(\operatorname{MaxBis}G+\operatorname{MinBis}G)/n$ to $d/2$ for uniform
+simple $d$-regular graphs and each fixed $d$. The verbatim supplied wording
+omits normalization and randomness; both are preserved above and explicitly
+separated. All graphs below have even $n$ and no loops or multiple edges.
+
+\paragraph{Exact matching case.}
+For $d=0$ every cut is zero. For $d=1$, every graph is a perfect matching.
+A bisection with one endpoint of each edge in either side has size $n/2$,
+which is the total number of edges and hence the maximum.
+If $n\equiv0\pmod4$, choose $n/4$ complete edges for one side; the minimum
+is zero. If $n\equiv2\pmod4$, each side has odd cardinality, so at least
+one matching edge must cross. Choosing $(n-2)/4$ entire edges and one
+endpoint of another attains one. Hence the normalized sum tends to $1/2$
+for $d=1$, for every graph and thus for the uniform model. This is an
+elementary boundary case rather than new progress in fixed degree at least three.
+
+\paragraph{Exact maximum and a minimum bound for degree two.}
+Every simple 2-regular graph is a disjoint union of cycles. Write $o$ for
+its number of odd cycles. No cut crosses all edges of an odd cycle, so
+every cut has at most $n-o$ edges. Alternating sides on even cycles crosses
+every edge and balances each cycle. On an odd cycle, an alternating assignment
+crosses all but one edge and gives a side imbalance of one. Because $n$ is
+even, $o$ is even. Orient half of these imbalances in each direction; this
+attains a bisection with $n-o$ crossing edges. Thus $\operatorname{MaxBis}=n-o$.
+To construct a small bisection, order the cycles, place whole cycles on one
+side until the next one would pass $n/2$, and then take exactly the needed
+number of consecutive vertices from that next cycle. Only that cycle can
+cross, in at most two edges. Consequently
+\[
+1-o/n\le\frac{\operatorname{MaxBis}+\operatorname{MinBis}}n
+\le1-o/n+2/n.
+\]
+This proves the target for any deterministic sequence of 2-regular graphs
+whose number of odd cycles is $o(n)$. No distributional theorem on the
+uniform random model is being asserted without proof here.
+
+\paragraph{Failure of a graph-by-graph symmetry argument.}
+For $n$ divisible by six, take $n/3$ disjoint triangles. The construction
+above gives $\operatorname{MaxBis}=2n/3$. Choosing $n/6$ whole triangles
+on each side gives $\operatorname{MinBis}=0$. Their normalized sum is
+$2/3$, not the conjectured $d/2=1$. Therefore a proof that tries to show
+exact or asymptotic complementary extremes for every regular graph cannot
+work. Complementing a cut merely exchanges its two sides and preserves its
+crossing count; it does not map the maximum to the total-edge complement
+of the minimum. This is the failed inference, and the triangles give a
+concrete witness. The example does not refute a high-probability assertion
+about uniformly random graphs.
+
+\section{Context and adversarial audit}
+Bandeira's primary notes, Conjecture 8.5, were inspected to verify the factor
+$1/n$ and the uniform-random-regular hypothesis. The primary abstract of
+Zdeborova and Boettcher, arXiv:0912.4861, concerns a related maximum-cut and
+minimum-bisection conjecture supported there by spin-glass reasoning and
+numerics; maximum cut is not automatically maximum bisection.
+The audit checked parity, balancing odd cycles, and that the triangle family
+only refutes a deterministic strengthening. The results above are elementary
+checks and failed-route analysis, not a new probabilistic theorem. No
+enumeration, simulation, or theorem prover was used in this record.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. No random-graph argument relates both extremal bisections for all fixed degrees; the low-degree calculations and deterministic counterexample do not establish or refute the original convergence claim.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Bandeira, lecture notes (2016), Section 8.6 and Conjecture 8.5; normalization and random-graph hypothesis inspected. \url{https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf}.
+\item Lenka Zdeborova and Stefan Boettcher, Conjecture on the maximum cut and bisection width in random regular graphs, arXiv:0912.4861; primary abstract inspected for distinct maximum-cut scope. \url{https://arxiv.org/abs/0912.4861}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} No random-graph argument relates both extremal bisections for all fixed degrees; the low-degree calculations and deterministic counterexample do not establish or refute the original convergence claim.
+\end{document}

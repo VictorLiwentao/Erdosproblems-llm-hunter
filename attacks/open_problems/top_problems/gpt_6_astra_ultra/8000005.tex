@@ -1,0 +1,67 @@
+% TOP_PROBLEM: {"id": 8000005, "title": "Multivariate analysis", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "8000005", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Find the limiting eigenvalue statistics for high-dimensional real Gaussian covariance matrices with finitely many population spikes, including phase transitions.", "scope": "Exact reduction of mean-centered real spiked covariance to an uncentered Wishart matrix with n-1 samples; joint spike-regime laws remain unproved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked Gaussian orthogonal invariance, denominator n rather than n-1, p>=n zero eigenvalues, and scale comparisons; did not import unverified spike limit theorems. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the Gaussian row rotation, rank n-1 and exact centered-Wishart prefactor. The critical spike law is not supplied by this reduction. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked Gaussian orthogonal invariance, denominator n rather than n-1, p>=n zero eigenvalues, and scale comparisons; did not import unverified spike limit theorems. Scope remains limited: Obtain the joint eigenvalue asymptotics of the reduced uncentered ensemble, including critical spike tuning."}
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Mathematical question.} #1}
+\begin{document}
+% UnsolvedMath ID 8000005; source catalogue code AMR-079-0005
+\setcounter{section}{8000004}
+\section{Multivariate analysis}\label{8000005}
+{\small\sffamily UnsolvedMath ID 8000005 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$, and $\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$ denote the integers, rationals, reals and complex numbers. Any other conventions are specified locally.
+
+
+Let the $n$ columns $M_j\in\mathbb R^p$ be independent with law $N_p(\mu,\Sigma)$, where $\Sigma$ is positive definite with eigenvalues $\eta_1\ge\cdots\ge\eta_k>1$ and $\eta_{k+1}=\cdots=\eta_p=1$, with $k$ fixed as $p,n\to\infty$. Put $\bar M=n^{-1}\sum_j M_j$, $\widehat M_j=M_j-\bar M$, $S=n^{-1}\widehat M\widehat M^T$, and write $l_1\ge\cdots\ge l_p\ge0$ for the sample eigenvalues. Assume $p/n\to\gamma\in(0,\infty)$.
+\paragraph{Statement recorded in the supplied source.}
+Determine the asymptotic distributions of the leading sample eigenvalues $l_1,l_2,\ldots$ for these real spiked populations, identifying their appropriate centerings, scalings and joint laws throughout the different spike regimes, including the transition at $\eta=1+\sqrt\gamma$. \sref{8000005}{2}
+\subsection{Short English statement}
+Find the limiting eigenvalue statistics for high-dimensional real Gaussian covariance matrices with finitely many population spikes, including phase transitions.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Exact reduction of mean-centered real spiked covariance to an uncentered Wishart matrix with n-1 samples; joint spike-regime laws remain unproved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{Removing the empirical mean exactly.}This attempt checks a normalization issue before any spike asymptotics. Let \(Z\) be a \(p\times n\) matrix of independent standard normal entries, and write \(M=\mu\mathbf1^T+\Sigma^{1/2}Z\). With \(P=I_n-n^{-1}\mathbf1\mathbf1^T\), the centered matrix is \(\widehat M=\Sigma^{1/2}ZP\). Choose an orthogonal matrix whose last column is \(n^{-1/2}\mathbf1\). Orthogonal invariance of each Gaussian row shows that \(ZO\) again has independent standard normal entries. Consequently
+\[ S\ \stackrel{d}=\ \frac1n\Sigma^{1/2}XX^T\Sigma^{1/2}
+=\frac{n-1}{n}\widetilde S,
+\qquad \widetilde S=\frac1{n-1}\Sigma^{1/2}XX^T\Sigma^{1/2},\]
+where \(X\) is \(p\times(n-1)\). This identity is exact, including when \(p\ge n\); in that case the rank is at most \(n-1\) and there are the corresponding zero sample eigenvalues.
+\paragraph{What this transfers and what it does not.}Suppose a theorem for the uncentered model supplies a deterministic centering \(c_{p,n-1}\), positive scale \(a_{p,n-1}\), and a joint limit for a finite list of eigenvalues. Multiplying both center and scale by \((n-1)/n\) transfers that theorem exactly to the stated centered convention. One must use aspect ratio \(p/(n-1)\) in the uncentered theorem. For example, an \(O(n^{-1})\) centering correction is negligible at scale \(n^{-2/3}\) or \(n^{-1/2}\), provided its coefficient is uniformly bounded; this follows from the respective ratios \(n^{-1/3}\) and \(n^{-1/2}\) tending to zero. It need not be discarded before checking a critical spike tuning.
+\paragraph{First gap.}The calculation removes neither the spectral interaction among spikes nor the critical transition. It does not derive any joint edge or outlier law, and it assumes no theorem about those laws. Deriving the required limiting distribution for \(\widetilde S\), uniformly in the relevant critical tuning, remains the first missing step. The elementary Gaussian reduction is known in substance and is not counted as new progress on the complete distributional problem.
+
+\paragraph{Verification and adversarial audit.}
+Checked Gaussian orthogonal invariance, denominator n rather than n-1, p>=n zero eigenvalues, and scale comparisons; did not import unverified spike limit theorems. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked Gaussian orthogonal invariance, denominator n rather than n-1, p>=n zero eigenvalues, and scale comparisons; did not import unverified spike limit theorems. Scope remains limited: Obtain the joint eigenvalue asymptotics of the reduced uncentered ensemble, including critical spike tuning.
+
+Coordinator checked the Gaussian row rotation, rank n-1 and exact centered-Wishart prefactor. The critical spike law is not supplied by this reduction. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Obtain the joint eigenvalue asymptotics of the reduced uncentered ensemble, including critical spike tuning.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{description}
+\item[\hypertarget{source:8000005:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 8000005 (AMR-079-0005). CC BY 4.0. \url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:8000005:2}{S2}] Percy Deift, Some Open Problems in Random Matrix Theory and the Theory of Integrable Systems, arXiv:0712.0849 (2007), Problem 5, pp. 4--5. \url{https://arxiv.org/abs/0712.0849}.
+\end{description}
+\label{end:8000005}
+\end{document}

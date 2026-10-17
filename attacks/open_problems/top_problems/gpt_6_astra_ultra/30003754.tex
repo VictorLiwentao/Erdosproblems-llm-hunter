@@ -1,0 +1,93 @@
+% TOP_PROBLEM: {"id": 30003754, "title": "Selecting Physical Solutions of Many-Body Green-Function Equations", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The four questions are retained: phase-transition links, reducing spurious branches, perturbative consequences and parametrizing physical solutions. ID 30003753 concerns constructing the differential formulation, not the same branch-selection target."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003754", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Distinguish physical Green-function branches, their phase transitions and the consequences for strong-coupling approximations.", "scope": "Selected one branch in a scalar quadratic closure by resolvent normalization and sign; none of the four full many-body questions is resolved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked large-z coefficients and the upper-half-plane sign; distinguished spectral branch points from thermodynamic phase transitions. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the branch expansions and upper-half-plane imaginary signs; a spectral branch point is not presented as a thermodynamic phase transition. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked large-z coefficients and the upper-half-plane sign; distinguished spectral branch points from thermodynamic phase transitions. The remaining gap is: Establish global analytic, spectral-positive branch selection for the actual nonlinear functional Green-function system, including singular coupling regimes. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30003754; source catalogue code OWR-15998-004
+\setcounter{section}{30003753}
+\section{Selecting Physical Solutions of Many-Body Green-Function Equations}\label{30003754}
+{\small UnsolvedMath ID 30003754 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+An interacting one-body Green function is a time-ordered or otherwise conventionally ordered two-point correlation function of creation and annihilation fields. The Dyson equation writes $G=G_0+G_0\Sigma G$, with convolution in the space, spin and time variables and self-energy $\Sigma$. A functional differential equation treats $G$ as a functional of an added external potential and differentiates with respect to that potential, thereby encoding higher correlations without assuming a known self-energy. A physical solution must satisfy the state, spectral, causality and boundary conditions appropriate to the chosen Green function, whereas a nonlinear algebraic or functional equation can also have extraneous branches. Strong coupling refers to interaction strengths for which expansion about the noninteracting branch need not be controlled.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+For equations governing physical many-body Green functions, determine whether there is a link to phase transitions, whether the equations can be modified to reduce nonphysical solution multiplicity, how the results affect strong-coupling many-body perturbation theory, and how to parametrize the physical solution domain.
+
+\paragraph{Source scope and qualification.}
+The four questions are retained: phase-transition links, reducing spurious branches, perturbative consequences and parametrizing physical solutions. ID 30003753 concerns constructing the differential formulation, not the same branch-selection target.
+\subsection{Short English statement}
+Distinguish physical Green-function branches, their phase transitions and the consequences for strong-coupling approximations.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Selected one branch in a scalar quadratic closure by resolvent normalization and sign; none of the four full many-body questions is resolved.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30003754. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{Branch selection in a solvable algebraic diagnostic.} Consider the scalar closure \(t^2G^2-zG+1=0\), with \(t>0\) and complex \(z\). Its two algebraic branches are
+\[
+ G_\pm(z)=\frac{z\pm\sqrt{z^2-4t^2}}{2t^2}.
+\]
+Choose the square root near infinity with expansion \(z-2t^2/z+O(z^{-3})\). Then \(G_-(z)=z^{-1}+O(z^{-3})\), while \(G_+(z)=z/t^2-z^{-1}+O(z^{-3})\). A normalized scalar resolvent has leading coefficient \(1/z\): for a probability measure of bounded support, expand \((z-x)^{-1}\) and integrate. Hence only the minus branch can meet that necessary physical condition near infinity.
+\paragraph{Countercheck on phase-transition inference.} At \(z=iR\), \(R>0\), the continued root is \(i\sqrt{R^2+4t^2}\), and \(\operatorname{Im}G_-<0\), whereas \(\operatorname{Im}G_+>0\). This agrees with the necessary sign of \(\int(z-x)^{-1}d\mu(x)\). The branch points at \(z=\pm2t\) are spectral-variable singularities of this algebraic model; they do not establish a thermodynamic phase transition in a many-body system.
+\paragraph{Scope audit.} This elementary diagnostic shows how asymptotics and causality can remove a spurious branch locally. It neither proves a global physical-domain parametrization nor supplies a modified source equation with fewer unphysical solutions. Links to phase transitions, strong-coupling perturbation theory and selection across singularities all remain open within this attempt. The first gap is extending simultaneous positivity, normalization and analytic control to the actual source functional system, where no single quadratic formula is available.
+
+\paragraph{Verification and adversarial audit.}
+Checked large-z coefficients and the upper-half-plane sign; distinguished spectral branch points from thermodynamic phase transitions. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked large-z coefficients and the upper-half-plane sign; distinguished spectral branch points from thermodynamic phase transitions. The remaining gap is: Establish global analytic, spectral-positive branch selection for the actual nonlinear functional Green-function system, including singular coupling regimes. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the branch expansions and upper-half-plane imaginary signs; a spectral branch point is not presented as a thermodynamic phase transition. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Establish global analytic, spectral-positive branch selection for the actual nonlinear functional Green-function system, including singular coupling regimes.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30003754:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30003754 (OWR-15998-004). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30003754:2}{S2}] Mathematical Methods in Quantum Chemistry (2018), Oberwolfach Reports, DOI 10.4171/owr/2018/13, pp. 631--721. Primary report accessed 2026-10-11; relevant PDF pages 57.
+\url{https://doi.org/10.4171/owr/2018/13}.
+\item[\hypertarget{source:30003754:3}{S3}] Oberwolfach Report 13 (catalogue-listed context; not independently consulted in this preparation).
+\url{https://doi.org/10.4171/OWR/2018/13}.
+\item[\hypertarget{source:30003754:4}{S4}] Luttinger-Ward multivaluedness (catalogue-listed context; not independently consulted in this preparation).
+\url{https://doi.org/10.1103/PhysRevLett.114.156402}.
+\item[\hypertarget{source:30003754:5}{S5}] Green-function research agenda (catalogue-listed context; not independently consulted in this preparation).
+\url{https://www.cecam.org/workshop-details/greens-function-methods-the-next-generation-iii-309}.
+\end{itemize}
+\label{end:30003754}
+\end{document}

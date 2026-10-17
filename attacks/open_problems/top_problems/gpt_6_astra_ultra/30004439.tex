@@ -1,0 +1,198 @@
+% RESEARCH_DRAFT_SHA256: 8d95ec7f5d8588eec527991aeb1ca1fe33f7ea72991b0f4556c484911f5575f0
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004439, "title": "Primal and Dual Geometry of SONC Relaxations", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004439", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "For the SONC-cone linear-programming relaxation, what is the relation between the primal polyhedron obtained by fixing the non-auxiliary variables and the SONC cone, and what is the relation between the dual SONC cone and sparse moment cones?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The exact source LP and its primal polyhedron are not supplied. The full quadratic-support calculation and general inclusion with the closed moment cone do not characterize arbitrary SONC supports or the requested relaxation.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{SONC geometry: a complete sparse quadratic model and closure issues}
+\noindent UnsolvedMath ID 30004439; OWR-17475-005. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A polynomial cone is closed under nonnegative linear combinations. SONC denotes sums of nonnegative circuit polynomials. A dual cone consists of linear functionals nonnegative on every element of the primal cone; moment functionals are defined by polynomial integration.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The linear program, non-auxiliary variables, and the distinction between its fibers and projections are not provided. No exact missing relaxation is reconstructed.
+
+Source-record limitation: The supplied statement names a SONC linear-programming relaxation but gives neither that LP nor its variables, and fixing non-auxiliary variables could mean a fiber or a projection in different spaces. Without the source-specific construction, the requested primal/dual relation cannot be stated faithfully.
+\paragraph{Statement recorded in the supplied source.}
+For the SONC-cone linear-programming relaxation, what is the relation between the primal polyhedron obtained by fixing the non-auxiliary variables and the SONC cone, and what is the relation between the dual SONC cone and sparse moment cones? \href{https://doi.org/10.4171/owr/2020/12}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Compare the primal and dual geometry of the cited SONC relaxation.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004439 (OWR-17475-005). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Real Algebraic Geometry with a View Toward Hyperbolic Programming and Free Probability (2021), Oberwolfach Reports, DOI 10.4171/owr/2020/12, pp. 639--712
+\url{https://doi.org/10.4171/owr/2020/12}.
+\item[S3] Dressler--Iliman--de Wolff--Theobald, S-cone framework
+\url{https://www.math.uni-frankfurt.de/~theobald/publications/s-cone.pdf}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+For the SONC-cone linear-programming relaxation, what is the relation between the primal polyhedron obtained by fixing the non-auxiliary variables and the SONC cone, and what is the relation between the dual SONC cone and sparse moment cones?
+
+\section{The actual source relaxation}
+Dressler's report, printed pages 694--696, first uses exponential sums
+on real space and equivalently polynomials on the positive orthant.
+It describes fixing coefficient variables in a lifted dual-cone
+formulation, leaving an LP in auxiliary variables. It does not print
+the full LP or the resulting primal inequalities. Thus an LP fiber
+cannot be identified here with the entire coefficient cone.
+We compute the primal cone, dual cone, and moment issue completely
+for support $A=\{0,1,2\}$ on $t>0$, then test two proposed generalizations.
+This model does not substitute a reconstructed LP for the missing one.
+
+\section{The full three-coefficient calculation}
+Write $f(t)=a+bt+ct^2$. Nonnegativity for all $t>0$ is equivalent to
+\[
+C=\{(a,b,c):a,c\ge0,\ b\ge-2\sqrt{ac}\}.
+\]
+Necessity of $a,c\ge0$ follows by taking $t\downarrow0$ and
+$t\to\infty$. If $b\ge0$ these conditions suffice. If $b<0$ and
+$a=0$ or $c=0$, the polynomial is negative for sufficiently small or
+large positive $t$, respectively. For $a,c>0$, its minimum on the
+positive axis is at $t=-b/(2c)$, with value $a-b^2/(4c)$, by completing
+the square. This proves the stated condition in every case.
+When $b<0$, the polynomial is itself the one-dimensional nonnegative
+circuit with endpoints 0 and 2 and interior exponent 1. When $b\ge0$
+it is a sum of nonnegative monomials. Conversely every such circuit
+or monomial is nonnegative. Thus on this support the SONC cone, with
+the positive-orthant convention, equals $C$.
+
+Use the ordinary coefficient pairing
+$\langle(a,b,c),(u,v,w)\rangle=au+bv+cw$.
+The dual is
+\[
+C^*=\{(u,v,w):u,v,w\ge0,\ v^2\le uw\}.
+\]
+Testing the three nonnegative coordinate rays shows $u,v,w\ge0$.
+For fixed $a,c\ge0$ the smallest pairing over allowed $b$ is
+$au+cw-2v\sqrt{ac}$. If $v^2\le uw$, this is nonnegative because
+$au+cw\ge2\sqrt{acuw}\ge2v\sqrt{ac}$, where the first inequality
+is $(\sqrt{au}-\sqrt{cw})^2\ge0$.
+Conversely, if $u,w>0$, choose $a=w,c=u$ to get
+$2uw-2v\sqrt{uw}\ge0$, forcing $v\le\sqrt{uw}$.
+If $u=0$ and $v>0$, choose $c=1$ and let $a$ grow; the expression
+$w-2v\sqrt a$ becomes negative. The case $w=0$ is symmetric.
+This proves the formula including all zero boundaries.
+
+\section{Dual membership need not be an actual positive-axis moment}
+A finite positive measure $\mu$ on $(0,\infty)$ with finite second moment
+has vector $(\int1\,d\mu,\int t\,d\mu,\int t^2\,d\mu)$ in $C^*$:
+the middle coordinate is nonnegative, and Cauchy--Schwarz follows by
+integrating $(t-s)^2\ge0$ against the product measure, giving
+$2uw-2v^2\ge0$. But $(1,0,1)\in C^*$ is not such a vector.
+If $\int t\,d\mu=0$, then each set $\{t\ge1/r\}$ has measure zero,
+since its contribution to the integral is at least its measure divided
+by $r$. Their union is $(0,\infty)$, so $\mu=0$, contradicting mass one.
+
+It is a limit of genuine two-atom moment vectors. For $0<e<1$ take
+\[
+\mu_e=(1-e^2)\delta_e+e^2\delta_{1/e}.
+\]
+Its moments are $(1,2e-e^3,1+e^2-e^4)$ and converge to $(1,0,1)$.
+This shows that even in a case where SONC equals all nonnegative
+polynomials on the support, the dual need not equal the unclosed cone
+of actual finite moments. The boundary of the domain and escape of
+small mass to infinity both matter.
+
+\paragraph{Why a closure is the natural general relation.}
+For any finite real function family with evaluation vectors $v(t)$,
+let $M$ be their finite nonnegative conic combinations and let $P$
+be the coefficient cone of functions nonnegative everywhere on the
+domain. Then $P=M^*$ directly from the definition of the pairing,
+and $P^*=\overline M$. Here is a finite-dimensional proof of the
+second assertion. Inclusion $\overline M\subseteq P^*$ follows from
+continuity. If $z\notin\overline M$, choose a closest point $y$ in
+the closed cone $\overline M$; existence follows by restricting to
+a sufficiently large closed ball and compactness. Minimizing squared
+distance along the segment from $y$ to any $v\in\overline M$ gives
+$(z-y)\cdot(v-y)\le0$. Taking $v=0$ and $v=2y$ shows
+$(z-y)\cdot y=0$. Thus $h=y-z$ satisfies
+$h\cdot v\ge0$ for all $v\in\overline M$, while
+$h\cdot z=-\|y-z\|^2<0$. Hence $h\in P$ and $z\notin P^*$,
+as required. For a general SONC subcone $S\subseteq P$, this gives
+only $\overline M=P^*\subseteq S^*$; equality needs a further argument.
+
+\section{Why polyhedral fibers do not make the cone polyhedral}
+For fixed $a,c\ge0$, the allowed $b$ form the half-line
+$b\ge-2\sqrt{ac}$, a polyhedron in one dimension.
+Nevertheless $C$ is not polyhedral. Intersect it with $a+c=1$ and
+$b\le0$, and use coordinates $x=2a-1$, $y=b$. The section is exactly
+the lower half disk $x^2+y^2\le1$, $y\le0$. Its curved boundary
+contains infinitely many points of the open lower semicircle.
+If this set were given by finitely many linear inequalities, every
+boundary point would make at least one nontrivial inequality tight:
+otherwise finitely many strict margins would give a small open ball
+inside the set. Each corresponding line meets the circle in at most
+two points, by substituting its linear equation into the quadratic
+circle equation. Finitely many lines cannot cover the semicircle,
+a contradiction.
+
+Nor can $C$ be the exact linear projection of a finite-dimensional
+polyhedron. Eliminating one variable from finitely many linear
+inequalities preserves polyhedrality: write all nonzero-coefficient
+inequalities as lower or upper bounds on that variable, keep the
+zero-coefficient ones, and require each lower bound to be at most
+each upper bound. These conditions are sufficient by choosing a value
+between the largest lower and smallest upper bounds, with one-sided
+cases unrestricted on the other side. Repetition eliminates every
+auxiliary variable. An exact projected LP description would therefore
+make $C$ polyhedral, contrary to the preceding section.
+Fixing coefficients before taking an LP dual is compatible with this
+fact; it is not an exact global linear extended formulation of $C$.
+
+\section{Model-assisted audit and remaining scope}
+The audit checked the positive-axis domain, pairing normalization,
+zero coefficients, actual versus limiting moments, and fiber versus
+projection. The three-coefficient calculations are known elementary
+geometry, not a new characterization of arbitrary SONC supports.
+The primary S-cone paper was opened as a contextual reference; no
+unread general theorem from it is invoked. No numerical computation
+or theorem prover was used. The missing source LP prevents identifying
+its particular primal polyhedron, and strictness or equality for
+general sparse dual cones remains unproved here.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The exact source LP and its primal polyhedron are not supplied. The full quadratic-support calculation and general inclusion with the closed moment cone do not characterize arbitrary SONC supports or the requested relaxation.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Dressler, Global optimization via the dual SONC cone and linear programming, OWR 12/2020, pp. 694--696; full formulation, LP description, and questions 2--3 inspected in the cached primary report. \url{https://doi.org/10.4171/owr/2020/12}.
+\item Primary S-cone framework paper opened for context; none of its general theorems is used as an unproved result in the calculations above. \url{https://www.math.uni-frankfurt.de/~theobald/publications/s-cone.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The exact source LP and its primal polyhedron are not supplied. The full quadratic-support calculation and general inclusion with the closed moment cone do not characterize arbitrary SONC supports or the requested relaxation.
+\end{document}

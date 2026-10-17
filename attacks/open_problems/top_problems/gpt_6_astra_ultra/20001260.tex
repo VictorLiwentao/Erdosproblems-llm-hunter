@@ -1,0 +1,150 @@
+% RESEARCH_DRAFT_SHA256: c29331dff5a2dbfc4603c0342817443352f77a9303352db02ae611cc6a21701b
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001260, "title": "A local-to-global screen for number-field ECM torsion", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001260", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly, metadata checks and the finite exact computation described in the manuscript. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 10. To speed up the elliptic curve factorization algorithm, pick E/ Q\n\nwith large torsion group so that its reduction modulo n is more likely to be smooth. Mazur's results show that this torsion subgroup can be no larger than 16. There is a result of Kamienny-Mazur-Merel: there is a bound on E(K)tors in terms of [ K: Q]. So try to find a number field K where p splits completely and such that E(K)tors large. (Pomerance)", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. A concrete torsion/divisibility mechanism and two failed inferences are checked, but no large-torsion field-selection algorithm with demonstrated net ECM advantage is produced.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Number-field ECM torsion: an explicit two-torsion construction and splitting obstruction}
+\noindent UnsolvedMath ID 20001260; AIM-COMPUTATION-0098. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For an elliptic curve $E$ over a number field $K$, $E(K)_{\mathrm{tors}}$ is its subgroup of finite-order points. A rational prime splits completely in $K$ when its residue fields all have that prime field. Elliptic-curve factorization benefits when a reduced group order has only small prime factors.
+\paragraph{Statement recorded in the supplied source.}
+Question 10. To speed up the elliptic curve factorization algorithm, pick E/ Q
+
+with large torsion group so that its reduction modulo n is more likely to be smooth. Mazur's results show that this torsion subgroup can be no larger than 16. There is a result of Kamienny-Mazur-Merel: there is a bound on E(K)tors in terms of [ K: Q]. So try to find a number field K where p splits completely and such that E(K)tors large. (Pomerance) \href{https://aimath.org/WWN/primesinp/primesinp.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The source seeks a computational method rather than one universal guarantee; the overhead of working in the number field is part of the question.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can number fields and elliptic curves with large torsion give useful choices for elliptic-curve integer factorization?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001260 (AIM-COMPUTATION-0098). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0098
+\url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 10. To speed up the elliptic curve factorization algorithm, pick E/ Q
+
+with large torsion group so that its reduction modulo n is more likely to be smooth. Mazur's results show that this torsion subgroup can be no larger than 16. There is a result of Kamienny-Mazur-Merel: there is a bound on E(K)tors in terms of [ K: Q]. So try to find a number field K where p splits completely and such that E(K)tors large. (Pomerance)
+
+\section{A concrete construction to test the proposal}
+The source seeks a computational advantage from large torsion after
+passing to a number field in which an unknown factor prime splits.
+There is no specified torsion size, field-selection distribution or
+cost model. We test a minimal explicit construction and the proposed
+inference from forced torsion to smooth group order.
+
+\paragraph{Full two-torsion in a cubic splitting field.}
+Let $f\in\mathbb Z[X]$ be monic squarefree cubic and
+$E:y^2=f(x)$. In characteristic zero this is an elliptic curve with
+the point at infinity $O$, since a repeated root would be exactly a
+singularity of the affine equation and the usual projective point at
+infinity is smooth. Let $K$ be its splitting field, with roots
+$\alpha_1,\alpha_2,\alpha_3$. The inverse of $(x,y)$ in the
+Weierstrass group law is $(x,-y)$. Thus
+\[
+T=\{O,(\alpha_1,0),(\alpha_2,0),(\alpha_3,0)\}
+\]
+is the full group killed by two: a nonzero point equals its inverse
+exactly when $y=0$. It has four elements. The field degree is at most
+six, since adjoining one cubic root costs at most three and the other
+two roots satisfy the remaining quadratic. This does not yield
+arbitrarily large torsion.
+
+At an odd prime of good reduction where these roots reduce to three
+distinct elements of $\mathbb F_p$, the same four points remain
+four distinct two-torsion points on the reduced curve. In particular
+$4\mid\#E(\mathbb F_p)$ by partition into cosets of this subgroup.
+Complete splitting in $K$, away from the discriminant and two, is a
+sufficient setting: the integral roots reduce into its residue field
+$\mathbb F_p$ and distinctness is guaranteed by the nonzero reduced
+discriminant. This explicit argument uses no blanket assertion that
+all torsion, including residue-characteristic torsion, always injects.
+
+\paragraph{Forced torsion does not force smoothness.}
+For $E:y^2=x^3-2$ over $\mathbb F_{127}$, the three roots are
+$32,100,122$, verified by cubing modulo $127$. They are distinct and
+the cubic is squarefree since its derivative is $3x^2$ and zero is
+not a root. Exact enumeration of the quadratic character of $x^3-2$
+gives $72$ values $+1$, $52$ values $-1$, and three zeros. Hence
+\[
+\#E(\mathbb F_{127})=127+1+72-52=148=4\cdot37.
+\]
+The count is reproducible by listing the nonzero squares modulo $127$
+and testing the $127$ residues; no approximate curve software is used.
+Although the entire rational two-torsion subgroup is present, the group
+order is not $7$-smooth. In general if a known subgroup of order $t$
+injects, the reduced group order is $t u$. Its prime factors are all
+at most $B$ exactly when both $t$ and $u$ have that property, by unique
+factorization of integers. Knowledge of a $B$-smooth $t$ leaves the
+cofactor $u$ to be controlled. The example demonstrates the gap without
+making a statistical claim about the distribution of cofactors.
+
+\paragraph{A computable symbol does not identify splitting at unknown factors.}
+For a quadratic choice $K=\mathbb Q(\sqrt D)$ and odd
+$p\nmid2D$, having a square root of $D$ in $\mathbb F_p$ is the
+local split condition for the defining quadratic. A Jacobi-symbol test
+modulo the composite input cannot ensure that condition for every prime
+factor. For example, $n=15$ and $D=2$ give
+$\left(\frac2{15}\right)=
+\left(\frac23\right)\left(\frac25\right)=(-1)(-1)=1$,
+but two is a nonsquare modulo both three and five: their nonzero square
+sets are $\{1\}$ and $\{1,4\}$. Thus a positive Jacobi symbol cannot
+be used as a certificate that the unknown factor splits in the chosen
+field. Passing to a splitting field of a torsion polynomial also does
+not by itself make an arbitrary unknown factor a split prime.
+
+\section{Audit and unresolved method}
+The AIM Question 10 and its warning about number-field overhead were
+inspected. The audit distinguishes prime-to-characteristic general
+reduction facts from the explicitly checked two-torsion case, divisibility
+from smoothness, and composite symbols from local splitting. Python
+performed the finite $127$-element count stated above. No ECM timing,
+number-field arithmetic implementation or distributional speedup was
+measured. Choosing useful large torsion while ensuring sufficiently
+frequent splitting and a net computational gain remains unresolved;
+no novel ECM improvement is claimed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. A concrete torsion/divisibility mechanism and two failed inferences are checked, but no large-torsion field-selection algorithm with demonstrated net ECM advantage is produced.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Future directions in algorithmic number theory, workshop 24--28 March 2003, report version 30 April 2003; original question, relevant lecture context and adjoining remarks inspected on 11 October 2026. \url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} A concrete torsion/divisibility mechanism and two failed inferences are checked, but no large-torsion field-selection algorithm with demonstrated net ECM advantage is produced.
+\end{document}

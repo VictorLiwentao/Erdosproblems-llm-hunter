@@ -1,0 +1,141 @@
+% RESEARCH_DRAFT_SHA256: c38d9b4f55effa35217e3d5795b2eb88b89008088d1b8defdfe44f9b76b9f856
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001194, "title": "Transcendence-aware algebraic localization of symmetric Gaussian-mixture modes", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001194", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 18. Can algebra be used to better approximate the location of the modes in a mixture?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. An exact density-mode classification and a specific approximation bracket are proved, but neither arbitrary mixtures nor the source’s unspecified improvement criterion is resolved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Modes of a symmetric Gaussian mixture: exact reduction and a degeneracy obstruction}
+\noindent UnsolvedMath ID 20001194; AIM-COMPUTATION-0032. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a statistical model with parameter $\theta$ and observations $D$, the likelihood is $L(\theta;D)=\Pr_\theta(D)$, or the corresponding density. Maximum likelihood seeks a global maximum over the admissible parameter space. A finite mixture has density $\sum_{j=1}^k w_j f_j$ with $w_j\ge0$ and $\sum_j w_j=1$. A mode is a local maximum on the relevant parameter or observation domain. Algebraic techniques can encode derivative equations when the model has an appropriate algebraic representation.
+\paragraph{Statement recorded in the supplied source.}
+Question 18. Can algebra be used to better approximate the location of the modes in a mixture? \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The source does not choose a mixture family, a notion of approximation error, or an algorithmic improvement criterion; it is a mathematical method question, not a uniform performance conjecture.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can algebraic techniques improve approximation of the modes associated with a mixture model?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001194 (AIM-COMPUTATION-0032). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0032
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 18. Can algebra be used to better approximate the location of the modes in a mixture?
+
+\section{A defined mode-location problem}
+The source does not say whether modes are modes of a mixture density or
+of a parameter likelihood. This attempt treats density modes in one
+explicit family: equal weights, common unit variance, component means
+$\pm\mu$ with $\mu\ge0$. No claim of a general improved approximation
+criterion is inferred from this restriction.
+Let $\varphi(x)=(2\pi)^{-1/2}e^{-x^2/2}$ and
+$f_\mu(x)=(\varphi(x-\mu)+\varphi(x+\mu))/2$.
+Factoring the two exponentials gives
+\[
+ \log f_\mu(x)=C_\mu-x^2/2+\log\cosh(\mu x),\qquad
+ (\log f_\mu)'(x)=g_\mu(x):=\mu\tanh(\mu x)-x.
+\]
+Thus the stationary-point problem reduces exactly to a scalar
+transcendental equation. Algebraic rearrangement alone has not converted
+it into a polynomial equation.
+
+\paragraph{Complete classification in this family.}
+For $\mu=0$, $g_0(x)=-x$ and the unique mode is zero.
+For $0<\mu\le1$ and $x>0$, the inequality $\tanh y<y$ for $y>0$
+gives $g_\mu(x)<(\mu^2-1)x\le0$.
+To prove the inequality, differentiate $y-\tanh y$ to obtain
+$\tanh^2y>0$ and use its value zero at the origin.
+Evenness of $f_\mu$ now shows strict increase to zero and strict
+decrease afterward, so zero is the unique global mode, including
+$\mu=1$.
+
+For $\mu>1$, $g_\mu'(0)=\mu^2-1>0$ and
+\[
+g_\mu''(x)=-2\mu^3\operatorname{sech}^2(\mu x)\tanh(\mu x)<0
+\quad(x>0).
+\]
+Thus $g_\mu$ is strictly concave on the positive half-line, begins at
+zero with positive slope, and satisfies $g_\mu(\mu)<0$.
+There is a positive root $x_*\in(0,\mu)$ by continuity. It is unique:
+strict concavity implies $g_\mu(x)/x$ is strictly decreasing for $x>0$
+(by applying strict concavity to $x$ as a convex combination of zero
+and a larger argument). Its sign therefore changes exactly once.
+Consequently $f_\mu$ increases on $(0,x_*)$ and decreases on
+$(x_*,\infty)$; evenness gives exactly two global modes $\pm x_*$
+and a strict local minimum at zero. These conclusions cover all real
+$x$ and do not rely on a local root finder.
+
+\paragraph{A certified approximation route and its limit.}
+For example, at $\mu=2$, $g_2(1)=2\tanh2-1>0$ because
+$e^4>3$, while $g_2(2)<0$. The elementary bound $e^4\ge1+4>3$
+proves the first inequality. Hence the positive mode is in $(1,2)$.
+Repeated interval bisection with verified signs localizes the unique
+positive root; after $k$ accepted bisections its interval width is
+$2^{-k}$. The statement is conditional on verified signs at each
+midpoint. Exact equality would itself finish the root computation;
+finite-precision sign certification near a zero needs an error bound
+for the exponential or hyperbolic tangent and is not granted for free.
+No numerical bisection run is claimed here.
+
+An attempted uniform Newton/simple-root argument fails at the actual
+bifurcation: for $\mu=1$, $g_1(0)=g_1'(0)=0$, and also
+$g_1''(0)=0$ while $g_1^{(3)}(0)=-2$ by differentiation. The stationary
+root is not simple, even though it is the unique mode. Therefore an
+inverse derivative bound valid across all $\mu$ cannot be assumed.
+The classification supplies a useful family-specific bracket, but no
+error or performance comparison for arbitrary mixtures follows.
+
+\section{Audit and gap}
+The AIM Question 18 was checked. The audit separated density modes from
+likelihood modes, stationary points from maxima, the transition case
+from regular cases, and a symbolic bracket from an executed numerical
+experiment. The displayed reasoning is an elementary known Gaussian
+mixture calculation, with no claim of novelty. General weights, variances,
+dimensions, numbers of components and an agreed meaning of better
+approximation remain outside the proof. The original broad question
+is therefore unresolved in this attempt.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. An exact density-mode classification and a specific approximation bracket are proved, but neither arbitrary mixtures nor the source’s unspecified improvement criterion is resolved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Computational Algebraic Statistics, prepared by Seth Sullivant, version 27 March 2004; the original numbered source question and its adjacent scope were inspected on 11 October 2026. \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} An exact density-mode classification and a specific approximation bracket are proved, but neither arbitrary mixtures nor the source’s unspecified improvement criterion is resolved.
+\end{document}

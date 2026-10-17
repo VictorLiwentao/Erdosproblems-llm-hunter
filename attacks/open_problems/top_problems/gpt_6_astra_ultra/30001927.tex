@@ -1,0 +1,93 @@
+% TOP_PROBLEM: {"id": 30001927, "title": "Many-Body Localization at Positive Density", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The report explicitly makes precise formulation part of the challenge. Results for a fixed finite number of particles do not cover this limit; neither a universal disorder threshold nor one preferred notion of many-body localization is specified by the extract."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001927", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Formulate and prove stable localization for an infinite interacting quantum system at positive density.", "scope": "Proves exact no-transport localization in a diagonal interacting model and an explicit two-level resonance obstruction to naive stability.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked all local commutators, positive-density configurations, resonant mixing and distinction between frozen integrability and stable many-body localization. Model self-audit only; no independent human proof checking. Coordinator checked the commuting local occupations and resonant two-configuration mixing calculation, without inferring robustness of the frozen model. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked all local commutators, positive-density configurations, resonant mixing and distinction between frozen integrability and stable many-body localization. Retained unresolved status and zero original-target progress; A volume-uniform control of resonances for transport-generating interactions and a precise infinite-density localization criterion are missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001927; source catalogue code OWR-11448-001
+\setcounter{section}{30001926}
+\section{Many-Body Localization at Positive Density}\label{30001927}
+{\small UnsolvedMath ID 30001927 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} A random interacting quantum many-body system at positive density has particle number $N_\Lambda$ in a finite region $\Lambda$ with $N_\Lambda/|\Lambda|\to\rho>0$ in the thermodynamic limit, or the analogous finite-energy-density spin-system description. Localization can mean spectral localization, suppressed transport, or suitable dynamical correlation bounds; these notions need to be distinguished. Stability under interactions asks whether an appropriate localized regime survives adding nonzero couplings between particles.
+
+\paragraph{Source scope and qualifications.} The report explicitly makes precise formulation part of the challenge. Results for a fixed finite number of particles do not cover this limit; neither a universal disorder threshold nor one preferred notion of many-body localization is specified by the extract.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+For systems of infinitely many interacting particles at positive density, what is the precise localization regime and is it stable under interactions?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: The report explicitly identifies localization at positive density in infinitely many-particle systems as an open problem; later literature does not supply a general resolution. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Formulate and prove stable localization for an infinite interacting quantum system at positive density.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proves exact no-transport localization in a diagonal interacting model and an explicit two-level resonance obstruction to naive stability.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{An exactly localized interacting benchmark.} On a finite spin chain let $n_i=(I-Z_i)/2$ and
+\[
+ H=\sum_i h_i n_i+\sum_iJ_i n_in_{i+1},
+\]
+with arbitrary real coefficients. Every term is diagonal in the occupation basis, so $[H,n_i]=0$ and $n_i(t)=n_i$ for all time. All product occupation states are eigenvectors, including configurations with any prescribed positive limiting density. The interactions $J_i$ can be nonzero, but there is identically no particle transport because each local occupation is separately conserved.
+
+\paragraph{Why perturbative stability is not automatic.} Add a hopping or spin-flip term of strength $\epsilon$. In a two-configuration subspace with diagonal detuning $\Delta$, the matrix $\left(\begin{smallmatrix}0&\epsilon\\\epsilon&\Delta\end{smallmatrix}\right)$ has mixing angle satisfying $\tan(2\theta)=2\epsilon/\Delta$. At $\Delta=0$, arbitrarily small $\epsilon$ produces equal-weight eigenvectors. Therefore a global eigenvector perturbation bound cannot depend only on the operator strength; it must handle small denominators. At positive density the number of competing configurations grows rapidly with volume, so a fixed-particle estimate supplies no uniform control.
+
+\paragraph{Original-target gap.} The diagonal benchmark is an integrable frozen model, not proof of a robust many-body localized phase. It does not determine which spectral, transport or dynamical definition is stable in an infinite system. The first missing step is a volume-uniform treatment of resonant regions under genuinely transport-generating interactions. No universal disorder threshold or stability for all interactions is inferred from the exact commuting example.
+
+\paragraph{Verification and adversarial audit.}
+Checked all local commutators, positive-density configurations, resonant mixing and distinction between frozen integrability and stable many-body localization. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked all local commutators, positive-density configurations, resonant mixing and distinction between frozen integrability and stable many-body localization. Retained unresolved status and zero original-target progress; A volume-uniform control of resonances for transport-generating interactions and a precise infinite-density localization criterion are missing.
+
+Coordinator checked the commuting local occupations and resonant two-configuration mixing calculation, without inferring robustness of the frozen model. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. A volume-uniform control of resonances for transport-generating interactions and a precise infinite-density localization criterion are missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. A volume-uniform control of resonances for transport-generating interactions and a precise infinite-density localization criterion are missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001927:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001927 (OWR-11448-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001927:2}{S2}] Correlations and Interactions for Random Quantum Systems (2011), Oberwolfach Reports, DOI 10.4171/owr/2011/50, pp. 2837--2890; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2011/50}.
+\item[\hypertarget{source:30001927:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF page 2.
+\url{https://ems.press/content/serial-article-files/46367}.
+\end{itemize}
+\label{end:30001927}
+\end{document}

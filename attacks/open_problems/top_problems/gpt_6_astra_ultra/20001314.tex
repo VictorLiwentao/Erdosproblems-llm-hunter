@@ -1,0 +1,151 @@
+% RESEARCH_DRAFT_SHA256: 26b161701465403534657803f1eb7ca22f1e78c784609c36858a49b8030ce8ba
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001314, "title": "Length-faithful algebraic and group-theoretic parameter screens for SL_n(F_p) hashing", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001314", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Parameter determination for post-quantum hash functions\n\nRamón Flores presented a Tillich-Zémor-style hash function using the Cayley graph of special linear groups in arbitrary dimension. Questions remain, however, about the optimal choice of parameters for use with this protocol.\n\nIn the design of the hash function one has control over two parameters; the dimension of the special linear group considered, and the characteristic of the underlying field. We would like to determine appropriate choices for both via two branches of cryptanalysis: first, by analysis of the multivariate system implied by long matrix products; and second by direct analysis of group-theoretic properties. We should also study the impact of the partial homomorphicity exhibited by the scheme.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Output counts and a correctly constrained attack formulation do not determine secure dimension/characteristic parameters or prove resistance of the specified hash construction.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Matrix-product hash screens: output counts and length-constrained polynomial systems}
+\noindent UnsolvedMath ID 20001314; AIM-CRYPTOGRAPHY-0001. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+The group $\operatorname{SL}_n(\mathbb F_p)$ consists of $n\times n$ matrices of determinant one over $\mathbb F_p$. A Cayley graph uses chosen group generators as labeled steps. A product-based hash maps a message to the product of its corresponding generator matrices. A collision is a pair of different messages yielding the same output; message lengths and generator choice affect the computational problem.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The generators, admissible message lengths, security goal, and adversarial cost model are not fixed. Neither optimal parameters nor a post-quantum security claim is established by this agenda. The supplied catalogue marks this record partially solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+Parameter determination for post-quantum hash functions
+
+Ramón Flores presented a Tillich-Zémor-style hash function using the Cayley graph of special linear groups in arbitrary dimension. Questions remain, however, about the optimal choice of parameters for use with this protocol.
+
+In the design of the hash function one has control over two parameters; the dimension of the special linear group considered, and the characteristic of the underlying field. We would like to determine appropriate choices for both via two branches of cryptanalysis: first, by analysis of the multivariate system implied by long matrix products; and second by direct analysis of group-theoretic properties. We should also study the impact of the partial homomorphicity exhibited by the scheme. \href{http://aimpl.org/postquantgroup/1/}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The source asks how to choose dimension and characteristic for a group-product hash.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001314 (AIM-CRYPTOGRAPHY-0001). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-CRYPTOGRAPHY-0001.
+\url{http://aimpl.org/postquantgroup/1/}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Parameter determination for post-quantum hash functions
+
+Ramón Flores presented a Tillich-Zémor-style hash function using the Cayley graph of special linear groups in arbitrary dimension. Questions remain, however, about the optimal choice of parameters for use with this protocol.
+
+In the design of the hash function one has control over two parameters; the dimension of the special linear group considered, and the characteristic of the underlying field. We would like to determine appropriate choices for both via two branches of cryptanalysis: first, by analysis of the multivariate system implied by long matrix products; and second by direct analysis of group-theoretic properties. We should also study the impact of the partial homomorphicity exhibited by the scheme.
+
+\section{Attempt and results}
+The primary hash construction uses a state-dependent nonbacktracking encoding.
+We retain that distinction: a raw word in generator matrices is not automatically
+the same as concatenation of protocol message strings. The following are
+necessary screens and an attempted algebraic attack formulation, not secure
+parameter choices or a cryptanalysis of the complete published protocol.
+
+\paragraph{A proved output-size screen.}
+An invertible $n$ by $n$ matrix over $\mathbb F_p$ is an ordered independent
+list of columns. The first has $p^n-1$ choices; after $i$ independent columns,
+their span has $p^i$ vectors, so the next has $p^n-p^i$ choices. Hence
+\[
+|\operatorname{GL}_n(\mathbb F_p)|=\prod_{i=0}^{n-1}(p^n-p^i).
+\]
+The determinant map onto $\mathbb F_p^*$ is surjective, since
+$\operatorname{diag}(a,1,\ldots,1)$ realizes every nonzero $a$.
+Multiplication by one such matrix bijects any determinant fiber with any other.
+Consequently
+\[
+|\operatorname{SL}_n(\mathbb F_p)|=\frac1{p-1}\prod_{i=0}^{n-1}(p^n-p^i)
+=p^{n^2-1}\prod_{j=2}^n(1-p^{-j}).
+\]
+If every string of length $L$ over an alphabet of size $b$ is admissible,
+then $b^L$ messages map into at most this many outputs. Once
+$b^L>|\operatorname{SL}_n(\mathbb F_p)|$, two messages collide by the
+pigeonhole principle. This is an existence threshold, not the work needed to
+find a collision; it does not justify equating output bit length with security.
+
+\paragraph{An exact bounded-degree exponent model.}
+Let $U=I+N$, where $N^n=0$, and assume $p\ge n$. For every nonnegative
+integer $a$, the binomial theorem gives
+\[
+U^a=\sum_{j=0}^{n-1}\binom aj N^j.
+\]
+The coefficients $\binom aj=a(a-1)\cdots(a-j+1)/j!$ are polynomials over
+$\mathbb F_p$, since $j!\ne0$ for $j<n\le p$.
+For $0\le a<p$ this evaluates the corresponding matrix power exactly.
+Also $U^p=I+N^p=I$, because binomial middle coefficients vanish modulo $p$
+and $N^p=0$. Thus all integer powers depend only on $a\bmod p$.
+For a product of $t$ such blocks with separate exponents, each entry has
+individual degree at most $n-1$ and total degree at most $t(n-1)$:
+matrix multiplication sums products with one coefficient from each block.
+This derives an algebraic system for equality to a target matrix.
+
+\paragraph{Where the length-faithfulness inference fails.}
+A solution with exponent $a\in\mathbb F_p$ corresponds to a representative
+$0\le a<p$, but writing $U^a$ as repeated letters may use as many as $p-1$
+letters. A field element has only $O(\log p)$ bits, so an unconstrained
+exponent equation does not certify a short generator word. If only exponents
+$0,1,\ldots,L$ with $L<p$ are permitted, one exact scalar constraint is
+\[
+\prod_{j=0}^{L}(a-j)=0.
+\]
+It has precisely those roots in the field. Any nonzero univariate polynomial
+vanishing on all $L+1$ distinct permitted values must have degree at least
+$L+1$: division by $a-j$ at each distinct root removes one degree, inductively.
+This lower bound is only for one nonzero univariate polynomial, not for systems
+using auxiliary variables. A total word-length bound requires further coupling
+of the exponent choices, and the source's nonbacktracking transducer imposes
+additional admissibility conditions. Solving the unconstrained low-degree
+system therefore does not complete the proposed short-message attack.
+
+\section{Context, adversarial audit, and gap}
+Definition 2.4 and the surrounding discussion of the primary paper were read.
+Its state-dependent transition rule prevents silently assuming a homomorphism
+from message concatenation to matrix multiplication. The AIMPL page failed
+retrieval; the supplied snapshot remains the exact agenda. The audit checked
+the determinant-fiber count, $n=1$ in the formula, the $p\ge n$ factorial
+condition, and the difference between root-count degree and auxiliary-variable
+encodings. No parameter recommendation, security estimate, or quantum-hardness
+claim is made, and no polynomial system was solved computationally.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Output counts and a correctly constrained attack formulation do not determine secure dimension/characteristic parameters or prove resistance of the specified hash construction.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Official AIM workshop description, Post-quantum group-based cryptography, 29 April--3 May 2024; inspected for provenance and scope. AIMPL section pages failed retrieval, so exact question text comes from the supplied snapshot. \url{https://aimath.org/workshops/upcoming/postquantgroup/}.
+\item Le Coz, Battarbee, Flores, Koberda, Kahrobaei, Post-quantum hash functions using SL_n(F_p), version dated 22 August 2024; Definition 2.4, nonbacktracking encoding, and Section 3 discussion inspected. No security theorem independently verified. \url{https://eprint.iacr.org/2022/896.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Output counts and a correctly constrained attack formulation do not determine secure dimension/characteristic parameters or prove resistance of the specified hash construction.
+\end{document}

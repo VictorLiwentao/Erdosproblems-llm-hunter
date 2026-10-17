@@ -1,0 +1,89 @@
+% TOP_PROBLEM: {"id": 30002674, "title": "Multipartite Quantum Data Hiding with Separable States", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The restriction on allowed measurements and the asymptotic family are essential and must be read from the source bipartite results. LOCC and all separable measurements are different measurement classes; they are not identified here."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002674", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Can separable quantum states hide information efficiently among more than two parties, with optimal hiding strength?", "scope": "Proves that common-product-basis separable states have no LOCC/global hiding gap and checks a failed multipartite parity code.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked trace norm, local likelihood-ratio implementation, parity orthogonality and spectator-ancilla scope; kept LOCC distinct from separable measurements. Model self-audit only; no independent human proof checking. Coordinator checked local recovery of the classical product-basis distributions, parity discrimination and the spectator-ancilla limitation. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked trace norm, local likelihood-ratio implementation, parity orthogonality and spectator-ancilla scope; kept LOCC distinct from separable measurements. Retained unresolved status and zero original-target progress; A genuinely multipartite separable construction with optimal information efficiency and matching measurement-class bounds is missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30002674; source catalogue code OWR-13111-004
+\setcounter{section}{30002673}
+\section{Multipartite Quantum Data Hiding with Separable States}\label{30002674}
+{\small UnsolvedMath ID 30002674 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+A multipartite state is a positive trace-one operator on $\mathcal H_1\otimes\cdots\otimes\mathcal H_m$, with $m>2$. A fully separable state is a convex combination of product states. Data hiding compares distinguishability by unrestricted measurements with distinguishability under an allowed local or separable measurement class. Information efficiency measures how much classical information is encoded relative to quantum-system size; hiding quality measures the gap between global and restricted distinguishability.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+For multipartite quantum systems with more than two parties, can the bipartite data-hiding results for separable states be generalized, including asymptotically optimal information efficiency and the best hiding-quality scaling?
+
+\paragraph{Source scope and qualification.}
+The restriction on allowed measurements and the asymptotic family are essential and must be read from the source bipartite results. LOCC and all separable measurements are different measurement classes; they are not identified here.
+\subsection{Short English statement}
+Can separable quantum states hide information efficiently among more than two parties, with optimal hiding strength?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proves that common-product-basis separable states have no LOCC/global hiding gap and checks a failed multipartite parity code.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A broad separable ansatz that cannot hide.} Suppose two multipartite states are diagonal in the same local product basis: $\rho=\sum_{\mathbf a}p_{\mathbf a}|\mathbf a\rangle\langle\mathbf a|$ and $\sigma=\sum_{\mathbf a}q_{\mathbf a}|\mathbf a\rangle\langle\mathbf a|$. Their trace-norm difference is $\|\rho-\sigma\|_1=\sum_{\mathbf a}|p_{\mathbf a}-q_{\mathbf a}|$. Measuring each local basis and communicating the outcomes yields exactly these classical distributions. The optimal likelihood-ratio decision thus achieves the global discrimination bias $\|\rho-\sigma\|_1/2$ by LOCC. This applies for every number of parties and every local dimension.
+
+\paragraph{An explicit failed parity code.} On $m$ qubits, let $\rho_b$ be the uniform mixture of computational basis strings whose bit parity is $b$. The states are fully separable and have orthogonal supports, but local bit measurements followed by a parity computation distinguish them perfectly. Encoding a global classical correlation is not sufficient for quantum data hiding.
+
+\paragraph{Why adding spectators does not establish optimality.} Tensoring a bipartite hiding pair with fixed local product ancillas preserves its global trace distance. Any multipartite LOCC protocol on these states can be simulated by the original parties plus the known uncorrelated ancillas and classical communication, so it supplies no stronger concealment than the original discrimination problem. Such padding may retain a bipartite example but does not determine optimal information efficiency or hiding-quality scaling with genuine multipartite resources. The first gap is a fully separable construction using incompatible local descriptions together with matching bounds for the exact allowed measurement class. LOCC and all separable measurements remain distinct targets.
+
+\paragraph{Verification and adversarial audit.}
+Checked trace norm, local likelihood-ratio implementation, parity orthogonality and spectator-ancilla scope; kept LOCC distinct from separable measurements. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked trace norm, local likelihood-ratio implementation, parity orthogonality and spectator-ancilla scope; kept LOCC distinct from separable measurements. Retained unresolved status and zero original-target progress; A genuinely multipartite separable construction with optimal information efficiency and matching measurement-class bounds is missing.
+
+Coordinator checked local recovery of the classical product-basis distributions, parity discrimination and the spectator-ancilla limitation. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. A genuinely multipartite separable construction with optimal information efficiency and matching measurement-class bounds is missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. A genuinely multipartite separable construction with optimal information efficiency and matching measurement-class bounds is missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30002674:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30002674 (OWR-13111-004). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30002674:2}{S2}] New Horizons in Statistical Decision Theory (2014), Oberwolfach Reports, DOI 10.4171/owr/2014/41, pp. 2297--2352. Primary report accessed 2026-10-11; relevant PDF pages 50.
+\url{https://doi.org/10.4171/owr/2014/41}.
+\item[\hypertarget{source:30002674:3}{S3}] Hayden--Leung--Smith, multiparty data hiding (catalogue-listed context; not independently consulted in this preparation).
+\url{https://doi.org/10.1103/PhysRevA.71.062339}.
+\end{itemize}
+\label{end:30002674}
+\end{document}

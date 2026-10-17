@@ -1,0 +1,111 @@
+% RESEARCH_DRAFT_SHA256: 75b95859d7ee8696b215d115110365c063019abfeb383a30845de41a77679779
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20002157, "title": "A semantic contract for journal-style theorem output", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002157", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review and model-assisted mathematical audit of written arguments; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "A semantic contract for journal-style theorem output; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Theorem labels and counter side effects in style translation; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch009 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 20002157; source catalogue code AIM-INFRASTRUCTURE-0057
+\section{A semantic contract for journal-style theorem output}\label{20002157}
+{\small UnsolvedMath ID 20002157 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A LaTeX document class defines major document organization and formatting; a style package provides additional commands or presentation rules. A theorem environment marks a mathematical result block. A label associates an identifier with a cross-reference target. Publisher configuration concerns how structured content is rendered for a venue.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The statement contains incomplete LaTeX command examples, retained as literal source text. It gives no class, package, theorem-numbering convention, or compatibility requirement.
+
+Catalogue screening limitation: PreTeXt software design, documentation, or publication feature request; no mathematical problem is specified by the supplied passage.
+
+The source snapshot labels this record partially solved; this is catalogue metadata rather than independent verification of a mathematical result or the current completion of a project.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+Using a journal style on your latex (this could go in the publisher file). What is the \textbackslash{}documentclass\{?\} , a journal .sty file. How does \textbackslash{}begin\{theorem\} look (does it have a label?) \href{https://github.com/PreTeXtBook/community/wiki/Moderated-Problem-Session}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+Control journal styling and theorem presentation through publication settings.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20002157 (AIM-INFRASTRUCTURE-0057). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-INFRASTRUCTURE-0057.
+\url{https://github.com/PreTeXtBook/community/wiki/Moderated-Problem-Session}.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 20002157 and code AIM-INFRASTRUCTURE-0057 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:20002157}
+
+\section{Literature and context check}
+The community-session source was consulted directly. Its entry is a feature or design request, without a complete formal specification. The catalogue title is editorial and is not evidence of an existing theorem. The following finite model is an auxiliary investigation; no PreTeXt implementation or project completion is asserted.
+\section{Research attempt: Theorem labels and counter side effects in style translation}
+Use a simple renderer with a counter $c$, a theorem-start operation that increments $c$, and a label operation that records the current counter under an identifier. Suppose $c=4$. The sequence start-theorem; label($q$) stores $q\mapsto5$. A style translation that moves label($q$) before start-theorem stores $q\mapsto4$ even though the visible theorem heading is numbered 5. The body and label token are both retained, yet their changed order breaks the cross-reference.
+
+To avoid this side-effect route in the model, assign the semantic object its number first in a separate pass: a map $N$ sends each distinct theorem identifier to its chosen display number. Then both the heading and every reference to that object read the same $N(q)$. Equality is immediate because both read the same function at the same argument. For a finite document, one can check that every referenced identifier occurs in the map and that every heading uses the assigned number. A missing identifier is an error, while a repeated identifier must be resolved before numbering since it would fail to designate a unique object.
+
+This separation does not make all journal styles interchangeable. If one style numbers theorems globally and another within sections, the maps $N$ differ. Their references can each be internally consistent without having equal visible numbers across styles. What can be preserved is semantic target identity and statement content, with numbers regenerated coherently according to the selected convention. The example proves neither that a particular LaTeX class mishandles labels nor that arbitrary class files obey this model.
+\section{Verification and adversarial audit}
+The argument is an exact analysis of the stated finite model. Its counterexample was checked by direct substitution; no PreTeXt build, browser test, or user study was run. The model's assumptions are explicit and are not asserted to describe every real document.
+\paragraph{Audit corrections.} A declared counter machine supplies the failure example. Preservation of a label token is distinguished from preservation of its binding, and no untested journal class is certified.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The calculation identifies a concrete failed route or a restricted correctness property. Actual schema integration, transformations, usability, and compatibility with the full original feature request remain unimplemented and unverified. Thus the original agenda remains unresolved, with no claimed mathematical novelty.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://github.com/PreTeXtBook/community/wiki/Moderated-Problem-Session} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and a model-assisted mathematical
+audit of the written arguments; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

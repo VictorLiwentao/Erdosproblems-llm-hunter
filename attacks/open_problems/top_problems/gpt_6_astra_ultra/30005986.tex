@@ -1,0 +1,82 @@
+% TOP_PROBLEM: {"id": 30005986, "title": "Mechanisms and Scales of Tropical-Cyclone Edge Intensification", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005986", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Explain convergence-line spacing, edge-focused convection and the influence of rotation, including settings without a sea-surface-temperature gradient.", "scope": "Calculated wavelength selection in an auxiliary instability and proved that a purely skew two-component rotation does not alter its growth rate.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked maximization in k squared, the discrete-domain caveat, uniform-forcing possibility and exact norm preservation of the skew rotation. Model self-audit only; no independent human mathematical verification. Coordinator checked the amplitude dispersion maximum and unchanged growth under a commuting skew rotation. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked maximization in k squared, the discrete-domain caveat, uniform-forcing possibility and exact norm preservation of the skew rotation. First remaining gap: Derive source-calibrated moist-flow coefficients and boundary effects that predict edge localization, line counts/spacing and rotation dependence. The inherited source status is preserved; original-target completion remains zero."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30005986; source catalogue code OWR-14298586-002
+\setcounter{section}{30005985}
+\section{Mechanisms and Scales of Tropical-Cyclone Edge Intensification}\label{30005986}
+{\small UnsolvedMath ID 30005986 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+Edge intensification refers to enhanced convection near the edge of a warm region rather than its warmest interior. Convergence lines collect horizontal flow feeding rising air. Their number and spacing are observables of the convection pattern; rotation introduces Coriolis effects. Sea-surface-temperature gradients are possible forcing rather than a stipulated necessary cause.
+
+\paragraph{Catalogue wording retained for traceability.}
+For edge-intensified tropical convection, determine (1) what sets the number and separation distance of convergence lines, including without a sea-surface-temperature gradient; (2) why convection does not occur over the highest sea-surface temperature and whether a predictive model of edge intensification can be derived; and (3) how rotation changes these effects.
+\subsection{Short English statement}
+Explain convergence-line spacing, edge-focused convection and the influence of rotation, including settings without a sea-surface-temperature gradient.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Calculated wavelength selection in an auxiliary instability and proved that a purely skew two-component rotation does not alter its growth rate.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30005986. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{A wavelength-selection diagnostic.} On a periodic one-dimensional domain, consider the explicitly auxiliary linear amplitude equation
+\[
+ \eta_t=a\eta-b\eta_{xx}-c\eta_{xxxx},\qquad b,c>0.
+\]
+A Fourier mode \(e^{ikx}\) grows at rate \(\sigma(k)=a+bk^2-ck^4\). In a continuous wavenumber approximation the maximum occurs at \(k_*^2=b/(2c)\), with rate \(a+b^2/(4c)\) and wavelength \(2\pi\sqrt{2c/b}\). On a finite periodic domain only its discrete wavenumbers are available. Hence the number of preferred lines depends on domain size as well as coefficients. A positive maximum can occur with spatially uniform coefficients and no imposed sea-surface-temperature gradient.
+\paragraph{Testing a superficial rotation correction.} If one merely couples two amplitudes by a skew matrix, \(\dot z=(\sigma(k)I+fJ)z\), where \(J=\left(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\right)\), the exact solution is \(z(t)=e^{\sigma(k)t}e^{fJt}z(0)\). Since the second factor is a rotation, growth rates and \(k_*\) do not change. Thus appending an isolated Coriolis-like rotation term to a scalar instability is insufficient to predict a changed convergence-line spacing.
+\paragraph{Remaining physical derivation.} The coefficients above were not derived from moist convection. This test does not explain localization at a warm-region edge, suppression over the warmest interior, or the actual rotation dependence. The first gap is deriving and validating a spatially inhomogeneous moist-flow instability/closure whose coefficients and boundary conditions predict those observables. The three source questions, including zero SST-gradient cases, remain distinct and unresolved here.
+
+\paragraph{Verification and adversarial audit.}
+Checked maximization in k squared, the discrete-domain caveat, uniform-forcing possibility and exact norm preservation of the skew rotation. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked maximization in k squared, the discrete-domain caveat, uniform-forcing possibility and exact norm preservation of the skew rotation. First remaining gap: Derive source-calibrated moist-flow coefficients and boundary effects that predict edge localization, line counts/spacing and rotation dependence. The inherited source status is preserved; original-target completion remains zero.
+
+Coordinator checked the amplitude dispersion maximum and unchanged growth under a commuting skew rotation. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Derive source-calibrated moist-flow coefficients and boundary effects that predict edge localization, line counts/spacing and rotation dependence.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30005986:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30005986 (OWR-14298586-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30005986:2}{S2}] Model Hierarchies in Atmosphere, Ocean, and Climate Sciences (2024), Oberwolfach Reports, DOI 10.4171/owr/2024/31, pp. 1731--1786. Original report and mathematical context. Incorporated report material remains under the source CC BY-SA 4.0 terms unless otherwise noted.
+\url{https://doi.org/10.4171/owr/2024/31}.
+\end{itemize}
+\label{end:30005986}
+\end{document}

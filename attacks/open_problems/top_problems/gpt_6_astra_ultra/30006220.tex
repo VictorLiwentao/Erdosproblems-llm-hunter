@@ -1,0 +1,128 @@
+% RESEARCH_DRAFT_SHA256: 8b741bda5a5fcc8b80b02fa5b661db0f716ed98f6bdcd5b9b20b8a7450fbd048
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30006220, "title": "Improvements to the Signed Heat Method", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006220", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Improvements to the Signed Heat Method; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Normalization instability and a point-query integration barrier; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch027 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30006220; source catalogue code OWR-14299090-001
+\section{Improvements to the Signed Heat Method}\label{30006220}
+{\small UnsolvedMath ID 30006220 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+The signed distance to an oriented boundary is the ordinary distance with a sign distinguishing the two sides. A heat method uses diffusion and subsequent differential reconstruction to approximate this distance on a discretized geometry.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+Accuracy, robustness, output sensitivity, and computational efficiency are separate requested directions without quantified targets.
+
+Source-record limitation: General improvement of a numerical method is requested without a definite output, accuracy, or runtime bound.
+\paragraph{Statement recorded in the supplied source.}
+Improve the Signed Heat Method for computing signed distance, with particular attention to output-sensitive formulations, accuracy guarantees, robustness, and computational complexity across meshes, point clouds, voxels, and nonmanifold geometry. \href{https://doi.org/10.4171/owr/2025/5}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Improve signed-distance computation across the listed geometric representations.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30006220 (OWR-14299090-001). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Mathematical Imaging and Surface Processing (2025), Oberwolfach Reports, DOI 10.4171/owr/2025/5, pp. 209--274
+\url{https://doi.org/10.4171/owr/2025/5}.
+\item[S3] Feng--Crane, Generalized signed distance
+\url{https://doi.org/10.1145/3657615}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30006220 and code OWR-14299090-001 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30006220}
+
+\section{Literature and context check}
+The primary report, printed pp. 226--228, describes vector diffusion, normalization, and Poisson integration, and asks for efficient individual queries beyond a global amortized solve. It also discusses obstacles to integral formulations. The auxiliary estimates below isolate two quantitative conditions needed by a local-query route; they do not give an improved implementation of the signed heat method.
+\section{Research attempt: Normalization instability and a point-query integration barrier}
+
+For nonzero vectors $u,v$ with $\|u\|,\|v\|\geq\gamma>0$,
+\[
+\left\|\frac{u}{\|u\|}-\frac{v}{\|v\|}\right\|
+\leq\frac{\|u-v\|}{\|u\|}
++\frac{|\|v\|-\|u\||}{\|u\|}
+\leq\frac{2\|u-v\|}{\gamma}.
+\]
+The lower norm bound is essential: $u=\epsilon e_1$, $v=-\epsilon e_1$ differ by $2\epsilon$, while their normalized vectors differ by two. Cancellation can actually occur for diffused oriented data. On the line, let the initial vector-valued signed measure be $+1$ at $-1$ and $-1$ at $1$. Its heat evolution is $X_t(x)=G_t(x+1)-G_t(x-1)$, where $G_t$ is the even positive Gaussian heat kernel. At $x=0$ the vector is zero for every $t>0$. Thus a uniformly small absolute diffusion error cannot by itself guarantee a uniformly small normalized-field error.
+
+\paragraph{A complete discrete integration model.}
+On the path with vertices $0,1,\ldots,n$, anchor $\phi_0=0$ and minimize
+\[
+\sum_{i=1}^n(\phi_i-\phi_{i-1}-Y_i)^2.
+\]
+The unique minimizer has $\phi_i-\phi_{i-1}=Y_i$, because these equations can all be satisfied recursively with objective zero, and the anchor fixes the constant. Hence $\phi_q=\sum_{i=1}^qY_i$.
+
+In an oracle model with no preprocessing and arbitrary $Y_i\in\{-1,1\}$, any deterministic algorithm computing this value exactly for every input must inspect all $q$ entries. If it stops after fewer queries on some transcript, change one unqueried entry's sign. Its transcript and output stay the same but the true answer changes by two, a contradiction. The same argument precludes guaranteed absolute error strictly below one on both indistinguishable inputs. Knowing the field only near the requested vertex is therefore insufficient in this integration model. Preprocessing all prefix sums costs $O(n)$ operations and then answers every point query in $O(1)$ time, illustrating precisely the preprocessing/query tradeoff.
+
+If approximate edge data satisfy $|\widetilde Y_i-Y_i|\leq\delta_i$, the reconstruction error at $q$ is at most $\sum_{i\leq q}\delta_i$, by the exact formula. Combining this with the normalization bound gives error at most $2q\epsilon/\gamma$ when all diffusion vectors and their approximations have norm at least $\gamma$ and absolute errors at most $\epsilon$. Both accumulated path length and cancellation margins must therefore enter such an accuracy claim.
+
+The path oracle permits arbitrary edge data and is not asserted to encode every vector field generated by the signed heat method. It refutes only a proposed argument based on locality of the final field and normalization accuracy alone; source-specific structure could evade this obstruction.
+\section{Verification and adversarial audit}
+The normalization inequality uses a stated nonzero margin, and the Gaussian cancellation example reaches exactly zero. The least-squares minimizer and oracle adversary were proved, including the gauge anchor and the strict error threshold. The lower bound is not claimed for geometry input with preprocessing or for every structured signed-heat field.
+\paragraph{Audit corrections.} Kept the oracle integration model separate from the target geometry and stated the role of the additive constant and vector-field norm margin.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+An output-sensitive algorithm for the actual geometric input classes, with robust signed-distance accuracy and complexity, remains absent. The calculations identify conditioning and integration issues any such algorithm must resolve.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/51355} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

@@ -1,0 +1,146 @@
+% RESEARCH_DRAFT_SHA256: e09ad607f1f0c9c214b456f570c977495d3a7b44d0c4b1529ef40086dd90b210
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 10900018, "title": "3.10 (Futer, Schleimer) — A practical 3-manifold homeomorphism algorithm", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "10900018", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "3.10 (Futer, Schleimer) — A practical 3-manifold homeomorphism algorithm; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A complete simplicial certificate stops short of homeomorphism recognition; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch003 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 10900018; source catalogue code AMR-108-0018
+\section{3.10 (Futer, Schleimer) — A practical 3-manifold homeomorphism algorithm}\label{10900018}
+{\small UnsolvedMath ID 10900018 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A topological $3$-manifold is a Hausdorff, second-countable space locally homeomorphic to $\mathbb R^3$ (or a half-space at a boundary when boundaries are allowed). A homeomorphism is a continuous bijection with continuous inverse. An algorithmic comparison needs finite encodings, such as triangulations, together with conventions for boundaries, markings and permitted equivalence. Practical performance can refer to worst-case running time, behavior on a stated input distribution or an empirical benchmark; those criteria are distinct.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The 2015 list attributes this question to Futer and Schleimer. It asks for a practical algorithm without specifying a quantitative performance goal or one input family. The supplied partially solved label is preserved; the record is not reinterpreted as an assertion that general decidability remains unknown.
+\paragraph{Statement recorded in the supplied source.}
+Is there a practical algorithm to test whether a pair of $3$-manifolds are homeomorphic? \href{https://arxiv.org/pdf/1512.04620#page=3}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+Find a practically effective procedure for determining whether two encoded 3-manifolds represent the same topological space.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 10900018 (AMR-108-0018). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AMR Open Problem Lists, source linked by catalogue record AMR-108-0018.
+\url{https://arxiv.org/pdf/1512.04620#page=3}.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. The supplied catalogue credits: Futer, Schleimer. Permanent source ID 10900018 and code AMR-108-0018 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:10900018}
+
+\section{Literature and context check}
+The original 2015 problem list, Problem 3.10, was consulted. ``Practical''
+has no quantitative threshold or benchmark there. The following exact finite
+algorithm isolates one useful positive certificate and explicitly tests why
+that certificate alone is not a homeomorphism decision procedure.
+\section{Research attempt: A complete simplicial certificate stops short of homeomorphism recognition}
+Restrict temporarily to two connected triangulated $3$-manifolds encoded by
+$n$ tetrahedra each, with affine face-pairing permutations and any unglued boundary
+faces listed. This is a chosen finite input model, not a restriction silently
+imposed on the original agenda. Fix a source tetrahedron. For each target
+tetrahedron and each of its $24$ vertex correspondences, propagate that
+correspondence across adjacent faces. Once the image and vertex permutation of
+a tetrahedron are known, its neighboring tetrahedron's image and permutation
+are forced by the two face pairings; the fourth vertex maps to the fourth
+vertex. Reject a seed if a previously assigned image or permutation conflicts,
+if injectivity fails, or if a boundary face would map to a glued face.
+
+If the propagation succeeds, connectedness reaches all tetrahedra. The map is
+a bijection and respects every face identification. On each tetrahedron use
+the affine map on its vertices. These maps agree on identified faces and so
+descend to a continuous map of the quotient manifolds; the inverse affine maps
+also agree, yielding a continuous inverse. This is a verified homeomorphism.
+Conversely every combinatorial isomorphism supplies one of the $24n$ seeds,
+and its forced propagation cannot fail. Thus this algorithm decides
+combinatorial isomorphism, using $O(n)$ operations per seed and $O(n^2)$ total
+operations in the finite permutation/word model, with $O(n)$ auxiliary storage.
+Different tetrahedron counts reject combinatorial isomorphism immediately.
+
+The attempted extension treated a rejection as a topological negative answer.
+It fails on an explicit elementary pair. A single tetrahedron is a triangulated
+$3$-ball. Insert a point in its interior and cone it to its four boundary faces;
+the resulting four tetrahedra triangulate the very same ball. The identity map
+of that ball is a homeomorphism, but one and four tetrahedra cannot be in
+bijection. The obstruction persists for closed examples by performing the same
+subdivision inside one tetrahedron of a closed triangulation, increasing the
+tetrahedron count by three without changing the underlying manifold.
+
+Thus the certificate can safely accept some pairs and can provide exact output,
+but its negative answer concerns the encodings only. Enlarging it to a search
+over subdivisions or local moves needs a terminating stopping criterion and
+an analysis of resource use. Neither is obtained from seed propagation.
+In particular, counting $24n$ seeds does not bound the number of alternative
+triangulations that might need consideration.
+\section{Verification and adversarial audit}
+The propagation proof includes boundary faces, repeated visits and
+injectivity, and checks both soundness and completeness for combinatorial
+isomorphism. The one-to-four interior subdivision falsifies the proposed
+topological use of rejection. No software benchmark or complete homeomorphism
+recognizer was implemented or run.
+\paragraph{Audit corrections.} A sound positive simplicial certificate was not treated as a complete topological invariant, and no practical runtime claim beyond the restricted algorithm was made.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The general practical homeomorphism problem, including the source's
+unspecified performance criterion and allowed manifold inputs, remains. The
+first gap is a complete, effective treatment of distinct triangulations of the
+same manifold with a useful cost or empirical guarantee.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://arxiv.org/pdf/1512.04620} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved. This is a research attempt with an explicit failed route or restricted
+calculation, not a full solution, not a current-status certification, and not a claim
+that the elementary material is new. The catalogue's original source-status label
+is preserved independently of this attempt status.
+\end{document}

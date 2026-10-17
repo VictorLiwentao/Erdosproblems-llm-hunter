@@ -1,0 +1,154 @@
+% RESEARCH_DRAFT_SHA256: 36e819057580674f22b2c5eb7dc981cc3c9b4b115838ed53171cab5324beb685
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20002189, "title": "Degree-windowed Cech computation and the role of one b-function", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002189", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Computing local cohomology via D-modules\n\nThe current method for computing local cohomology requires the iterated computation of Bernstein--Sato polynomials at every step of the Cech complex.\n\nCan computing just the necessary steps of the Cech complex speed up the computation of local cohomology? What about computing just the Budur--Mustata--Saito b-function just once?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The coordinate-ideal calculation does not prove a general speedup, construct needed D-module presentations, or establish sufficiency of one Budur--Mustata--Saito b-function.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Coordinate Cech complexes: complete strand computation and the limits of truncation}
+\noindent UnsolvedMath ID 20002189; AIM-INFRASTRUCTURE-0089. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For an ideal $I=(f_1,\ldots,f_r)$, the Cech complex uses localizations at products of its generators to compute local cohomology. Bernstein--Sato polynomials encode functional identities controlling powers and differential operators. The source asks whether fewer Cech computations or a single appropriate b-function computation can reduce the cost.
+\paragraph{Statement recorded in the supplied source.}
+Computing local cohomology via D-modules
+
+The current method for computing local cohomology requires the iterated computation of Bernstein--Sato polynomials at every step of the Cech complex.
+
+Can computing just the necessary steps of the Cech complex speed up the computation of local cohomology? What about computing just the Budur--Mustata--Saito b-function just once? \href{http://aimpl.org/macaulay2efie/2/}{[S2]}
+\paragraph{Scope qualification.}
+The catalogue flags this record as reconstructed and unverified. The supplied question is preserved; the definitions do not certify a unique intended model. No universal one-b-function sufficiency claim is stated; the source names candidate computational improvements rather than supplying their hypotheses.
+The supplied catalogue marks this formulation as an unverified reconstruction; the source link does not establish that all missing assumptions were recovered.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can local-cohomology computations avoid repeated b-function work by using only necessary Cech steps?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20002189 (AIM-INFRASTRUCTURE-0089). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-INFRASTRUCTURE-0089
+\url{http://aimpl.org/macaulay2efie/2/}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Computing local cohomology via D-modules
+
+The current method for computing local cohomology requires the iterated computation of Bernstein--Sato polynomials at every step of the Cech complex.
+
+Can computing just the necessary steps of the Cech complex speed up the computation of local cohomology? What about computing just the Budur--Mustata--Saito b-function just once?
+
+\section{Attempt and results}
+The source asks for faster local-cohomology computations and proposes a single
+b-function calculation. Its reconstruction flag is retained. We test a route
+that discards unnecessary terms, and solve the elementary coordinate case
+without any b-function. This is known auxiliary material, not a new general
+local-cohomology algorithm.
+
+\paragraph{What a degree request actually needs.}
+In any cochain complex $(C^\bullet,d)$, the module
+$H^q=\ker(d^q:C^q\to C^{q+1})/\operatorname{im}(d^{q-1}:C^{q-1}\to C^q)$
+depends only on these two maps and three terms, with missing endpoint terms
+interpreted as zero. Computing several requested degrees needs the union of
+these windows. This identity justifies omitting other material only when the
+needed localizations and maps can be constructed directly. It does not show
+that a recursively generated D-module presentation can bypass its prerequisites.
+Dropping the incoming map changes the answer: over $R=k[x]$, the Cech complex
+$R\hookrightarrow R_x$ has $H^1=R_x/R$, whereas retaining only $R_x$ gives
+$R_x$. These are not even isomorphic $R$-modules: every class in $R_x/R$ is
+annihilated by some power of $x$, while $1\in R_x$ is not.
+
+\paragraph{An exact computation for coordinate ideals.}
+Let $R=k[x_1,\ldots,x_n]$, $1\le r\le n$, and $I=(x_1,\ldots,x_r)$.
+Use the Cech complex
+\[
+C^q=\bigoplus_{J\subseteq\{1,\ldots,r\},\ |J|=q} R_{\prod_{j\in J}x_j},
+\qquad 0\le q\le r,
+\]
+with the usual alternating inclusion maps. Give variables their separate
+$\mathbb Z^n$ degrees. Fix an exponent vector $a\in\mathbb Z^n$.
+If any $a_i<0$ for $i>r$, this strand is zero. Otherwise put
+$N=\{i\le r:a_i<0\}$. The strand has a one-dimensional summand, with basis
+$x^a$, precisely for those faces $J$ containing $N$; its differential adds
+one vertex with the standard exterior sign.
+Identify the strand with the span of exterior symbols $e_J$ for $J\supseteq N$.
+Its differential is left exterior multiplication by $u=\sum_{i=1}^r e_i$,
+where terms with repeated indices vanish. If $N$ is proper, choose $j\notin N$
+and let $h$ be contraction by the coordinate functional taking $e_j$ to one
+and all other $e_i$ to zero. Removing $j$ preserves the condition $J\supseteq N$,
+so $h$ stays in the strand. On a wedge $e_{i_1}\wedge\cdots\wedge e_{i_q}$,
+contraction removes each $e_j$ with sign $(-1)^{l-1}$ at its position $l$.
+Expanding this formula gives
+$h(u\wedge v)=v-u\wedge h(v)$, because the functional has value one on $u$.
+Thus $hd+dh=1$, proving the strand has zero cohomology over every field,
+including characteristic two. If $N=\{1,\ldots,r\}$, only the face of size $r$
+occurs, so there is one cohomology class in degree $r$.
+Each Laurent polynomial is a finite sum of homogeneous monomials, and all
+maps preserve degrees. Kernels and images therefore decompose into these
+strands. We have proved that the cohomology vanishes outside degree $r$, and
+that its degree-$r$ vector-space basis is
+\[
+x_1^{-b_1}\cdots x_r^{-b_r}x_{r+1}^{c_{r+1}}\cdots x_n^{c_n},
+\qquad b_i\ge1,\quad c_i\ge0.
+\]
+This computes the Cech cohomology; its standard identification with local
+cohomology is the framework supplied in the original definition, not a new
+identification theorem proved here.
+
+\paragraph{Why this shortcut does not generalize as stated.}
+The contracting operator depends on a monomial basis with a single copy in
+each permitted face. For a general generator $f$, localization at $f$ does not
+preserve those exponent strands: in $k[x,y]$, the relation
+$(x+y)/(x+y)=1$ couples the numerators $x$ and $y$.
+Thus the coordinate-strand test cannot even assign the same face membership
+rule to fractions with equivalent presentations. Replacing the localizations
+by coordinate Laurent monomials is the first invalid inference in this route.
+A single b-polynomial might provide bounds or certificates while retaining
+all generator data; the present obstruction does not disprove that possibility.
+
+\section{Context, adversarial audit, and gap}
+The official workshop report says that restricting Cech computations to
+requested degrees was addressed during the workshop. It does not prove a
+universal single-b-function replacement. The original AIMPL page failed
+retrieval; the preserved snapshot remains the formulation used here.
+The audit checked the incoming differential, the $N=\varnothing$ strand,
+$r=1$, signs in characteristic two, and the distinction between finite face
+counts and actual running time. No benchmark or software execution occurred.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The coordinate-ideal calculation does not prove a general speedup, construct needed D-module presentations, or establish sufficiency of one Budur--Mustata--Saito b-function.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item AIM, Macaulay2: expanded functionality and improved efficiency, official workshop summary; local-cohomology, DG, and direct-summand discussion read on 11 October 2026. The original AIMPL problem pages failed retrieval; their wording is available here only from the supplied snapshot. \url{https://aimath.org/pastworkshops/macaulay2efierep.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The coordinate-ideal calculation does not prove a general speedup, construct needed D-module presentations, or establish sufficiency of one Budur--Mustata--Saito b-function.
+\end{document}

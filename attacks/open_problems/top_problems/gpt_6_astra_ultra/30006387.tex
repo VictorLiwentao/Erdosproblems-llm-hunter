@@ -1,0 +1,85 @@
+% TOP_PROBLEM: {"id": 30006387, "title": "New Quantum LDPC Codes with Good Parameters", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "Asymptotically good quantum LDPC families already exist. The source asks for new families or constructions, rather than the historical existence question."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006387", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Construct additional quantum LDPC code families with positive asymptotic rate and relative distance.", "scope": "Proved the distance failure of disjoint replication and derived the CSS orthogonality constraint as tests of naive new-family strategies.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked direct-sum logical distance, positive encoded dimension, preserved check bounds, binary commutation and quotient rather than classical distance. Model self-audit only; no independent human mathematical verification. Coordinator checked the replicated stabilizer-code distance and rate, the CSS commutation relation and the distinction between classical kernels and quotient logical weight. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked direct-sum logical distance, positive encoded dimension, preserved check bounds, binary commutation and quotient rather than classical distance. First remaining gap: Construct genuinely additional sparse commuting check families and prove positive rate and linear logical distance. The inherited source status is preserved; original-target completion remains zero."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30006387; source catalogue code OWR-14299517-006
+\setcounter{section}{30006386}
+\section{New Quantum LDPC Codes with Good Parameters}\label{30006387}
+{\small UnsolvedMath ID 30006387 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+A family of quantum codes has parameters $[[n,k,d]]$: number of physical qubits, number of encoded qubits and minimum weight of a nontrivial logical operation. Low-density parity-check means a bounded check weight and bounded number of checks incident on each qubit. Asymptotically good means both $k/n$ and $d/n$ stay bounded away from zero along a growing family.
+
+\paragraph{Catalogue wording retained for traceability.}
+Construct new families of quantum low-density parity-check codes with asymptotically good parameters.
+
+\paragraph{Scope and source qualification.}Asymptotically good quantum LDPC families already exist. The source asks for new families or constructions, rather than the historical existence question.
+\subsection{Short English statement}
+Construct additional quantum LDPC code families with positive asymptotic rate and relative distance.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved the distance failure of disjoint replication and derived the CSS orthogonality constraint as tests of naive new-family strategies.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30006387. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{Testing direct sums as a way to obtain a new family.} Let a stabilizer code \(C\) have parameters \([[n_0,k_0,d_0]]\), with \(k_0\geq1\), and fixed bounded-weight bounded-incidence checks. Take \(r\) disjoint copies, so the stabilizer matrix is block diagonal. The resulting code has \(n=rn_0\), \(k=rk_0\) and the same check bounds. Its distance is exactly \(d_0\): a smallest logical operator on one block gives the upper bound; for the lower bound, a nontrivial global logical must be nontrivial on at least one block and has weight at least \(d_0\) there. Hence
+\[
+ \frac{k}{n}=\frac{k_0}{n_0},\qquad
+ \frac{d}{n}=\frac{d_0}{rn_0}\longrightarrow0.
+\]
+Bounded check locality and positive rate therefore survive replication, while relative distance does not.
+\paragraph{Why classical sparsity alone is also insufficient.} For a CSS code with binary check matrices \(H_X,H_Z\), commutation requires \(H_XH_Z^T=0\): two Pauli checks anticommute exactly when the overlap has odd cardinality. Independently selecting sparse good classical checks need not satisfy this equation. Even after enforcing it, quantum distance minimizes over \(\ker H_Z\setminus\operatorname{row}H_X\) and the corresponding exchanged expression; classical kernel distance and the quotient logical distance are different objects.
+\paragraph{First construction gap.} The source explicitly acknowledges that asymptotically good quantum LDPC families already exist. This attempt produces no additional family and makes no novelty claim. A new construction must couple blocks or chain-complex data while proving both sparse commutation and a linear lower bound on nontrivial logical weight. That simultaneous distance-and-sparsity control is the first missing step; merely relabeling or replicating an existing code does not meet the target.
+
+\paragraph{Verification and adversarial audit.}
+Checked direct-sum logical distance, positive encoded dimension, preserved check bounds, binary commutation and quotient rather than classical distance. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked direct-sum logical distance, positive encoded dimension, preserved check bounds, binary commutation and quotient rather than classical distance. First remaining gap: Construct genuinely additional sparse commuting check families and prove positive rate and linear logical distance. The inherited source status is preserved; original-target completion remains zero.
+
+Coordinator checked the replicated stabilizer-code distance and rate, the CSS commutation relation and the distinction between classical kernels and quotient logical weight. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Construct genuinely additional sparse commuting check families and prove positive rate and linear logical distance.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30006387:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30006387 (OWR-14299517-006). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30006387:2}{S2}] New Mathematical Directions in Coding Theory (2025), Oberwolfach Reports, DOI 10.4171/owr/2025/41, pp. 2187--2242. Original report and mathematical context. Incorporated report material remains under the source CC BY-SA 4.0 terms unless otherwise noted.
+\url{https://doi.org/10.4171/owr/2025/41}.
+\end{itemize}
+\label{end:30006387}
+\end{document}

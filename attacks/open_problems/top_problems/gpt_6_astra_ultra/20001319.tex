@@ -1,0 +1,131 @@
+% RESEARCH_DRAFT_SHA256: 63ef2417f052e8e120a7cfce37560dc43700aaa06b3952cacd78bbd4fb638c3b
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001319, "title": "A reproducible challenge-instance profile", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001319", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Creation of challenge instances\n\nAcross the various group-based protocols there is a general lack of precision on which parameter specification. As the field matures we should make available challenge instances of each protocol.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The source gives no protocol or target distribution, so sampling and witness checks do not instantiate, validate, or publish the requested collection of challenge instances.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Challenge-instance auditing: unbiased sampling and witness-equivalence failures}
+\noindent UnsolvedMath ID 20001319; AIM-CRYPTOGRAPHY-0006. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A cryptographic parameter specification fixes the group representation, distributions of keys and instances, size parameters, and algorithmic operations. A challenge instance is a concrete public input for a clearly stated computational task, with success and resource criteria that allow comparisons.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+This is a benchmark-development agenda. It does not identify a protocol, distribution, secret target, or challenge construction, so no reproducible instance profile is invented. The supplied catalogue marks this record partially solved; its present research status was not independently checked. Its supplied reconstruction is labelled unverified.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+The supplied catalogue marks this formulation as an unverified reconstruction; missing assumptions are not certified by the source link.
+\paragraph{Statement recorded in the supplied source.}
+Across the various group-based protocols there is a general lack of precision in parameter specification (or in which parameter specification to use). As the field matures, challenge instances should be made available for each protocol. \href{http://aimpl.org/postquantgroup/2/}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The source calls for precise parameters and challenge instances for group-based protocols.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001319 (AIM-CRYPTOGRAPHY-0006). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-CRYPTOGRAPHY-0006.
+\url{http://aimpl.org/postquantgroup/2/}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Creation of challenge instances
+
+Across the various group-based protocols there is a general lack of precision on which parameter specification. As the field matures we should make available challenge instances of each protocol.
+
+\section{Attempt and results}
+The source is a benchmark agenda with a reconstruction warning. It does not
+supply a concrete protocol to instantiate. We therefore test two necessary
+pieces of a future challenge specification without inventing an attributed
+challenge suite or claiming one has been published.
+
+\paragraph{A precise finite-range sampling rule.}
+For an integer $q\ge2$, let $b=\lceil\log_2 q\rceil$. Repeatedly sample
+$b$ independent fair bits, interpret them as $U\in\{0,\ldots,2^b-1\}$,
+and accept only when $U<q$. Each trial accepts with probability
+$p=q/2^b>1/2$ (or $p=1$ when $q$ is a power of two). For any accepted
+value $a$, its total probability is
+\[
+\sum_{t=0}^{\infty}(1-p)^t2^{-b}=\frac{2^{-b}}p=\frac1q.
+\]
+The geometric series also shows termination with probability one and expected
+trials $1/p=2^b/q<2$. If $q=1$, return zero with no random bits.
+The often substituted rule $U\bmod q$ is biased unless $q\mid2^b$:
+writing $2^b=hq+r$, the first $r$ residues have $h+1$ preimages and the
+others $h$. For example, with $q=3$, two bits give probabilities
+$1/2,1/4,1/4$. Thus a shared group name and parameter size do not determine
+the challenge distribution; the exact sampling procedure matters.
+
+\paragraph{Planted witness equality is the wrong validator for many actions.}
+Let $m\mid q$, let $G=\mathbb Z/q\mathbb Z$ act on
+$X=\mathbb Z/m\mathbb Z$ by reducing and adding, and fix $x=0$.
+For public $y\in X$, a valid transporter is any $a\in G$ satisfying
+$a\equiv y\pmod m$. There are exactly $q/m$ such residues:
+$y,y+m,\ldots,y+(q/m-1)m$.
+If a challenge generator samples uniform $a$ and publishes only $y$, every
+one of these witnesses has the same conditional probability. A solver that
+always returns the smallest representative solves the mathematical relation
+with probability one, but a grader insisting on the exact planted $a$ accepts
+with probability only $m/q$. This discrepancy can be arbitrarily large.
+It is an exact test fixture, not a security-hard instance; arithmetic in this
+example is deliberately easy.
+
+\paragraph{What reproducibility would actually establish.}
+Suppose a specified generator is a deterministic function of an explicitly
+encoded parameter tuple and a finite random tape. Two executions with the
+same tuple and tape produce the same output: induction on the transitions
+shows identical states and identical next consumed tape symbols. This simple
+claim requires the same algorithm and encoding, including rejection behavior;
+a seed alone is not an unambiguous tape without a specified expansion rule.
+It proves reproducibility, not unpredictability. In fact revealing a generation
+tape may reveal the planted secret, so a public benchmark must distinguish
+instance-generation replay from the adversary's allowed information. We do
+not create or release any such challenge in this attempt.
+
+\section{Context, adversarial audit, and gap}
+The primary workshop description was inspected, but the AIMPL problem page
+failed retrieval; the unverified reconstruction is not silently repaired.
+The audit checked $q=1$, power-of-two sampling, exact versus equivalent
+witnesses, and the information revealed by a random tape. These are necessary
+mathematical checks for future specifications, not a protocol selection,
+benchmark corpus, published challenge, or empirical comparison. No random
+samples were generated; all calculations are exact proofs.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The source gives no protocol or target distribution, so sampling and witness checks do not instantiate, validate, or publish the requested collection of challenge instances.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Official AIM workshop description, Post-quantum group-based cryptography, 29 April--3 May 2024; provenance and scope inspected on 11 October 2026. AIMPL pages failed retrieval, so the exact problem wording remains supplied-snapshot material. \url{https://aimath.org/workshops/upcoming/postquantgroup/}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The source gives no protocol or target distribution, so sampling and witness checks do not instantiate, validate, or publish the requested collection of challenge instances.
+\end{document}

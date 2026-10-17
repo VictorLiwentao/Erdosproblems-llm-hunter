@@ -1,0 +1,154 @@
+% RESEARCH_DRAFT_SHA256: c09e6959ff2470be05502326878644d060fdb480679d7726722ac5352e76ce25
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001253, "title": "Perfect-number recognition and simultaneous polynomial divisors", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001253", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 3. Find a deterministic polynomial time algorithm for recognizing perfect numbers. (Lenstra) Given two monic polynomials f, g ∈ Z[X] with no common irreducible factor, and two integers n, m ∈ Z>0, find in polynomial time all x ∈ Z such that f (x) | m and g(x) | n, with\n\n|x| < H (f, g, m, n ) for some function H.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Even inputs and elementary divisor constraints are handled, but odd perfect-number recognition and an appropriately quantified bit-polynomial simultaneous-enumeration algorithm are not established.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Perfect-number recognition and polynomial divisors: exact easy cases and the enumeration gap}
+\noindent UnsolvedMath ID 20001253; AIM-COMPUTATION-0091. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Polynomial time means a bound polynomial in the finite input length; for an integer input, its binary length is proportional to its logarithm. A positive integer $N$ is perfect if $\sum_{d\mid N,\,d<N}d=N$, equivalently $\sigma(N)=2N$. The second question asks for integer arguments at which two given monic integer polynomials divide prescribed positive integers. Coprimality is over $\mathbb Q[X]$. Both recognition and bounded enumeration targets are retained.
+\paragraph{Statement recorded in the supplied source.}
+Question 3. Find a deterministic polynomial time algorithm for recognizing perfect numbers. (Lenstra) Given two monic polynomials f, g ∈ Z[X] with no common irreducible factor, and two integers n, m ∈ Z>0, find in polynomial time all x ∈ Z such that f (x) | m and g(x) | n, with
+
+|x| < H (f, g, m, n ) for some function H. \href{https://aimath.org/WWN/primesinp/primesinp.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The bound $H$ is not fixed by the source. A trivial tiny search bound would not settle the intended enumeration task; output-length and bound conventions need to be specified in any proposed algorithm.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can perfect integers be recognized deterministically in polynomial time, and can simultaneous polynomial-divisibility conditions be solved efficiently?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001253 (AIM-COMPUTATION-0091). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0091
+\url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 3. Find a deterministic polynomial time algorithm for recognizing perfect numbers. (Lenstra) Given two monic polynomials f, g ∈ Z[X] with no common irreducible factor, and two integers n, m ∈ Z>0, find in polynomial time all x ∈ Z such that f (x) | m and g(x) | n, with
+
+|x| < H (f, g, m, n ) for some function H.
+
+\section{Both source tasks retained}
+The source combines deterministic perfect-number recognition in binary
+with simultaneous divisibility by two monic coprime polynomials. Its
+window $H$ is not quantified, and it explicitly rejects a tiny-window
+brute-force answer as uninteresting. We prove what the even case and
+an elementary divisibility route actually deliver, then retain both
+remaining gaps.
+
+\paragraph{Complete even-perfect characterization.}
+Write an even integer $N=2^a b$ with $a\ge1$ and $b$ odd. Divisors
+of a product of coprime positive integers decompose uniquely into
+products of their respective divisors; summing gives multiplicativity
+of $\sigma$. Thus $N$ is perfect exactly when
+\[
+(2^{a+1}-1)\sigma(b)=2^{a+1}b.
+\]
+Put $M=2^{a+1}-1$. Since $\gcd(M,2^{a+1})=1$, the equation forces
+$M\mid b$, say $b=Mc$, and then $\sigma(b)=(M+1)c=b+c$.
+If $c>1$, the three distinct numbers $1,c,b$ are divisors of $b$
+($M\ge3$), so $\sigma(b)\ge1+c+b>b+c$, a contradiction.
+Hence $c=1$, $b=M$, and $\sigma(b)=b+1$ implies that $b$ is prime:
+a composite $b>1$ has an additional proper divisor strictly between
+one and $b$. Conversely if $b=M$ is prime, the same multiplicativity
+calculation gives $\sigma(N)=2N$. This proves the characterization
+without assuming the unknown classification of odd perfect numbers.
+
+Accordingly an even input can be recognized by extracting its power of
+two, comparing its odd part with $2^{a+1}-1$, and testing that odd part
+for primality. All arithmetic has bit length $O(\log N)$. The source
+lecture supplies deterministic polynomial-time primality testing; using
+that established algorithm as a subroutine gives an even-input procedure.
+The AKS theorem is a cited external algorithm, not a theorem newly
+proved in this manuscript. An odd input does not satisfy this reduction.
+A supplied complete prime factorization would allow calculation of
+$\sigma(N)=\prod_{p^e\parallel N}(1+p+\cdots+p^e)$, but finding
+such a factorization is an additional computational task.
+
+\paragraph{A simultaneous-divisor obstruction from Bezout.}
+For coprime $f,g\in\mathbb Q[X]$, the polynomial Euclidean algorithm
+produces $A_0f+B_0g=1$ with rational polynomial coefficients: repeated
+division strictly reduces degrees, ends at a nonzero constant gcd, and
+back-substitution expresses that gcd as a combination. Clearing
+coefficient denominators gives integer polynomials $A,B$ and a nonzero
+integer $R$ with $Af+Bg=R$. Therefore every integer $x$ with
+$f(x)\mid m$ and $g(x)\mid n$ satisfies
+\[
+\gcd(|f(x)|,|g(x)|)\mid\gcd(m,n,|R|).
+\]
+The evaluations cannot be zero because $m,n$ are positive and zero
+does not divide a nonzero integer. Evaluation of the Bezout identity
+proves the displayed assertion. It screens common factors of the two
+values, but does not determine the individual values or the argument.
+
+\paragraph{An intrinsic finite window is not a fast enumeration.}
+Let $f(X)=X^d+\sum_{j<d}a_jX^j$ with $d\ge1$ and
+$C=\sum_{j<d}|a_j|$. For $|x|\ge\max(1,2C)$,
+\[
+|f(x)|\ge |x|^d-C|x|^{d-1}\ge |x|^d/2.
+\]
+Thus $0<|f(x)|\le m$ forces either $|x|<\max(1,2C)$ or
+$|x|\le(2m)^{1/d}$. This is a valid full-solution envelope, and an
+analogous one follows from $g$ if it has positive degree. But for
+$f=X$ it can have length proportional to $m$, exponential in its
+binary input length. Scanning that envelope is not a polynomial-time
+algorithm. The direction $f(x)\mid m$ also cannot be reversed to
+$m\mid f(x)$: with $f=X$, $m=6$, the argument $x=2$ satisfies the
+first and fails the second.
+If a polynomial is the allowed monic constant $1$, it supplies no
+restriction; if both are $1$, every integer in whatever window is
+specified must be output. This makes the window and output encoding
+material and prevents treating an arbitrary tiny $H$ as a solution.
+
+\section{Audit and remaining scope}
+The primary Question 3 and its remarks about binary input and tiny
+windows were checked. The audit distinguishes the fully proved
+Euclid--Euler reduction from the cited primality subroutine, retains
+odd inputs, treats constant polynomials explicitly, and checks the
+divisibility direction and bit complexity. No integer factorization
+experiment or lattice reduction was run. The broad recognition and
+meaningful-window simultaneous enumeration problems remain unresolved
+in this attempt; the displayed elementary facts are not claimed new.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Even inputs and elementary divisor constraints are handled, but odd perfect-number recognition and an appropriately quantified bit-polynomial simultaneous-enumeration algorithm are not established.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Future directions in algorithmic number theory, workshop 24--28 March 2003, report version 30 April 2003; original question, relevant lecture context and adjoining remarks inspected on 11 October 2026. \url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Even inputs and elementary divisor constraints are handled, but odd perfect-number recognition and an appropriately quantified bit-polynomial simultaneous-enumeration algorithm are not established.
+\end{document}

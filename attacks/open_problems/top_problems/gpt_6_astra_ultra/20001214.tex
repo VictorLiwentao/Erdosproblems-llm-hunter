@@ -1,0 +1,172 @@
+% RESEARCH_DRAFT_SHA256: f8d3a98990bf70db3b607387d46e64d281eaee6c9fd2fe1338b42a5d33d1b4e8
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001214, "title": "A precise probabilistic repair and algebraic criteria for interval cell spectra", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001214", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review and model-assisted mathematical audit of the written arguments; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "A precise probabilistic repair and algebraic criteria for interval cell spectra; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Cell spectra depend on the margin map, and modular inconsistency is insufficient; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch006 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 20001214; source catalogue code AIM-COMPUTATION-0052
+\section{A precise probabilistic repair and algebraic criteria for interval cell spectra}\label{20001214}
+{\small UnsolvedMath ID 20001214 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+For an integer matrix $A$ and statistic vector $b$, the nonnegative integer fiber is $\mathcal F_b=\{x\in\mathbb N^d:Ax=b\}$. A Markov basis is a finite set of integer moves in $\ker A$ connecting every such fiber by moves that remain nonnegative. Its binomial generators form the toric ideal $I_A=\langle x^u-x^v:Au=Av\rangle$. The attainable values of one cell in a table fiber need not be every integer between their minimum and maximum. A Hadamard matrix is a $\{\pm1\}$ matrix $H$ with $HH^{\mathsf T}=nI$. An effective Nullstellensatz certificate for an inconsistent polynomial system $f_1=\cdots=f_r=0$ is an identity $\sum_i g_if_i=1$ over the stated field.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The initial probability distribution and meaning of dense are unspecified. The 41 equations are referenced but not present, and later heuristic questions are separate targets. The literal excerpt is not an asserted single conjecture or a claimed certificate. The supplied catalogue marks this record partially solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+Question 38. With respect to some distribution is the set of tables whose range of cell entries are intervals dense among all tables?
+
+Joseph Landsberg Ilias Kotsireas
+
+Challenge problem in Gr¨ obner bases of polynomial ideals.
+
+The system of polynomial equations given in 3 different formats at http://www.cargo.wlu.ca/hi/had7.cocoa http://www.cargo.wlu.ca/hi/had7.maple http://www.cargo.wlu.ca/hi/had7.reduce has 41 equations in the 27 variables a1,..., a27.Prove that this system of polynomial equations, does not have any solutions. This would constitute an algebraic proof of the combinatorial result of L. D. Baumert:
+
+there are no Hadamard matrices of order 28 with one circulant core.9
+
+Moreover, it is of interest to write down the effective Nullstellensatz for this ideal, i.e. write down explicitly a linear combination of (some of) the generators of the ideal, which is equal to 1. Similar algebraic proofs could then be devised for Hadamard matrices with one circulant core of bigger order. Reference: Ilias Kotsireas, Christos Koukouvinos, Jennifer Seberry, Hadamard ideals and Hadamard matrices with one circulant core. Submitted, November 2003. Ideas that were suggested during the workshop:
+
+• (Bernd Sturmfels) Devise some kind of incremental process to write down the effective Nullstellensatz. e.g. break the system into pieces, write the effective Nullstellensatz for each piece separately and then combine the results to obtain the effective Null-stellensatz for the whole system;
+
+• (Beth Arnold) Use CoCoA and her own mod p Gr¨ obner implementation, to see if the Gr¨ obner basis can be computed.
+
+• (Nick Eriksson) Use 4ti2, to see if the Grobner basis can be computed.
+
+Design efficient heuristics in binary trees.
+
+Given sets of binary vectors in a set of binary trees with given depths, design efficient heuristics to predict the positions of the analogous vectors in binary trees of bigger depth. The adjective "analogous" can take on various meanings. In our context, it designates solu-tions of the associated polynomial system. Ideas that were suggested during the workshop: (Persi Diaconis) first of all obtain graphical visualizations and then analyze the data with DFT and other transforms. Work in progress.
+
+Indicator function approach for Hadamard Equivalence.
+
+Check data sets of Hadamard matrices of big orders to identify the inequivalent Hadamard matrices. Ideas that were suggested during the workshop: (Maria Piera Rogantin) A JSPI paper by Fontana-Pistone-Rogantin contains a description of the indicator function approach to check Hadamard equivalence. In general, one needs to compute the indicator function which has exponentially many monomials. However, this approach is especially efficient for Hadamard matrices with some structure, e.g. with one circulant core. The main reason for this is that the exponentially many monomials fall naturally in a few categories and we only need to check equality of the coefficients of one representative from these categories. Work in progress.
+
+First Open Problem Session \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The composite asks about interval cell values, Hadamard polynomial systems, binary-tree heuristics, and equivalence tests.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001214 (AIM-COMPUTATION-0052). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-COMPUTATION-0052.
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 20001214 and code AIM-COMPUTATION-0052 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:20001214}
+
+\section{Literature and context check}
+The original AIM Computational Algebraic Statistics
+ workshop PDF was consulted. The preserved extract does not specify every model,
+ parameterization or performance criterion needed by its broad question. The
+ following declared model is an actual test of one route, not a replacement
+ target or a claim of novelty for elementary statistical or algebraic facts.
+\section{Research attempt: Cell spectra depend on the margin map, and modular inconsistency is insufficient}
+The extract bundles an interval-spectrum question, an explicit missing
+polynomial challenge, and heuristic projects. For the spectrum route, a
+two-by-two table with row sums $r_1,r_2$ and column sums $c_1,c_2$ is
+parameterized by its upper-left entry $a$:
+\[
+ \begin{pmatrix}a&r_1-a\\c_1-a&r_2-c_1+a\end{pmatrix},\qquad
+ \max(0,c_1-r_2)\le a\le\min(r_1,c_1).
+\]
+Every integer in that interval gives a nonnegative table with the required
+margins (assuming consistent total sums), and every table arises this way.
+So this specific fiber has an interval cell spectrum.
+
+For a different, explicitly stated integer-statistic map, the property fails.
+Let $x_1,x_2,x_3\ge0$ be integers satisfying
+$x_1+x_2+x_3=3$, $x_2+3x_3=3$.
+The only solutions are $(0,3,0)$ and $(2,0,1)$, because $x_3$ is zero or one
+and the other entries are then forced. The second cell spectrum is
+$\{0,3\}$, missing the intervening integers. This is not asserted to be a
+counterexample for every conventional marginal model; it proves that a
+general linear-statistic formulation alone does not force intervals.
+A probability law concentrating on interval-good or interval-bad fibers can
+give opposite answers, so a distribution and meaning of density are essential.
+
+The Hadamard route cannot be carried out without its 41 generators. Attempts
+to retrieve the three linked CoCoA, Maple and Reduce input files returned
+inaccessible-source errors through the browsing tool. No generator list or
+Nullstellensatz identity is invented. A useful adversarial check is that
+inconsistency after reduction modulo a prime does not imply inconsistency over
+$\mathbb Q$: $2x-1=0$ has rational solution $1/2$ but reduces to $1=0$ in
+characteristic two. Conversely the rationally inconsistent constant equation
+$2=0$ becomes vacuous there. Thus a modular computation would need carefully
+lifted exact identities and denominator control before certifying the desired
+characteristic-zero statement. This directly tests one suggested computational
+direction while leaving the actual challenge untouched.
+\section{Verification and adversarial audit}
+The two-by-two parameterization was checked against all four inequalities
+and margins. The three-variable fiber was enumerated by its forced last
+coordinate. All three historical input URLs were attempted and inaccessible;
+no polynomial-system calculation was performed.
+\paragraph{Audit corrections.} A general linear-statistic example was not silently called a conventional marginal-table counterexample; inaccessible generators and characteristic changes were disclosed.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The probability law, asymptotic meaning of density, actual 41 equations,
+and heuristic targets remain missing or separate. The first gaps are fixing
+the table model and retrieving the original polynomial inputs, followed by
+an exact certificate if one is found.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and a model-assisted mathematical
+audit of the written arguments; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

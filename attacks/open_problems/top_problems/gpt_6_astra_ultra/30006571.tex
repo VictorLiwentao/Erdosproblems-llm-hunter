@@ -1,0 +1,134 @@
+% RESEARCH_DRAFT_SHA256: fad65237f98caa3f330750d24a6722bb5298a766b04dd4a7c18ffe6ab8c152f1
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30006571, "title": "Semidefinite Relaxations for Quantum Equilibria", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006571", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Semidefinite Relaxations for Quantum Equilibria; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Exact finite best responses and the hidden-advice obstruction; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch027 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30006571; source catalogue code OWR-14299906-008
+\section{Semidefinite Relaxations for Quantum Equilibria}\label{30006571}
+{\small UnsolvedMath ID 30006571 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A correlated equilibrium uses a joint recommendation distribution for which following recommendations is optimal against every allowed unilateral deviation. Quantum equilibria use shared quantum states and local operations. A semidefinite hierarchy imposes progressively longer operator-moment positivity constraints.
+
+A semidefinite program optimizes a linear functional of a symmetric matrix subject to affine constraints and positive semidefiniteness. The condition $X\succeq0$ means $v^TXv\geq0$ for every real vector $v$.
+
+An $n$-qubit pure state is a unit vector in $(\mathbb C^2)^{\otimes n}$, considered up to global phase. A quantum algorithm applies permitted quantum operations and measurements; complexity depends on the gate and input-access model.
+\paragraph{Statement recorded in the supplied source.}
+Construct a convergent semidefinite-programming hierarchy for maximizing social welfare over quantum correlated equilibria by replacing the explicit tensor-product constraints with suitable commutation constraints. \href{https://doi.org/10.4171/owr/2026/4}{[S2]}
+\paragraph{Scope qualification.}
+The equilibrium definition and finite-dimensional versus commuting-operator model are source-dependent. Replacing tensor-product structure by commutation is the requested step; equivalence of those models is not assumed.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Construct a convergent semidefinite hierarchy optimizing social welfare over the stated quantum equilibria.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30006571 (OWR-14299906-008). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Noncommutative Harmonic Analysis and Quantum Information (2026), Oberwolfach Reports, DOI 10.4171/owr/2026/4, pp. 217--275
+\url{https://doi.org/10.4171/owr/2026/4}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30006571 and source code OWR-14299906-008 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30006571}
+
+\section{Literature and context check}
+The primary report, printed pp. 248--250, defines quantum equilibrium by all unilateral POVM deviations, displays finite-dimensional dual optimality conditions, and explicitly warns that a standard commuting-operator hierarchy need not target the tensor-product supremum. The computations below verify a fixed-state two-action special case and test a tempting substitution of classical incentive constraints. They do not construct the requested global hierarchy.
+\section{Research attempt: Exact finite best responses and the hidden-advice obstruction}
+
+Fix a finite-dimensional state and all other players' POVMs. For one player and one type, let Hermitian operators $V_0,V_1$ encode the two action payoffs, including the prior and other outcomes. A two-outcome POVM is $(M,I-M)$ with $0\preceq M\preceq I$. Its payoff is
+\[
+\operatorname{Tr}V_1+\operatorname{Tr}(M K),\qquad K=V_0-V_1.
+\]
+Diagonalize $K$ with eigenvalues $\lambda_i$. The diagonal entries $m_{ii}$ of $M$ in this basis lie in $[0,1]$, so
+\[
+\operatorname{Tr}(MK)=\sum_i\lambda_i m_{ii}\leq\sum_{\lambda_i>0}\lambda_i
+=\operatorname{Tr}K_+.
+\]
+Equality is attained by the projection onto the positive eigenspaces of $K$. Thus the exact best-response value is $\operatorname{Tr}V_1+\operatorname{Tr}K_+$, with a concrete optimal measurement.
+
+The dual certificate is equally explicit: take $W=V_1+K_+$. Then $W-V_1=K_+\succeq0$ and $W-V_0=K_-\succeq0$, where $K=K_+-K_-$. For any POVM $(M_0,M_1)$,
+\[
+\sum_a\operatorname{Tr}(M_aV_a)\leq\sum_a\operatorname{Tr}(M_aW)=\operatorname{Tr}W.
+\]
+The inequality uses positivity of the trace of the product of two PSD matrices: $\operatorname{Tr}(AB)=\operatorname{Tr}(A^{1/2}BA^{1/2})\geq0$. The optimal projector attains this bound. More generally, for any finite number of outcomes, matrices satisfying $W\succeq V_a$ and equality of achieved payoff to $\operatorname{Tr}W$ suffice to certify a best response by exactly this trace argument. No general dual-existence theorem is needed for that sufficient direction.
+
+\paragraph{Classical incentive constraints do not certify a given quantum implementation.}
+Consider two players paid one if their output bits agree and zero otherwise, with no input types. Use shared state
+\[
+\rho=\tfrac12|00\rangle\langle00|+\tfrac12|11\rangle\langle11|.
+\]
+Bob measures in the computational basis. Alice uses the trivial POVM $M_0=M_1=I/2$, producing an independent fair output. The observed outcome distribution is uniform on all four pairs. It satisfies all classical recommendation-deviation inequalities: conditioned on either own recommendation, the other's bit is still fair, so any relabeling or randomized replacement has agreement probability $1/2$.
+
+But Alice can instead measure her qubit in the computational basis and agree with Bob with probability one. Hence this state/measurement tuple is not a quantum equilibrium. In the operator formula, $V_0=\tfrac12|0\rangle\langle0|$, $V_1=\tfrac12|1\rangle\langle1|$, and the prescribed measurement obtains $1/2$ while the positive-eigenspace best response obtains one. This gives an explicit hidden-advice deviation missed by constraints only on the classical displayed recommendations. It does not prove that the uniform behavior has no other quantum-equilibrium realization: an implementation with independent advice can remove the hidden information.
+
+The original hierarchy must therefore retain enough operator/state structure to constrain all permitted local measurements, not just output relabelings. Replacing tensor factors by commutation also changes the ambient model unless a further argument establishes the intended correspondence. Neither the finite best-response certificates nor the displayed counterexample provides that correspondence or compactness/convergence of an unbounded-dimensional optimization.
+\section{Verification and adversarial audit}
+The two-outcome primal optimum and a matching dual certificate are both explicitly computed, including zero eigenvalues where either choice is optimal. The coordination example checks every classical replacement through conditional independence and gives one strict quantum improvement. The distinction between a behavior and a particular state/measurement realization is stated.
+\paragraph{Audit corrections.} Did not replace all POVM deviations by classical output relabelings; did not identify the commuting-operator and tensor-product optimization targets.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+No convergent SDP hierarchy for the original tensor-product quantum-equilibrium social-welfare problem is proved. Encoding all quantum deviations, controlling dimension/limits, and justifying the commutation replacement remain unresolved.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/53598} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

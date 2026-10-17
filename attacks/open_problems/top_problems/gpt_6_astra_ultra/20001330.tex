@@ -1,0 +1,122 @@
+% RESEARCH_DRAFT_SHA256: 6c64a42b487300309707d30749d745ee7d3f0a9d9358f006c800fbf499dc6878
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001330, "title": "Finite-window reduction and binary-cost accounting for hidden shift on the integers", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001330", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and written mathematical review at the declared scope; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Finite-window reduction and binary-cost accounting for hidden shift on the integers; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Finite-window phase states with an explicit boundary budget; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch015 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 20001330; source catalogue code AIM-CRYPTOGRAPHY-0017
+\section{Finite-window reduction and binary-cost accounting for hidden shift on the integers}\label{20001330}
+{\small UnsolvedMath ID 20001330 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A hidden-shift instance consists of functions $f_0,f_1$ on a group $G$ related by $f_1(x)=f_0(xs)$ for an unknown shift $s$, with the additive version $f_1(x)=f_0(x+s)$ for abelian groups. The task is to recover a compatible shift from the stipulated function access. Here $G=\mathbb Z$ and the shift lies in the stated finite interval $[a,b]$. Binary oracle cost accounts for the bit length of integer query arguments, so one access to a very large integer need not have unit cost.
+\paragraph{Statement recorded in the supplied source.}
+What is the cost of hidden shift on $\mathbb Z$ where the shift $s\in [a,b]$, under binary cost of oracle? \href{http://aimpl.org/quantumalg/4/}{[S2]}
+\paragraph{Scope qualification.}
+The promise on collisions, oracle output representation, and acceptable success probability is not specified by the source.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+What is the true binary cost of finding an integer hidden shift known to lie in a bounded interval?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001330 (AIM-CRYPTOGRAPHY-0017). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-CRYPTOGRAPHY-0017
+\url{http://aimpl.org/quantumalg/4/}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001330 and source code AIM-CRYPTOGRAPHY-0017 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001330}
+
+\section{Literature and context check}
+The original AIM URL was attempted on 2026-10-11, but the web fetch timed out and a direct retrieval failed at DNS resolution. Its supplied extract is preserved above; fresh access to that page is not claimed. Kuperberg's primary abstract was consulted and describes a subexponential quantum algorithm for dihedral hidden subgroups and extensions to abelian hidden shift. Its full runtime proof is not imported here. The source does not fix injectivity or output costs. The following calculation adds an explicit injective, coherently evaluable model solely to test a finite-window reduction; it does not declare that model to be the entire original question.
+\section{Research attempt: Finite-window phase states with an explicit boundary budget}
+Assume $f_0$ is injective, $f_1(x)=f_0(x+s)$, and $a\leq s\leq b$ are integers. Put $D=b-a$, $\delta=s-a$, and $g_1(x)=f_1(x-a)=f_0(x+\delta)$. Take an integer $L>D$. Assume that the output values required below have a specified finite register representation and that the controlled function evaluation is available. Prepare
+\[
+ {1\over\sqrt{2L}}\sum_{x=0}^{L-1}
+ \bigl(|0,x,f_0(x)\rangle+|1,x,g_1(x)\rangle\bigr).
+\]
+Injectivity says exactly which outcomes of a measurement of the last register have two preimages. For each $y\in\{\delta,\ldots,L-1\}$, outcome $f_0(y)$ leaves
+\[
+ {1\over\sqrt2}(|0,y\rangle+|1,y-\delta\rangle).
+\]
+Each such outcome has probability $1/L$, so their combined probability is $1-\delta/L$. The remaining outcomes each have a single preimage and total probability $\delta/L$.
+
+Apply the unitary discrete Fourier transform $|x\rangle\mapsto L^{-1/2}\sum_{k=0}^{L-1}e^{2\pi i kx/L}|k\rangle$ to the integer register and measure it. For a two-preimage outcome, $k$ is uniform and the remaining qubit is, up to a global phase,
+\[
+ |\psi_{k,\delta}\rangle={|0\rangle+e^{-2\pi i k\delta/L}|1\rangle\over\sqrt2}.
+\]
+The norm calculation giving uniformity uses the orthogonal qubit coordinates, so it is independent of $y$. On a single-preimage outcome, $k$ is also uniform and the remaining qubit is $|0\rangle$ or $|1\rangle$. Discard the function value. The resulting labeled ensemble is exactly a mixture of the ideal uniform-$k$ phase ensemble with weight $1-\delta/L$ and another ensemble with weight $\delta/L$.
+
+For $t$ independently prepared states, expand the mixture product. The component in which every state is ideal has weight $(1-\delta/L)^t\geq1-t\delta/L$. For any later joint measurement or computation, its output-event probability differs from the all-ideal probability by at most $1-(1-\delta/L)^t\leq tD/L$, because the other component has an event probability between zero and one. Thus choosing $L\geq tD/\eta$ (and $L>D$) controls this boundary loss by $\eta$. This is a statement about the resulting state ensemble; detecting which outcomes were good is unnecessary.
+
+The queried arguments lie in $[0,L-1]$ for $f_0$ and $[-a,L-1-a]$ for $f_1$. Their binary encoding length is at most $O(\log(2+|a|+L))$, whereas a claim of cost depending only on $D$ would omit the offset $a$. In a model charging at least the encoding length, the controlled calls must be costed at these sizes, together with their output registers, reversible arithmetic, and Fourier computation. The analysis does not assume that function evaluation itself has merely logarithmic cost.
+
+It would be incorrect to replace the restricted functions by an exact hidden-shift pair on $\mathbb Z/L\mathbb Z$ without paying the boundary term. For $f_0(x)=x$ and $\delta=1$, at $x=L-1$ the integer-shift value is $L$ whereas the wrapped argument gives $f_0(0)=0$. The phase-state calculation above is the repair for this exact failure, not an exact periodic extension.
+\section{Verification and adversarial audit}
+At $D=0$, the shift is already known and no search is needed; the ensemble calculation still has zero boundary loss. At $\delta=0$ all outcomes have two preimages. At $\delta=L-1$, only one such outcome remains, showing why a large window must be justified quantitatively. Both the unknown shift and every query offset are accounted for in binary length.
+\paragraph{Audit corrections.} A wrapped integer oracle was not treated as an exact cyclic oracle. The batch size enters the boundary budget, and large interval offsets and output costs are retained.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+No optimal quantum or classical bit complexity is proved, no injectivity-free reduction is obtained, and the original oracle-output and success conventions remain unspecified. The state reduction is a known-style auxiliary calculation with a concrete accumulated-error bound, not a full cost solution.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://arxiv.org/abs/quant-ph/0302112} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and written mathematical review at the declared scope; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

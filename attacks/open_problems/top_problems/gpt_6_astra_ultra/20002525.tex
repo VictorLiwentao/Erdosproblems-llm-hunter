@@ -1,0 +1,85 @@
+% TOP_PROBLEM: {"id": 20002525, "title": "Centered asymptotics for a Gibbons--Hawking subfamily", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The source’s these spaces refers to toric hyper-Kähler quotients in its preceding introduction. That context is restored; the title’s Gibbons–Hawking subfamily is not substituted for the entire class. Related first steps have canonical records 20002526 and 20002527. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002525", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Describe the asymptotic geometry of toric hyper-Kähler quotients systematically.", "scope": "Proved a uniform centered monopole-potential remainder bound in a Gibbons-Hawking subfamily. Full metric/connection estimates and general toric quotient asymptotics remain unresolved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked Hessian eigenvalues, Taylor remainder, dipole cancellation, r>=2R constant and v0=0 versus positive leading regimes. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the Coulomb Hessian norm, centered dipole cancellation and explicit second-moment error. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked Hessian eigenvalues, Taylor remainder, dipole cancellation, r>=2R constant and v0=0 versus positive leading regimes. Scope remains limited: Derive uniform geometric and derivative estimates on all quotient ends and degeneration strata, including the circle connection and fiber periods."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002525; source catalogue code AIM-PHYSICS-0033
+\setcounter{section}{20002524}
+\section{Centered asymptotics for a Gibbons--Hawking subfamily}\label{20002525}
+{\small UnsolvedMath ID 20002525 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}A hyper-Kähler metric has three parallel complex structures satisfying the quaternionic relations. In four dimensions a gravitational instanton is a complete noncompact Ricci-flat geometry in the source’s self-dual setting. ALE and ALF describe different asymptotic geometries; ALF has an asymptotic circle direction over a three-dimensional base. A toric hyper-Kähler quotient is obtained by hyper-Kähler reduction of a flat quaternionic vector space by a torus, using specified moment-map levels. Asymptotics describe the metric, curvature, volume and degeneration of ends as distance tends to infinity. Gibbons--Hawking metrics form a special four-dimensional class, not the whole family of such quotients.
+
+\paragraph{Catalogue wording retained for traceability.}
+As a first step toward systematic understanding of the Hodge cohomology of toric hyper-Kähler quotients, understand their asymptotic geometry, beginning with the Bielawski--Dancer and Gibbons--Rychenkova works named by the source.
+\paragraph{Scope and source qualification.}The source’s these spaces refers to toric hyper-Kähler quotients in its preceding introduction. That context is restored; the title’s Gibbons–Hawking subfamily is not substituted for the entire class. Related first steps have canonical records 20002526 and 20002527. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Describe the asymptotic geometry of toric hyper-Kähler quotients systematically.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved a uniform centered monopole-potential remainder bound in a Gibbons-Hawking subfamily. Full metric/connection estimates and general toric quotient asymptotics remain unresolved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{A centered multipole bound for one subfamily.}In a Gibbons--Hawking ansatz take \(V(x)=v_0+\sum_{j=1}^Nm_j/|x-a_j|\), with \(m_j>0\), \(|a_j|\le R\), and \(\sum_jm_ja_j=0\). Put \(M=\sum_jm_j\), \(r=|x|>R\). Taylor expansion of \(f(a)=|x-a|^{-1}\) at zero gives \(f(a)=r^{-1}+x\cdot a/r^3+\mathcal R(a)\). The Hessian of \(|y|^{-1}\) has eigenvalues \(2|y|^{-3},-|y|^{-3},-|y|^{-3}\); hence on the segment \(x-sa\),
+\[|\mathcal R(a)|\le |a|^2/(r-R)^3.
+\]
+The dipole sum cancels, and therefore
+\[\left|V(x)-v_0-M/r\right|\le\frac{\sum_jm_j|a_j|^2}{(r-R)^3}.
+\]
+For \(r\ge2R\), this is at most \(8r^{-3}\sum_jm_j|a_j|^2\). Without centering, a dipole term of order \(r^{-2}\) remains.
+\paragraph{What is not controlled by the scalar expansion.}The metric also involves a circle connection satisfying a curvature equation determined by \(V\); its global gauge, fiber periods and behavior near degenerating fibers are not estimated merely by the scalar bound. The distinction between \(v_0>0\) and \(v_0=0\) changes the leading asymptotic geometry and cannot be ignored.
+\paragraph{First gap and restored scope.}The source concerns all toric hyper-Kahler quotients, not only this four-dimensional ansatz. A systematic result needs uniform metric and derivative estimates in every end and degeneration region, derived from the quotient data. That step remains missing, as does its Hodge-cohomology application. The elementary centered multipole expansion is a benchmark with explicit error, not a general asymptotic classification.
+
+\paragraph{Verification and adversarial audit.}
+Checked Hessian eigenvalues, Taylor remainder, dipole cancellation, r>=2R constant and v0=0 versus positive leading regimes. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked Hessian eigenvalues, Taylor remainder, dipole cancellation, r>=2R constant and v0=0 versus positive leading regimes. Scope remains limited: Derive uniform geometric and derivative estimates on all quotient ends and degeneration strata, including the circle connection and fiber periods.
+
+Coordinator checked the Coulomb Hessian norm, centered dipole cancellation and explicit second-moment error. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Derive uniform geometric and derivative estimates on all quotient ends and degeneration strata, including the circle connection and fiber periods.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002525:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002525 (AIM-PHYSICS-0033). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002525:2}{S2}] American Institute of Mathematics, $L^2$ harmonic forms in geometry and string theory; notes by Anda Degeratu and Mark Haskins, March 2004, 21 March 2004, Hausel wrap-up programme and first step 1.
+\url{https://aimath.org/WWN/l2harmonic/l2harmonic.pdf}.
+\end{itemize}
+\label{end:20002525}
+\end{document}

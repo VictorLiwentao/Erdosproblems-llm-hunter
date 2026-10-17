@@ -1,0 +1,140 @@
+% RESEARCH_DRAFT_SHA256: d594a8e34d360c760ee9817d06ebff96942f5b6ec9f922e3701bb8408dea77d5
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000783, "title": "Separation of Constant-Free Valiant Classes", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000783", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Determine whether the constant-free Valiant classes satisfy $VP_0\\neq VNP_0$.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Coefficient height and monomial count fail to separate the classes; no polynomially definable family with a proved superpolynomial constant-free circuit lower bound is obtained.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Constant-free separation attempts through coefficient height and monomial counts}
+\noindent UnsolvedMath ID 30000783; OWR-1587-002. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+The constant-free versions of Valiant\textquotesingle s classes restrict circuits to the designated small integer constants. $VP_0$ uses polynomial-size circuits with polynomial formal degree; $VNP_0$ permits exponential Boolean summation of such efficiently computed polynomial families.
+
+An arithmetic circuit is a directed acyclic graph whose input nodes are variables or field constants and whose internal nodes perform additions and multiplications (with subtraction allowed when stated). Size counts gates; depth is the maximum number of gates on an input-output path.
+\paragraph{Statement recorded in the supplied source.}
+Determine whether the constant-free Valiant classes satisfy $VP_0\neq VNP_0$. \href{https://doi.org/10.4171/owr/2007/31}{[S2]}
+\paragraph{Scope qualification.}
+The coefficient field and exact allowed constants are the source\textquotesingle s conventions.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Separate the constant-free efficiently computed and efficiently summed algebraic complexity classes.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000783 (OWR-1587-002). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Complexity Theory (2008), Oberwolfach Reports, DOI 10.4171/owr/2007/31, pp. 1793--1864
+\url{https://doi.org/10.4171/owr/2007/31}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Determine whether the constant-free Valiant classes satisfy $VP_0\neq VNP_0$.
+
+\section{Attempt and results}
+We use integer constant-free circuits with inputs variables and $0,1,-1$,
+and binary addition, subtraction, and multiplication. Formal degree is one
+at every input, maximum at addition/subtraction, and sum at multiplication.
+These conventions are explicit because assigning degree zero to constants
+would change the following bound. We attempt to separate the source's classes
+by coefficient growth, then examine why this and monomial counting do not work.
+
+\paragraph{A complete coefficient-height estimate.}
+For an integer polynomial $P$, let $\|P\|_1$ be the sum of absolute values
+of its coefficients and put $L(P)=\log_2\max(1,\|P\|_1)$.
+Coefficientwise triangle inequality and convolution give
+$\|P\pm Q\|_1\le\|P\|_1+\|Q\|_1$ and
+$\|PQ\|_1\le\|P\|_1\|Q\|_1$.
+Order the internal gates topologically as $1,\ldots,s$. At a gate $i$ of
+formal degree $d_i$, induction proves $L(P_i)\le i d_i$.
+Inputs have $L=0$. At an addition or subtraction gate,
+$L(P_i)\le1+\max L(P_j)\le1+(i-1)d_i\le i d_i$, since $d_i\ge1$.
+At a multiplication gate, the two earlier formal degrees add to $d_i$, so
+$L(P_i)\le(i-1)(d_j+d_k)=(i-1)d_i$.
+Thus a circuit of size $s$ and output formal degree $d$ has every coefficient
+of absolute value at most $2^{sd}$. It follows that polynomial size and
+polynomial formal degree imply polynomial coefficient bit length.
+
+\paragraph{Why the proposed huge-constant witness leaves both classes.}
+The integer $2^{2^n}$ is produced from $1+1$ by $n$ repeated squarings in
+linear size, but its formal degree is $2^n$ under the stated convention.
+Its bit length is $2^n+1$, so the proved bound rules out computing it with
+both polynomial size and polynomial formal degree.
+This does not separate $VP_0$ from $VNP_0$. Indeed suppose
+\[
+f_n(x)=\sum_{y\in\{0,1\}^{p(n)}}g_n(x,y),
+\]
+where $g_n$ has constant-free circuit size $S(n)$ and formal degree $D(n)$,
+all polynomially bounded, and $p(n)$ is polynomial. Substituting zeros or ones
+cannot increase coefficient $\ell_1$ norm: each resulting coefficient is a
+sum of some original coefficients, and the triangle inequality bounds the sum
+of their absolute values by the original total. Hence
+\[
+\|f_n\|_1\le2^{p(n)}\max_y\|g_n(x,y)\|_1
+\le2^{p(n)+S(n)D(n)}.
+\]
+Every such $VNP_0$ family also has polynomial coefficient bit length.
+Therefore the enormous integer family fails the defining upper bound for
+$VNP_0$ as well; placing it outside $VP_0$ cannot witness their separation.
+Cancellation only reduces these norm bounds and does not alter the conclusion.
+
+\paragraph{Monomial count gives a second false lower-bound route.}
+The polynomial $\prod_{i=1}^n(1+x_i)$ has a distinct monomial
+$\prod_{i\in A}x_i$ for every subset $A\subseteq\{1,\ldots,n\}$,
+all with coefficient one, by distributivity and uniqueness of the exponent
+support. It therefore has $2^n$ nonzero monomials. Nevertheless it has a
+constant-free circuit with $n$ additions and $n-1$ multiplications and formal
+degree $n$. Thus an argument inferring circuit size from the expanded number
+of monomials would falsely reject this explicit $VP_0$ family.
+The remaining route would need a measure respecting sharing and cancellation
+while distinguishing some specifically defined Boolean-sum family; neither
+height nor support cardinality supplies it.
+
+\section{Source context, adversarial audit, and gap}
+Koiran's report passage was inspected and separates the class question from
+the adjacent Boolean-evaluation question. Historical plausibility language
+is not a current literature-status theorem. The audit checked constant formal
+degrees, subtraction and cancellations, Boolean specialization, and the
+exponentially large formal degree in repeated squaring. No candidate family
+in $VNP_0\setminus VP_0$ has been found or proved, and no computational
+experiment was performed. All bounds above are elementary known safeguards
+for the attempted coefficient-growth strategy.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Coefficient height and monomial count fail to separate the classes; no polynomially definable family with a proved superpolynomial constant-free circuit lower bound is obtained.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 31/2007, relevant contributions by Koiran (pp.1835--1836) and Krause (pp.1838--1839); primary cached report passages inspected. Historical status and external literature are not independently updated here. \url{https://ems.press/content/serial-article-files/46116}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Coefficient height and monomial count fail to separate the classes; no polynomially definable family with a proved superpolynomial constant-free circuit lower bound is obtained.
+\end{document}

@@ -1,0 +1,125 @@
+% RESEARCH_DRAFT_SHA256: ad89035fa21ee4a0618440f66cc9719336dd3022a444ce29e7b86583a3bd24c7
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001188, "title": "Exact slack lifts for Markov bases under rounded summaries", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001188", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 12. What can be done with Markov bases when their are floating point approxi-mations made in marginals or conditionals?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Only rigorously specified interval reports are reduced to exact fibers; no universal rounding model, efficient augmented-basis construction, or statistical target calibration is supplied.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Rounded summaries: an exact slack construction and failure of unchanged fiber moves}
+\noindent UnsolvedMath ID 20001188; AIM-COMPUTATION-0026. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For an integer matrix $A$, the fiber at $b$ is $\mathcal F_b=\{x\in\mathbb Z_{\ge0}^d:Ax=b\}$. A Markov basis is a finite set of integer moves $u$ with $Au=0$ such that steps $x\mapsto x\pm u$ staying nonnegative connect every nonempty fiber. A margin is a sum over selected table indices; a conditional probability divides a joint cell probability by an appropriate margin. Rounding such summaries can replace one exact fiber by several compatible fibers or make the imposed summaries inconsistent.
+\paragraph{Statement recorded in the supplied source.}
+Question 12. What can be done with Markov bases when their are floating point approxi-mations made in marginals or conditionals? \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The source does not stipulate an error interval, rounding rule, or target distribution; these remain inputs to any particular algorithmic formulation.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+How should Markov-basis methods handle margins or conditional probabilities reported with rounding error?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001188 (AIM-COMPUTATION-0026). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0026
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 12. What can be done with Markov bases when their are floating point approxi-mations made in marginals or conditionals?
+
+\section{A specified interval interpretation}
+Fix integer $A\in\mathbb Z^{r\times d}$ and integer bounds $L\le U$.
+Investigate $S=\{x\in\mathbb Z_{\ge0}^d:L\le Ax\le U\}$, with a
+fixed total constraint included if finiteness is needed for sampling.
+For a stated real reporting interval $l\le Ax\le u$, integer outputs
+make it equivalent to $\lceil l\rceil\le Ax\le\lfloor u\rfloor$.
+This assumes the endpoints themselves are rigorously specified; a printed
+floating-point value without a rounding rule does not determine them.
+
+\paragraph{Exact bijective lift.}
+Define $s=Ax-L$ and $t=U-Ax$. Then $x\in S$ exactly when
+$(x,s,t)\ge0$ is an integer solution of
+\[
+\begin{pmatrix}A&-I&0\\A&0&I\end{pmatrix}
+\begin{pmatrix}x\\s\\t\end{pmatrix}
+=\begin{pmatrix}L\\U\end{pmatrix}.
+\]
+The lift is unique for every $x$, as the two equations solve for both
+slacks. Thus it is a bijection with one exact nonnegative integer fiber.
+If a Markov basis for this augmented matrix is given, project its moves
+onto $x$. A nonnegative lifted path projects to a feasible path in $S$,
+and any two points of $S$ lift to points connected by that basis.
+There is no nonzero move involving only slacks: setting its $x$ part
+to zero in the two homogeneous equations forces both slack parts zero.
+This proves conditional connectivity, but computing a usable augmented
+basis remains a separate problem.
+
+\paragraph{Why the original exact-fiber basis cannot suffice.}
+Take $A=(1\ 1)$ and $1\le x_1+x_2\le2$. Every move in $\ker A$
+preserves $x_1+x_2$. Therefore no sequence of such moves can connect
+$(1,0)$ to $(2,0)$, although both satisfy the reported interval.
+Simply reusing a basis for exact margins fails on this smallest example.
+Rounding combines different fibers and requires moves that can change
+the reported statistic inside its permitted range.
+
+\paragraph{Conditional probabilities and target distributions.}
+For a specified conditional report $a/b\le x_j/m\le c/d$ with positive
+integers $b,d$ and denominator $m=\sum_{j\in J}x_j>0$, multiplication
+gives integral inequalities $bx_j-am\ge0$ and $cm-dx_j\ge0$.
+One must also impose $m\ge1$. Thus specified rational interval reports
+can be handled by a similar inequality-and-slack construction. Dropping
+the positive-denominator constraint would introduce undefined conditional
+probabilities. Strict integer inequalities can be tightened by one unit.
+The bijection does not choose a probability law: if a target weight
+$w(x)$ is specified, assign the same weight to its unique lift. Uniform
+slack-fiber sampling then corresponds to uniform $x$ only when that is
+the intended target, not automatically for a statistical null model.
+
+\section{Source and audit}
+The AIM question leaves its rounding law, error intervals and target
+distribution open; those omissions were checked directly. The exact
+slack calculation is a standard integer-programming method, not a new
+solution of all rounded-summary inference problems. The audit checked
+bijection rather than a many-to-one lift, integral tightening, and zero
+denominators. No numerical basis calculation, MCMC run or theorem prover
+was used. General efficiency and statistical calibration remain absent.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Only rigorously specified interval reports are reduced to exact fibers; no universal rounding model, efficient augmented-basis construction, or statistical target calibration is supplied.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Computational Algebraic Statistics, prepared by Seth Sullivant, version 27 March 2004; the original numbered source question and its adjacent scope were inspected on 11 October 2026. \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Only rigorously specified interval reports are reduced to exact fibers; no universal rounding model, efficient augmented-basis construction, or statistical target calibration is supplied.
+\end{document}

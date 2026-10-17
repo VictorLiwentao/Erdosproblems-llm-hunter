@@ -1,0 +1,125 @@
+% RESEARCH_DRAFT_SHA256: a2f2164ac4741d2314b52bfa795d60e10b9fcd528642b0bd17735d68e78d3f73
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30001566, "title": "Fundamental-Domain Choice in Symmetric Integer Programming", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001566", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 completed written mathematical review at the declared scope; no independent human verification. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Fundamental-Domain Choice in Symmetric Integer Programming; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Objective preservation and a branch-dependent domain example; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch018 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30001566; source catalogue code OWR-4426-003
+\section{Fundamental-Domain Choice in Symmetric Integer Programming}\label{30001566}
+{\small UnsolvedMath ID 30001566 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A symmetry group acts on feasible points by transformations preserving the optimization problem. A fundamental domain selects representatives of its orbits. Branching in integer optimization partitions a feasible region into subproblems using an integrality disjunction.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The source does not define a performance objective or a mathematical comparison between fundamental domains.
+
+Source-record limitation: A qualitative branching-efficiency comparison is requested without a mathematical criterion.
+\paragraph{Statement recorded in the supplied source.}
+In symmetry-aware linear or integer programming, does the choice among multiple minimal fundamental domains affect the results or efficiency, especially when a variable is a good symmetry-based branching candidate but a poor integer-programming branching candidate? \href{https://doi.org/10.4171/owr/2010/38}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Understand whether the selected symmetry representatives improve or hinder branching.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30001566 (OWR-4426-003). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Mini-Workshop: Exploiting Symmetry in Optimization (2011), Oberwolfach Reports, DOI 10.4171/owr/2010/38, pp. 2245--2281
+\url{https://doi.org/10.4171/owr/2010/38}.
+\item[S3] symmetry in scheduling study
+\url{https://optimization-online.org/wp-content/uploads/2010/11/2824.pdf}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30001566 and code OWR-4426-003 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30001566}
+
+\section{Literature and context check}
+The primary report, printed pages 2261--2262, explains that a fundamental-domain ordering changes symmetry-based fixing and can interact with integer-programming branching choices. It already recommends aligning variable ordering with application structure. The attempt below proves the invariant objective statement and computes a small example under an explicitly fixed branching protocol; it is not a solver-independent performance theorem.
+\section{Research attempt: Objective preservation and a branch-dependent domain example}
+
+\paragraph{What every valid representative domain preserves}
+Let a finite group $G$ preserve an integer feasible set $S$ and an objective $f$, so $f(gx)=f(x)$. Let $D$ meet every orbit in exactly one point. If a minimum exists on $S$, its orbit representative belongs to $S\cap D$ and has the same objective. Since $S\cap D\subseteq S$, the two minimum values are equal. The same argument applies to maxima and to domains that retain more than one representative but never lose an orbit. Thus differing valid domains cannot change the correct optimal objective in an invariant problem. Without objective invariance this assertion fails: for $S=\{(1,0),(0,1)\}$ and objective $x_1$, the swap symmetry of $S$ does not preserve the objective, and choosing the wrong singleton representative changes its maximum.
+
+\paragraph{A concrete interaction with a fixed branching choice}
+Consider binary $x_1,x_2$ with relaxation
+\[
+ 0\leq x_i\leq1,\qquad x_1+x_2\leq3/2,
+ \qquad\max(x_1+x_2).
+\]
+Swap of the variables preserves both problem and objective. The representative domains $D_1:\ x_1\leq x_2$ and $D_2:\ x_2\leq x_1$ each retain one point from the nontrivial binary orbit. Both root relaxations have bound $3/2$, and both integer optima equal one. Suppose an incumbent of value one is known and a fixed protocol branches on $x_1\in\{0,1\}$ before $x_2$, pruning only infeasible nodes or nodes with relaxation bound at most the incumbent.
+
+In $D_1$, the branch $x_1=0$ has bound one and is pruned. The branch $x_1=1$ forces $x_2\geq1$ and violates the sum constraint, so it is infeasible. These two children finish the search. In $D_2$, the branch $x_1=0$ forces $x_2=0$ and is pruned, but $x_1=1$ leaves $0\leq x_2\leq1/2$ and bound $3/2$. The stated protocol therefore branches again: $x_2=0$ gives value one and $x_2=1$ is infeasible. It processes two additional children. Every relaxation and pruning decision follows from the displayed inequalities.
+
+This protocol deliberately fixes the variable order; it may branch on a variable integral in a chosen root relaxation optimum. A solver choosing the fractional variable in $D_2$ would instead select $x_2$ and avoid this difference. Thus the example proves dependence on the domain together with the branching protocol, rather than an inherent superiority of one symmetric domain under all algorithms.
+
+\paragraph{The failed universal-selection inference}
+The two domains are mapped to one another by the original symmetry. If the whole branching procedure, tie breaking and variable selection are transported by that same relabeling, their search trees correspond exactly: map each node's fixed-coordinate constraints and each feasible relaxation point by the swap. Objective bounds and pruning tests are unchanged. A claimed intrinsic performance ranking from the representative set alone therefore cannot follow from this example. Any general efficiency criterion must also specify how the algorithm treats the coordinates and how domain constraints are represented.
+
+\section{Verification and adversarial audit}
+The domains preserve every integer orbit and the objective is invariant. The node-count comparison states its incumbent, branching order and pruning rule, and does not claim to describe a particular commercial solver. Relabeling the entire protocol removes the artificial asymmetry, which is explicitly acknowledged.
+\paragraph{Audit corrections.} Separated invariance of the optimum from variability of a chosen search procedure and did not treat a symmetry of constraints alone as a symmetry of the optimization problem.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+Objective invariance and a concrete domain/protocol interaction are established. A general choice rule for efficient minimal fundamental domains, with performance guarantees across problem classes and branching algorithms, remains unspecified and unresolved.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46297} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+The parent Codex GPT-6 model has reviewed the written mathematical arguments at their declared scopes. This is model-assisted review, not independent human verification.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

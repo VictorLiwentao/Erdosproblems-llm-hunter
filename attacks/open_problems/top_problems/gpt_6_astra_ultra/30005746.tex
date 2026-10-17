@@ -1,0 +1,90 @@
+% TOP_PROBLEM: {"id": 30005746, "title": "Fermionic Character of Low-Lying Excitations", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "A mathematical answer must state a spectral or dynamical comparison and its limiting regime; the source does not reduce the question to comparing ground-state energies."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005746", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Determine whether low-energy excitations of the weakly interacting fermionic system admit a fermionic quasiparticle description.", "scope": "Established the exact finite free particle-hole description and calculated a quartic-interaction obstruction to closure on bare creators.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked canonical anticommutation after particle-hole transformation, the chemical-potential exclusion, fixed-number pairing and the occupation-dependent commutator. Model self-audit only; no independent human mathematical verification. Coordinator checked the particle-hole anticommutation change, free reference energy and occupation-dependent interaction commutator. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked canonical anticommutation after particle-hole transformation, the chemical-potential exclusion, fixed-number pairing and the occupation-dependent commutator. First remaining gap: Construct dressed fermionic excitations with spectral or dynamical errors uniform in the source weak-coupling and large-system regime. The inherited source status is preserved; original-target completion remains zero."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30005746; source catalogue code OWR-14298014-006
+\setcounter{section}{30005745}
+\section{Fermionic Character of Low-Lying Excitations}\label{30005746}
+{\small UnsolvedMath ID 30005746 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+Fermionic quasiparticles are effective low-energy excitations carrying fermionic statistics and described by an appropriate dispersion relation and effective creation operators. Weak interaction refers to the source perturbative regime of the many-fermion Hamiltonian. Low lying concerns energies near its many-body ground energy.
+
+\paragraph{Catalogue wording retained for traceability.}
+Do the low-lying excitations of a weakly interacting fermionic system have the character of fermionic quasiparticles?
+
+\paragraph{Scope and source qualification.}A mathematical answer must state a spectral or dynamical comparison and its limiting regime; the source does not reduce the question to comparing ground-state energies.
+\subsection{Short English statement}
+Determine whether low-energy excitations of the weakly interacting fermionic system admit a fermionic quasiparticle description.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Established the exact finite free particle-hole description and calculated a quartic-interaction obstruction to closure on bare creators.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30005746. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{Exact free reference and its statistics.} Let \(H_0=\sum_{j=1}^M\epsilon_j c_j^*c_j\) on a finite fermionic Fock space, with \(\{c_i,c_j^*\}=\delta_{ij}\). Choose \(\mu\) distinct from every \(\epsilon_j\), fill all modes below \(\mu\), and call this vector \(\Omega_F\). Define \(b_j=c_j\) for empty modes and \(b_j=c_j^*\) for filled modes. Direct use of the canonical anticommutation relations shows that the \(b_j\) again obey those relations and annihilate \(\Omega_F\). With \(N=\sum_jc_j^*c_j\),
+\[
+ H_0-\mu N-E_F=\sum_j|\epsilon_j-\mu|b_j^*b_j,
+ \qquad E_F=\sum_{\epsilon_j<\mu}(\epsilon_j-\mu).
+\]
+Thus free excitations are exactly fermionic in this finite grand-canonical reference. At fixed particle number the allowed excitations have matching particle and hole counts.
+\paragraph{Testing interaction closure.} Add \(\lambda c_1^*c_1c_2^*c_2\), with modes 1 and 2 distinct. Writing \(n_2=c_2^*c_2\), direct multiplication gives
+\[
+ [H_0+\lambda n_1n_2,c_1^*]
+ =\epsilon_1c_1^*+\lambda c_1^*n_2.
+\]
+The extra cubic expression is not a scalar multiple of \(c_1^*\) on the whole Fock space: its energy shift depends on the other occupation. Merely shifting one-particle energies therefore cannot be an exact universal interacting description.
+\paragraph{First source gap.} A weak-coupling quasiparticle theorem needs dressed operators and a controlled spectral or dynamical comparison near the ground state, uniform in the intended volume and energy window. Finite-dimensional perturbation estimates may deteriorate as the free level spacing vanishes. No such uniform estimate, lifetime result or effective fermionic dispersion is obtained here; the ground-state energy alone would not answer [S2].
+
+\paragraph{Verification and adversarial audit.}
+Checked canonical anticommutation after particle-hole transformation, the chemical-potential exclusion, fixed-number pairing and the occupation-dependent commutator. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked canonical anticommutation after particle-hole transformation, the chemical-potential exclusion, fixed-number pairing and the occupation-dependent commutator. First remaining gap: Construct dressed fermionic excitations with spectral or dynamical errors uniform in the source weak-coupling and large-system regime. The inherited source status is preserved; original-target completion remains zero.
+
+Coordinator checked the particle-hole anticommutation change, free reference energy and occupation-dependent interaction commutator. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Construct dressed fermionic excitations with spectral or dynamical errors uniform in the source weak-coupling and large-system regime.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30005746:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30005746 (OWR-14298014-006). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30005746:2}{S2}] Mini-Workshop: Mathematics of Many-body Fermionic Systems (2023), Oberwolfach Reports, DOI 10.4171/owr/2023/49, pp. 2809--2849. Original report and mathematical context.
+\url{https://doi.org/10.4171/owr/2023/49}.
+\end{itemize}
+\label{end:30005746}
+\end{document}

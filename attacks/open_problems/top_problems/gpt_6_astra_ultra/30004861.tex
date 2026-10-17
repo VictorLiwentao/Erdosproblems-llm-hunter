@@ -1,0 +1,224 @@
+% RESEARCH_DRAFT_SHA256: aa0f37e31cca24a51c48b9cfe2ac92e5f1f0bb544aeba94e6ea57e0e843eaf87
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004861, "title": "Submultiplicativity Gaps for Stabilizer Extent", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004861", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Material mathematical suggestions for the stabilizer-measurement and extent arguments are credited in the manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "How large can the submultiplicativity gap between $\\xi(\\phi\\otimes\\psi)$ and $\\xi(\\phi)\\xi(\\psi)$ be for quantum states $\\phi$ and $\\psi$?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. No sharp upper bound, matching family, or asymptotic extremal growth is obtained. The measurement bound is a known-style auxiliary estimate; tensor-power amplification lacks lower bounds for factor extents.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Stabilizer extent: a measurement bound and the failed amplification inference}
+\noindent UnsolvedMath ID 30004861; OWR-8415352-003. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a normalized pure $n$-qubit state $\psi$, its stabilizer extent is $\xi(\psi)=\min\{(\sum_j|c_j|)^2:\psi=\sum_jc_j\phi_j,\ \phi_j\text{ normalized stabilizer states}\}$. A stabilizer state is a common eigenstate of a maximal commuting subgroup of the qubit Pauli group. Product decompositions give $\xi(\phi\otimes\psi)\leq\xi(\phi)\xi(\psi)$. The gap may be described additively or by the ratio $\xi(\phi)\xi(\psi)/\xi(\phi\otimes\psi)$.
+\paragraph{Statement recorded in the supplied source.}
+How large can the submultiplicativity gap between $\xi(\phi\otimes\psi)$ and $\xi(\phi)\xi(\psi)$ be for quantum states $\phi$ and $\psi$? \href{https://doi.org/10.4171/owr/2021/49}{[S2]}
+\paragraph{Scope qualification.}
+Extent is defined here for pure states, as in the source passage. The supplied question does not select an additive or multiplicative gap or fix the number of qubits; these must be stated in any quantitative bound.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Quantify how much entangled stabilizer decompositions can improve on taking the product of optimal decompositions.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004861 (OWR-8415352-003). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Geometry and Optimization in Quantum Information (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/49, pp. 2665--2720
+\url{https://doi.org/10.4171/owr/2021/49}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+How large can the submultiplicativity gap between $\xi(\phi\otimes\psi)$ and $\xi(\phi)\xi(\psi)$ be for quantum states $\phi$ and $\psi$?
+
+\section{Source target and provenance of this attempt}
+The primary report, printed pages 2680--2682, already establishes
+strict submultiplicativity through the cited published paper and
+then asks how large the gap can be. Its duplicated factor in one
+printed line is interpreted as the product of the two extents,
+consistent with the preceding definitions and the preserved
+catalogue question. We treat normalized pure states and state
+both multiplicative and additive upper bounds as functions of
+the two qubit counts. These are auxiliary bounds with no
+sharpness or novelty claim.
+The root Codex GPT-6 model (exact serving revision not exposed)
+suggested the measurement-branch proof in its local auxiliary
+note. The drafting model audited that argument and supplies the
+complete stabilizer-closure proof below. This is additional
+model mathematical contribution, not human authorship or
+independent human verification.
+
+\section{Atomic norm and the measurement closure lemma}
+For an arbitrary vector $v$ on $n$ qubits define
+\[
+ a_n(v)=\inf\left\{\sum_j|c_j|:v=\sum_j c_jS_j,
+ \ S_j\text{ normalized stabilizer states}\right\}.
+\]
+The computational basis makes the feasible set nonempty.
+The triangle inequality for the Euclidean norm and then
+Cauchy--Schwarz in a computational-basis expansion give
+\[
+ \|v\|_2\le a_n(v)\le2^{n/2}\|v\|_2.
+\]
+Combining expansions proves the triangle inequality; scaling
+coefficients and then scaling back proves
+$a_n(zv)=|z|a_n(v)$. For normalized $v$, $a_n(v)^2=\xi(v)$.
+Taking infima suffices throughout, so attainment is not needed.
+
+We will use the following closure fact: measuring any subset of
+qubits of a normalized stabilizer state in the computational
+basis leaves, on every nonzero branch, a scalar times a normalized
+stabilizer state on the other qubits. Here is a full algebraic
+proof. An $N$-qubit stabilizer state has a group $G$ of $2^N$
+commuting Hermitian Pauli operators fixing it and not containing
+$-I$. The average $2^{-N}\sum_{g\in G}g$ is a projector: squaring
+it counts each group element $2^N$ times, and it is Hermitian.
+Its trace is one because only $I$ has nonzero trace. Thus its
+range is the one-dimensional stabilized space. The same argument
+shows that a commuting Pauli group of size $2^{N+1}$ with no
+$-I$ on $N$ qubits is impossible, because its average would be
+a projector of trace $1/2$.
+
+Measure the Pauli $Z$ of one qubit. If $Z$ or $-Z$ belongs to
+$G$, the outcome is deterministic. Otherwise some generator
+anticommutes with $Z$: if all commuted, adjoining $Z$ would
+give the impossible larger group just described. Choose such a
+generator $g_1$. By multiplying any other anticommuting generator
+by $g_1$, take the remaining $N-1$ independent generators to
+commute with $Z$. For either outcome sign $z\in\{-1,1\}$,
+replace $g_1$ by $zZ$. These $N$ generators are independent:
+a relation involving $Z$ would place $\pm Z$ in $G$, and a
+relation without it contradicts the original independence.
+They commute. The projected vector is nonzero because
+$\langle Z\rangle=\langle g_1Zg_1\rangle=-\langle Z\rangle=0$,
+so each outcome has probability $1/2$, and the new generators
+fix that vector. Thus they cannot generate $-I$.
+
+In either case choose $zZ$ as one generator. Every other generator
+commutes with $Z$ and hence has only $I$ or $Z$ on this qubit;
+multiplying by $zZ$ removes any $Z$ there. Restricting these
+$N-1$ independent generators to the remaining qubits preserves
+independence and the absence of $-I$. Their unique stabilized
+vector is the residual state. The measured qubit is fixed to its
+computational basis outcome. Iterating proves the stated closure
+lemma. For a normalized joint stabilizer $S_j$, write its branch
+vectors as $\alpha_{jx}s_{jx}$; orthogonality of measurement
+outcomes gives $\sum_x|\alpha_{jx}|^2=1$.
+
+\section{A complete non-sharp bound on both gap conventions}
+Let $\phi,\psi$ be normalized $n$- and $m$-qubit states. Product
+expansions into stabilizers are stabilizer expansions, since the
+tensor products of the two independent generator groups have
+the required number of commuting independent generators.
+Taking infima proves the usual upper bound. For the lower bound,
+start with any joint expansion
+\[
+ \phi\otimes\psi=\sum_j c_jS_j.
+\]
+Measure the last $m$ qubits. The outcome $x$ gives
+$\psi_x\phi=\sum_jc_j\alpha_{jx}s_{jx}$, so
+\[
+ |\psi_x|a_n(\phi)\le\sum_j|c_j||\alpha_{jx}|.
+\]
+Square and sum over outcomes. Normalization of $\psi$ and
+Cauchy--Schwarz for each pair of branch-amplitude vectors imply
+\[
+ \xi(\phi)\le
+ \sum_{i,j}|c_ic_j|\sum_x|\alpha_{ix}||\alpha_{jx}|
+ \le\left(\sum_j|c_j|\right)^2.
+\]
+Infimize and exchange the factors to obtain
+\[
+ \max\{\xi(\phi),\xi(\psi)\}
+ \le\xi(\phi\otimes\psi)\le\xi(\phi)\xi(\psi).
+\]
+The norm bounds above give $1\le\xi(\phi)\le2^n$ and
+$1\le\xi(\psi)\le2^m$. Consequently the multiplicative ratio
+and additive difference satisfy
+\[
+ 1\le\frac{\xi(\phi)\xi(\psi)}{\xi(\phi\otimes\psi)}
+ \le\min\{\xi(\phi),\xi(\psi)\}\le2^{\min(n,m)},
+\]
+\[
+ 0\le\xi(\phi)\xi(\psi)-\xi(\phi\otimes\psi)
+ \le2^{n+m}-2^{\max(n,m)}.
+\]
+For the last inequality, $ab-\max(a,b)$ is nondecreasing in
+each variable for $a,b\ge1$: on either side of $a=b$ its
+slope in either variable is either the other variable or the other
+variable minus one. Substitute $a\le2^n,b\le2^m$.
+If one factor is a stabilizer, its extent is one by the one-term
+expansion and the norm lower bound, so the two-sided inequality
+proves exact equality of the product extent with the other extent.
+The statements include a zero-qubit scalar factor, with extent one.
+
+\section{Why a strict example does not amplify automatically}
+A natural attempted route to a large gap takes tensor powers of
+a known strictly submultiplicative pair. Write
+\[
+ A_t=\xi(\phi^{\otimes t}),\quad
+ B_t=\xi(\psi^{\otimes t}),\quad
+ C_t=\xi((\phi\otimes\psi)^{\otimes t}).
+\]
+Submultiplicativity gives $A_t\le A_1^t$, $B_t\le B_1^t$ and
+$C_t\le C_1^t$. The numerator estimates are upper bounds, so
+they do not imply $A_tB_t/C_t\ge(A_1B_1/C_1)^t$.
+For an exact check of the logical failure, the abstract constant
+sequences $A_t=B_t=2$, $C_t=3$ obey all these submultiplicative
+inequalities, monotonicity in $t$, and
+$\max(A_t,B_t)\le C_t\le A_tB_t$, but their ratio is always
+$4/3$. These sequences are not claimed to be realized by states;
+they show that the displayed inequalities alone do not amplify
+a strict gap. Additional control of the factor tensor powers or
+an explicit growing family is missing.
+
+\section{Adversarial audit and remaining target}
+The audit checked independence of replacement generators,
+postselection normalization, the absolute values in the branch
+Cauchy--Schwarz step, infima versus attained decompositions, and
+the direction of all tensor-power inequalities. Arbitrary partial
+inner products with magic states were not assumed to preserve
+stabilizers. The known existence of strict inequality and the
+source's low-qubit multiplicativity statements are context,
+not re-proved or counted as new progress. No numerical experiment
+or theorem prover was used. The sharp extremal or asymptotic
+gap remains unresolved by this attempt.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. No sharp upper bound, matching family, or asymptotic extremal growth is obtained. The measurement bound is a known-style auxiliary estimate; tensor-power amplification lacks lower bounds for factor extents.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item OWR49/2021, Geometry and Optimization in Quantum Information; primary source passages read from cached report, with precise pages identified in each manuscript. \url{https://doi.org/10.4171/owr/2021/49}.
+\item Heimendahl, Montealegre-Mora, Vallentin and Gross, Stabilizer extent is not multiplicative, Quantum5,400(2021); primary publication abstract inspected for established context, not used as an external proof dependency. \url{https://doi.org/10.22331/q-2021-02-24-400}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} No sharp upper bound, matching family, or asymptotic extremal growth is obtained. The measurement bound is a known-style auxiliary estimate; tensor-power amplification lacks lower bounds for factor extents.
+\end{document}

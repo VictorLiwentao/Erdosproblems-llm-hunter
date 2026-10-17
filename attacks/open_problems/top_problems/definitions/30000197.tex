@@ -1,0 +1,54 @@
+% SUBMISSION: {"kind": "statement_only", "category": "top_problems", "problem_id": "30000197", "proposal_type": "established", "source": "Regelungstheorie (2005), Oberwolfach Reports, DOI 10.4171/owr/2005/11, pp. 565--645: https://doi.org/10.4171/owr/2005/11", "status_evidence": "The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.", "status_checked_on": "2026-10-11", "duplicate_check": "Canonical ID 30000197 and source code OWR-792-013 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed.", "attribution": "Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted."}
+% TOP_PROBLEM: {"id": 30000197, "title": "Nonadaptive Polynomial Stabilization of Minimum-Phase Linear Systems", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: null
+% ENTRY_KIND: statement_only
+% Imported from: computer_science_statements.tex; UnsolvedMath ID 30000197
+% Compile twice: lualatex 30000197.tex
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+% UnsolvedMath ID 30000197; source catalogue code OWR-792-013
+\setcounter{section}{30000196}
+\section{Nonadaptive Polynomial Stabilization of Minimum-Phase Linear Systems}\label{30000197}
+{\small\sffamily UnsolvedMath ID 30000197 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+$I$ is the identity matrix. $W^{1,\infty}$ consists of essentially bounded functions with essentially bounded weak derivative. The funnel restricts the output norm by the prescribed time-dependent bound; $\xi$ is the feedback controller\textquotesingle s internal state.
+\paragraph{Statement recorded in the supplied source.}
+Consider the single-input, single-output system $\dot{x}(t)=Ax(t)+bu(t)$, $y(t)=cx(t)$, where $A\in\mathbb{R}^{n\times n}$ and $b,c^\top,x^0\in\mathbb{R}^n$ are unknown. Assume that, for some known $r\in\mathbb{N}$, there is a $\rho\in\{1,\ldots,r\}$ such that $cA^ib=0$ for $i=1,\ldots,\rho-2$ and $cA^{\rho-1}b>0$, and that $$\det\begin{bmatrix}sI-A&b\\c&0\end{bmatrix}\ne0\qquad(\operatorname{Re}s\geq0).$$ For an arbitrary performance funnel $$\mathcal{F}_\varphi=\{(t,e)\in\mathbb{R}_{\geq0}\times\mathbb{R}^m:\varphi(t)\lVert e\rVert<1\},$$ where $\varphi\in W^{1,\infty}(\mathbb{R}_{\geq0},\mathbb{R})$, $\varphi(0)=0$, $\varphi(s)>0$ for $s>0$, and $\liminf_{s\to\infty}\varphi(s)>0$, construct a feedback law $$u(t)=-\gamma_r(k(t),y(t),\xi(t)),\qquad k(t)=\bigl[1-(\varphi(t)\lVert y(t)\rVert)^2\bigr]^{-1},\qquad \dot\xi(t)=f(y(t),u(t),\xi(t)),$$ with polynomial $\gamma_r$ and $f$, such that $y$ remains in $\mathcal{F}_\varphi$. \sref{30000197}{2}
+\paragraph{Scope qualification.}
+The supplied relative-degree condition begins at $i=1$ and the source writes a funnel in $\mathbb R^m$ for a scalar-output system. Both conventions are retained; missing $i=0$ cases and output dimension are not silently repaired.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Construct the prescribed polynomial feedback controller using only a known upper bound on relative degree, keeping the output inside every allowed funnel.
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30000197:1}{S1}] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000197 (OWR-792-013). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30000197:2}{S2}] Regelungstheorie (2005), Oberwolfach Reports, DOI 10.4171/owr/2005/11, pp. 565--645
+\url{https://doi.org/10.4171/owr/2005/11}.
+\item[\hypertarget{source:30000197:3}{S3}] upper-bound relative-degree adaptive result
+\url{https://doi.org/10.1016/j.automatica.2022.110678}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30000197 and source code OWR-792-013 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30000197}
+\end{document}

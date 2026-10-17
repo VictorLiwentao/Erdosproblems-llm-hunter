@@ -1,0 +1,158 @@
+% RESEARCH_DRAFT_SHA256: 42eaede42689b5c85f1129a49a8c5edaf2f1a3cc4dd1b0d49a7a118456c50c27
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001196, "title": "Determinantal certificates for safe categorical collapse before multiple imputation", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001196", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 20. Can algebraic techniques be used to collapse levels of categorical variables in order to improve the quality of multiple imputation without destroying the quality of inference?\n\nFrantisek Matus\n\nFrantisek Matus spoke about the representability of conditional independence (CI) structures.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Exact preservation and bias conditions are proved for one stated population imputation rule; the unspecified target, mechanism, finite-sample quality and optimization questions remain unresolved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Collapsing before categorical imputation: an exact selection-bias obstruction}
+\noindent UnsolvedMath ID 20001196; AIM-COMPUTATION-0034. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+Collapsing levels merges categories by summing corresponding table cells. Multiple imputation creates several completed datasets and combines estimates while accounting for uncertainty in missing values. The effect of collapsing depends on whether the coarser representation preserves the parameter or statistical functional of interest.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The source does not identify a model, estimand, missingness mechanism, or quantitative preservation criterion. The catalogue title does not supply missing determinant conditions. The supplied catalogue marks this record partially solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+Question 20. Can algebraic techniques be used to collapse levels of categorical variables in order to improve the quality of multiple imputation without destroying the quality of inference?
+
+Frantisek Matus
+
+Frantisek Matus spoke about the representability of conditional independence (CI) structures. \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The source asks whether categorical collapsing can improve multiple imputation while preserving inference.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001196 (AIM-COMPUTATION-0034). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-COMPUTATION-0034.
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 20. Can algebraic techniques be used to collapse levels of categorical variables in order to improve the quality of multiple imputation without destroying the quality of inference?
+
+Frantisek Matus
+
+Frantisek Matus spoke about the representability of conditional independence (CI) structures.
+
+\section{A specified preservation criterion}
+The original question does not define quality, a missingness mechanism,
+or the inferential target. We examine preservation of the coarsened
+population law, which is a necessary basic property of one saturated
+imputation strategy. No statement about finite-sample coverage, variance,
+or all possible estimands is inferred from it.
+Let $X$ be an observed finite covariate, $Z=g(X)$ a proposed collapse,
+$Y$ a categorical outcome, and $R$ its response indicator. Assume fine
+conditional independence $Y\perp R\mid X$ and response probabilities
+strictly between zero and one. Fix one value $z$ of positive probability,
+and write, within its fiber,
+\[
+\pi_i=\Pr(X=i\mid Z=z),\quad
+\rho_i=\Pr(R=1\mid X=i),\quad q_{iy}=\Pr(Y=y\mid X=i).
+\]
+Only $i$ with $\pi_i>0$ need be retained. Put
+$\bar\rho=\sum_i\pi_i\rho_i$, so $0<\bar\rho<1$.
+
+\paragraph{Exact law and imputation bias.}
+By conditioning and fine-level independence, the population, respondent
+and missing-case outcome probabilities in the collapsed cell are
+\[
+q_y=\sum_i\pi_iq_{iy},\quad
+q_y^R=\frac{\sum_i\pi_i\rho_iq_{iy}}{\bar\rho},\quad
+q_y^M=\frac{\sum_i\pi_i(1-\rho_i)q_{iy}}{1-\bar\rho}.
+\]
+If missing outcomes are imputed from the collapsed respondent law
+$q^R$, the resulting population-limit completed law is
+$\bar\rho q^R+(1-\bar\rho)q^R=q^R$. Its bias for the coarsened law is
+\[
+q_y^R-q_y=
+\frac{\sum_i\pi_i\rho_iq_{iy}
+       -(\sum_i\pi_i\rho_i)(\sum_i\pi_iq_{iy})}{\bar\rho}
+=\frac{\operatorname{Cov}_{\pi}(\rho_i,q_{iy})}{\bar\rho}.
+\]
+Moreover $q^R=q^M$ holds exactly when this covariance vanishes for
+every $y$, since $q=\bar\rho q^R+(1-\bar\rho)q^M$.
+Thus fine-level independence does not automatically remain independence
+after collapsing. Multiplying by the positive denominators gives
+explicit polynomial equalities in the underlying cell probabilities;
+positivity of the denominators is part of the argument.
+
+\paragraph{A complete two-level test and a counterexample.}
+For a fiber consisting of two levels, direct expansion of the covariance
+reduces it to
+\[
+\pi_1\pi_2(\rho_1-\rho_2)(q_{1y}-q_{2y}).
+\]
+Since $\pi_1\pi_2>0$, all the required equalities hold exactly when
+$\rho_1=\rho_2$ or the two full outcome distributions coincide.
+This is both necessary and sufficient in the stated two-level setting.
+It does not assert the same dichotomy for larger fibers, where
+covariances can cancel.
+Take $\pi_1=\pi_2=1/2$, $(\rho_1,\rho_2)=(3/4,1/4)$, and binary
+success probabilities $(q_{11},q_{21})=(3/4,1/4)$.
+Construct $Y$ and $R$ independently within each value of $X$; this
+realizes all the assumptions with positive probabilities. Then
+$\bar\rho=1/2$, $q_1=1/2$, $q_1^R=5/8$ and $q_1^M=3/8$.
+Collapsed respondent imputation therefore has success-probability bias
+$1/8$. The explicit numbers follow from
+$\sum_i\pi_i\rho_iq_{i1}=5/16$.
+By contrast, retaining $X$ and imputing from its true conditional laws
+$q_i$ reproduces each stratum law and hence, after collapsing, exactly
+$\sum_i\pi_iq_i=q$. This comparison concerns the population laws,
+not estimated finite-sample distributions.
+
+\section{Attempted inference and remaining gap}
+The failed inference is that reducing categories preserves a fine-level
+missing-at-random condition merely because it pools more observations.
+The counterexample disproves it with strictly positive response rates.
+A useful data-driven choice of collapse would additionally need a target,
+assumptions identifying $q_i$, and an estimation/uncertainty criterion.
+The primary AIM Question 20 was checked; these ingredients are not fixed
+there. The audit checked the conditional weights after selection,
+respondent versus missing-case laws, the exact two-level quantifier, and
+probability preservation versus quality of multiple-imputation inference.
+No numerical experiment was run. The displayed covariance calculation is
+a known elementary selection effect, not a novel general safe-collapse
+method or a solution of the original broad question.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Exact preservation and bias conditions are proved for one stated population imputation rule; the unspecified target, mechanism, finite-sample quality and optimization questions remain unresolved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Computational Algebraic Statistics, prepared by Seth Sullivant, version 27 March 2004; the original numbered source question and its adjacent scope were inspected on 11 October 2026. \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Exact preservation and bias conditions are proved for one stated population imputation rule; the unspecified target, mechanism, finite-sample quality and optimization questions remain unresolved.
+\end{document}

@@ -1,0 +1,157 @@
+% RESEARCH_DRAFT_SHA256: 1296711538c0b3d7aeea60c9cc811f8a3f7c3863273dff4941d578a279a4fe38
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001263, "title": "Deformation transport, Fesenko transforms, and a Riemann--Roch size barrier", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001263", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 13.\n\n(a) Do the p-adic point counting methods of Lauder which allow you to go from one curve from another in a family apply to p-adic methods without the linear factor? (Edixhoven) (b) Do Fesenko's methods for proving good properties of Hasse-Weil L-functions of curves over number fields provide anything useful for computations? (Edixhoven)", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Formal transport is proved, but convergence, specialization precision and a specified algorithmic cost bound remain absent; the Fesenko part is unresolved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Deformation transport: a formal identity and the specialization obstruction}
+\noindent UnsolvedMath ID 20001263; AIM-COMPUTATION-0101. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A $p$-adic computation uses arithmetic completed with respect to divisibility by the prime $p$. Point counting computes the number of rational points on an algebraic curve over a finite field. Deformation methods transfer suitable data between curves in a parameterized family. A Hasse--Weil $L$-function packages arithmetic data from reductions of a curve at primes.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The linear factor, algorithmic parameters, and desired use of Fesenko methods are not identified. The two parts remain method-transfer prompts without a claimed running-time improvement. The supplied catalogue marks this record partially solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+Question 13.
+
+(a) Do the p-adic point counting methods of Lauder which allow you to go from one curve from another in a family apply to p-adic methods without the linear factor? (Edixhoven) (b) Do Fesenko's methods for proving good properties of Hasse-Weil L-functions of curves over number fields provide anything useful for computations? (Edixhoven) \href{https://aimath.org/WWN/primesinp/primesinp.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The source proposes transferring point-counting methods and asks whether another arithmetic theory helps computation.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001263 (AIM-COMPUTATION-0101). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-COMPUTATION-0101.
+\url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 13.
+
+(a) Do the p-adic point counting methods of Lauder which allow you to go from one curve from another in a family apply to p-adic methods without the linear factor? (Edixhoven) (b) Do Fesenko's methods for proving good properties of Hasse-Weil L-functions of curves over number fields provide anything useful for computations? (Edixhoven)
+
+\section{Scope recovered from Question 13}
+The question asks about transferring Lauder's deformation method to
+other methods without a linear factor, and about computational use of
+Fesenko's results. It does not specify the variable in that factor, a
+uniform input model, or a particular Fesenko formula to implement.
+The lecture does supply a differential-system transport mechanism.
+The following attempt isolates what this mechanism proves algebraically
+and the first analytic step that it does not justify. No general
+complexity improvement or consequence of an unspecified formula is claimed.
+
+\paragraph{Formal transport, with a complete proof.}
+Let $K$ be a characteristic-zero field, $A(t)$ an $r$ by $r$ matrix
+over $K[[t]]$, and $p$ a positive integer. There is a unique matrix
+$U(t)$ satisfying $U'=AU$ and $U(0)=I$: writing power series gives
+\[
+(n+1)U_{n+1}=\sum_{i+j=n}A_iU_j,
+\]
+which recursively determines every coefficient. Its constant term is
+invertible, so its formal inverse exists, also recursively by equating
+coefficients of $UU^{-1}=I$. For any constant matrix $F_0$, put
+\[
+F(t)=U(t)F_0U(t^p)^{-1}.
+\]
+The product rule and differentiation of $VV^{-1}=I$ show that
+\[
+F'=AF-p t^{p-1}F A(t^p),\qquad F(0)=F_0.
+\]
+Conversely if this equation holds, differentiating
+$U(t)^{-1}F(t)U(t^p)$ gives zero, since the two connection terms
+cancel. A formal series in characteristic zero with derivative zero
+is constant. The constant is $F_0$, proving the formula and uniqueness.
+This is a conventional left-action normalization; the transposed or
+semilinear normalization in a cohomology implementation must be checked
+separately. No equality between unmentioned implementations is assumed.
+
+\paragraph{The attempted improvement and its first gap.}
+One tempting route is to compute $F_0$ cheaply on a special fiber,
+transport formally, and simply substitute the target parameter.
+Formal solvability alone does not justify this substitution. For
+example in $\mathbb Q_p[[t]]$ with odd $p$, take $r=1$,
+$A(t)=(1-t)^{-1}$, $U(t)=(1-t)^{-1}$ and $F_0=1$.
+Then
+\[
+F(t)=\frac{1-t^p}{1-t}=1+t+\cdots+t^{p-1}.
+\]
+At $t=2$ the rational functions $U(t)$ and $U(t^p)$ are both
+defined, but the series $\sum_{j\ge0}2^j$ does not converge
+$p$-adically: its terms have valuation zero, whereas terms of any
+convergent series must tend to zero. Thus evaluating separately the
+two transported series is unjustified even though their rational
+combination has a perfectly good value. In this example cancellation
+repairs the issue, but it requires recognizing the rational identity.
+It is not supplied by the formal differential equation alone.
+
+\paragraph{Why initial precision does not automatically propagate.}
+For a matrix over a valued field set $v(M)$ equal to the minimum
+valuation of its entries, with $v(0)=+\infty$. Every product entry
+is a sum of products, so $v(MN)\ge v(M)+v(N)$ by the
+nonarchimedean triangle inequality. Consequently, replacing $F_0$ by
+$F_0+E$ with $v(E)\ge N$ changes a well-defined specialization of
+$F$ by a matrix of valuation at least
+\[
+N+v(U(t))+v(U(t^p)^{-1}).
+\]
+This lower bound need not be $N$. In the scalar case multiplication
+by $p^{-s}$ loses exactly $s$ digits: $p^{-s}p^N=p^{N-s}$.
+Therefore a promised precision at a special fiber is not by itself
+a promised precision at the target. Bounds on denominators, evaluation
+domains and required truncation lengths are part of the algorithm,
+not consequences of the displayed transport identity.
+
+\section{Audit and unresolved parts}
+The primary Question 13 and Lauder lecture were inspected. The proof
+checks the order of the matrix factors rather than treating them as
+commuting scalars. The explicit counterexample concerns a proposed
+evaluation step, not the correctness of Lauder's method. It does not
+establish a lower bound on all deformation algorithms. No implementation,
+point count, or performance benchmark was run. The other half of the
+question supplies no particular Fesenko computational construction in
+the question text, and this attempt proves no consequence for it.
+A specified algorithm with convergence and precision bounds, followed
+by a cost comparison in specified parameters, remains necessary.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Formal transport is proved, but convergence, specialization precision and a specified algorithmic cost bound remain absent; the Fesenko part is unresolved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Future directions in algorithmic number theory, workshop 24--28 March 2003, report version 30 April 2003; original question, relevant lecture context and adjoining remarks inspected on 11 October 2026. \url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Formal transport is proved, but convergence, specialization precision and a specified algorithmic cost bound remain absent; the Fesenko part is unresolved.
+\end{document}

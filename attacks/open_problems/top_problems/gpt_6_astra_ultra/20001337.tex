@@ -1,0 +1,115 @@
+% RESEARCH_DRAFT_SHA256: 8bcf22116105d404d1017bdbbfc0657710666d7c73c729a7c501aec38c1ecc61
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001337, "title": "The real cost of the CSIDH hidden-shift attack", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001337", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and written mathematical review at the declared scope; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The real cost of the CSIDH hidden-shift attack; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Exact cyclic vectorization and a cost crossover; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch015 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 20001337; source catalogue code AIM-CRYPTOGRAPHY-0024
+\section{The real cost of the CSIDH hidden-shift attack}\label{20001337}
+{\small UnsolvedMath ID 20001337 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A hidden-shift instance consists of functions $f_0,f_1$ on a group $G$ related by $f_1(x)=f_0(xs)$ for an unknown shift $s$, with the additive version $f_1(x)=f_0(x+s)$ for abelian groups. The task is to recover a compatible shift from the stipulated function access. CSIDH uses an ideal-class group action on a set of supersingular elliptic curves. Recovering the action element relating two curves is a vectorization problem, and hidden-shift algorithms are one quantum attack approach. Resource cost includes evaluating the action as well as processing hidden-shift states.
+\paragraph{Statement recorded in the supplied source.}
+Are there CSIDH attacks better than hidden shift? What is the cost of the hidden shift attack? \href{http://aimpl.org/quantumalg/5/}{[S2]}
+\paragraph{Scope qualification.}
+No fixed CSIDH parameter set or computational resource model is supplied; a concrete cost comparison must state both.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+What does the hidden-shift attack on CSIDH cost, and are there better attacks?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001337 (AIM-CRYPTOGRAPHY-0024). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-CRYPTOGRAPHY-0024
+\url{http://aimpl.org/quantumalg/5/}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001337 and source code AIM-CRYPTOGRAPHY-0024 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001337}
+
+\section{Literature and context check}
+Fresh retrieval of the original AIM quantum-algorithm problem pages failed (web timeout and direct network/DNS failure; an escalated retry of the related chapter-four page also failed certificate validation). The supplied original extract remains the source text; successful fresh access to those pages is not claimed. The primary Bonnetain--Schrottenloher abstract, Quantum Security Analysis of CSIDH, was read. It explicitly separates hidden-shift processing from coherent isogeny evaluation and discusses non-asymptotic tradeoffs. Its numerical security conclusions are not recomputed here. The source supplies no fixed parameter set; the following free cyclic-action model examines which algebraic reduction is valid and why query counts alone do not rank concrete implementations.
+\section{Research attempt: Exact cyclic vectorization and a cost crossover}
+Let a cyclic group $G=\langle g\rangle$ of known order $N$ act freely and transitively on a finite set, with base point $E_0$ and target $E_1=g^aE_0$. ``Freely'' means $g^uE_0=g^vE_0$ only if $u=v\pmod N$. Define $F_0(u)=g^uE_0$ and $F_1(u)=g^uE_1$. The action law gives $F_1(u)=F_0(u+a)$, and freeness gives injectivity. This is an exact hidden-shift reduction in this model, but evaluating either oracle is itself an action computation.
+
+An elementary comparison algorithm is explicit. Put $m=\lceil\sqrt N\rceil$, store the baby points $g^iE_0$ for $0\leq i<m$, and compare them to the giant points $g^{-jm}E_1$ for $0\leq j<m$. Writing the representative $0\leq a<N$ as $a=jm+i$ ensures $0\leq i,j<m$, so a collision exists. Every collision gives $a=jm+i\pmod N$ by freeness. Repeated application of $g$ builds the baby points, and repeated application of $g^{-m}$ builds the giants. Thus there are at most $2m$ action applications plus group-element preparation and comparisons, with $m$ stored point encodings. These applications need not have equal physical cost: the ability to represent $g^{-m}$ does not certify a cheap coherent or classical evaluation of its action. The cyclic presentation itself is an additional hypothesis, not an assertion that every CSIDH class group is cyclic and supplied in this form.
+
+For a declared sequential implementation, if an algorithm uses $Q$ action calls of cost $c$ each and $C$ other gates, the total is $Qc+C$. The omitted factor can reverse a comparison. To make this exact, let $u=2^r>1$ and consider two hypothetical routines
+\[
+ (Q_A,C_A)=(u,u^3),\qquad (Q_B,C_B)=(u^2,u).
+\]
+Their total-cost difference is
+\[
+ T_A-T_B=u^3-u-(u^2-u)c=(u^2-u)(u+1-c).
+\]
+Routine B is cheaper for $c<u+1$, whereas A is cheaper for $c>u+1$, despite A having fewer oracle calls. These are illustrative resource profiles, not claimed CSIDH algorithms. If costs instead vary with the queried representation, replace $Qc$ by the actual sum of call costs; parallel depth, peak memory, and total gates are also different resources.
+
+The failed route is therefore precise: an exact group-action reduction plus a small abstract query count is insufficient to give a concrete attack cost or to prove superiority over other attacks. It leaves the coherent action circuit, representations, precision and storage model unaccounted for.
+\section{Verification and adversarial audit}
+The baby/giant proof handles $N$ not a square because $m^2\geq N$; $N=1$ is trivial. Freeness, rather than merely transitivity, is the uniqueness hypothesis. The cost crossover is an exact identity and is not presented as a measured circuit estimate.
+\paragraph{Audit corrections.} The action oracle is costed separately from the hidden-shift routine. Cyclic presentation, equal call cost, and sequential gate accounting are identified as auxiliary hypotheses.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+No parameter-specific CSIDH gate count, new attack, or optimal attack comparison is established. The generic algorithm and crossover expose concrete missing costs but do not resolve either bundled source question.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://eprint.iacr.org/2018/537} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and written mathematical review at the declared scope; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

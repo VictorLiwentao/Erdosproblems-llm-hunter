@@ -1,0 +1,85 @@
+% TOP_PROBLEM: {"id": 20002509, "title": "Paramodular consistency tests for Calabi-Yau counting series", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "This is an exploratory programme. A proof for one counting series or one level is a case of the programme, and no universal modularity assertion is added. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002509", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Determine how paramodular groups organize counting invariants of Calabi–Yau threefolds.", "scope": "Derived a necessary degree-swap relation for level-one Siegel modular Fourier coefficients, with the weight sign explicit. No specific Calabi-Yau paramodular counting series is identified.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked symplectic block action, determinant sign, even/odd weights, Fourier uniqueness and failure to transfer a level-one symmetry automatically to arbitrary levels. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the embedded level-one symplectic coordinate swap and determinant weight sign, with the paramodular group distinguished. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked symplectic block action, determinant sign, even/odd weights, Fourier uniqueness and failure to transfer a level-one symmetry automatically to arbitrary levels. Scope remains limited: Specify the geometric series, polarization lattice, level, weight and character, then prove all group transformation laws."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002509; source catalogue code AIM-PHYSICS-0017
+\setcounter{section}{20002508}
+\section{Paramodular consistency tests for Calabi-Yau counting series}\label{20002509}
+{\small UnsolvedMath ID 20002509 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}A paramodular group is an arithmetic subgroup acting on degree-two Siegel upper half-space, associated with a polarization type or level. A Calabi--Yau counting series packages enumerative invariants into a generating function. A paramodular interpretation must identify the group, weight, variables and transformation law of that series.
+
+\paragraph{Catalogue wording retained for traceability.}
+Investigate the role of paramodular groups in counting problems in Calabi Yau 3-folds
+\paragraph{Scope and source qualification.}This is an exploratory programme. A proof for one counting series or one level is a case of the programme, and no universal modularity assertion is added. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Determine how paramodular groups organize counting invariants of Calabi–Yau threefolds.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derived a necessary degree-swap relation for level-one Siegel modular Fourier coefficients, with the weight sign explicit. No specific Calabi-Yau paramodular counting series is identified.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{A level-one Fourier consistency test.}Consider a degree-two Siegel variable \(Z=\begin{pmatrix}\tau&z\\z&\sigma\end{pmatrix}\) with positive definite imaginary part, and a holomorphic Fourier series
+\[F(Z)=\sum_{n,r,m}a(n,r,m)e^{2\pi i(n\tau+rz+m\sigma)}.
+\]
+In the level-one symplectic group, the block matrix induced by \(A=\begin{pmatrix}0&1\\1&0\end{pmatrix}\) acts by \(Z\mapsto AZA^T\), interchanging \(\tau\) and \(\sigma\). For an integer-weight form satisfying \(F((AZ+B)(CZ+D)^{-1})=\det(CZ+D)^kF(Z)\), this element has factor \((-1)^k\). Uniqueness of Fourier coefficients therefore forces
+\[a(n,r,m)=(-1)^k a(m,r,n).
+\]
+For even weight this is symmetry in the two degree indices. A candidate counting series violating it cannot have the claimed full level-one transformation law with that weight and trivial character.
+\paragraph{Why this is only a test.}Passing one generator relation is far from proving modularity. Moreover a general paramodular level has a different lattice and may have an involution only after adjoining extra symmetries or a character. The coefficient swap above cannot be imposed without checking the actual group. It is not a theorem that all Calabi--Yau counting series satisfy it.
+\paragraph{First gap.}The source fixes no counting theory, level, weight or variable dictionary. A concrete geometric series and its polarization lattice must first be supplied; then transformation laws must be proved for the full arithmetic group, with convergence or formal meaning specified. This standard symmetry calculation is a falsification criterion for one proposed interpretation, not evidence of a paramodular structure for an unspecified Calabi--Yau theory.
+
+\paragraph{Verification and adversarial audit.}
+Checked symplectic block action, determinant sign, even/odd weights, Fourier uniqueness and failure to transfer a level-one symmetry automatically to arbitrary levels. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked symplectic block action, determinant sign, even/odd weights, Fourier uniqueness and failure to transfer a level-one symmetry automatically to arbitrary levels. Scope remains limited: Specify the geometric series, polarization lattice, level, weight and character, then prove all group transformation laws.
+
+Coordinator checked the embedded level-one symplectic coordinate swap and determinant weight sign, with the paramodular group distinguished. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Specify the geometric series, polarization lattice, level, weight and character, then prove all group transformation laws.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002509:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002509 (AIM-PHYSICS-0017). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002509:2}{S2}] American Institute of Mathematics, Gromov-Witten invariants and number theory, source item 3.4.
+\url{http://aimpl.org/gromwitnumthry/3/}.
+\end{itemize}
+\label{end:20002509}
+\end{document}

@@ -1,0 +1,172 @@
+% RESEARCH_DRAFT_SHA256: d5088a03abfa45e4e99263f2374dced990782c89a1988f05493d0ca0a07c7098
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001267, "title": "Deformation, specialization, and plane-curve genus", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001267", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 17.\n\n(a) Can deformation theory be applied `-adically? (Various) (b) Under what circumstances do Betti numbers stay the same under reduction modulo p?(Various) (c) Is finding the genus of a plane curve polynomial time (in the degree)? (Wan)\n\nProblem/", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The plane degree formula is proved for arithmetic genus and explicitly fails for normalization genus; no general genus algorithm, Betti reduction or ell-adic deformation method is supplied.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Genus and deformation: the degree formula, singular corrections, and omitted hypotheses}
+\noindent UnsolvedMath ID 20001267; AIM-COMPUTATION-0105. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a prime $\ell$, $\ell$-adic methods study compatible data modulo powers of $\ell$. Betti numbers are dimensions of the relevant cohomology spaces. The genus of a plane curve normally means the genus of its smooth projective normalization when singularities are allowed. The source bundles deformation, reduction, and genus-computation questions.
+\paragraph{Statement recorded in the supplied source.}
+Question 17.
+
+(a) Can deformation theory be applied `-adically? (Various) (b) Under what circumstances do Betti numbers stay the same under reduction modulo p?(Various) (c) Is finding the genus of a plane curve polynomial time (in the degree)? (Wan)
+
+Problem/ \href{https://aimath.org/WWN/primesinp/primesinp.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The source does not fix which Betti theory, reduction hypotheses, curve representation, or treatment of reducible curves applies; these choices remain part of the formulation.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can deformation be studied with ell-adic methods, when are Betti numbers preserved by reduction, and can plane-curve genus be computed in polynomial time?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001267 (AIM-COMPUTATION-0105). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0105
+\url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 17.
+
+(a) Can deformation theory be applied `-adically? (Various) (b) Under what circumstances do Betti numbers stay the same under reduction modulo p?(Various) (c) Is finding the genus of a plane curve polynomial time (in the degree)? (Wan)
+
+Problem/
+
+\section{The three-part scope}
+Question 17 asks about $\ell$-adic deformation, reducing Betti-number
+computation to positive characteristic, and polynomial-time genus
+computation in the degree. It specifies neither a complete input
+encoding nor the admissible singularities and reductions. We attempt
+the simplest degree-based genus shortcut, compute exactly why it fails
+for a singular curve, and examine the smoothness issue that a reduction
+argument would have to control. The three broad questions are not
+resolved by these calculations.
+
+\paragraph{What degree alone actually determines for a plane equation.}
+Let $F\in k[X,Y,Z]$ be a nonzero homogeneous polynomial of degree
+$d$, and $R=k[X,Y,Z]/(F)$. For $t\ge d$, multiplication by $F$
+is injective on the degree-$t-d$ piece, because the polynomial ring
+over a field is an integral domain. Its image is exactly the
+degree-$t$ part of the principal ideal. Counting monomials therefore
+gives
+\[
+\dim_k R_t=\binom{t+2}{2}-\binom{t-d+2}{2}
+ =dt+1-\frac{(d-1)(d-2)}2.
+\]
+With the convention that the arithmetic genus is one minus the
+constant coefficient of this linear Hilbert polynomial, it is
+$(d-1)(d-2)/2$. This proof computes the arithmetic invariant from
+the equation. It has not proved that the genus of the normalization
+of a singular curve equals that number.
+
+\paragraph{An explicit failure of that substitution.}
+Over $\mathbb Q$ consider the projective cubic
+\[
+C:\quad Y^2Z=X^2(X+Z).
+\]
+It is irreducible. In the affine chart $Z=1$, reducibility of
+$y^2-x^2(x+1)$ in $\mathbb Q[x,y]$ would, by division in
+$\mathbb Q(x)[y]$, force $x+1$ to be a square in $\mathbb Q(x)$.
+This is impossible: after writing a rational square in lowest terms,
+the exponent of the irreducible factor $x+1$ is even, whereas it
+is one for $x+1$. Any putative homogeneous factor disappearing on
+this affine chart would be a power of $Z$, which does not divide
+the equation. Thus the projective curve is irreducible as well.
+
+Away from $x=0$, put $u=y/x$. The equation becomes
+$u^2=x+1$, so $x=u^2-1$ and $y=u(u^2-1)$.
+These rational substitutions are inverse and identify the function
+field of $C$ with $\mathbb Q(u)$. More explicitly the projective map
+\[
+[U:V]\longmapsto[(U^2-V^2)V:U(U^2-V^2):V^3]
+\]
+has no simultaneous zero coordinates: at $V=0$ the middle coordinate
+is nonzero, and at $V\ne0$ the last is nonzero. Its generic inverse
+is $u=y/x$. Thus it is a birational parametrization by the projective
+line, and the nonsingular projective model of the function field is
+$\mathbb P^1$.
+
+For clarity, the genus of this model is zero directly: a regular
+differential on the affine line has form $h(u)du$ with polynomial
+$h$, because a rational function with no finite pole has constant
+denominator after cancellation. At infinity set $v=1/u$. Then
+$u^jdu=-v^{-j-2}dv$, so every nonzero polynomial $h$ produces a
+pole there. There are no nonzero global regular differentials.
+The normalization genus, defined as their dimension, is therefore
+zero, whereas the preceding Hilbert computation gives arithmetic
+genus one. The two preimages $u=1,-1$ of the affine point $(0,0)$
+also exhibit the two branches responsible for the failed shortcut.
+This is a counterexample to substituting the plane degree formula
+for normalization genus, not to polynomial-time genus computation.
+
+\paragraph{A deformation check that cannot be omitted.}
+The family
+$F_t=y^2-x^2(x+1)-t$ has a singular affine fiber only when
+$2y=0$ and $x(3x+2)=0$. In characteristic zero these equations
+give $(x,y)=(0,0)$ or $(-2/3,0)$, and substitution gives
+$t=0$ or $t=-4/27$. The projective point at infinity is
+$[0:1:0]$; the partial derivative with respect to $Z$ of
+$Y^2Z-X^3-X^2Z-tZ^3$ equals one there, so it is never singular.
+Hence a chosen parameter can move between a singular fiber and a
+smooth one even in this elementary degree-three family. Likewise
+reduction of coefficients requires checking the resulting derivatives
+in the new characteristic; division by 2 or 3 in the preceding
+calculation cannot simply be copied into those characteristics.
+No claim about the actual Betti numbers of the singular cubic is
+inferred from its normalization genus: those are different invariants.
+
+\section{Audit and remaining questions}
+The primary Question 17 was inspected. The attempted fast algorithm
+``read the degree and output the plane genus formula'' has a completely
+checked counterexample. A correct normalization-genus algorithm must
+account for singularities, and a deformation or reduction proof must
+state the hypotheses preserving the particular cohomological invariant.
+The degree parameter alone also leaves field representation and
+coefficient bit size unspecified; this observation is not a lower
+bound excluding algorithms in a stated arithmetic model. No general
+Betti-number comparison theorem, $\ell$-adic algorithm, normalization
+algorithm, or complexity bound is established here. All calculations
+are symbolic hand calculations, with no machine geometry computation.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The plane degree formula is proved for arithmetic genus and explicitly fails for normalization genus; no general genus algorithm, Betti reduction or ell-adic deformation method is supplied.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Future directions in algorithmic number theory, workshop 24--28 March 2003, report version 30 April 2003; original question, relevant lecture context and adjoining remarks inspected on 11 October 2026. \url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The plane degree formula is proved for arithmetic genus and explicitly fails for normalization genus; no general genus algorithm, Betti reduction or ell-adic deformation method is supplied.
+\end{document}

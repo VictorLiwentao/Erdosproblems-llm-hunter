@@ -1,0 +1,95 @@
+% TOP_PROBLEM: {"id": 30000341, "title": "Bounded Local Observables in Factorizing Quantum Field Theories", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The target is the report's admissible factorizing S-matrix family and wedge construction. Its modular-nuclearity subfamily already has nontrivial double-cone observables; those positive cases do not settle every admissible S-matrix."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000341", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Determine when a wedge-local theory built from a factorizing scattering matrix contains observables in bounded spacetime regions.", "scope": "Proves a conditional tensor-factor mechanism and an elementary counterexample to an insufficient split-inclusion argument.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the explicit matrix relative commutant and separated the toy inclusion from the actual vacuum wedge net; no modular nuclearity theorem is invoked without proof. Model self-audit only; no independent human proof checking. Coordinator checked the sufficient tensor-algebra inclusion and scalar relative commutant of the equality example. Extra modular hypotheses are correctly left unproved. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked the explicit matrix relative commutant and separated the toy inclusion from the actual vacuum wedge net; no modular nuclearity theorem is invoked without proof. Retained unresolved status and zero original-target progress; Independent relative-commutant operators or the needed standardness/nuclearity hypotheses have not been established for arbitrary admissible S-matrices."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30000341; source catalogue code OWR-1109-001
+\setcounter{section}{30000340}
+\section{Bounded Local Observables in Factorizing Quantum Field Theories}\label{30000341}
+{\small UnsolvedMath ID 30000341 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} In two-dimensional Minkowski spacetime a wedge is an unbounded causal region and a double cone is the bounded intersection of a future and a past light cone. The report constructs a wedge-local net $W\mapsto A(W)$ on a Hilbert space from a factorizing two-particle scattering matrix $S$. For an operator algebra $A$, its commutant is $A'=\{T:TX=XT\ \forall X\in A\}$. If $W_1\subset W_2$ and $O=W_1'\cap W_2$ is a double cone, the candidate local algebra is $A(O)=A(W_1)'\cap A(W_2)$. Nontrivial means $A(O)\ne\mathbb C I$.
+
+\paragraph{Source scope and qualifications.} The target is the report's admissible factorizing S-matrix family and wedge construction. Its modular-nuclearity subfamily already has nontrivial double-cone observables; those positive cases do not settle every admissible S-matrix.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+For the wedge-local net associated with a factorizing two-dimensional S-matrix, do nontrivial observables localized in bounded double cones exist? Equivalently, for nested wedges $W_1\subset W_2$, is the double-cone algebra $A(W_1)'\cap A(W_2)$ nontrivial?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: Modular nuclearity has produced nontrivial bounded-region algebras and full inverse-scattering models for a large class of factorizing S-matrices, but not for every admissible S-matrix. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Determine when a wedge-local theory built from a factorizing scattering matrix contains observables in bounded spacetime regions.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proves a conditional tensor-factor mechanism and an elementary counterexample to an insufficient split-inclusion argument.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Testing nontriviality through split inclusions.} An elementary operator-algebra mechanism would work if the wedge inclusion admitted a spatial tensor representation
+\[
+ A(W_1)\subset B(\mathcal K)\otimes I\subset A(W_2)\subset B(\mathcal K\otimes\mathcal L),
+\]
+and if $A(W_2)$ also contained $I\otimes B(\mathcal L)$ with $\dim\mathcal L>1$. Under these explicit hypotheses $I\otimes B(\mathcal L)\subset A(W_1)'\cap A(W_2)$, and any nontrivial projection on $\mathcal L$ gives a bounded nonscalar local observable. Commutation is immediate on elementary tensors and extends by continuity.
+
+\paragraph{Why an intermediate type-I factor alone is insufficient.} Set $\mathcal K=\mathbb C^2$, $\mathcal L=\mathbb C^2$, and $A(W_1)=A(W_2)=B(\mathcal K)\otimes I$. There is a type-I factor between the two algebras, but the relative commutant inside $A(W_2)$ is only $\mathbb C I$. Indeed writing an element as $X\otimes I$, commutation with all matrix units forces $X$ scalar. The preceding sufficient criterion specifically needs independent operators in the larger algebra, not just an ambient tensor decomposition.
+
+\paragraph{Attempt outcome.} This exposes the first missing implication in a bare ``split therefore nontrivial'' argument. The source's modular nuclearity method has additional vacuum and standardness information; none of it is proved by the toy inclusion. To treat the full factorizing-S-matrix family one must obtain those structural hypotheses from the actual wedge representation, or construct a nonscalar element directly. No result for an S-matrix outside the already known subfamily is established here.
+
+\paragraph{Verification and adversarial audit.}
+Checked the explicit matrix relative commutant and separated the toy inclusion from the actual vacuum wedge net; no modular nuclearity theorem is invoked without proof. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked the explicit matrix relative commutant and separated the toy inclusion from the actual vacuum wedge net; no modular nuclearity theorem is invoked without proof. Retained unresolved status and zero original-target progress; Independent relative-commutant operators or the needed standardness/nuclearity hypotheses have not been established for arbitrary admissible S-matrices.
+
+Coordinator checked the sufficient tensor-algebra inclusion and scalar relative commutant of the equality example. Extra modular hypotheses are correctly left unproved. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Independent relative-commutant operators or the needed standardness/nuclearity hypotheses have not been established for arbitrary admissible S-matrices.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Independent relative-commutant operators or the needed standardness/nuclearity hypotheses have not been established for arbitrary admissible S-matrices.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30000341:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30000341 (OWR-1109-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30000341:2}{S2}] Noncommutative Geometry and Quantum Field Theory (2005), Oberwolfach Reports, DOI 10.4171/owr/2005/48, pp. 2705--2760; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2005/48}.
+\item[\hypertarget{source:30000341:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 11--12, printed pages 2715--2716.
+\url{https://ems.press/content/serial-article-files/46022}.
+\item[\hypertarget{source:30000341:4}{S4}] Lechner factorizing S-matrix construction; reference in the saved dated catalogue literature review.
+\url{https://arxiv.org/abs/math-ph/0601022}.
+\end{itemize}
+\label{end:30000341}
+\end{document}

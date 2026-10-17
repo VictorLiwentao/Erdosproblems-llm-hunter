@@ -1,0 +1,202 @@
+% RESEARCH_DRAFT_SHA256: 3232fedfd7aa3611e05219242a2e3fd484d62701e56e1103bf4cccd7ebbad925
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30003172, "title": "Simultaneously Adaptive Universal Source Coding", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003172", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Material mathematical suggestions for the countable-mixture and bounded-redundancy arguments are credited in the manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Let $(C(\\alpha))_{\\alpha\\in A}$ be source subclasses with nontrivial minimax redundancy rates. Does there exist a single sequence of coding probabilities $Q_n$, independent of $\\alpha$, whose redundancy is asymptotically optimal, or optimal within a fixed factor, simultaneously for every subclass in the collection?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The mixture argument proves countable divergent-rate adaptivity under supplied per-class coders, while bounded-rate examples separate exact adaptivity and uniform constants. It does not cover the full uncountable envelope collection or construct the requested efficient general adaptive code.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft.", "other_material_models": [{"provider": "OpenAI", "model": "Codex GPT-6", "exact_serving_revision": "not exposed", "contribution": "Orchestration, format review, and material mathematical suggestions for the countable-mixture proof and bounded-redundancy counterexamples, independently audited within the model-assisted attempt."}]}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Adaptive source coding: countable mixtures and the cost of uniform constants}
+\noindent UnsolvedMath ID 30003172; OWR-14741-004. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A coding probability $Q_n$ assigns probabilities to length-$n$ source blocks. Redundancy is the excess expected codelength relative to the source entropy; minimax redundancy minimizes the worst such excess over a class.
+
+A code $C\subseteq\Sigma^N$ is a set of permitted length-$N$ words. Its Hamming minimum distance is the minimum number of unequal coordinates of two distinct words. For a linear $[N,K,D]_q$ code, rate is $K/N$ and relative distance is $D/N$; decoding recovers a codeword from corrupted observations.
+
+For a discrete random variable $X$, entropy is $H(X)=-\sum_xp(x)\log p(x)$, and mutual information is $I(X;Y)=H(X)+H(Y)-H(X,Y)$. Coding rates, capacities, and exponents depend on the stated channel or source model and error criterion.
+\paragraph{Statement recorded in the supplied source.}
+Let $(C(\alpha))_{\alpha\in A}$ be source subclasses with nontrivial minimax redundancy rates. Does there exist a single sequence of coding probabilities $Q_n$, independent of $\alpha$, whose redundancy is asymptotically optimal, or optimal within a fixed factor, simultaneously for every subclass in the collection? \href{https://doi.org/10.4171/owr/2016/33}{[S2]}
+\paragraph{Scope qualification.}
+The source collection, redundancy convention, and exact constant-factor uniformity are the report\textquotesingle s assumptions.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Find one code that attains each source subclass' s optimal redundancy rate without knowing the subclass.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30003172 (OWR-14741-004). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Learning Theory and Approximation (2017), Oberwolfach Reports, DOI 10.4171/owr/2016/33, pp. 1875--1941
+\url{https://doi.org/10.4171/owr/2016/33}.
+\item[S3] Ben-Hamou--Boucheron--Gassiat, Pattern coding meets censoring
+\url{https://arxiv.org/abs/1608.08367}.
+\item[S4] Boucheron--Gassiat--Ohannessian, Adaptive coding
+\url{https://arxiv.org/abs/1402.6305}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Let $(C(\alpha))_{\alpha\in A}$ be source subclasses with nontrivial minimax redundancy rates. Does there exist a single sequence of coding probabilities $Q_n$, independent of $\alpha$, whose redundancy is asymptotically optimal, or optimal within a fixed factor, simultaneously for every subclass in the collection?
+
+\section{The source convention matters}
+Boucheron's report, printed pages 1921--1924, concerns stationary
+memoryless sources on a countable alphabet, and uses block redundancy
+$D(P^n\Vert Q_n)$, not channel-code error or Hamming distance.
+It allows a constant approximation factor depending on the subclass
+index. Its original theorem gives a $\log\log n$ factor for regularly
+varying envelope classes; it does not state full constant-factor
+adaptivity over every such envelope. We use natural logarithms below,
+so changing the log base scales every redundancy by the same constant.
+The mixture route and bounded-redundancy example were suggested by
+the coordinating Codex GPT-6 model and independently checked within
+this model-assisted attempt. They are standard known mechanisms,
+not claimed novel source-coding theorems.
+
+\section{A full countable-mixture sufficiency theorem}
+Let $C_j$, $j\ge1$, be a countable collection of source classes and
+let $Q_{j,n}$ be coding probabilities for each block length. Choose
+fixed $w_j>0$ with $\sum_jw_j=1$ and put
+\[
+Q_n(x)=\sum_{j\ge1}w_jQ_{j,n}(x).
+\]
+This is a probability distribution: sums over the countable block
+alphabet can be interchanged for nonnegative terms, giving total mass
+$\sum_jw_j=1$. For every $j$, $Q_n\ge w_jQ_{j,n}$ pointwise.
+Thus for any source $P$,
+\[
+D(P^n\Vert Q_n)\le D(P^n\Vert Q_{j,n})+\log(1/w_j).
+\]
+To justify the inequality even on an infinite alphabet, when the
+right-hand divergence is infinite it is trivial; otherwise integrate
+the pointwise logarithmic ratio inequality. Negative parts are
+integrable: on entries with $P^n(x)<Q_n(x)$, writing
+$z=P^n(x)/Q_n(x)\in[0,1]$ gives
+$-P^n(x)\log z=Q_n(x)(-z\log z)\le Q_n(x)/e$,
+and summing bounds their total by $1/e$. The same observation applies
+to $Q_{j,n}$, so extended expectations are well defined and monotone
+integration is legitimate. A zero coding mass at a positive source
+mass gives the usual infinite divergence.
+
+Define
+\[
+R_j^*(n)=\inf_Q\sup_{P\in C_j}D(P^n\Vert Q),
+\qquad R(Q,C_j)=\sup_{P\in C_j}D(P^n\Vert Q).
+\]
+Taking suprema gives
+$R(Q_n,C_j)\le R(Q_{j,n},C_j)+\log(1/w_j)$.
+Suppose $0<R_j^*(n)<\infty$ eventually,
+$R_j^*(n)\to\infty$, and
+$R(Q_{j,n},C_j)\le(1+o_j(1))R_j^*(n)$ for each fixed $j$.
+Divide the mixture inequality by $R_j^*(n)$; the fixed overhead
+$\log(1/w_j)$ vanishes relatively. Since every coding probability
+has worst-case redundancy at least the infimum $R_j^*(n)$, we conclude
+\[
+\frac{R(Q_n,C_j)}{R_j^*(n)}\longrightarrow1
+\quad\text{for every fixed }j.
+\]
+The single sequence $Q_n$ is independent of $j$. The convergence need
+not be uniform in $j$, and evaluating an infinite mixture need not be
+computationally effective. The statement establishes existence under
+its hypotheses, not an efficient online code for the entire source family.
+
+\section{Bounded redundancy changes the conclusion}
+On alphabet $\mathbb N$, let $C_j$ consist of the two iid point-mass
+sources concentrated on symbols $2j$ and $2j+1$. Their length-$n$
+outputs are the two distinct constant words $(2j)^n,(2j+1)^n$.
+For every $n$ the minimax redundancy is exactly $\log2$.
+Indeed assigning each word mass $1/2$ achieves that risk; conversely
+their two masses sum to at most one, so one is at most $1/2$ and the
+corresponding point-mass divergence is at least $\log2$.
+
+There is no asymptotically optimal coding sequence for even two
+distinct classes in this family. If there were, for each of the four
+constant words it would have
+$-\log Q_n(x)\le(1+o(1))\log2$, hence
+$Q_n(x)\ge\tfrac12(1-o(1))$. Their sum would tend to at least two,
+contradicting total mass one. There are only two classes in this
+argument, so their separate asymptotic thresholds can be maximized;
+no unjustified uniform limit is used.
+
+More generally, a common factor $C<\infty$ for $J$ disjoint classes
+would force each of their $2J$ words to have mass at least $2^{-C}$,
+so $1\ge2J\,2^{-C}$ and $C\ge\log_2(2J)$.
+For infinitely many classes, no one finite common factor can hold
+eventually for every class. Given a proposed $C$, choose a finite
+$J>2^{C-1}$ and then a block length beyond the largest of those
+$J$ individual eventual thresholds to get the same contradiction.
+If the bound is stated with an additional vanishing error, use
+$C+1$ first and choose $J>2^C$.
+
+The source, however, permits \emph{class-dependent} factors. They
+do exist here: use the mixture of the two-word uniform distributions
+with weights $w_j=2^{-j}$, $j\ge1$. Each word in class $j$ then has
+mass $2^{-j-1}$, giving risk $(j+1)\log2$, exactly a factor $j+1$
+of its minimax risk. Thus the example does not refute the source's
+class-dependent constant-factor possibility. Nor does its bounded
+redundancy refute the divergent-rate sufficiency theorem above.
+
+\section{Where the mixture attempt stops for the envelope problem}
+The source's family of envelope functions is not presented as a
+countable list of classes. A probability distribution has positive
+atoms at only countably many indices: for every integer $r\ge1$
+there are at most $r$ atoms of mass at least $1/r$, and every positive
+atom lies in one of these finite sets. Consequently assigning a
+fixed positive individual weight to every member of an uncountable
+family is impossible. A continuous mixture or countable approximation
+could still work, but the pointwise inequality
+$Q_n\ge w_jQ_{j,n}$ with fixed $w_j>0$ would have to be replaced
+by a quantified approximation argument. In particular one would need
+nearby dominating envelopes and control of their redundancy loss and
+description overhead. Such an argument is not supplied here.
+
+\section{Model-assisted audit and remaining scope}
+The audit checked zero coding masses, infinite sums, logarithm
+normalization, and the order of the fixed-index limit. Most crucially,
+it separated a common constant from the class-dependent constants
+explicitly allowed on source page 1922. The primary Pattern Coding
+Meets Censoring abstract was checked against the report's stated
+$\log\log n$ result; the full coding proof was not audited.
+No numerical experiment or theorem prover was used. The countable
+divergent-rate theorem and the bounded-rate obstruction are auxiliary;
+the full collection and its efficient exact or constant-factor adaptive
+code are not resolved by this attempt.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration, format review, and the countable-mixture and bounded-redundancy mathematical suggestions described above. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The mixture argument proves countable divergent-rate adaptivity under supplied per-class coders, while bounded-rate examples separate exact adaptivity and uniform constants. It does not cover the full uncountable envelope collection or construct the requested efficient general adaptive code.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Boucheron, Adaptive compression against countable alphabets, OWR 33/2016, pp. 1921--1924; full source definitions, factor convention and stated envelope theorem inspected in the cached primary report. \url{https://doi.org/10.4171/owr/2016/33}.
+\item Ben-Hamou, Boucheron and Gassiat, Pattern Coding Meets Censoring (2016); primary abstract inspected, full coding proof not audited. \url{https://arxiv.org/abs/1608.08367}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The mixture argument proves countable divergent-rate adaptivity under supplied per-class coders, while bounded-rate examples separate exact adaptivity and uniform constants. It does not cover the full uncountable envelope collection or construct the requested efficient general adaptive code.
+\end{document}

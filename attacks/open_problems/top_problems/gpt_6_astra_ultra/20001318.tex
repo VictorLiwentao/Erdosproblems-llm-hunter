@@ -1,0 +1,140 @@
+% RESEARCH_DRAFT_SHA256: eddadc8396fa81a47cbcd9b60f289b10f08f3588555641db2dcee0f490e78c38
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001318, "title": "The inverse-state twist interface, extraction boundary, and exact storage limit", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001318", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Advanced digital signature functionality from group theory\n\nThe connection between SDLP and group actions suggests the availability of generic group-action tools to build more efficient signatures, or signatures with more specialised properties.\n\nWe would like to use generic group-action tools to build ring signatures, blind signatures, threshold signatures and more. We would also like to apply the \"twist\" technique present in similar isogeny schemes to improve the memory performance of group-based digital signatures.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The identification calculations and storage bound do not construct secure ring, blind, or threshold signatures, nor establish a practical twist memory improvement.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Group-action identification and the doubling obstruction in a twist variant}
+\noindent UnsolvedMath ID 20001318; AIM-CRYPTOGRAPHY-0005. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A digital signature enables public verification of an authenticated message. Ring signatures hide which member of a stated group signed; blind signatures conceal the signed message from the signer; threshold signatures distribute signing authority. The source asks for constructions from group actions and improved memory use through an analogue of the twist technique.
+\paragraph{Statement recorded in the supplied source.}
+Advanced digital signature functionality from group theory
+
+The connection between SDLP and group actions suggests the availability of generic group-action tools to build more efficient signatures, or signatures with more specialised properties.
+
+We would like to use generic group-action tools to build ring signatures, blind signatures, threshold signatures and more. We would also like to apply the "twist" technique present in similar isogeny schemes to improve the memory performance of group-based digital signatures. \href{http://aimpl.org/postquantgroup/2/}{[S2]}
+\paragraph{Scope qualification.}
+The source names functionalities but supplies no security experiment, group family, or formal description of the proposed twist. This is a construction-method question, not a claimed secure protocol.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can group-action methods build specialized digital signatures and reduce their memory requirements?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001318 (AIM-CRYPTOGRAPHY-0005). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-CRYPTOGRAPHY-0005
+\url{http://aimpl.org/postquantgroup/2/}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Advanced digital signature functionality from group theory
+
+The connection between SDLP and group actions suggests the availability of generic group-action tools to build more efficient signatures, or signatures with more specialised properties.
+
+We would like to use generic group-action tools to build ring signatures, blind signatures, threshold signatures and more. We would also like to apply the "twist" technique present in similar isogeny schemes to improve the memory performance of group-based digital signatures.
+
+\section{Attempt and results}
+The requested ring, blind, and threshold signatures require security definitions
+and constructions that the source does not fix. We try a basic identification
+layer and a signed-challenge modification to expose what a twist would have to
+supply. No signature scheme or security reduction is completed here.
+
+\paragraph{The ordinary two-challenge action protocol.}
+Let a finite abelian group $A$, written additively, act freely and transitively
+on $X$. Fix $x\in X$, secret $s\in A$, and public $y=s\cdot x$.
+The prover samples uniform $r\in A$ and sends $t=r\cdot x$.
+On challenge $c\in\{0,1\}$ it returns $z=r-cs$.
+The verifier accepts exactly when $z\cdot(c s\cdot x)=t$, where it uses
+$x$ for $c=0$ and the public $y$ for $c=1$; it need not know $s$.
+Completeness follows from $z+cs=r$. Two accepting transcripts for the same
+$t$ with responses $z_0,z_1$ obey $z_0\cdot x=z_1\cdot y$.
+Freeness implies $z_0=z_1+s$, hence $s=z_0-z_1$.
+For each fixed challenge, one can simulate its transcript without $s$ by
+sampling uniform $z$ and defining $t=z\cdot x$ or $t=z\cdot y$ as
+appropriate. Translation by $cs$ is a bijection on $A$, so this has exactly
+the honest transcript distribution. This proves perfect special
+honest-verifier simulation for the specified identification protocol. It does
+not prove unforgeability of any derived signature, anonymity, blindness, or
+security against quantum rewinding.
+
+\paragraph{The signed-challenge attempt extracts only a double.}
+A basepoint-fixing inverse-state map, if available, must have
+$\iota(a\cdot x)=(-a)\cdot x$. Freeness and transitivity make this a
+well-defined involution, and it satisfies
+$\iota(b\cdot u)=(-b)\cdot\iota(u)$. Existence as a set map does not
+make evaluation efficient: recovering $a$ and negating it would already
+solve vectorization.
+Assume efficient evaluation of $\iota$, so both $y_+=y$ and
+$y_-=\iota(y)$ are available. For challenges $c\in\{+1,-1\}$, let the
+response again be $z_c=r-cs$, verified by $z_c\cdot y_c=t$.
+Two accepting responses yield
+$z_- - z_+=2s$, by freeness. The solutions of this doubling equation are
+precisely $s+A[2]$, where $A[2]=\{a:2a=0\}$: subtraction reduces it to
+the kernel of doubling. If $A$ has exponent two, the two public states and
+verification equations coincide. A prover can choose any $z$ and set
+$t=z\cdot y$; that same response answers either challenge without knowing
+a transporter from $x$ to $y$. Thus the ordinary extraction argument fails
+completely in this case. It does not prove all protocols using twists fail;
+it identifies the missing inversion-of-doubling or disambiguation step in
+this specific proposal.
+
+\paragraph{A literal storage limit.}
+For $q$ independently chosen states in an $M$-element set, there are $M^q$
+possible arrays. Any fixed-length binary encoding from which every array is
+recovered exactly must be injective, so length $b$ requires
+$2^b\ge M^q$, or $b\ge q\log_2 M$.
+In contrast, arrays of deterministic pairs $(u,\iota(u))$ have only $M$
+possibilities per pair and can store just $u$ when $\iota$ is efficiently
+recomputed. Therefore halving such paired storage does not prove a compression
+of independent commitments or a complete signature memory improvement.
+
+\section{Context, adversarial audit, and gap}
+The original AIMPL page failed retrieval; the official workshop description
+and supplied snapshot provide context. The supplied research summary already
+identifies a doubling issue, so no priority is asserted for this rederivation.
+The audit checked the sign convention, public-only verification, exact
+simulator distribution, two-torsion, and fixed-length versus arbitrary
+compression. No concrete signature functionality, implementation, or full
+security experiment was supplied or tested.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The identification calculations and storage bound do not construct secure ring, blind, or threshold signatures, nor establish a practical twist memory improvement.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Official AIM workshop description, Post-quantum group-based cryptography, 29 April--3 May 2024; provenance and scope inspected on 11 October 2026. AIMPL pages failed retrieval, so the exact problem wording remains supplied-snapshot material. \url{https://aimath.org/workshops/upcoming/postquantgroup/}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The identification calculations and storage bound do not construct secure ring, blind, or threshold signatures, nor establish a practical twist memory improvement.
+\end{document}

@@ -1,0 +1,150 @@
+% RESEARCH_DRAFT_SHA256: 0de05f516105b78954d3b329fb4cb2a9dc8f6e4de888552f9607f6fbca3b32db
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30001069, "title": "Faster Rank-Two Parametric Assignment", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001069", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and overlapping collinear sorting suggestion. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "For the rank-two parametric assignment problem arising from least-squares matching of planar point sets under rotation, is there an algorithm faster than the standard parametric-assignment approach?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. Sorting works only in a collinear restriction; the full rank-two two-swap criterion is false, and the parametric support-polygon route lacks a size or direct-optimization bound.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Rank-two assignment attempt: sorted special cases and a strict two-swap trap}
+\noindent UnsolvedMath ID 30001069; OWR-2090-022. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+The assignment problem selects a bijection between two equal-sized vertex sets to optimize the total edge weight. In a rank-two parametric instance, the cost matrix depends on a parameter through the rank-two structure described by the source.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The baseline algorithm and precise cost representation are not specified in the supplied question.
+
+Source-record limitation: The rank-two input representation, parameter range, and baseline runtime to be improved are not specified.
+\paragraph{Statement recorded in the supplied source.}
+For the rank-two parametric assignment problem arising from least-squares matching of planar point sets under rotation, is there an algorithm faster than the standard parametric-assignment approach? \href{https://doi.org/10.4171/owr/2008/44}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Speed up the rank-two parametric assignment problem arising from rotating planar point sets.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30001069 (OWR-2090-022). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Discrete Geometry (2009), Oberwolfach Reports, DOI 10.4171/owr/2008/44, pp. 2477--2556
+\url{https://doi.org/10.4171/owr/2008/44}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+For the rank-two parametric assignment problem arising from least-squares matching of planar point sets under rotation, is there an algorithm faster than the standard parametric-assignment approach?
+
+\section{Source discrepancy and attempted speedup}
+The primary report gives an $O(n^3)$ assignment baseline for the fixed-angle
+objective $\sum_i\|A_i-B_{\pi(i)}\|^2$. Its question (4) asks for faster
+optimization of that objective; the preceding questions treat the rotation
+parameter. The supplied record calls the task rank-two parametric assignment.
+We retain the entire record and discuss both interpretations without declaring
+that the two tasks coincide. The report's geometric costs, after discarding
+permutation-independent terms and a positive factor, maximize
+$\sum_i A_i\cdot R(\theta)B_{\pi(i)}$.
+
+\paragraph{A genuine sorting speedup in the collinear restriction.}
+If $A_i=c+a_i e$, the contribution $c\cdot R(\theta)\sum_jB_j$ is
+independent of the matching. Write $t_j=e\cdot R(\theta)B_j$.
+For increasing $a_i$, an inverted assigned pair $t_{\pi(i)}>t_{\pi(j)}$
+with $i<j$ can be exchanged with score gain
+$(a_j-a_i)(t_{\pi(i)}-t_{\pi(j)})\ge0$.
+Every finite list becomes sorted after successively removing inversions, so
+the matching of increasing $a_i$ with increasing $t_j$ is globally optimal.
+Both lists can be sorted in $O(n\log n)$ comparisons, and the score and
+permutation then computed in linear time. This solves the fixed-angle special
+case more quickly than the source baseline. Ties may be ordered consistently.
+As the angle varies, every pair of nonidentical projections crosses at most
+twice, since its difference is a nonzero linear combination of sine and cosine.
+Thus at most $2\binom n2$ event angles suffice for a polynomial enumeration
+in this special case. Simultaneous events are processed together; no assumption
+of generic position is needed for the interval bound. This route was also
+independently suggested by the root Codex GPT-6 agent, whose overlapping
+mathematical contribution is acknowledged.
+
+\paragraph{Pairwise exchange optimality fails already for full rank two.}
+One might try to extend sorting by finding an assignment with no improving
+transposition. Consider the exact planar points
+\[
+B_1=(1,0),\quad B_2=(0,1),\quad B_3=(-1,-1),
+\qquad A_1=(7,24),\ A_2=(-24,7),\ A_3=(17,-31).
+\]
+They satisfy $A_i=TB_i$ for
+$T=\begin{pmatrix}7&-24\\24&7\end{pmatrix}$.
+For the identity matching, swapping $i,j$ decreases the dot-product score by
+\[
+(A_i-A_j)\cdot(B_i-B_j)
+=(T(B_i-B_j))\cdot(B_i-B_j)=7\|B_i-B_j\|^2>0,
+\]
+since the skew-symmetric part has zero quadratic form and the three $B_i$
+are distinct. Thus every two-swap is strictly worse. The identity score is
+$7+7+14=28$. The cyclic assignment $(\pi(1),\pi(2),\pi(3))=(2,3,1)$
+has score $24+17+17=58$, so it is strictly better. The cost matrix has
+rank exactly two: its $(1,2)$-row and $(1,2)$-column submatrix is
+$\begin{pmatrix}7&24\\-24&7\end{pmatrix}$ with determinant $625\ne0$,
+and its factorization through planar coordinates bounds rank by two.
+This is therefore a counterexample within the fixed-angle rank-two geometric
+class, not an unrestricted-matrix substitute. It disproves the proposed
+local-to-global exchange criterion, not the existence of another fast algorithm.
+
+\paragraph{Why the parametric reformulation does not finish the job.}
+For each permutation put
+$z_\pi=(\sum_i A_i\cdot B_{\pi(i)},\sum_i A_i\cdot J B_{\pi(i)})$,
+where $J$ is a quarter-turn. Expansion of $R(\theta)$ shows that the best
+score in direction $(\cos\theta,\sin\theta)$ is the support function
+of the convex hull of these vectors. Maximizing also over angle yields
+$\max_\pi\|z_\pi\|$ by Cauchy--Schwarz and equality in each vector's
+direction. A prescribed direction is an ordinary rank-two assignment, but
+constructing the whole polygon can still require checking up to $n!$ sums
+unless a further structural bound or different optimization argument is proved.
+Neither a fast support oracle nor the two-dimensional image alone supplies
+that missing bound. The source expressly warns that unrestricted parametric
+assignment examples do not automatically retain the geometric rank-two structure.
+
+\section{Adversarial audit and computation}
+Exact enumeration of all six assignments in the displayed example gave
+scores $28,-7,14,58,-86,-7$ in lexicographic permutation order. The saved
+Python program and JSON verify the strict two-swap trap independently of
+any floating-point calculation. The general proof is the quadratic-form
+identity above. The audit distinguished a collinear rank-one restriction,
+a genuine rank-two counterexample to one method, fixed-angle optimization,
+and parametric enumeration. No faster general algorithm or hardness result
+for either original interpretation is established.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration, format review, and overlapping collinear sorting suggestion. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. Sorting works only in a collinear restriction; the full rank-two two-swap criterion is false, and the parametric support-polygon route lacks a size or direct-optimization bound.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 44/2008: Wagner on PL embeddability, printed pp.2505--2507; Rote/Zikan least-squares rotation questions, pp.2546--2547. Item-specific primary passages read on 11 October 2026; publisher landing page also checked. \url{https://ems.press/content/serial-article-files/46191}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} Sorting works only in a collinear restriction; the full rank-two two-swap criterion is false, and the parametric support-polygon route lacks a size or direct-optimization bound.
+\end{document}

@@ -1,0 +1,84 @@
+% TOP_PROBLEM: {"id": 20002497, "title": "Exact complex-linear spin propagation and a nonlinear coherence-loss benchmark", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The operator family, semiclassical scaling and observables or approximation norm must be supplied in a proposed theorem; they are not fixed by this broad source question. Both the non-Hermitian and nonlinear-generator cases are retained. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20002497", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Describe the semiclassical propagation of spin coherent states under non-Hermitian or generator-nonlinear Hamiltonians.", "scope": "Proved exact coherent propagation for complex-linear spin Hamiltonians and an explicit j=1 quadratic coherence-loss example. General semiclassical nonlinear propagation is unproved.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked tensor factorization, nonzero norm under invertible evolution, coherent-state quadratic criterion, revival times and finite-spin versus semiclassical scope. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the tensor-factor exponential and spin-one tensor-square criterion for the nonlinear evolution. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked tensor factorization, nonzero norm under invertible evolution, coherent-state quadratic criterion, revival times and finite-spin versus semiclassical scope. Scope remains limited: Choose a semiclassical scaling and prove uniform fluctuation/error estimates for nonlinear or mixed non-Hermitian spin Hamiltonians."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 20002497; source catalogue code AIM-PHYSICS-0005
+\setcounter{section}{20002496}
+\section{Exact complex-linear spin propagation and a nonlinear coherence-loss benchmark}\label{20002497}
+{\small UnsolvedMath ID 20002497 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}In the spin-$j$ irreducible representation of $SU(2)$, the generators satisfy $[J_a,J_b]=i\epsilon_{abc}J_c$. A spin coherent state is a group translate of a highest-weight state. Quantum evolution solves $i\hbar\partial_t\psi=H\psi$; for non-Hermitian $H$ its norm can change. Nonlinear in the generators refers to an operator polynomial or other specified nonlinear expression in $J_a$, rather than a linear Lie-algebra Hamiltonian.
+
+\paragraph{Catalogue wording retained for traceability.}
+Evolution of Coherent States on SU(2)
+
+Determine the quantum evolution in the semiclassical limit of initial coherent states on SU(2) with a Hamiltonian that is either non-Hermitian or nonlinear in the Lie algebra generators.
+\paragraph{Scope and source qualification.}The operator family, semiclassical scaling and observables or approximation norm must be supplied in a proposed theorem; they are not fixed by this broad source question. Both the non-Hermitian and nonlinear-generator cases are retained. The catalogue title/status was paired with a machine-generated research attempt; that attempt is not peer-reviewed evidence of settlement. The statement covers the original source questions rather than only the title’s subcase.
+\subsection{Short English statement}
+Describe the semiclassical propagation of spin coherent states under non-Hermitian or generator-nonlinear Hamiltonians.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved exact coherent propagation for complex-linear spin Hamiltonians and an explicit j=1 quadratic coherence-loss example. General semiclassical nonlinear propagation is unproved.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{Exact complex-linear propagation.}Write \(N=2j\) and realize the spin-\(j\) representation as the symmetric part of \((\mathbb C^2)^{\otimes N}\), with \(J_a=\tfrac12\sum_{r=1}^N\sigma_a^{(r)}\). A coherent vector is \(v^{\otimes N}\), \(\|v\|=1\). For \(H=\sum_ac_aJ_a\), with complex constants \(c_a\), commuting different tensor factors give
+\[e^{-itH/\hbar}v^{\otimes N}=\left(e^{-it(c\cdot\sigma)/(2\hbar)}v\right)^{\otimes N}.
+\]
+The two-by-two exponential is invertible, so its output never vanishes. After normalization the state is still coherent, even for non-Hermitian coefficients; its norm is the \(N\)th power of the one-spin norm.
+\paragraph{A nonlinear countercheck.}Take \(j=1\), \(\hbar=1\), and \(H=\chi J_z^2\). The coherent vector along the positive x direction has coefficients \((1/2,1/\sqrt2,1/2)\) in the \(m=1,0,-1\) basis. At time \(t\) these become \((e^{-i\chi t}/2,1/\sqrt2,e^{-i\chi t}/2)\). A symmetric two-spin vector \((a,b,c)\) is a tensor square precisely when \(b^2=2ac\): expanding \((\alpha,\beta)^{\otimes2}\) gives coefficients \((\alpha^2,\sqrt2\alpha\beta,\beta^2)\), and the converse follows by taking a square root when an endpoint coefficient is nonzero, with zero cases checked directly. Here the condition becomes \(e^{-2i\chi t}=1\). Thus coherence is lost at generic times under this nonlinear Hamiltonian.
+\paragraph{Gap.}Exact linear propagation and a finite-spin failure of coherence do not provide a semiclassical approximation for general nonlinear/non-Hermitian families. The scaling of \(H\) with \(j\), observables and error norm must be fixed, then fluctuations and their growth controlled. Those specifications and estimates remain the first missing step for the full source programme.
+
+\paragraph{Verification and adversarial audit.}
+Checked tensor factorization, nonzero norm under invertible evolution, coherent-state quadratic criterion, revival times and finite-spin versus semiclassical scope. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked tensor factorization, nonzero norm under invertible evolution, coherent-state quadratic criterion, revival times and finite-spin versus semiclassical scope. Scope remains limited: Choose a semiclassical scaling and prove uniform fluctuation/error estimates for nonlinear or mixed non-Hermitian spin Hamiltonians.
+
+Coordinator checked the tensor-factor exponential and spin-one tensor-square criterion for the nonlinear evolution. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Choose a semiclassical scaling and prove uniform fluctuation/error estimates for nonlinear or mixed non-Hermitian spin Hamiltonians.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20002497:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 20002497 (AIM-PHYSICS-0005). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20002497:2}{S2}] American Institute of Mathematics, Non-Hermitian quantum mechanics and symplectic geometry, source item 3.1.
+\url{http://aimpl.org/nhquantumsymp/3/}.
+\end{itemize}
+\label{end:20002497}
+\end{document}

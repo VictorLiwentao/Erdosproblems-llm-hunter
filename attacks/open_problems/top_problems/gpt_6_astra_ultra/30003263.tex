@@ -1,0 +1,103 @@
+% TOP_PROBLEM: {"id": 30003263, "title": "Macroscopic Limits and Phase Diagrams of Ferroelectric Models", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The still-open lower-bound direction is expressly part of the first question, and the lead titanate--lead zirconate phase diagram is a second target. The microscopic and effective Hamiltonians are source-defined and are not replaced by a generic Ising model."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003263", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Derive ferroelectric polarization models from microscopic theories and analyze the proposed long-range random-field phase diagram.", "scope": "Constructs a fine-mixture obstruction to an unrelaxed local lower-bound argument, including a vanishing-gradient-penalty scaling; does not refute or derive the source-specific ferroelectric limit or analyze its phase diagram.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked weak convergence, mixture fractions, layer count and interface energy powers, the endpoint polarizations, and the distinction between the auxiliary model and both source-defined targets. Model self-audit only; no independent human proof checking. Coordinator checked the cellwise weak-convergence argument and all powers of the smoothed-interface and vanishing-gradient-penalty estimate. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked weak convergence, mixture fractions, layer count and interface energy powers, the endpoint polarizations, and the distinction between the auxiliary model and both source-defined targets. Retained unresolved status and zero original-target progress; Control the source microscopic and electrostatic energies for every convergent bounded-energy sequence, including fine mixtures, rather than transferring a local double-well lower bound without proof. Additional GPT-6 Astra reviewer (ultra reasoning): Checked the mixture fraction theta=(1+pbar)/2 gives cell average pbar, the cellwise modulus-of-continuity argument gives weak convergence, and W(plus or minus 1)=0 whereas W(pbar)>0 for interior averages. Counted O(ell^-1) transition layers and checked that fixed theta makes delta=ell^2 layers fit for sufficiently small ell. The support change has length O(delta/ell), so smoothing preserves the weak limit. Computed each potential contribution as O(delta) and each gradient contribution as O(eta^2/delta); eta=delta=ell^2 makes the total O(ell). Checked that endpoint averages instead admit zero-energy constants. Compared the source qualifications: the draft treats this as a countercheck to an unrelaxed local lower-bound strategy, explicitly omits electrostatic/microscopic terms, and makes no claim about the specified long-range random-field ferroelectric phase diagram."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30003263; source catalogue code OWR-15172-002
+\setcounter{section}{30003262}
+\section{Macroscopic Limits and Phase Diagrams of Ferroelectric Models}\label{30003263}
+{\small UnsolvedMath ID 30003263 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+Polarization is the macroscopic dipole moment per unit volume. A large-body limit relates microscopic electron-density energies to a continuum polarization functional as system size grows. In a variational limit, a lower bound controls all convergent sequences, whereas an upper bound is produced by recovery configurations. A random-field Ising-like model has local polarization variables, random fields and pair interactions; long-range interactions remain significant over many lattice spacings.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Do macroscopic polarization models for ferroelectric solids arise as the large-body limit of microscopic electron-density models, including the still-open lower-bound direction? Can one also systematically analyze the proposed random-field-Ising-like model with long-range interactions for the phase diagram of lead titanate–lead zirconate solutions?
+
+\paragraph{Source scope and qualification.}
+The still-open lower-bound direction is expressly part of the first question, and the lead titanate--lead zirconate phase diagram is a second target. The microscopic and effective Hamiltonians are source-defined and are not replaced by a generic Ising model.
+\subsection{Short English statement}
+Derive ferroelectric polarization models from microscopic theories and analyze the proposed long-range random-field phase diagram.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Constructs a fine-mixture obstruction to an unrelaxed local lower-bound argument, including a vanishing-gradient-penalty scaling; does not refute or derive the source-specific ferroelectric limit or analyze its phase diagram.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A lower-bound test using fine mixtures.}
+To test a tempting local lower-bound strategy, use the auxiliary scalar potential $W(p)=(p^2-1)^2$ on the unit circle. This is not asserted to be the source's microscopic electron-density energy. Fix $\bar p\in(-1,1)$ and $\theta=(1+\bar p)/2$. Divide the circle into $N$ cells of length $\ell=1/N$; in each cell take $p_\ell=1$ for a fraction $\theta$ and $p_\ell=-1$ for the rest. Then $p_\ell$ converges weakly to $\bar p$ as $\ell\to0$: for any continuous test function, replace its value within each cell by its value at the cell's left endpoint, with an error bounded by its modulus of continuity at $\ell$. Yet
+\[
+ \int_0^1W(p_\ell)dx=0,
+ \qquad W(\bar p)=(\bar p^2-1)^2>0.
+\]
+A claimed weak lower bound by the unrelaxed potential $\int W(\bar p)$ therefore fails even in this basic local model.
+
+\paragraph{An explicitly scaled gradient term does not automatically repair it.}
+For $\eta=\ell^2$, smooth each jump across a layer of width $\delta=\ell^2$, keeping $|p_\ell|\leq1$ and $|p_\ell'|\leq C/\delta$. For fixed $\theta\in(0,1)$ the layers fit into the cells when $N$ is sufficiently large. There are $O(\ell^{-1})$ layers. The modified sequence has the same weak limit since its difference from the step function is supported on a set of length $O(\delta/\ell)$. Its regularized energy obeys
+\[
+ \int_0^1\left(W(p_\ell)+\eta^2|p_\ell'|^2\right)dx
+ \leq\frac C\ell\left(\delta+\frac{\eta^2}{\delta}\right)
+ =O(\ell)\longrightarrow0.
+\]
+Thus the relative scale of interfaces and microscopic oscillations changes what lower bound can be valid. At $\bar p=\pm1$, constant configurations instead have zero energy; the strict contradiction concerns interior average polarizations.
+
+\paragraph{Connection and first missing step.}
+The example explains why constructing a macroscopically polarized trial state proves only an upper bound: other sequences can develop fine mixtures. It does not disprove the source's proposed limit. Its electrostatic terms, microscopic constraints and long-range interactions were omitted here and may assign a substantial cost to precisely these mixtures. A real lower-bound proof must control those terms on arbitrary bounded-energy sequences and determine whether the correct local contribution is relaxed. The second source target, the phase diagram of the specified long-range random-field model for lead titanate--lead zirconate solutions, also remains untouched: the auxiliary scalar construction gives no phase boundaries, disorder scaling or identification of that Hamiltonian.
+
+\paragraph{Verification and adversarial audit.}
+Checked weak convergence, mixture fractions, layer count and interface energy powers, the endpoint polarizations, and the distinction between the auxiliary model and both source-defined targets. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked weak convergence, mixture fractions, layer count and interface energy powers, the endpoint polarizations, and the distinction between the auxiliary model and both source-defined targets. Retained unresolved status and zero original-target progress; Control the source microscopic and electrostatic energies for every convergent bounded-energy sequence, including fine mixtures, rather than transferring a local double-well lower bound without proof. Additional GPT-6 Astra reviewer (ultra reasoning): Checked the mixture fraction theta=(1+pbar)/2 gives cell average pbar, the cellwise modulus-of-continuity argument gives weak convergence, and W(plus or minus 1)=0 whereas W(pbar)>0 for interior averages. Counted O(ell\textasciicircum{}-1) transition layers and checked that fixed theta makes delta=ell\textasciicircum{}2 layers fit for sufficiently small ell. The support change has length O(delta/ell), so smoothing preserves the weak limit. Computed each potential contribution as O(delta) and each gradient contribution as O(eta\textasciicircum{}2/delta); eta=delta=ell\textasciicircum{}2 makes the total O(ell). Checked that endpoint averages instead admit zero-energy constants. Compared the source qualifications: the draft treats this as a countercheck to an unrelaxed local lower-bound strategy, explicitly omits electrostatic/microscopic terms, and makes no claim about the specified long-range random-field ferroelectric phase diagram.
+
+Coordinator checked the cellwise weak-convergence argument and all powers of the smoothed-interface and vanishing-gradient-penalty estimate. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Control the source microscopic and electrostatic energies for every convergent bounded-energy sequence, including fine mixtures, rather than transferring a local double-well lower bound without proof.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Control the source microscopic and electrostatic energies for every convergent bounded-energy sequence, including fine mixtures, rather than transferring a local double-well lower bound without proof.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30003263:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30003263 (OWR-15172-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30003263:2}{S2}] Mini-Workshop: Mathematics of Magnetoelastic Materials (2016), Oberwolfach Reports, DOI 10.4171/owr/2016/51, pp. 2909--2940. Primary report accessed 2026-10-11; relevant PDF pages 25.
+\url{https://doi.org/10.4171/owr/2016/51}.
+\item[\hypertarget{source:30003263:3}{S3}] EMS report text (catalogue-listed context; not independently consulted in this preparation).
+\url{https://ems.press/content/serial-article-files/46654?nt=1}.
+\end{itemize}
+\label{end:30003263}
+\end{document}

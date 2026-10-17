@@ -1,0 +1,99 @@
+% TOP_PROBLEM: {"id": 30000836, "title": "Energy Transmission in Strongly Pinned Networks", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The source distinguishes geometric obstructions from the strong-pinning potential obstruction and gives an asymmetrical-energy-transmitting condition for uniqueness. Much stronger and sufficient transmission are qualitative in the extract; a norm inequality or universal conductivity theorem is not supplied."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000836", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Prove adequate transmission of energy in a heat-bath network when on-site pinning dominates the coupling between sites.", "scope": "Constructs an exact bath-invisible antisymmetric mode in a connected strongly pinned chain, testing insufficient geometric assumptions.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked endpoint subtraction, conserved antisymmetric energy, arbitrary pinning/coupling ratio and noncompliance with the source asymmetry hypothesis. Model self-audit only; no independent human proof checking. Coordinator checked exact cancellation of the middle-site motion from the antisymmetric oscillator and conservation of its energy under the stated bath placement. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked endpoint subtraction, conserved antisymmetric energy, arbitrary pinning/coupling ratio and noncompliance with the source asymmetry hypothesis. Retained unresolved status and zero original-target progress; Quantitative transmission under the source condition excluding geometric dark modes is not proved."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30000836; source catalogue code OWR-1598-003
+\setcounter{section}{30000835}
+\section{Energy Transmission in Strongly Pinned Networks}\label{30000836}
+{\small UnsolvedMath ID 30000836 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} A finite connected graph $G=(\mathcal V,\sim)$ carries positions $q_i$ and momenta $p_i$, with Hamiltonian $H=\sum_i(p_i^2/2+V(q_i))+\sum_{i\sim j}U(q_i-q_j)$. The smooth confining potential $V$ pins individual sites; $U$ couples neighbors. The report couples specified boundary sites to heat baths. Energy transmission means enough dynamical coupling to control the network and obtain the desired invariant-measure behavior, rather than merely that an edge interaction is nonzero.
+
+\paragraph{Source scope and qualifications.} The source distinguishes geometric obstructions from the strong-pinning potential obstruction and gives an asymmetrical-energy-transmitting condition for uniqueness. Much stronger and sufficient transmission are qualitative in the extract; a norm inequality or universal conductivity theorem is not supplied.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+For a heat-conduction network whose pinning potential $V$ is much stronger than its interaction potential $U$, can one prove that there is sufficient energy transmission along the network?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: Strong pinning gives normal conductivity in important oscillator models, but the extracted network-wide energy-transmission assertion is broader than those theorems and remains an open problem without additional hypotheses. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Prove adequate transmission of energy in a heat-bath network when on-site pinning dominates the coupling between sites.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Constructs an exact bath-invisible antisymmetric mode in a connected strongly pinned chain, testing insufficient geometric assumptions.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A connected network with an undamped mode.} Take a three-site chain, pinning $V(q)=\kappa q^2/2$ and interaction $U(q)=cq^2/2$, with $\kappa,c>0$, and attach a Langevin heat bath only to the middle site. Put
+\[
+ Q=(q_1-q_3)/\sqrt2,\qquad P=(p_1-p_3)/\sqrt2.
+\]
+Subtracting the two endpoint equations gives $\dot Q=P$ and $\dot P=-(\kappa+c)Q$. The middle displacement cancels, and the bath acts on neither difference. Hence
+\[
+ E_-=\tfrac12(P^2+(\kappa+c)Q^2)
+\]
+is exactly conserved, even with the random forcing and friction at site two.
+
+\paragraph{Why stronger pinning does not cure geometry.} The ratio $\kappa/c$ can be arbitrarily large without changing this decoupling. A nonzero edge interaction and graph connectivity therefore do not ensure that every mode exchanges energy with the bath. In the deterministic antisymmetric motion $q_1=-q_3,q_2=0$, the center never moves and no bath dissipation occurs. The example is smooth and confining, and its obstruction is geometric symmetry rather than a subtle large-energy estimate.
+
+\paragraph{Source-scope boundary.} The report already distinguishes geometric obstructions and asks about stronger transmission hypotheses. This example is not claimed to satisfy its asymmetrical-energy-transmitting condition, so it does not refute the qualified source program. It shows why that condition cannot be replaced by connectivity, even in a strongly pinned harmonic case. Proving quantitative transfer for graphs and potentials that exclude all such dark modes, especially nonlinear strongly pinned ones, is the first unresolved step.
+
+\paragraph{Verification and adversarial audit.}
+Checked endpoint subtraction, conserved antisymmetric energy, arbitrary pinning/coupling ratio and noncompliance with the source asymmetry hypothesis. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked endpoint subtraction, conserved antisymmetric energy, arbitrary pinning/coupling ratio and noncompliance with the source asymmetry hypothesis. Retained unresolved status and zero original-target progress; Quantitative transmission under the source condition excluding geometric dark modes is not proved.
+
+Coordinator checked exact cancellation of the middle-site motion from the antisymmetric oscillator and conservation of its energy under the stated bath placement. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Quantitative transmission under the source condition excluding geometric dark modes is not proved.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Quantitative transmission under the source condition excluding geometric dark modes is not proved.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30000836:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30000836 (OWR-1598-003). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30000836:2}{S2}] Large Scale Stochastic Dynamics (2007), Oberwolfach Reports, DOI 10.4171/owr/2007/42, pp. 2443--2530; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2007/42}.
+\item[\hypertarget{source:30000836:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 14--15, printed pages 2456--2457.
+\url{https://ems.press/content/serial-article-files/46130}.
+\item[\hypertarget{source:30000836:4}{S4}] strongly pinned chain; reference in the saved dated catalogue literature review.
+\url{https://arxiv.org/abs/cond-mat/0507560}.
+\end{itemize}
+\label{end:30000836}
+\end{document}

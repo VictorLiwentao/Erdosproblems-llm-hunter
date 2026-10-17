@@ -1,0 +1,83 @@
+% TOP_PROBLEM: {"id": 30006353, "title": "Superselection Sectors of Braided Fusion Spin Systems", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The primary report already proves equivalence as a $W^*$ category. Its Conjecture 1 asks for equivalence as a $W^*$ braided tensor category, preserving tensor product and braiding. This additional structure is missing from the condensed catalogue wording below and constitutes the remaining conjecture."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006353", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover.", "target": "Prove that the charge-sector equivalence with the input category's completion also preserves tensor product and braiding.", "scope": "Constructed two inequivalent braidings on the same finite W-star category and proved their self-braiding obstruction, exposing the missing structure in the source conjecture.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked both hexagon sign identities, unit and simple-object preservation, invariance under scalar tensorators and the source preexisting W-star-category equivalence. Model self-audit only; no independent human mathematical verification.  No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Applied contribution prompt A before drafting and B afterwards. Checked both hexagon sign identities, unit and simple-object preservation, invariance under scalar tensorators and the source preexisting W-star-category equivalence. First remaining gap: Construct coherent sector tensorators and show that localized charge exchange matches the source input braiding in the canonical representation. The inherited source status is preserved; original-target completion remains zero. Additional GPT-6 Astra reviewer (ultra reasoning): Checked naturality and both hexagon sign identities for the trivial and (-1)^{ab} braidings on Z2-graded finite-dimensional Hilbert spaces. Checked that a monoidal equivalence fixes the unit and therefore the unique nonunit simple s, and that its invertible scalar tensorator cannot turn self-braiding +I into -I. Confirmed the counterexample concerns additional tensor/braiding structure on the same underlying finite W-star category, exactly the distinction restored in the source qualification. No intertwiners or charge-exchange computation for the actual canonical-state fusion spin net is falsely asserted."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30006353; source catalogue code OWR-14299511-002
+\setcounter{section}{30006352}
+\section{Superselection Sectors of Braided Fusion Spin Systems}\label{30006353}
+{\small UnsolvedMath ID 30006353 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+A unitary braided fusion category is a semisimple rigid tensor category with finitely many simple objects, a unitary structure and compatible braiding. A strong tensor generator $X$ produces all objects in the stated generating sense. The local algebra on a finite region $I$ is $\operatorname{End}_{\mathcal B}(X^{\otimes I})$. Use the source's canonical state formed from tensor powers of its map $\mathbf1\to X$ and the resulting represented net. Superselection sectors encode inequivalent localized charge representations of that net.
+
+\paragraph{Catalogue wording retained for traceability.}
+Let $\mathcal{B}$ be a unitary braided fusion category with strong tensor generator $X$, and let its braided fusion spin system be the associated two-dimensional net with local algebras $\operatorname{End}_{\mathcal{B}}(X^{\otimes I})$. Prove that the superselection-sector category of this net is equivalent to the $W^*$-categorical completion of $\mathcal{B}$.
+
+\paragraph{Scope and source qualification.}The primary report already proves equivalence as a $W^*$ category. Its Conjecture 1 asks for equivalence as a $W^*$ braided tensor category, preserving tensor product and braiding. This additional structure is missing from the condensed catalogue wording below and constitutes the remaining conjecture.
+\subsection{Short English statement}
+Prove that the charge-sector equivalence with the input category's completion also preserves tensor product and braiding.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Constructed two inequivalent braidings on the same finite W-star category and proved their self-braiding obstruction, exposing the missing structure in the source conjecture.
+
+\paragraph{Sources and literature check.}
+Read the full supplied definition, catalogue wording, source qualifications and listed references for 30006353. No fresh status or novelty search was performed. The argument below proves its auxiliary statements directly and does not import an unverified external theorem.
+
+\paragraph{Why an equivalence of underlying categories cannot decide braiding.} Consider finite-dimensional \(\mathbb Z_2\)-graded Hilbert spaces, with degree-preserving maps and the usual graded tensor product. There are two unitary braidings on homogeneous tensors of degrees \(a,b\in\{0,1\}\):
+\[
+ c^+_{V,W}(v\otimes w)=w\otimes v,
+ \qquad c^-_{V,W}(v\otimes w)=(-1)^{ab}w\otimes v.
+\]
+Naturality is immediate because maps preserve degrees. The hexagon signs agree because \((-1)^{a(b+c)}=(-1)^{ab}(-1)^{ac}\), with the analogous identity in the other variable. Both therefore give braided tensor structures on the same underlying finite semisimple \(W^*\) category.
+\paragraph{An invariant that separates them.} Let \(s\) be the one-dimensional odd object. Then \(s\otimes s\) is the tensor unit and \(c^+_{s,s}=+I\), whereas \(c^-_{s,s}=-I\). A monoidal equivalence must fix the unit and hence carry the only other simple object to itself. Its tensor comparison on \(s\otimes s\) is an invertible scalar; conjugation by that scalar cannot change the sign of the self-braiding. Thus no braided equivalence identifies these two structures.
+\paragraph{Source obstruction.} The source already has an equivalence of \(W^*\) categories for the represented net in its canonical state. This example explains exactly why that is insufficient. One must construct coherent tensor comparison maps for sector composition and verify that spatial charge exchange matches the input braiding, including its orientation. No such intertwiners or exchange calculation for the actual fusion spin net are supplied here. The first gap is that tensor-and-braiding compatibility, not another proof of the already established underlying equivalence.
+
+\paragraph{Verification and adversarial audit.}
+Checked both hexagon sign identities, unit and simple-object preservation, invariance under scalar tensorators and the source preexisting W-star-category equivalence. Model self-audit only; no independent human mathematical verification. Applied contribution prompt A before drafting and B afterwards. Checked both hexagon sign identities, unit and simple-object preservation, invariance under scalar tensorators and the source preexisting W-star-category equivalence. First remaining gap: Construct coherent sector tensorators and show that localized charge exchange matches the source input braiding in the canonical representation. The inherited source status is preserved; original-target completion remains zero. Additional GPT-6 Astra reviewer (ultra reasoning): Checked naturality and both hexagon sign identities for the trivial and (-1)\textasciicircum{}\{ab\} braidings on Z2-graded finite-dimensional Hilbert spaces. Checked that a monoidal equivalence fixes the unit and therefore the unique nonunit simple s, and that its invertible scalar tensorator cannot turn self-braiding +I into -I. Confirmed the counterexample concerns additional tensor/braiding structure on the same underlying finite W-star category, exactly the distinction restored in the source qualification. No intertwiners or charge-exchange computation for the actual canonical-state fusion spin net is falsely asserted.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file tools used to read definitions and serialize manuscripts. Calculations are symbolic reasoning; no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Construct coherent sector tensorators and show that localized charge exchange matches the source input braiding in the canonical representation.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+This is an elementary auxiliary calculation or an explicit test of a restricted strategy. No new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30006353:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30006353 (OWR-14299511-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30006353:2}{S2}] Subfactors and Applications (2025), Oberwolfach Reports, DOI 10.4171/owr/2025/34, pp. 1823--1886. Original report and mathematical context. Incorporated report material remains under the source CC BY-SA 4.0 terms unless otherwise noted.
+\url{https://doi.org/10.4171/owr/2025/34}.
+\end{itemize}
+\label{end:30006353}
+\end{document}

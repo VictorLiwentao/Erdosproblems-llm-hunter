@@ -1,0 +1,157 @@
+% RESEARCH_DRAFT_SHA256: 465a1b2e008c8c937d95be050bf390f65bf51530805537e8e0c0fc53af48714c
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004906, "title": "Approximating Maximum Nonsymmetric Principal Subdeterminants", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004906", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Let $L$ be a matrix such that $L+L^\\mathsf T$ is positive semidefinite. Is there a $2^{O(k)}$-approximation algorithm for maximizing $\\det L_{S,S}$ over all index sets $S$ of size $k$?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The block equivalence and local-search obstructions are complete, but no global polynomial-time 2^{O(k)} approximation is constructed.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Nonsymmetric determinant maximization: skew blocks and a one-exchange trap}
+\noindent UnsolvedMath ID 30004906; OWR-8415356-017. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For an index set $S$, $L_{S,S}$ is the principal submatrix with both rows and columns in $S$. Positive semidefiniteness of $L+L^{\mathsf T}$ means $x^{\mathsf T}(L+L^{\mathsf T})x\geq0$ for every real $x$. In this setting the principal determinants are nonnegative. A $2^{O(k)}$ approximation returns a set $S$ of size $k$ whose determinant is at least the maximum divided by $2^{Ck}$ for an absolute constant $C$.
+\paragraph{Statement recorded in the supplied source.}
+Let $L$ be a matrix such that $L+L^\mathsf T$ is positive semidefinite. Is there a $2^{O(k)}$-approximation algorithm for maximizing $\det L_{S,S}$ over all index sets $S$ of size $k$? \href{https://doi.org/10.4171/owr/2021/53}{[S2]}
+\paragraph{Scope qualification.}
+The approximation is multiplicative, with the usual zero-optimum convention. A computational answer must specify finite input precision and the polynomial dependence on matrix size.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Approximate the largest size-$k$ principal determinant when the matrix has positive-semidefinite symmetric part.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004906 (OWR-8415356-017). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Combinatorial Optimization (2022), Oberwolfach Reports, DOI 10.4171/owr/2021/53, pp. 2893--2954
+\url{https://doi.org/10.4171/owr/2021/53}.
+\item[S3] Combinatorial Optimization, Oberwolfach Reports 53/2021, primary report PDF
+\url{https://ems.press/content/serial-article-files/46931}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Let $L$ be a matrix such that $L+L^\mathsf T$ is positive semidefinite. Is there a $2^{O(k)}$-approximation algorithm for maximizing $\det L_{S,S}$ over all index sets $S$ of size $k$?
+
+\section{Testing the symmetric reduction and local search}
+The source permits a positive-semidefinite symmetric part, including
+the case where that part is zero. We test whether discarding the
+skew part or using one-index exchanges can preserve a multiplicative
+guarantee, and derive exactly the rectangular-subdeterminant reduction
+mentioned in the primary report.
+
+\paragraph{Why the objective is nonnegative.}
+Every real square matrix $B$ with $B+B^T\succeq0$ has
+nonnegative determinant. If $Bz=\lambda z$ for a nonzero
+complex vector, then
+$\operatorname{Re}\lambda=(z^*(B+B^T)z)/(2z^*z)\ge0$.
+The real positive-semidefinite inequality extends to complex vectors
+by writing $z=u+iv$, since the symmetric quadratic form becomes
+$u^THu+v^THv$. The characteristic polynomial has real
+coefficients, so nonreal eigenvalues occur in conjugate pairs,
+whose products are positive real numbers. Real eigenvalues are
+nonnegative by the displayed inequality. The determinant, the product
+of all eigenvalues with multiplicity, is therefore nonnegative,
+including zero eigenvalues. Principal submatrices inherit the symmetric
+part condition by extending test vectors with zero coordinates.
+
+\paragraph{Exact block reduction.}
+Let $A$ be a real rectangular matrix and
+$L=\left(\begin{smallmatrix}0&A\\-A^T&0\end{smallmatrix}\right)$.
+Choose $a$ indices from its first block and $b$ from its
+second block. The resulting principal submatrix is
+$\left(\begin{smallmatrix}0&B\\-B^T&0\end{smallmatrix}\right)$,
+where $B=A_{I,J}$ has size $a$ by $b$.
+If $a\ne b$, the larger side supplies a nonzero kernel vector:
+for example $b>a$ gives $Bv=0$ for some nonzero $v$ by
+elementary rank-nullity, and $(0,v)$ is a kernel vector.
+The determinant is then zero. If $a=b=r$, swapping the two
+blocks of columns has sign $(-1)^{r^2}=(-1)^r$ and gives
+the block diagonal matrix with blocks $B,-B^T$. Its determinant
+is $(-1)^r\det(B)^2$, so undoing the swap gives
+\[
+\det L_{I\cup J,I\cup J}=\det(A_{I,J})^2.
+\]
+Thus odd-size principal determinants vanish, and maximizing a
+size-$2r$ principal determinant in this family is exactly the
+square of maximizing the magnitude of an $r$ by $r$
+rectangular subdeterminant. A multiplicative factor $C^{2r}$
+for the squared objective translates into factor $C^r$ for
+the magnitude, by taking nonnegative square roots. This is a
+rederivation of the source's reduction, not a solution to either
+optimization problem.
+
+\paragraph{A strict one-index local optimum with arbitrarily bad ratio.}
+Take the skew-symmetric four-by-four block diagonal matrix
+\[
+L=\begin{pmatrix}
+0&1&0&0\\-1&0&0&0\\0&0&0&M\\0&0&-M&0
+\end{pmatrix},\qquad M>1.
+\]
+For $k=2$, the set $\{1,2\}$ has determinant one. Every
+set obtained by replacing just one of those indices has one index
+from each block, hence its principal matrix is zero and determinant
+zero. Thus $\{1,2\}$ is a strict local optimum under all
+one-index exchanges. The set $\{3,4\}$ has determinant $M^2$,
+which is the global optimum because these are all six pairs.
+Since $L+L^T=0$, the original promise holds, but the local-search
+ratio is $M^2$, unbounded even at fixed $k=2$.
+This refutes that particular neighborhood, not the more sophisticated
+local-search methods mentioned in the report. Allowing a two-index
+replacement escapes this example immediately.
+
+\paragraph{Discarding the skew part also loses all control.}
+The preceding family has the same symmetric part, zero, for every
+$M$. More strongly, any deterministic procedure whose selected pair depends only
+on the symmetric part can be defeated on four indices: put a
+nonzero skew block on the complementary pair and zeros elsewhere.
+Its chosen pair has determinant zero and the complementary pair
+has positive determinant. This is a restricted-information obstruction;
+the full matrix supplies the missing information, and enumerating
+all pairs is a polynomial algorithm when $k=2$ is fixed.
+
+\section{Audit and unresolved step}
+The primary problem and its block application on printed pages
+2944--2945 were inspected. The audit checked determinant signs,
+odd $k$, rectangular block sizes, and the zero-optimum convention.
+No numerical search was run. The exact obstruction identifies the
+need to control larger exchanges or another global relaxation; it
+does not provide a $2^{O(k)}$ approximation with polynomial
+dependence on matrix size for varying $k$.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The block equivalence and local-search obstructions are complete, but no global polynomial-time 2^{O(k)} approximation is constructed.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 53/2021, Combinatorial Optimization, original question and surrounding discussion read from the primary PDF text on 11 October 2026. Historical statements are not a current-status survey. \url{https://ems.press/content/serial-article-files/46931}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The block equivalence and local-search obstructions are complete, but no global polynomial-time 2^{O(k)} approximation is constructed.
+\end{document}

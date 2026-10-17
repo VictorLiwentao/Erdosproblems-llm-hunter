@@ -1,0 +1,82 @@
+% TOP_PROBLEM: {"id": 7800006, "title": "Meaning and Nonexistence of an Exact Three-Dimensional Ising Formula", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The source requires both a definition and a proof or disproof. Choosing an arbitrarily narrow class of expressions does not settle the intended programme; no universal meaning of exact formula is imposed here."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "7800006", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant.", "target": "Define what an exact three-dimensional Ising solution would mean, then establish or refute an impossibility theorem.", "scope": "Proved effective finite-volume approximation of cubic Ising pressure, ruling out an interpretation of impossibility as noncomputability. No Onsager-comparable expression class or impossibility theorem is supplied.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked removed-bond count, pressure normalization, common-multiple Cauchy argument, periodic boundary error, beta=0 and computable-parameter restriction. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Coordinator checked the cut-bond count, finite-volume partition-function sandwich and common-multiple Cauchy argument. Computability is explicitly separated from an exact-expression class. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A then B applied to this ID: Checked removed-bond count, pressure normalization, common-multiple Cauchy argument, periodic boundary error, beta=0 and computable-parameter restriction. Scope remains limited: Define a nonarbitrary class of exact formulas and establish an obstruction specifically for the homogeneous three-dimensional model."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 7800006; source catalogue code AMR-077-0006
+\setcounter{section}{7800005}
+\section{Meaning and Nonexistence of an Exact Three-Dimensional Ising Formula}\label{7800006}
+{\small UnsolvedMath ID 7800006 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and notation.}For Ising spins $\sigma_x\in\{-1,1\}$ on a lattice, a standard finite-volume Hamiltonian is $H_\Lambda=-J\sum_{\langle x,y\rangle}\sigma_x\sigma_y$ and the partition function is $Z_\Lambda(\beta)=\sum_\sigma e^{-\beta H_\Lambda(\sigma)}$. A thermodynamic free energy is obtained from the volume-normalized logarithm of $Z_\Lambda$. Onsager’s solution motivates the comparison in two dimensions. The admissible class of an ``exact formula'' is deliberately not defined in the source: providing that definition is part of the problem.
+
+\paragraph{Catalogue wording retained for traceability.}
+Give a mathematically precise meaning to an exact formula comparable to Onsager's formula for the two-dimensional Ising model, and prove or disprove that no such formula exists for the three-dimensional Ising model.
+\paragraph{Scope and source qualification.}The source requires both a definition and a proof or disproof. Choosing an arbitrarily narrow class of expressions does not settle the intended programme; no universal meaning of exact formula is imposed here.
+\subsection{Short English statement}
+Define what an exact three-dimensional Ising solution would mean, then establish or refute an impossibility theorem.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved effective finite-volume approximation of cubic Ising pressure, ruling out an interpretation of impossibility as noncomputability. No Onsager-comparable expression class or impossibility theorem is supplied.
+
+\paragraph{Sources and literature check.}
+Read the supplied complete definition, catalogue wording, scope qualifications and source list for this canonical ID. The original-source citations are inherited as supplied references; no fresh primary-source or novelty search was performed for this attempt. No current open-status claim is inferred from this calculation.
+
+\paragraph{Testing a computability interpretation of exactness.}For a cubic box of side \(L\), let \(p_L(\beta)=L^{-3}\log Z_L(\beta)\) with free boundary and nearest-neighbour coupling \(J\). If a large cube of side \(mL\) is split into \(m^3\) boxes, removing the bonds between boxes changes every Hamiltonian by at most \(|J|B\), where \(B=3(m-1)m^2L^2\). Hence
+\[e^{-\beta|J|B}Z_L^{m^3}\le Z_{mL}\le e^{\beta|J|B}Z_L^{m^3},\quad
+|p_{mL}-p_L|\le 3\beta|J|/L\]
+for \(\beta\ge0\). Along compatible box sizes this is a quantitative boundary-error estimate. For two sizes \(L,K\), compare both with a common multiple and let that multiple grow; their pressures differ by at most \(3\beta|J|(L^{-1}+K^{-1})\). Thus the pressure sequence is Cauchy and its limit \(p\) satisfies \(|p-p_L|\le3\beta|J|/L\). Periodic boundaries differ by at most \(3\beta|J|/L\) as well.
+\paragraph{Consequence and limitation.}For computable fixed \(\beta,J\), finite enumeration of \(2^{L^3}\) spin configurations and the displayed error yield certified approximations to \(p\) at any requested tolerance. Exponential cost is allowed in this computability interpretation. At \(\beta=0\), \(p=\log2\) directly. Thus impossibility cannot mean that no terminating arbitrary-precision approximation procedure exists for this model.
+\paragraph{First gap.}An Onsager-comparable formula imposes expressive or structural restrictions not captured by computability. The estimate neither selects that class nor excludes any proposed representation. It is also about a uniform ferromagnetic or signed constant coupling, not a complexity reduction from arbitrary instance-dependent couplings. Inferring nonexistence of an exact homogeneous-model formula from the expense of brute-force enumeration would be invalid. The source's definition requirement and impossibility question both remain unresolved; this known boundary argument only rejects one overbroad interpretation.
+
+\paragraph{Verification and adversarial audit.}
+Checked removed-bond count, pressure normalization, common-multiple Cauchy argument, periodic boundary error, beta=0 and computable-parameter restriction. This was an LLM adversarial audit, not independent human verification; no theorem prover was used. Prompts A then B applied to this ID: Checked removed-bond count, pressure normalization, common-multiple Cauchy argument, periodic boundary error, beta=0 and computable-parameter restriction. Scope remains limited: Define a nonarbitrary class of exact formulas and establish an obstruction specifically for the homogeneous three-dimensional model.
+
+Coordinator checked the cut-bond count, finite-volume partition-function sandwich and common-multiple Cauchy argument. Computability is explicitly separated from an exact-expression class. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local shell used to read supplied files and serialize this manuscript; mathematics derived symbolically in the text, with no numerical experiment or formal proof assistant. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Define a nonarbitrary class of exact formulas and establish an obstruction specifically for the homogeneous three-dimensional model.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an elementary benchmark or conditional reduction; it establishes no claimed new portion of the complete source target.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:7800006:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 7800006 (AMR-077-0006). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:7800006:2}{S2}] Andrew Lenard, original contribution to Open Problems in Mathematical Physics (1998), edited by Michael Aizenman.
+\url{https://web.math.princeton.edu/~aizenman/OpenProblems_MathPhys/9808.ImposThms.html}.
+\end{itemize}
+\label{end:7800006}
+\end{document}

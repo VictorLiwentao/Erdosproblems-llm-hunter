@@ -1,0 +1,89 @@
+% TOP_PROBLEM: {"id": 30003804, "title": "Higher-Order Tsirelson, Kirchberg, and Connes Problems", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The report predates modern negative resolutions of the bipartite problems; their inherited catalogue status is not fresh status evidence. The three higher-order equivalence questions and their closure/tensor-product conventions remain the source target and require a separate present-day assessment."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003804", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Determine the implication and equivalences among the tripartite analogues of Tsirelson, Kirchberg and Connes embedding questions.", "scope": "Proved tripartite equality implies bipartite equality and that bipartite separations embed; the requested converse and two equivalence questions remain.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked the dummy-party construction, absorption of a discarded factor, continuity of marginals, and avoided replacing a structural implication by logical vacuity. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the dummy-party embedding, marginalization and closure continuity. This yields the necessary reverse implication only. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked the dummy-party construction, absorption of a discarded factor, continuity of marginals, and avoided replacing a structural implication by logical vacuity. The remaining gap is: Control the genuine three-factor tensor/commuting comparison under the source closure conventions. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30003804; source catalogue code OWR-16163-001
+\setcounter{section}{30003803}
+\section{Higher-Order Tsirelson, Kirchberg, and Connes Problems}\label{30003804}
+{\small UnsolvedMath ID 30003804 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+A multipartite quantum correlation is a collection of joint measurement probabilities indexed by parties\textquotesingle s choices and outcomes. Tensor-product models place parties on separate Hilbert factors; commuting-operator models use mutually commuting measurement algebras on one Hilbert space. Tsirelson-type questions compare the resulting correlation sets with the appropriate closure conventions. Kirchberg-type questions compare maximal and minimal tensor products of specified $C^*$-algebras. The third-order versions involve three factors, not merely a new notation for the bipartite problem.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Does the bipartite Tsirelson problem imply the tripartite Tsirelson problem? Are the third-order Kirchberg and Tsirelson problems equivalent? Does there exist a version of Connes' embedding problem equivalent to the third-order Connes or Kirchberg problem?
+
+\paragraph{Source scope and qualification.}
+The report predates modern negative resolutions of the bipartite problems; their inherited catalogue status is not fresh status evidence. The three higher-order equivalence questions and their closure/tensor-product conventions remain the source target and require a separate present-day assessment.
+\subsection{Short English statement}
+Determine the implication and equivalences among the tripartite analogues of Tsirelson, Kirchberg and Connes embedding questions.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved tripartite equality implies bipartite equality and that bipartite separations embed; the requested converse and two equivalence questions remain.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30003804. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{The easy implication runs in the opposite direction.} Fix finite measurement and outcome sets and either a tensor-product or commuting-operator correlation convention, with closures if required. Given a bipartite correlation \(p(a,b\mid x,y)\), add a third party with one outcome \(c=0\) and arbitrary one measurement, defining
+\[
+ \widetilde p(a,b,c\mid x,y,z)=p(a,b\mid x,y)\,\mathbf1_{\{c=0\}}.
+\]
+In a tensor model append a one-dimensional Hilbert factor; in a commuting model use the identity measurement. Thus the construction preserves both model classes. Conversely, summing any tripartite tensor correlation over \(c\) produces a bipartite tensor correlation: in a pure realization one may absorb the unused third Hilbert space into the second party, whose measurement acts as identity on it.
+\paragraph{Closure check.} Marginalization is a linear continuous map between finite-dimensional probability arrays, so the same argument works for limits of finite-dimensional tensor correlations. Consequently equality of the appropriate tripartite and commuting sets would imply the corresponding bipartite equality. Any bipartite separation also survives the dummy-party embedding, since otherwise marginalization would remove it.
+\paragraph{Full-scope gap.} This proves only a standard necessary implication. It does not prove the source's converse implication from bipartite to tripartite, the third-order Kirchberg equivalence, or an embedding formulation. The definition's warning about historical negative resolutions is retained without making a fresh status claim. In particular logical vacuity of a false antecedent is not offered as a structural equivalence theorem. The missing step is a three-factor tensor-norm or correlation argument respecting the exact source closures.
+
+\paragraph{Verification and adversarial audit.}
+Checked the dummy-party construction, absorption of a discarded factor, continuity of marginals, and avoided replacing a structural implication by logical vacuity. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked the dummy-party construction, absorption of a discarded factor, continuity of marginals, and avoided replacing a structural implication by logical vacuity. The remaining gap is: Control the genuine three-factor tensor/commuting comparison under the source closure conventions. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the dummy-party embedding, marginalization and closure continuity. This yields the necessary reverse implication only. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Control the genuine three-factor tensor/commuting comparison under the source closure conventions.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30003804:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30003804 (OWR-16163-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30003804:2}{S2}] Interactions between Operator Space Theory and Quantum Probability with Applications to Quantum Information (2018), Oberwolfach Reports, DOI 10.4171/owr/2018/22, pp. 1293--1379. Primary report accessed 2026-10-11; relevant PDF pages 2.
+\url{https://doi.org/10.4171/owr/2018/22}.
+\item[\hypertarget{source:30003804:3}{S3}] MIP star equals RE (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/2001.04383}.
+\end{itemize}
+\label{end:30003804}
+\end{document}

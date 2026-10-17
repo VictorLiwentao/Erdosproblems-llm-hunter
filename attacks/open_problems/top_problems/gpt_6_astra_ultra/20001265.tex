@@ -1,0 +1,175 @@
+% RESEARCH_DRAFT_SHA256: 06c62e8bf5a7867511c1f8fac226ff26e91c45717efc5415aa31e7861f364119
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001265, "title": "Finite certificate interfaces for finite-field zeta functions", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001265", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Question 15. Given a variety over a finite field, can you verify that a given function is its zeta function (i.e., is the question in NP)? (Lenstra, Edixhoven)", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. A complete certificate works for squarefree univariate zero-dimensional inputs; polynomial certificates for point counts and degree bounds of arbitrary varieties remain missing.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Zeta verification: bounded rational transcripts and a complete zero-dimensional certificate}
+\noindent UnsolvedMath ID 20001265; AIM-COMPUTATION-0103. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a variety $V$ over $\mathbb F_q$, its zeta function is $Z(V,T)=\exp(\sum_{r\ge1}\#V(\mathbb F_{q^r})T^r/r)$. The decision task is whether a supplied function equals this zeta function. Membership in NP requires a finite certificate verifiable in time polynomial in the encoded input length.
+\paragraph{Statement recorded in the supplied source.}
+Question 15. Given a variety over a finite field, can you verify that a given function is its zeta function (i.e., is the question in NP)? (Lenstra, Edixhoven) \href{https://aimath.org/WWN/primesinp/primesinp.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The source does not fix the encoding of the variety or candidate function. Its primary discussion mentions a fixed-genus case; the general target is retained without asserting that case settles it.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can a proposed zeta function of a finite-field variety be certified efficiently?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001265 (AIM-COMPUTATION-0103). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0103
+\url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Question 15. Given a variety over a finite field, can you verify that a given function is its zeta function (i.e., is the question in NP)? (Lenstra, Edixhoven)
+
+\section{A certificate route and its assumptions}
+The original Question 15 asks about NP verification of a candidate
+zeta function for a variety over a finite field. An NP claim requires
+an encoding and certificate length polynomial in that encoding. The
+argument below gives a rational-function reduction and a concrete
+certificate for squarefree univariate zero-dimensional schemes. It
+does not provide a certificate for arbitrary varieties.
+
+\paragraph{How many point counts determine a bounded rational function.}
+Suppose $Z_i=P_i/Q_i$ with $P_i(0)=Q_i(0)=1$,
+$\deg P_i\le a$, $\deg Q_i\le b$, for $i=1,2$.
+If their Taylor coefficients agree through degree $a+b$, then they
+are equal. Indeed $P_1Q_2-P_2Q_1$ has degree at most $a+b$.
+Multiplying $Z_1-Z_2$ by the series units $Q_1Q_2$ shows that
+this polynomial has all coefficients through that degree zero,
+so it is the zero polynomial. Conversely equality gives agreement.
+
+For $Z(T)=\exp(\sum_{i\ge1}N_iT^i/i)=\sum_{k\ge0}z_kT^k$
+over $\mathbb Q[[T]]$, differentiation yields
+\[
+kz_k=\sum_{i=1}^k N_i z_{k-i},\qquad z_0=1.
+\]
+The formal chain rule proves the identity after equating the coefficient
+of $T^{k-1}$; division by $k$ recursively determines the coefficients.
+Thus counts through $a+b$ determine $Z$ if the stated numerator
+and denominator bounds are independently justified. They do not
+prove those bounds or certify the counts themselves.
+
+\paragraph{An explicit certificate in a nontrivial special case.}
+Let $f\in\mathbb F_q[X]$ be monic, squarefree and of degree $D$.
+Take $V$ to be its zero set as a zero-dimensional scheme. A certificate
+is a list of distinct monic irreducible polynomials $f_j$ with
+$f=\prod_j f_j$. If $d_j=\deg f_j$, the claimed answer is
+\[
+Z(V,T)=\prod_j(1-T^{d_j})^{-1}.
+\]
+Here is both its proof and a polynomial verification procedure.
+For a monic polynomial $h$ of degree $d\ge1$, check
+\[
+h\mid X^{q^d}-X,
+\quad
+\gcd(h,X^{q^{d/r}}-X)=1
+\quad\hbox{for each prime }r\mid d.
+\]
+These conditions characterize irreducibility. To prove this, the
+roots of $X^{q^k}-X$ form the $q^k$-element field in an algebraic
+closure: the polynomial has derivative $-1$ and degree $q^k$;
+its roots are closed under field operations by the Frobenius identities.
+A root of an irreducible degree-$e$ polynomial generates a field with
+$q^e$ elements, since the quotient has a basis of $e$ powers of the
+root. Its nonzero group has order $q^e-1$, so Lagrange's theorem
+shows that its Frobenius orbit is finite. For a root $\alpha$ its
+orbit under $x\mapsto x^q$ has length $e$
+equal to its minimal-polynomial degree. The orbit product has coefficients
+fixed by Frobenius, hence in $\mathbb F_q$, while every polynomial
+over $\mathbb F_q$ vanishing at $\alpha$ vanishes on that orbit.
+The degree equality follows. Such a root lies in the $q^k$-element
+field exactly when its orbit length divides $k$.
+
+The divisibility test therefore makes $h$ squarefree and forces every
+irreducible factor degree $e$ to divide $d$. If $e<d$, some prime
+$r$ divides $d/e$, so $e\mid d/r$ and that factor contradicts the
+gcd test. All factors must have degree $d$, leaving just one because
+$h$ itself has degree $d$. Conversely an irreducible $h$ of degree
+$d$ satisfies all tests by the orbit characterization. Degree one
+has no prime divisors to test and works by the same argument.
+
+After verifying all factors, distinctness, and their product, a
+degree-$d_j$ factor contributes $d_j$ points over $\mathbb F_{q^k}$
+if $d_j\mid k$, and zero otherwise, again by the orbit description.
+Its contribution to the exponent defining $Z$ is
+$\sum_{m\ge1}d_jT^{md_j}/(md_j)=\sum_{m\ge1}T^{md_j}/m$.
+Exponentiating gives $(1-T^{d_j})^{-1}$. This last formal identity
+follows by differentiation and constant term one, or by the geometric
+series. Multiplying the contributions proves the formula.
+
+All tests have polynomial cost in $D$ and $\log q$ under an explicit
+finite-field representation with polynomial-cost field arithmetic.
+Repeated modular powering computes $X^{q^k}\bmod h$ using
+$O(k\log q)$ polynomial multiplications by binary exponentiation;
+$k\le D$. Euclidean gcd and dense polynomial products have polynomial
+cost. The prime divisors of $d\le D$ can be found by trial division
+through $D$, also polynomial in this parameter. The certificate lists
+at most $D$ total factor degrees. A candidate rational function can
+be compared with the displayed product by cross multiplication in
+polynomial time in its input length and $D$.
+
+\section{Where the general NP argument fails}
+For an affine variety in $n$ coordinates, $N_k\le q^{kn}$, so
+the integers $N_1,\ldots,N_B$ need at most
+$O(nB^2\log q+B)$ bits. Short numerical answers are not automatically
+short proofs. Listing every point to certify a count can already
+require $q$ entries for the affine line over $\mathbb F_q$, exponential
+in $\log q$. This only refutes that listing strategy; it does not
+refute the existence of other NP certificates. Our squarefree-factor
+certificate avoids enumeration in dimension zero, but no counterpart
+is supplied for general varieties or for certifying general cohomological
+degree bounds polynomial in the proposed input size.
+
+\section{Audit}
+The primary Question 15 was inspected. The audit distinguishes
+determinacy, certificate soundness, certificate length and deterministic
+construction of a certificate. It does not use a random factorization
+algorithm to assert deterministic construction. The complete proofs
+above concern the stated special input class, not the original universal
+NP question. No factorization experiment or variety point count was run.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. A complete certificate works for squarefree univariate zero-dimensional inputs; polynomial certificates for point counts and degree bounds of arbitrary varieties remain missing.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Future directions in algorithmic number theory, workshop 24--28 March 2003, report version 30 April 2003; original question, relevant lecture context and adjoining remarks inspected on 11 October 2026. \url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} A complete certificate works for squarefree univariate zero-dimensional inputs; polynomial certificates for point counts and degree bounds of arbitrary varieties remain missing.
+\end{document}

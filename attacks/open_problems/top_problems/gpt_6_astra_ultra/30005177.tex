@@ -1,0 +1,85 @@
+% TOP_PROBLEM: {"id": 30005177, "title": "Conformal Invariance of Interacting Long-Range Fermionic Models", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "Scale invariance at a fixed point does not by itself establish full conformal invariance; the source model and correlation-function conventions must be retained."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005177", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Prove conformal invariance of the interacting long-range fermionic renormalization-group fixed point.", "scope": "Constructed an explicit homogeneous Euclidean four-point diagnostic failing inversion covariance; identified the additional Ward identities needed for the source fermionic fixed point.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked inversion distance factors and scale degree; distinguished a symmetry diagnostic from a valid fermionic correlation hierarchy or counterexample. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the inversion distance identity and failure of the extra ratio to have primary-field covariance. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked inversion distance factors and scale degree; distinguished a symmetry diagnostic from a valid fermionic correlation hierarchy or counterexample. The remaining gap is: Prove the special-conformal Ward identities with nonlocal and fermionic terms for the actual interacting fixed-point correlations. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30005177; source catalogue code OWR-11101914-001
+\setcounter{section}{30005176}
+\section{Conformal Invariance of Interacting Long-Range Fermionic Models}\label{30005177}
+{\small UnsolvedMath ID 30005177 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+A renormalization-group fixed point is a theory unchanged, up to its prescribed rescaling, by coarse-graining. Non-Gaussian means that its correlations are not those of a free Gaussian theory. Long-range fermionic models here use the source's nonlocal covariance and symplectic internal symmetry. Conformal invariance requires the appropriate covariance of correlations under conformal transformations.
+
+\paragraph{Catalogue wording retained for traceability.}
+Prove conformal invariance of the non-Gaussian renormalization-group fixed point for long-range fermionic models with symplectic symmetry.
+
+\paragraph{Scope and source qualification.}Scale invariance at a fixed point does not by itself establish full conformal invariance; the source model and correlation-function conventions must be retained.
+\subsection{Short English statement}
+Prove conformal invariance of the interacting long-range fermionic renormalization-group fixed point.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Constructed an explicit homogeneous Euclidean four-point diagnostic failing inversion covariance; identified the additional Ward identities needed for the source fermionic fixed point.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30005177. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{A scale-to-conformal diagnostic.} For distinct nonzero Euclidean points define the scalar four-point expression
+\[
+ F(x_1,x_2,x_3,x_4)=|x_1-x_2|^{-2\Delta}|x_3-x_4|^{-2\Delta}
+ \left(1+\varepsilon\frac{|x_1-x_2|}{|x_3-x_4|}\right),\qquad\varepsilon\ne0.
+\]
+It is translation and rotation invariant and homogeneous of degree \(-4\Delta\). Under inversion \(I(x)=x/|x|^2\), direct squaring proves \(|I(x)-I(y)|=|x-y|/(|x||y|)\). The first product therefore acquires the expected factor \(\prod_j|x_j|^{2\Delta}\), but the additional ratio acquires \(|x_3||x_4|/(|x_1||x_2|)\), which is generally not one. Thus the expression fails the corresponding primary-field inversion law despite its scale covariance.
+\paragraph{The actual missing identity.} In a fixed-point proof one must establish special-conformal identities as well as dilation identities. For scalar primary components this includes vanishing of the sum of generators \(2x_j^\mu x_j\cdot\partial_{x_j}-|x_j|^2\partial_{x_j^\mu}+2\Delta x_j^\mu\) acting on the correlation, with the appropriate spin/internal terms in the fermionic case.
+\paragraph{Scope audit.} The diagnostic expression is not claimed to be a consistent fermionic correlation hierarchy or the source fixed point. It refutes an insufficient symmetry inference only. The first gap is deriving the full conformal Ward identities for the actual non-Gaussian long-range symplectic model, controlling nonlocal kernels and anomalies. No proof that scale invariance fails there, and no conformal-invariance result, is supplied.
+
+\paragraph{Verification and adversarial audit.}
+Checked inversion distance factors and scale degree; distinguished a symmetry diagnostic from a valid fermionic correlation hierarchy or counterexample. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked inversion distance factors and scale degree; distinguished a symmetry diagnostic from a valid fermionic correlation hierarchy or counterexample. The remaining gap is: Prove the special-conformal Ward identities with nonlocal and fermionic terms for the actual interacting fixed-point correlations. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the inversion distance identity and failure of the extra ratio to have primary-field covariance. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Prove the special-conformal Ward identities with nonlocal and fermionic terms for the actual interacting fixed-point correlations.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30005177:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30005177 (OWR-11101914-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30005177:2}{S2}] The Renormalization Group (2022), Oberwolfach Reports, DOI 10.4171/owr/2022/33, pp. 1865--1925. Original report and mathematical context.
+\url{https://doi.org/10.4171/owr/2022/33}.
+\end{itemize}
+\label{end:30005177}
+\end{document}

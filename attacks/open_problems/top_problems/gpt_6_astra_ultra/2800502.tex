@@ -1,0 +1,137 @@
+% RESEARCH_DRAFT_SHA256: 81d6ef2db602abb1a8046615f1a047c1731b6b2171419bfa4c48e5fb27287a19
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 2800502, "title": "10 Lectures and 42 Open Problems — Certifying the Restricted Isometry Property", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "2800502", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Let $N = 2M$ . For which $s$ is there a polynomial time algorithm that is guaranteed to, with high probability, certify that a gaussian matrix $A$ is $\\left(s,\\frac13\\right)$ -RIP? In particular, a $\\left(s,\\frac13\\right)$ -RIP matrix has to not have $s$ sparse vectors in its nullspace. This motivates a second question: Let $N = 2M$ . for which $s$ is there a polynomial time algorithm that is guaranteed to, with high probability, certify that a gaussian matrix $A$ does not have $s$ -sparse vectors in its nullspace?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The maximal polynomial-time certification range for both bundled questions is not characterized; a low-degree hardness analysis cannot supply an unconditional all-algorithm lower bound.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Gaussian RIP certification: a sound elementary range and the hardness-scope gap}
+\noindent UnsolvedMath ID 2800502; AMR-027-0502. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+An $M\times N$ matrix $A$ has the $(s,\delta)$ restricted isometry property (RIP) if $(1-\delta)\lVert x\rVert_2^2\leq\lVert Ax\rVert_2^2\leq(1+\delta)\lVert x\rVert_2^2$ for every vector with at most $s$ nonzero coordinates. Its nullspace is $\ker A=\{x:Ax=0\}$. A nonzero $s$-sparse null vector is incompatible with RIP for $\delta<1$. A certifier must be sound for its positive certificates, while the probability of producing a certificate is evaluated over the source Gaussian matrix law. The Gaussian scaling, matrix encoding and time model must be specified for a complexity bound.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The source catalogue marks this historical question solved; that label is preserved without treating it as a new open conjecture. The original source asks for a parameter-dependent certification range, not merely whether Gaussian matrices often satisfy RIP. In the second question, sparse nullspace vectors means nonzero vectors; zero is always in the nullspace. Matrix normalization and Gaussian sampling follow the original model.
+\paragraph{Statement recorded in the supplied source.}
+Let $N = 2M$ . For which $s$ is there a polynomial time algorithm that is guaranteed to, with high probability, certify that a gaussian matrix $A$ is $\left(s,\frac13\right)$ -RIP? In particular, a $\left(s,\frac13\right)$ -RIP matrix has to not have $s$ sparse vectors in its nullspace. This motivates a second question: Let $N = 2M$ . for which $s$ is there a polynomial time algorithm that is guaranteed to, with high probability, certify that a gaussian matrix $A$ does not have $s$ -sparse vectors in its nullspace? \href{https://afonsobandeira.wordpress.com/2015/11/22/10l42gordon/}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. This is documentation of a source-labelled solved record, not a newly proposed unsolved problem.
+\subsection{Short English statement}
+Determine how much sparsity a polynomial-time algorithm can soundly certify for a random Gaussian matrix, including absence of sparse null vectors.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 2800502 (AMR-027-0502). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AMR Open Problem Lists, source linked by catalogue record AMR-027-0502.
+\url{https://afonsobandeira.wordpress.com/2015/11/22/10l42gordon/}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Let $N = 2M$ . For which $s$ is there a polynomial time algorithm that is guaranteed to, with high probability, certify that a gaussian matrix $A$ is $\left(s,\frac13\right)$ -RIP? In particular, a $\left(s,\frac13\right)$ -RIP matrix has to not have $s$ sparse vectors in its nullspace. This motivates a second question: Let $N = 2M$ . for which $s$ is there a polynomial time algorithm that is guaranteed to, with high probability, certify that a gaussian matrix $A$ does not have $s$ -sparse vectors in its nullspace?
+
+\section{Attempt and results}
+Fix $N=2M$ and real entries $A_{ij}\sim\mathcal N(0,1/M)$ independently.
+Arithmetic on exact real inputs is an idealization; a practical implementation
+must use rational interval bounds on every tested inner product. Randomness
+belongs to the input, and the acceptance test below is sound on every matrix.
+Both RIP and absence of nonzero sparse null vectors are retained as targets.
+
+\paragraph{A deterministic certificate.}
+Let $\gamma=\max_j|\|a_j\|^2-1|$ and
+$\mu=\max_{i\ne j}|a_i^Ta_j|$, where $a_j$ are columns. If
+$\gamma+(s-1)\mu\le1/3$, accept. For every vector supported on $t\le s$
+columns, expansion of its quadratic form gives
+\[
+|x^T(A^TA-I)x|\le\gamma\|x\|^2+
+\mu\big((\sum_i|x_i|)^2-\|x\|^2\big)
+\le[\gamma+(s-1)\mu]\|x\|^2.
+\]
+This proves soundness, simultaneously on every support. Inner products can be
+computed in $O(MN^2)$ arithmetic operations. Accepted matrices have no nonzero
+$s$-sparse null vector because $\|Ax\|^2\ge(2/3)\|x\|^2$.
+
+\paragraph{Success probability, with constants.}
+For independent standard Gaussians $g_1,\ldots,g_M$ and $0<t<1$,
+\[
+\Pr\left(\left|M^{-1}\sum g_i^2-1\right|\ge t\right)
+\le2e^{-Mt^2/8}.
+\]
+Here is a direct derivation. The Gaussian integral gives
+$\mathbb E e^{\lambda(g^2-1)}=e^{-\lambda}(1-2\lambda)^{-1/2}$.
+For $|\lambda|\le1/4$, its logarithm, expanded into its absolutely convergent
+power series, has absolute upper bound
+$\sum_{k\ge2}2^{k-1}|\lambda|^k/k\le2\lambda^2$.
+Independence and Markov's inequality with $\lambda=\pm t/4$ give each
+tail at most $e^{-Mt^2/8}$.
+Apply this to each column and to each of $(a_i+a_j)/\sqrt2$ and
+$(a_i-a_j)/\sqrt2$. Every such vector has the same normalized Gaussian
+marginal law; independence between these tests is unnecessary. There are
+$N+2\binom N2=N^2$ tests. On their common good event,
+$\gamma\le t$ and, by polarization, $|a_i^Ta_j|\le t$.
+For $0<\eta<1$ put
+\[
+t=\sqrt{\frac{8\log(2N^2/\eta)}M}.
+\]
+Whenever $t<1$ and integer $s\ge1$ satisfies $st\le1/3$, the certifier
+accepts with probability at least $1-\eta$. This rederives the familiar
+square-root sparsity scale with its logarithmic loss.
+
+\paragraph{Attempted extrapolation and its first gap.}
+Almost-sure nonsingularity of every $M$-column Gaussian submatrix is not an
+efficient certificate: it concerns the input distribution, while soundness
+requires checking the actual matrix. Enumerating all supports has a number
+of cases that grows exponentially when $s$ is proportional to $M$.
+The proof above only bounds each Gram entry separately; summing magnitudes
+loses cancellation. No polynomial-time bound on every sparse quadratic form
+beyond this certificate is obtained.
+
+\section{Context and adversarial audit}
+The primary abstract of Ding, Kunisky, Wein and Bandeira, arXiv:2005.11270,
+was consulted on 11 October 2026. It describes low-degree-likelihood-ratio
+evidence for average-case hardness. Such evidence is not an unconditional
+lower bound for every polynomial-time algorithm. The source-row research
+summary's stronger inference is not adopted, while its catalogue solved
+label is preserved as metadata. No external hardness theorem is used in our
+proofs. The audit checked Gaussian normalization, dependence among tests,
+zero-error soundness, and the second nullspace question. No numerical or
+formal computation was performed; these are elementary known bounds.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The maximal polynomial-time certification range for both bundled questions is not characterized; a low-degree hardness analysis cannot supply an unconditional all-algorithm lower bound.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Bandeira, lecture notes (2016), Open Problem 5.2; both bundled questions inspected. \url{https://people.math.ethz.ch/~abandeira/TenLecturesFortyTwoProblems.pdf}.
+\item Yunzi Ding, Dmitriy Kunisky, Alexander S. Wein and Afonso S. Bandeira, The Average-Case Time Complexity of Certifying the Restricted Isometry Property, arXiv:2005.11270; abstract inspected for scope only. \url{https://arxiv.org/abs/2005.11270}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The maximal polynomial-time certification range for both bundled questions is not characterized; a low-degree hardness analysis cannot supply an unconditional all-algorithm lower bound.
+\end{document}

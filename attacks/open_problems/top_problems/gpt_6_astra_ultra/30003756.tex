@@ -1,0 +1,142 @@
+% RESEARCH_DRAFT_SHA256: e975ba10cb8060b0fb1535e6c95aa82b2ae7879e7d4c2898a9da4d763fc6680e
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30003756, "title": "Global Optimization of Overparameterized Shallow Networks", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003756", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and written-proof review of this attempt; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Global Optimization of Overparameterized Shallow Networks; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A quadratic landscape calculation and two gradient-descent boundaries; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch021 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30003756; source catalogue code OWR-15999-003
+\section{Global Optimization of Overparameterized Shallow Networks}\label{30003756}
+{\small UnsolvedMath ID 30003756 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+In the LOCAL model vertices communicate synchronously along graph edges; messages and local computation are unrestricted and complexity is the number of rounds. After $t$ rounds a vertex can depend only on its radius-$t$ neighborhood and any supplied identifiers or randomness.
+
+A feed-forward neural network composes affine maps and specified nonlinear activations. ReLU is $\sigma(t)=\max\{0,t\}$. Empirical risk averages a loss on training samples; population risk is its expectation on the target distribution, and generalization compares these risks.
+
+For a differentiable loss $L$, gradient flow solves $\dot\theta=-\nabla L(\theta)$, while gradient descent updates $\theta_{t+1}=\theta_t-\eta_t\nabla L(\theta_t)$. Global optimality refers to the minimum over the whole admissible parameter space.
+\paragraph{Statement recorded in the supplied source.}
+For over-parameterized shallow neural networks, explain and prove when local-search methods such as gradient descent can reach global optimality despite high-dimensional nonconvex training, and characterize the resulting optimization landscape. \href{https://doi.org/10.4171/owr/2018/14}{[S2]}
+\paragraph{Scope qualification.}
+The activation, architecture, loss, data, initialization, and definition of overparameterized are not fixed by the supplied question.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Prove when local optimization reaches global training optima for overparameterized shallow networks.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30003756 (OWR-15999-003). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Applied Harmonic Analysis and Data Processing (2019), Oberwolfach Reports, DOI 10.4171/owr/2018/14, pp. 723--792
+\url{https://doi.org/10.4171/owr/2018/14}.
+\item[S3] Quadratic network landscape
+\url{https://arxiv.org/abs/1707.04926}.
+\item[S4] Overparameterized networks
+\url{https://arxiv.org/abs/1803.01206}.
+\item[S5] Limits of mild overparameterization
+\url{https://proceedings.mlr.press/v134/safran21a.html}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30003756 and source code OWR-15999-003 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30003756}
+
+\section{Literature and context check}
+The primary OWR 14/2018 talk, pp.~734--735, was read. It already states a no-spurious-minima and strict-saddle theorem for quadratic activations, with at least $d$ positive and $d$ negative fixed output weights. The calculation below rederives that stated special case to locate its mechanism and the gap to blanket gradient-descent claims. It is known source material, not a new general overparameterized-network theorem. The irrelevant LOCAL-model definition in the preserved catalogue body is not used.
+\section{Research attempt: A quadratic landscape calculation and two gradient-descent boundaries}
+
+\paragraph{A proved quadratic special case.}
+For inputs $x_i\in\mathbb R^d$, labels $y_i$, and $n\ge1$, consider
+\[
+ S=PP^T-QQ^T,\qquad
+ F(S)=\frac1{2n}\sum_{i=1}^n(x_i^TSx_i-y_i)^2,
+\]
+where $P\in\mathbb R^{d\times a}$ and $Q\in\mathbb R^{d\times b}$, with $a,b\ge d$. This is a shallow quadratic network with fixed positive and negative output weights after absorbing their absolute square roots into the hidden weights. Every symmetric $S$ can be represented: orthogonally diagonalize it and place the square roots of its positive and negative eigenvalues in the respective factors, padding with zero columns.
+
+Set
+\[
+ G=\nabla F(S)=\frac1n\sum_i(x_i^TSx_i-y_i)x_ix_i^T.
+\]
+The factor gradients are $2GP$ and $-2GQ$, so at a stationary point $GP=GQ=0$. If $G=0$, then for every symmetric $T$,
+\[
+ F(T)-F(S)=\operatorname{tr}(G(T-S))+
+            \frac1{2n}\sum_i(x_i^T(T-S)x_i)^2\ge0.
+\]
+Thus the point is globally optimal in the factor model as well.
+
+If $G\ne0$, choose a unit eigenvector $e$ with eigenvalue $\gamma\ne0$. The stationary equations imply $e^TP=e^TQ=0$. If $\gamma>0$, $Q$ has rank at most $d-1$, so, since $b\ge d$, choose a unit vector $z\in\ker Q$. Perturb $Q$ to $Q+t ez^T$. Its first-order change in $S$ vanishes because $Qz=0$, and its exact second-order change is $-t^2ee^T$. Hence
+\[
+ \left.\frac{d^2}{dt^2}F\bigl(S-t^2ee^T\bigr)\right|_{t=0}=-2\gamma<0.
+\]
+If $\gamma<0$, use a unit vector in $\ker P$ and perturb $P$ instead, giving second derivative $2\gamma<0$. Thus every stationary point with nonzero $G$ has a negative-curvature direction. Every local minimum is stationary and cannot have such a direction, so all local minima are global. This proof covers arbitrary data and permits nonzero optimal residual; it does not assert that all labels can be interpolated.
+
+\paragraph{A favorable landscape is not an arbitrary-initialization theorem.}
+For $d=n=1$, $x_1=y_1=1$, and scalar factors $P,Q$, the loss is $(P^2-Q^2-1)^2/2$. At $(0,0)$ the gradient vanishes and ordinary gradient descent stays there for every step-size schedule, although the global minimum zero occurs at $(1,0)$. The stationary point has a negative-curvature direction as predicted. A random-initialization or perturbation theorem would need to exclude this initialization and control step sizes, boundedness and limiting behavior; those do not follow from the stationary-point classification alone. The factor map is noncoercive as well: $P=Q=t$ keeps $S=0$ and the loss constant while parameters diverge.
+
+\paragraph{Changing the activation removes the conclusion.}
+With one positive input $x=1$ and target $y=1$, consider a bias-free shallow ReLU network $f(1)=\sum_{j=1}^m a_j\max(0,w_j)$. On the open region where all $w_j<0$, the output is identically zero and the squared loss is $1/2$, with gradient zero in all parameters. Every point of this open region is a local minimum, whereas choosing one $w_j=a_j=1$ and all other output weights zero gives loss zero. Width $m$ may be arbitrarily large. This is a direct counterexample to the claim that a parameter count exceeding the sample count alone guarantees a benign landscape for unspecified activations and initialization. It does not contradict the quadratic theorem or a ReLU theorem with additional data and initialization assumptions.
+\section{Verification and adversarial audit}
+The factor gradients, nullspace dimensions, exact second-order paths and global-optimality identity were checked. Both signs of the nonzero eigenvalue are treated, and the width requirement is used exactly to obtain a nonzero kernel vector. The scalar saddle and open dead-ReLU region test the two tempting generalizations separately. No theorem about random initialization or full gradient-descent convergence was invoked without proof.
+\paragraph{Audit corrections.} Kept known quadratic landscape material separate from new progress. Replaced an unjustified ``no bad local minima implies every gradient run succeeds'' inference by explicit saddle-initialization and ReLU counterexamples.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The original broad request leaves activation, architecture, loss, data, initialization and optimization protocol unspecified. The source's quadratic special case is rederived, but no full characterization or general convergence theorem is obtained. The first gap is control of actual trajectories under a stated algorithm and the assumptions needed beyond this special factorization geometry.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46736} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and written-proof review of this attempt; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

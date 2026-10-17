@@ -1,0 +1,228 @@
+% RESEARCH_DRAFT_SHA256: 434a6b5ea33617af17ba43346c9f4d549e12e90b7762a124f7caced5d3b440db
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001179, "title": "Indispensable cubics and a five-move Markov basis on the zero-middle-row face", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001179", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Problem 2. Find a Markov basis for studying the set X of 2-way tables with a fixed quadratic statistic:\n\nX = {T | ∑\n\n> j\n\nTij = Ri, ∑\n\n> i\n\nTij = Cj and ∑\n\n> i,j\n\n(i − 2)( j − 2) Tij = Q}.\n\nFor 3 × 4 tables, the matrix that computes the sufficient statistics (i.e. the matrix which represents the log-linear model) is the following:\n\n\n\n1 1 1 1 0 0 0 0 0 0 0 00 0 0 0 1 1 1 1 0 0 0 00 0 0 0 0 0 0 0 1 1 1 11 0 0 0 1 0 0 0 1 0 0 00 1 0 0 0 1 0 0 0 1 0 00 0 1 0 0 0 1 0 0 0 1 00 0 0 1 0 0 0 1 0 0 0 11 0 −1 −2 0 0 0 0 −1 0 1 2\n\n.\n\nPolyhedral Cones and Testing.\n\nObserve\n\nXij = {10|P (Xij |Xij ) = Z−1(θ)i)exij θj }4\n\nTest θi = θ∀i against A · θ ≥ 0 with A fixed.\n\nExample 3. Possible conditions enforced by A · · · θ ≥ 0 are\n\nθ1 ≥ θ2 ≥ · · · ≥ θI\n\nor\n\nθi ≥ θI ∀i.\n\nThere should be a nice interaction between statistics and polyhedral combinatorics in this problem.\n\nCompare \"Competing\" Techniques.\n\nA. Classical Asymptotics B. Edgeworth Corrections C. StatXact D. Sequential Importance Sampling E. Others How do these different techniques for estimating p-values relate to each other? With respect to sequential importance sampling: what are possible multi-way gener-alizations of the Gale-Ryser theorem which gives necessary and sufficient conditions for the existence of a 0 /1 matrix with fixed row and column sums?\n\nStephen Fienberg\n\nQuestions about Odds-Ratios.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. No complete Markov basis is produced for arbitrary margins and weighted statistic, and the composite cone-testing, p-value, and multiway-margin questions are not answered.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Fixed weighted table statistics: an exact obstruction to ordinary rectangle moves}
+\noindent UnsolvedMath ID 20001179; AIM-COMPUTATION-0017. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+For an integer matrix $A$ and statistic vector $b$, the nonnegative integer fiber is $\mathcal F_b=\{x\in\mathbb N^d:Ax=b\}$. A Markov basis is a finite set of integer moves in $\ker A$ connecting every such fiber by moves that remain nonnegative. Its binomial generators form the toric ideal $I_A=\langle x^u-x^v:Au=Av\rangle$. For a two-way table, row sums, column sums, and a weighted sum of cells are linear statistics of its vectorized entries. A polyhedral cone is an intersection of finitely many homogeneous linear halfspaces. A statistical p-value is a tail probability under a specified null distribution.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The table formula and displayed matrix are damaged, and the excerpt includes several independent questions. No zero-row face, indispensable cubic, or five-move basis is asserted; those specifics are absent from the chosen source text. The supplied catalogue marks this record partially solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+Problem 2. Find a Markov basis for studying the set X of 2-way tables with a fixed quadratic statistic:
+
+X = \{T | ∑
+
+> j
+
+Tij = Ri, ∑
+
+> i
+
+Tij = Cj and ∑
+
+> i,j
+
+(i − 2)( j − 2) Tij = Q\}.
+
+For 3 × 4 tables, the matrix that computes the sufficient statistics (i.e. the matrix which represents the log-linear model) is the following:
+
+
+
+1 1 1 1 0 0 0 0 0 0 0 00 0 0 0 1 1 1 1 0 0 0 00 0 0 0 0 0 0 0 1 1 1 11 0 0 0 1 0 0 0 1 0 0 00 1 0 0 0 1 0 0 0 1 0 00 0 1 0 0 0 1 0 0 0 1 00 0 0 1 0 0 0 1 0 0 0 11 0 −1 −2 0 0 0 0 −1 0 1 2
+
+.
+
+Polyhedral Cones and Testing.
+
+Observe
+
+Xij = \{10|P (Xij |Xij ) = Z−1(θ)i)exij θj \}4
+
+Test θi = θ∀i against A · θ ≥ 0 with A fixed.
+
+Example 3. Possible conditions enforced by A · · · θ ≥ 0 are
+
+θ1 ≥ θ2 ≥ · · · ≥ θI
+
+or
+
+θi ≥ θI ∀i.
+
+There should be a nice interaction between statistics and polyhedral combinatorics in this problem.
+
+Compare "Competing" Techniques.
+
+A. Classical Asymptotics B. Edgeworth Corrections C. StatXact D. Sequential Importance Sampling E. Others How do these different techniques for estimating p-values relate to each other? With respect to sequential importance sampling: what are possible multi-way gener-alizations of the Gale-Ryser theorem which gives necessary and sufficient conditions for the existence of a 0 /1 matrix with fixed row and column sums?
+
+Stephen Fienberg
+
+Questions about Odds-Ratios. \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The composite joins a quadratic-statistic table problem with cone tests and comparisons of p-value algorithms.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001179 (AIM-COMPUTATION-0017). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-COMPUTATION-0017.
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Problem 2. Find a Markov basis for studying the set X of 2-way tables with a fixed quadratic statistic:
+
+X = {T | ∑
+
+> j
+
+Tij = Ri, ∑
+
+> i
+
+Tij = Cj and ∑
+
+> i,j
+
+(i − 2)( j − 2) Tij = Q}.
+
+For 3 × 4 tables, the matrix that computes the sufficient statistics (i.e. the matrix which represents the log-linear model) is the following:
+
+
+
+1 1 1 1 0 0 0 0 0 0 0 00 0 0 0 1 1 1 1 0 0 0 00 0 0 0 0 0 0 0 1 1 1 11 0 0 0 1 0 0 0 1 0 0 00 1 0 0 0 1 0 0 0 1 0 00 0 1 0 0 0 1 0 0 0 1 00 0 0 1 0 0 0 1 0 0 0 11 0 −1 −2 0 0 0 0 −1 0 1 2
+
+.
+
+Polyhedral Cones and Testing.
+
+Observe
+
+Xij = {10|P (Xij |Xij ) = Z−1(θ)i)exij θj }4
+
+Test θi = θ∀i against A · θ ≥ 0 with A fixed.
+
+Example 3. Possible conditions enforced by A · · · θ ≥ 0 are
+
+θ1 ≥ θ2 ≥ · · · ≥ θI
+
+or
+
+θi ≥ θI ∀i.
+
+There should be a nice interaction between statistics and polyhedral combinatorics in this problem.
+
+Compare "Competing" Techniques.
+
+A. Classical Asymptotics B. Edgeworth Corrections C. StatXact D. Sequential Importance Sampling E. Others How do these different techniques for estimating p-values relate to each other? With respect to sequential importance sampling: what are possible multi-way gener-alizations of the Gale-Ryser theorem which gives necessary and sufficient conditions for the existence of a 0 /1 matrix with fixed row and column sums?
+
+Stephen Fienberg
+
+Questions about Odds-Ratios.
+
+\section{Recovered task and retained composite scope}
+The primary PDF supplies the well-formed first target: nonnegative integer
+$I$ by $J$ tables with fixed row sums, column sums and
+$Q(T)=\sum_{i,j}(i-2)(j-2)T_{ij}$. Although described as quadratic,
+this is linear in the table entries; the weights are quadratic in labels.
+The preserved extraction also contains cone-testing, p-value-comparison
+and multiway binary-margin questions. These are additional unresolved
+directions here, not silently replaced by a zero-row-face theorem.
+
+\paragraph{Why the standard margin basis fails.}
+The usual rectangle move adds one at $(i,j),(k,l)$ and subtracts one at
+$(i,l),(k,j)$, with $i\ne k$ and $j\ne l$. It changes $Q$ by
+\[
+(i-2)(j-2)+(k-2)(l-2)-(i-2)(l-2)-(k-2)(j-2)
+=(i-k)(j-l)\ne0.
+\]
+Thus none of these nonzero moves preserves the extra statistic. In fact
+there are no nonzero degree-two moves at all: equality of row and column
+sums for two multisets of two cells either forces the multisets to agree
+or switches the pairing between two distinct rows and columns. The latter
+is exactly a rectangle and fails the statistic. This argument works in
+every nontrivial size, not just the displayed $3$ by $4$ example.
+
+\paragraph{A necessary cubic in the displayed format.}
+In $3$ by $4$ tables fix row sums $(1,1,1)$ and column sums $(1,1,1,0)$.
+Every feasible table is a permutation matrix in the first three columns.
+For permutations written by their successive column choices, the six
+$Q$ values are
+\[
+Q(123)=2,\quad Q(132)=Q(213)=1,\quad
+Q(231)=Q(312)=-1,\quad Q(321)=-2.
+\]
+Each follows by direct substitution into $Q$; a Python 3.14.2 enumeration
+of all six permutations gave exactly these values. In the $Q=1$ fiber
+there are precisely the two matrices $P_{132}$ and $P_{213}$, with
+disjoint positive supports. Consequently any Markov basis connecting
+every fiber must contain their difference up to sign: there is no third
+state through which a path could pass, and a step joining the two states
+must be precisely their difference. Its positive and negative parts each
+have total three, so this cubic is indispensable. The same argument
+applies to the $Q=-1$ pair. All claims here concern these explicitly fixed
+fibers; they are not a complete basis for the full model.
+
+\paragraph{Attempted global extension and gap.}
+A tempting route is to combine two rectangle switches so their changes
+in $Q$ cancel. Cancellation gives a lattice move, but does not prove
+that a path through such moves stays nonnegative or connects every
+fiber. The two-point cubic fibers already exclude any proposal restricted
+to degree two. A full bounded-degree move classification with a
+nonnegative-path argument remains missing. The additional source questions
+do not specify one null distribution, approximation metric or arbitrary
+multiway-margin format, so the cubic computation cannot answer them.
+
+\section{Context and adversarial audit}
+The primary AIM matrix and weighting formula were inspected on
+11 October 2026. The low-degree calculation is elementary known-style
+material, not a claimed new Markov-basis theorem. The audit checked the
+fourth column's forced zero margin, that weighted statistics are linear
+in counts, and the distinction between integer-kernel generation and
+Markov connectivity. Computation was limited to the six exact permutation
+values listed above; no full basis computation or theorem prover was run.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. No complete Markov basis is produced for arbitrary margins and weighted statistic, and the composite cone-testing, p-value, and multiway-margin questions are not answered.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item American Institute of Mathematics, Computational Algebraic Statistics, prepared by Seth Sullivant, version 27 March 2004; the original numbered source question and its adjacent scope were inspected on 11 October 2026. \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} No complete Markov basis is produced for arbitrary margins and weighted statistic, and the composite cone-testing, p-value, and multiway-margin questions are not answered.
+\end{document}

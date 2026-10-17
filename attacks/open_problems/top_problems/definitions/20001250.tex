@@ -1,0 +1,73 @@
+% SUBMISSION: {"kind": "statement_only", "category": "top_problems", "problem_id": "20001250", "proposal_type": "established", "source": "AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0088: https://aimath.org/WWN/primesinp/primesinp.pdf", "status_evidence": "The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.", "status_checked_on": "2026-10-11", "duplicate_check": "Canonical ID 20001250 and source code AIM-COMPUTATION-0088 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed.", "attribution": "Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted."}
+% TOP_PROBLEM: {"id": 20001250, "title": "Cyclic-binomial structure in an early Agrawal conjecture", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: null
+% ENTRY_KIND: statement_only
+% Imported from: computer_science_statements.tex; UnsolvedMath ID 20001250
+% Compile twice: lualatex 20001250.tex
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+% UnsolvedMath ID 20001250; source catalogue code AIM-COMPUTATION-0088
+\setcounter{section}{20001249}
+\section{Cyclic-binomial structure in an early Agrawal conjecture}\label{20001250}
+{\small\sffamily UnsolvedMath ID 20001250 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Polynomial time means a bound polynomial in the finite input length; for an integer input, its binary length is proportional to its logarithm. A polynomial congruence modulo $(n,Q(X))$ means equality in $\mathbb Z[X]/(n,Q(X))$. The source first describes checking $(1+X)^n\equiv1+X^n\pmod n$, then asks whether the listed small-degree moduli suffice for a primality certificate. Its modified proposition is recorded as known in the source, not as the requested conjecture.
+\paragraph{Statement recorded in the supplied source.}
+Conjecture 3
+
+Chapter A: Lecture Notes
+
+Lecture notes were TeXed in real time by John Voight.
+
+\#A.1 Agrawal: A Polynomial Time Algorithm for Testing Primality
+
+The primality testing algorithm we present is based upon the following identity: n is prime if and only if (1 + X)n ≡ 1 + Xn (mod n),
+
+where we consider this congruence as an identity in the polynomial ring ( Z/n Z)[ X]. This easily gives a randomized algorithm which runs in polynomial time: rather than verifying it completely (which would be far too expensive), you verify it modulo a randomly chosen degree log n polynomial Q(X); repeating this sufficiently often, you expect to witness a failure of this congruence to hold fairly quickly if n is composite.
+
+Conjecture. To prove that n is prime, it is enough to let Q(X) run over the set
+
+\{X − 1, X 2 − 1,..., X log 2 n − 1\}.
+
+We were unable to prove this conjecture, but, instead the modified conjecture, which is then a proposition:
+
+Proposition (Modified conjecture). To prove that n is prime, it is enough to let Q(X) run over the set
+
+R = \{(X + a)r − 1: 1 ≤ r ≤ 16(log n)5, 1 ≤ a ≤ 8(log n)7/2\},
+
+except when n has a 'small' prime factor ( ≤ (log n)5). \sref{20001250}{2}
+\paragraph{Scope qualification.}
+The extraction flattens exponents in the listed moduli. The source distinguishes its initial conjecture from the modified proposition it proves; this import does not present that proposition as an open question.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can a small family of polynomial congruence checks certify that an integer is prime?
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:20001250:1}{S1}] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001250 (AIM-COMPUTATION-0088). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:20001250:2}{S2}] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0088
+\url{https://aimath.org/WWN/primesinp/primesinp.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001250 and source code AIM-COMPUTATION-0088 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001250}
+\end{document}

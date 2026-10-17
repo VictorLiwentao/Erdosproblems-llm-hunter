@@ -1,0 +1,139 @@
+% RESEARCH_DRAFT_SHA256: b04a20337d4aa98c7ec3db3651a8ff82483e0201afcbc06c1b26380834c045cf
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 9400101, "title": "Hartmanis–Stearns conjecture", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "9400101", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Hartmanis–Stearns conjecture; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Real-time output does not imply finite-state behavior; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch003 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Mathematical question.}#1}
+\hypersetup{pdftitle={UnsolvedMath Problem 9400101}}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 9400101; source catalogue code AMR-093-0101
+\section{Hartmanis–Stearns conjecture}\label{9400101}
+{\small UnsolvedMath ID 9400101 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$, and $\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$ denote the integers, rationals, reals and complex numbers. Any other conventions are specified locally.
+
+
+Fix an integer base $b\ge2$. Write the fractional part of $x\in\mathbb R$ as $\sum_{j\ge1}d_jb^{-j}$, where $d_j\in\{0,\ldots,b-1\}$, taking the expansion which is not eventually all $b-1$. A deterministic multitape Turing machine has a fixed finite number of work tapes, finite state and tape alphabets, and at each step reads and writes the scanned symbols and moves each tape head by at most one cell. Its output is in real time when, from a fixed finite initial configuration, it emits these digits in order with at most a fixed constant number of steps before the first digit and between consecutive digits. A real number is algebraic if it is a root of a nonzero polynomial in $\mathbb Z[T]$; otherwise it is transcendental.
+\paragraph{Statement recorded in the supplied source.}
+For every $b\ge2$ and every real $x$ with such a real-time multitape Turing-machine digit expansion, must $x\in\mathbb Q$ or $x$ be transcendental? Equivalently, can no algebraic irrational have such an expansion? \href{https://arxiv.org/pdf/1803.10267}{[S2]}
+\subsection{Short English statement}
+Can a fixed multitape Turing machine output the digits of an algebraic irrational at a uniformly bounded number of steps per digit?
+\subsection{Sources}
+\begin{description}
+\item[S1] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 9400101 (AMR-093-0101). CC BY 4.0. \url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Xiang Huang, Titus H. Klinge, James I. Lathrop, Xiaoyuan Li and Jack H. Lutz, \emph{Real-Time Computability of Real Numbers by Chemical Reaction Networks}, arXiv:1803.10267v1 (2018) Abstract and Section 7, pp. 18--19. \url{https://arxiv.org/pdf/1803.10267}.
+\item[S3] Wikipedia contributors, \emph{List of unsolved problems in mathematics}, revision 1366636767 (2026) Number theory, Hartmanis–Stearns conjecture. \url{https://en.wikipedia.org/w/index.php?title=List_of_unsolved_problems_in_mathematics&oldid=1366636767#Number_theory}.
+\end{description}
+\label{end:9400101}
+
+\section{Literature and context check}
+Huang--Klinge--Lathrop--Li--Lutz, arXiv:1803.10267, Section 7, was consulted.
+It distinguishes analog approximation from Turing-machine digit output. The
+attempt here uses precisely the source's fixed-tape, bounded-delay convention;
+it does not substitute a unit-cost arithmetic or analog model.
+\section{Research attempt: Real-time output does not imply finite-state behavior}
+A tempting proof is that bounded work between digits gives only finitely many
+possible output states, hence an eventually periodic expansion. This conflates
+finite control with finite tape configurations. Here is a direct counterexample
+to that intermediate inference.
+
+Use one work tape with a left marker at cell zero and a right marker initially
+at cell one, and a finite control recording travel direction. On reaching the
+left marker, emit $1$ and travel right. At every other step emit $0$. At the
+right marker in position $k$, erase it, move one cell right, write the new right
+marker at $k+1$, and start traveling left. The initial configuration is finite.
+The marked endpoint extension and reversal require only a fixed finite number
+of states; in the usual read-write-move transition convention they are performed
+in two successive transitions, both emitting a digit. Between successive visits
+to the left marker there are $2k+2$ transitions, with $k$ the old right endpoint.
+Thus every transition emits one digit and the gaps between successive $1$'s
+increase without bound. The expansion is not eventually periodic: a periodic
+tail with any $1$ has gaps bounded by its period, whereas a tail with no $1$
+would contradict the infinitely many returns. Nor is it eventually all $b-1$
+in any base $b\ge2$.
+
+For completeness, this expansion is irrational. If a rational number $u/v$
+is expanded in base $b$, ordinary long division iterates the remainders
+$r\mapsto br\bmod v$ in the finite set $\{0,\ldots,v-1\}$. Once a remainder
+repeats, all subsequent digits repeat, with the usual terminating expansion
+when zero is reached. Therefore its expansion is eventually periodic, contrary
+to the constructed digit word. This does not say whether the constructed
+irrational is algebraic or transcendental, and so does not refute the conjecture.
+It refutes the proposed finite-configuration proof of it.
+
+A direct opposite attempt is a real-time square-root extractor. For fixed
+base $b$, let $q_k=\lfloor b^k\sqrt2\rfloor$ and
+$R_k=2b^{2k}-q_k^2$. If the next digit is $d\in\{0,\ldots,b-1\}$, then
+\[
+ q_{k+1}=bq_k+d,\qquad
+ R_{k+1}=b^2R_k-2bq_kd-d^2.
+\]
+The correct digit is the largest $d$ leaving the latter nonnegative. This is an
+exact digit algorithm, but $q_k$ has $\Theta(k)$ digits. A literal implementation
+that scans its full digit array for these updates uses $\Theta(k)$ work at the
+$k$th step and quadratic total work. Treating those growing integer operations
+as unit cost is not allowed. This is a cost analysis of that implementation,
+not a lower bound against redundant representations, pipelining, or other methods.
+\section{Verification and adversarial audit}
+The tape construction uses a fixed finite alphabet, one unbounded tape and
+one-cell head moves. Endpoint handling does not pause output. Long division
+proves irrationality without claiming transcendence. The square-root recurrence
+was checked by expanding $(bq_k+d)^2$, including $q_0=1,R_0=1$.
+\paragraph{Audit corrections.} Finite control was distinguished from finite configuration space; the exhibited real-time irrational was not claimed transcendental or algebraic.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+No exclusion of algebraic irrational outputs is proved, and no bounded-delay
+multitape algorithm for an algebraic irrational is constructed. The first gaps
+are, respectively, a genuine arithmetic restriction on unbounded tape behavior
+or a way to implement growing exact arithmetic with the required bounded delay.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://arxiv.org/pdf/1803.10267} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved. This is a research attempt with an explicit failed route or restricted
+calculation, not a full solution, not a current-status certification, and not a claim
+that the elementary material is new. The catalogue's original source-status label
+is preserved independently of this attempt status.
+\end{document}

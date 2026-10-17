@@ -1,0 +1,106 @@
+% RESEARCH_DRAFT_SHA256: 0d0acc86b958ca13382fc7fec0c0220731e5e4cc2c266a4a87a08554e9a42a8e
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001228, "title": "Equality constraints do not characterize hidden-variable models", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001228", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Instrumental-inequality obstruction to equality-only hidden-model descriptions.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch005/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 20001228; source catalogue code AIM-COMPUTATION-0066
+\section{Equality constraints do not characterize hidden-variable models}\label{20001228}
+{\small UnsolvedMath ID 20001228 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A graphical model specifies a family of joint distributions through a graph and its associated conditional-independence constraints. Hidden variables are summed or integrated out to obtain the joint distribution on observed variables. The observed model is the image of the full parameterization after eliminating the hidden coordinates. Its constraints can include polynomial equalities and inequalities enforcing nonnegativity. An algorithm describing that image must account for the chosen input and output representations.
+\paragraph{Statement recorded in the supplied source.}
+Question 51 (Meek). Is there a polynomial time algorithm for describing the constraints on the joint probability distribution on the observed variables in a graphical model with hidden variables? \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The source does not restrict the graph class, state sizes, or whether the constraint description may be implicit or exponentially long.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can the constraints on observable distributions in a graphical model with hidden variables be described in polynomial time?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001228 (AIM-COMPUTATION-0066). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0066
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001228 and source code AIM-COMPUTATION-0066 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001228}
+
+
+\section{Research attempt}
+\subsection{Literature and scope}
+Question 51 asks for descriptions of observable hidden-model constraints. I tested an equality-elimination-only route on the binary instrumental graph. The inequality below is a special case of Pearl's established instrumental inequalities, not a new constraint. It illustrates why a stochastic image must be distinguished from its algebraic closure.
+\begin{proposition}
+For binary $Z,X,Y$ and any finite hidden variable $U$ independent of $Z$, suppose
+\[
+p(x,y\mid z)=\sum_u w_u a(x\mid z,u)b(y\mid x,u).
+\]
+Every such model satisfies $p(0,0\mid0)+p(0,1\mid1)\le1$. Nevertheless, no nonzero polynomial in the six free conditional probabilities vanishes on all these models when hidden cardinality is unrestricted.
+\end{proposition}
+\begin{proof}
+For fixed $u$, put $a_z=a(0\mid z,u)$ and $b_y=b(y\mid0,u)$. Then $0\le a_z\le1$, $b_0+b_1=1$, and $a_0b_0+a_1b_1\le b_0+b_1=1$. Average with weights $w_u$ to prove the inequality. The positive conditional table having probability $9/10$ at $(x,y)=(0,0)$ for $z=0$, and at $(0,1)$ for $z=1$, and probability $1/30$ at each other entry, violates it with sum $9/5$.
+
+For the polynomial claim, encode outcomes $00,01,10,11$ as $0,1,2,3$. A deterministic hidden type specifies one output at each value of $z$, compatible with a common function $y=y(x)$. The seven pairs
+\[
+(0,0),(0,2),(0,3),(1,1),(1,2),(2,0),(3,0)
+\]
+are all compatible: whenever their $x$ values agree, their $y$ values also agree. Each is realized by deterministic $a,b$. Allowing seven latent types realizes their convex hull. Use coordinates consisting of the first three outcome probabilities for each of the two $z$ values. Subtracting the first vertex from the other six yields the matrix
+\[
+\begin{pmatrix}
+0&0&0&-1&0&1\\0&0&0&-1&0&0\\
+-1&1&0&-1&1&0\\-1&1&0&-1&0&1\\
+-1&0&1&0&0&0\\-1&0&0&0&0&0
+\end{pmatrix},
+\]
+whose determinant is $-1$. Their convex hull therefore contains a nonempty open subset of $\mathbb R^6$. A real polynomial vanishing there is identically zero: fix all but one coordinate in an open box and use the univariate root bound, iterating over coordinates. Hence polynomial equalities beyond normalization cannot exclude the displayed violating table. Taking any positive distribution of $Z$ converts these conditional tables to joint distributions.
+\end{proof}
+\subsection{Verification and remaining gaps}
+The violation is exact and uses positive observable probabilities; latent cardinality cannot repair it. The determinant was checked directly. Equality-only descriptions lose this stochastic constraint, but the example does not preclude algorithms allowing inequalities, quantify their complexity or describe arbitrary hidden graphs. No new solution to the original algorithmic question is claimed.
+
+\section{References and source attribution}
+The original question is credited to the AIM workshop list prepared by Seth Sullivant (2004), \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}. The source question and catalogue attribution are reproduced above. This list was accessed on 11 October 2026; it is historical evidence of the question, not a certification of present open status.
+
+\url{https://arxiv.org/abs/1302.4976}. Judea Pearl, On the Testability of Causal Models with Latent and Instrumental Variables; primary abstract inspected for the established inequality phenomenon.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch005/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

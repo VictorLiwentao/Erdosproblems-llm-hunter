@@ -1,0 +1,98 @@
+% TOP_PROBLEM: {"id": 30003664, "title": "Variational GENERIC Structure and Preserving Integrators", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The whole coupled structure and the follow-on discretization question are required. A variational principle for the Hamiltonian part alone or for a dissipation-only gradient flow does not answer the original target."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003664", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Find a variational formulation for full reversible and irreversible GENERIC dynamics and derive integrators that preserve its structure.", "scope": "Proved energy conservation and entropy increase for an implicit averaged-gradient step with constant degenerate operators; the full variational and variable-operator questions remain.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked signs and cross terms, conditional step existence, h=0 and failure of midpoint degeneracy for averaged gradients; no Poisson-map claim. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked energy conservation and entropy increase under constant-operator degeneracy; the variable-operator and variational-principle gaps remain explicit. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked signs and cross terms, conditional step existence, h=0 and failure of midpoint degeneracy for averaged gradients; no Poisson-map claim. The remaining gap is: Construct a non-tautological variational principle coupling the variable Poisson and dissipative structures and preserving their degeneracies after discretization. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30003664; source catalogue code OWR-15959-002
+\setcounter{section}{30003663}
+\section{Variational GENERIC Structure and Preserving Integrators}\label{30003664}
+{\small UnsolvedMath ID 30003664 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+GENERIC abbreviates General Equation for the Non-Equilibrium Reversible--Irreversible Coupling. With state $z$, energy $E$, entropy $S$, an antisymmetric Poisson operator $L$ and positive dissipative operator $M$, its schematic evolution is $\dot z=L(z)DE(z)+M(z)DS(z)$. Degeneracy conditions $LDS=0$ and $MDE=0$ separate reversible entropy conservation from irreversible energy conservation. A complete variational principle must recover both parts together. A structure-preserving integrator is a time discretization respecting the specified energy, entropy and Poisson/dissipation constraints, with the precise invariants stated rather than presumed from the name.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Does there exist a variational principle that embodies the complete GENERIC structure of nonequilibrium thermodynamics, including its reversible Poisson and irreversible dissipative parts? If so, can its discretization yield structure-preserving GENERIC integrators?
+
+\paragraph{Source scope and qualification.}
+The whole coupled structure and the follow-on discretization question are required. A variational principle for the Hamiltonian part alone or for a dissipation-only gradient flow does not answer the original target.
+\subsection{Short English statement}
+Find a variational formulation for full reversible and irreversible GENERIC dynamics and derive integrators that preserve its structure.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved energy conservation and entropy increase for an implicit averaged-gradient step with constant degenerate operators; the full variational and variable-operator questions remain.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30003664. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{A restricted discrete calculation.} Let the state lie in \(\mathbb R^n\), let \(E,S\) be continuously differentiable, and suppose constant matrices \(L,M\) satisfy \(L^T=-L\), \(M^T=M\ge0\), and \(L\nabla S(z)=M\nabla E(z)=0\) at every state on the relevant line segments. For old and new states \(x,y\), define averaged gradients
+\[
+ e=\int_0^1\nabla E(x+s(y-x))\,ds,\qquad
+ s_*=\int_0^1\nabla S(x+s(y-x))\,ds.
+\]
+Consider the implicit step \(y-x=h(Le+Ms_*)\), with \(h\ge0\). Conditional on a solution existing, the chain rule and the constant degeneracy conditions prove
+\[
+ E(y)-E(x)=e^T(y-x)=0,\qquad
+ S(y)-S(x)=h\,s_*^TMs_*\ge0.
+\]
+The cross terms vanish because \(Me=0\) and \(Ls_*=0\), while skew symmetry gives \(e^TLe=0\). At \(h=0\) the identity step is recovered. For small \(h\), local solvability follows directly by a contraction if the two averaged gradients are locally Lipschitz in \(y\) and the iterate is confined to a ball; no global step-size assertion is made.
+\paragraph{Failed extension and source scope.} When \(L,M\) depend on state, inserting them at the midpoint need not annihilate the averaged gradients. Thus pointwise GENERIC degeneracy does not prove the two equalities above for that discretization. Nor does the calculation supply a variational principle for the full coupled Poisson/dissipative dynamics; minimizing a squared equation residual would merely encode a pre-existing equation. The source asks both for that principle and for its discretization. This elementary constant-operator integrator check addresses a diagnostic special setting only, and neither Jacobi preservation nor the full variable-operator target is claimed.
+
+\paragraph{Verification and adversarial audit.}
+Checked signs and cross terms, conditional step existence, h=0 and failure of midpoint degeneracy for averaged gradients; no Poisson-map claim. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked signs and cross terms, conditional step existence, h=0 and failure of midpoint degeneracy for averaged gradients; no Poisson-map claim. The remaining gap is: Construct a non-tautological variational principle coupling the variable Poisson and dissipative structures and preserving their degeneracies after discretization. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked energy conservation and entropy increase under constant-operator degeneracy; the variable-operator and variational-principle gaps remain explicit. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Construct a non-tautological variational principle coupling the variable Poisson and dissipative structures and preserving their degeneracies after discretization.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30003664:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30003664 (OWR-15959-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30003664:2}{S2}] Variational Methods for Evolution (2017), Oberwolfach Reports, DOI 10.4171/owr/2017/54, pp. 3185--3261. Primary report accessed 2026-10-11; relevant PDF pages 34.
+\url{https://doi.org/10.4171/owr/2017/54}.
+\item[\hypertarget{source:30003664:3}{S3}] GENERIC integrators (catalogue-listed context; not independently consulted in this preparation).
+\url{https://doi.org/10.1515/jnet-2017-0034}.
+\item[\hypertarget{source:30003664:4}{S4}] Glavatskiy, Lagrangian irreversible thermodynamics (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/1502.02122}.
+\item[\hypertarget{source:30003664:5}{S5}] OWR Report 54/2017 (catalogue-listed context; not independently consulted in this preparation).
+\url{https://ems.press/content/serial-article-files/46718}.
+\end{itemize}
+\label{end:30003664}
+\end{document}

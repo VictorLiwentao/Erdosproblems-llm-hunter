@@ -1,0 +1,120 @@
+% RESEARCH_DRAFT_SHA256: e23b3ad696406ee29c1dd79e3acfb9c3e6b87561ed7643900d926da94d3f3c71
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 74, "title": "Computation at Scale", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "74", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Exact mean-field dynamics with a sharp mean-square logarithmic horizon and a positive-probability obstruction at the critical time; failed fixed-time-to-uniform-time extrapolation.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch001/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 74; source catalogue code DARPA-020
+\section{Computation at Scale}\label{74}
+{\small UnsolvedMath ID 74 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+Degrees of freedom are the independent coordinates needed to describe a model state. An asymptotic analysis studies a sequence of models indexed by a size parameter $n$ as $n\to\infty$. For quantities $a_n,b_n>0$, $a_n=O(b_n)$ means $|a_n|\leq Cb_n$ eventually for a constant $C$, and $a_n=o(b_n)$ means $a_n/b_n\to0$. A useful large-system approximation must specify the system family, observable, limit and error measure; no one such family is selected by this record.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+This is DARPA Mathematical Challenge Twenty. It gives a broad direction without a model, observable, scaling limit or target error bound. The definitions do not assert that one asymptotic method works for all massive systems. The catalogue-linked mirror returned HTTP 404 during this preparation; its full original solicitation was not reverified. The supplied catalogue extract and historical attribution are documented with that access limitation.
+\paragraph{Statement recorded in the supplied source.}
+Develop asymptotics for systems with massive degrees of freedom. \href{https://web.math.utk.edu/~vasili/refs/darpa07.MathChallenges.html}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+Develop approximation and asymptotic tools for systems with very many independent variables.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 74 (DARPA-020). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] DARPA DSO, Broad Agency Announcement 07-68, Mathematical Challenges (2007), challenge identified above; the catalogue-linked University of Tennessee mirror.
+\url{https://web.math.utk.edu/~vasili/refs/darpa07.MathChallenges.html}.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. The supplied catalogue credits: DARPA. Permanent source ID 74 and code DARPA-020 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:74}
+
+
+\section{Research attempt}
+The source asks for asymptotics without a specified system or error metric. This attempt tests whether a large-number approximation valid at each fixed time can be used automatically on growing time horizons. A solvable interacting system shows exactly where that inference fails.
+
+For $N\ge1$, $\beta\in\mathbb R$, let $x_i(0)=\xi_i$ and
+\[
+ \dot x_i(t)=-x_i(t)+\beta m_N(t),\qquad
+ m_N(t)=\frac1N\sum_{i=1}^Nx_i(t).
+\]
+Assume the $\xi_i$ are independent, each equal to $1$ or $-1$ with probability $1/2$. The observable of interest is the empirical mean, with the deterministic approximation zero. These choices are explicit restrictions, not implicit assertions about the DARPA agenda.
+
+\begin{proposition}
+For every $t\ge0$,
+\[
+ m_N(t)=e^{(\beta-1)t}m_N(0),\qquad
+ x_i(t)=e^{-t}(\xi_i-m_N(0))+e^{(\beta-1)t}m_N(0).
+\]
+If $\beta>1$ and $T_N\ge0$, then
+\[
+ \mathbb E\sup_{0\le t\le T_N}|m_N(t)|^2
+       =\frac{e^{2(\beta-1)T_N}}N.
+\]
+At $T_N=\log N/[2(\beta-1)]$, the probability of $|m_N(T_N)|\ge1/\sqrt2$ is at least $1/12$. Thus convergence at each fixed time does not extend to that logarithmic time scale.
+\end{proposition}
+\begin{proof}
+Averaging the differential equations gives $\dot m_N=(\beta-1)m_N$. Subtracting this from the equation for $x_i$ gives $\frac d{dt}(x_i-m_N)=-(x_i-m_N)$, proving both formulas. Since independent symmetric signs have mean zero, variance one, and zero cross products, $\mathbb E m_N(0)^2=1/N$. For $\beta>1$ the absolute value of the explicit mean is nondecreasing in time; this proves the supremum identity.
+
+At the stated $T_N$, write $Z=m_N(T_N)=N^{-1/2}\sum_i\xi_i$. Independence and symmetry give $\mathbb EZ^2=1$. In the fourth-power expansion only four equal indices or two pairs have nonzero expectation, so
+\[
+ \mathbb EZ^4=\frac{N+6\binom N2}{N^2}=3-\frac2N\le3.
+\]
+Let $A=\{|Z|\ge1/\sqrt2\}$. On its complement $Z^2<1/2$, so $\mathbb E[Z^2\mathbf1_A]\ge1/2$. Cauchy--Schwarz yields
+\[
+ \frac12\le (\mathbb EZ^4)^{1/2}\mathbb P(A)^{1/2},
+\]
+and hence $\mathbb P(A)\ge1/(4\mathbb EZ^4)\ge1/12$. No limit theorem is needed.
+\end{proof}
+
+\paragraph{What the model says about scale.}
+For $\beta>1$, mean-square uniform approximation on $[0,T_N]$ holds exactly when $e^{2(\beta-1)T_N}/N\to0$. In particular any $T_N=\gamma\log N$ with $\gamma<1/[2(\beta-1)]$ works, but the critical coefficient fails even in probability. For $\beta\le1$, the supremum over the entire infinite time interval occurs at zero and has second moment $1/N$. Thus a stability parameter and a time horizon can change the conclusion while the number of degrees of freedom and initial law remain the same. Large $N$ alone is not a uniform-accuracy certificate.
+
+\section{Literature and context}
+The supplied catalogue's broad asymptotic agenda is the source, and its metadata is preserved. The original DARPA mirror was attempted on 11 October 2026 and returned an internal browsing error. No full solicitation or current exhaustive literature review was available from that attempt. The present linear ODE calculation and elementary moment argument use standard methods and are not claimed novel. No external asymptotic theorem is used as a dependency.
+
+\section{Verification and remaining gaps}
+The reproduction script enumerated every sign vector for $N=1,\ldots,12$ and exactly recovered $\mathbb EZ^2=1$ and $\mathbb EZ^4=3-2/N$. The audit checked the supremum separately for stable and unstable $\beta$, and established a positive probability lower bound: nonvanishing variance alone would not prove failure of convergence in probability. The model omits nonlinear interactions, heterogeneous stability modes, stochastic dynamics after time zero and computational approximation costs. It diagnoses a failed extrapolation but supplies no general theory covering the source's unspecified massive systems.
+
+\section{References}
+Original S1--S2 above, including the catalogue record and the attempted DARPA mirror. All differential-equation and moment calculations used for this restricted model are proved here. No external research result is claimed as a new result of this attempt.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch001/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

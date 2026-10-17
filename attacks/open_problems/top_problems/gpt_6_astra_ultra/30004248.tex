@@ -1,0 +1,109 @@
+% RESEARCH_DRAFT_SHA256: 2b64884b7fc94d6a929a0d48c6f9d12d2633e23af04daeeaf0053601acad91d8
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30004248, "title": "Low-Temperature Sampling by Randomly Initialized Glauber Dynamics", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004248", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, written mathematical proof review, and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Exact balanced-phase initialization error and a full conductance-style lower bound for one-phase heat-bath starts on K(m,m).", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification. Codex GPT-6 root reviewed all written arguments; this is model review, not independent human verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch022/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 30004248; source catalogue code OWR-17138-006
+\section{Low-Temperature Sampling by Randomly Initialized Glauber Dynamics}\label{30004248}
+{\small UnsolvedMath ID 30004248 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+Glauber dynamics updates one randomly chosen vertex at a time according to the Gibbs conditional distribution of the other vertices. The Potts distribution weights a coloring by its interactions, while the hard-core distribution weights an independent set by its fugacity. A random initialization is a distribution from which a state can be drawn efficiently. Polynomial-time sampling requires a distribution within a requested total-variation tolerance; counting requires a relative approximation to the partition function.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+Model parameters, graph family, initialization, and accuracy are part of the proposed algorithm. The source's question does not claim rapid mixing from every state or throughout every low-temperature regime.
+
+Source-record limitation: The random-initialization distribution and low-temperature model/parameter range defining the sampling target are absent.
+\paragraph{Statement recorded in the supplied source.}
+Can Glauber dynamics started from an efficiently samplable random initial state yield polynomial-time counting and sampling algorithms for the hard-core or Potts model at low temperature? \href{https://doi.org/10.4171/owr/2019/42}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record partially solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Ask whether an efficient random starting state allows low-temperature Glauber dynamics to support efficient sampling and counting.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30004248 (OWR-17138-006). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Large Scale Stochastic Dynamics (2020), Oberwolfach Reports, DOI 10.4171/owr/2019/42, pp. 2605--2669
+\url{https://doi.org/10.4171/owr/2019/42}.
+\item[S3] Fast algorithms at low temperatures
+\url{https://doi.org/10.1002/rsa.20968}.
+\item[S4] Random-initialization dynamics
+\url{https://arxiv.org/abs/2106.11296}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30004248 and code OWR-17138-006 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30004248}
+
+\section{Research attempt}
+\subsection{Literature, source context and scope}
+The full original catalogue body and source qualifications are preserved above. The relevant primary workshop passages were read in the cached publisher report. Historical claims and subsequent attributed results are distinguished from the mathematical work below. A restricted example, standard lemma or known theorem is not counted as new progress on the entire original target. Missing assumptions and repeated or rhetorical extracts are not silently turned into different solved problems.
+
+\subsection{A phase-balanced start on a solvable bipartite family}
+The source asks about well-chosen random initialization for Glauber dynamics on low-temperature lattice models. We test the phase-selection idea on $K_{m,m}$, with integer $m\ge1$ and fixed hard-core activity $\lambda\ge1$. This family is not the source's fixed-dimensional torus: its degree grows with $m$. Put $a=(1+\lambda)^m$. Every nonempty independent set lies entirely in one side, so its partition function is $Z=2a-1$.
+Choose a side with probability $1/2$, then include each vertex on that side independently with probability $\lambda/(1+\lambda)$. Call the resulting distribution $\mu$, and write $\pi(I)=\lambda^{|I|}/Z$ for stationarity.
+\begin{proposition}
+The initialization satisfies
+\[
+\|\mu-\pi\|_{\mathrm{TV}}=\frac{a-1}{a(2a-1)}\le a^{-1}.
+\]
+In contrast, single-site heat-bath Glauber dynamics started from $\pi$ conditioned on a nonempty independent set on the left remains at total-variation distance at least $1/2-t\Phi$ after $t$ updates, where
+\[
+\Phi=\frac{\lambda}{2(1+\lambda)(a-1)}.
+\]
+\end{proposition}
+\begin{proof}
+The initialization assigns mass $1/a$ to the empty set and mass $\lambda^{|I|}/(2a)$ to each nonempty independent set. Since $2a-1<2a$, the latter probabilities are all below their stationary probabilities. Thus total variation is exactly the excess at the empty set, $1/a-1/(2a-1)$, giving the formula.
+For the chain, choose one of $2m$ vertices uniformly. If its neighbors are absent, set it occupied with probability $\lambda/(1+\lambda)$; otherwise set it absent. Two configurations differing by the addition of one permitted vertex have stationary weights in ratio $\lambda$ and transition probabilities in the same forward/backward ratio, proving detailed balance; self transitions need no condition. Hence $\pi$ is stationary.
+Let $A$ be the nonempty left-side independent sets. Its mass is $(a-1)/Z<1/2$. A transition from $A$ to its complement can occur only from one of the $m$ singleton sets, by selecting that occupied vertex and removing it. Each singleton has mass $\lambda/Z$, and this transition has probability $1/[2m(1+\lambda)]$. The stationary flow out of $A$ is therefore $Q=\lambda/[2(1+\lambda)Z]$, and $Q/\pi(A)=\Phi$.
+The initial law $\nu_0=\pi(\cdot\mid A)$ is pointwise at most $\pi/\pi(A)$. If this domination holds at time $j$, applying the transition matrix and stationarity shows it holds at time $j+1$. Thus the probability of an $A$-to-complement transition at any fixed step is at most $Q/\pi(A)=\Phi$. Starting inside $A$, a union bound gives $\nu_t(A)\ge1-t\Phi$. By the event characterization of total variation, $\|\nu_t-\pi\|_{\mathrm{TV}}\ge\nu_t(A)-\pi(A)\ge1/2-t\Phi$.
+\end{proof}
+The one-phase start can itself be generated by independent Bernoulli choices conditioned on nonemptiness; since $a\ge2$, rejection has expected at most two trials. The lower bound remains at least $1/4$ for integer $t\le1/(4\Phi)$, exponential in $m$ at fixed activity. Meanwhile the balanced initialization already has exponentially small error before any updates; applying a Markov kernel cannot increase total variation, by the triangle inequality on its nonnegative transition entries.
+\subsection{Verification and remaining gaps}
+For $m=1,\ldots,6$ and $\lambda=1,2$, all independent sets were enumerated and the stationary weights, balanced-start error, detailed balance and phase flow checked exactly. This proves that phase weights matter on this restricted family. It does not show that a balanced start works on a torus, where phases have internal correlations and their weights must be controlled. Nor does it establish a general counting reduction from such a start. The exact formula $Z=2a-1$ already makes counting easy here, and no low-temperature lattice algorithm is claimed.
+
+\section{References and source attribution}
+Primary workshop report: \url{https://doi.org/10.4171/owr/2019/42}. Relevant passages read: 2019/42 pp. 2661--2664, hard-core/Potts definitions, lattice algorithms and the final Glauber-initialization question.
+
+All retrievals were checked on 11 October 2026. Original question attribution remains in the preserved Sources section. External theorems are attributed and not claimed as new discoveries or fully verified merely by citation.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch, reviewed the written mathematical arguments, and contributed formatting/repository review. This additional model review is not independent human verification. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch022/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

@@ -1,0 +1,95 @@
+% RESEARCH_DRAFT_SHA256: 0bd099af2242248acc27641cb4eec25d869af372228726c2eb946516e3260604
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001230, "title": "Exact output-sensitive scaling for decomposable discrete models", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001230", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Transfer-matrix partition computation and exact-output bit-length obstruction.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch005/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 20001230; source catalogue code AIM-COMPUTATION-0068
+\section{Exact output-sensitive scaling for decomposable discrete models}\label{20001230}
+{\small UnsolvedMath ID 20001230 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For an integer matrix $A$, the fiber at $b$ is $\mathcal F_b=\{x\in\mathbb Z_{\ge0}^d:Ax=b\}$. A Markov basis is a finite set of integer moves $u$ with $Au=0$ such that steps $x\mapsto x\pm u$ staying nonnegative connect every nonempty fiber. A table with ten variables having five levels each has $5^{10}$ cells. Algorithmic scaling depends on the interaction model, margin representation, output format, and sparsity of observed counts, as well as on this total number of cells.
+\paragraph{Statement recorded in the supplied source.}
+Question 53 (Fienberg). How can we make the algorithms and existing theoretical results apply to problems of sizes that are of practical interest? Scaling up to 5 10 tables is a hopeful goal. \href{https://aimath.org/WWN/compalgstat/compalgstat.pdf}{[S2]}
+\paragraph{Scope qualification.}
+The source's performance goal is practical scale, not a specified asymptotic bound or benchmark threshold.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Can algebraic table methods be made practical for tables with ten variables and five categories per variable?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001230 (AIM-COMPUTATION-0068). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-COMPUTATION-0068
+\url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 20001230 and source code AIM-COMPUTATION-0068 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:20001230}
+
+
+\section{Research attempt}
+\subsection{Literature and scope}
+Question 53 asks broadly about scaling computations to tables such as $5^{10}$. I tested a cyclic pairwise-factor model, whose partition function can be computed without enumerating its full table, and then tested whether an arithmetic-operation bound implies a bit-complexity bound. This is the standard transfer-matrix calculation, not a universal scaling algorithm.
+\begin{proposition}
+For $p$ variables with $q$ states and nonnegative pairwise weights $T_i(a,b)$ on the cycle, the partition function is
+\[
+Z=\sum_{x_1,\ldots,x_p}\prod_{i=1}^pT_i(x_i,x_{i+1})
+=\operatorname{tr}(T_1T_2\cdots T_p),\qquad x_{p+1}=x_1.
+\]
+It requires $O(pq^3)$ arithmetic operations by ordinary multiplication. If all factors are equal and $p$ is binary encoded, exponentiation gives $O(q^3\log p)$ arithmetic operations, but exact binary output can still require $\Omega(p)$ bits.
+\end{proposition}
+\begin{proof}
+Expanding the $(a,a)$ entry of the matrix product sums over $x_2,\ldots,x_p$ with $x_1=a$ and precisely the stated product of entries. Summing over $a$ gives the trace identity. Multiplying $q\times q$ matrices uses $O(q^3)$ arithmetic operations, giving the first bound. Repeated squaring computes $T^p$ with $O(\log p)$ matrix multiplications by processing the binary expansion of $p$.
+
+For the output obstruction, take $T=2I_q$. Then $Z=q2^p$ and its binary representation has $p+\lfloor\log_2q\rfloor+1$ digits. Merely writing the answer therefore costs $\Omega(p)$ bit operations, exponential in the bit length of the encoded integer $p$. A short expression such as $q2^p$ is a different output representation.
+\end{proof}
+\subsection{Verification and remaining gaps}
+For $T=I_q+J_q$, where $J_q$ is the all-ones matrix, the vector of ones has eigenvalue $q+1$, while its orthogonal complement has eigenvalue one. Hence $\operatorname{tr}(T^p)=(q+1)^p+q-1$. At $q=5,p=10$, matrix multiplication gave $60{,}466{,}180$. For $q=3,p=4$, exhaustive enumeration of all 81 configurations and the matrix formula both gave 258. The eigenvalue identity follows directly from $J_qv=(\sum v_i)\mathbf1$.
+
+The attempted inference from few arithmetic operations to an unconditional polynomial-time exact output bound fails. This calculation addresses one partition function, not an explicit listing of every probability, arbitrary high-order interactions, Markov-basis output or all fitting tasks in the source agenda. No original-target completion is claimed.
+
+\section{References and source attribution}
+The original question is credited to the AIM workshop list prepared by Seth Sullivant (2004), \url{https://aimath.org/WWN/compalgstat/compalgstat.pdf}. The source question and catalogue attribution are reproduced above. This list was accessed on 11 October 2026; it is historical evidence of the question, not a certification of present open status.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch005/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

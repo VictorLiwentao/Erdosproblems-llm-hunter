@@ -1,0 +1,177 @@
+% RESEARCH_DRAFT_SHA256: b6a29c4e01935fd733e7d3aab70680cb880d04d9f880c08e6fbacf0c1267d0fa
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000062, "title": "Duplicate Planar Min-Bisection and Bicriteria Extraction", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000062", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Does PLANAR MIN-BISECTION admit a PTAS? For constrained bicriteria minimum spanning tree, does an FPAS exist, and can all Pareto-optimal solutions be enumerated in time polynomial in their number?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The Pareto-to-FPAS implication is proved only with a distinct-pair representative oracle; no such general oracle or planar-bisection scheme is constructed.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Composite bisection and bicriteria extract: a conditional Pareto-to-scheme reduction}
+\noindent UnsolvedMath ID 30000062; OWR-730-012. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+Polynomial time means a number of elementary steps bounded by a polynomial in the encoded input length. A decision problem is in $\mathrm{NP}$ if yes-instances have polynomial-length certificates verifiable in polynomial time; NP-hardness is under polynomial-time reductions.
+
+A PTAS has approximation ratio $1+\varepsilon$ for minimization (or $1-\varepsilon$ for maximization), with polynomial runtime for each fixed $\varepsilon>0$. A fully polynomial scheme is polynomial also in $\varepsilon^{-1}$.
+
+A bisection partitions the vertices into two parts of equal size (or differing by one for odd order). Its cut consists of the edges joining the parts; minimum bisection minimizes their total weight.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The supplied registry flags this extraction as unrecoverable. It is displayed as a literal source fragment; the definitions provide context rather than a replacement formal statement.
+
+Source-record limitation: Source flags the statement as unrecoverable: The official Oberwolfach report was checked directly. This extraction repeats the same source problem as OWR-730-011 and OWR-730-013/OWR-730-014; it is an overlapping extraction window spanning two source sections.
+
+Related catalogue records: \href{https://mehmetmars7.github.io/Erdosproblems-llm-hunter/problem.html?type=open_problems&id=30000061}{30000061}, \href{https://mehmetmars7.github.io/Erdosproblems-llm-hunter/problem.html?type=open_problems&id=30000063}{30000063}, \href{https://mehmetmars7.github.io/Erdosproblems-llm-hunter/problem.html?type=open_problems&id=30000064}{30000064}. Separate source IDs are preserved for their provenance.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+The supplied catalogue marks this record as unrecoverable. Its extract and terminology are documented, but a complete original problem has not been reconstructed.
+\paragraph{Statement recorded in the supplied source.}
+Does PLANAR MIN-BISECTION admit a PTAS? For constrained bicriteria minimum spanning tree, does an FPAS exist, and can all Pareto-optimal solutions be enumerated in time polynomial in their number? \href{https://doi.org/10.4171/owr/2004/28}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+The supplied fragment concerns duplicate Planar Min-Bisection and Bicriteria Extraction. Its complete mathematical target is not recovered.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000062 (OWR-730-012). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Approximation Algorithms for NP-Hard Problems (2005), Oberwolfach Reports, DOI 10.4171/owr/2004/28, pp. 1461--1540
+\url{https://doi.org/10.4171/owr/2004/28}.
+\item[S3] bicriteria planar bisection scheme
+\url{https://arxiv.org/abs/1504.08008}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Does PLANAR MIN-BISECTION admit a PTAS? For constrained bicriteria minimum spanning tree, does an FPAS exist, and can all Pareto-optimal solutions be enumerated in time polynomial in their number?
+
+\section{The overlapping source scope}
+This catalogue record spans three questions on printed page 1533:
+planar minimum-bisection approximation, a constrained spanning-tree
+scheme, and Pareto enumeration. It duplicates records 30000061,
+30000063 and 30000064 and is not an additional independent conjecture.
+We preserve the composite text and test the report's proposed link
+between enumeration and approximation, making the output convention
+explicit. Nothing below settles the separate planar-bisection question.
+
+\paragraph{Conditional implication under a precise output model.}
+Assume an algorithm lists all distinct Pareto cost pairs of any
+bicriteria spanning-tree instance, with one representative tree per
+pair, in time polynomial in input plus output length. Suppose
+edge cost and objective weight are nonnegative rationals. Under
+this assumption, the constrained problem has a fully polynomial
+approximation scheme with no budget violation. Here is the reduction.
+
+Let the graph have $n\ge2$ vertices, budget $B$, and accuracy
+$0<\varepsilon\le1$; for larger requested accuracy parameter,
+run with one, which only strengthens the guarantee. A zero-weight optimum, if it exists,
+uses only zero-weight edges. Apply the assumed enumeration algorithm
+to that subgraph, with the original costs and zero weights. There
+is at most one distinct Pareto pair, its minimum cost paired with
+zero. This detects feasibility at zero objective and returns an
+exact answer if the cost is at most $B$. It also handles the
+case that all edges have zero weight. Disconnected subgraphs have
+no spanning tree and empty output. The one-vertex graph is trivial.
+
+Otherwise any positive optimum is at least the minimum positive
+edge weight $w_{\min}$ and at most $(n-1)w_{\max}$ whenever
+a feasible tree exists. Consider powers-of-two guesses $W$ starting
+at $w_{\min}$ through this upper bound; their number is
+polynomial in the rational input bit lengths, because the logarithm
+of the ratio is. One guess satisfies $W\le\operatorname{OPT}<2W$.
+For each guess delete edges of weight greater than $2W$, and
+set $K=\varepsilon W/(n-1)$ and
+$\widetilde w_e=\lfloor w_e/K\rfloor$. Every remaining
+edge has rounded weight at most $2(n-1)/\varepsilon$, so
+every tree has rounded total at most
+$R=\lfloor2(n-1)^2/\varepsilon\rfloor$.
+
+There are at most $R+1$ distinct Pareto pairs for original
+cost versus rounded weight: for each possible integer rounded
+weight, only its least achievable cost can be nondominated. Rational
+cost sums and representative trees have polynomial encoding length.
+Thus the assumed output-polynomial algorithm runs in fully polynomial
+time on each rounded instance. Among its budget-feasible pairs
+choose the least rounded weight and its tree. If any feasible tree
+exists in that instance, some Pareto pair dominates it: repeatedly
+replace a dominated pair by a dominating one in the finite pair
+set, which must terminate. The chosen tree is therefore optimal
+for the rounded objective under the exact original budget.
+
+For the good guess the original optimum tree survives edge deletion.
+Writing it as $T^*$ and the selected tree as $T$, we have
+\[
+w(T)<K\widetilde w(T)+(n-1)K
+\le K\widetilde w(T^*)+\varepsilon W
+\le\operatorname{OPT}+\varepsilon W
+\le(1+\varepsilon)\operatorname{OPT}.
+\]
+These inequalities sum the per-edge rounding error, use rounded
+optimality, and then $W\le\operatorname{OPT}$. All returned
+trees respect the original budget. Choose the smallest original
+weight among the returned feasible trees over all guesses; it
+is at least as good as the good-guess tree. If no feasible
+tree is ever returned, none existed: every possible feasible optimum
+would have supplied a good guess. This proves the conditional claim.
+
+\paragraph{The output convention is essential.}
+If the enumeration algorithm must output every Pareto tree rather
+than one representative per distinct pair, a rounded instance may
+still have exponentially many outputs. For example a chain of
+$k$ triangles with all edge pairs $(1,1)$ has $3^k$
+spanning trees, all with the same pair $(2k,2k)$ and all
+Pareto optimal. Each triangle independently contributes any two of
+its three edges; articulation attachment proves the count and
+connectivity. The bound $R+1$ controls pairs, not tree multiplicity.
+Therefore the preceding conditional fully polynomial running-time
+argument cannot silently use a tree-enumeration oracle instead.
+
+\section{Audit and remaining composite target}
+The two adjacent source sections were inspected. The audit checked
+zero optimum, binary rational weights, the geometric guess count,
+and exact feasibility. The reduction is conditional and does not
+construct the assumed Pareto algorithm. It establishes no planar
+bisection scheme either. In particular permitting an imbalance is
+a different target: two disjoint paths of orders $m-1,m+1$
+have a zero cut with that imbalance, while every exact bisection
+must split a connected component and has cut at least one.
+Taking all of the smaller path and one endpoint of the larger
+attains one. Thus vanishing relative imbalance as $m$ grows
+does not make the zero-cut partition exactly feasible. No experiments
+were run, and all three original tasks remain unresolved here.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The Pareto-to-FPAS implication is proved only with a distinct-pair representative oracle; no such general oracle or planar-bisection scheme is constructed.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 28/2004, Approximation Algorithms for NP-Hard Problems, original question and surrounding discussion read from the cached primary PDF text on 11 October 2026. Historical statements are not a current-status survey. \url{https://doi.org/10.4171/owr/2004/28}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The Pareto-to-FPAS implication is proved only with a distinct-pair representative oracle; no such general oracle or planar-bisection scheme is constructed.
+\end{document}

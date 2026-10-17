@@ -1,0 +1,62 @@
+% SUBMISSION: {"kind": "statement_only", "category": "top_problems", "problem_id": "2800804", "proposal_type": "established", "source": "AMR Open Problem Lists, original problem source linked by catalogue record AMR-027-0804: https://afonsobandeira.wordpress.com/2015/12/04/10l42pmaxcut/", "status_evidence": "The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.", "status_checked_on": "2026-10-11", "duplicate_check": "Canonical ID 2800804 and source code AMR-027-0804 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed.", "attribution": "Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted."}
+% TOP_PROBLEM: {"id": 2800804, "title": "10 Lectures and 42 Open Problems — The Paley Clique Problem", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: null
+% ENTRY_KIND: statement_only
+% Imported from: computer_science_statements.tex; UnsolvedMath ID 2800804
+% Compile twice: lualatex 2800804.tex
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+% UnsolvedMath ID 2800804; source catalogue code AMR-027-0804
+\setcounter{section}{2800803}
+\section{10 Lectures and 42 Open Problems — The Paley Clique Problem}\label{2800804}
+{\small\sffamily UnsolvedMath ID 2800804 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+For a prime $p\equiv1\pmod4$, the Paley graph $G_p$ has vertex set $\mathbb{F}_p$, with distinct $u,v$ adjacent exactly when $u-v$ is a nonzero square in $\mathbb{F}_p$. Since $-1$ is a square, adjacency is symmetric. A clique is a vertex subset whose distinct pairs are all adjacent; $\omega(G_p)$ is the largest possible cardinality of a clique.
+
+The Boolean clique formulation maximizes $\sum_v x_v$ subject to $x_v^2=x_v$ and $x_ux_v=0$ for nonedges $uv$. Its degree-four sum-of-squares upper bound replaces evaluation at a Boolean vector by a linear functional $\widetilde{\mathbb{E}}$ on real polynomials of degree at most four, with
+\[
+ \widetilde{\mathbb{E}}[1]=1,\qquad
+ \widetilde{\mathbb{E}}[f^2]\ge0\ (\deg f\le2),
+\]
+and $\widetilde{\mathbb{E}}[(x_v^2-x_v)q]=\widetilde{\mathbb{E}}[x_ux_vq]=0$ for every polynomial $q$ of degree at most two and every relevant vertex or nonedge. Maximizing $\widetilde{\mathbb{E}}[\sum_vx_v]$ is a semidefinite relaxation: every genuine clique supplies a feasible functional, so its value upper-bounds $\omega(G_p)$. The question concerns the growth of these quantities as $p$ tends to infinity through the stated primes.
+\paragraph{Statement recorded in the supplied source.}
+What is the clique number of the Paley graph? Can the the SOS degree 4 analogue of the theta number help upper bound it? \sref{2800804}{2}
+\paragraph{Scope qualification.}
+The prime-order convention is the one used in the author's lecture context; it should not be silently extended to square prime powers, which have different clique behavior. Kunisky and Yu's 2023 paper supplies a lower bound on the relaxation's value and numerical evidence, not a determination of the true clique number. The 2026 Randomstrasse101 problem collection still poses polylogarithmic clique growth and polynomial improvement by degree-four sum of squares as conjectures. These primary sources were inspected on 2026-10-11.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+How large can a clique in a prime-order Paley graph be, and can degree-four sum-of-squares bounds improve our understanding of its size?
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:2800804:1}{S1}] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 2800804 (AMR-027-0804). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:2800804:2}{S2}] AMR Open Problem Lists, original problem source linked by catalogue record AMR-027-0804
+\url{https://afonsobandeira.wordpress.com/2015/12/04/10l42pmaxcut/}.
+\item[\hypertarget{source:2800804:3}{S3}] Dmitriy Kunisky and Xifan Yu, A Degree 4 Sum-Of-Squares Lower Bound for the Clique Number of the Paley Graph, CCC 2023; precise relaxation and known limitations.
+\url{https://drops.dagstuhl.de/storage/00lipics/lipics-vol264-ccc2023/LIPIcs.CCC.2023.30/LIPIcs.CCC.2023.30.pdf}.
+\item[\hypertarget{source:2800804:4}{S4}] Bandeira and collaborators, Randomstrasse101: Open Problems of 2025 (2026), Entry 12, Conjectures 25 and 28.
+\url{https://arxiv.org/abs/2603.29571}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 2800804 and source code AMR-027-0804 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:2800804}
+\end{document}

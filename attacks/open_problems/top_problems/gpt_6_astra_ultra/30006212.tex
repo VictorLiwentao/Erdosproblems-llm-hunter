@@ -1,0 +1,130 @@
+% RESEARCH_DRAFT_SHA256: 5de4c2c548cee6a669d1b4d6fb924d11d8c30d797fef4749a2f653d3ceb56060
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30006212, "title": "Dimension-Free Sum-of-Squares Certificates for Two Quadratic Constraints", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30006212", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Material mathematical contribution from root Codex GPT-6: corroborating mathematical audit of the nonzero-but-vanishing multiplier identity and the degenerate equality S-lemma counterexample; the Astra author independently developed the same checks and the derivative obstruction to positive multipliers. Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Dimension-Free Sum-of-Squares Certificates for Two Quadratic Constraints; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Multiplier degeneracy and an equality-boundary obstruction; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch027 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30006212; source catalogue code OWR-14299088-014
+\section{Dimension-Free Sum-of-Squares Certificates for Two Quadratic Constraints}\label{30006212}
+{\small UnsolvedMath ID 30006212 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A quadratic form is homogeneous of degree two. The variety $Q_2=Q_3=0$ is their common zero set. An SOS polynomial is a sum of squared real polynomials; each displayed product has homogeneous degree $2d+2$.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The supplied formulation permits $P=R_2=R_3=0$ unless nontriviality or nonvanishing of the multiplier is imposed. The source\textquotesingle s needed multiplier convention is not silently added.
+
+Source-record limitation: The literal certificate condition permits all three multiplier polynomials to be zero and is therefore trivial; the needed nonzero/nonvanishing multiplier qualification is absent from the supplied target.
+\paragraph{Statement recorded in the supplied source.}
+Let $Q_1,Q_2,Q_3$ be quadratic forms in $n$ variables, with $Q_1$ nonnegative on the variety $Q_2=Q_3=0$. Find the least degree $2d$ for which there are homogeneous polynomials $P,R_2,R_3$ of degree $2d$, with $P$ a sum of squares, such that $PQ_1+R_2Q_2+R_3Q_3$ is a sum of squares. Can $d$ be bounded independently of $n$? \href{https://doi.org/10.4171/owr/2025/9}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Find the smallest certificate degree for nonnegativity under two quadratic equations and determine whether it is independent of dimension.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30006212 (OWR-14299088-014). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] MFO-RIMS Tandem Workshop: Optimization, Theoretical Computer Science and Algebraic Geometry: Convexity and Beyond (2025), Oberwolfach Reports, DOI 10.4171/owr/2025/9, pp. 405--450
+\url{https://doi.org/10.4171/owr/2025/9}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 30006212 and code OWR-14299088-014 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:30006212}
+
+\section{Literature and context check}
+The primary problem on printed p. 446 asks for homogeneous SOS multipliers and a dimension-free degree, but its displayed wording does not specify that the multiplier is nonzero or nonvanishing on the constraint variety. The preceding equality S-lemma assertion also omits a regularity condition. These are substantive source-scope issues. The calculations below diagnose them rather than declaring the intended research question solved by a vacuous certificate.
+\section{Research attempt: Multiplier degeneracy and an equality-boundary obstruction}
+
+The literal choice $P=R_2=R_3=0$ makes the displayed polynomial SOS for every input. Requiring only $P\ne0$ does not remove the defect. If $Q_2$ is a nonzero quadratic, choose
+\[
+P=Q_2^2,\qquad R_2=-Q_1Q_2,\qquad R_3=0.
+\]
+All multipliers are homogeneous of degree four (with zero allowed in that homogeneous space), $P$ is a nonzero square, and $PQ_1+R_2Q_2+R_3Q_3=0$. This holds for arbitrary $Q_1$, including one negative on the constraint variety. For example, $Q_1=-x^2$, $Q_2=y^2$, $Q_3=z^2$ has $Q_1(1,0,0)=-1$, yet this formal identity exists. Its multiplier vanishes everywhere on the variety. If $Q_2=0$ and $Q_3\ne0$, interchange their roles. These identities show that mere nonzero-ness cannot express the intended positivity certificate.
+
+\paragraph{Testing a stronger nonvanishing interpretation.}
+One might instead require $P$ positive at all nonzero real points of the variety. Without further assumptions even existence can then fail. In two variables take
+\[
+Q_1(x,y)=2xy,\qquad Q_2(x,y)=x^2,\qquad Q_3=0.
+\]
+The variety is the line $x=0$, where $Q_1=0$. Suppose a polynomial identity $S=PQ_1+R_2Q_2$ is SOS and $P(0,1)>0$. At $a=(0,1)$ one has $S(a)=0$. Writing $S=\sum_j q_j^2$ forces every $q_j(a)=0$, and hence every partial derivative of $S$ at $a$ is zero, because $\partial S=2\sum q_j\partial q_j$. But differentiating the proposed identity with respect to $x$ gives
+\[
+\partial_x S(0,1)=2P(0,1)>0,
+\]
+a contradiction. This excludes the stronger positive-multiplier convention for this degenerate input at every degree, not just at a small degree.
+
+The same input tests the preceding scalar-multiplier assertion: $Q_1+\lambda Q_2$ has matrix
+\[
+\begin{pmatrix}\lambda&1\\1&0\end{pmatrix},
+\]
+whose determinant is $-1$, so it is never positive semidefinite. Directly, evaluating at $(x,y)=(1,-(|\lambda|+1))$ also gives a negative value. Nonnegativity on $x^2=0$ therefore does not imply the claimed scalar certificate without additional assumptions.
+
+A nonvacuous theorem must specify its multiplier convention and regularity or ideal conditions together. For example, replacing the constraint polynomial $x^2$ by the radical equation $x=0$ changes the allowable ideal terms, despite leaving its real zero set unchanged. It cannot be silently treated as the same certificate problem.
+\section{Verification and adversarial audit}
+Both the unrestricted and nonzero-multiplier identities were expanded exactly. The derivative contradiction does not assume a bounded SOS degree, and tests a nonzero point of the homogeneous variety. It distinguishes the ideal generated by a polynomial from the set of its real zeros. None of these source-audit counterexamples is presented as a counterexample to an unstated regularized intended conjecture.
+\paragraph{Audit corrections.} Explicitly checked that $P\ne0$ is insufficient and that requiring positivity on the variety changes the existence question. Flagged the equality S-lemma boundary condition rather than accepting the unqualified source sentence.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The intended nondegenerate dimension-free certificate problem remains unresolved. The literal unconstrained-multiplier fragment is vacuous, while a natural stronger interpretation fails on degenerate ideals; neither licenses silently selecting and solving a different original target.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/51353} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+Codex GPT-6 completed written-proof review of this attempt at its declared scope; this is model-assisted review, not independent human proof checking.
+\paragraph{Material model collaboration.} Root Codex GPT-6 supplied corroborating mathematical audit of the nonzero-but-vanishing multiplier identity and the degenerate equality S-lemma counterexample; the Astra author independently developed the same checks and the derivative obstruction to positive multipliers. The gpt-6-astra author inspected and reworked these arguments; this is model-assisted mathematical work, not independent human verification.
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

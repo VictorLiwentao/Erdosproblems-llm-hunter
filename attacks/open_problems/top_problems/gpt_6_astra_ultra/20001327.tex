@@ -1,0 +1,143 @@
+% RESEARCH_DRAFT_SHA256: c0763cc490391866cb1ce1b4cb3d61ce2b406a10d14d42a3ca6715ee775f39b7
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001327, "title": "Certificates for hidden Goppa structure and bounded decoding", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001327", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "What witnesses are there of Goppa decodability or non-decodability?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The support-indexed certificates may be exponential and the complete Goppa characterization covers only degree one; the general ambiguously stated witness problem remains unresolved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Two-sided decoding certificates and a complete degree-one binary Goppa test}
+\noindent UnsolvedMath ID 20001327; AIM-CRYPTOGRAPHY-0014. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A witness of decodability must be a finite object that verifies the claimed decoding property of the specified code. This may concern a Goppa presentation, decoding a particular received word, or a guaranteed decoding radius. A witness of nondecodability would have to certify failure of the corresponding property.
+\paragraph{Statement recorded in the supplied source.}
+What witnesses are there of Goppa decodability or non-decodability? \href{http://aimpl.org/quantumalg/1/}{[S2]}
+\paragraph{Scope qualification.}
+The source does not distinguish code recognition from received-word decoding or specify a radius; these different tasks are kept explicit rather than conflated.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+What certificates can demonstrate Goppa decodability or nondecodability?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001327 (AIM-CRYPTOGRAPHY-0014). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, original problem source linked by catalogue record AIM-CRYPTOGRAPHY-0014
+\url{http://aimpl.org/quantumalg/1/}.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+What witnesses are there of Goppa decodability or non-decodability?
+
+\section{Attempt and results}
+The source's word ``decodability'' can mean a code presentation, a particular
+syndrome, or unique decoding throughout a radius. We keep these separate and
+prove certificate statements for specified finite problems. These are auxiliary
+rederivations, not a complete answer to every intended interpretation.
+
+\paragraph{Positive and negative syndrome certificates.}
+For $H\in\mathbb F_q^{r\times n}$, $s\in\mathbb F_q^r$, and radius
+$t\ge0$, an error $e$ with $He=s$ and Hamming weight at most $t$ is an
+immediately checkable positive witness.
+For each support $S\subseteq\{1,\ldots,n\}$ of size at most
+$\min(t,n)$, let $H_S$ be its column submatrix. There is no error supported
+on $S$ exactly when $s$ is outside the span $W$ of those columns.
+This holds exactly when there is a row vector $\lambda_S$ satisfying
+\[
+\lambda_SH_S=0,\qquad\lambda_S s=1.
+\]
+One direction follows by applying $\lambda_S$ to a proposed solution.
+For the converse, take a basis of $W$, append $s$ to that independent list,
+and extend to a basis of $\mathbb F_q^r$. Define a linear functional to be
+zero on the basis of $W$ and the other added vectors, and one on $s$.
+Its coordinate row is the required $\lambda_S$.
+Supplying these rows for every small support is therefore a complete negative
+certificate. Its size can be exponential, since there are
+$\sum_{j=0}^{\min(t,n)}\binom nj$ supports. It proves nonexistence for that
+syndrome and radius, not absence of every Goppa presentation.
+
+\paragraph{A full degree-one binary presentation criterion.}
+Let $B\in\mathbb F_2^{r\times n}$ be a full row basis of a binary parity
+check space, with $n\ge1$. Suppose $r\ge1$ and all columns $b_i$ are nonzero
+and pairwise distinct. Fix an explicit field $K=\mathbb F_{2^r}$ and basis
+over $\mathbb F_2$, identify $b_i$ with its nonzero field element $h_i$, and
+put $\alpha_i=h_i^{-1}$ and $g(z)=z$.
+The locators are distinct and nonzero. Modulo $z$, the rational check
+$\sum_i c_i/(z-\alpha_i)$ equals $\sum_i c_i h_i$, since signs disappear
+in characteristic two. Expanding in the chosen basis gives exactly $Bc=0$.
+Hence this constructs a degree-one binary Goppa presentation for the code.
+Finite-field construction is an explicit representation input to this proof;
+we make no unstated bit-complexity claim about constructing that field.
+
+Conversely, for any degree-one polynomial $g(z)=z-\beta$ over a binary
+extension field with distinct locators avoiding $\beta$, the expanded check
+columns are the coordinates of $(\beta-\alpha_i)^{-1}$.
+They are nonzero and pairwise distinct. Replacing this check matrix $A$ by
+any full row basis $B$ of its row space preserves these properties: there
+are matrices $U,V$ with $A=UB$ and $B=VA$, so a zero column, or equality of
+two columns, holds for one matrix if and only if it holds for the other.
+Thus nonzero distinct columns of a full row basis are necessary and sufficient
+for this degree-one binary Goppa representability. When $r=0$ and $n\ge1$,
+the full code has all columns zero and cannot meet the criterion.
+A zero column supplies a weight-one codeword; equal columns supply a weight-two
+codeword. Conversely any nonzero binary codeword of weight one or two forces
+one of those two defects, by expanding its syndrome. The criterion therefore
+also characterizes minimum distance at least three (allowing the zero code).
+
+\paragraph{Why certificates of different tasks cannot be substituted.}
+A zero or repeated column is a short negative witness for degree-one
+representability as just defined. It does not disprove some other Goppa
+presentation or every decoder. Similarly, if a particular syndrome equals a
+column of $H$, its corresponding unit error proves radius-one solvability,
+even if another pair of columns repeats and uniqueness fails elsewhere.
+For a concrete binary example, $H=(1\ 1)$ and syndrome $s=1$ have two
+weight-one solutions. Both are valid positive decoding witnesses, while their
+difference $(1,1)$ witnesses failure of uniform unique radius-one decoding.
+Thus the source must specify which assertion its desired negative witness
+is meant to refute.
+
+\section{Context, adversarial audit, and gap}
+The exact question was inspected on printed page 3 of the official workshop
+report. The audit checked empty supports, row-space versus literal-matrix
+equality, characteristic-two signs, the rank-zero case, and the distinction
+between particular-word solvability and guaranteed uniqueness. No general
+polynomial-size negative certificate for hidden Goppa recognition or arbitrary
+bounded decoding has been established. No numerical experiment was performed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The support-indexed certificates may be exponential and the complete Goppa characterization covers only degree one; the general ambiguously stated witness problem remains unresolved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item AIM, Quantum algorithms for analysis of public-key crypto, official workshop summary, printed page 3; original coding and Grover questions inspected directly on 11 October 2026. \url{https://aimath.org/pastworkshops/quantumalgrep.pdf}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The support-indexed certificates may be exponential and the complete Goppa characterization covers only degree one; the general ambiguously stated witness problem remains unresolved.
+\end{document}

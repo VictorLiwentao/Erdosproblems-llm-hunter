@@ -1,0 +1,145 @@
+% RESEARCH_DRAFT_SHA256: 4f2d56fc04a49e4f3e13e22e80e4be9fa55fb918ae0d945acf394a4f88157a0a
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000788, "title": "Universal Semantic Communication Across Different Meanings", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000788", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Develop a mathematical theory of universal semantic communication: formalize intelligence, understanding, goals, and meaningful interaction when sender and receiver may have different semantics, and characterize when cooperative parties can communicate successfully from their observations and responses.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The exact finite-model criterion and feedback example do not define or characterize the broad universal semantic communication program in the source.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Semantic communication: a finite observational-equivalence test and its limits}
+\noindent UnsolvedMath ID 30000788; OWR-1587-008. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+A communication protocol specifies messages and responses between parties with local observations. A goal can be modeled by a success predicate or utility on the interaction; a semantic interpretation assigns meanings to the communicated symbols.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+Intelligence, understanding, meaning, goals, and successful interaction are not formalized in the supplied record. The text is a conceptual research direction.
+
+Source-record limitation: Intelligence, understanding, goals, and meaningful communication are not given mathematical definitions or a determinate target.
+\paragraph{Statement recorded in the supplied source.}
+Develop a mathematical theory of universal semantic communication: formalize intelligence, understanding, goals, and meaningful interaction when sender and receiver may have different semantics, and characterize when cooperative parties can communicate successfully from their observations and responses. \href{https://doi.org/10.4171/owr/2007/31}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Develop a theory of communication between parties that interpret messages differently.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000788 (OWR-1587-008). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Complexity Theory (2008), Oberwolfach Reports, DOI 10.4171/owr/2007/31, pp. 1793--1864
+\url{https://doi.org/10.4171/owr/2007/31}.
+\item Source-specific Oberwolfach Reports licences, including CC BY-SA 4.0 where applicable, are retained; see THIRD\_PARTY\_NOTICES.md.
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Develop a mathematical theory of universal semantic communication: formalize intelligence, understanding, goals, and meaningful interaction when sender and receiver may have different semantics, and characterize when cooperative parties can communicate successfully from their observations and responses.
+
+\section{Source scope and attempted formalization}
+The report explicitly emphasizes goals and cooperative capability, while the
+catalogue asks for a broad mathematical theory. No unique mathematical model
+of intelligence or understanding is supplied. We choose one finite diagnostic
+model, state all assumptions, and prove its exact feasibility criterion. This
+is an auxiliary test of a possible route, not a claimed universal theory or a
+replacement definition for the source's terms.
+
+\paragraph{A finite deterministic observation model.}
+Let $\Theta$ be a finite nonempty set of possible semantic worlds, $Q$ a
+finite set of permitted queries, and $A$ a finite set of final actions.
+In world $\theta$, query $q$ returns a known deterministic symbol
+$o_\theta(q)$, and the nonempty set of successful final actions is
+$G_\theta\subseteq A$. A learner knows this finite table but not the true
+world. It may query adaptively and then output one action; query costs and
+computational efficiency are not the target of this toy model.
+Define $\theta\sim\theta'$ if
+$o_\theta(q)=o_{\theta'}(q)$ for every $q\in Q$.
+There is a strategy guaranteed to succeed in every world if and only if
+\[
+\bigcap_{\theta\in C}G_\theta\ne\varnothing
+\quad\hbox{for every observational equivalence class }C.
+\]
+For necessity, worlds in the same class produce identical transcripts under
+any deterministic adaptive strategy: by induction the same prior answers
+choose the same next query, whose answers agree. Thus its common final action
+must belong to every $G_\theta$ in the class.
+For a randomized zero-error strategy, fix its random tape. Because the set of
+worlds is finite, the union of their probability-zero failure events still
+has probability zero. Almost every tape therefore succeeds in all worlds and
+reduces to the preceding deterministic argument. For sufficiency, query all
+of $Q$, determine the resulting equivalence class from the complete answer
+tuple, and choose an action in the displayed intersection. This terminates
+and succeeds. The proof handles $Q=\varnothing$: then all worlds lie in a
+single class and a common successful action is exactly what is needed.
+
+\paragraph{An indistinguishability obstruction to semantics from responses alone.}
+Take two worlds with identical answers to every query, final action set
+$A=\{0,1\}$, and successful sets $G_0=\{0\}$, $G_1=\{1\}$.
+No guaranteed-success strategy exists by the criterion. More quantitatively,
+a randomized strategy has the same output distribution in both worlds; if
+it outputs zero with probability $p$, its two success probabilities are $p$
+and $1-p$, so the worst is at most $1/2$.
+Thus more observations of exactly the same permitted kind cannot establish
+which incompatible goal interpretation is correct. The obstruction comes
+from missing distinguishing information, not from a proved deficiency of
+cooperation or computational intelligence.
+
+\paragraph{What an explicit common success signal changes.}
+Suppose instead the parties have a finite list of $K\ge1$ candidate
+interaction policies and a common, sound success test returning accept or
+reject after one finite trial. Assume at least one candidate always passes
+in the actual world, and each trial can be reset without altering that world.
+Try candidates in any fixed order and stop at the first acceptance.
+Soundness ensures the accepted policy meets the stated goal; existence of a
+passing candidate ensures termination after at most $K$ trials and at most
+$K-1$ failures. This elementary enumeration does not require identifying an
+underlying semantic dictionary. Removing the shared test or the reset promise
+invalidates the proof: a failed trial might be indistinguishable from a
+successful one, or might change which future trials can succeed.
+This gives a precise limited realization of the report's emphasis on explicit
+goals, while exposing the additional assumptions needed for a theorem.
+
+\section{Adversarial audit and gap}
+Sudan's original report paragraph was inspected; its cited preliminary paper
+was not read, so no claim to reproduce its actual formal results is made.
+The audit separated observational equivalence from agreement of meanings,
+zero-error randomization from expected success, and a finite known table from
+universal unbounded interaction. The source's intelligence, understanding,
+cooperation, and efficiency requirements are not characterized in general.
+No numerical experiment was performed and no universal semantic framework is
+claimed completed.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The exact finite-model criterion and feedback example do not define or characterize the broad universal semantic communication program in the source.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Oberwolfach Report 31/2007, Koiran pp.1835--1836, Raz p.1846, Saxena p.1851, Sudan p.1855; the item-specific original passage was read from cached primary PDF text on 11 October 2026. This is source inspection, not a present-status survey. \url{https://ems.press/content/serial-article-files/46116}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The exact finite-model criterion and feedback example do not define or characterize the broad universal semantic communication program in the source.
+\end{document}

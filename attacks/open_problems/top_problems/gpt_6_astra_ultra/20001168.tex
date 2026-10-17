@@ -1,0 +1,154 @@
+% RESEARCH_DRAFT_SHA256: 6075d6deba7a0f467c0a96ce1c1988a977399db932687ede3dc8179c8b5ee040
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001168, "title": "Bellman residuals, policy performance, and coverage", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001168", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review and model-assisted mathematical audit of the written arguments; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Bellman residuals, policy performance, and coverage; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A residual bound needs coverage of the states a policy visits; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch006 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 20001168; source catalogue code AIM-COMPUTATION-0006
+\section{Bellman residuals, policy performance, and coverage}\label{20001168}
+{\small UnsolvedMath ID 20001168 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+For a discounted Markov decision process, a value function $V$ gives expected accumulated cost and its Bellman operator has the form $(TV)(s)=\min_a\{c(s,a)+\gamma\mathbb E[V(S')\mid s,a]\}$, $0<\gamma<1$. The Bellman residual is $TV-V$. An approximation architecture restricts $V$ to a chosen function class. Policy performance concerns the cost of the policy produced by the approximation, which is distinct from approximation error in a selected norm.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The contribution lists validation, architecture design, algorithm comparisons, and policy-based error criteria. The discounted equation is standard context; the source does not fix discounting, a transition model, an architecture, or one theorem-level bound. The supplied catalogue marks this record open; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+A.3 de Farias, Daniela
+
+In this workshop, I am interested in learning more about the main open issues and approaches across the different subfields related to high-dimensional optimal control. In addition, I also see the workshop as an opportunity to discuss some of the open issues and explore potential directions in my own subfield. My current research interests lie in approximate methods for large-scale stochastic dynamic programming, with particular focus on value function approximation. I would hope to see at least some activities and discussions pertaining to that topic. Some of the directions in approximate dynamic programming that I consider worth exploring are as follows:
+
+• Approaches for validation of approximate DP methods. Interest in approximate DP has been fuelled by successful application in a variety of areas ranging from finance to games and helicopter control. Yet, it is still difficult to know a priori when, how and why a given method will be successful in tackling a particular problem. In my view, there is a need for more systematic approaches to validation of algorithms beyond illustration via application to one or two specific problems. These systematic approaches could be of many different kinds, which could be discussed in more or less technical detail at the workshop. For instance, one could pursue the development theoretical guarantees of performance and errors, or a more systematic empirical comparison based on a benchmark of large-scale DP problems.
+
+• Comparison and unification of different algorithms. Approximate DP is currently represented by a conglomeration of ideas and algorithms, and it is often difficult to know how they relate to one another and which is most appropriate for any class of applications. A streamlined comparison among the approaches and potentially unifying theory would be useful developments to the field.
+
+• Systematic and/or adaptive design of approximation architectures. A central issue in approximate dynamic programming that remains largely open is how to choose the approximation architecture, which remains a problem-specific task, and approximate DP algorithms typically start with the premise that an approximation architecture has been pre-specified. More streamlined methods of approximation architecture selection together with theory characterizing optimality and convergence rates would be desirable. Alternatively, it may be worth trying to explore whether a canonical approximation architecture could be developed at least for some specific class of problems.
+
+• Performance-Oriented Approximate DP. The design, analysis and comparison of value function approximation algorithms is often based on approximation or Bellman er-rors. Both situations entail the choice of a norm whereby to measure and trade off approximation or Bellman errors across states. Little work has been done to develop 7
+
+a better understanding of how different criteria capture the quality of the policies being generated. Theoretical analysis is required to identify which criteria - Bell-man or approximation error, which norms? - best reflect policy performance; at the same time, algorithms that take such criteria into account must be designed.
+
+• Alternative paradigms and connections with stochastic programming. As a more open-ended direction, one could consider whether extensions of the Markov deci-sion process paradigm, possibly combining it with stochastic programming, and/or a completely different approach could be more suitable for tackling certain classes of real-world problems without running into the curse of dimensionality. \href{https://aimath.org/WWN/optimalcontrol/optimalcontrol.pdf}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record open; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness.
+\subsection{Short English statement}
+The source proposes ways to assess and improve approximate dynamic programming.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001168 (AIM-COMPUTATION-0006). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-COMPUTATION-0006.
+\url{https://aimath.org/WWN/optimalcontrol/optimalcontrol.pdf}.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 20001168 and code AIM-COMPUTATION-0006 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:20001168}
+
+\section{Literature and context check}
+The participant contribution in the primary AIM optimal-control workshop
+ PDF was consulted. Its broad scope is retained above. The following explicitly
+ chosen finite or smooth model tests one route suggested by the agenda; it is
+ not a reconstruction of a missing theorem. The elementary arguments are not
+ claimed novel, and no current-resolution audit of the whole field is asserted.
+\section{Research attempt: A residual bound needs coverage of the states a policy visits}
+Choose a finite discounted cost MDP with $0<\gamma<1$ and bounded costs.
+The Bellman operator $T$ is a sup-norm contraction: each action's expectation
+changes by at most $\gamma\|V-W\|_\infty$, and taking a minimum preserves that
+bound. Iterating $T$ therefore gives a Cauchy sequence (successive differences
+form a geometric bound), whose unique fixed point is $V^*$. The usual
+finite-horizon recursion and bounded discounted tail identify it with optimal cost.
+If $\|TV-V\|_\infty\le\epsilon$, comparison to the fixed point yields
+$\|V-V^*\|_\infty\le\epsilon/(1-\gamma)$. For a greedy policy $\pi$,
+$T_\pi V=TV$ and the same argument gives
+$\|V-V^\pi\|_\infty\le\epsilon/(1-\gamma)$.
+Consequently $0\le V^\pi-V^*\le2\epsilon/(1-\gamma)$ componentwise.
+
+The attempted extension replaces the sup norm by a sampled residual. Consider
+states $s,g,b$. State $g$ is absorbing with zero cost. State $b$ is absorbing
+with cost $C>0$ each step. At $s$ either action costs zero and goes to $g$ or
+to $b$. Set $V(g)=0$, $V(b)=-M$, $V(s)=-\gamma M$, for $M>0$.
+The Bellman residual is zero at $s$ and $g$, whereas at $b$ it equals
+$C+(1-\gamma)M$. Any sampling distribution supported on $\{s,g\}$ therefore
+reports residual norm zero. Nevertheless the greedy action at $s$ goes to $b$
+and has cost $\gamma C/(1-\gamma)$ instead of the optimal zero. Scaling $C$
+makes the loss arbitrary. Thus the missing coverage is a demonstrated
+mathematical obstruction, not merely a caveat about data size.
+
+If a finite sampling distribution has $\mu(t)\ge\mu_{\min}>0$ at every state,
+then $\|r\|_\infty\le\|r\|_{2,\mu}/\sqrt{\mu_{\min}}$: the contribution of
+a maximizing state is at least $\mu_{\min}\|r\|_\infty^2$. Substitution gives
+a valid, possibly poor policy bound. This identifies the parameter absent from
+the zero-coverage shortcut; it does not design a scalable architecture.
+\section{Verification and adversarial audit}
+The three-state Bellman values, greedy action and infinite geometric cost
+were checked directly. The case $\epsilon=0$ in the full sup norm recovers an
+optimal greedy policy. The sampled counterexample uses a different norm, not a
+failure of the contraction theorem.
+\paragraph{Audit corrections.} Sup-norm and sampled errors were distinguished, and a concrete missing-coverage counterexample was supplied.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The source's architecture selection, comparisons, benchmarks and alternative
+control paradigms remain. The first gap for the residual route is usable
+coverage or occupancy control under the actual approximation scheme; finite
+sup-norm contraction alone does not supply it.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://aimath.org/WWN/optimalcontrol/optimalcontrol.pdf} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and a model-assisted mathematical
+audit of the written arguments; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

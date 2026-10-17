@@ -1,0 +1,90 @@
+% TOP_PROBLEM: {"id": 30004241, "title": "Logarithmic Entanglement Enhancement from Partial Delocalization", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "The primary report (PDF pages 21--22) already gives a random-dimer example with logarithmic enhancement without absolutely continuous spectrum. The remaining inherited question asks for how much delocalization and a general criterion; mere existence in one such model is known context, not a freshly verified open subproblem."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30004241", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "How much partial delocalization is enough to create logarithmically enhanced free-fermion entanglement, even without absolutely continuous spectrum?", "scope": "Proved a conditional logarithmic entropy lower bound from explicit cross-boundary Fermi-projection kernel estimates; no general delocalization criterion.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked entropy endpoints, the projection trace identity and the exact count of r crossing pairs; retained the strength of the pointwise kernel assumption. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the elementary binary-entropy bound, projection-kernel trace identity and crossing-pair count. The logarithmic lower bound remains conditional on the explicitly stated kernel hypothesis. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked entropy endpoints, the projection trace identity and the exact count of r crossing pairs; retained the strength of the pointwise kernel assumption. The remaining gap is: Derive robust averaged projection-kernel lower bounds from the source disorder/eigenfunction delocalization data. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30004241; source catalogue code OWR-17137-002
+\setcounter{section}{30004240}
+\section{Logarithmic Entanglement Enhancement from Partial Delocalization}\label{30004241}
+{\small UnsolvedMath ID 30004241 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+For a bipartite quantum state, entanglement entropy is the von Neumann entropy of a reduced state. In a free-fermion ground state it is computed from the restriction of the one-particle correlation operator to a spatial region. An area law grows like boundary area; logarithmic enhancement adds a factor comparable to the logarithm of region size. Delocalization concerns spatial spread or transport of one-particle states and is not identical to absolute continuity of the spectral measure.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+For entanglement entropy in disordered free-fermion systems, how much delocalization of the one-particle eigenvalues and eigenfunctions is needed to produce a logarithmic enhancement of the area law, even when the spectrum is not absolutely continuous?
+
+\paragraph{Source scope and qualification.}
+The primary report (PDF pages 21--22) already gives a random-dimer example with logarithmic enhancement without absolutely continuous spectrum. The remaining inherited question asks for how much delocalization and a general criterion; mere existence in one such model is known context, not a freshly verified open subproblem.
+\subsection{Short English statement}
+How much partial delocalization is enough to create logarithmically enhanced free-fermion entanglement, even without absolutely continuous spectrum?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved a conditional logarithmic entropy lower bound from explicit cross-boundary Fermi-projection kernel estimates; no general delocalization criterion.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30004241. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{A kernel criterion for a lower entropy bound.} Let \(P\) be an orthogonal projection on \(\ell^2(\mathbb Z)\), and \(C=\mathbf1_A P\mathbf1_A\) on a finite interval \(A\). Its spectrum lies in \([0,1]\). For \(h(t)=-t\log t-(1-t)\log(1-t)\), the elementary inequalities \(-\log t\ge1-t\) and \(-\log(1-t)\ge t\) give \(h(t)\ge2t(1-t)\), including endpoints by continuity. Therefore
+\[
+ S(A)=\operatorname{Tr}h(C)\ge2\operatorname{Tr}(C-C^2)
+ =2\sum_{x\in A,y\notin A}|P(x,y)|^2.
+\]
+The last identity uses \(P^2=P\), hence \(P(x,x)=\sum_y|P(x,y)|^2\).
+\paragraph{A conditional logarithm.} Suppose additionally \(|P(x,y)|^2\ge c/(y-x)^2\) whenever \(x\in A=\{1,\ldots,L\}\), \(y>L\), and \(1\le y-x\le L\). There are exactly \(r\) such crossing pairs at separation \(r\le L\). It follows that \(S(A)\ge2c\sum_{r=1}^Lr^{-1}\ge2c\log(L+1)\).
+\paragraph{Gap and scope.} This lower bound is a precisely stated sufficient kernel condition, not a general eigenfunction-delocalization criterion; oscillatory zeros can even invalidate its pointwise hypothesis. The source already supplies a non-absolutely-continuous example, so existence of one is not claimed anew. The missing step is deriving suitable averaged crossing-kernel lower bounds from quantified partial delocalization in actual disordered Fermi projections. Upper bounds and general area-times-log scaling are also not established.
+
+\paragraph{Verification and adversarial audit.}
+Checked entropy endpoints, the projection trace identity and the exact count of r crossing pairs; retained the strength of the pointwise kernel assumption. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked entropy endpoints, the projection trace identity and the exact count of r crossing pairs; retained the strength of the pointwise kernel assumption. The remaining gap is: Derive robust averaged projection-kernel lower bounds from the source disorder/eigenfunction delocalization data. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the elementary binary-entropy bound, projection-kernel trace identity and crossing-pair count. The logarithmic lower bound remains conditional on the explicitly stated kernel hypothesis. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Derive robust averaged projection-kernel lower bounds from the source disorder/eigenfunction delocalization data.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30004241:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30004241 (OWR-17137-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30004241:2}{S2}] Many-Body Quantum Systems (2019), Oberwolfach Reports, DOI 10.4171/owr/2019/41, pp. 2541--2603. Primary report accessed 2026-10-11; relevant PDF pages 21, 22.
+\url{https://doi.org/10.4171/owr/2019/41}.
+\item[\hypertarget{source:30004241:3}{S3}] Muller, Pastur, and Schulte (catalogue-listed context; not independently consulted in this preparation).
+\url{https://doi.org/10.1007/s00220-019-03523-3}.
+\end{itemize}
+\label{end:30004241}
+\end{document}

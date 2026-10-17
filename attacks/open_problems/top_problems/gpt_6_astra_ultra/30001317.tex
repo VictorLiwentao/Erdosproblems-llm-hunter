@@ -1,0 +1,97 @@
+% TOP_PROBLEM: {"id": 30001317, "title": "Local Approximations of Electronic Spectral Projectors", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The task is an approximation program, not a claimed universal complexity bound. The Hamiltonian class, approximation norm, accuracy, and behavior as the gap closes must be specified by any proposed method; no gap is silently assumed for every electronic system."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001317", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Approximate the occupied electronic subspace directly and efficiently by using spatial locality and a gap in the electronic spectrum.", "scope": "Provides an explicit local polynomial projector with an operator-norm error bound for bounded finite-range gapped Hamiltonians.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked binomial tail, graph-walk locality, delta=1 exactness and delta→0 deterioration; no unqualified spectral gap was assumed. Model self-audit only; no independent human proof checking. Coordinator checked the binomial-series tail bound, polynomial propagation range and exact maximal-gap endpoint. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked binomial tail, graph-walk locality, delta=1 exactness and delta→0 deterioration; no unqualified spectral gap was assumed. Retained unresolved status and zero original-target progress; Uniform efficiency as the gap closes and certified treatment of the broader electronic Hamiltonian class are not established."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001317; source catalogue code OWR-4080-001
+\setcounter{section}{30001316}
+\section{Local Approximations of Electronic Spectral Projectors}\label{30001317}
+{\small UnsolvedMath ID 30001317 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} After spatial discretization, the one-electron Hamiltonian $H$ is a selfadjoint matrix or operator with orthonormal eigenvectors $\psi_i$ and ordered eigenvalues $\lambda_1\le\lambda_2\le\cdots$. The occupied subspace is $\operatorname{span}\{\psi_1,\ldots,\psi_{N_e}\}$ and its orthogonal projector is $P$. A spectral gap means $\lambda_{N_e}<\lambda_{N_e+1}$ when the next level exists; it isolates the occupied projector independently of the choice of basis inside that subspace. Locality means sparsity or decay in a basis localized in physical space. The report seeks methods to approximate $P$ without computing all occupied eigenpairs.
+
+\paragraph{Source scope and qualifications.} The task is an approximation program, not a claimed universal complexity bound. The Hamiltonian class, approximation norm, accuracy, and behavior as the gap closes must be specified by any proposed method; no gap is silently assumed for every electronic system.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+Given a discrete electronic Hamiltonian $H$ with occupied eigenvectors $\psi_1,\ldots,\psi_{N_e}$, develop effective approximations of the spectral projector $$P=\sum_{i=1}^{N_e}|\psi_i\rangle\langle\psi_i|$$ onto the $N_e$ lowest eigenstates, particularly approximations exploiting locality and a spectral gap.
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: This is a broad formulation of the still substantive electronic-structure spectral-projector approximation problem, not a theorem whose truth has been established by the extracted passage. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Approximate the occupied electronic subspace directly and efficiently by using spatial locality and a gap in the electronic spectrum.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Provides an explicit local polynomial projector with an operator-norm error bound for bounded finite-range gapped Hamiltonians.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{A gap-dependent local polynomial.} Shift and scale the Hamiltonian so that $\|H\|\leq1$ and its spectrum lies in $[-1,-\delta]\cup[\delta,1]$, $0<\delta\leq1$, with the negative part occupied. Put $c_n=\binom{2n}{n}/4^n$ and
+\[
+ P_m=\tfrac12\left(I-H\sum_{n=0}^m c_n(I-H^2)^n\right).
+\]
+The scalar binomial series $(1-z)^{-1/2}=\sum_{n\geq0}c_nz^n$ gives $\operatorname{sgn}(H)=H(H^2)^{-1/2}$. Since $0<c_n\leq1$ and $\|I-H^2\|\leq q=1-\delta^2<1$, the remainder satisfies
+\[
+ \|P-P_m\|\leq\frac{q^{m+1}}{2(1-q)}.
+\]
+This follows by diagonalizing the finite self-adjoint matrix and bounding the scalar tail geometrically.
+
+\paragraph{Locality and its price.} If $H_{xy}=0$ whenever graph distance exceeds one, then $(H^k)_{xy}=0$ for distance greater than $k$, because every nonzero matrix-product term traces a walk of length at most $k$. Thus $P_m$ has range at most $2m+1$. The estimate gives a concrete range-versus-error guarantee without occupied eigenvectors. At $\delta=1$, already $P_0=(I-H)/2$ is exact. As $\delta\downarrow0$, the bound deteriorates and gives no uniform metallic approximation.
+
+\paragraph{Scope.} This elementary polynomial filter is a known kind of restricted approximation, not a new general electronic-structure algorithm. Hamiltonian sparsity, spectral scaling and a certified gap were explicit hypotheses. Efficient treatment of closing gaps, continuum discretization errors and large-system storage remains outside the proof; those are the first gaps in the broader source program.
+
+\paragraph{Verification and adversarial audit.}
+Checked binomial tail, graph-walk locality, delta=1 exactness and delta→0 deterioration; no unqualified spectral gap was assumed. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked binomial tail, graph-walk locality, delta=1 exactness and delta→0 deterioration; no unqualified spectral gap was assumed. Retained unresolved status and zero original-target progress; Uniform efficiency as the gap closes and certified treatment of the broader electronic Hamiltonian class are not established.
+
+Coordinator checked the binomial-series tail bound, polynomial propagation range and exact maximal-gap endpoint. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Uniform efficiency as the gap closes and certified treatment of the broader electronic Hamiltonian class are not established.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Uniform efficiency as the gap closes and certified treatment of the broader electronic Hamiltonian class are not established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001317:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001317 (OWR-4080-001). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001317:2}{S2}] Linear and Nonlinear Eigenproblems for PDEs (2009), Oberwolfach Reports, DOI 10.4171/owr/2009/37, pp. 2025--2114; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2009/37}.
+\item[\hypertarget{source:30001317:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 39--41, printed pages 2063--2065.
+\url{https://ems.press/content/serial-article-files/46238}.
+\end{itemize}
+\label{end:30001317}
+\end{document}

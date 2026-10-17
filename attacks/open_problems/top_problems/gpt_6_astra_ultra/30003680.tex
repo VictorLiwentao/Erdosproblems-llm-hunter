@@ -1,0 +1,157 @@
+% RESEARCH_DRAFT_SHA256: 1d34284a75a5d0a339941f89b1c40b5da680ed026d3aa4e87204642bf18a54bf
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30003680, "title": "Information–Computation Gaps in Sparse Linear Regression", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003680", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and written-proof review of this attempt; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Information–Computation Gaps in Sparse Linear Regression; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "A finite-search recovery bound and the small-amplitude barrier; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch021 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30003680; source catalogue code OWR-15962-007
+\section{Information–Computation Gaps in Sparse Linear Regression}\label{30003680}
+{\small UnsolvedMath ID 30003680 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Sparse regression models $y=X\beta_*+\varepsilon$ with few nonzero coordinates in $\beta_*$. An information threshold is the least sample scale admitting statistically successful recovery without runtime restrictions; an algorithmic threshold concerns the specified efficient algorithm class.
+
+A learning problem specifies a data distribution, a hypothesis class and a loss. Statistical consistency means that the estimator approaches its population target as the sample size increases; statistical and computational requirements are distinct.
+
+For a discrete random variable $X$, entropy is $H(X)=-\sum_xp(x)\log p(x)$, and mutual information is $I(X;Y)=H(X)+H(Y)-H(X,Y)$. Coding rates, capacities, and exponents depend on the stated channel or source model and error criterion.
+\paragraph{Statement recorded in the supplied source.}
+In sparse high-dimensional linear regression, when the sample size $n$ lies between the information-theoretic threshold $n_*$ and the algorithmic threshold $n_{\mathrm{alg}}$, is the signal $\beta_*$ information-theoretically recoverable, and is efficient recovery possible? \href{https://doi.org/10.4171/owr/2017/57}{[S2]}
+\paragraph{Scope qualification.}
+The design and noise distributions, sparsity scaling, recovery loss, and threshold definitions require the source.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Determine whether statistically possible sparse recovery between the two stated thresholds can be performed efficiently.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30003680 (OWR-15962-007). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Network Models: Structure and Function (2018), Oberwolfach Reports, DOI 10.4171/owr/2017/57, pp. 3427--3470
+\url{https://doi.org/10.4171/owr/2017/57}.
+\item[S3] High-dimensional regression with binary coefficients
+\url{https://arxiv.org/abs/1701.04455}.
+\item[S4] Sparse regression algorithmic barriers
+\url{https://arxiv.org/abs/1711.04952}.
+\item[S5] All-or-nothing in sparse linear regression
+\url{https://arxiv.org/abs/1903.05046}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30003680 and source code OWR-15962-007 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30003680}
+
+\section{Literature and context check}
+Zadik's primary OWR 57/2017 talk, pp.~3465--3466, and the primary abstract of Gamarnik--Zadik, arXiv:1711.04952v2, were read. They use Gaussian design and noise and discuss an all-or-nothing information result, LASSO/local-search behavior and overlap-gap evidence. Such evidence is not an unconditional lower bound against every efficient algorithm. The catalogue omits signal normalization and scaling. The following finite-hypothesis calculation makes those choices explicit and does not re-prove the source's threshold theorems.
+\section{Research attempt: A finite-search recovery bound and the small-amplitude barrier}
+
+\paragraph{An explicit exhaustive estimator.}
+Let $1\le k<p$, let the unknown $\beta_*\in\{0,1\}^p$ have exactly $k$ ones, take $X\in\mathbb R^{n\times p}$ with independent standard Gaussian entries, and take independent $W\sim N(0,\sigma^2I_n)$ with $\sigma>0$. Minimize $\|Y-X\beta\|^2$ over all $\binom pk$ candidates, with any deterministic tie rule.
+
+For a fixed incorrect candidate put $\Delta=\beta-\beta_*$ and $z=X\Delta$. It can beat the truth only if
+\[
+ \|W-z\|^2\le\|W\|^2,
+ \quad\text{equivalently}\quad
+ W^Tz\ge\|z\|^2/2.
+\]
+Conditional on $X$, the random variable $W^Tz$ is centered Gaussian with variance $\sigma^2\|z\|^2$. Its moment-generating function, obtained by completing the square in the Gaussian density, is $\mathbb Ee^{tW^Tz}=e^{t^2\sigma^2\|z\|^2/2}$. Markov's inequality with $t=1/(2\sigma^2)$ therefore bounds the error by $e^{-\|z\|^2/(8\sigma^2)}$.
+
+If the candidate swaps $\ell$ true coordinates for $\ell$ false ones, then $\|\Delta\|^2=2\ell$, and the $n$ coordinates of $z$ are independent $N(0,2\ell)$. Integrating each Gaussian square gives
+\[
+ \mathbb E_X e^{-\|z\|^2/(8\sigma^2)}
+ =\left(1+\frac{\ell}{2\sigma^2}\right)^{-n/2}.
+\]
+There are $\binom k\ell\binom{p-k}\ell$ such candidates. A union bound proves the finite-sample estimate
+\[
+ \Pr(\widehat\beta\ne\beta_*)\le
+ \sum_{\ell=1}^{\min(k,p-k)}
+ \binom k\ell\binom{p-k}\ell
+ \left(1+\frac{\ell}{2\sigma^2}\right)^{-n/2}.
+\]
+In particular, with $r=\min(k,p-k)$ and $0<\delta<1$, a sufficient condition for error at most $\delta$ is
+\[
+ n\ge2\max_{1\le\ell\le r}
+ \frac{\log\bigl(r\binom k\ell\binom{p-k}\ell/\delta\bigr)}
+      {\log(1+\ell/(2\sigma^2))}.
+\]
+This is an actual statistically successful estimator under that bound, but it enumerates $\binom pk$ possibilities. No polynomial-time implementation or identification of this bound with the source's sharp $n_*$ is established.
+
+\paragraph{Sparsity without amplitude normalization is insufficient.}
+Even with Gaussian design, distinguish the two one-sparse signals $a e_1$ and $a e_2$, with $a>0$ and equal prior probabilities. Conditional on $X$, their observations are Gaussians with the same covariance and mean difference $d=a(X_1-X_2)$. Orthogonal rotation along $d$ reduces their optimal distinguishing test to one dimension: the densities cross at the midpoint, so their total variation distance is
+\[
+ 2\Phi(\|d\|/(2\sigma))-1
+ \le \frac{\|d\|}{\sigma\sqrt{2\pi}},
+\]
+using the bound $1/\sqrt{2\pi}$ on the standard Gaussian density. Since the design distribution is identical under the two hypotheses, the joint total variation is the expectation of the conditional distance; Cauchy--Schwarz and $\mathbb E\|d\|^2=2na^2$ give the upper bound $a\sqrt n/(\sigma\sqrt\pi)$. Any support estimator therefore has average error at least
+\[
+ \frac12\left(1-\frac{a\sqrt n}{\sigma\sqrt\pi}\right),
+\]
+when the right side is positive. The testing formula follows because, under equal priors, choosing the more likely density maximizes success and yields error $(1-\mathrm{TV})/2$.
+
+Thus if $a\sqrt n/\sigma\to0$, information itself is insufficient, regardless of computation. This does not challenge the source's normalized signal model; it shows why the omitted normalization cannot be ignored when interpreting its thresholds.
+\section{Verification and adversarial audit}
+Both Gaussian integrals were derived by completing the square, the swap count covers every incorrect binary support exactly once, and the union bound does not assume independent candidate errors. The small-amplitude lower bound conditions on the observed design and then averages, so it does not confuse a fixed-design obstruction with the random-design model. No overlap-gap theorem is treated as a universal computational lower bound.
+\paragraph{Audit corrections.} Distinguished the best-known efficient threshold from a proved barrier for all algorithms. Fixed binary signal amplitudes for the upper bound and separately proved why arbitrary vanishing amplitudes invalidate a normalization-free recovery claim.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The exact source thresholds and their full scaling regimes are not recovered, and no efficient algorithm or impossibility theorem in the intermediate regime is supplied. The exhaustive estimator provides a sufficient finite-sample condition only for normalized binary coefficients. Its exponential search cost and the need for amplitude assumptions are the first concrete gaps toward the original combined statistical/computational target.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46721} (consulted 2026-10-11). 
+\item \url{https://arxiv.org/abs/1711.04952} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and written-proof review of this attempt; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

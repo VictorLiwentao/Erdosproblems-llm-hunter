@@ -1,0 +1,89 @@
+% TOP_PROBLEM: {"id": 30003894, "title": "Arithmetic Nature of Delocalized Eta Invariants", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The group, conjugacy class, operator and convergence hypotheses are essential to define the invariant. The source does not ask for algebraicity of divergent or undefined expressions, and the general value question is broader than the highlighted algebraicity question."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003894", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover.", "target": "Which numbers can delocalized spectral-asymmetry invariants take, and must they always be algebraic?", "scope": "Proved algebraicity for a finite-dimensional finite-order equivariant sign trace and exposed why analytic limits do not transfer that conclusion.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked commutation invariance, zero eigenvalues, roots of unity, and the logical difference between a failed closure argument and a genuine geometric counterexample. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Coordinator checked the cyclotomic finite-dimensional trace and the countability argument showing that convergence alone does not preserve algebraicity. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked commutation invariance, zero eigenvalues, roots of unity, and the logical difference between a failed closure argument and a genuine geometric counterexample. The remaining gap is: Control the arithmetic of the actual delocalized heat-trace regularization rather than finite-dimensional approximants. Unresolved status and zero original-target completion are retained."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30003894; source catalogue code OWR-16407-005
+\setcounter{section}{30003893}
+\section{Arithmetic Nature of Delocalized Eta Invariants}\label{30003894}
+{\small UnsolvedMath ID 30003894 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+For an odd-dimensional Dirac operator $D$, an eta invariant measures spectral asymmetry through a regularized trace integral. On a universal cover with deck group $\Gamma$, a delocalized trace sums the integral kernel over a specified nontrivial conjugacy class of $\Gamma$. Replacing the usual trace by this trace gives a delocalized eta invariant when the summation and regularization converge. An algebraic number is a root of a nonzero polynomial with rational coefficients.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+What values can delocalized eta invariants of Dirac operators on universal covers take in general; in particular, are they always algebraic numbers?
+
+\paragraph{Source scope and qualification.}
+The group, conjugacy class, operator and convergence hypotheses are essential to define the invariant. The source does not ask for algebraicity of divergent or undefined expressions, and the general value question is broader than the highlighted algebraicity question.
+\subsection{Short English statement}
+Which numbers can delocalized spectral-asymmetry invariants take, and must they always be algebraic?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Proved algebraicity for a finite-dimensional finite-order equivariant sign trace and exposed why analytic limits do not transfer that conclusion.
+
+\paragraph{Sources and literature check.}
+Read the supplied definition, catalogue wording, source qualifications and reference entries for 30003894. The historical source/context and inherited status are retained; no fresh literature or novelty certification is claimed. No external theorem is used without proof in this attempt; explicit model assumptions are distinguished from facts about the source model.
+
+\paragraph{A finite spectral arithmetic check.} An elementary equivariant analogue explains why finite-order group elements alone do not settle the analytic eta problem. Let \(D\) be an invertible self-adjoint matrix, let \(U\) be unitary with \(U^m=I\), and suppose \(UD=DU\). Each positive or negative spectral subspace of \(D\) is \(U\)-invariant. On either subspace, the minimal polynomial of \(U\) divides \(x^m-1\), whose roots are distinct. Consequently
+\[
+ \operatorname{Tr}(U\operatorname{sgn}D)=\sum_{j=0}^{m-1}n_j e^{2\pi i j/m},\qquad n_j\in\mathbb Z.
+\]
+This is algebraic: each root of unity satisfies a rational polynomial and finitely many algebraic numbers form a finite-dimensional field extension, so their sum remains algebraic. Zero eigenvalues, if present, may be assigned sign zero and omitted without changing the conclusion.
+\paragraph{The limiting obstruction.} The actual delocalized eta invariant in [S2] uses an infinite-dimensional heat trace, conjugacy-class summation and regularization. Even a convergent sequence of algebraic approximants does not preserve algebraicity. For example, rational decimal truncations converge to every real number, whereas algebraic numbers form a countable set (there are countably many rational polynomials, each with finitely many roots). Thus a finite-order trace calculation plus convergence is insufficient.
+\paragraph{Scope.} No universal-cover Dirac operator realizing a transcendental value is constructed; the limiting observation is an obstruction to a proof method, not a counterexample to the question. The first gap is a structural arithmetic restriction surviving the delocalized regularization under its actual convergence hypotheses. The broader value-classification question also remains untouched.
+
+\paragraph{Verification and adversarial audit.}
+Checked commutation invariance, zero eigenvalues, roots of unity, and the logical difference between a failed closure argument and a genuine geometric counterexample. This is a GPT-6 Astra Ultra self-audit, not independent human verification. Prompt A drafting followed by prompt B scope/dependency/boundary self-audit. Checked commutation invariance, zero eigenvalues, roots of unity, and the logical difference between a failed closure argument and a genuine geometric counterexample. The remaining gap is: Control the arithmetic of the actual delocalized heat-trace regularization rather than finite-dimensional approximants. Unresolved status and zero original-target completion are retained.
+
+Coordinator checked the cyclotomic finite-dimensional trace and the countability argument showing that convergence alone does not preserve algebraicity. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 and local file-reading/writing tools for manuscript serialization and structural checks; mathematical calculations were symbolic reasoning, with no numerical experiment or theorem prover. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Control the arithmetic of the actual delocalized heat-trace regularization rather than finite-dimensional approximants.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved calculation is an elementary auxiliary result or a test of a restricted strategy; no new portion of the full source target is established.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30003894:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30003894 (OWR-16407-005). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30003894:2}{S2}] Non-commutative Geometry, Index Theory and Mathematical Physics (2018), Oberwolfach Reports, DOI 10.4171/owr/2018/32, pp. 1911--1981. Primary report accessed 2026-10-11; relevant PDF pages 12.
+\url{https://doi.org/10.4171/owr/2018/32}.
+\item[\hypertarget{source:30003894:3}{S3}] Xie--Yu, IMRN (catalogue-listed context; not independently consulted in this preparation).
+\url{https://doi.org/10.1093/imrn/rnz170}.
+\end{itemize}
+\label{end:30003894}
+\end{document}

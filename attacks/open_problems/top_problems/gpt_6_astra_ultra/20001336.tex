@@ -1,0 +1,118 @@
+% RESEARCH_DRAFT_SHA256: b40f826330fc8bfd8e8f8ed79cbbe5c3333b9b59fcb805ddd7547e6efbfae6c7
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 20001336, "title": "Torsion-image leakage and rigidity in SIDH", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "20001336", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and written mathematical review at the declared scope; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Torsion-image leakage and rigidity in SIDH; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "What two torsion images determine, and what they do not; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch015 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source record.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 20001336; source catalogue code AIM-CRYPTOGRAPHY-0023
+\section{Torsion-image leakage and rigidity in SIDH}\label{20001336}
+{\small UnsolvedMath ID 20001336 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$. Specialized notation and index ranges follow the cited source and the definitions below.
+
+
+SIDH is an isogeny-based key-exchange construction using supersingular elliptic curves together with images of selected torsion points. An isogeny is a surjective algebraic group map of elliptic curves with finite kernel. A claw-finding problem seeks inputs to two functions with the same output; generic quantum claw finding supplied one comparison baseline for attacks.
+\paragraph{Record scope and qualifications.}
+The catalogue title is retained as metadata. Named certificates, contracts, bounds or frameworks in that title are not asserted as results of the original source extract.
+The catalogue marks this record solved. It is retained as a historical cryptanalysis question, not as a current security recommendation or a claim that generic claw finding remains the best attack. The supplied catalogue marks this record solved; its present research status was not independently checked.
+The source text below is rendered literally where necessary; damaged formulas and composite extracts are not silently repaired into a new mathematical claim.
+\paragraph{Statement recorded in the supplied source.}
+Can quantum algorithms be used to attack SIDH by using the extra points? Are there SIDH attacks better than claw-finding? \href{http://aimpl.org/quantumalg/5/}{[S2]}
+\paragraph{Source status.}
+The supplied catalogue labels this source record solved; that metadata was checked against the supplied snapshot on 2026-10-11. The label is preserved for provenance and is not an independent verification of present open status or mathematical correctness. This is documentation of a source-labelled solved record, not a newly proposed unsolved problem.
+\subsection{Short English statement}
+The historical source asks whether auxiliary torsion-point images permit attacks beyond generic claw finding.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 20001336 (AIM-CRYPTOGRAPHY-0023). Catalogue curation and metadata: CC BY 4.0. The source extract is retained; definitions, English summaries and qualifications are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AIM Workshop Problem Lists, source linked by catalogue record AIM-CRYPTOGRAPHY-0023.
+\url{http://aimpl.org/quantumalg/5/}.
+\end{itemize}
+\paragraph{Preparation and review.}
+The original source and UnsolvedMath contributors retain attribution for the source extract. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, scope notes and formatting. No new human mathematical authorship or independently verified solution is asserted. Permanent source ID 20001336 and code AIM-CRYPTOGRAPHY-0023 checked against the complete supplied registry and current repository. Distinct upstream records, including repeated questions and broad or damaged extracts, are retained for complete coverage of the source CS category. A repeated record is not a new independent conjecture. Complete mathematical-equivalence and current-literature review has not been performed. Preparation and final review follow contribution prompts C and D, with source gaps disclosed. Structural and rendering checks do not establish a new theorem or open status.
+\label{end:20001336}
+
+\section{Literature and context check}
+Fresh retrieval of the original AIM quantum-algorithm problem pages failed (web timeout and direct network/DNS failure; an escalated retry of the related chapter-four page also failed certificate validation). The supplied original extract remains the source text; successful fresh access to those pages is not claimed. The original catalogue's solved label is preserved. Castryck--Decru's primary attack abstract was actually read: it states that its attack strongly uses exchanged torsion-point images and gives its classical polynomial-time assertion with heuristic and parameter-factorization qualifications. The present attempt does not reprove the Kani-criterion attack or remove those qualifications. It works through the finite torsion-map information that a generic claw-only abstraction would omit.
+\section{Research attempt: What two torsion images determine, and what they do not}
+Let $\ell$ be prime and take two abstract torsion spaces $T,T'\cong\mathbb F_\ell^2$ with specified ordered bases $(P,Q)$ and $(P',Q')$. A group homomorphism $\varphi:T\to T'$ is $\mathbb F_\ell$-linear: for an integer representative $a$ of a field element, additivity gives $\varphi(aP)=a\varphi(P)$, and the value is unchanged on adding $\ell$. Therefore the two images
+\[
+ \varphi(P)=aP'+bQ',\qquad \varphi(Q)=cP'+dQ'
+\]
+determine its value on every $uP+vQ$ as $(au+cv)P'+(bu+dv)Q'$. Its matrix is $M=\begin{pmatrix}a&c\\b&d\end{pmatrix}$. There are $\ell^4$ such maps. If it is promised to be an isomorphism, its first column may be any nonzero vector and its second any vector outside the first column's span, giving $(\ell^2-1)(\ell^2-\ell)$ choices. The images distinguish all of these maps, algebraically.
+
+To see the information lost by recording only a scalar pairing invariant, fix a formal primitive $\ell$th root $\zeta$ and define the alternating pairing
+\[
+ e((u,v),(u',v'))=\zeta^{uv'-vu'}.
+\]
+Expanding a two-by-two determinant proves
+$e(Mx,My)=e(x,y)^{\det M}$. Thus the pairing of the two published basis images determines only $\det M$. For every $t\in\mathbb F_\ell$, the matrix
+$M_t=\begin{pmatrix}1&t\\0&1\end{pmatrix}$ has determinant one, while $M_tQ=tP'+Q'$ distinguishes the $\ell$ possibilities. Even knowing the pairing relation exactly therefore does not identify the complete torsion action supplied by the two points.
+
+This calculation also locates the first algorithmic gap. A published point such as $\varphi(P)$ does not automatically provide its coordinates $a,b$ in a chosen basis of the target torsion group. The uniqueness of coordinates is not an efficient discrete-logarithm algorithm. Exhaustively enumerating all $\ell^2$ combinations of $P',Q'$ will find them, but costs that many candidate operations in this elementary implementation. Furthermore, distinct global isogenies can require additional analysis even when their restrictions to a finite torsion group coincide. No lifting theorem from a torsion matrix to a unique secret isogeny has been proved here.
+
+The failed abstraction is concrete: treating the public transcript only as an endpoint curve, or compressing its extra points to one pairing determinant, removes finite-group data that can distinguish many different restrictions. The successful use of that data in a complete SIDH attack is a separate, known algebraic construction, not supplied by this counting argument.
+\section{Verification and adversarial audit}
+The matrix orientation is fixed by its columns, so the determinant pairing formula has no hidden transpose convention. The count of invertible matrices holds also at $\ell=2$. The toy pairing identity is proved algebraically and is not invoked as a proof of every geometric Weil-pairing theorem. Coordinate recovery costs and global lifting are explicitly not assumed.
+\paragraph{Audit corrections.} Published SIDH breakage was acknowledged with its actual abstract qualifications. Algebraic determination by torsion images was not equated with efficient coordinate recovery or a unique global isogeny.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+This attempt gives a limited information analysis, not a fresh complete attack or a rederivation of the cited attack's complexity. It does not claim the historical question is still unsolved: the preserved solved source status and the checked published attack are distinct from the unresolved scope of this manuscript's own argument.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://eprint.iacr.org/2022/975} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and written mathematical review at the declared scope; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

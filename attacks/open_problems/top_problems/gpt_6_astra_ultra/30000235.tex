@@ -1,0 +1,118 @@
+% RESEARCH_DRAFT_SHA256: 12bc6830a84010d2001ef24afb3f567cd6b703176dbfd6ed98562db1b81bcd15
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30000235, "title": "Computational Hardness of Learning Parity with Noise", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30000235", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 also supplied the auxiliary mathematical proof route, independently audited and explicitly credited in the research section. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Complete likelihood sample bound and a disjoint-parity transcript lower bound, both explicitly restricted and not general LPN hardness.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch016/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 30000235; source catalogue code OWR-831-007
+\section{Computational Hardness of Learning Parity with Noise}\label{30000235}
+{\small UnsolvedMath ID 30000235 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+$\mathbb F_2=\{0,1\}$ with addition and multiplication modulo two; $\langle s,a_i\rangle$ is the parity of coordinatewise products. Bernoulli-$\varepsilon$ noise equals one with probability $\varepsilon$, independently for each sample.
+
+Polynomial time means a number of elementary steps bounded by a polynomial in the encoded input length. A decision problem is in $\mathrm{NP}$ if yes-instances have polynomial-length certificates verifiable in polynomial time; NP-hardness is under polynomial-time reductions.
+
+A learning problem specifies a data distribution, a hypothesis class and a loss. Statistical consistency means that the estimator approaches its population target as the sample size increases; statistical and computational requirements are distinct.
+\paragraph{Statement recorded in the supplied source.}
+For fixed $0<\varepsilon<1/2$, let $a_i$ be independent uniform vectors in $\mathbb F_2^n$ and let $b_i=\langle s,a_i\rangle+e_i$, where $s\in\mathbb F_2^n$ is hidden and the $e_i$ are independent Bernoulli-$\varepsilon$ errors. Can $s$ be recovered in polynomial time from polynomially many samples $(a_i,b_i)$? \href{https://doi.org/10.4171/owr/2005/26}{[S2]}
+\paragraph{Scope qualification.}
+The required success probability and encoding of the fixed noise rate are not specified in the supplied question.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Recover a hidden parity from uniformly random examples corrupted by a fixed nonzero noise rate.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30000235 (OWR-831-007). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Complexity Theory (2006), Oberwolfach Reports, DOI 10.4171/owr/2005/26, pp. 1431--1504
+\url{https://doi.org/10.4171/owr/2005/26}.
+\item[S3] Regev LWE survey
+\url{https://cims.nyu.edu/~regev/papers/qcrypto.pdf}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30000235 and source code OWR-831-007 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30000235}
+
+\section{Research attempt}
+\subsection{Literature, source context and scope}
+The full original catalogue body and source qualifications are preserved above. The relevant primary workshop passages were read in the cached publisher report. Historical claims and subsequent attributed results are distinguished from the mathematical work below. A restricted example, standard lemma or known theorem is not counted as new progress on the entire original target. Missing assumptions and repeated or rhetorical extracts are not silently turned into different solved problems.
+Codex (GPT-6; exact serving revision not exposed) supplied the auxiliary proof route used here. OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, independently worked through its mathematical steps, wrote this exposition, and performed the finite checks. This is model collaboration, not independent human verification.
+
+\subsection{Maximum likelihood succeeds statistically but remains expensive}
+Fix $0<\varepsilon<1/2$, a secret $s\in\mathbb F_2^n$, independent uniform rows $a_i\in\mathbb F_2^n$, and independent errors $e_i$ with probability $\varepsilon$ of being 1. The observations are $b_i=\langle a_i,s\rangle+e_i$. The report already distinguishes polynomial sample requirements from the computational difficulty of finding the secret. We test exhaustive maximum likelihood and then a restricted noise-elimination route.
+\begin{proposition}
+For $m$ samples, the probability that some wrong secret has no more disagreements than $s$ is at most
+\[
+(2^n-1)\rho^m,\qquad \rho=\tfrac12+\sqrt{\varepsilon(1-\varepsilon)}<1.
+\]
+In particular $m\ge(n\log2+\log(1/\delta))/(-\log\rho)$ suffices for failure probability at most $\delta$, but enumerating the candidates costs $O(2^nmn)$ elementary operations.
+\end{proposition}
+\begin{proof}
+For fixed $s'\ne s$, let $D_i$ be its disagreement indicator minus the true disagreement indicator. The nonzero linear form $\langle a_i,s'-s\rangle$ is uniform and independent of $e_i$. Hence $D_i$ takes values $0,1,-1$ with probabilities $1/2,(1-\varepsilon)/2,\varepsilon/2$. For $t>0$,
+\[
+\mathbb E e^{-tD_i}=\tfrac12+\tfrac{1-\varepsilon}{2}e^{-t}+\tfrac{\varepsilon}{2}e^t.
+\]
+Its minimum occurs at $t=\frac12\log((1-\varepsilon)/\varepsilon)$ and equals $\rho$. Independence and Markov's inequality give $\Pr(\sum_iD_i\le0)\le\rho^m$. A union bound over the $2^n-1$ wrong candidates proves the claim, including uniqueness when none ties or improves on $s$.
+\end{proof}
+\subsection{A precise obstruction to a restricted elimination route}
+Suppose that, conditional on the sampled design, the only observations retained about a uniformly random secret bit are $r$ parity combinations, each measuring that bit plus the parity of exactly $w$ errors. Require that the error supports be pairwise disjoint and chosen using the design alone, independently of noisy labels. No other secret-dependent information is retained. Put $\beta=(1-2\varepsilon)^w>0$.
+\begin{proposition}
+Any decision rule using only this restricted transcript and having average error at most $1/3$ must satisfy $r\ge1/(9\beta^2)$.
+\end{proposition}
+\begin{proof}
+The parity noise has bias $\mathbb E(-1)^{e_1+\cdots+e_w}=\prod_j\mathbb E(-1)^{e_j}=\beta$. The two conditional one-observation laws therefore have probabilities $(1+\beta)/2,(1-\beta)/2$ in opposite order. Their affinity, the sum of square roots of corresponding probability products, is $\sqrt{1-\beta^2}$. Independence gives product affinity $A=(1-\beta^2)^{r/2}$. For arbitrary finite laws $P,Q$, Cauchy--Schwarz applied to $|P-Q|=|\sqrt P-\sqrt Q|(\sqrt P+\sqrt Q)$ gives
+\[
+\operatorname{TV}(P,Q)\le\tfrac12\sqrt{(2-2A)(2+2A)}=\sqrt{1-A^2}.
+\]
+Here $1-(1-\beta^2)^r\le r\beta^2$, by expanding the probability of at least one success in $r$ Bernoulli trials or by induction. Thus total variation is at most $\sqrt r\,\beta$. For a uniform hidden bit the best success probability is $(1+\operatorname{TV})/2$: at each observation value one chooses the larger of its two likelihoods, whose sum is $1+\operatorname{TV}$. Error at most $1/3$ requires total variation at least $1/3$, proving the bound.
+\end{proof}
+\subsection{Verification and remaining gaps}
+Parity biases were enumerated exactly for $\varepsilon=1/4$ and $w=1,\ldots,10$, and one seeded small maximum-likelihood instance was exhaustively checked. Dense parity combinations can need exponentially many disjoint repetitions in this restricted experiment. The conclusion does not cover overlapping combinations, label-dependent choices, other retained information, or general LPN algorithms. The exact missing step is a justified reduction of every efficient algorithm to this restricted transcript; no such reduction is available here. Neither the statistical bound nor this obstruction establishes polynomial-time learnability or average-case computational hardness.
+
+\section{References and source attribution}
+Primary workshop report: \url{https://doi.org/10.4171/owr/2005/26}. Relevant passages read: 2005/26 pp. 1451--1453, noisy parity learning, elimination and statistical versus computational recovery.
+
+All retrievals were checked on 11 October 2026. Original question attribution remains in the preserved Sources section. External theorems are attributed and not claimed as new discoveries or fully verified merely by citation.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch016/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

@@ -1,0 +1,113 @@
+% RESEARCH_DRAFT_SHA256: ca185cb19dc050dc5c612266b70cd76b57a9a6fc8f1c744c927dd9dac6ab1f33
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30005893, "title": "Global Convergence of Low-Rank Multi-Penalty Optimization", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30005893", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and formatting/repository review. Existing catalogue wording credits its prior preparation separately. Codex GPT-6 additionally read and reviewed all written mathematical arguments in this completed batch. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Web browsing; Python 3.14.2 standard library, NumPy and SciPy where identified in verification. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "The complete original catalogue body reproduced below, including its source qualifications.", "scope": "Complete doubled-order restricted-isometry stability lemma and an undoubled-order exact-isometry nonidentifiability example.", "human_contributions": "None in mathematical authorship or proof checking; user supplied research instructions.", "verification": "GPT-6 Astra ultra mathematical self-audit using contribution prompt B; computations as explicitly reported; no independent human proof verification. Codex GPT-6 written mathematical review completed; this model review is not independent human verification.", "reproducibility": "Contribution prompt A then B on full definition/source record. Local batch025/checks.py, computations.json and per-ID audit; these local artifacts are not yet public."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsthm}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\begin{document}
+\paragraph{Research manuscript.} OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}; 11 October 2026.
+\paragraph{Preserved source body.} The complete catalogue mathematical text and sources follow with layout and source links expanded, including source qualifications and its historical preparation notes. New research begins at the section headed Research attempt.
+
+% UnsolvedMath ID 30005893; source catalogue code OWR-14298366-005
+\section{Global Convergence of Low-Rank Multi-Penalty Optimization}\label{30005893}
+{\small UnsolvedMath ID 30005893 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+The report specifies the modified iteratively reweighted least-squares method of Kummerle and Maly (2023). It recovers $X_*$ from noiseless linear measurements $y=\mathcal A(X_*)$. Row sparsity means that only a small number of rows of $X_*$ are nonzero; low rank bounds its column-space dimension. The iteration uses joint low-rank and row-sparsity weights and updates smoothing parameters from singular values and row norms. Global convergence here means convergence to the ground-truth matrix $X_*$ from the source\textquotesingle s allowed initializations.
+
+A matrix $\Phi$ has restricted-isometry constant at most $\delta_s$ if $(1-\delta_s)\lVert x\rVert_2^2\leq\lVert\Phi x\rVert_2^2\leq(1+\delta_s)\lVert x\rVert_2^2$ for every vector with at most $s$ nonzero coordinates. Compressed sensing recovers structured vectors from measurements $\Phi x$.
+
+The rank of a matrix is the dimension of its column space. Matrix completion reconstructs a low-rank matrix from a subset of its entries; matrix sensing reconstructs it from specified linear measurements. Tensor decomposition represents a multiway array as a sum of simple outer products.
+\paragraph{Statement recorded in the supplied source.}
+Under which restricted-isometry or related assumptions on the measurement operator does the iteratively reweighted least-squares algorithm for simultaneously sparse and low-rank matrix recovery converge globally? \href{https://doi.org/10.4171/owr/2024/21}{[S2]}
+\paragraph{Scope qualification.}
+The algorithm is identified in the original report as Kummerle-Maly (2023), arXiv:2306.04961. The separately supplied arXiv:1801.06240 concerns an alternating Tikhonov/Lasso method and is not used to define this IRLS target. Exact restricted-isometry assumptions and initialization guarantees remain those sought by the question.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-22.
+\subsection{Short English statement}
+Prove global ground-truth recovery for the cited row-sparse low-rank iteratively reweighted method.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30005893 (OWR-14298366-005). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Applied Harmonic Analysis and Data Science (2024), Oberwolfach Reports, DOI 10.4171/owr/2024/21, pp. 1163--1226
+\url{https://doi.org/10.4171/owr/2024/21}.
+\item[S3] OWR report
+\url{https://ems.press/content/serial-article-files/49476}.
+\item[S4] C. Kummerle and J. Maly, Simultaneously Sparse and Low-Rank Matrix Recovery by Iteratively Reweighted Least Squares, NeurIPS 2023; arXiv:2306.04961
+\url{https://arxiv.org/abs/2306.04961}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30005893 and source code OWR-14298366-005 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30005893}
+
+\section{Research attempt}
+\subsection{Literature, source context and scope}
+The full original catalogue body and source qualifications are preserved above. The relevant primary workshop passages were read in the cached publisher report. Historical claims and subsequent attributed results are distinguished from the mathematical work below. A restricted example, standard lemma or known theorem is not counted as new progress on the entire original target. Missing assumptions and repeated or rhetorical extracts are not silently turned into different solved problems.
+
+\subsection{Why target-order isometry is insufficient for identifiability}
+The source establishes local quadratic convergence of a particular IRLS scheme under restricted-isometry assumptions, then asks about a better initialization radius and global convergence. We test the preliminary route of deriving global recovery from norm preservation on the target model alone. Let $\mathcal M_{r,s}$ consist of matrices of rank at most $r$ with at most $s$ nonzero rows. Assume $r,s\ge1$, with model orders capped by ambient dimensions when necessary.
+\begin{proposition}
+If a linear map $\mathcal A$ satisfies
+\[
+\|\mathcal A H\|_2^2\ge(1-\delta)\|H\|_F^2
+\quad\hbox{for every }H\in\mathcal M_{2r,2s},\qquad0\le\delta<1,
+\]
+then two matrices $X,Y\in\mathcal M_{r,s}$ having residuals at most $\varepsilon$ against the same observations obey
+\[
+\|X-Y\|_F\le\frac{2\varepsilon}{\sqrt{1-\delta}}.
+\]
+In particular noiseless model-consistent recovery is unique. Norm preservation only on $\mathcal M_{r,s}$ does not imply uniqueness.
+\end{proposition}
+\begin{proof}
+The difference $H=X-Y$ has rank at most $2r$ because its column space lies in the sum of the two column spaces, and its row support is contained in the union of two supports of size at most $s$. The residual triangle inequality gives $\|\mathcal AH\|\le2\varepsilon$. Combining with the assumed lower bound proves the estimate.
+For failure at the undoubled order, regard vectors in $\mathbb R^2$ as $2\times1$ matrices and take $r=s=1$ and $\mathcal A(x)=x_1+x_2$. Every one-row-supported vector satisfies $|\mathcal Ax|^2=\|x\|^2$, so the restricted isometry constant on this model is zero. Nevertheless $e_1$ and $e_2$ both map to one. Their difference has two-row support and lies in the measurement kernel.
+\end{proof}
+For any reconstruction rule receiving that common observation, the triangle inequality shows that at least one of its errors on $e_1,e_2$ is at least $\|e_1-e_2\|/2=1/\sqrt2$. Randomizing the rule cannot avoid this lower bound on the larger expected error, by applying the same inequality to each output and averaging. This is an information obstruction, not a defect proved for the particular published IRLS recurrence.
+Even doubled-order injectivity only controls matrices already inside the model. Intermediate IRLS iterates may have larger rank and row support, and the hypothesis gives no contraction estimate for their errors or for changing smoothing weights. Applying the displayed bound to all such iterates would be the first unjustified step in the proposed global-convergence argument.
+\subsection{Verification and remaining gaps}
+The two-column operator, one-sparse isometries and indistinguishable targets were checked exactly, and finite structured matrix differences were checked for the rank/support bounds and residual inequality. The primary paper's landing page and the workshop's explicit algorithm description were read; no new convergence theorem is attributed to them. A valid basin enlargement or global IRLS convergence result under stronger assumptions remains unproved.
+
+\section{References and source attribution}
+Primary workshop report: \url{https://doi.org/10.4171/owr/2024/21}. Relevant passages read: 2024/21 pp.1192--1194, IRLS weight/smoothing definitions, local convergence and global-convergence question.
+
+\url{https://arxiv.org/abs/2306.04961}. Opened the correct primary IRLS paper landing page; local-convergence context is checked against the cached workshop algorithm and assumptions, without claiming full paper-proof verification.
+
+All retrievals were checked on 11 October 2026. Original question attribution remains in the preserved Sources section. External theorems are attributed and not claimed as new discoveries or fully verified merely by citation.
+
+
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+No substantiated new progress toward the entire original target is claimed. The worked results and failed route are delimited above; a known result, illustrative model, or auxiliary obstruction is not counted as original-target completion.
+
+\section{Final status and attribution}
+\textbf{Attempt status: unresolved.} This describes this research attempt, not a new ruling on the source catalogue's status or on external literature claims.
+The mathematics and this self-audit were generated by OpenAI \texttt{gpt-6-astra}, reasoning \texttt{ultra}, on 11 October 2026. Codex (GPT-6; exact serving revision not exposed) orchestrated the batch, read and reviewed its written mathematical arguments, and contributed formatting/repository review. No human mathematical authorship, independent human proof checking, or formal verification is claimed. The historical preparation paragraphs in the reproduced catalogue body concern that body only.
+
+Contribution prompt A was applied to the complete definition and supplied source record, followed by the adversarial checks of prompt B. Local reproduction files are \texttt{batch025/checks.py}, \texttt{computations.json}, and the per-ID audit JSON. They were not public links at preparation time. Numerical checks are finite and do not prove unrestricted results. No LaTeX engine was found locally; compilation was not performed by this research agent.
+
+\end{document}

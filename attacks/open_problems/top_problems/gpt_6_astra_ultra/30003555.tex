@@ -1,0 +1,133 @@
+% RESEARCH_DRAFT_SHA256: b230ccff98b884f934921b226cf41bc7171275e52c85b23b05e2ebe18b320e1b
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30003555, "title": "Practical Sum-of-Squares Tensor Completion", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30003555", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration, repository-format review, and written-proof review of this attempt; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Practical Sum-of-Squares Tensor Completion; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Whitening changes the observation model; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch021 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 30003555; source catalogue code OWR-15580-008
+\section{Practical Sum-of-Squares Tensor Completion}\label{30003555}
+{\small UnsolvedMath ID 30003555 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A polynomial is a sum of squares (SOS) if it is $\sum_j q_j^2$ for polynomials $q_j$. Moment-SOS hierarchies impose positivity through increasingly large truncated moment matrices and corresponding degree-bounded SOS certificates.
+
+The rank of a matrix is the dimension of its column space. Matrix completion reconstructs a low-rank matrix from a subset of its entries; matrix sensing reconstructs it from specified linear measurements. Tensor decomposition represents a multiway array as a sum of simple outer products.
+\paragraph{Statement recorded in the supplied source.}
+Generalize exact sum-of-squares tensor-completion results beyond orthogonal components, and determine whether the sum-of-squares tensor-completion algorithm can be made faster and practically usable. \href{https://doi.org/10.4171/owr/2017/37}{[S2]}
+\paragraph{Scope qualification.}
+The sampling model, tensor dimensions, recovery accuracy, and baseline algorithm are source-specific.
+\paragraph{Source status.}
+The supplied catalogue labels this record open. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Extend tensor-completion guarantees beyond orthogonal factors and reduce the runtime of the stated sum-of-squares method.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30003555 (OWR-15580-008). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Proof Complexity and Beyond (2018), Oberwolfach Reports, DOI 10.4171/owr/2017/37, pp. 2299--2361
+\url{https://doi.org/10.4171/owr/2017/37}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 30003555 and source code OWR-15580-008 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:30003555}
+
+\section{Literature and context check}
+The Potechin--Steurer talk in OWR 37/2017, pp.~2336--2337, and the primary abstract of arXiv:1702.06237 were consulted. The latter explicitly assumes incoherent orthogonal components and random entries. The report's sentence saying ``beyond the non-orthogonal case'' is followed by ``only ... the orthogonal case''; the intended extension in the preserved catalogue is consequently clear, but the source wording is not altered. No later general theorem or implementation was verified here.
+\section{Research attempt: Whitening changes the observation model}
+
+\paragraph{A fully solvable rank-one observation pattern.}
+Let $T_{ijk}=a_i b_j c_k$ be a real tensor with $T_{111}\ne0$. If the three coordinate fibers through $(1,1,1)$ are observed, then every entry is determined by
+\[
+ T_{ijk}=\frac{T_{i11}\,T_{1j1}\,T_{11k}}{T_{111}^2}.
+\]
+Indeed the numerator is $a_i b_j c_k(a_1b_1c_1)^2$. There are $n_1+n_2+n_3-2$ distinct observed entries, and each desired entry is reconstructed by a constant number of arithmetic operations after reading them. For this next boundary example assume all three mode sizes are at least two. Nonzero anchoring is essential: if only these fibers are observed and all their values are zero, the zero tensor and a spike $e_i\otimes e_j\otimes e_k$ with $i,j,k>1$ are indistinguishable. This is a deterministic sampling pattern, not the random-entry theorem in the source, and rank one is not a substantive extension beyond orthogonality.
+
+\paragraph{Why arbitrary rank and arbitrary masks need assumptions.}
+For any missing coordinate $(i,j,k)$, the zero tensor and $\lambda e_i\otimes e_j\otimes e_k$ give the same observed entries, for every scalar $\lambda$. Even a rank-at-most-one guarantee therefore cannot yield universal recovery from every proper coordinate mask. The source's incoherence and random sampling cannot be dropped merely because a more general nonorthogonal factorization is proposed.
+
+\paragraph{The attempted whitening reduction loses entry samples.}
+Suppose an invertible mode transformation $W$ were available which made some component vectors orthogonal. Mode-one multiplication gives
+\[
+ \widetilde T_{ijk}=\sum_a W_{ia}T_{ajk}.
+\]
+A single observed entry of $T$ is generally not an observed entry of $\widetilde T$. With
+\[
+ W=\begin{pmatrix}1&1\\0&1\end{pmatrix},
+ \qquad \widetilde T_{1jk}=T_{1jk}+T_{2jk},
+\]
+observing the first slice alone does not determine the transformed first slice. For example, the two rank-one tensors with mode-one vectors $(1,0)$ and $(1,1)$ and the same nonzero remaining factors agree on the observed first slice, but their transformed first slices differ by a factor of two. Equivalently, the original observations become linear combinations of transformed coordinates involving $W^{-1}$, rather than independent coordinate samples. Thus even known, exact whitening does not put the data into the hypotheses of an entry-sampling completion theorem. Unknown factor-dependent whitening has an additional circularity.
+
+\paragraph{Near parallel factors introduce conditioning as well.}
+Let $u=e_1$ and $v=e_1+\epsilon e_2$, with $\epsilon>0$. Then
+\[
+ \|v^{\otimes3}-u^{\otimes3}\|_F^2=(1+\epsilon^2)^3-1.
+\]
+This follows from $\|a^{\otimes3}\|_F^2=\|a\|^6$ and $\langle a^{\otimes3},b^{\otimes3}\rangle=\langle a,b\rangle^3$. Changing two component coefficients by $(1,-1)$ changes the tensor by a quantity tending to zero with $\epsilon$, while the coefficient change has norm $\sqrt2$. Hence a uniform stable decomposition estimate cannot ignore separation of these factors. This does not itself preclude stable recovery of the tensor as a whole: completion and decomposition are different outputs. It does show why a reduction that explicitly recovers and whitens components needs conditioning assumptions absent from a bare nonorthogonality claim.
+\section{Verification and adversarial audit}
+The fiber reconstruction formula was multiplied out, the zero-anchor and missing-spike cases tested, and the whitening obstruction demonstrated with two explicit rank-one tensors. The conditioning calculation uses an exact norm identity and is expressly about component coefficients. No runtime experiment, SOS solver, or practical acceleration was tested.
+\paragraph{Audit corrections.} Separated deterministic fibers from random sampling, completion from decomposition, and transformed linear measurements from entry observations. Retained the source's incoherence requirement and made no untested practical-speed claim.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+No nonorthogonal random-entry SOS recovery theorem or faster usable implementation is produced. The first gap in the attempted reduction is a valid analysis for the transformed linear-measurement distribution, followed by conditioning and computational costs. The deterministic rank-one calculation and counterexamples are auxiliary; they do not replace the source's bundled theorem and practical-speed questions.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://ems.press/content/serial-article-files/46700} (consulted 2026-10-11). 
+\item \url{https://arxiv.org/abs/1702.06237} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration, repository-format review, and written-proof review of this attempt; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved as a new research contribution. This is a concrete route investigation,
+not a claim of new complete resolution or a current-status certification. A known
+answer reproduced for context does not become a new contribution. The catalogue's
+source-status label is preserved; this attempt status does not assert that a
+source-labelled solved question is open.
+\end{document}

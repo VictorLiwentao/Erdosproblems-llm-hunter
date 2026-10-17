@@ -1,0 +1,91 @@
+% TOP_PROBLEM: {"id": 30002835, "title": "Bisognano–Wichmann Covariance for Standard-Subspace Nets", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "open", "statusQualification": "The new representation must act on the same Hilbert space and preserve covariance of the same net. Wedge subspaces are obtained from the double-cone net by the source\\textquotesingle s closure convention; replacing the net is not an answer."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002835", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Can a local standard-subspace net be given another positive-energy Poincaré action whose boosts agree with its wedge modular groups?", "scope": "Derives covariance of Tomita/modular data and an explicit preserving-unitary example showing covariance alone does not identify boosts.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked standardness of R², trivial modular operator, real rotations and fixed 2π sign convention; no toy-net counterexample claimed. Model self-audit only; no independent human proof checking. Coordinator checked unitary covariance of the Tomita operator and modular operator, and the real-rotation example with trivial modular group. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked standardness of R², trivial modular operator, real rotations and fixed 2π sign convention; no toy-net counterexample claimed. Retained unresolved status and zero original-target progress; Joint Poincaré relations, same-net covariance and positive energy for the modularly prescribed replacement action are unproved."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30002835; source catalogue code OWR-13673-003
+\setcounter{section}{30002834}
+\section{Bisognano–Wichmann Covariance for Standard-Subspace Nets}\label{30002835}
+{\small UnsolvedMath ID 30002835 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.}
+For a standard real subspace $H$, the closed antilinear operator $S(h+ik)=h-ik$ has polar decomposition $S=J\Delta^{1/2}$; $\Delta^{it}$ is its modular group. Covariance of a net means $U(g)H(O)=H(gO)$. Positive energy means the translation spectrum lies in the closed forward light cone. The Bisognano--Wichmann property identifies the modular group of a wedge subspace with the corresponding Lorentz boosts, with the standard $2\pi$ normalization and a convention-dependent sign.
+
+\paragraph{Target retained from the canonical source catalogue.}
+\paragraph{Catalogue wording retained for traceability.}
+Given a local net of standard subspaces $H(O)$ on double cones $O\subset\mathbb R^4$, covariant under a positive-energy unitary Poincaré representation $U$, does another positive-energy representation $U'$ on the same Hilbert space make $H$ covariant and satisfy the Bisognano–Wichmann property?
+
+\paragraph{Source scope and qualification.}
+The new representation must act on the same Hilbert space and preserve covariance of the same net. Wedge subspaces are obtained from the double-cone net by the source\textquotesingle s closure convention; replacing the net is not an answer.
+\subsection{Short English statement}
+Can a local standard-subspace net be given another positive-energy Poincaré action whose boosts agree with its wedge modular groups?
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Derives covariance of Tomita/modular data and an explicit preserving-unitary example showing covariance alone does not identify boosts.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Modular data transform covariantly, but are not fixed by covariance.} Let $H$ be standard and $V$ unitary. On $VH+iVH$, the Tomita operator satisfies $S_{VH}=VS_HV^*$, directly from $S_H(h+ik)=h-ik$. Therefore $\Delta_{VH}=V\Delta_HV^*$. In particular, any unitary preserving $H$ commutes with its modular group, but need not equal that group at a rescaled parameter.
+
+\paragraph{An explicit one-subspace test.} Take $H=\mathbb R^2\subset\mathbb C^2$. Its Tomita operator is complex conjugation, so $\Delta_H=I$. The nontrivial real rotations $V_t=\left(\begin{smallmatrix}\cos t&-\sin t\\\sin t&\cos t\end{smallmatrix}\right)$ preserve $H$ and are unitary on $\mathbb C^2$, yet cannot coincide with the trivial modular group. Thus covariance of a subspace under a one-parameter action gives no modular identification by itself.
+
+\paragraph{The net-level obstruction.} A prospective $U'$ is constrained on every wedge boost by $U'(\Lambda_W(-2\pi t))=\Delta_{H(W)}^{it}$ in one sign convention. These separately defined groups must satisfy all joint Lorentz and translation relations, preserve the same double-cone net and have positive translation energy. The toy example is not a four-dimensional local net and does not disprove existence of such a replacement representation. The first gap is proving those compatibility relations for the actual family of wedge modular operators. Replacing the net or Hilbert space would evade the source target and is not done.
+
+\paragraph{Verification and adversarial audit.}
+Checked standardness of R², trivial modular operator, real rotations and fixed 2π sign convention; no toy-net counterexample claimed. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked standardness of R², trivial modular operator, real rotations and fixed 2π sign convention; no toy-net counterexample claimed. Retained unresolved status and zero original-target progress; Joint Poincaré relations, same-net covariance and positive energy for the modularly prescribed replacement action are unproved.
+
+Coordinator checked unitary covariance of the Tomita operator and modular operator, and the real-rotation example with trivial modular group. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. Joint Poincaré relations, same-net covariance and positive energy for the modularly prescribed replacement action are unproved.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. Joint Poincaré relations, same-net covariance and positive energy for the modularly prescribed replacement action are unproved.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30002835:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30002835 (OWR-13673-003). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30002835:2}{S2}] Subfactors and Conformal Field Theory (2015), Oberwolfach Reports, DOI 10.4171/owr/2015/16, pp. 849--926. Primary report accessed 2026-10-11; relevant PDF pages 10.
+\url{https://doi.org/10.4171/owr/2015/16}.
+\item[\hypertarget{source:30002835:3}{S3}] Morinelli, sufficient conditions (catalogue-listed context; not independently consulted in this preparation).
+\url{https://arxiv.org/abs/1703.06831}.
+\item[\hypertarget{source:30002835:4}{S4}] Covariant homogeneous standard-subspace nets (catalogue-listed context; not independently consulted in this preparation).
+\url{https://doi.org/10.1007/s00220-021-04046-6}.
+\end{itemize}
+\label{end:30002835}
+\end{document}

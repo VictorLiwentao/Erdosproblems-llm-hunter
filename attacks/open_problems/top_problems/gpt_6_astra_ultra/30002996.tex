@@ -1,0 +1,172 @@
+% RESEARCH_DRAFT_SHA256: 5ce29170a031eafa0e1d3a91c9ba3f42aac999a32281173baaeb3cfd1273b16e
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 30002996, "title": "Accurate Answers to Adaptively Chosen Statistical Queries", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30002996", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration, format review, and additional model-assisted written-proof review of this manuscript. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Given a population distribution P on X and an i.i.d. sample S of size n, can a possibly randomized procedure M(S) answer every adaptively chosen sequence of statistical queries accurately with high probability over S and M's randomness?", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The fresh-block bound is a standard baseline and the support-recovery attack refutes only exact empirical reuse. No optimal general adaptive-query tradeoff or complete original-scope resolution is proved.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit plus coordinating Codex GPT-6 written-proof review; no independent human proof checking or theorem-prover verification.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Adaptive statistical queries: fresh-block accuracy and exact-answer overfitting}
+\noindent UnsolvedMath ID 30002996; OWR-13949-003. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+A learning problem specifies a data distribution, a hypothesis class and a loss. Statistical consistency means that the estimator approaches its population target as the sample size increases; statistical and computational requirements are distinct.
+
+A statistical query is an expectation $\mathbb E_{x\sim P}[q(x)]$ for a bounded function $q$. Adaptive queries may depend on earlier answers, so accuracy must account for the dependence between the sample and the selected queries.
+\paragraph{Statement recorded in the supplied source.}
+Given a population distribution P on X and an i.i.d. sample S of size n, can a possibly randomized procedure M(S) answer every adaptively chosen sequence of statistical queries accurately with high probability over S and M's randomness? \href{https://doi.org/10.4171/owr/2015/54}{[S2]}
+\paragraph{Scope qualification.}
+The query count, allowed query range, sample complexity, accuracy, and confidence are not quantified in the supplied question; unlimited-query accuracy is not silently asserted.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness. The catalogue literature assessment is dated 2026-08-21.
+\subsection{Short English statement}
+Answer adaptively selected population queries accurately despite their dependence on earlier sample-based answers.
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 30002996 (OWR-13949-003). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Complexity Theory (2016), Oberwolfach Reports, DOI 10.4171/owr/2015/54, pp. 3049--3099
+\url{https://doi.org/10.4171/owr/2015/54}.
+\item[S3] Reusable holdout
+\url{https://doi.org/10.1126/science.aaa9375}.
+\item[S4] Adaptive data analysis
+\url{https://arxiv.org/abs/1506.02629}.
+\item[S5] Computational lower bound
+\url{https://arxiv.org/abs/1408.1655}.
+\textit{Underlying Oberwolfach Reports material retains its source-specific licence, including CC BY-SA 4.0 where applicable; see THIRD\_PARTY\_NOTICES.md.}
+\end{itemize}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Given a population distribution P on X and an i.i.d. sample S of size n, can a possibly randomized procedure M(S) answer every adaptively chosen sequence of statistical queries accurately with high probability over S and M's randomness?
+
+\section{Quantified scope of the attempt}
+Ullman's report, printed pages 3066--3069, uses efficiently computable
+predicates $\phi:X\to\{-1,1\}$. Its informal statements suppress accuracy
+parameters; the catalogue likewise does not quantify query count.
+Fix $k\ge1$, error $a>0$, confidence $0<\eta<1$, and an analyst whose
+randomness and initial information are independent of the sample.
+We prove an elementary fresh-block guarantee and then attack the tempting
+reuse of exact empirical answers. These are baseline calculations, not
+improvements on the more sophisticated mechanisms described by the source.
+
+\section{A complete concentration estimate}
+If $Y\in[-1,1]$, let $g(\lambda)=\log\mathbb E e^{\lambda Y}$.
+Differentiation is valid because $Y$ is bounded. Its second derivative is
+the variance of $Y$ under the exponentially tilted distribution, at most
+one: $\operatorname{Var}(Y)\le\mathbb EY^2\le1$.
+Taylor's formula with an integral remainder, also for negative $\lambda$,
+therefore gives
+$g(\lambda)\le\lambda\mathbb EY+\lambda^2/2$.
+For $b$ independent copies, multiplying their centered moment-generating
+functions and using Markov's inequality gives, for $\lambda>0$,
+\[
+\Pr\!\left[\frac1b\sum_{j=1}^bY_j-\mathbb EY\ge a\right]
+\le \exp(-\lambda ba+b\lambda^2/2).
+\]
+Take $\lambda=a$ and apply the same argument to $-Y$ to obtain the
+two-sided bound $2\exp(-ba^2/2)$.
+
+\section{A valid adaptive mechanism by sample splitting}
+Partition $kb$ observations into $k$ disjoint blocks of size $b$.
+At step $i$, answer the selected predicate by its empirical mean on block
+$i$ only. Condition on the analyst's random seed and the observations
+in all earlier blocks. The selected predicate is now fixed, and block
+$i$ remains an independent sample from $P$. The preceding bound therefore
+holds conditionally and, by taking expectations, unconditionally.
+A union bound over the $k$ steps shows that all answers have population
+error at most $a$ with probability at least $1-\eta$ whenever
+\[
+b\ge\left\lceil\frac{2}{a^2}\log\frac{2k}{\eta}\right\rceil,
+\qquad n\ge kb.
+\]
+Unused observations may be discarded. Randomized analysts can equivalently
+draw fresh independent coins at each step; conditioning on all their coins
+in advance gives the same proof. With efficient predicates, the mechanism
+uses $b$ evaluations per answer. The linear dependence on $k$ is a clear
+limitation; no source-optimal sample complexity is claimed.
+
+\section{Why exact empirical reuse breaks the fixed-query argument}
+Let $n\ge2$, choose $d=\lceil2\log_2n\rceil$, and let $P$ be uniform on
+$X=\{0,1\}^d$ of size $N=2^d\ge n^2$. Suppose the mechanism gives the
+exact empirical answer on the same sample to every predicate.
+We recover the sample's support by prefix counts. The root prefix has
+known count $n$. For every prefix of positive known count at depth less
+than $d$, ask the predicate which is one on its left child and minus
+one elsewhere. If the answer is $v$, the left-child count is exactly
+$n(v+1)/2$; subtract from the parent count to get the right-child count.
+Continue only at children of positive count. At any depth there are at
+most $n$ occupied prefixes, so at most $nd$ queries recover every occupied
+leaf and its multiplicity. All queried predicates are efficient prefix
+tests and are exactly of the source's $\{-1,1\}$ type.
+
+Let $A$ be the resulting support and ask the final predicate
+$\phi_A=2\mathbf1_A-1$, which can be evaluated from a list of at most
+$n$ strings. Its empirical mean is one, but
+\[
+\mathbb E_P\phi_A=2|A|/N-1\le2n/N-1.
+\]
+Thus the final answer's population error is at least
+$2-2n/N\ge2-2/n$, for every realized sample, after at most
+$n\lceil2\log_2n\rceil+1$ queries. This exact computation is a
+deterministic proof, not a simulation or a claim of an optimal attack.
+Earlier answers need not all be inaccurate; their exact count information
+is what permits the final tailored query.
+
+The attempted inference ``each selected predicate has the fixed-query
+concentration bound, so union-bound over the selected predicates'' is
+invalid when those predicates depend on the same observations.
+The fresh-block proof conditioned on a history independent of the new
+block. In this attack conditioning on the history reveals the very sample
+on which the final mean is evaluated. The conditional independence step
+fails. This is an obstruction to this particular empirical mechanism,
+not an impossibility theorem for all adaptive mechanisms.
+
+\section{Model-assisted audit and remaining scope}
+The audit checked normalization from predicate means to counts, repeated
+sample points, the number of occupied prefixes, and the independent-analyst
+assumption. It also rejected an easier real-valued digit-encoding attack
+because the primary report uses binary predicates. The report's stronger
+privacy-based results and computational barriers are contextual statements,
+not re-proved here. The abstract of the primary paper on holdout reuse was
+also inspected; its full proofs were not audited. No numerical experiment
+or theorem prover was used. Sharp tradeoffs and unrestricted mechanisms
+remain outside this attempt, so the original broad target is unresolved.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+The coordinating Codex (GPT-6; exact serving revision not exposed) also provided a separate model-assisted written-proof review of this manuscript. This is not independent human verification.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The fresh-block bound is a standard baseline and the support-recovery attack refutes only exact empirical reuse. No optimal general adaptive-query tradeoff or complete original-scope resolution is proved.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Complexity Theory, OWR 54/2015; relevant original passages read in the cached primary report. The web DOI endpoint was unavailable on the inspection date. \url{https://doi.org/10.4171/owr/2015/54}.
+\item Dwork, Feldman, Hardt, Pitassi, Reingold and Roth, Generalization in Adaptive Data Analysis and Holdout Reuse (2015); primary abstract inspected, not the full proof. \url{https://arxiv.org/abs/1506.02629}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The fresh-block bound is a standard baseline and the support-recovery attack refutes only exact empirical reuse. No optimal general adaptive-query tradeoff or complete original-scope resolution is proved.
+\end{document}

@@ -1,0 +1,143 @@
+% RESEARCH_DRAFT_SHA256: 37d0d2a626dc40358e1b1bc89efe0ed69503723dd8f2d2f022786f5bf167f12f
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 2800702, "title": "10 Lectures and 42 Open Problems — Boolean classification and annulus conjecture", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "2800702", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "Dispatched model/configuration; exact serving revision not exposed."}, "other_models": "Codex (GPT-6; exact serving revision not exposed): orchestration and format review. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web browsing; Python 3.14.2 for exact finite algebraic checks, document assembly and metadata inspection. No theorem prover. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "Prove or disprove: $R_A(\\alpha n,\\beta n,n)=\\alpha+(1-\\alpha)R_A(1,\\beta n,(1-\\alpha)n)+o(1)$.", "scope": "Known or auxiliary calculations and failed-route analysis; no original-target advance claimed. The upper bound in the remaining fixed positive-width regime beta<2alpha is not established; the counterexample only breaks low-weight closure and does not violate the extremal identity.", "human_contributions": "None asserted; prompting and submission do not establish mathematical authorship.", "verification": "Prompt B model-assisted adversarial self-audit only; no independent human proof checking.", "reproducibility": "Contribution prompts A then B applied on 2026-10-11; original full definition and source preserved; local writer and audit artifacts accompany draft."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools,xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+
+\section*{Annulus avoidance: the low-weight-subspace argument and its exact failure}
+\noindent UnsolvedMath ID 2800702; AMR-027-0702. Research attempt dated 11 October 2026.
+\paragraph{Result in scope.}This manuscript contains a source-specific attempt and complete proofs of the stated auxiliary calculations. It makes no new solution or novelty claim for the entire target.
+\section{Original problem and preserved definition}
+The following definition and source list are reproduced from the repository. Any earlier inspection dates and reported literature claims in this preserved text describe that source record, not additional verification by this attempt.
+% BEGIN PRESERVED DEFINITION
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$, and $\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$ denote the integers, rationals, reals and complex numbers. Any other conventions are specified locally.
+
+
+Write \(\mathbb F_2=\{0,1\}\) for the field with two elements, and \(w(x)=|\{j:x_j=1\}|\) for Hamming weight. For positive integers \(n\) and integers \(1\le a\le b\), define
+\[A(a,b,n)=\{x\in\mathbb F_2^n:a\le w(x)\le b\},\qquad
+R_A(a,b,n)=\frac1n\max\{\dim V:V\le\mathbb F_2^n,\ V\cap A(a,b,n)=\varnothing\}.\]
+This definition also applies when \(b>n\). Equivalently, \(1-R_A(a,b,n)\) is the least normalized rank of a binary matrix with kernel avoiding the annulus. Thus \(R_A\) is the rate of the avoiding subspace, rather than the normalized rank of its parity-check matrix.
+For fixed \(0\le\alpha<\beta\le1\), put \(a_n=\max\{1,\lfloor\alpha n\rfloor\}\), \(b_n=\lfloor\beta n\rfloor\), and \(N_n=n-a_n+1\); take sufficiently large \(n\) that \(a_n\le b_n\).
+\paragraph{Statement recorded in the supplied source.}
+Does the asymptotic annulus identity
+\[R_A(a_n,b_n,n)=\frac{a_n-1}{n}+\frac{N_n}{n}R_A(1,b_n,N_n)+o(1)\quad(n\to\infty)\]
+hold for every fixed \(0\le\alpha<\beta\le1\)? Equivalently, in the usual notation suppressing integer rounding,
+\[R_A(\alpha n,\beta n,n)=\alpha+(1-\alpha)R_A(1,\beta n,(1-\alpha)n)+o(1).\]
+Here \(o(1)\) denotes a quantity tending to zero for the fixed pair \((\alpha,\beta)\). \href{https://arxiv.org/pdf/1401.6528}{[S2]}
+\subsection{Short English statement}
+Does the largest rate of a binary linear subspace avoiding a Hamming annulus asymptotically equal the rate obtained by using free coordinates below its inner radius and a code avoiding a punctured ball on the remaining coordinates?
+\subsection{Sources}
+\begin{description}
+\item[S1] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 2800702 (AMR-027-0702). CC BY 4.0. \url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] Emmanuel Abbe, Noga Alon, Afonso S. Bandeira and Colin Sandon, Linear Boolean Classification, Coding and “the Critical Problem” (2015), arXiv:1401.6528, Definition 5, equations (21)–(23); Proposition 1, equation (26); Conjecture 3, equation (34). \url{https://arxiv.org/pdf/1401.6528}.
+\end{description}
+% END PRESERVED DEFINITION
+\subsection{Verbatim supplied catalogue question}
+Prove or disprove: $R_A(\alpha n,\beta n,n)=\alpha+(1-\alpha)R_A(1,\beta n,(1-\alpha)n)+o(1)$.
+
+\section{Attempt and results}
+Put $K(a,b,n)=nR_A(a,b,n)$, the maximum dimension of an avoiding subspace,
+and $K_0(b,N)=K(1,b,N)$. The latter codes have no nonzero word of weight
+at most $b$; if $b\ge N$, they have dimension zero. We retain the source's
+integer conventions and its fixed strict inequality $\alpha<\beta$.
+
+\paragraph{The general constructive inequality.}
+Take an optimal code $C\le\mathbb F_2^{n-a+1}$ of dimension $K_0(b,n-a+1)$
+and the direct sum $V=\mathbb F_2^{a-1}\oplus C$. If a vector has a nonzero
+$C$ component, its weight exceeds $b$; otherwise its weight is at most
+$a-1$. Hence $V$ avoids the annulus and
+\[
+K(a,b,n)\ge a-1+K_0(b,n-a+1).
+\]
+This is the standard lower construction, not the unresolved upper bound.
+
+\paragraph{An exact upper bound when $b\ge2a-2$.}
+Let $V$ be any avoiding subspace and
+$L=\{v\in V:w(v)\le a-1\}$. Then $L$ is a subspace: a sum of two such
+vectors has weight at most $2a-2\le b$, and avoidance forces its weight
+below $a$. Write $\ell=\dim L$. Every binary subspace of dimension $\ell$
+has an information set of $\ell$ coordinates on which projection is an
+isomorphism. The inverse image of the all-one vector therefore has weight
+at least $\ell$. Consequently $\ell\le a-1$.
+Choose such an information set $I$ for $L$. The projection of $V$ onto $I$
+has rank $\ell$, since $L$ already projects onto all of $\mathbb F_2^I$.
+Thus the subspace $V_0$ of vectors of $V$ vanishing on $I$ has dimension
+$\dim V-\ell$. Its intersection with $L$ is zero. Every nonzero member of
+$V_0$ has weight at least $a$ and hence greater than $b$.
+Puncturing its zero coordinates $I$ gives a code of length $n-\ell$ and
+the same dimension. Shorten this code at any $a-1-\ell$ additional
+coordinates: impose zeros there and then delete them. Each imposed zero
+reduces dimension by at most one and deletion preserves nonzero weights.
+This produces a length-$n-a+1$ code of dimension at least
+$\dim V-\ell-(a-1-\ell)=\dim V-a+1$ and minimum nonzero weight exceeding
+$b$. It follows that
+\[
+K(a,b,n)\le a-1+K_0(b,n-a+1).
+\]
+Together the inequalities prove equality whenever $1\le a\le b\le n$
+and $b\ge2a-2$. This is a complete rederivation of the established parameter
+region, not a new extension. For $\beta\ge2\alpha$, the rounding in the
+definition gives $b_n\ge2a_n-2$ for all sufficiently large $n$ (also when
+$\alpha=0$, for which $a_n=1$), so the asymptotic identity is exact there.
+
+\paragraph{The attempted extension fails at its first structural step.}
+Take $n=6t$, $a=4t$, $b=5t$, and let $V$ be spanned by the indicators of
+the first and last $3t$ coordinates. Its nonzero weights are $3t,3t,6t$,
+so it avoids $[a,b]$. The low-weight members are zero and the two basis
+vectors, but their sum is not low-weight. Hence $L$ is not a subspace.
+This persists at the fixed pair $(\alpha,\beta)=(2/3,5/6)$ as $t\to\infty$.
+It invalidates this proof route in a genuine positive-width regime. It does
+not disprove the conjecture: this example has dimension two, with vanishing
+normalized rate, and is not shown extremal.
+
+\section{Context and adversarial audit}
+Abbe, Alon, Bandeira and Sandon's primary paper, arXiv:1401.6528v3, was
+consulted at Proposition 1 and Conjecture 3 on 11 October 2026. The exact
+parameter region above is known. The manuscript's proof is included to
+locate precisely why the low-weight argument cannot cover the remaining
+region. The audit checked information-set injectivity, shortening rather
+than arbitrary puncturing, and rate rather than parity-check rank. Finite
+width-zero exceptions do not refute a conjecture assuming fixed
+$\alpha<\beta$. A subsequent exact Python 3.14.2 check enumerated all binary
+subspaces in dimensions one through six using reduced row-echelon bases
+(counts 2, 5, 16, 67, 374, 2825). All general constructive lower bounds and
+43 applicable exact-equality cases passed. The closure example has dimension
+two whereas the exact optimum at $(n,a,b)=(6,4,5)$ is three, confirming that
+it is not an extremal counterexample. The local artifacts
+\texttt{exact\_checks.py} and \texttt{exact\_checks.json} contain the complete
+inputs, algorithm and output; no random seed or external library is needed.
+These are finite checks, not independent human proof verification.
+
+\section{Process and contributions}
+Mathematics and model-assisted adversarial self-audit: OpenAI gpt-6-astra, ultra reasoning, as dispatched for this research batch; exact serving revision not exposed. Codex (GPT-6; exact serving revision not exposed) materially assisted with orchestration and format review. No human mathematical authorship, mathematical edits, or independent human proof checking is asserted.
+Contribution prompt A was applied to the full definition and supplied source row, then prompt B was applied adversarially to the derived results. The item-specific audit above records the scope checks and rejected extrapolations. Local assembly and structural checks do not establish mathematical correctness. The source catalogue status is preserved in TOP\_PROBLEM and is separate from this attempt status.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The proved material is a rederivation of known or auxiliary facts rather than a substantiated new advance on the original target. The upper bound in the remaining fixed positive-width regime beta<2alpha is not established; the counterexample only breaks low-weight closure and does not violate the extremal identity.
+\section{References}
+The complete original Sources subsection above is retained, including catalogue attribution and licence notices. The additional list records primary sources actually consulted for this attempt on 11 October 2026; uncited source links reproduced above were not all rechecked.
+\begin{itemize}
+\item Emmanuel Abbe, Noga Alon, Afonso S. Bandeira and Colin Sandon, Linear Boolean classification, coding and the critical problem, arXiv:1401.6528v3 (2015), Proposition 1 and Conjecture 3; source formulation and known range inspected. \url{https://arxiv.org/pdf/1401.6528}.
+\end{itemize}
+\section{Final status}
+\textbf{Unresolved in this attempt.} The upper bound in the remaining fixed positive-width regime beta<2alpha is not established; the counterexample only breaks low-weight closure and does not violate the extremal identity.
+\end{document}

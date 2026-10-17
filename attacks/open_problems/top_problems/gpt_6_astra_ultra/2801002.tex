@@ -1,0 +1,168 @@
+% RESEARCH_DRAFT_SHA256: aa308de19e6dc05bf2d86d87ef72e3b326631187e98e8f06f8013f3fb8435845
+% Layout and source-reference wrappers expanded for the web renderer.
+% TOP_PROBLEM: {"id": 2801002, "title": "10 Lectures and 42 Open Problems — Sharp tightness of the Angular Synchronization SDP", "category_id": 15, "category": {"id": 15, "name": "computer_science", "display_name": "Computer Science", "description": "Computational complexity, algorithms, and theoretical CS.", "slug": "computer-science", "order_index": 15, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved"}
+% FIRST_POSTED: 2026-10-11
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "2801002", "model": {"provider": "OpenAI", "version": "gpt-6-astra", "reasoning": "ultra", "generated_on": "2026-10-11", "version_uncertainty": "The serving alias gpt-6-astra and requested ultra configuration are exposed; the exact serving revision is not exposed."}, "other_models": "Codex GPT-6 orchestration and repository-format review; exact serving revision not exposed. Codex GPT-6 also reviewed the written mathematical arguments during integration; this is model review, not independent human verification.", "tools": "Primary-source web retrieval; Python 3.14.2 for manuscript assembly and any computations specified in Verification. Integration: Python 3.13 metadata validation and the production JavaScript renderer with MathJax 3.2.2.", "target": "10 Lectures and 42 Open Problems — Sharp tightness of the Angular Synchronization SDP; entire source statement and qualifications retained verbatim in the manuscript.", "scope": "Testing a local optimality certificate; unresolved original target; no substantiated new original-target progress claimed.", "human_contributions": "None in mathematical authorship, proof correction, or independent proof checking; user supplied the task.", "verification": "Prompt B model self-audit and the explicitly reported checks; no independent human proof verification.", "reproducibility": "Contribution prompts A then B applied to the full source packet; external batch003 drafts and audit files retain the results; private reasoning transcript not published."}
+% ATTEMPT_STATUS: unresolved
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec,unicode-math}
+\setmainfont{Latin Modern Roman}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Source question.}#1}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\begin{document}
+\section*{Research-attempt provenance}
+This standalone research attempt retains the complete original definition body below,
+including its historical source and preparation notes. Those notes describe the
+earlier catalogue preparation; the new attempt and its verification are identified
+separately after that body. No original ID, catalogue status, or source statement is changed.
+
+% UnsolvedMath ID 2801002; source catalogue code AMR-027-1002
+\section{10 Lectures and 42 Open Problems — Sharp tightness of the Angular Synchronization SDP}\label{2801002}
+{\small UnsolvedMath ID 2801002 · Computer Science}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}Standard number systems are denoted by $\mathbb N,\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$; index ranges, computational models and specialized notation follow the cited problem source and the definitions below.
+
+
+Let $z\in\mathbb{C}^n$ satisfy $|z_i|=1$ and let $C=zz^*+\sigma W$, where $\sigma\ge0$, $W=W^*$ has independent centered complex Gaussian entries above the diagonal, and the lower triangle is determined by conjugation. The diagonal convention changes the objective only by a constant. The Gaussian variance convention is held fixed. Angular synchronization estimates $z$ from $C$, up to multiplication by a common complex phase. Its maximum-likelihood optimization and semidefinite relaxation are
+\[
+ \max_{|x_i|=1} x^*Cx,\qquad
+ \max\{\operatorname{Tr}(CX):X=X^*,\ X\succeq0,\ X_{ii}=1\}.
+\]
+The relaxation is tight when it has a rank-one optimum $X=xx^*$, which yields a global optimum of the first problem. Correlation with ground truth means the normalized overlap $|z^*x|/n$; multiplying $x$ by a common phase does not change it. ``With high probability'' refers to the Gaussian draw and means probability tending to one as $n$ grows along a stated noise scaling.
+\paragraph{Statement recorded in the supplied source.}
+Is the SDP for angular synchronization tight (with high probability) for noise levels $\sigma$ essentially until the solution of angular synchronization no longer correlates with the ground truth? \href{https://afonsobandeira.wordpress.com/2015/12/09/42l10psynchronization/}{[S2]}
+\paragraph{Scope qualification.}
+This is the author's historical sharp-threshold question, not a claim that tightness fails in every nonzero-noise regime. Zhong and Boumal prove tightness for $\sigma=O(\sqrt{n/\log n})$; Zhang's later high-noise analysis quantifies a small discrepancy between the relaxation and maximum likelihood rather than establishing exact equality all the way to loss of correlation. The original word ``essentially'' specifies neither threshold constants nor allowed logarithmic losses. These limitations are retained instead of selecting a new sharp conjecture. The primary papers were inspected on 2026-10-11.
+\paragraph{Source status.}
+The supplied catalogue labels this record partially solved. Its source-status metadata was checked against the supplied snapshot on 2026-10-11. This import does not independently establish current open status or mathematical correctness.
+\subsection{Short English statement}
+Does the semidefinite relaxation continue to recover the exact maximum-likelihood solution throughout the noise range where that solution still carries information about the true phases?
+\subsection{Sources}
+\begin{itemize}
+\item[S1] Ulam AI and the UnsolvedMath Contributors, UnsolvedMath: A Curated Collection of Open Mathematics Problems, record 2801002 (AMR-027-1002). Catalogue curation and metadata: CC BY 4.0. The supplied source question is retained; definitions and the English summary are editorial additions.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[S2] AMR Open Problem Lists, original problem source linked by catalogue record AMR-027-1002
+\url{https://afonsobandeira.wordpress.com/2015/12/09/42l10psynchronization/}.
+\item[S3] Yiqiao Zhong and Nicolas Boumal, Near-Optimal Bounds for Phase Synchronization, SIAM Journal on Optimization 28 (2018), pp. 989--1016; rigorous tightness regime.
+\url{https://arxiv.org/abs/1703.06605}.
+\item[S4] Anderson Ye Zhang, Tightness of SDP and Burer-Monteiro Factorization for Phase Synchronization in High-Noise Regime (2025/2026); high-noise discrepancy analysis.
+\url{https://arxiv.org/abs/2510.01522}.
+\end{itemize}
+\paragraph{Preparation and review.}
+Original question attributed to the cited source and UnsolvedMath contributors. Codex (GPT-6; exact serving revision not exposed) assisted with definitions, English summaries, source inspection and formatting. No new human mathematical authorship or independent proof verification is asserted. Canonical ID 2801002 and source code AMR-027-1002 checked against the complete supplied registry and existing repository statements; known flagged repetitions and obvious identical conjectures excluded. Full mathematical-equivalence/literature review has not been performed. Statement preparation and final review followed contribution prompts C and D; automated checks verify structure and identity, not open status.
+\label{end:2801002}
+
+\section{Literature and context check}
+Bandeira's original problem page was consulted, together with the abstract of
+Zhang's high-noise paper, arXiv:2510.01522. The latter reports exponentially small
+deviation between relaxation and likelihood in its high-noise analysis, whereas
+the historical question asks exact tightness. A small discrepancy bound cannot be
+silently replaced by equality. The following certificate is elementary duality
+material, reproved here; it is not claimed as a new threshold theorem.
+\section{Research attempt: Testing a local optimality certificate}
+For a feasible phase vector $x$, suppose $d_i=(Cx)_i\overline{x_i}$ are real and
+$S=\operatorname{diag}(d)-C\succeq0$. Then $Sx=0$ and every SDP-feasible $X$ obeys
+\[
+ \operatorname{Tr}(CX)=\sum_i d_i-\operatorname{Tr}(SX)\le\sum_i d_i=x^*Cx.
+\]
+Indeed $\operatorname{Tr}(SX)=\operatorname{Tr}(S^{1/2}XS^{1/2})\ge0$ by
+diagonalizing a positive semidefinite matrix. Thus this is a sufficient certificate.
+If $\ker S=\mathbb Cx$, equality forces the range of $X$ into that kernel:
+$\operatorname{Tr}(S^{1/2}XS^{1/2})=0$ forces this positive matrix to vanish,
+and hence $S^{1/2}X^{1/2}=0$. Its diagonal then forces $X=xx^*$.
+
+The attempted shortcut was to infer positivity of $S$ from a second-order local
+maximum with high overlap. Here is an explicit obstruction. Put $n=3$,
+\[
+ P=I-\tfrac13\mathbf1\mathbf1^*,\quad
+ A=\begin{pmatrix}0&1&-1\\-1&0&1\\1&-1&0\end{pmatrix},\quad
+ S=P+iA,\quad C=\tfrac23 I-S.
+\]
+Then $C=C^*$, $C_{ii}=0$, and $C\mathbf1=\tfrac23\mathbf1$, so $S$ is precisely
+the slack associated to $x=\mathbf1$. For real $h\perp\mathbf1$ and
+$x_j(t)=e^{ith_j}$, differentiation gives
+\[
+ \left.\frac{d^2}{dt^2}x(t)^*Cx(t)\right|_{t=0}
+ =-2h^T\operatorname{Re}(S)h=-2\|h\|^2.
+\]
+The first derivative is zero. Smooth Taylor expansion on the two-dimensional
+phase quotient therefore makes $x$ a strict local maximum modulo global phase.
+But $A^2=-3P$, $A\mathbf1=0$, and the two eigenvalues of $iA$ on
+$\mathbf1^\perp$ are $\sqrt3,-\sqrt3$. Hence $S$ has eigenvalues
+$0,1+\sqrt3,1-\sqrt3$ and is not positive semidefinite.
+
+More explicitly, for $\omega=e^{2\pi i/3}$, the vector
+$v=(1,\omega,\omega^2)$ has $Av=i\sqrt3v$, so
+$Sv=(1-\sqrt3)v$. Thus
+\[
+ v^*Cv=2-3(1-\sqrt3)>2=\mathbf1^*C\mathbf1.
+\]
+This even falsifies the intermediate assertion that every strict local maximum
+is globally optimal. Taking the putative truth $z=\mathbf1$ gives the local
+maximum overlap one. This deterministic example is not a Gaussian-probability
+counterexample and $x$ is not the MLE; those distinctions are essential.
+
+Consequently a route from local optimality and overlap to the SDP certificate
+needs additional probabilistic control of the imaginary and complex directions
+of the slack. Second-order phase tests see only its restriction to real tangent
+vectors in the rotated coordinates. They do not provide that control.
+\section{Verification and adversarial audit}
+The eigenvalue calculation was checked by multiplying $A$ by itself and by
+$(1,\omega,\omega^2)$; all diagonal and row-sum conditions were checked. The
+certificate proof includes the equality case. The limiting noiseless matrix
+$zz^*$ has slack $nI-zz^*$ at $x=z$, positive on $z^\perp$, as expected.
+The counterexample is used only against the proposed intermediate implication.
+\paragraph{Audit corrections.} The local counterexample was explicitly distinguished from an MLE and from a high-probability Gaussian counterexample; no full-tightness conclusion was drawn.
+\paragraph{External computation.} None; symbolic arguments and boundary checks only.
+\section{Scope and remaining gaps}
+The word ``essentially'' remains unspecified in the original. No random-noise
+scaling, exact-tightness threshold, or loss-of-correlation threshold has been
+proved. The first gap is to control the entire complex slack spectrum at a global
+MLE in the Gaussian model. Locality of the constructed example prevents it from
+answering the original question negatively.
+\paragraph{Integration review.} Codex (GPT-6; exact serving revision not exposed) reviewed the written arguments and expanded layout and source-reference wrappers. Repository metadata and the production web renderer were checked using Python 3.13 and JavaScript with MathJax 3.2.2. This model-assisted review is not independent human proof verification; no PDF compilation or formal proof checking is asserted.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculations below the preserved source statement investigate a concrete route,
+but establish no substantiated new progress toward the entire original target.
+Known special cases and failed sufficient conditions are not credited as a solution.
+\section{References}
+The original source references and catalogue attribution are preserved in the
+Sources section above. The following URLs were actually consulted for this attempt;
+retention of an additional original reference does not claim fresh consultation of it.
+\begin{itemize}
+\item \url{https://afonsobandeira.wordpress.com/2015/12/09/42l10psynchronization/} (consulted 2026-10-11). 
+\item \url{https://arxiv.org/abs/2510.01522} (consulted 2026-10-11). 
+\end{itemize}
+\section{Model and contributor disclosure}
+OpenAI gpt-6-astra, requested reasoning configuration ultra, generated this research
+attempt on 2026-10-11. The exact serving revision is not exposed. Codex GPT-6
+performed orchestration and repository-format review; its exact serving revision
+is also not exposed. The mathematical route, boundary checks and final adversarial
+self-audit followed contribution prompts A then B in
+\texttt{docs/contribution\_prompts.md}, after reading \texttt{CONTRIBUTING.md}.
+Python 3.14.2 assembled the standalone documents; any mathematical computation is
+specified in Verification. No theorem prover was used. No human mathematical
+authorship, substantial human proof correction, or independent human proof checking
+is asserted. Model-assisted review, source retrieval, and structural checks do not
+establish correctness or novelty. Full private reasoning transcripts are unavailable
+as reproducibility artifacts; the complete arguments, inputs and outcomes actually
+used are stated here or in the companion batch audit.
+\section{Final status}
+Unresolved. This is a research attempt with an explicit failed route or restricted
+calculation, not a full solution, not a current-status certification, and not a claim
+that the elementary material is new. The catalogue's original source-status label
+is preserved independently of this attempt status.
+\end{document}

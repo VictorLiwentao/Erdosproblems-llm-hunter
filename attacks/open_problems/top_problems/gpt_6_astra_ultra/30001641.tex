@@ -1,0 +1,100 @@
+% TOP_PROBLEM: {"id": 30001641, "title": "Vanishing and Uniqueness of Quantum Diffusion Solutions", "category_id": 16, "category": {"id": 16, "name": "physics", "display_name": "Mathematical Physics", "description": "Problems at the intersection of mathematics and physics.", "slug": "physics", "order_index": 16, "created_at": "2026-07-31T15:26:25.671Z"}, "status": "partially_solved", "statusQualification": "A zero-mass solution would make the vacuum-existence question trivial, so the intended physical question concerns nonzero density. The weak class and meaning of a vacuum point must be fixed before asking either existence or uniqueness. The source proves nonnegative weak existence but does not infer either of these two answers."}
+% FIRST_POSTED: 2026-10-11
+% ENTRY_KIND: research_attempt
+% ATTEMPT_STATUS: unresolved
+% SUBMISSION: {"kind": "research_attempt", "category": "top_problems", "problem_id": "30001641", "model": {"provider": "OpenAI", "version": "GPT-6 Astra (gpt-6-astra)", "reasoning": "ultra", "generated_on": "2026-10-11"}, "other_models": "GPT-6-based Codex coordinator assembled files and checked repository integration; its exact variant and reasoning setting were not exposed. It also performed the additional mathematical check stated in the verification section. Principal mathematical drafting and per-problem self-audit are GPT-6 Astra with ultra reasoning; any additional coordinator contribution is identified in the verification and audit. Earlier statement preparation is credited in the canonical source.", "tools": "Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used.", "target": "Decide whether nontrivial sixth-order quantum diffusion solutions can contain vacuum points, and whether its weak solutions are unique.", "scope": "Computes the sixth-order linearization and proves linear L² uniqueness, isolating the division-by-density obstruction to nonlinear weak uniqueness.", "human_contributions": "None supplied for mathematical authorship or independent proof checking. The user requested the research batch.", "verification": "Checked Hessian expansion, Fourier sign, three integrations by parts and conserved zero mode; retained both vacuum and uniqueness questions. Model self-audit only; no independent human proof checking. Coordinator checked the sixth-order linearization, dissipative Fourier symbol and smooth linear uniqueness identity. No independent human proof verification or formal proof certification is claimed.", "reproducibility": "Repository contribution prompts A then B applied to the canonical definition and its source qualifications on 2026-10-11. Complete resulting derivation, source references and audit scope are in this manuscript; private reasoning transcripts are not published. Prompts A and B were applied to this canonical record and its qualified source scope. Checked Hessian expansion, Fourier sign, three integrations by parts and conserved zero mode; retained both vacuum and uniqueness questions. Retained unresolved status and zero original-target progress; A vacuum-compatible nonlinear difference estimate or positive lower bound is missing."}
+\documentclass[11pt]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xurl,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{3em}
+\newcommand{\sref}[2]{\hyperlink{source:#1:#2}{[S#2]}}
+\newcommand{\cataloguescope}[1]{\paragraph{Recorded target.}#1}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\eps}{\varepsilon}
+\begin{document}
+% UnsolvedMath ID 30001641; source catalogue code OWR-4536-002
+\setcounter{section}{30001640}
+\section{Vanishing and Uniqueness of Quantum Diffusion Solutions}\label{30001641}
+{\small UnsolvedMath ID 30001641 · Mathematical Physics}
+\subsection{Definitions and mathematical statement}
+
+\paragraph{Shared notation.}$\mathbb N=\{1,2,\ldots\}$; the standard number fields have their usual meanings. All additional conventions are stated locally.
+
+
+\paragraph{Definitions and conventions.} Let $n$ be a nonnegative density on $\mathbb T^d$, $d\ge1$. The Hessian $\nabla^2\log n$ has entries $\partial_i\partial_j\log n$ where $n>0$, and its squared norm is $\sum_{i,j}|\partial_i\partial_j\log n|^2$. For a matrix field $M$, $\nabla^2\!:\!M=\sum_{i,j}\partial_i\partial_jM_{ij}$. At vacuum the logarithm and division by $n$ require the report's entropy-based weak interpretation. Uniqueness compares weak solutions with the same initial data in that admissible class.
+
+\paragraph{Source scope and qualifications.} A zero-mass solution would make the vacuum-existence question trivial, so the intended physical question concerns nonzero density. The weak class and meaning of a vacuum point must be fixed before asking either existence or uniqueness. The source proves nonnegative weak existence but does not infer either of these two answers.
+
+\paragraph{Catalogue mathematical target.}
+\paragraph{Catalogue wording retained for traceability.}
+For the sixth-order equation $\partial_t n=\operatorname{div}\!\left[n\nabla\left(\frac12|\nabla^2\log n|^2+\frac1n\nabla^2\!:\!(n\nabla^2\log n)\right)\right]$ on the $d$-dimensional torus, with $n(\cdot,0)=n_0\geq0$, do there exist weak solutions that vanish at some points? Are weak solutions unique?
+
+\paragraph{Saved literature context.} The supplied catalogue's assessment dated 2026-08-21 records: Existence of global nonnegative weak solutions is known, while the existence of genuine vacuum solutions and uniqueness for the sixth-order equation are not both settled. The assessment is retained as dated provenance; it is not a new comprehensive literature or open-status certification.
+\subsection{Short English statement}
+Decide whether nontrivial sixth-order quantum diffusion solutions can contain vacuum points, and whether its weak solutions are unique.
+\subsection{Research attempt}
+\paragraph{Model, date and investigated scope.}
+OpenAI GPT-6 Astra (configured model \texttt{gpt-6-astra}), ultra reasoning; generated 11 October 2026. Computes the sixth-order linearization and proves linear L² uniqueness, isolating the division-by-density obstruction to nonlinear weak uniqueness.
+
+\paragraph{Sources and literature check.}
+The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{Context and investigated scope.} The complete supplied definition, including source qualifications and the dated literature assessment, was reviewed. The calculation below is an elementary restricted attempt motivated by [S2]; it does not claim novelty or a fresh literature-status determination.
+
+\paragraph{The positive-background linearization.} Let $n=n_*+\epsilon u$ with constant $n_*>0$ and smooth $u$. Then $\nabla^2\log n=\epsilon\nabla^2u/n_*+O(\epsilon^2)$. The squared-Hessian term is quadratic, while
+\[
+ \frac1n\nabla^2\!:\!(n\nabla^2\log n)
+ =\frac{\epsilon}{n_*}\Delta^2u+O(\epsilon^2).
+\]
+Multiplying its gradient by $n$ and taking divergence gives $u_t=\Delta^3u$ at first order. For a torus Fourier mode indexed by $k\in\mathbb Z^d$, this has solution $\widehat u_k(t)=e^{-(2\pi|k|)^6t}\widehat u_k(0)$.
+
+\paragraph{A rigorous uniqueness calculation in the linear model.} For two smooth linear solutions with the same initial data, their difference $w$ satisfies
+\[
+ \frac12\frac d{dt}\|w\|_2^2=\int w\Delta^3w=-\|\nabla\Delta w\|_2^2\leq0.
+\]
+Periodic integrations by parts have no boundary terms, and zero initial norm forces $w=0$. The zero Fourier mode is conserved, consistent with mass conservation.
+
+\paragraph{The nonlinear first obstruction.} The displayed expansion and any comparable difference estimate require control of $1/n$ and derivatives of $\log n$. Those are precisely unavailable near vacuum in the source weak class. Linear smoothing and uniqueness around a positive constant therefore establish neither existence of genuine vacuum points in a positive-mass solution nor weak uniqueness through such points. One must first find a difference estimate meaningful at zero, or a strict-positivity theorem supplying the missing lower bound. Both bundled questions remain unresolved; the identically zero solution is not counted as the intended vacuum example.
+
+\paragraph{Verification and adversarial audit.}
+Checked Hessian expansion, Fourier sign, three integrations by parts and conserved zero mode; retained both vacuum and uniqueness questions. Model self-audit only; no independent human proof checking. Prompts A and B were applied to this canonical record and its qualified source scope. Checked Hessian expansion, Fourier sign, three integrations by parts and conserved zero mode; retained both vacuum and uniqueness questions. Retained unresolved status and zero original-target progress; A vacuum-compatible nonlinear difference estimate or positive lower bound is missing.
+
+Coordinator checked the sixth-order linearization, dissipative Fourier symbol and smooth linear uniqueness identity. This additional check was model-assisted, not independent human verification.
+
+\paragraph{Tools, process and contributions.}
+Python 3 was used for file preparation and structural checks; no numerical experiment or theorem prover was used. Contribution prompt A was followed by prompt B. GPT-6 Astra with ultra reasoning drafted the research and performed its stated self-audit; any additional coordinator contribution is identified in the verification and audit. A GPT-6-based Codex coordinator assembled the manuscript and checked repository integration; its exact variant and reasoning configuration were not exposed. No human mathematical contribution, independent human proof check or formal proof certification is supplied. Complete derivations and the consulted source references are included here; private reasoning transcripts are not published.
+
+\paragraph{Final status and first remaining gap.}
+\textbf{UNRESOLVED}. A vacuum-compatible nonlinear difference estimate or positive lower bound is missing.
+
+\section{Completion Estimate}
+\noindent\textbf{COMPLETION: 0\%}
+The calculation is an auxiliary or restricted attempt and establishes no newly verified portion of the full source target. A vacuum-compatible nonlinear difference estimate or positive lower bound is missing.
+
+\subsection{Sources}
+\begin{itemize}
+\item[\hypertarget{source:30001641:1}{S1}] ULAM.AI and the UnsolvedMath Contributors, UnsolvedMath, record 30001641 (OWR-4536-002). Catalogue curation under CC BY 4.0; definitions and English exposition added locally.
+\url{https://huggingface.co/datasets/ulamai/UnsolvedMath}.
+\item[\hypertarget{source:30001641:2}{S2}] Classical and Quantum Mechanical Models of Many-Particle Systems (2010), Oberwolfach Reports, DOI 10.4171/owr/2010/54, pp. 3159--3236; official report source and mathematical context.
+\url{https://doi.org/10.4171/owr/2010/54}.
+\item[\hypertarget{source:30001641:3}{S3}] Official EMS Press PDF of the same Oberwolfach report; PDF pages 37--38, printed pages 3195--3196.
+\url{https://ems.press/content/serial-article-files/46313}.
+\item[\hypertarget{source:30001641:4}{S4}] sixth-order quantum equation; reference in the saved dated catalogue literature review.
+\url{https://doi.org/10.1137/080739021}.
+\end{itemize}
+\label{end:30001641}
+\end{document}
